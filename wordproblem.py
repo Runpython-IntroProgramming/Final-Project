@@ -3,7 +3,6 @@ Name-Suhan Gui
 Credit-Stack Overflow, Alexandru Munteanu
 
 """
-import math
 import re
 
 shhh=input("What is your mathematical word problem? (Spelling, grammar, and punctuation count!!)\n\nYour problem: ")
@@ -266,6 +265,16 @@ if amount==True or sattup2==True:
     subsecond=False
     multsecond=False
     divisecond=False
+    
+    addthird=False
+    subthird=False
+    multthird=False
+    divithird=False
+    
+    addfourth=False
+    subfourth=False
+    multfourth=False
+    divifourth=False
 ####################################################
     allist=intbut+deci
     check=len(allist)
