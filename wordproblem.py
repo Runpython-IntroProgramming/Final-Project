@@ -3,34 +3,35 @@ Name-Suhan Gui
 Credit-Stack Overflow, Alexandru Munteanu
 
 """
+####################################################
 import re
-
+####################################################
 shhh=input("What is your mathematical word problem? (Spelling, grammar, and punctuation count!!)\n\nYour problem: ")
 problem=shhh.lower()
-
+####################################################
 donfail=problem.count('?')
 while donfail==0:
     print("You forgot a question mark")
     break
-
+####################################################
 folater=problem.count('$')
 problem_=''.join( c for c in problem if  c not in '$')
-
+####################################################
 deci=re.findall("\d+.\d+", problem_) #find decimals
 len_dec=len(deci)
 dci=int(len_dec) #i dunno wat dis is for
 rangedci=list(range(dci)) #oh
 word_=problem_.split()
 list0 = [item for item in word_ if item not in deci] #DESTROY THE DECIMALS!
-
+####################################################
 problem__=" ".join(list0)
-
+####################################################
 sentences = re.split(' *[\.\?!][\'"\)\]]* *', problem__) #split into sentences!
-
+####################################################
 um=len(sentences)
 num=um-1
 sentrange=list(range(0,num))
-
+####################################################
 while num > 10:
     print("\nWord problem too long!")
     break
@@ -79,7 +80,7 @@ jhfdh=problem.split()
 intbut=[x for x in jhfdh if x.isdigit()]
 jeru=len(intbut)
 jujer=list(range(jeru))
-
+####################################################
 if num >0 and num <=10:
     print("\nOk. Lets split your problem into statements:")
     for x in sentrange:
@@ -255,22 +256,22 @@ if amount==True or sattup2==True:
     subonly=False
     multonly=False
     divionly=False
-
+####################################################
     addfirst=False
     subfirst=False
     multfirst=False
     divifirst=False
-    
+####################################################
     addsecond=False
     subsecond=False
     multsecond=False
     divisecond=False
-    
+####################################################
     addthird=False
     subthird=False
     multthird=False
     divithird=False
-    
+####################################################
     addfourth=False
     subfourth=False
     multfourth=False
