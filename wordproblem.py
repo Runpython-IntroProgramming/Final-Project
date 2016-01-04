@@ -1,7 +1,6 @@
 """
 Name-Suhan Gui
 Credit-Stack Overflow, Alexandru Munteanu
-
 """
 ####################################################
 import re
@@ -303,7 +302,7 @@ if amount==True or sattup2==True:
                     divionly=True
 ####################################################
     if addonly:
-        if check>4:
+        if check>5:
             print("Too many numbers!")
         else:
             if check>=1:
@@ -322,9 +321,13 @@ if amount==True or sattup2==True:
                 cuatr=allist[3]
                 cuatro=float(cuatr)
                 total+=cuatro
-        print("There are: {0} {1}".format(total,hai))
+            if check==5:
+                cinc=allist[4]
+                cinco=float(cinc)
+                total=cinco+=total
+            print("There are: {0} {1}".format(total,hai))
     elif subonly:
-        if check>4:
+        if check>5:
             print("Too many numbers!")
         else:
             if check>=1:
@@ -343,9 +346,13 @@ if amount==True or sattup2==True:
                 cuatr=allist[3]
                 cuatro=float(cuatr)
                 total1-=cuatro
-        print("There are: {0} {1}".format(total1,hai))
+            if check==5:
+                cinc=allist[4]
+                cinco=float(cinc)
+                total=cinco-=total
+            print("There are: {0} {1}".format(total1,hai))
     elif multonly:
-        if check>4:
+        if check>5:
             print("Too many numbers!")
         else:
             if check>=1:
@@ -364,10 +371,13 @@ if amount==True or sattup2==True:
                 cuatr=allist[3]
                 cuatro=float(cuatr)
                 total=cuatro*total
-
-        print("There are: {0} {1}".format(total,hai))
+            if check==5:
+                cinc=allist[4]
+                cinco=float(cinc)
+                total=cinco*total
+            print("There are: {0} {1}".format(total,hai))
     elif divionly:
-        if check>4:
+        if check>5:
             print("Too many numbers!")
         else:
             if check>=1:
@@ -386,7 +396,11 @@ if amount==True or sattup2==True:
                 cuatr=allist[3]
                 cuatro=float(cuatr)
                 total=total/cuatro
-        print("There are: {0} {1}".format(total,hai))
+            if check==5:
+                cinc=allist[4]
+                cinco=float(cinc)
+                total=cinco*total
+            print("There are: {0} {1}".format(total,hai))
     else:
         print("Too complicated")
 ####################################################
@@ -412,4 +426,5 @@ elif awea: #IST TEH VOLUME
 elif awea2: #ESTA TEH TRU AWEA
     print("The area of the {0} is {1} units squared")
 ####################################################
+
 #FIN
