@@ -86,7 +86,7 @@ if num >0 and num <=10:
     for x in sentrange:
         wordd=sentences[x].split()
         inte_=[x for x in wordd if x.isdigit()]
-
+####################################################
         num_of_ints=len(inte_)
         rangeinte=list(range(0,num_of_ints))
         intess=int(num_of_ints)
@@ -95,7 +95,7 @@ if num >0 and num <=10:
                 list2 = [item for item in wordd if item not in inte_] #DESTROY THE INTEGERS!
         else:
             list2=wordd
-
+####################################################
         problem___=" ".join(list2)#ESTA UN PROBLEMA?
         if intess<1 or dci < 1:
             if donfail>=1:
@@ -117,7 +117,7 @@ if num >0 and num <=10:
                 questionhi=False
         else:
             questionhi=False #NAH
-
+####################################################
         if questionhi==True:
             print("\n-Sentence {0} is asking...".format(x+1))
             if sattup2 == True or amount == True:
@@ -161,24 +161,23 @@ if num >0 and num <=10:
                 print("\nfor the volume of a {0}.".format(hai))
             elif amount:
                 print("\nfor the number of {0}.".format(hai))
-
         else:
             print("\n-Sentence {0} is saying...".format(x+1))
-            #################################################### 
+#################################################### 
             sattup2i=False
             amounti=False
             aweai=False
             awea2i=False
-            ####################################################
+####################################################
             if AA2 in problem:
                 sattup2i=True
             elif Baa in problem:
                 awea2i=True
             elif bacch in problem:
-                aweai=True
+                aweai=True #awea=volume
             elif new in problem:
                 amounti=True
-            
+####################################################
             if amounti or sattup2i:
                 if intess>0:
                     int1= inte_[0]
@@ -187,7 +186,6 @@ if num >0 and num <=10:
                     jeh=thingy+1
                     waer=meh[jeh]
                     print("\nthat there are {0} {1}".format(int1,waer))
-
                 elif len_dec>0:
                     dec1= deci[0]
                     meh1= problem.split()
@@ -231,22 +229,22 @@ if amount==True or sattup2==True:
     je1=[item for item in elsent1 if item not in subtractions]
     jef1=[item for item in elsent1 if item not in multiplications]
     jeff1=[item for item in elsent1 if item not in divisions]
-    
+####################################################
     j2=[item for item in elsent2 if item not in additions]
     je2=[item for item in elsent2 if item not in subtractions]
     jef2=[item for item in elsent2 if item not in multiplications]
     jeff2=[item for item in elsent2 if item not in divisions]
-    
+####################################################
     j3=[item for item in elsent3 if item not in additions]
     je3=[item for item in elsent3 if item not in subtractions]
     jef3=[item for item in elsent3 if item not in multiplications]
     jeff3=[item for item in elsent3 if item not in divisions]
-    
+####################################################
     j4=[item for item in elsent4 if item not in additions]
     je4=[item for item in elsent4 if item not in subtractions]
     jef4=[item for item in elsent4 if item not in multiplications]
     jeff4=[item for item in elsent4 if item not in divisions]
-    
+####################################################
     j5=[item for item in elsent5 if item not in additions]
     je5=[item for item in elsent5 if item not in subtractions]
     jef5=[item for item in elsent5 if item not in multiplications]
@@ -285,53 +283,24 @@ if amount==True or sattup2==True:
             if list3==jef:
                 if list3 ==jeff:
                     addonly=True
-                else:
-                    if elsent1 != je1:
-                        if elsent2 != jef2:
-                            adddivi=True
-                    else:
-                        diviadd=True
-            else:
-                if list3==Jeff:
-                    
-                else:
-        else:
-            
                     
     if list3 != je:
         if list3==j:
             if list3==jef:
                 if list3 ==jeff:
                     subonly=True
-                else:
-                    
-            else:
-                
-        else:
             
-    
     if list3 != jef:
         if list3==j:
             if list3==je:
                 if list3 ==jeff:
                     multonly=True
-                else:
-                    
-            else:
-                
-        else:
-            
-    
+
     if list3 != jeff:
         if list3==j:
             if list3==je:
                 if list3 ==jef:
                     divionly=True
-                else:
-                    
-            else:
-                
-        else:
             
 ####################################################
     if addonly:
