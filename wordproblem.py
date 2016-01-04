@@ -35,7 +35,6 @@ sentrange=list(range(0,num))
 while num > 10:
     print("\nWord problem too long!")
     break
-
 while um==0:
     print("You forgot a period somewhere")
     break
@@ -283,25 +282,21 @@ if amount==True or sattup2==True:
             if list3==jef:
                 if list3 ==jeff:
                     addonly=True
-                    
     if list3 != je:
         if list3==j:
             if list3==jef:
                 if list3 ==jeff:
                     subonly=True
-            
     if list3 != jef:
         if list3==j:
             if list3==je:
                 if list3 ==jeff:
                     multonly=True
-
     if list3 != jeff:
         if list3==j:
             if list3==je:
                 if list3 ==jef:
                     divionly=True
-            
 ####################################################
     if addonly:
         if check>4:
