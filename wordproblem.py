@@ -139,7 +139,7 @@ if num >0 and num <=10:
                     else:
                         print("No numbers")
                         break
-                    
+#################################################### 
             if sattup2:
                 print("\nhow much the {0} costs.".format(hai))
             elif awea2:
