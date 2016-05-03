@@ -10,7 +10,7 @@ i=0
 k=0
 count='x'
 winner="none"
-while k=0:
+while k==0:
     if a==b and b==c and c==1:
         k=1
         winner='x'
