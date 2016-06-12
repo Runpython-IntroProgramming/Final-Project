@@ -1,3 +1,12 @@
+"""
+final.py
+Author: Adam Glueck
+Credit: Stack oveflow (for eval function), my own bottomless wisdom and creativity
+Assignment:  Choice
+I wrote a program to use several calculus estimation technqiues.  
+I am most proud of its use of a class based parser,
+allowing it to convert traditional math notation into python math notation the eval function can determine.
+"""
 going='False'
 while going=='False':
     i=str(input("welcome to the calculus calculator.  Would you like to: a, find the area under a curve), b (estimate the center of mass of an area between two functions), c (do basic math), q (quit)"))
