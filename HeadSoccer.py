@@ -5,16 +5,14 @@ Credit: http://stackoverflow.com/questions/7370801/measure-time-elapsed-in-pytho
 https://www.mathsisfun.com/hexadecimal-decimal-colors.html, http://brythonserver.github.io/ggame/
 '''
 
-#White block behind text sprites
-
 from ggame import App, Sprite, CircleAsset, RectangleAsset, Color, LineStyle, TextAsset
 from time import time
 
-SCREEN_WIDTH = 1200
-SCREEN_HEIGHT = 700
+#SCREEN_WIDTH = 1200
+#SCREEN_HEIGHT = 700
 
-#SCREEN_WIDTH = 1000
-#SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 600
 
 black = Color(0x000000, 1.0)
 white = Color(0xffffff, 1.0)
