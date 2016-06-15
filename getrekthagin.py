@@ -6,10 +6,17 @@ black= Color(0X000000, 1)
 outline= LineStyle(1, black)
 nooutline= LineStyle(0, red)
 
+makepix= []
+
+def create():
+    for celle in makepix[:]:
+        Cell((celle[0], celle[1]))
+        makepix.remove(celle)
+
 class thechoice(Sprite):
     
-    strings = {'single': 'Single Player!',
-        'multi': '2 Players!',
+    strings = {'single': 'Single Player',
+        'multi': '2 Players',
         }
     
     def __init__(self, position):
@@ -19,8 +26,8 @@ class thechoice(Sprite):
 
 class thechoice2(Sprite):
     
-    strings = {'x': 'X',
-        'o': 'O',
+    strings = {'g': 'Green',
+        'r': 'Red',
         }
         
     def __init__(self, position):
@@ -29,7 +36,7 @@ class thechoice2(Sprite):
         self.listenMouseEvent('click', self.decide)
         
 class bloc(Sprite):
-    pix= RectangularAsset(10,10,nooutline,
+    pix= RectangularAsset(10,10,nooutline, pickcolor)
 
 class tictactoe(App):
 
