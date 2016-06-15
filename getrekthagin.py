@@ -1,4 +1,4 @@
-from ggame import App, Color, Sprite, RectangleAsset, LineStyle, TextAsset, MouseEvent
+from ggame import App, Color, Sprite, RectangleAsset, LineStyle, TextAsset, MouseEvent, CircleAsset
 
 red= Color(0xff0000, 1)
 green= Color(0x228b22, 1)
@@ -19,7 +19,14 @@ class thechoice:
 
 class thechoice2:
     
-    
+    strings = {'x': 'Single Player!',
+        'o': '2 Players!',
+        }
+        
+    def __init__(self, position):
+        super().__init__(thechoice2.dia, position)
+        
+        self.listenMouseEvent('click', self.decide)
 
 class tictactoe(App):
 
