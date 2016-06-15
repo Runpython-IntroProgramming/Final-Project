@@ -24,6 +24,7 @@ class thechoice(Sprite):
         
         self.listenMouseEvent('click', self.decide)
 
+        if 
 class thechoice2(Sprite):
     
     strings = {'g': 'Green',
