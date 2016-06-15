@@ -6,7 +6,7 @@ black= Color(0X000000, 1)
 outline= LineStyle(1, black)
 nooutline= LineStyle(0, red)
 
-class thechoice:
+class thechoice(Sprite):
     
     strings = {'single': 'Single Player!',
         'multi': '2 Players!',
@@ -17,7 +17,7 @@ class thechoice:
         
         self.listenMouseEvent('click', self.decide)
 
-class thechoice2:
+class thechoice2(Sprite):
     
     strings = {'x': 'Single Player!',
         'o': '2 Players!',
@@ -27,6 +27,9 @@ class thechoice2:
         super().__init__(thechoice2.dia, position)
         
         self.listenMouseEvent('click', self.decide)
+        
+class bloc(Sprite):
+    pix= 
 
 class tictactoe(App):
 
