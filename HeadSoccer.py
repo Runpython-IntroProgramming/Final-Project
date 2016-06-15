@@ -179,7 +179,6 @@ class Ball(PhysicsObject):
             if self.y <= SCREEN_HEIGHT-230:
                 if self.x <= 80 or self.x >= SCREEN_WIDTH-80:
                     self.bounce()
-                    print('hello')
             elif self.scored == False:
                 for x in self.collidingWithSprites(Goal):
                     HeadSoccer.getSpritesbyClass(ScoreText)[0].goal(x)
