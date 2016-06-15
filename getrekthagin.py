@@ -17,6 +17,10 @@ class thechoice:
         
         self.listenMouseEvent('click', self.decide)
 
+class thechoice2:
+    
+    
+
 class tictactoe(App):
 
 myapp = tictactoe(640, 480)
