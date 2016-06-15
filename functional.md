@@ -1,6 +1,10 @@
-# Title of Your Project Here
+# Head Soccer
 
+This is a version of the popular game "Head Soccer," in which two players attempt to hit a soccer ball into the opposing goal in a two-dimensional world.  This version is perhaps more related to "Slime Soccer," which is a more simplified version of the game.
 
+The game can be played on http://runpython.com by loading it using the link of the file attached to this repository.
+
+Once the game is initially loaded, it will display a simple title screen which says "Head Soccer!" and below that, "Click to Continue."  Clicking anywhere on the screen...
 
 ## Functional Specification
 
