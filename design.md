@@ -1,4 +1,5 @@
-# Name of Your Project Here
+# Head Soccer
+Head Soccer was programmed in Python 3 using Brython.  It uses ggame as a graphics library.
 
 ## Design Specification
 
