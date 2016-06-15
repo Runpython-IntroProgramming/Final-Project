@@ -144,8 +144,8 @@ class Ball(PhysicsObject):
         super().__init__(Ball.asset, position)
         self.mag = 42
         self.mass = 1
-        HeadSoccer.listenKeyEvent('keydown', 'p', self.right)
-        HeadSoccer.listenKeyEvent('keydown', 'i', self.left)
+        #HeadSoccer.listenKeyEvent('keydown', 'p', self.right)
+        #HeadSoccer.listenKeyEvent('keydown', 'i', self.left)
         self.scored = False
         self.velCollision = [0,0]
         self.scoreTime = 0
