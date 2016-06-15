@@ -19,8 +19,8 @@ class thechoice(Sprite):
 
 class thechoice2(Sprite):
     
-    strings = {'x': 'Single Player!',
-        'o': '2 Players!',
+    strings = {'x': 'X',
+        'o': 'O',
         }
         
     def __init__(self, position):
@@ -29,7 +29,7 @@ class thechoice2(Sprite):
         self.listenMouseEvent('click', self.decide)
         
 class bloc(Sprite):
-    pix= 
+    pix= RectangularAsset(10,10,nooutline,
 
 class tictactoe(App):
 
