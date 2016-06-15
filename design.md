@@ -1,7 +1,7 @@
 # Head Soccer
 Head Soccer was programmed in Python 3 using Brython.  It uses ggame as a graphics library.
 
-The title screen consists simple of two sprites based on text assets, one for the words "Head Soccer!" and one for the words "Click to Continue."  The flashing quality of the "Click to Continue" is achieved by each frame changing the value of a variable and then destroying and recreating the sprite using the variable as transparency value of the color of its asset.  The same method is used later in the game with the words "Press Space to Continue" and "Press Space to Restart," and the same variable is used to store the transparency value.
+The title screen consists simple of two sprites based on text assets, one for the words "Head Soccer!" and one for the words "Click to Continue."  The flashing quality of the "Click to Continue" is achieved by each frame changing the value of a variable and then destroying and recreating the sprite using the variable as the transparency value of the color of the text asset.  The same method is used later in the game with the words "Press Space to Continue" and "Press Space to Restart," and the same variable is used to store the transparency value.
 
 ## Design Specification
 
