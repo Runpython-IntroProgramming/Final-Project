@@ -1,6 +1,6 @@
 # Head Soccer
 
-This is a version of the popular game "Head Soccer," in which two players attempt to hit a soccer ball into the opposing goal in a two-dimensional world.  This version is perhaps more related to "Slime Soccer," which is a more simplified version of the game.
+This is a version of the popular game "Head Soccer," in which two players attempt to hit a soccer ball into an opposing goal while defending their goal in a two-dimensional world.  This version is perhaps more related to "Slime Soccer," which is a more simplified version of the game.
 
 The game can be played in browser via Brython at the following link: http://runpython.com/?user=davidwilson826&repo=Final-Project&name=HeadSoccer.py.  No installation is required.
 
