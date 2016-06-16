@@ -1,6 +1,20 @@
-# Title of Your Project Here
+# Head Soccer
 
+This is a version of the popular game "Head Soccer," in which two players attempt to hit a soccer ball into an opposing goal while defending their goal in a two-dimensional world.  This version is perhaps more related to "Slime Soccer," which is a more simplified version of the game.
 
+The game can be played in browser via Brython at the following link: http://runpython.com/?user=davidwilson826&repo=Final-Project&name=HeadSoccer.py.  No installation is required.
+
+Once the game is initially loaded, it will display a simple title screen which says "Head Soccer!" and below that in flashing text, "Click to Continue."  Clicking anywhere on the screen will bring the player to a screen with colored buttons where each player can select his/her player color by clicking the button of the color he/she wants.  Player 1 selects first, and player 2 will select second.  After one or both players have selected a color, a message will appear telling the players that they can hit the "q" key to change colors.  If either player wishes to change color, he/she can press "q," which will reset both colors and begin the color selection process again with player 1.  Once both players have selected colors, a message in flashing text saying "Press Space to Begin" will appear.  Pressing space will initiate the game.
+
+At this point both players will appear as semicircles of their chosen colors.  Player 1 will be on the left and player 2 on the right.  The playing area is enclosed by black borders, and on each side there is a black rectangle representing a goal.  The remaining game time in minutes and seconds will also be displayed in the center of the screen.  Additionally, player 1's score will be displayed near the left goal and player 2's near the right goal.  A black circle representing the ball will appear at the center of the screen.
+
+Player 1 can move left, move right, and jump using the "a," "d," and "w" keys respectively.  Player 2 uses the left and right arrow keys to move in the corresponding directions and uses the up arrow to jump.  Jumping will give a player an upward velocity; however, gravity will act to eventually return the player to the ground.  Players can only jump if they are touching the ground (they cannot jump a second time while in midair) and cannot exit the playing area.  However, they are allowed to adjust their horizontal movement in midair.
+
+The ball will be affected by the force of gravity and will bounce whenever it hits a border or the top portion of a goal (as if hitting a crossbar).  Additionally, in the event of a collision with either player, it and the player involved will change velocity.  If the ball hits either goal, a player will be awarded a point.  Player 1 scores if the ball enters the right goal and player 2 scores on the left goal.  Thus, the object of the game is to move the player to hit the ball into the opposing goal while also attempting to defending the other goal.
+
+In the event of a goal, the text "Goal!" will appear in the center of the screen, and the score of the player who got the goal will increase by one.  Play will continue normally for two seconds, but neither player may score during this time.  Afterwards, the "Goal!" text will disappear, the ball and players will reset to their initial positions, goals can again be scored, and normal play will continue.
+
+After the game time has reached zero, the ball and players will freeze, even if keys are still pressed.  Whichever player has scored more goals by this time is the winner, and text will appear stating who that was.  In the event that the scores are the same, text will appear declaring a draw.  The flashing text "Press Space to Restart" will also appear.  Pressing space will return to the color selection screen, at which point players can select colors and play again.
 
 ## Functional Specification
 
