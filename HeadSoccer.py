@@ -2,7 +2,8 @@
 Head Soccer
 Author: David Wilson
 Credit: http://stackoverflow.com/questions/7370801/measure-time-elapsed-in-python,
-https://www.mathsisfun.com/hexadecimal-decimal-colors.html, http://brythonserver.github.io/ggame/
+https://www.mathsisfun.com/hexadecimal-decimal-colors.html, http://brythonserver.github.io/ggame/, 
+http://hyperphysics.phy-astr.gsu.edu/hbase/elacol2.html
 '''
 
 from ggame import App, Sprite, CircleAsset, RectangleAsset, Color, LineStyle, TextAsset
