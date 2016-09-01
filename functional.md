@@ -1,8 +1,7 @@
-# Title of Your Project Here
-
-
+Word problem solver
 
 ## Functional Specification
+This program solves word problems and also simplifies the word problem. The user accesses this program in runpython.com and github. There are no graphics. The user inputs the word problem and the program simplifies it and solves it. The mouse doesn't do anything. It will interpret the input and sort it and eventually solve the problem. No graphical assets. The user doesn't have to do anything to install the program.
 
 This document should become the functional specification of the project you are working on.
 
@@ -12,7 +11,7 @@ unknown to the user. The functional specification should include sections with t
 
 Your specification **should include** the following types of information:
 
-* A title. Replace the title at the beginning of this document.
+* Replace the title at the beginning of this document.
 * Summary or introduction. In general, in a few lines or less, what is your program about or what is it about?
 * How does the user access your program? Is it shared via http://runpython.com? Is a web site? Embedded in 
   a single board computer? 
