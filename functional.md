@@ -4,6 +4,7 @@
 
 ## Functional Specification
 
+This project is a python implementation of a game very similar to Bubble Pop. The goal of the game is to get as high a score as possible by popping bubbles of the same color. The bubble 'pop' in clusters, meaning clicking a blue bubble will pop all blue bubbles attached to it and the ones attached to those etc. etc. The game ends when you run out of time. The user will start the game by running the program through runpython.com. When the game starts, the graphics screen
 This document should become the functional specification of the project you are working on.
 
 A functional specification describes in great detail how a device or program will appear to an
