@@ -4,32 +4,4 @@
 
 ## Functional Specification
 
-This project is a python implementation of Hangman. It is accessed via runpython.com. The program is a single graphics screen that will update after inputs by the user. The screen displays the gallows, as well as the the blanks representing the missing letters. The user will be asked to input a new guess every time he or she presses a "Guess a letter!" button. Missed letters are displayed at the bottom of the screen. Another button allows the input a guess for the entire word. If the user guesses correctly, the program will tell the user that he or she has won. Otherwise, it will add another "step" to the gallows and continue playing.
-
-This document should become the functional specification of the project you are working on.
-
-A functional specification describes in great detail how a device or program will appear to an
-outside user. That is, it treats all hardware as a "black box", the contents of which are completely
-unknown to the user. The functional specification should include sections with the following information:
-
-Your specification **should include** the following types of information:
-
-* A title. Replace the title at the beginning of this document.
-* Summary or introduction. In general, in a few lines or less, what is your program about or what is it about?
-* How does the user access your program? Is it shared via http://runpython.com? Is a web site? Embedded in 
-  a single board computer? 
-* If there are graphics screens involved, describe every screen that the user will experience: what is it for? 
-  What did the user have to do to get there and how does she move on to the next?
-* For each graphics screen, describe every active control input and what it does. What elements on the screen will
-  change in response to user input?
-* Does the program respond to mouse input? What, exactly, does the mouse do?
-* Does the program respond to keyboard input? How?
-* What graphical assets will be used?
-* Does the user have to do anything to install the program?
-
-Your specification should **not** include the following types of information:
-
-* The language you will use to create it.
-* Names of any specific files in the project.
-* How you will structure the classes, functions and code in your program.
-* The name of any files or tools that you will use to design the program.
+This project is a python implementation of Hangman. It is accessed via runpython.com. The program is a single graphics screen that will update after inputs by the user. When the user first starts the program, they are presented with an empty gallows and a certain number of blanks depending on the number of letters in the word-to-be-guessed. When the user is ready, he can press a "Guess a letter!" button. Once this button is pressed, an input popup appears where the user will make his guess. If he guesses correctly, the letter will replace the blanks. Otherwise, a "step" is added to the gallows and the letter appears at the bottom of the screen along with all the other incorrect guesses. If the user thinks he is ready to guess the entire word, he can press the "Guess the word!" button. Another popup will appear where the guess is made. If the user guesses correctly, the program will tell the user (via another popup) that he or she has won. Otherwise, it will add another "step" to the gallows and continue playing. If the Hangman is fully constructed, the man falls and the words "You Lose" appear on the screen. The Hangman and gallows is a set of graphical assets. All words/letters are text assets.
