@@ -1,10 +1,11 @@
-# Block Breaker
+# Hangman
 
 
 
 ## Functional Specification
 
-This project is a python implementation of a game very similar to Bubble Pop. The goal of the game is to get as high a score as possible by popping bubbles of the same color. The bubble 'pop' in clusters, meaning clicking a blue bubble will pop all blue bubbles attached to it and the ones attached to those etc. etc. The game ends when you run out of time. The user will start the game by running the program through runpython.com. When the game starts, the graphics screen
+This project is a python implementation of Hangman. It is accessed via runpython.com. The program is a single graphics screen that will update after inputs by the user. The screen displays the gallows, as well as the the blanks representing the missing letters. The user will be asked to input a new guess every time he or she presses a "Guess a letter!" button. Missed letters are displayed at the bottom of the screen. Another button allows the input a guess for the entire word. If the user guesses correctly, the program will tell the user that he or she has won. Otherwise, it will add another "step" to the gallows and continue playing.
+
 This document should become the functional specification of the project you are working on.
 
 A functional specification describes in great detail how a device or program will appear to an
