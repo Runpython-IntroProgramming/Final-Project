@@ -9,18 +9,21 @@ from ggame import App, Color, LineStyle, Sprite, CircleAsset, RectangleAsset, El
 
 SCREEN_WIDTH = 500
 SCREEN_HEIGHT = 300
+#difficulty = input("Please choose a difficulty level: easy, medium, or hard")
 
-difficulty = input("Please choose a difficulty level: easy, medium, or hard")
+easywords = ['monkey', 'toddler', 'cookies', 'image', 'shallow']
+mediumwords = ['bandwagon', 'youthful', 'vaporize', 'pajama', 'whiskey']
+hardwords = ['jazzy', 'abruptly', 'larynx', 'zephyr', 'rhubarb']
 
-easywords = ['monkey', 'breeze', 'cookies', 'vapor', 'shallow']
-mediumwords = [
-hardwords = [
 
 class Hangman(App):
+    asset = ImageAsset("gallows.png",
+        Frame(0,0,300,300), 7, 'vertical')
     def __init__(self, width, height):
         super().__init__(width, height)
 
 
-
+"""
 myapp = Hangman(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
+"""
