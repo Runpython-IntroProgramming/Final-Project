@@ -7,8 +7,8 @@ Sources:
 from random import randint
 from ggame import App, Color, Frame, ImageAsset, LineStyle, Sprite, CircleAsset, RectangleAsset, EllipseAsset, PolygonAsset, TextAsset
 
-SCREEN_WIDTH = 500
-SCREEN_HEIGHT = 300
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 1000
 #difficulty = input("Please choose a difficulty level: easy, medium, or hard")
 
 easywords = ['monkey', 'toddler', 'cookies', 'image', 'shallow']
@@ -21,17 +21,14 @@ gallowsasset = ImageAsset("gallows.png",
 #letterbuttonasset
 #wordbuttonasset
 
-class Gallows(Sprite):
-
-    def __init__(self, width, height):
-        super().__init__(Gallows.asset, width, height)
-        
-        
 class Hangman(App):
+    bgasset = RectangleAsset(width, height, noline, 
     def __init__(self, width, height):
         super().__init__(width, height)
-        self.gallows(gallowsasset = ImageAsset("gallows.png",
-            Frame(0,0,300,300), 7, 'vertical')
+        self.gallows = Sprite(gallowsasset,(300,0))
+        self.gallows.scale = 1.5
+
+
 
 
 
