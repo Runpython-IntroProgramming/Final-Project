@@ -25,6 +25,8 @@ class Hangman(App):
     bgasset = RectangleAsset(width, height, noline, 
     def __init__(self, width, height):
         super().__init__(width, height)
+        blaue = Color(0, 1)
+        noline = LineStyle(0, black)
         self.gallows = Sprite(gallowsasset,(300,0))
         self.gallows.scale = 1.5
 
