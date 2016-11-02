@@ -35,6 +35,7 @@ if difficulty=='hard':
 print(word)
 print(len(word))
 
+wordinprogress
 for x in range(len(word)):
     if word
 wordinprogress = 
@@ -72,7 +73,7 @@ class Hangman(App):
             Hangman.guessword()
 
     def guessletter():
-        guessedletter = input("Please guess a letter (lowercase): ")
+        #guessedletter = input("Guess a letter!")
     
     def guessword():
         print('guessingword')
