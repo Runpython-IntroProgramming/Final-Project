@@ -31,17 +31,17 @@ if difficulty=='medium':
 if difficulty=='hard':
     word = str(hard[randint(0,4)])
 
-"""
+
 print(word)
-print(len(word))
 
-wordinprogress
+wordinprogress = []
 for x in range(len(word)):
-    if word
-wordinprogress = 
+    wordinprogress = wordinprogress.append("{0:<3} ".format('_'))
 
-"""
-wordasset = TextAsset(word, style='60px Helvetica',align='center')
+print(wordinprogress)
+
+
+wordasset = TextAsset(wordinprogress, style='60px Helvetica',align='center',width=1000)
 
 class Hangman(App):
     def __init__(self, width, height):
@@ -54,7 +54,8 @@ class Hangman(App):
         self.letterbutton = Sprite(guessletterasset,(800,250))
         self.wordbutton = Sprite(wordbuttonasset,(800,300))
         self.gallows.hangingphase = 0
-        self.wordsprite = Sprite(wordasset,(500,500))
+        self.wordsprite = Sprite(wordasset,(500,525))
+        self.wordsprite.fxcenter = 0.5
         
     #tracking mouse
     def mousemove(self, event):
@@ -73,7 +74,18 @@ class Hangman(App):
             Hangman.guessword()
 
     def guessletter():
-        #guessedletter = input("Guess a letter!")
+        global wordinprogress
+        global word
+        wordinprogress = ''
+        guessedletter = input("Guess a letter!")
+        for x in range(len(word)):
+            if word[x] == guessedletter:
+                print('yes')
+                wordinprogress = wordinprogress + '{0:<3}'.format(str(guessedletter))
+            else:
+                print('no')
+                wordinprogress = wordinprogress + '{0:<3}'.format('_')
+        print(wordinprogress)
     
     def guessword():
         print('guessingword')
