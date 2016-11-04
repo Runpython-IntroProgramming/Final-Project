@@ -1,6 +1,6 @@
 """
 Creator: Peter Bynum
-Sources:
+Sources: https://www.tutorialspoint.com/python/python_strings.htm
 
 """
 
@@ -34,12 +34,13 @@ if difficulty=='hard':
 
 print(word)
 
-wordinprogress = []
+wordinprogress = ''
 for x in range(len(word)):
-    wordinprogress = wordinprogress.append("{0:<3} ".format('_'))
+    wordinprogress = wordinprogress + '_'
 
 print(wordinprogress)
 
+displayedword = ''
 
 wordasset = TextAsset(wordinprogress, style='60px Helvetica',align='center',width=1000)
 
@@ -76,16 +77,14 @@ class Hangman(App):
     def guessletter():
         global wordinprogress
         global word
-        wordinprogress = ''
-        guessedletter = input("Guess a letter!")
+        global displayedword
+        guessedletter = input('Please guess a letter!')
         for x in range(len(word)):
-            if word[x] == guessedletter:
-                print('yes')
-                wordinprogress = wordinprogress + '{0:<3}'.format(str(guessedletter))
-            else:
-                print('no')
-                wordinprogress = wordinprogress + '{0:<3}'.format('_')
+            if guessedletter == word[x]:
+                wordinprogress = wordinprogress[:x] + "{0}".format(guessedletter) + wordinprogress[x+1:]
         print(wordinprogress)
+        for x in range(len(wordinprogress)):
+            displayedword = displayedword + "{0:>3} ".format(wordinprogress[x])
     
     def guessword():
         print('guessingword')
