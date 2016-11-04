@@ -41,6 +41,8 @@ for x in range(len(word)):
 print(wordinprogress)
 
 displayedword = ''
+for x in range(len(wordinprogress)):
+            displayedword = displayedword + "{0:>3} ".format(wordinprogress[x])
 
 wordasset = TextAsset(wordinprogress, style='60px Helvetica',align='center',width=1000)
 
