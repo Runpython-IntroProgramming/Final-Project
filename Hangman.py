@@ -79,6 +79,7 @@ class Hangman(App):
         global wordinprogress
         global word
         global displayedword
+        global wordsprite
         displayedword = ''
         guessedletter = input('Please guess a letter!')
         if alreadyguessed.count(guessedletter) > 0:
@@ -86,18 +87,17 @@ class Hangman(App):
         elif word.count(guessedletter) > 0:
             for x in range(len(word)):
                 if guessedletter == word[x]:
-                wordinprogress = wordinprogress[:x] + "{0}".format(guessedletter) + wordinprogress[x+1:]
+                    wordinprogress = wordinprogress[:x] + "{0}".format(guessedletter) + wordinprogress[x+1:]
             for x in range(len(wordinprogress)):
                 displayedword = displayedword + "{0:<3}".format(wordinprogress[x])
+            self.wordsprite.destroy()
+            self.wordsprite = Sprite(wordasset,(500,525))
+            self.wordsprite.fxcenter = 0.5
         else:
             alreadyguessed.append(guessedletter)
             alreadyguessedstring = alreadyguessedstring + "{0:<3}".format(guessedletter)
             
-        """
-        self.wordsprite.destroy()
-        self.wordsprite = Sprite(wordasset,(500,525))
-        self.wordsprite.fxcenter = 0.5
-        """
+
         
         
 
