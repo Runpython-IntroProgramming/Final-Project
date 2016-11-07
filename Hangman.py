@@ -30,21 +30,20 @@ if difficulty=='medium':
     word = str(medium[randint(0,4)])
 if difficulty=='hard':
     word = str(hard[randint(0,4)])
-
-
 print(word)
 
 wordinprogress = ''
 for x in range(len(word)):
     wordinprogress = wordinprogress + '_'
 
-print(wordinprogress)
-
 displayedword = ''
 for x in range(len(wordinprogress)):
-            displayedword = displayedword + "{0:>3} ".format(wordinprogress[x])
+            displayedword = displayedword + "{0:<3}".format(wordinprogress[x])
 
-wordasset = TextAsset(wordinprogress, style='60px Helvetica',align='center',width=1000)
+alreadyguessed = []
+alreadyguessedstring = ''
+wordasset = TextAsset(displayedword, style='60px Helvetica',align='center',width=1000)
+guessedasset = TextAsset(displayedword, style='60px Helvetica',align='center',width=1000)
 
 class Hangman(App):
     def __init__(self, width, height):
@@ -80,19 +79,32 @@ class Hangman(App):
         global wordinprogress
         global word
         global displayedword
+        displayedword = ''
         guessedletter = input('Please guess a letter!')
-        for x in range(len(word)):
-            if guessedletter == word[x]:
+        if alreadyguessed.count(guessedletter) > 0:
+            guessedletter = input('You already guessed that letter! Try again:')
+        elif word.count(guessedletter) > 0:
+            for x in range(len(word)):
+                if guessedletter == word[x]:
                 wordinprogress = wordinprogress[:x] + "{0}".format(guessedletter) + wordinprogress[x+1:]
-        print(wordinprogress)
-        for x in range(len(wordinprogress)):
-            displayedword = displayedword + "{0:>3} ".format(wordinprogress[x])
+            for x in range(len(wordinprogress)):
+                displayedword = displayedword + "{0:<3}".format(wordinprogress[x])
+        else:
+            alreadyguessed.append(guessedletter)
+            alreadyguessedstring = alreadyguessedstring + "{0:<3}".format(guessedletter)
+            
+        """
+        self.wordsprite.destroy()
+        self.wordsprite = Sprite(wordasset,(500,525))
+        self.wordsprite.fxcenter = 0.5
+        """
+        
+        
+
     
     def guessword():
         print('guessingword')
     
-
-            
 
 
 
