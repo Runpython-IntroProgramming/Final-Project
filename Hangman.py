@@ -80,6 +80,8 @@ class Hangman(App):
         global word
         global displayedword
         global wordsprite
+        global alreadyguessedstring
+        
         displayedword = ''
         guessedletter = input('Please guess a letter!')
         if alreadyguessed.count(guessedletter) > 0:
