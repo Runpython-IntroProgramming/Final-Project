@@ -12,6 +12,7 @@ SCREEN_HEIGHT = 1000
 
 blue = Color(0xcce6ff, 1.0)
 black = Color(0x000000, 1.0)
+green = Color(0x00cc00, 1.0)
 noline = LineStyle(0,blue)
 gallowsasset = ImageAsset("gallows.png",
         Frame(0,0,300,300), 7, 'vertical')
@@ -44,7 +45,7 @@ alreadyguessed = []
 alreadyguessedstring = ''
 wordasset = TextAsset(displayedword, style='60px Helvetica',align='center',width=1000)
 guessedasset = TextAsset(displayedword, style='60px Helvetica',align='center',width=1000)
-
+winscreenasset = TextAsset('You Won!', style='200px Helvetica',align='center',width=1000, fill=green)
 class Hangman(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -81,9 +82,9 @@ class Hangman(App):
         global displayedword
         global wordsprite
         global alreadyguessedstring
-        
         displayedword = ''
         guessedletter = input('Please guess a letter!')
+        
         if alreadyguessed.count(guessedletter) > 0:
             guessedletter = input('You already guessed that letter! Try again:')
         elif word.count(guessedletter) > 0:
@@ -92,9 +93,9 @@ class Hangman(App):
                     wordinprogress = wordinprogress[:x] + "{0}".format(guessedletter) + wordinprogress[x+1:]
             for x in range(len(wordinprogress)):
                 displayedword = displayedword + "{0:<3}".format(wordinprogress[x])
-            self.wordsprite.destroy()
-            self.wordsprite = Sprite(wordasset,(500,525))
-            self.wordsprite.fxcenter = 0.5
+            wordsprite.destroy()
+            #wordsprite = Sprite(wordasset,(500,525))
+            #wordsprite.fxcenter = 0.5
         else:
             alreadyguessed.append(guessedletter)
             alreadyguessedstring = alreadyguessedstring + "{0:<3}".format(guessedletter)
@@ -105,8 +106,11 @@ class Hangman(App):
 
     
     def guessword():
-        print('guessingword')
-    
+        global word
+        guessedword = input("Guess the word!")
+        if guessedword == word:
+            endscreen = Sprite(winscreenasset, (500,500))
+            
 
 
 
