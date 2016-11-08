@@ -1,8 +1,10 @@
-# Title of Your Project Here
+# Simple Raycaster
 
 
 
 ## Functional Specification
+
+This program will render a room in 3D using the technique of racasting. This room will only have flat walls which are connected by right angles. The user will be able to walk around in this environment and collide with walls. The program will use ggame and will be shared via runpython. The user will see a screen where the resulting environment is shown. To access this screen the user will have to execute the script in runpython. The arrow keys will control the user's movements through the room. The left and right keys will make the user pivot and the up and down arrows will move the user forwards and backwards. There will be no way to sidestep. The program will use graphical assets for the textures of the walls.
 
 This document should become the functional specification of the project you are working on.
 
