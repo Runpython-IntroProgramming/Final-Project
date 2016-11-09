@@ -28,6 +28,13 @@ wsquare_asset = RectangleAsset(10, 10, thinline, white)
 for x in width:
     for y in height:
         Sprite(wsquare_asset,(x*10, y*10))
+        
+thinline = LineStyle(1, black)
+rsquare_asset =RectangleAsset(10,10, thinline, red)
+wsquare_asset = RectangleAsset(10, 10, thinline, white)
+for x in width:
+    for y in height:
+        Sprite(wsquare_asset,(x*10, y*10))
 
 def mouseclick(event):
     global click
