@@ -26,7 +26,7 @@ for x in mwidth:
         walls['0'+str(x)+'0'+str(y)]=0
 
 thinline = LineStyle(1, black)
-noline= Linstyle(0,black)
+noline= Linestyle(0,black)
 rsquare_asset =RectangleAsset(10,10, thinline, red)
 wsquare_asset = RectangleAsset(10, 10, thinline, white)
 nosquare_asset = wsquare_asset = RectangleAsset(10, 10, noline, white)
