@@ -1,11 +1,10 @@
-# Title of Your Project Here
+Pick a Drawn Picture
 
 
+The user will pick several icons and the colors for them and the computer will draw detailed versions of those icons to create a complete scene.
 
-## Functional Specification
 
-This document should become the functional specification of the project you are working on.
-
+Instructions:
 A functional specification describes in great detail how a device or program will appear to an
 outside user. That is, it treats all hardware as a "black box", the contents of which are completely
 unknown to the user. The functional specification should include sections with the following information:
