@@ -26,18 +26,17 @@ for x in mwidth:
         walls['0'+str(x)+'0'+str(y)]=0
 
 thinline = LineStyle(1, black)
+noline= Linstyle(0,black)
 rsquare_asset =RectangleAsset(10,10, thinline, red)
 wsquare_asset = RectangleAsset(10, 10, thinline, white)
+nosquare_asset = wsquare_asset = RectangleAsset(10, 10, noline, white)
 for x in mwidth:
     for y in mheight:
         Sprite(wsquare_asset,(x*10, y*10))
-        
-thinline = LineStyle(1, black)
-rsquare_asset =RectangleAsset(10,10, thinline, red)
-wsquare_asset = RectangleAsset(10, 10, thinline, white)
+
 for x in width:
     for y in height:
-        Sprite(wsquare_asset,(x*10, y*10))
+        Sprite(nosquare_asset,(x*10, y*10))
 
 def mouseclick(event):
     global click
