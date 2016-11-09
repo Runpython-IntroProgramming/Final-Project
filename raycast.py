@@ -2,8 +2,8 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 
 mapw= 10
 maph=10
-SCREEN_WIDTH = scrw
-SCREEN_HEIGHT = scrh
+SCREEN_WIDTH = mapw
+SCREEN_HEIGHT = maph
 
 black = Color(0x000000, 1.0)
 red = Color(0xff0000, 1.0)
