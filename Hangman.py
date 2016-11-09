@@ -43,9 +43,11 @@ for x in range(len(wordinprogress)):
 
 alreadyguessed = []
 alreadyguessedstring = ''
+
 wordasset = TextAsset(displayedword, style='60px Helvetica',align='center',width=1000)
-guessedasset = TextAsset(displayedword, style='60px Helvetica',align='center',width=1000)
+guessedasset = TextAsset(alreadyguessedstring, style='12px Helvetica',align='center',width=100)
 winscreenasset = TextAsset('You Won!', style='200px Helvetica',align='center',width=1000, fill=green)
+
 class Hangman(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -59,6 +61,7 @@ class Hangman(App):
         self.gallows.hangingphase = 0
         self.wordsprite = Sprite(wordasset,(500,525))
         self.wordsprite.fxcenter = 0.5
+        self.guessedsprite = Sprite(guessedasset, (100,250))
         
     #tracking mouse
     def mousemove(self, event):
@@ -72,47 +75,64 @@ class Hangman(App):
         global mousex
         global mousey
         if (mousex >= 800 and mousex <= 840) and (mousey >= 250 and mousey <= 275):
-            Hangman.guessletter()
+            self.guessletter()
         if (mousex >= 800 and mousex <= 840) and (mousey >= 300 and mousey <= 325):
-            Hangman.guessword()
+            self.guessword()
 
-    def guessletter():
+    def guessletter(self):
         global wordinprogress
         global word
         global displayedword
         global wordsprite
         global alreadyguessedstring
+        global wordasset
+        global hangingphase
+        global gallows
+        global guessedsprite
         displayedword = ''
         guessedletter = input('Please guess a letter!')
         
         if alreadyguessed.count(guessedletter) > 0:
             guessedletter = input('You already guessed that letter! Try again:')
-        elif word.count(guessedletter) > 0:
+        
+        if word.count(guessedletter) > 0:
             for x in range(len(word)):
                 if guessedletter == word[x]:
                     wordinprogress = wordinprogress[:x] + "{0}".format(guessedletter) + wordinprogress[x+1:]
             for x in range(len(wordinprogress)):
                 displayedword = displayedword + "{0:<3}".format(wordinprogress[x])
-            wordsprite.destroy()
-            #wordsprite = Sprite(wordasset,(500,525))
-            #wordsprite.fxcenter = 0.5
+            self.wordsprite.destroy()
+            wordasset = TextAsset(displayedword, style='60px Helvetica',align='center',width=1000)
+            self.wordsprite = Sprite(wordasset,(500,525))
+            self.wordsprite.fxcenter = 0.5
+            alreadyguessed.append(guessedletter)
+            alreadyguessedstring = alreadyguessedstring + "{0:<3}".format(guessedletter)
         else:
             alreadyguessed.append(guessedletter)
             alreadyguessedstring = alreadyguessedstring + "{0:<3}".format(guessedletter)
-            
+            self.gallows.hangingphase += 1
+            self.gallows.setImage(self.gallows.hangingphase)
+        
+        self.guessedsprite.destroy()
+        self.guessedsprite = Sprite(guessedasset, (100,250))
 
-        
-        
 
     
-    def guessword():
+    def guessword(self):
         global word
+        global hangingphase
+        global gallows
         guessedword = input("Guess the word!")
         if guessedword == word:
-            endscreen = Sprite(winscreenasset, (500,500))
-            
-
-
+            endscreen = Sprite(winscreenasset, (250,250))
+        else:
+            self.gallows.hangingphase += 1
+        self.gallows.setImage(self.gallows.hangingphase)
+        
+    def endgame(self):
+        if self.gallows.hangingphase == 6:
+            unlistenMouseEvent('mousemove', myapp.mousemove)
+            unlistenMouseEvent('mousedown', myapp.mousedown)
 
 
 myapp = Hangman(SCREEN_WIDTH, SCREEN_HEIGHT)
