@@ -1,7 +1,7 @@
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
-mapw= 10
-maph=10
+mapw= 100
+maph=100
 SCREEN_WIDTH = mapw
 SCREEN_HEIGHT = maph
 
@@ -9,8 +9,8 @@ black = Color(0x000000, 1.0)
 red = Color(0xff0000, 1.0)
 white = Color(0xffffff, 1.0)
 
-width=list(range(0,int((scrw/10))+1))
-height = list(range(0,int((scrh/10))+1))
+width=list(range(0,int((mapw/10))+1))
+height = list(range(0,int((maph/10))+1))
 print(width)
 print(height)
 click = 0
