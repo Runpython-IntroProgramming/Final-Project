@@ -27,3 +27,11 @@ for x in width:
     for y in height:
         Sprite(wsquare_asset,(x*10, y*10))
 
+
+myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp.listenMouseEvent('mouseup', mouseup)
+myapp.listenMouseEvent('mousedown', mouseclick)
+myapp.listenMouseEvent('mousemove', drag)
+
+myapp = App()
+myapp.run()
