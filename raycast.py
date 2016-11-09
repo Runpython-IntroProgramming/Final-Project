@@ -1,7 +1,7 @@
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
-scrw= 640
-scrh=480
+mapw= 10
+maph=10
 SCREEN_WIDTH = scrw
 SCREEN_HEIGHT = scrh
 
