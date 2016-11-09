@@ -85,6 +85,7 @@ class Hangman(App):
         global displayedword
         global wordsprite
         global alreadyguessedstring
+        global guessedasset
         global wordasset
         global hangingphase
         global gallows
@@ -92,7 +93,7 @@ class Hangman(App):
         displayedword = ''
         guessedletter = input('Please guess a letter!')
         
-        if alreadyguessed.count(guessedletter) > 0:
+        while alreadyguessed.count(guessedletter) > 0:
             guessedletter = input('You already guessed that letter! Try again:')
         
         if word.count(guessedletter) > 0:
@@ -112,9 +113,11 @@ class Hangman(App):
             alreadyguessedstring = alreadyguessedstring + "{0:<3}".format(guessedletter)
             self.gallows.hangingphase += 1
             self.gallows.setImage(self.gallows.hangingphase)
-        
+            
+        print(alreadyguessedstring)
         self.guessedsprite.destroy()
         self.guessedsprite = Sprite(guessedasset, (100,250))
+        print('printed')
 
 
     
