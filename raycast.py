@@ -68,10 +68,17 @@ def drag(event):
             walls['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
 Position={"x":"50","y":"50","dir":"0"}
 
+def up(event):
+    if Position['x']<360
+        Position['x']=Position[x]+1
+    else:
+        Position['x']=0
+
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mouseup', mouseup)
 myapp.listenMouseEvent('mousedown', mouseclick)
 myapp.listenMouseEvent('mousemove', drag)
+myapp.listenKeyEvent('keydown', 'right', right)
 
 myapp = App()
 myapp.run()
