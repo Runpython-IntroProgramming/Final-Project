@@ -69,27 +69,41 @@ def drag(event):
             walls['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
 
 Position={"x":"50","y":"50","dir":"0"}
+change=1
 
 def right(event):
+    global change
+    change=1
     if Position['dir']<360:
         Position['dir']=Position[x]+1
     else:
         Position['dir']=0
 
 def left(event):
+    global change
+    change=1
     if Position['dir']>0:
         Position['dir']=Position[x]-1
     else:
         Position['dir']=359
         
 def up(event):
+    global change
+    change=1
         Position['x']=Position['x']+sin(int(Position['x']))
         Position['y']=Position['y']+cos(int(Position['x']))
         
 def down(event):
+    global change
+    change=1
         Position['x']=Position['x']-sin(int(Position['x']))
         Position['y']=Position['y']-cos(int(Position['x']))
     
+def ray():
+    global change
+    if change==1:
+        
+
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mouseup', mouseup)
 myapp.listenMouseEvent('mousedown', mouseclick)
@@ -100,4 +114,4 @@ myapp.listenKeyEvent('keydown', 'up', up)
 myapp.listenKeyEvent('keydown', 'down', down)
 
 myapp = App()
-myapp.run()
+myapp.run(ray)
