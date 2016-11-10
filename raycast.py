@@ -66,6 +66,7 @@ def drag(event):
         else:
             Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
             walls['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
+Position={"x":"50","y":"50","dir":"0"}
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mouseup', mouseup)
