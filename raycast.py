@@ -82,12 +82,12 @@ def left(event):
         Position['dir']=359
         
 def up(event):
-        Position['x']=Position['x']+sin(int(Position['x'])
-        Position['y']=Position['y']+cos(int(Position['x'])
+        Position['x']=Position['x']+sin(int(Position['x']))
+        Position['y']=Position['y']+cos(int(Position['x']))
         
 def down(event):
-        Position['x']=Position['x']-sin(int(Position['x'])
-        Position['y']=Position['y']-cos(int(Position['x'])
+        Position['x']=Position['x']-sin(int(Position['x']))
+        Position['y']=Position['y']-cos(int(Position['x']))
     
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mouseup', mouseup)
