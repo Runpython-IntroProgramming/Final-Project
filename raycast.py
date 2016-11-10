@@ -70,22 +70,27 @@ def drag(event):
 Position={"x":"50","y":"50","dir":"0"}
 
 def right(event):
-    if Position['x']<360:
-        Position['x']=Position[x]+1
+    if Position['dir']<360:
+        Position['dir']=Position[x]+1
     else:
-        Position['x']=0
+        Position['dir']=0
 
 def left(event):
-    if Position['x']>0:
-        Position['x']=Position[x]-1
+    if Position['dir']>0:
+        Position['dir']=Position[x]-1
     else:
-        Position['x']=359
+        Position['dir']=359
+        
+def up(event):
+        Position['x']=Position['x']+sin(int(Position['x'])
+        Position['y']=Position['y']+cos(int(Position['x'])
         
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mouseup', mouseup)
 myapp.listenMouseEvent('mousedown', mouseclick)
 myapp.listenMouseEvent('mousemove', drag)
 myapp.listenKeyEvent('keydown', 'right', right)
-
+myapp.listenKeyEvent('keydown', 'left', left)
+myapp.listenKeyEvent('keydown', 'up', up)
 myapp = App()
 myapp.run()
