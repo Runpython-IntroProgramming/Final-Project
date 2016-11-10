@@ -29,7 +29,7 @@ thinline = LineStyle(1, black)
 noline= LineStyle(0,black)
 rsquare_asset =RectangleAsset(10,10, thinline, red)
 wsquare_asset = RectangleAsset(10, 10, thinline, white)
-nosquare_asset = wsquare_asset = RectangleAsset(10, 10, noline, white)
+nosquare_asset = RectangleAsset(10, 10, noline, white)
 
 for x in width:
     for y in height:
