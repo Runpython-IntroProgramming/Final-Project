@@ -74,6 +74,12 @@ def up(event):
     else:
         Position['x']=0
 
+def up(event):
+    if Position['x']>0
+        Position['x']=Position[x]-1
+    else:
+        Position['x']=359
+        
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mouseup', mouseup)
 myapp.listenMouseEvent('mousedown', mouseclick)
