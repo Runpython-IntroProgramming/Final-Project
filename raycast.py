@@ -85,6 +85,10 @@ def up(event):
         Position['x']=Position['x']+sin(int(Position['x'])
         Position['y']=Position['y']+cos(int(Position['x'])
         
+def down(event):
+        Position['x']=Position['x']-sin(int(Position['x'])
+        Position['y']=Position['y']-cos(int(Position['x'])
+    
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mouseup', mouseup)
 myapp.listenMouseEvent('mousedown', mouseclick)
@@ -92,5 +96,7 @@ myapp.listenMouseEvent('mousemove', drag)
 myapp.listenKeyEvent('keydown', 'right', right)
 myapp.listenKeyEvent('keydown', 'left', left)
 myapp.listenKeyEvent('keydown', 'up', up)
+myapp.listenKeyEvent('keydown', 'down', down)
+
 myapp = App()
 myapp.run()
