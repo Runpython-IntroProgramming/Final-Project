@@ -70,13 +70,13 @@ def drag(event):
 Position={"x":"50","y":"50","dir":"0"}
 
 def up(event):
-    if Position['x']<360
+    if Position['x']<360:
         Position['x']=Position[x]+1
     else:
         Position['x']=0
 
 def up(event):
-    if Position['x']>0
+    if Position['x']>0:
         Position['x']=Position[x]-1
     else:
         Position['x']=359
