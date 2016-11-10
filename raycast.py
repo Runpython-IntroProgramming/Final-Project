@@ -1,4 +1,5 @@
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+from math import sin, cos, degrees
 
 mapw= 100
 maph=100
