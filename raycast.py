@@ -69,13 +69,13 @@ def drag(event):
             walls['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
 Position={"x":"50","y":"50","dir":"0"}
 
-def up(event):
+def right(event):
     if Position['x']<360:
         Position['x']=Position[x]+1
     else:
         Position['x']=0
 
-def up(event):
+def left(event):
     if Position['x']>0:
         Position['x']=Position[x]-1
     else:
