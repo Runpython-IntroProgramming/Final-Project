@@ -1,6 +1,7 @@
 Draw me a Picture!
 
 
+This program will be saved on github and accessed thru RunPython
 The user will pick several icons and the colors for them and the computer will draw detailed versions of those icons to create a complete scene.
 Icons will be: bunny, bird, flower, tree, house, car, door, window, bike, boy, girl, cat
 The user will press a numeric key and then click on a point of the screen. A icon of the given number will appear on that spot. After all the desired icons have been placed, the user will press done. A confirm message will appear asking the user to type "go."
