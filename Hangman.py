@@ -13,6 +13,7 @@ SCREEN_HEIGHT = 1000
 blue = Color(0xcce6ff, 1.0)
 black = Color(0x000000, 1.0)
 green = Color(0x00cc00, 1.0)
+red = Color(0xff0000, 1.0)
 noline = LineStyle(0,blue)
 gallowsasset = ImageAsset("gallows.png",
         Frame(0,0,300,300), 7, 'vertical')
@@ -31,7 +32,6 @@ if difficulty=='medium':
     word = str(medium[randint(0,4)])
 if difficulty=='hard':
     word = str(hard[randint(0,4)])
-print(word)
 
 wordinprogress = ''
 for x in range(len(word)):
@@ -41,13 +41,18 @@ displayedword = ''
 for x in range(len(wordinprogress)):
             displayedword = displayedword + "{0:<3}".format(wordinprogress[x])
 
+finishedword = ''
+for x in range(len(word)):
+    finishedword = finishedword + "{0:<3}".format(word[x])
+
+allletters = 'abcdefghijklmnopqrstuvwxyz'
 alreadyguessed = []
 alreadyguessedstring = ''
 
 wordasset = TextAsset(displayedword, style='60px Helvetica',align='center',width=1000)
-guessedasset = TextAsset(alreadyguessedstring, style='12px Helvetica',align='center',width=100)
-winscreenasset = TextAsset('You Won!', style='200px Helvetica',align='center',width=1000, fill=green)
-
+guessedasset = TextAsset(alreadyguessedstring, style='20px Helvetica',align='center',width=100)
+winscreenasset = TextAsset('You Won!', style='175px Helvetica',align='center',width=1000, fill=green)
+guessed = False
 class Hangman(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -90,11 +95,15 @@ class Hangman(App):
         global hangingphase
         global gallows
         global guessedsprite
+        global allletters
         displayedword = ''
         guessedletter = input('Please guess a letter!')
         
         while alreadyguessed.count(guessedletter) > 0:
             guessedletter = input('You already guessed that letter! Try again:')
+        
+        while allletters.count(guessedletter) == 0:
+            guessedletter = input("That's not a letter! Try again:")
         
         if word.count(guessedletter) > 0:
             for x in range(len(word)):
@@ -114,10 +123,12 @@ class Hangman(App):
             self.gallows.hangingphase += 1
             self.gallows.setImage(self.gallows.hangingphase)
             
-        print(alreadyguessedstring)
         self.guessedsprite.destroy()
+        guessedasset = TextAsset(alreadyguessedstring, style='20px Helvetica',align='center',width=100)
         self.guessedsprite = Sprite(guessedasset, (100,250))
-        print('printed')
+        
+        self.endgame()
+        self.wongame()
 
 
     
@@ -125,18 +136,39 @@ class Hangman(App):
         global word
         global hangingphase
         global gallows
+        global finishedword
+        global guessed
         guessedword = input("Guess the word!")
         if guessedword == word:
-            endscreen = Sprite(winscreenasset, (250,250))
+            self.wordsprite.destroy()
+            wordasset = TextAsset(finishedword, style='60px Helvetica',align='center',width=1000)
+            self.wordsprite = Sprite(wordasset,(500,525))
+            self.wordsprite.fxcenter = 0.5
+            endscreen = Sprite(winscreenasset, (150,250))
+            self.wongame()
+            guessed = True
         else:
             self.gallows.hangingphase += 1
         self.gallows.setImage(self.gallows.hangingphase)
         
     def endgame(self):
         if self.gallows.hangingphase == 6:
-            unlistenMouseEvent('mousemove', myapp.mousemove)
-            unlistenMouseEvent('mousedown', myapp.mousedown)
-
+            self.wordsprite.destroy()
+            wordasset = TextAsset(finishedword, style='60px Helvetica',align='center',width=1000,fill=red)
+            self.wordsprite = Sprite(wordasset,(500,525))
+            self.wordsprite.fxcenter = 0.5
+            Hangman.unlistenMouseEvent('mousemove', myapp.mousemove)
+            Hangman.unlistenMouseEvent('mousedown', myapp.mousedown)
+    
+    def wongame(self):
+        global displayedword, finishedword, guessed
+        if displayedword == finishedword:
+            endscreen = Sprite(winscreenasset, (150,250))
+            Hangman.unlistenMouseEvent('mousemove', myapp.mousemove)
+            Hangman.unlistenMouseEvent('mousedown', myapp.mousedown)
+        if guessed == True:
+            Hangman.unlistenMouseEvent('mousemove', myapp.mousemove)
+            Hangman.unlistenMouseEvent('mousedown', myapp.mousedown)
 
 myapp = Hangman(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mousemove', myapp.mousemove)
