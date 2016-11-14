@@ -105,6 +105,9 @@ class Hangman(App):
         while allsymbols.count(guessedletter) > 0:
             guessedletter = input("That's not a letter! Try again:")
         
+        while len(guessedletter) > 1:
+            guessedletter = input("Please only input one letter:")
+        
         if word.count(guessedletter) > 0:
             for x in range(len(word)):
                 if guessedletter == word[x]:
