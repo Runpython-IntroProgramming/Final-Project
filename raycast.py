@@ -108,15 +108,16 @@ def ray():
         distance=0
         intilex=Position['x']-int(Position['x'])//1
         intiley=Position['y']-int(Position['y'])//1
-        rayx=(Position['x']+*10)//10) 
+        rayx=(Position['x']*10)//10) 
         rayy=(Position['y']*10)//10
         while wall==0:
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 Sprite()
-                raydir=raydir+distance
+                raydir=raydir+10/distance
+                wall=1
             else:
                 distance=distance+1
-                rayx=rayx+cos(raydir)
+                rayx=rayx+cos(radians(raydir))
                 rayy=rayy+sin(radians(raydir))
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
