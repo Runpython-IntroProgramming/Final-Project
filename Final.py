@@ -18,7 +18,7 @@ pale = Color (0xFFFACD, 0.4)
 bl_line = LineStyle(3, black)
 thinline = LineStyle(1, black)
 
-command=input:("What do you")
+command=input("What do you")
 
 my_draw = App()
 my_draw.run()
