@@ -1,4 +1,4 @@
-# Name of Your Project Here
+Hangman
 
 ## Design Specification
 
@@ -13,3 +13,5 @@ The design specification should include information like:
 * What data will be stored or manipulated by the program? How will it be encoded and organized?
 * Describe the logic and/or code behind every interaction with the user, and behind everything displayed.
 * If your program uses an unusual or notable *algorithm*, what is the algorithm and how does it work?
+
+The program runs on runpython.com and uses ggame. The gallows and buttons visual assets were created using Adobe Illustrator. The code is in the language of Python 3. 
