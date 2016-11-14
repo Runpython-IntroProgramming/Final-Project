@@ -5,6 +5,8 @@ used: http://www.december.com/html/spec/color
 """
 
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
+SCREEN_WIDTH = 1200
+SCREEN_HEIGHT = 700
 
 # Colors
 Lgreen = Color (0x7CFC00, 0.95)
