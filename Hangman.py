@@ -45,7 +45,7 @@ finishedword = ''
 for x in range(len(word)):
     finishedword = finishedword + "{0:<3}".format(word[x])
 
-allletters = 'abcdefghijklmnopqrstuvwxyz'
+allsymbols = ''' .,:;'\"/\\<>(){}[]-=_+?!'''
 alreadyguessed = []
 alreadyguessedstring = ''
 
@@ -102,7 +102,7 @@ class Hangman(App):
         while alreadyguessed.count(guessedletter) > 0:
             guessedletter = input('You already guessed that letter! Try again:')
         
-        while allletters.count(guessedletter) == 0:
+        while allsymbols.count(guessedletter) > 0:
             guessedletter = input("That's not a letter! Try again:")
         
         if word.count(guessedletter) > 0:
