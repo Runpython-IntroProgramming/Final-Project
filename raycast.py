@@ -1,5 +1,5 @@
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
-from math import sin, cos, degrees
+from math import sin, cos, radians
 
 mapw= 100
 maph=100
@@ -100,9 +100,24 @@ def down(event):
         Position['y']=Position['y']-cos(int(Position['x']))
     
 def ray():
+    global position
     global change
     if change==1:
-        
+        raydir=Position['dir']
+        wall=0
+        distance=0
+        intilex=Position['x']-int(Position['x'])//10
+        intiley=Position['y']-int(Position['y'])//10
+        rayx=Position['x']//10
+        rayy=Position['y']//10
+        while wall==0:
+            if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
+                Sprite()
+                raydir=raydir+distance
+            else:
+                distance=distance+1
+                rayx=rayx+cos(raydir)
+                rayy=rayy+sin(radians(raydir))
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.listenMouseEvent('mouseup', mouseup)
