@@ -45,7 +45,7 @@ finishedword = ''
 for x in range(len(word)):
     finishedword = finishedword + "{0:<3}".format(word[x])
 
-allsymbols = ''' .,:;'\"/\\<>(){}[]-=_+?!'''
+allsymbols = ''' .,:;'\"/\\<>(){}[]-=_+?!1234567890'''
 alreadyguessed = []
 alreadyguessedstring = ''
 
