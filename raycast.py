@@ -90,14 +90,14 @@ def left(event):
 def up(event):
     global change
     change=1
-        Position['x']=Position['x']+sin(int(Position['x']))
-        Position['y']=Position['y']+cos(int(Position['x']))
+    Position['x']=Position['x']+sin(int(Position['x']))
+    Position['y']=Position['y']+cos(int(Position['x']))
         
 def down(event):
     global change
     change=1
-        Position['x']=Position['x']-sin(int(Position['x']))
-        Position['y']=Position['y']-cos(int(Position['x']))
+    Position['x']=Position['x']-sin(int(Position['x']))
+    Position['y']=Position['y']-cos(int(Position['x']))
     
 def ray():
     global position
@@ -105,6 +105,7 @@ def ray():
     if change==1:
         raydir=Position['dir']
         wall=0
+        screenside=0
         distance=0
         intilex=Position['x']-int(Position['x'])//1
         intiley=Position['y']-int(Position['y'])//1
@@ -114,6 +115,7 @@ def ray():
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 Sprite()
                 raydir=raydir+10/distance
+                screenside=screenside+10/distance
                 wall=1
             else:
                 distance=distance+1
