@@ -134,7 +134,7 @@ def ray():
         rayy=(Position['y']*10)//10
         while wall==0:
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
-                Sprite(RectangleAsset((screenside,0),100/distance,10/distance, thinline, 'b'+str(distance)))
+                Sprite(RectangleAsset((screenside,0),1000/distance,100/distance, thinline, 'b'+str(distance)))
                 raydir=raydir+10/distance
                 screenside=screenside+10/distance
                 if screenside==100:
