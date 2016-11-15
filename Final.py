@@ -4,7 +4,7 @@ used: http://www.december.com/html/spec/color
 
 """
 
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 700
 
