@@ -45,10 +45,10 @@ class Draw(App):
         super().__init__(width, height)
         Draw.listenMouseEvent("mouseup", self.ym_up)
         Draw.listenMouseEvent("mousedown", self.nm_dn)
-        Bunny(45, 280)
-        Cat(30, 220)
-        Tree(45, 160)
-        Flowr(30, 100)
+        Bunny((45, 280))
+        Cat((30, 220))
+        Tree((45, 160))
+        Flowr((30, 100))
 
     def ym_up(self,event):
         self.a="yes"
