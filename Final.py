@@ -40,7 +40,15 @@ class Cat(Sprite):
 
 
 class Draw(App):
-    SpaceGame.listenMouseEvent("mouseup", self.thrustOff)
+    def __init__(self, width, height):
+        self.a="no"
+        super().__init__(width, height)
+        Draw.listenMouseEvent("mouseup", ym_up)
+        Draw.listenMouseEvent("mousedown", nm_dn)
+    def ym_up(event):
+        self.a="yes"
+    def nm_dn(event):
+        self.a="no"
 
 my_draw = Draw()
 my_draw.run()
