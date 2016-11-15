@@ -21,11 +21,11 @@ bl_line = LineStyle(3, black)
 thinline = LineStyle(1, black)
 
 class Flowr(Sprite):
-    asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png",
+    asset = ImageAsset("images/d8d9596f8e39f135f86a01f61d381eec.jpg",
     def _init_
         position(30, 100)
 class Tree(Sprite):
-    asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png",
+    asset = ImageAsset("images/download.jpeg",
     def _init_
         position(45, 160)
 class Cat(Sprite):
