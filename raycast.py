@@ -11,6 +11,17 @@ SCREEN_HEIGHT = scrh
 black = Color(0x000000, 1.0)
 red = Color(0xff0000, 1.0)
 white = Color(0xffffff, 1.0)
+b1 = Color(0x0000ff, 1.0)
+b2 = Color(0x0000e5, 1.0)
+b3 = Color(0x0000cc, 1.0)
+b4 = Color(0x0000b2, 1.0)
+b5 = Color(0x000099, 1.0)
+b6 = Color(0x00007f, 1.0)
+b7 = Color(0x000066, 1.0)
+b8 = Color(0x00004c, 1.0)
+b9 = Color(0x000033, 1.0)
+b10 = Color(0x000019, 1.0)
+b11 = Color(0x000000, 1.0)
 
 width=list(range(0,int((scrw/10))+1))
 height = list(range(0,int((scrh/10))+1))
@@ -113,7 +124,7 @@ def ray():
         rayy=(Position['y']*10)//10
         while wall==0:
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
-                Sprite()
+                Sprite(RectangleAsset(100/distance,10/distance, thinline, 'b'+str(distance)))
                 raydir=raydir+10/distance
                 screenside=screenside+10/distance
                 if screenside=30:
