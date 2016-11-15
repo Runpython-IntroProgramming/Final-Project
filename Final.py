@@ -36,7 +36,7 @@ class Cat(Sprite):
 class Cat(Sprite):
     asset = ImageAsset("images/bunny.png")
     def _init_
-        position(30, 220)
+        position(45, 280)
 
 
 class Draw(App):
