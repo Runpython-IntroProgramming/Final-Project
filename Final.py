@@ -45,10 +45,10 @@ class Draw(App):
         super().__init__(width, height)
         Draw.listenMouseEvent("mouseup", ym_up)
         Draw.listenMouseEvent("mousedown", nm_dn)
-    def ym_up(event):
+    def ym_up(self,event):
         self.a="yes"
-    def nm_dn(event):
+    def nm_dn(self,event):
         self.a="no"
 
-my_draw = Draw()
+my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
 my_draw.run()
