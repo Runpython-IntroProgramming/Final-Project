@@ -116,7 +116,8 @@ def ray():
                 Sprite()
                 raydir=raydir+10/distance
                 screenside=screenside+10/distance
-                wall=1
+                if screenside=30:
+                    wall=1
             else:
                 distance=distance+1
                 rayx=rayx+cos(radians(raydir))
