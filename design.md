@@ -9,6 +9,7 @@ with inputs and outputs from the program, or the *experience* of a user running 
 
 Each "icon" will be a sprite. When the mouse is pressed down within 20 pixels of the sprite, it will register that icon as being selected.
 
+images: https://s-media-cache-ak0.pinimg.com/originals/d8/d9/59/d8d9596f8e39f135f86a01f61d381eec.jpg, 
 
 The design specification should include information like:
 
