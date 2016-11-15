@@ -7,6 +7,8 @@ I will use runpython and the ggame library. This will utilize Python 3.
 The design specificaiton is a counterpart to the Functional Speciffication. Where a functional specification concerns itself
 with inputs and outputs from the program, or the *experience* of a user running the program, the design specification is concerned with decisions that the engineer and programmer must make during its creation.
 
+Each "icon" will be a sprite. When the mouse is pressed down within 20 pixels of the sprite, it will register that icon as being selected.
+
 
 The design specification should include information like:
 
