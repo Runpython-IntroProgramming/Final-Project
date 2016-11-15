@@ -137,7 +137,7 @@ def ray():
                 Sprite(RectangleAsset((screenside,0),100/distance,10/distance, thinline, 'b'+str(distance)))
                 raydir=raydir+10/distance
                 screenside=screenside+10/distance
-                if screenside==30:
+                if screenside==100:
                     wall=1
             else:
                 distance=distance+1
