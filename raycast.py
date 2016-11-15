@@ -118,13 +118,16 @@ def space(event):
         go=1
     else:
         go=0
-
+wall=0
 
 def ray():
+    global wall
+    global walls
     global go
     global position
     global change
     if change==1 and go==1:
+        print('ray has started')
         raydir=Position['dir']
         wall=0
         screenside=0
