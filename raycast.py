@@ -32,6 +32,8 @@ print(width)
 print(height)
 click = 0
 
+go=0
+
 walls={"0101":"0"}
 for x in mwidth:
     for y in mheight:
@@ -109,11 +111,19 @@ def down(event):
     change=1
     Position['x']=Position['x']-sin(int(Position['x']))
     Position['y']=Position['y']-cos(int(Position['x']))
-    
+
+def space(event):
+    if go!=1:
+        go=1
+    else:
+        go=0
+
+
 def ray():
+    global go
     global position
     global change
-    if change==1:
+    if change==1 and go==1:
         raydir=Position['dir']
         wall=0
         screenside=0
@@ -124,7 +134,7 @@ def ray():
         rayy=(Position['y']*10)//10
         while wall==0:
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
-                Sprite(RectangleAsset(100/distance,10/distance, thinline, 'b'+str(distance)))
+                Sprite(RectangleAsset((screenside,0),100/distance,10/distance, thinline, 'b'+str(distance)))
                 raydir=raydir+10/distance
                 screenside=screenside+10/distance
                 if screenside==30:
@@ -142,6 +152,7 @@ myapp.listenKeyEvent('keydown', 'right', right)
 myapp.listenKeyEvent('keydown', 'left', left)
 myapp.listenKeyEvent('keydown', 'up', up)
 myapp.listenKeyEvent('keydown', 'down', down)
+myapp.listenKeyEvent('space', 'space', space)
 
 myapp = App()
 myapp.run(ray)
