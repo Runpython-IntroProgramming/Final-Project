@@ -20,7 +20,11 @@ pale = Color (0xFFFACD, 0.4)
 bl_line = LineStyle(3, black)
 thinline = LineStyle(1, black)
 
-command=input("What do you want me to draw?")
+class Flowr(Sprite):
+    asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png",
+    
+class Draw(App):
+    SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
 
 my_draw = App()
 my_draw.run()
