@@ -121,9 +121,11 @@ def space(event):
 
 def ray():
     global go
+    print(go)
     global position
     global change
     if change==1 and go==1:
+        print(go)
         raydir=Position['dir']
         wall=0
         screenside=0
@@ -137,8 +139,9 @@ def ray():
                 Sprite(RectangleAsset((screenside,0),1000/distance,100/distance, thinline, 'b'+str(distance)))
                 raydir=raydir+10/distance
                 screenside=screenside+10/distance
+                wall=1
                 if screenside==100:
-                    wall=1
+                    change=0
             else:
                 distance=distance+1
                 rayx=rayx+cos(radians(raydir))
