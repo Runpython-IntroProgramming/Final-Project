@@ -138,9 +138,9 @@ def ray():
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 Sprite(RectangleAsset((screenside,0),1000/distance,100/distance, thinline, 'b'+str(distance)))
                 raydir=raydir+10/distance
-                screenside=screenside+10/distance
+                screenside=screenside+100/distance
                 wall=1
-                if screenside==100:
+                if screenside==1000:
                     change=0
             else:
                 distance=distance+1
