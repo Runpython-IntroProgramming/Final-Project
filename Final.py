@@ -43,8 +43,8 @@ class Draw(App):
     def __init__(self, width, height):
         self.a="no"
         super().__init__(width, height)
-        Draw.listenMouseEvent("mouseup", ym_up)
-        Draw.listenMouseEvent("mousedown", nm_dn)
+        Draw.listenMouseEvent("mouseup", self.ym_up)
+        Draw.listenMouseEvent("mousedown", self.nm_dn)
     def ym_up(self,event):
         self.a="yes"
     def nm_dn(self,event):
