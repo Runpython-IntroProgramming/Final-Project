@@ -22,7 +22,17 @@ thinline = LineStyle(1, black)
 
 class Flowr(Sprite):
     asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png",
-    
+    def _init_
+        position(30, 100)
+class Tree(Sprite):
+    asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png",
+    def _init_
+        position(45, 160)
+class Cat(Sprite):
+    asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png",
+    def _init_
+        position(30, 220)
+
 class Draw(App):
     SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
 
