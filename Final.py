@@ -29,9 +29,15 @@ class Tree(Sprite):
     def _init_
         position(45, 160)
 class Cat(Sprite):
-    asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png",
+    asset = ImageAsset("images/cute-cartoon-cat-cute-light-brown-cartoon-cat-with-a-black-nose-and-7VM6VK-clipart.png",
     def _init_
         position(30, 220)
+
+class Cat(Sprite):
+    asset = ImageAsset("images/bunny.png",
+    def _init_
+        position(30, 220)
+
 
 class Draw(App):
     SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
