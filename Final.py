@@ -22,11 +22,11 @@ thinline = LineStyle(1, black)
 
 class Flowr(Sprite):
     asset = ImageAsset("images/d8d9596f8e39f135f86a01f61d381eec.jpg")
-    def _init_
+    def __init__(self):
         position(30, 100)
 class Tree(Sprite):
     asset = ImageAsset("images/download.jpeg")
-    def _init_
+    def __init__(self):
         position(45, 160)
 class Cat(Sprite):
     asset = ImageAsset("images/cute-cartoon-cat-cute-light-brown-cartoon-cat-with-a-black-nose-and-7VM6VK-clipart.png")
