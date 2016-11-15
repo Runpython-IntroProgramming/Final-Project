@@ -14,4 +14,8 @@ The design specification should include information like:
 * Describe the logic and/or code behind every interaction with the user, and behind everything displayed.
 * If your program uses an unusual or notable *algorithm*, what is the algorithm and how does it work?
 
-The program runs on runpython.com and uses ggame. The gallows and buttons visual assets were created using Adobe Illustrator. The code is in the language of Python 3. 
+The program runs on runpython.com and uses ggame. The gallows and buttons visual assets were created using Adobe Illustrator. The code is in the language of Python 3. For each visual in the the game (the background, gallows, buttons, and text), there is an asset and then a Sprite created in the init of the class Hangman. They are then updated throughout the rest of the game in accordance with what the user inputs:
+the background does not change
+the buttons do not change
+the gallows use the setImage function, because the asset is actually a series of gallow each with differing numbers of "body parts"
+the unknown word and the guessed letters are both only one sprite. 
