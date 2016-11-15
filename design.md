@@ -50,12 +50,11 @@ mousex: This is the x coordinate of the mouse. It is updated continually with ea
 mousey: This is the y coordinate of the mouse. It is updated continually with each step to check if the mouse is over one of the button sprites.
 
 
-
 To see how the strings are encoded, see the algorithm.
 
-* Describe the logic and/or code behind every interaction with the user, and behind everything displayed.
+* Describe the logic and/or code behind every interaction with the user.
 
-
+The user can only click on the button sprites, and type into the popups.
 
 * If your program uses an unusual or notable *algorithm*, what is the algorithm and how does it work?
 
