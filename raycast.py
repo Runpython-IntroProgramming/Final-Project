@@ -113,7 +113,8 @@ def down(event):
     Position['y']=Position['y']-cos(int(Position['x']))
 
 def space(event):
-    if go!=1:
+    global go
+    if go==0:
         go=1
     else:
         go=0
@@ -125,7 +126,7 @@ def ray():
     global position
     global change
     if change==1 and go==1:
-        print(go)
+        print('y')
         raydir=Position['dir']
         wall=0
         screenside=0
