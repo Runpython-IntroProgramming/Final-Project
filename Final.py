@@ -22,7 +22,7 @@ thinline = LineStyle(1, black)
 
 class Flowr(Sprite):
     asset = ImageAsset("images/d8d9596f8e39f135f86a01f61d381eec.jpg")
-    self.asset.scale = 0.5
+    asset.scale = 0.5
     def __init__(self,position):
         super().__init__(Flowr.asset, position)
 class Tree(Sprite):
