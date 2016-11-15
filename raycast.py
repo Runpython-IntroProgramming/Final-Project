@@ -120,8 +120,8 @@ def ray():
         distance=0
         intilex=Position['x']-int(Position['x'])//1
         intiley=Position['y']-int(Position['y'])//1
-        rayx=(Position['x']*10)//10) 
-        rayy=(Position['y']*10)//10
+        rayx=(Position['x']*10)//10)) 
+        rayy=(Position['y']*10)//10))
         while wall==0:
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 Sprite(RectangleAsset(100/distance,10/distance, thinline, 'b'+str(distance)))
