@@ -33,7 +33,7 @@ class Cat(Sprite):
     def __init__(self):
         position(30, 220)
 
-class Cat(Sprite):
+class Bunny(Sprite):
     asset = ImageAsset("images/bunny.png")
     def __init__(self):
         position(45, 280)
