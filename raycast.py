@@ -156,7 +156,7 @@ myapp.listenKeyEvent('keydown', 'right', right)
 myapp.listenKeyEvent('keydown', 'left', left)
 myapp.listenKeyEvent('keydown', 'up', up)
 myapp.listenKeyEvent('keydown', 'down', down)
-myapp.listenKeyEvent('space', 'space', space)
+myapp.listenKeyEvent('keydown', 'space', space)
 
 myapp = App()
 myapp.run(ray)
