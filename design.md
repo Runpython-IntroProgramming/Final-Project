@@ -63,4 +63,4 @@ The user can only interact with the program by clicking the buttons and typing i
 
 * If your program uses an unusual or notable *algorithm*, what is the algorithm and how does it work?
 
-One algorithm that is used many times is the "for x in range(len(word))...". I used this algorithm to "build" the strings that are used by the text assets to display the word on the screen as it is decoded. For every letter in the hidden word, the program adds on to a string. At the beginning it only adds underscores. Later on, this changes to letters if the user inputs the correct letter. This is done by "if word[x] == guessedletter, then use guessedletter instead of underscore".
+One algorithm that is used many times is the "for x in range(len(word))...". I used this algorithm to "build" the strings that are used by the text assets to display the word on the screen as it is decoded. For every letter in the hidden word, the program adds on to a string. At the beginning it only adds underscores. Later on, if the user inputs a correct guess, then the underscore is replaced by the letter. This is done by "if word[x] == guessedletter, then use guessedletter instead of underscore".
