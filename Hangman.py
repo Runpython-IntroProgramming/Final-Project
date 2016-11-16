@@ -148,11 +148,12 @@ class Hangman(App):
             self.wordsprite = Sprite(wordasset,(500,525))
             self.wordsprite.fxcenter = 0.5
             endscreen = Sprite(winscreenasset, (150,250))
-            self.wongame()
             guessed = True
+            self.wongame()
         else:
             self.gallows.hangingphase += 1
-        self.gallows.setImage(self.gallows.hangingphase)
+            self.gallows.setImage(self.gallows.hangingphase)
+        self.endgame()
         
     def endgame(self):
         if self.gallows.hangingphase == 6:
