@@ -49,12 +49,17 @@ mousex: This is the x coordinate of the mouse. It is updated continually with ea
 
 mousey: This is the y coordinate of the mouse. It is updated continually with each step to check if the mouse is over one of the button sprites.
 
+guessedword: the letter that the user inputs after pressing the "guess a letter" button
+
+guessedword:  the letter that the user inputs after pressing the "guess a word" button
+
+hangingphase: this stores the frame that the gallows is currently in. It is added to each time the user inputs an incorrect letter
 
 To see how the strings are encoded, see the algorithm.
 
 * Describe the logic and/or code behind every interaction with the user.
 
-The user can only click on the button sprites, and type into the popups.
+The user can only interact with the program by clicking the buttons and typing in inputs. When the user clicks, the program calls the mousedown command. This tests if if the mouse is over one of the buttons. If it is, it calls that button's function (guessletter or guessword). The guessletter function starts by prompting an input. The following while statements make sure that the guessed letter has 1. not been guessed before 2. is a letter 3. is only one character long. The if/else statement then decides whether or not the guessed letter is in the word. If it is, then using the algorithm in the next section, the text strings are altered, and the sprites on the graphics screen are remade with the new strings. If the guessed letter is not in the word, 1 is added to the hangingphase to show another body part on the gallows. At the end of the guessletter function, the wongame and endgame functions are called. These simply check to see if the game should be lost (if hangingphase is in the last frame), or if the game should be won. If either of these conditions are true, then the "You Won" and the "You Lose" texts are displayed, and the game stops responding to user interactions. The guessword function is very similar to the guessletter function. If the guessed word is identical to the unknown word, then the "You Won!" text is displayed and the wongame function is called. If it is an incorrect guess, then 1 is added to the hangingphase and the endgame function is called to check if that was the user's last guess.
 
 * If your program uses an unusual or notable *algorithm*, what is the algorithm and how does it work?
 
