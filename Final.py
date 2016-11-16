@@ -38,6 +38,14 @@ class Bunny(Sprite):
     def __init__(self,position):
         super().__init__(Bunny.asset, position)
 
+"""
+while Draw.a="yes"
+    diffxcat
+    diffxflr 
+    diffxbun
+    diffxtree
+    if aflr.x
+"""
 
 class Draw(App):
     def __init__(self, width, height):
@@ -45,14 +53,14 @@ class Draw(App):
         super().__init__(width, height)
         Draw.listenMouseEvent("mouseup", self.ym_up)
         Draw.listenMouseEvent("mousedown", self.nm_dn)
-        abun = Bunny((45, 280))
-        abun.scale = 0.5
-        acat = Cat((30, 220))
-        acat.scale = 0.5
+        abun = Bunny((45, 480))
+        abun.scale = 0.8
+        acat = Cat((30, 320))
+        acat.scale = 0.2
         atree = Tree((45, 160))
         atree.scale = 0.5
         aflr = Flowr((30, 100))
-        aflr.scale = 0.5
+        aflr.scale = 0.1
 
     def ym_up(self,event):
         self.a="yes"
