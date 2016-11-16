@@ -23,12 +23,15 @@ thinline = LineStyle(1, black)
 class Icon(Sprite):
     def __init__(self,asset,position):
         self.a="no"
+        self.b=2
         super().__init__(asset, position)
         Draw.listenMouseEvent("mouseup", self.ym_up)
         Draw.listenMouseEvent("mousedown", self.nm_dn)
     def ym_up(self,event):
         self.a="yes"
-        self.diffx = self.x-
+        self.diffx = self.x-mouse.x
+        if self.diffx <= 20:
+            self.b=2
     def nm_dn(self,event):
         self.a="no"
 
