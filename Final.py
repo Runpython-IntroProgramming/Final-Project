@@ -20,27 +20,39 @@ pale = Color (0xFFFACD, 0.4)
 bl_line = LineStyle(3, black)
 thinline = LineStyle(1, black)
 
-class Flowr(Sprite):
+class Icon(Sprite):
+    def __init__(self,asset,position):
+        self.a="no"
+        super().__init__(asset, position)
+        Draw.listenMouseEvent("mouseup", self.ym_up)
+        Draw.listenMouseEvent("mousedown", self.nm_dn)
+    def ym_up(self,event):
+        self.a="yes"
+        self.diffx = self.x-
+    def nm_dn(self,event):
+        self.a="no"
+
+class Flowr(Icon):
     asset = ImageAsset("images/pinkflowr.png")
     def __init__(self,position):
         super().__init__(Flowr.asset, position)
-class Tree(Sprite):
+class Tree(Icon):
     asset = ImageAsset("images/tree.png")
     def __init__(self,position):
         super().__init__(Tree.asset, position)
-class Cat(Sprite):
+class Cat(Icon):
     asset = ImageAsset("images/cute-cartoon-cat-cute-light-brown-cartoon-cat-with-a-black-nose-and-7VM6VK-clipart.png")
     def __init__(self,position):
         super().__init__(Cat.asset, position)
 
-class Bunny(Sprite):
+class Bunny(Icon):
     asset = ImageAsset("images/bunny.png")
     def __init__(self,position):
         super().__init__(Bunny.asset, position)
 
 """
 while Draw.a="yes"
-    diffxcat
+    diffxcat = acat.x-
     diffxflr 
     diffxbun
     diffxtree
@@ -51,8 +63,6 @@ class Draw(App):
     def __init__(self, width, height):
         self.a="no"
         super().__init__(width, height)
-        Draw.listenMouseEvent("mouseup", self.ym_up)
-        Draw.listenMouseEvent("mousedown", self.nm_dn)
         abun = Bunny((45, 480))
         abun.scale = 0.8
         acat = Cat((30, 320))
@@ -61,11 +71,6 @@ class Draw(App):
         atree.scale = 0.5
         aflr = Flowr((30, 100))
         aflr.scale = 0.1
-
-    def ym_up(self,event):
-        self.a="yes"
-    def nm_dn(self,event):
-        self.a="no"
 
 
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
