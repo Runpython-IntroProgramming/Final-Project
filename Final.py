@@ -21,17 +21,15 @@ bl_line = LineStyle(3, black)
 thinline = LineStyle(1, black)
 
 class Flowr(Sprite):
-    asset = ImageAsset("images/d8d9596f8e39f135f86a01f61d381eec.jpg")
-    asset.scale = 0.5
+    asset = ImageAsset("images/pinkflowr.png")
     def __init__(self,position):
         super().__init__(Flowr.asset, position)
 class Tree(Sprite):
-    asset = ImageAsset("images/download.jpeg")
+    asset = ImageAsset("images/tree.png")
     def __init__(self,position):
         super().__init__(Tree.asset, position)
 class Cat(Sprite):
     asset = ImageAsset("images/cute-cartoon-cat-cute-light-brown-cartoon-cat-with-a-black-nose-and-7VM6VK-clipart.png")
-    asset.scale = 0.5
     def __init__(self,position):
         super().__init__(Cat.asset, position)
 
@@ -47,10 +45,14 @@ class Draw(App):
         super().__init__(width, height)
         Draw.listenMouseEvent("mouseup", self.ym_up)
         Draw.listenMouseEvent("mousedown", self.nm_dn)
-        Bunny((45, 280))
-        Cat((30, 220))
-        Tree((45, 160))
-        Flowr((30, 100))
+        abun = Bunny((45, 280))
+        abun.scale = 0.5
+        acat = Cat((30, 220))
+        acat.scale = 0.5
+        atree = Tree((45, 160))
+        atree.scale = 0.5
+        aflr = Flowr((30, 100))
+        aflr.scale = 0.5
 
     def ym_up(self,event):
         self.a="yes"
