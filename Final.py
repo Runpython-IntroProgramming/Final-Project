@@ -23,17 +23,41 @@ thinline = LineStyle(1, black)
 class Icon(Sprite):
     def __init__(self,asset,position):
         self.a="no"
-        self.b=2
+        self.b=0
+        self.c=0
+        self.both=False
         super().__init__(asset, position)
-        Draw.listenMouseEvent("mouseup", self.ym_up)
-        Draw.listenMouseEvent("mousedown", self.nm_dn)
-    def ym_up(self,event):
+        Draw.listenMouseEvent("mouseup", self.nm_up)
+        Draw.listenMouseEvent("mousedown", self.ym_dn)
+        #Draw.listenMouseEvent("mousemove", self.change)
+    #def step(self):
+
+    def ym_dn(self,event):
         self.a="yes"
-        self.diffx = self.x-mouse.x
+        self.diffx = self.x-event.x
+        self.diffy = self.y-event.y
+        self.diffx = abs(self.diffx)
+        self.diffy = abs(self.diffy)
         if self.diffx <= 20:
             self.b=2
-    def nm_dn(self,event):
+        else:
+            self.b=0
+        if self.diffy <= 20:
+            self.c=2
+        else:
+            self.c=0
+        print(self.b)
+        print(self.c)
+        if self.c==2 and self.b==2:
+            self.both=True
+        else:
+            self.both=False
+        if self.both==True:
+            print(self.class)
+    def nm_up(self,event):
         self.a="no"
+    #def change(self,event0):
+        
 
 class Flowr(Icon):
     asset = ImageAsset("images/pinkflowr.png")
