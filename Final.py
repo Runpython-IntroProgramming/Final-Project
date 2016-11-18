@@ -19,6 +19,7 @@ pale = Color (0xFFFACD, 0.4)
 
 bl_line = LineStyle(3, black)
 thinline = LineStyle(1, black)
+est=[]
 
 class Icon(Sprite):
     def __init__(self,asset,position):
@@ -30,7 +31,7 @@ class Icon(Sprite):
         Draw.listenMouseEvent("mouseup", self.nm_up)
         Draw.listenMouseEvent("mousedown", self.ym_dn)
         #Draw.listenMouseEvent("mousemove", self.change)
-    #def step(self):
+        #def step(self):
 
     def ym_dn(self,event):
         self.a="yes"
@@ -52,17 +53,20 @@ class Icon(Sprite):
             self.both=True
         else:
             self.both=False
-        if self.both==True:
-            print(self.class)
+        
     def nm_up(self,event):
         self.a="no"
-    #def change(self,event0):
-        
+        self.both=False
 
 class Flowr(Icon):
     asset = ImageAsset("images/pinkflowr.png")
     def __init__(self,position):
         super().__init__(Flowr.asset, position)
+    def step(self):
+        if self.both==True:
+            print("Flowr")
+            est.append((self.x,self.y))
+            print(list(est))
 class Tree(Icon):
     asset = ImageAsset("images/tree.png")
     def __init__(self,position):
@@ -98,6 +102,8 @@ class Draw(App):
         atree.scale = 0.5
         aflr = Flowr((30, 100))
         aflr.scale = 0.1
+    def step(self):
+        pass
 
 
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
