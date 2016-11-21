@@ -2,6 +2,9 @@
 by Liam A.
 used: http://www.december.com/html/spec/color
 
+how to change location to center?
+step functions
+
 """
 
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset
@@ -77,7 +80,6 @@ class Cat(Icon):
     asset = ImageAsset("images/cute-cartoon-cat-cute-light-brown-cartoon-cat-with-a-black-nose-and-7VM6VK-clipart.png")
     def __init__(self,position):
         super().__init__(Cat.asset, position)
-
 class Bunny(Icon):
     asset = ImageAsset("images/bunny.png")
     def __init__(self,position):
@@ -103,10 +105,14 @@ class Draw(App):
         atree = Tree((45, 160))
         atree.scale = 0.5
         """
-        aflr = Flowr((30, 100))
-        aflr.scale = 0.6
+        self.aflr = Flowr((30, 100))
+        self.aflr.scale = 0.6
+        self.bflr = Flowr((650, 420))
+        self.bflr.scale = 0.3
+        
     def step(self):
-        Flowr.step()
+        for s in Draw.getSpritesbyClass(Flowr):
+            s.step()
         #pass
 
 
