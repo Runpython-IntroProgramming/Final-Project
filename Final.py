@@ -41,6 +41,8 @@ class Icon(Sprite):
         self.diffy = self.y-event.y
         self.diffx = abs(self.diffx)
         self.diffy = abs(self.diffy)
+        self.mse_x = self.diffx
+        self.mse_y = self.diffy
         if self.diffx <= 40:
             self.b=2
         else:
@@ -54,6 +56,8 @@ class Icon(Sprite):
         print("_____________")
         if self.c==2 and self.b==2:
             print(self, id(self))
+            est.append((self.mse_x,self.mse.y))
+            print(list(est))
         """
             self.both=True
         else:
@@ -84,8 +88,7 @@ class Bunny(Icon):
     def step(self):
         if self.both==True:
             print("Flowr", id(self))
-            #est.append((ym_dn.x,ym_dn.y))
-            #print(list(est))
+            
 
 is upper-left hand corner??? yes
 for s in Draw.getSpritesbyClass(Flowr):
@@ -104,7 +107,7 @@ class Draw(App):
         atree.scale = 0.5
         
         self.aflr = Flowr((30, 100))
-        self.aflr.scale = 0.6
+        self.aflr.scale = 0.1
         self.bflr = Flowr((650, 420))
         self.bflr.scale = 0.3
         
