@@ -56,7 +56,7 @@ class Icon(Sprite):
         print("_____________")
         if self.c==2 and self.b==2:
             print(self, id(self))
-            est.append((self.mse_x,self.mse.y))
+            est.append((self.mse_x,self.mse_y))
             print(list(est))
         """
             self.both=True
