@@ -33,7 +33,6 @@ class Icon(Sprite):
         super().__init__(asset, position)
         Draw.listenMouseEvent("mouseup", self.nm_up)
         Draw.listenMouseEvent("mousedown", self.ym_dn)
-
     def ym_dn(self,event):
         self.a="yes"
         print(id(self))
@@ -58,14 +57,8 @@ class Icon(Sprite):
             print(self, id(self))
             est.append((self.mse_x,self.mse_y))
             print(list(est))
-        """
-            self.both=True
-        else:
-            self.both=False
-        """
     def nm_up(self,event):
         self.a="no"
-        self.both=False
 
 class Flowr(Icon):
     asset = ImageAsset("images/pinkflowr.png")
@@ -88,7 +81,6 @@ class Bunny(Icon):
     def step(self):
         if self.both==True:
             print("Flowr", id(self))
-            
 
 is upper-left hand corner??? yes
 for s in Draw.getSpritesbyClass(Flowr):
@@ -105,15 +97,11 @@ class Draw(App):
         acat.scale = 0.2
         atree = Tree((45, 160))
         atree.scale = 0.5
-        
         self.aflr = Flowr((30, 100))
         self.aflr.scale = 0.1
-        self.bflr = Flowr((650, 420))
-        self.bflr.scale = 0.3
-        
+        #self.bflr = Flowr((650, 420))
     def step(self):
         pass
-
 
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
 my_draw.run()
