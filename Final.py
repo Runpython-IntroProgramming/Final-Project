@@ -66,7 +66,7 @@ class Flowr(Icon):
     def step(self):
         if self.both==True:
             print("Flowr")
-            est.append((self.x,self.y))
+            est.append((ym_dn.x,ym_dn.y))
             print(list(est))
 """
 class Tree(Icon):
@@ -107,6 +107,7 @@ class Draw(App):
         aflr.scale = 0.6
     def step(self):
         Flowr.step()
+        #pass
 
 
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
