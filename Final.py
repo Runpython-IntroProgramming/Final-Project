@@ -82,7 +82,7 @@ class Bunny(Icon):
     asset = ImageAsset("images/bunny.png")
     def __init__(self,position):
         super().__init__(Bunny.asset, position)
-
+is upper-left hand corner???
 
 while Draw.a="yes"
     diffxcat = acat.x-
@@ -106,7 +106,7 @@ class Draw(App):
         aflr = Flowr((30, 100))
         aflr.scale = 0.6
     def step(self):
-        pass
+        Flowr.step()
 
 
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
