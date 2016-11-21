@@ -33,11 +33,10 @@ class Icon(Sprite):
         super().__init__(asset, position)
         Draw.listenMouseEvent("mouseup", self.nm_up)
         Draw.listenMouseEvent("mousedown", self.ym_dn)
-        #Draw.listenMouseEvent("mousemove", self.change)
-        #def step(self):
 
     def ym_dn(self,event):
         self.a="yes"
+        print(id(self))
         self.diffx = self.x-event.x
         self.diffy = self.y-event.y
         self.diffx = abs(self.diffx)
@@ -54,10 +53,12 @@ class Icon(Sprite):
         print(self.c)
         print("_____________")
         if self.c==2 and self.b==2:
+            print(self, id(self))
+        """
             self.both=True
         else:
             self.both=False
-        
+        """
     def nm_up(self,event):
         self.a="no"
         self.both=False
@@ -66,12 +67,6 @@ class Flowr(Icon):
     asset = ImageAsset("images/pinkflowr.png")
     def __init__(self,position):
         super().__init__(Flowr.asset, position)
-    def step(self):
-        if self.both==True:
-            print("Flowr")
-            est.append((ym_dn.x,ym_dn.y))
-            print(list(est))
-"""
 class Tree(Icon):
     asset = ImageAsset("images/tree.png")
     def __init__(self,position):
@@ -84,36 +79,37 @@ class Bunny(Icon):
     asset = ImageAsset("images/bunny.png")
     def __init__(self,position):
         super().__init__(Bunny.asset, position)
-is upper-left hand corner???
 
-while Draw.a="yes"
-    diffxcat = acat.x-
-    diffxflr 
-    diffxbun
-    diffxtree
-    if aflr.x
+    """
+    def step(self):
+        if self.both==True:
+            print("Flowr", id(self))
+            #est.append((ym_dn.x,ym_dn.y))
+            #print(list(est))
+
+is upper-left hand corner??? yes
+for s in Draw.getSpritesbyClass(Flowr):
+        #    s.step()
 """
 
 class Draw(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        """
+        
         abun = Bunny((45, 480))
         abun.scale = 0.8
         acat = Cat((30, 320))
         acat.scale = 0.2
         atree = Tree((45, 160))
         atree.scale = 0.5
-        """
+        
         self.aflr = Flowr((30, 100))
         self.aflr.scale = 0.6
         self.bflr = Flowr((650, 420))
         self.bflr.scale = 0.3
         
     def step(self):
-        for s in Draw.getSpritesbyClass(Flowr):
-            s.step()
-        #pass
+        pass
 
 
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
