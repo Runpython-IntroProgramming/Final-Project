@@ -30,18 +30,20 @@ class Icon(Sprite):
         self.b=0
         self.c=0
         self.both=False
+        self.ch=0
         super().__init__(asset, position)
         Draw.listenMouseEvent("mouseup", self.nm_up)
         Draw.listenMouseEvent("mousedown", self.ym_dn)
     def ym_dn(self,event):
         self.a="yes"
-        print(id(self))
         self.diffx = self.x-event.x
         self.diffy = self.y-event.y
         self.diffx = abs(self.diffx)
         self.diffy = abs(self.diffy)
-        self.mse_x = self.diffx
-        self.mse_y = self.diffy
+        lgth = len(est)
+        
+        if self.ch==1:
+            print(lgth)
         if self.diffx <= 40:
             self.b=2
         else:
@@ -54,9 +56,13 @@ class Icon(Sprite):
         print(self.c)
         print("_____________")
         if self.c==2 and self.b==2:
-            print(self, id(self))
-            est.append((self.mse_x,self.mse_y))
+            print(type(self), id(self))
+            est.append((event.x,event.y)) #add coord. of where clicked...
+            est.append(type(self)) #and what icon was clicked, to list 'est'
             print(list(est))
+            self.ch=1
+        else:
+            self.ch=0 #entries have not been added to list 'est'
     def nm_up(self,event):
         self.a="no"
 
