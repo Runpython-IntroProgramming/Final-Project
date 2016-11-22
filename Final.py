@@ -37,34 +37,43 @@ class Icon(Sprite):
         Draw.listenMouseEvent("mousedown", self.ym_dn)
     def ym_dn(self,event):
         self.a="yes"
-        self.diffx = self.x-event.x
-        self.diffy = self.y-event.y
-        self.diffx = abs(self.diffx)
-        self.diffy = abs(self.diffy)
         lgth = len(est)
-        
-        if self.ch==1:
-            print(lgth)
-        if self.diffx <= 40:
-            self.b=2
+            if self.ch==1:
+                print(lgth) #length of 'est'
+        if ct%2 == 0:
+            #calculating whether the mouse is close to an icon:
+            self.diffx = self.x-event.x
+            self.diffy = self.y-event.y
+            self.diffx = abs(self.diffx)
+            self.diffy = abs(self.diffy)
+            if self.diffx <= 40:
+                self.b=2
+            else:
+                self.b=0
+            if self.diffy <= 40:
+                self.c=2
+            else:
+                self.c=0
+            print(self.b)
+            print(self.c)
+            #print("_____________")
+            if self.c==2 and self.b==2:
+                print(type(self), id(self))
+                est.append((event.x,event.y)+"retrieve") #add coord. of where clicked...
+                est.append(type(self)) #and what icon was clicked, to list 'est'
+                print(list(est))
+                self.ch=1
+            else:
+                self.ch=0 #entries have not been added to list 'est'
         else:
-            self.b=0
-        if self.diffy <= 40:
-            self.c=2
-        else:
-            self.c=0
-        print(self.b)
-        print(self.c)
-        print("_____________")
-        if self.c==2 and self.b==2:
-            print(type(self), id(self))
             est.append((event.x,event.y)) #add coord. of where clicked...
-            est.append(type(self)) #and what icon was clicked, to list 'est'
+            est.append(est[lgth]) #and what icon was clicked, to list 'est'
             print(list(est))
-            self.ch=1
-        else:
-            self.ch=0 #entries have not been added to list 'est'
-        ct =+
+            self.ch=0
+            self.L_c=lgth+1
+            self.L_d=lgth+2
+            est[self.L_d](est[self.L_c])
+        ct += 1
     def nm_up(self,event):
         self.a="no"
 
