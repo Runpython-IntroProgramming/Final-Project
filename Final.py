@@ -25,6 +25,7 @@ thinline = LineStyle(1, black)
 est=[]
 
 class Icon(Sprite):
+    ct = 0 #nothing has been clicked on
     def __init__(self,asset,position):
         self.a="no"
         self.b=0
@@ -63,6 +64,7 @@ class Icon(Sprite):
             self.ch=1
         else:
             self.ch=0 #entries have not been added to list 'est'
+        ct =+
     def nm_up(self,event):
         self.a="no"
 
