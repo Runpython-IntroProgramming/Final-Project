@@ -81,7 +81,7 @@ def drag(event):
             Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
             walls['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
 
-Position={"x":"5","y":"5","dir":"0"}
+Position={"x":"5","y":"5","dir":"90"}
 change=1
 
 def right(event):
@@ -128,7 +128,7 @@ def ray():
     global change
     if change==1 and go==1:
         print('ray has started')
-        raydir=Position['dir']
+        raydir=int(Position['dir'])
         wall=False
         screenside=0
         distance=0
