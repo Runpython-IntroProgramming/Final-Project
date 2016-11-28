@@ -1,11 +1,7 @@
 """
-spaceshooter.py
+FinalProject.py
 Author: Liam S
-Credit: Mr. Dennison's Spacewar source code Vinzent for Photoshop Help
-
-Assignment:
-Write and submit a program that implements the spacewar game:
-https://github.com/HHS-IntroProgramming/Spacewar
+Credit: 
 """
 from ggame import App, Sprite, ImageAsset, Frame
 from ggame import SoundAsset, Sound, TextAsset, Color
