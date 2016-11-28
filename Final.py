@@ -23,23 +23,27 @@ pale = Color (0xFFFACD, 0.4)
 bl_line = LineStyle(3, black)
 thinline = LineStyle(1, black)
 est=[]
+ct = 0 #nothing has been clicked on
 
 class Icon(Sprite):
-    ct = 0 #nothing has been clicked on
+    
     def __init__(self,asset,position):
         self.a="no"
         self.b=0
         self.c=0
         self.both=False
         self.ch=0
+        self.L_c=0
+        self.L_d=0
         super().__init__(asset, position)
         Draw.listenMouseEvent("mouseup", self.nm_up)
         Draw.listenMouseEvent("mousedown", self.ym_dn)
     def ym_dn(self,event):
+        global ct
         self.a="yes"
         lgth = len(est)
-            if self.ch==1:
-                print(lgth) #length of 'est'
+        if self.ch==1:
+            print(lgth) #length of 'est'
         if ct%2 == 0:
             #calculating whether the mouse is close to an icon:
             self.diffx = self.x-event.x
@@ -59,7 +63,7 @@ class Icon(Sprite):
             #print("_____________")
             if self.c==2 and self.b==2:
                 print(type(self), id(self))
-                est.append((event.x,event.y)+"retrieve") #add coord. of where clicked...
+                est.append(((event.x,event.y),"retrieve")) #add coord. of where clicked...
                 est.append(type(self)) #and what icon was clicked, to list 'est'
                 print(list(est))
                 self.ch=1
@@ -72,7 +76,9 @@ class Icon(Sprite):
             self.ch=0
             self.L_c=lgth+1
             self.L_d=lgth+2
-            est[self.L_d](est[self.L_c])
+            #est[self.L_d](est[self.L_c]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
+            print(est[self.L_d], end=' ')
+            print(est[self.L_c])
         ct += 1
     def nm_up(self,event):
         self.a="no"
@@ -94,7 +100,7 @@ class Bunny(Icon):
     def __init__(self,position):
         super().__init__(Bunny.asset, position)
 
-    """
+"""
     def step(self):
         if self.both==True:
             print("Flowr", id(self))
