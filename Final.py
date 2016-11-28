@@ -74,8 +74,8 @@ class Icon(Sprite):
             est.append(est[lgth]) #and what icon was clicked, to list 'est'
             print(list(est))
             self.ch=0
-            self.L_c=lgth+1
-            self.L_d=lgth+2
+            self.L_c=lgth
+            self.L_d=lgth+1
             #est[self.L_d](est[self.L_c]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
             print(est[self.L_d], end=' ')
             print(est[self.L_c])
