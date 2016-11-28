@@ -60,7 +60,7 @@ class Icon(Sprite):
                 self.c=0
             print(self.b)
             print(self.c)
-            #print("_____________")
+            print("_____________")
             if self.c==2 and self.b==2:
                 print(type(self), id(self))
                 est.append(((event.x,event.y),"retrieve")) #add coord. of where clicked...
