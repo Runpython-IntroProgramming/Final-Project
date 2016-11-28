@@ -38,7 +38,7 @@ walls={"0101":"0"}
 for x in mwidth:
     for y in mheight:
         if x==0 or y==0 or x==mapw//10 or y==maph//10:
-            walls['0'+str(x)+'0'+str(y)]=0
+            walls['0'+str(x)+'0'+str(y)]=1
         else:
             walls['0'+str(x)+'0'+str(y)]=0
 
