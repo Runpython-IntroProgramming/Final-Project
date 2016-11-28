@@ -28,8 +28,8 @@ height = list(range(0,int((scrh/10))+1))
 
 mwidth=list(range(0,int((mapw/10))+1))
 mheight = list(range(0,int((maph/10))+1))
-print(width)
-print(height)
+print(mwidth)
+print(mheight)
 click = 0
 
 go=0
@@ -138,6 +138,8 @@ def ray():
         rayy=(int(Position['y'])*10)//10
         while wall==False:
             print('while works')
+            print('0'+str(round(rayx))+'0'+str(round(rayy)))
+            print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
                 Sprite(RectangleAsset((screenside,0),1000/distance,100/distance, thinline, 'b'+str(distance)))
