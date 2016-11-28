@@ -71,12 +71,12 @@ class Icon(Sprite):
                 self.ch=0 #entries have not been added to list 'est'
         else:
             est.append((event.x,event.y)) #add coord. of where clicked...
-            est.append(est[lgth]) #and what icon was clicked, to list 'est'
+            est.append(est[lgth-1]) #and what icon was clicked, to list 'est'
             print(list(est))
             self.ch=0
             self.L_c=lgth
             self.L_d=lgth+1
-            #est[self.L_d](est[self.L_c]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
+            #est[self.L_d](est[self.L_c][0]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
             print(est[self.L_d], end=' ')
             print(est[self.L_c])
         ct += 1
