@@ -129,21 +129,13 @@ def ray():
     if change==1 and go==1:
         print('ray has started')
         raydir=Position['dir']
-        print(1)
         wall=False
-        print(2)
         screenside=0
-        print(3)
         distance=0
-        print(4)
         intilex=int(Position['x'])-int(Position['x'])//1
-        print(5)
         intiley=int(Position['y'])-int(Position['y'])//1
-        print(6)
         rayx=(int(Position['x'])*10)//10
-        print(7)
         rayy=(int(Position['y'])*10)//10
-        print(8)
         while wall==False:
             print('while works')
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
