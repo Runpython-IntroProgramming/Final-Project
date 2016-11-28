@@ -118,7 +118,7 @@ def space(event):
         go=1
     else:
         go=0
-wall=0
+wall=True
 
 def ray():
     global wall
@@ -129,21 +129,29 @@ def ray():
     if change==1 and go==1:
         print('ray has started')
         raydir=Position['dir']
-        wall=0
+        print(1)
+        wall=False
+        print(2)
         screenside=0
+        print(3)
         distance=0
-        intilex=Position['x']-int(Position['x'])//1
-        intiley=Position['y']-int(Position['y'])//1
-        rayx=(Position['x']*10)//10
-        rayy=(Position['y']*10)//10
-        while wall==0:
+        print(4)
+        intilex=int(Position['x'])-int(Position['x'])//1
+        print(5)
+        intiley=int(Position['y'])-int(Position['y'])//1
+        print(6)
+        rayx=(int(Position['x'])*10)//10
+        print(7)
+        rayy=(int(Position['y'])*10)//10
+        print(8)
+        while wall==False:
             print('while works')
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
                 Sprite(RectangleAsset((screenside,0),1000/distance,100/distance, thinline, 'b'+str(distance)))
                 raydir=raydir+10/distance
                 screenside=screenside+100/distance
-                wall=1
+                wall=True
                 if screenside==1000:
                     change=0
             else:
