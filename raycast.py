@@ -37,7 +37,10 @@ go=0
 walls={"0101":"0"}
 for x in mwidth:
     for y in mheight:
-        walls['0'+str(x)+'0'+str(y)]=0
+        if x==0 or y==0:
+            walls['0'+str(x)+'0'+str(y)]=0
+        else:
+            walls['0'+str(x)+'0'+str(y)]=0
 
 thinline = LineStyle(1, black)
 noline= LineStyle(0,black)
@@ -51,7 +54,10 @@ for x in width:
         
 for x in mwidth:
     for y in mheight:
-        Sprite(wsquare_asset,(x*10, y*10))
+        if x==0 or y==0:
+            Sprite(rsquare_asset,(x*10, y*10))
+        else:
+            Sprite(wsquare_asset,(x*10, y*10))
 
 def mouseclick(event):
     global click
