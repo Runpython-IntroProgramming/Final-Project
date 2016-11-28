@@ -147,6 +147,7 @@ def ray():
                 if screenside==1000:
                     change=0
             else:
+                print('else')
                 distance=distance+1
                 rayx=rayx+cos(radians(raydir))
                 rayy=rayy+sin(radians(raydir))
