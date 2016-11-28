@@ -138,7 +138,7 @@ def ray():
         rayy=(int(Position['y'])*10)//10
         while wall==False:
             print('while works')
-            if walls('0'+str(round(rayx))+'0'+str(round(rayy)))==1:
+            if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
                 Sprite(RectangleAsset((screenside,0),1000/distance,100/distance, thinline, 'b'+str(distance)))
                 raydir=raydir+10/distance
