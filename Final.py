@@ -108,14 +108,10 @@ class Draw(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         abun = Bunny((65, 520))
-        #abun.scale = 0.8
         acat = Cat((85, 380))
-        #acat.scale = 0.2
         atree = Tree((75, 200))
-        #atree.scale = 0.5
-        self.aflr = Flowr((50, 105))
-        #self.aflr.scale = 0.1
-        #self.bflr = Flowr((650, 420))
+        aflr = Flowr((50, 105))
+        #bflr = Flowr((650, 420))
     def step(self):
         pass
 
