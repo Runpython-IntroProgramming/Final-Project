@@ -93,35 +93,26 @@ class Tree(Icon):
     asset = ImageAsset("images/tree.png")
     def __init__(self,position):
         super().__init__(Tree.asset, position)
+        self.scale = 0.5
 class Cat(Icon):
     asset = ImageAsset("images/cute-cartoon-cat-cute-light-brown-cartoon-cat-with-a-black-nose-and-7VM6VK-clipart.png")
     def __init__(self,position):
         super().__init__(Cat.asset, position)
+        self.scale = 0.2
 class Bunny(Icon):
     asset = ImageAsset("images/bunny.png")
     def __init__(self,position):
         super().__init__(Bunny.asset, position)
-
-"""
-    def step(self):
-        if self.both==True:
-            print("Flowr", id(self))
-
-is upper-left hand corner??? yes
-for s in Draw.getSpritesbyClass(Flowr):
-        #    s.step()
-"""
-
+        self.scale = 0.8
 class Draw(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        
         abun = Bunny((65, 520))
-        abun.scale = 0.8
+        #abun.scale = 0.8
         acat = Cat((85, 380))
-        acat.scale = 0.2
+        #acat.scale = 0.2
         atree = Tree((75, 200))
-        atree.scale = 0.5
+        #atree.scale = 0.5
         self.aflr = Flowr((50, 105))
         #self.aflr.scale = 0.1
         #self.bflr = Flowr((650, 420))
