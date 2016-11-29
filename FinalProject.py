@@ -17,7 +17,6 @@ class Background(Sprite):
     def __init__(self, position):
         super().__init__(Background.asset, position)
 
-
 class Ship(Sprite):
 
     asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png", 
