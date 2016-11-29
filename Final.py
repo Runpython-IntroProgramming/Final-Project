@@ -26,7 +26,6 @@ est=[]
 ct = 0 #nothing has been clicked on
 
 class Icon(Sprite):
-    
     def __init__(self,asset,position):
         self.a="no"
         self.b=0
@@ -78,7 +77,7 @@ class Icon(Sprite):
             self.ch=0
             self.L_c=lgth
             self.L_d=lgth+1
-            #est[self.L_d](est[self.L_c][0]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
+            est[self.L_d](est[self.L_c]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
             print(est[self.L_d], end=' ')
             print(est[self.L_c])
         ct += 1
@@ -89,6 +88,7 @@ class Flowr(Icon):
     asset = ImageAsset("images/pinkflowr.png")
     def __init__(self,position):
         super().__init__(Flowr.asset, position)
+        self.scale = 0.1
 class Tree(Icon):
     asset = ImageAsset("images/tree.png")
     def __init__(self,position):
@@ -123,7 +123,7 @@ class Draw(App):
         atree = Tree((75, 200))
         atree.scale = 0.5
         self.aflr = Flowr((50, 105))
-        self.aflr.scale = 0.1
+        #self.aflr.scale = 0.1
         #self.bflr = Flowr((650, 420))
     def step(self):
         pass
