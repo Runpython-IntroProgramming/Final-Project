@@ -17,43 +17,14 @@ class Background(Sprite):
     def __init__(self, position):
         super().__init__(Background.asset, position)
 
-class Moon(Sprite):
 
-    asset = ImageAsset("images/Le_Voyage_dans_la_lune_Transparent.png")
-    def __init__(self, position):
-        super().__init__(Moon.asset, position)
-        self.counter = 0
-        self.vx = 0
-        self.vy = 0
-        self.scale = 0.4
-        self.fxcenter = self.fycenter = 0.5
-        self.circularCollisionModel()
-    def step(self):
-        if self.counter >= 0 and self.counter <= 1200:
-            self.vx = 1
-            self.vy = 0
-        if self.counter >= 1200 and self.counter <= 1800:
-            self.vx = 0
-            self.vy = 1
-        if self.counter >= 1800 and self.counter <= 3000:
-            self.vx = -1
-            self.vy = 0
-        if self.counter >= 3000 and self.counter <= 3600:
-            self.vx = 0
-            self.vy = -1
-        if self.counter == 3601:
-            self.counter = 0
-        self.counter += 1
-        
-        self.x += self.vx
-        self.y += self.vy
-class SpaceShip(Sprite):
+class Ship(Sprite):
 
     asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png", 
         Frame(0,0,230,125), 4, 'vertical')
 
     def __init__(self, position):
-        super().__init__(SpaceShip.asset, position)
+        super().__init__(Ship.asset, position)
         self.vx = 1
         self.vy = 1
         self.vAddedx = 0
@@ -64,22 +35,21 @@ class SpaceShip(Sprite):
         self.RotThrust = 0
         self.thrust = 0
         self.thrustframe = 1
-        self.circularCollisionModel()
-        SpaceGame.listenKeyEvent("keydown", "left arrow", self.thrustLeft)
-        SpaceGame.listenKeyEvent("keyup", "right arrow", self.thrustRightoff)
-        SpaceGame.listenKeyEvent("keyup", "left arrow", self.thrustLeftoff)
-        SpaceGame.listenKeyEvent("keydown", "right arrow", self.thrustRight)
+        PlaneGame.listenKeyEvent("keydown", "left arrow", self.thrustLeft)
+        PlaneGame.listenKeyEvent("keyup", "right arrow", self.thrustRightoff)
+        PlaneGame.listenKeyEvent("keyup", "left arrow", self.thrustLeftoff)
+        PlaneGame.listenKeyEvent("keydown", "right arrow", self.thrustRight)
         
-        SpaceGame.listenKeyEvent("keydown", "up arrow", self.thrustUp)
-        SpaceGame.listenKeyEvent("keyup", "down arrow", self.thrustDownoff)
-        SpaceGame.listenKeyEvent("keyup", "up arrow", self.thrustUpoff)
-        SpaceGame.listenKeyEvent("keydown", "down arrow", self.thrustDown)
+        PlaneGame.listenKeyEvent("keydown", "up arrow", self.thrustUp)
+        PlaneGame.listenKeyEvent("keyup", "down arrow", self.thrustDownoff)
+        PlaneGame.listenKeyEvent("keyup", "up arrow", self.thrustUpoff)
+        PlaneGame.listenKeyEvent("keydown", "down arrow", self.thrustDown)
         
         
-        SpaceGame.listenKeyEvent("keydown", "i", self.thrustCounterClock)
-        SpaceGame.listenKeyEvent("keyup", "p", self.thrustClockoff)
-        SpaceGame.listenKeyEvent("keyup", "i", self.thrustCounterClockoff)
-        SpaceGame.listenKeyEvent("keydown", "p", self.thrustClock)
+        PlaneGame.listenKeyEvent("keydown", "i", self.thrustCounterClock)
+        PlaneGame.listenKeyEvent("keyup", "p", self.thrustClockoff)
+        PlaneGame.listenKeyEvent("keyup", "i", self.thrustCounterClockoff)
+        PlaneGame.listenKeyEvent("keydown", "p", self.thrustClock)
         
         self.fxcenter = self.fycenter = 0.5
     def step(self):
@@ -101,9 +71,6 @@ class SpaceShip(Sprite):
             self.vAddedr = 0.03
         if self.RotThrust == 0:
             self.vAddedr = 0
-        booming = self.collidingWithSprites(Moon)
-        if len(booming) > 0:
-            self.visible = False
         self.x += self.vAddedx
         self.y += self.vAddedy
         self.rotation += self.vAddedr
@@ -164,24 +131,8 @@ class SpaceShip(Sprite):
     def thrustCounterClockoff(self, event):
         self.RotThrust = 0
         self.thrust = 0
-"""
-class ExplosionBig(Sprite):
-    
-    asset = ImageAsset("images/explosion2.png", Frame(0,0,4800/25,195), 25)
-    
-    
-    def __init__(self, position):
-        super().__init__(ExplosionBig.asset, position)
-        self.image = 0
-        self.center = (0.5, 0.5)
-    
-    def step(self):
-        self.setImage(self.image//2)
-        self.image = self.image + 1
-        if self.image == 50:
-            self.destroy()
-"""
-class SpaceGame(App):
+
+class PlaneGame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         for x in range(self.width//Background.width + 1):
