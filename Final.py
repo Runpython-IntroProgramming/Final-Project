@@ -56,11 +56,14 @@ class Icon(Sprite):
                 self.c=2
             else:
                 self.c=0
+            """
             print(self.b)
             print(self.c)
             print("_____________")
+            """
+            
             if self.c==2 and self.b==2:
-                print(type(self), id(self))
+                print(type(self), id(self), "first click")
                 est.append(((event.x,event.y),"retrieve")) #add coord. of where clicked...
                 est.append(type(self)) #and what icon was clicked, to list 'est'
                 print(list(est))
