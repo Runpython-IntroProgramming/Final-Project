@@ -8,14 +8,14 @@ from ggame import SoundAsset, Sound, TextAsset, Color
 import math
 from time import time
 
-class Stars(Sprite):
+class Background(Sprite):
 
-    asset = ImageAsset("images/starfield.jpg")
+    asset = ImageAsset("images/images.jpg")
     width = 512
     height = 512
 
     def __init__(self, position):
-        super().__init__(Stars.asset, position)
+        super().__init__(Background.asset, position)
 
 class Moon(Sprite):
 
@@ -164,17 +164,38 @@ class SpaceShip(Sprite):
     def thrustCounterClockoff(self, event):
         self.RotThrust = 0
         self.thrust = 0
-
-class PlaneGame(App):
+"""
+class ExplosionBig(Sprite):
+    
+    asset = ImageAsset("images/explosion2.png", Frame(0,0,4800/25,195), 25)
+    
+    
+    def __init__(self, position):
+        super().__init__(ExplosionBig.asset, position)
+        self.image = 0
+        self.center = (0.5, 0.5)
+    
+    def step(self):
+        self.setImage(self.image//2)
+        self.image = self.image + 1
+        if self.image == 50:
+            self.destroy()
+"""
+class SpaceGame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        Ship((400,500))
+        for x in range(self.width//Background.width + 1):
+            for y in range(self.height//Background.height + 1):
+                Background((x*Background.width, y*Background.height))
+        Ship((400,600))
                     
     def step(self):
-        for ship in self.getSpritesbyClass(Ship):
+        for ship in self.getSpritesbyClass(SpaceShip):
+            ship.step()
+        for ship in self.getSpritesbyClass(Moon):
             ship.step()
             
-app = PlaneGame(0,0)
+app = SpaceGame(1900,935)
 app.run()
     
 
