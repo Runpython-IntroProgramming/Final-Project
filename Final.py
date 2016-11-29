@@ -42,9 +42,6 @@ class Icon(Sprite):
         global ct
         self.a="yes"
         lgth = len(est)
-        if self.ch==1:
-            #print(lgth) #length of 'est'
-            pass
         if ct%2 == 0:
             #calculating whether the mouse is close to an icon:
             self.diffx = self.x-event.x
@@ -72,14 +69,14 @@ class Icon(Sprite):
                 self.ch=0 #entries have not been added to list 'est'
         else:
             est.append((event.x,event.y)) #add coord. of where clicked...
-            est.append(est[lgth-1]) #and what icon was clicked, to list 'est'
+            #est.append(est[lgth-1]) #and what icon was clicked, to list 'est'
             print(list(est))
             self.ch=0
             self.L_c=lgth
             self.L_d=lgth+1
-            est[self.L_d](est[self.L_c]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
-            print(est[self.L_d], end=' ')
-            print(est[self.L_c])
+            est[self.L_d](est[lgth-1]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
+            #print(est[self.L_d], end=' ')
+            #print(est[self.L_c])
         ct += 1
     def nm_up(self,event):
         self.a="no"
