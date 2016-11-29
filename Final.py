@@ -42,7 +42,7 @@ class Icon(Sprite):
         global ct
         self.a="yes"
         lgth = len(est)
-        if ct%2 == 0:
+        if ct%2 != 0:
             #calculating whether the mouse is close to an icon:
             self.diffx = self.x-event.x
             self.diffy = self.y-event.y
