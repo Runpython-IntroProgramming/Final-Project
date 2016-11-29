@@ -48,10 +48,6 @@ rsquare_asset =RectangleAsset(10,10, thinline, red)
 wsquare_asset = RectangleAsset(10, 10, thinline, white)
 nosquare_asset = RectangleAsset(10, 10, noline, white)
 
-for x in width:
-    for y in height:
-        Sprite(nosquare_asset,(x*10, y*10))
-        
 for x in mwidth:
     for y in mheight:
         if x==0 or y==0 or x==mapw//10 or y==maph//10:
@@ -149,7 +145,7 @@ def ray():
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
                 wallbox=RectangleAsset(1000/distance,100/distance, thinline, 'b'+str(distance))
-                Sprite(wallbox(screenside+100,0))
+                Sprite(wallbox(screenside+10000,0))
                 print('sprite is displayed')
                 raydir=raydir+10/distance
                 screenside=screenside+100/distance
