@@ -164,44 +164,17 @@ class SpaceShip(Sprite):
     def thrustCounterClockoff(self, event):
         self.RotThrust = 0
         self.thrust = 0
-"""
-class ExplosionBig(Sprite):
-    
-    asset = ImageAsset("images/explosion2.png", Frame(0,0,4800/25,195), 25)
-    
-    
-    def __init__(self, position):
-        super().__init__(ExplosionBig.asset, position)
-        self.image = 0
-        self.center = (0.5, 0.5)
-    
-    def step(self):
-        self.setImage(self.image//2)
-        self.image = self.image + 1
-        if self.image == 50:
-            self.destroy()
-"""
-class SpaceGame(App):
+
+class PlaneGame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        for x in range(self.width//Stars.width + 1):
-            for y in range(self.height//Stars.height + 1):
-                Stars((x*Stars.width, y*Stars.height))
-        Moon((100,200))
-        Moon((100,0))
-        Moon((200,300))
-        Moon((200,100))
-        Moon((100,400))
-        Moon((300,200))
-        SpaceShip((400,600))
+        Ship((400,500))
                     
     def step(self):
-        for ship in self.getSpritesbyClass(SpaceShip):
-            ship.step()
-        for ship in self.getSpritesbyClass(Moon):
+        for ship in self.getSpritesbyClass(Ship):
             ship.step()
             
-app = SpaceGame(1900,935)
+app = PlaneGame(0,0)
 app.run()
     
 
