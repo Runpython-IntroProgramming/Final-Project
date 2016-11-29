@@ -44,7 +44,8 @@ class Icon(Sprite):
         self.a="yes"
         lgth = len(est)
         if self.ch==1:
-            print(lgth) #length of 'est'
+            #print(lgth) #length of 'est'
+            pass
         if ct%2 == 0:
             #calculating whether the mouse is close to an icon:
             self.diffx = self.x-event.x
@@ -117,11 +118,11 @@ class Draw(App):
         
         abun = Bunny((65, 520))
         abun.scale = 0.8
-        acat = Cat((50, 380))
+        acat = Cat((85, 380))
         acat.scale = 0.2
-        atree = Tree((65, 200))
+        atree = Tree((75, 200))
         atree.scale = 0.5
-        self.aflr = Flowr((50, 150))
+        self.aflr = Flowr((50, 105))
         self.aflr.scale = 0.1
         #self.bflr = Flowr((650, 420))
     def step(self):
