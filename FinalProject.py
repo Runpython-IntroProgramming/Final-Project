@@ -190,12 +190,11 @@ class SpaceGame(App):
         Ship((400,600))
                     
     def step(self):
-        for ship in self.getSpritesbyClass(SpaceShip):
+        for ship in self.getSpritesbyClass(Ship):
             ship.step()
-        for ship in self.getSpritesbyClass(Moon):
-            ship.step()
+
             
-app = SpaceGame(1900,935)
+app = PlaneGame(1900,935)
 app.run()
     
 
