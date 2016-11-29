@@ -11,8 +11,8 @@ from time import time
 class Background(Sprite):
 
     asset = ImageAsset("images/images.jpg")
-    width = 512
-    height = 512
+    width = 275
+    height = 183
 
     def __init__(self, position):
         super().__init__(Background.asset, position)
