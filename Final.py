@@ -77,7 +77,7 @@ class Icon(Sprite):
             self.ch=0
             self.L_c=lgth
             self.L_d=lgth+1
-            est[self.L_d](est[lgth-1]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
+            est[lgth-1](est[self.L_c]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
             #print(est[self.L_d], end=' ')
             #print(est[self.L_c])
         ct += 1
