@@ -16,7 +16,7 @@ class Background(Sprite):
 
     def __init__(self, position):
         super().__init__(Background.asset, position)
-        self.scale = 5
+        self.scale = 0.8
 
 class Ship(Sprite):
 
