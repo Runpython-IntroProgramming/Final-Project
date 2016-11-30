@@ -33,6 +33,7 @@ print(mheight)
 click = 0
 
 go=0
+screenside=0
 
 walls={"0101":"0"}
 for x in mwidth:
@@ -128,11 +129,11 @@ def ray():
     global go
     global position
     global change
+    global screenside
     if change==1 and go==1:
         print('ray has started')
         raydir=int(Position['dir'])
         wall=False
-        screenside=0
         distance=0
         intilex=int(Position['x'])-int(Position['x'])//1
         intiley=int(Position['y'])-int(Position['y'])//1
@@ -147,13 +148,14 @@ def ray():
                 wallcolor='b'+str(distance)
                 print(wallcolor)
                 wallbox=RectangleAsset((100/int(distance)),(1000/int(distance)), thinline, b5)
-                Sprite(wallbox,(screenside+100,0))
+                Sprite(wallbox,(screenside+110,0))
                 print('sprite is displayed')
                 raydir=raydir+10/distance
                 screenside=screenside+100/distance
                 wall=True
                 if screenside==1000:
                     change=0
+                    screenside=0
             else:
                 print('else')
                 distance=distance+1
