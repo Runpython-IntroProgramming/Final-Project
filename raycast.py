@@ -106,14 +106,14 @@ def left(event):
 def up(event):
     global change
     change=1
-    Position['x']=Position['x']+sin(int(Position['x']))
-    Position['y']=Position['y']+cos(int(Position['x']))
+    Position['x']=Position['x']+10*sin(int(Position['x']))
+    Position['y']=Position['y']+10*cos(int(Position['x']))
         
 def down(event):
     global change
     change=1
-    Position['x']=Position['x']-sin(int(Position['x']))
-    Position['y']=Position['y']-cos(int(Position['x']))
+    Position['x']=Position['x']-10*sin(int(Position['x']))
+    Position['y']=Position['y']-10*cos(int(Position['x']))
 
 def space(event):
     global go
