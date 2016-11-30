@@ -149,7 +149,7 @@ class PlaneGame(App):
             ship.step()
 
             
-app = PlaneGame(1900,935)
+app = PlaneGame(0,0)
 app.run()
     
 
