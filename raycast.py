@@ -138,7 +138,7 @@ def ray():
         intiley=int(Position['y'])-int(Position['y'])//1
         rayx=(int(Position['x'])*10)//10
         rayy=(int(Position['y'])*10)//10
-        if wall==False:
+        while wall==False:
             print('while works')
             print('0'+str(round(rayx))+'0'+str(round(rayy)))
             print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
