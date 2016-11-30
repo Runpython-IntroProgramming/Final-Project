@@ -2,7 +2,6 @@
 by Liam A.
 used: http://www.december.com/html/spec/color
 
-how to change location to center?
 step functions
 
 """
@@ -34,16 +33,16 @@ class Icon(Sprite):
         self.ch=0
         self.L_c=0
         self.L_d=0
-        self.ct = 0 #nothing has been clicked on
+        self.ct = 1 #nothing has been clicked on
         super().__init__(asset, position)
         self.center=(0.5,0.5)
         Draw.listenMouseEvent("mouseup", self.nm_up)
         Draw.listenMouseEvent("mousedown", self.ym_dn)
+
     def ym_dn(self,event):
-        #global ct
         self.a="yes"
-        #lgth = len(est)
-        if self.ct%2 != 0:
+        lgtha = len(clkun)
+        if self.ct%2 == 1:
             #calculating whether the mouse is close to an icon:
             self.diffx = self.x-event.x
             self.diffy = self.y-event.y
@@ -65,24 +64,24 @@ class Icon(Sprite):
             
             if self.c==2 and self.b==2:
                 print(type(self), id(self), "first click")
-                clkun.append(((event.x,event.y),"retrieve")) #add coord. of where clicked...
+                clkun.append((event.x,event.y)) #add coord. of where clicked...
                 clkun.append(type(self)) #and what icon was clicked, to list 'clkun'
                 print("list1: ", list(clkun))
-                self.ch=1
             else:
-                self.ch=0 #entries have not been added to list 'clkun'
+                #self.ch=0 #entries have not been added to list 'clkun'
+                pass
         else:
             clkdx.append((event.x,event.y)) #add coord. of where clicked...
-            #clkdx.append(est[lgth-1]) #and what icon was clicked, to list 'clkdx'
+            #clkdx.append(clkun[lgtha-1]) #and what icon was clicked, to list 'clkdx'
             print("list2: ", list(clkdx))
-            """
-            self.ch=0
-            self.L_c=lgth
-            self.L_d=lgth+1
-            #est[lgth-1](est[self.L_c]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
+            self.L_c=lgtha
+            self.L_d=lgtha+1
+            lgthb = len(clkdx)
+            #est[lgth-1](est[lgthb]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
+            clka
             print(est[lgth-2], end=' ')
             print("!!!THEN!!!", est[self.L_c])
-            """
+            
         self.ct += 1
         print("Cycle ended")
         print(" ")
@@ -109,6 +108,7 @@ class Bunny(Icon):
     def __init__(self,position):
         super().__init__(Bunny.asset, position)
         self.scale = 0.8
+
 class Draw(App):
     def __init__(self, width, height):
         super().__init__(width, height)
