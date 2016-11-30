@@ -128,7 +128,7 @@ def ray():
     global go
     global position
     global change
-    while change==1 and go==1:
+    if change==1 and go==1:
         print('ray has started')
         raydir=int(Position['dir'])
         wall=False
