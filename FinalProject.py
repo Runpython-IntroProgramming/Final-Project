@@ -10,12 +10,13 @@ from time import time
 
 class Background(Sprite):
 
-    asset = ImageAsset("images/images.jpg")
-    width = 275
-    height = 183
+    asset = ImageAsset("images/iStock_000005669855Medium.jpg")
+    width = 1698
+    height = 1131
 
     def __init__(self, position):
         super().__init__(Background.asset, position)
+        self.scale = 5
 
 class Ship(Sprite):
 
@@ -70,6 +71,12 @@ class Ship(Sprite):
             self.vAddedr = 0.03
         if self.RotThrust == 0:
             self.vAddedr = 0
+        if self.x >= 2000:
+            self.x = 10
+        if self.x <= 0:
+            self.x = 1999
+        if self.y <=10:
+            self.vAddedy = -self.vAddedy 
         self.x += self.vAddedx
         self.y += self.vAddedy
         self.rotation += self.vAddedr
@@ -134,9 +141,7 @@ class Ship(Sprite):
 class PlaneGame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        for x in range(self.width//Background.width + 1):
-            for y in range(self.height//Background.height + 1):
-                Background((x*Background.width, y*Background.height))
+        Background((0, 0))
         Ship((400,600))
                     
     def step(self):
