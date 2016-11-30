@@ -22,8 +22,8 @@ pale = Color (0xFFFACD, 0.4)
 
 bl_line = LineStyle(3, black)
 thinline = LineStyle(1, black)
-est=[]
-ct = 0 #nothing has been clicked on
+clkun=[]
+clkdx=[]
 
 class Icon(Sprite):
     def __init__(self,asset,position):
@@ -34,15 +34,16 @@ class Icon(Sprite):
         self.ch=0
         self.L_c=0
         self.L_d=0
+        self.ct = 0 #nothing has been clicked on
         super().__init__(asset, position)
         self.center=(0.5,0.5)
         Draw.listenMouseEvent("mouseup", self.nm_up)
         Draw.listenMouseEvent("mousedown", self.ym_dn)
     def ym_dn(self,event):
-        global ct
+        #global ct
         self.a="yes"
-        lgth = len(est)
-        if ct%2 != 0:
+        #lgth = len(est)
+        if self.ct%2 != 0:
             #calculating whether the mouse is close to an icon:
             self.diffx = self.x-event.x
             self.diffy = self.y-event.y
@@ -64,23 +65,27 @@ class Icon(Sprite):
             
             if self.c==2 and self.b==2:
                 print(type(self), id(self), "first click")
-                est.append(((event.x,event.y),"retrieve")) #add coord. of where clicked...
-                est.append(type(self)) #and what icon was clicked, to list 'est'
-                print(list(est))
+                clkun.append(((event.x,event.y),"retrieve")) #add coord. of where clicked...
+                clkun.append(type(self)) #and what icon was clicked, to list 'clkun'
+                print("list1: ", list(clkun))
                 self.ch=1
             else:
-                self.ch=0 #entries have not been added to list 'est'
+                self.ch=0 #entries have not been added to list 'clkun'
         else:
-            est.append((event.x,event.y)) #add coord. of where clicked...
-            #est.append(est[lgth-1]) #and what icon was clicked, to list 'est'
-            print(list(est))
+            clkdx.append((event.x,event.y)) #add coord. of where clicked...
+            #clkdx.append(est[lgth-1]) #and what icon was clicked, to list 'clkdx'
+            print("list2: ", list(clkdx))
+            """
             self.ch=0
             self.L_c=lgth
             self.L_d=lgth+1
             #est[lgth-1](est[self.L_c]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
-            print(est[lgth-1], end=' ')
+            print(est[lgth-2], end=' ')
             print("!!!THEN!!!", est[self.L_c])
-        ct += 1
+            """
+        self.ct += 1
+        print("Cycle ended")
+        print(" ")
     def nm_up(self,event):
         self.a="no"
 
