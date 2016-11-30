@@ -145,8 +145,9 @@ def ray():
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
                 wallcolor='b'+str(distance)
-                wallbox=RectangleAsset(1000/distance,100/distance, thinline,wallcolor )
-                Sprite(wallbox(screenside+10000,0))
+                print(wallcolor)
+                wallbox=RectangleAsset((1000/int(distance)),(100/int(distance), thinline,wallcolor )
+                Sprite(wallbox,(screenside+10000,0))
                 print('sprite is displayed')
                 raydir=raydir+10/distance
                 screenside=screenside+100/distance
