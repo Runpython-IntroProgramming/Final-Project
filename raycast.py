@@ -106,8 +106,7 @@ def left(event):
 def up(event):
     global change
     change=1
-    Position['x']=Position['x']+10*sin(int(Position['x']))
-    Position['y']=Position['y']+10*cos(int(Position['x']))
+    sqdir=(int(Position['dir'])//90)*90
         
 def down(event):
     global change
