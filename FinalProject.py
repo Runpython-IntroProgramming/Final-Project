@@ -11,12 +11,12 @@ from time import time
 class Background(Sprite):
 
     asset = ImageAsset("images/grass_with_blue_sky_by_devrez-d35pm8j.png")
-    width = 1698
-    height = 1131
+    width = 1032
+    height = 774
 
     def __init__(self, position):
         super().__init__(Background.asset, position)
-        self.scale = 5
+        self.scale = 1
 
 class Ship(Sprite):
 
