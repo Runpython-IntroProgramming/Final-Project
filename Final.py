@@ -25,17 +25,18 @@ clkun=[]
 clkdx=[]
 
 class Icon(Sprite):
-    def __init__(self,asset,position):
+    def __init__(self,asset,position,prop):
         self.a="no"
         self.b=0
         self.c=0
         self.both=False
-        self.ch=0
+        chk = 0 #preparing to check a condition
         self.ct = 1 #nothing has been clicked on
         super().__init__(asset, position)
         self.center=(0.5,0.5)
         Draw.listenMouseEvent("mouseup", self.nm_up)
-        Draw.listenMouseEvent("mousedown", self.ym_dn)
+        if prop=True:
+            Draw.listenMouseEvent("mousedown", self.ym_dn)
 
     def ym_dn(self,event):
         self.a="yes"
@@ -54,65 +55,53 @@ class Icon(Sprite):
                 self.c=2
             else:
                 self.c=0
-            """
-            print(self.b)
-            print(self.c)
-            print("_____________")
-            """
-            
             if self.c==2 and self.b==2:
                 print(type(self), id(self), "first click")
                 clkun.append((event.x,event.y)) #add coord. of where clicked...
                 clkun.append(type(self)) #and what icon was clicked, to list 'clkun'
-                print("list1: ", list(clkun))
-            else:
-                #self.ch=0 #entries have not been added to list 'clkun'
-                pass
+                #print("list1: ", list(clkun))
         else:
-            clkdx.append((event.x,event.y)) #add coord. of where clicked...
-            #clkdx.append(clkun[lgtha-1]) #and what icon was clicked, to list 'clkdx'
-            print("list2: ", list(clkdx))
-            
-            lgthb = len(clkdx)
-            clkun[lgtha-1](clkdx[lgthb-1]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
-            
-            print(clkun[lgtha-1], end=' ')
-            print("!!!THEN!!!", clkdx[lgthb-1])
+            chk = clkun[lgtha-1]
+            if chk == type(self):
+                clkdx.append((event.x,event.y)) #add coord. of where clicked...
+                #print("list2: ", list(clkdx))
+                lgthb = len(clkdx)
+                clkun[lgtha-1](clkdx[lgthb-1], False) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
+                #print(clkun[lgtha-1], end=' ')
+                #print("!!!THEN!!!", clkdx[lgthb-1])
             
         self.ct += 1
-        print("Cycle ended")
-        print(" ")
     def nm_up(self,event):
         self.a="no"
 
 class Flowr(Icon):
     asset = ImageAsset("images/pinkflowr.png")
-    def __init__(self,position):
-        super().__init__(Flowr.asset, position)
+    def __init__(self,position,prop):
+        super().__init__(Flowr.asset, position,prop)
         self.scale = 0.1
 class Tree(Icon):
     asset = ImageAsset("images/tree.png")
-    def __init__(self,position):
-        super().__init__(Tree.asset, position)
+    def __init__(self,position,prop):
+        super().__init__(Tree.asset, position,prop)
         self.scale = 0.5
 class Cat(Icon):
     asset = ImageAsset("images/cute-cartoon-cat-cute-light-brown-cartoon-cat-with-a-black-nose-and-7VM6VK-clipart.png")
-    def __init__(self,position):
-        super().__init__(Cat.asset, position)
+    def __init__(self,position,prop):
+        super().__init__(Cat.asset, position,prop)
         self.scale = 0.2
 class Bunny(Icon):
     asset = ImageAsset("images/bunny.png")
-    def __init__(self,position):
-        super().__init__(Bunny.asset, position)
+    def __init__(self,position,prop):
+        super().__init__(Bunny.asset, position,prop)
         self.scale = 0.8
 
 class Draw(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        abun = Bunny((65, 520))
-        acat = Cat((85, 380))
-        atree = Tree((75, 200))
-        aflr = Flowr((50, 105))
+        abun = Bunny((65, 520), True)
+        acat = Cat((85, 380), True)
+        atree = Tree((75, 200), True)
+        aflr = Flowr((50, 105), True)
         #bflr = Flowr((650, 420))
     def step(self):
         pass
