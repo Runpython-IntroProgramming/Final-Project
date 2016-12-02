@@ -7,8 +7,8 @@ step functions
 """
 
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset
-SCREEN_WIDTH = 1200
-SCREEN_HEIGHT = 700
+SCREEN_WIDTH = 1600
+SCREEN_HEIGHT = 800
 
 # Colors
 Lgreen = Color (0x7CFC00, 0.95)
@@ -34,8 +34,8 @@ class Icon(Sprite):
         self.ct = 1 #nothing has been clicked on
         super().__init__(asset, position)
         self.center=(0.5,0.5)
-        Draw.listenMouseEvent("mouseup", self.nm_up)
-        if prop=True:
+        #Draw.listenMouseEvent("mouseup", self.nm_up)
+        if prop==True:
             Draw.listenMouseEvent("mousedown", self.ym_dn)
 
     def ym_dn(self,event):
