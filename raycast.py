@@ -107,13 +107,26 @@ def up(event):
     global change
     change=1
     sqdir=(int(Position['dir'])//90)*90
-        
+    if sqdir==0:
+        Position['x']=Position['x']-1
+    if sqdir==90:
+        Position['y']=Position['y']-1
+    if sqdir==180:
+        Position['x']=Position['x']+1
+    if sqdir==270:
+        Position['y']=Position['y']+1
 def down(event):
     global change
     change=1
-    Position['x']=Position['x']-10*sin(int(Position['x']))
-    Position['y']=Position['y']-10*cos(int(Position['x']))
-
+    sqdir=(int(Position['dir'])//90)*90
+    if sqdir==0:
+        Position['x']=Position['x']+1
+    if sqdir==90:
+        Position['y']=Position['y']+1
+    if sqdir==180:
+        Position['x']=Position['x']-1
+    if sqdir==270:
+        Position['y']=Position['y']-1
 def space(event):
     global go
     if go==0:
