@@ -142,6 +142,7 @@ def ray():
     global position
     global change
     global screenside
+    print(go,change)
     if change==1 and go==1:
         print('ray has started')
         raydir=int(Position['dir'])
@@ -165,9 +166,10 @@ def ray():
                 raydir=raydir+10/distance
                 screenside=screenside+100/distance
                 wall=True
-                if screenside==1000:
+                if screenside==100:
                     change=0
                     screenside=0
+                    print(change)
             else:
                 print('else')
                 distance=distance+1
