@@ -78,8 +78,8 @@ class Icon(Sprite):
             self.L_d=lgtha+1
             lgthb = len(clkdx)
             #est[lgth-1](est[lgthb]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
-            clka
-            print(est[lgth-2], end=' ')
+            #clka
+            print(est[lgtha-2], end=' ')
             print("!!!THEN!!!", est[self.L_c])
             
         self.ct += 1
