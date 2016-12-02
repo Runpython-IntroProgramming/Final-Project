@@ -16,7 +16,7 @@ class Background(Sprite):
 
     def __init__(self, position):
         super().__init__(Background.asset, position)
-        self.scale = 1.3
+        self.scale = 1.4
 
 class Ship(Sprite):
 
@@ -35,11 +35,12 @@ class Ship(Sprite):
         self.RotThrust = 0
         self.thrust = 0
         self.thrustframe = 1
+        """
         PlaneGame.listenKeyEvent("keydown", "left arrow", self.thrustLeft)
         PlaneGame.listenKeyEvent("keyup", "right arrow", self.thrustRightoff)
         PlaneGame.listenKeyEvent("keyup", "left arrow", self.thrustLeftoff)
         PlaneGame.listenKeyEvent("keydown", "right arrow", self.thrustRight)
-        
+        """
         PlaneGame.listenKeyEvent("keydown", "up arrow", self.thrustUp)
         PlaneGame.listenKeyEvent("keyup", "down arrow", self.thrustDownoff)
         PlaneGame.listenKeyEvent("keyup", "up arrow", self.thrustUpoff)
@@ -53,12 +54,14 @@ class Ship(Sprite):
         
         self.fxcenter = self.fycenter = 0.5
     def step(self):
+        """
         if self.sideThrust == 1:
             self.vAddedx += 0.05
         if self.sideThrust == -1:
             self.vAddedx -= 0.05
         if self.sideThrust == 0:
             self.vAddedx += 0
+        """
         if self.vertThrust == 1:
             self.vAddedy += 0.05
         if self.vertThrust == -1:
@@ -77,7 +80,7 @@ class Ship(Sprite):
             self.x = 1999
         if self.y <=10:
             self.vAddedy = -self.vAddedy 
-        self.x += self.vAddedx
+        self.x += 5
         self.y += self.vAddedy
         self.rotation += self.vAddedr
         if self.thrust == 1:
