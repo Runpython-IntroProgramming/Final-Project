@@ -20,8 +20,7 @@ class Background(Sprite):
 
 class Ship(Sprite):
 
-    asset = ImageAsset("images/il2m3-bp-fl-am-3view-mongolian.png", 
-        Frame(0,0,1000,110), 4, 'vertical')
+    asset = ImageAsset("images/il2m3-bp-fl-am-3view-mongolian.png")
 
     def __init__(self, position):
         super().__init__(Ship.asset, position)
@@ -33,7 +32,6 @@ class Ship(Sprite):
         self.sideThrust = 0
         self.vertThrust = 0
         self.RotThrust = 0
-        self.thrust = 0
         self.thrustframe = 1
         self.scale = 0.25
         """
@@ -84,63 +82,55 @@ class Ship(Sprite):
         self.x += 5
         self.y += self.vAddedy
         self.rotation += self.vAddedr
-        if self.thrust == 1:
-            self.setImage(self.thrustframe)
-            self.thrustframe += 1
-            if self.thrustframe == 4:
-                self.thrustframe = 1
-        else:
-            self.setImage(0)
-    def thrustOff(self, event):
-        self.thrust = 0
+
         
     def thrustLeft(self, event):
         self.sideThrust = -1
-        self.thrust = 1
+
 
     def thrustRight(self, event):
         self.sideThrust = 1
-        self.thrust = 1
+
     
     def thrustRightoff(self, event):
         self.sideThrust = 0
-        self.thrust = 0
+
     
     def thrustLeftoff(self, event):
         self.sideThrust = 0
-        self.thrust = 0
+
     
     def thrustUp(self, event):
         self.vertThrust = -1
-        self.thrust = 1
+
 
     def thrustDown(self, event):
         self.vertThrust = 1
-        self.thrust = 1
+
     
     def thrustDownoff(self, event):
         self.vertThrust = 0
-        self.thrust = 0
+
     
     def thrustUpoff(self, event):
         self.vertThrust = 0
-        self.thrust = 0
+
 
     def thrustCounterClock(self, event):
         self.RotThrust = -1
-        self.thrust = 1
+
 
     def thrustClock(self, event):
         self.RotThrust = 1
-        self.thrust = 1
+
     
     def thrustClockoff(self, event):
         self.RotThrust = 0
-        self.thrust = 0
+
     
     def thrustCounterClockoff(self, event):
         self.RotThrust = 0
-        self.thrust = 0
+
 
 class PlaneGame(App):
     def __init__(self, width, height):
