@@ -35,7 +35,7 @@ class Icon(Sprite):
         super().__init__(asset, position)
         self.center=(0.5,0.5)
         #Draw.listenMouseEvent("mouseup", self.nm_up)
-        if prop==True:
+        if prop==True and Draw.stage==1:
             Draw.listenMouseEvent("mousedown", self.ym_dn)
 
     def ym_dn(self,event):
@@ -98,13 +98,17 @@ class Bunny(Icon):
 class Draw(App):
     def __init__(self, width, height):
         super().__init__(width, height)
+        self.stage = 1
         abun = Bunny((65, 520), True)
         acat = Cat((85, 380), True)
         atree = Tree((75, 200), True)
         aflr = Flowr((50, 105), True)
         #bflr = Flowr((650, 420))
+        Draw.listenKeyEvent("enter", self.switch)
     def step(self):
         pass
+    def switch:
+        self.stage += 1
 
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
 my_draw.run()
