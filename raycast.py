@@ -84,7 +84,7 @@ def drag(event):
             Sprite(wsquare_asset, (pixelpositionx, pixelpositiony))
             walls['0'+str(round(pixelpositionx/10))+'0'+str(round(pixelpositiony/10))]=0
 
-Position={"x":"5","y":"5","dir":"90"}
+Position={"x":5,"y":5,"dir":90}
 change=1
 
 def right(event):
@@ -99,7 +99,7 @@ def left(event):
     global change
     change=1
     if Position['dir']>0:
-        Position['dir']=Position[x]-1
+        Position['dir']=int(Position[x])-1
     else:
         Position['dir']=359
         
