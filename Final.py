@@ -40,7 +40,7 @@ class Icon(Sprite):
     def ym_dn(self,event):
         self.a="yes"
         lgtha = len(clkun)
-        if self.ct%2 == 1:
+        if (self.ct)%2 == 1:
             #calculating whether the mouse is close to an icon:
             self.diffx = self.x-event.x
             self.diffy = self.y-event.y
@@ -74,9 +74,9 @@ class Icon(Sprite):
             print("list2: ", list(clkdx))
             
             lgthb = len(clkdx)
-            #est[lgth-1](est[lgthb]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
+            clkun[lgtha-1](clkdx[lgthb-1]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
             
-            print(clkun[lgtha-2], end=' ')
+            print(clkun[lgtha-1], end=' ')
             print("!!!THEN!!!", clkdx[lgthb-1])
             
         self.ct += 1
