@@ -91,7 +91,7 @@ def right(event):
     global change
     change=1
     if Position['dir']<360:
-        Position['dir']=Position[x]+1
+        Position['dir']=Position['dir']+1
     else:
         Position['dir']=0
 
@@ -99,7 +99,7 @@ def left(event):
     global change
     change=1
     if Position['dir']>0:
-        Position['dir']=int(Position[x])-1
+        Position['dir']=Position['dir']-1
     else:
         Position['dir']=359
         
