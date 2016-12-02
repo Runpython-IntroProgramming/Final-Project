@@ -21,7 +21,7 @@ class Background(Sprite):
 class Ship(Sprite):
 
     asset = ImageAsset("images/il2m3-bp-fl-am-3view-mongolian.png", 
-        Frame(0,0,230,125), 4, 'vertical')
+        Frame(0,0,1000,110), 4, 'vertical')
 
     def __init__(self, position):
         super().__init__(Ship.asset, position)
@@ -35,6 +35,7 @@ class Ship(Sprite):
         self.RotThrust = 0
         self.thrust = 0
         self.thrustframe = 1
+        self.scale = 0.25
         """
         PlaneGame.listenKeyEvent("keydown", "left arrow", self.thrustLeft)
         PlaneGame.listenKeyEvent("keyup", "right arrow", self.thrustRightoff)
