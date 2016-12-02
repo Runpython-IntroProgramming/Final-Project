@@ -16,7 +16,7 @@ class Background(Sprite):
 
     def __init__(self, position):
         super().__init__(Background.asset, position)
-        self.scale = 1
+        self.scale = 1.3
 
 class Ship(Sprite):
 
@@ -142,6 +142,7 @@ class PlaneGame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         Background((0, 0))
+        Background((1300, 0))
         Ship((400,600))
                     
     def step(self):
