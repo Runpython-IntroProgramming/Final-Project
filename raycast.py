@@ -160,7 +160,7 @@ def ray():
                 print('wall is detected')
                 wallcolor='b'+str(distance)
                 print(wallcolor)
-                wallbox=RectangleAsset((1000/int(distance)),(10000/int(distance)), thinline, b5)
+                wallbox=RectangleAsset(((100/int(distance))*10),10*(1000/int(distance)), thinline, b5)
                 Sprite(wallbox,(screenside+110,0))
                 print('sprite is displayed')
                 raydir=raydir+10/distance
