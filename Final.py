@@ -31,8 +31,6 @@ class Icon(Sprite):
         self.c=0
         self.both=False
         self.ch=0
-        self.L_c=0
-        self.L_d=0
         self.ct = 1 #nothing has been clicked on
         super().__init__(asset, position)
         self.center=(0.5,0.5)
@@ -74,13 +72,12 @@ class Icon(Sprite):
             clkdx.append((event.x,event.y)) #add coord. of where clicked...
             #clkdx.append(clkun[lgtha-1]) #and what icon was clicked, to list 'clkdx'
             print("list2: ", list(clkdx))
-            self.L_c=lgtha
-            self.L_d=lgtha+1
+            
             lgthb = len(clkdx)
             #est[lgth-1](est[lgthb]) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
-            #clka
-            print(est[lgtha-2], end=' ')
-            print("!!!THEN!!!", est[self.L_c])
+            
+            print(clkun[lgtha-2], end=' ')
+            print("!!!THEN!!!", clkdx[lgthb-1])
             
         self.ct += 1
         print("Cycle ended")
