@@ -56,11 +56,11 @@ class Ship(Sprite):
             self.vAddedx += 0
         """
         if self.vertThrust == 1:
-            self.vAddedy += 0.05
+            self.vAddedy = 1
         if self.vertThrust == -1:
-            self.vAddedy -= 0.05
+            self.vAddedy = -1
         if self.vertThrust == 0:
-            self.vAddedy += 0
+            self.vAddedy = 0
         if self.RotThrust == 1:
             self.vAddedr = -0.3
         if self.RotThrust == -1:
@@ -102,7 +102,7 @@ class Ship(Sprite):
 
     def thrustDown(self, event):
         self.vertThrust = 1
-        
+        self.RotThrust = 1
     
     def thrustDownoff(self, event):
         self.vertThrust = 0
