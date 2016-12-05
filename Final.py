@@ -104,9 +104,10 @@ class Bunny(Icon):
         self.scale = 0.8
 
 class Draw(App):
-    global stage
-    global color
+    #global stage
+    #global color
     def __init__(self, width, height):
+        global stage
         super().__init__(width, height)
         self.a=0
         abun = Bunny((65, 520), True)
@@ -132,26 +133,49 @@ class Draw(App):
     def mseno(self,event):
         self.a=0
     def green(self,event):
+        global color
         color = 1
     def turq(self,event):
+        global color
         color = 2
     def orange(self,event):
+        global color
         color = 3
     def black(self,event):
+        global color
         color = 4
     def purp(self,event):
+        global color
         color = 5
     def brn(self,event):
+        global color
         color = 6
     def pale(self,event):
+        global color
         color = 7
     def step(self):
+        global color
         if self.a == 1 and color != 0:
+            print ("go colors go")
             if color == 1:
-                Sprite(dotg, (mse_i,))
+                Sprite(dotg, (self.mse_x,self.mse_y))
+            if color == 2:
+                Sprite(dotq, (self.mse_x,self.mse_y))
+            if color == 3:
+                Sprite(doto, (self.mse_x,self.mse_y))
+            if color == 4:
+                Sprite(dotb, (self.mse_x,self.mse_y))
+            if color == 5:
+                Sprite(dotp, (self.mse_x,self.mse_y))
+            if color == 6:
+                Sprite(dotr, (self.mse_x,self.mse_y))
+            if color == 7:
+                Sprite(dotl, (self.mse_x,self.mse_y))
     #"""
     def switch(self,event):
+        global stage
         stage += 1
+        print("news!")
 
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
 my_draw.run()
