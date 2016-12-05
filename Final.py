@@ -113,26 +113,24 @@ class Draw(App):
     global color
     def __init__(self, width, height):
         super().__init__(width, height)
-        stage = 1
+        self.a=0
         abun = Bunny((65, 520), True)
         acat = Cat((85, 380), True)
         atree = Tree((75, 200), True)
         aflr = Flowr((50, 105), True)
         #bflr = Flowr((650, 420))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
-        Draw.listenKeyEvent("keydown", "g", self.green)
-        Draw.listenKeyEvent("keydown", "q", self.turq)
-        Draw.listenKeyEvent("keydown", "o", self.orange)
-        Draw.listenKeyEvent("keydown", "b", self.black)
-        Draw.listenKeyEvent("keydown", "p", self.purp)
-        Draw.listenKeyEvent("keydown", "r", self.brn)
-        Draw.listenKeyEvent("keydown", "l", self.pale)
-        Draw.listenMouseEvent("mousedown", self.mse_isdn)
-    """
+        if stage == 2:
+            Draw.listenKeyEvent("keydown", "g", self.green)
+            Draw.listenKeyEvent("keydown", "q", self.turq)
+            Draw.listenKeyEvent("keydown", "o", self.orange)
+            Draw.listenKeyEvent("keydown", "b", self.black)
+            Draw.listenKeyEvent("keydown", "p", self.purp)
+            Draw.listenKeyEvent("keydown", "r", self.brn)
+            Draw.listenKeyEvent("keydown", "l", self.pale)
+            Draw.listenMouseEvent("mousedown", self.mse_isdn)
     def mse_isdn(self,event):
-        self.a=0
-    def switch(self,event):
-        stage += 1
+        self.a=1
     def green(self,event):
         color = 1
     def turq(self,event):
@@ -148,10 +146,13 @@ class Draw(App):
     def pale(self,event):
         color = 7
     def step(self):
-        if self.a == "yes" and color != 0:
+        if self.a == 1 and color != 0:
             if color == 1:
                 pass
                 #Sprite(dotg, (
-    """
+    #"""
+    def switch(self,event):
+        stage += 1
+
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
 my_draw.run()
