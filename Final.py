@@ -48,7 +48,7 @@ class Icon(Sprite):
         self.ct = 1 #nothing has been clicked on
         super().__init__(asset, position)
         self.center=(0.5,0.5)
-        Draw.listenMouseEvent("mouseup", self.nm_up)
+        #Draw.listenMouseEvent("mouseup", self.nm_up)
         if prop==True and stage==1:
             Draw.listenMouseEvent("mousedown", self.ym_dn)
 
@@ -83,7 +83,6 @@ class Icon(Sprite):
                 clkun[lgtha-1](clkdx[lgthb-1], False) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
                 #print(clkun[lgtha-1], end=' ')
                 #print(clkdx[lgthb-1])
-            
         self.ct += 1
     def nm_up(self,event):
         self.a="no"
@@ -128,7 +127,8 @@ class Draw(App):
         Draw.listenKeyEvent("keydown", "p", self.purp)
         Draw.listenKeyEvent("keydown", "r", self.brn)
         Draw.listenKeyEvent("keydown", "l", self.pale)
-        Draw.listenMouseEvent("mousedown", self.ym_dn)
+        Draw.listenMouseEvent("mousedown", self.mse_isdn)
+    """
     def mse_isdn(self,event):
         self.a=0
     def switch(self,event):
@@ -152,5 +152,6 @@ class Draw(App):
             if color == 1:
                 pass
                 #Sprite(dotg, (
+    """
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
 my_draw.run()
