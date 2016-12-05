@@ -28,19 +28,30 @@ linetypelist = input("linear, quadratic, cubic (l, q, c). Separate by commas: ")
 linetypelist = linetypelist.split(",")
 for linetype in linetypelist:
     if linetype == "l":
-        m = float(input("m: "))
-        b = float(input("b: "))
+        m = float(input("linear m: "))
+        b = float(input("linear b: "))
     if linetype == "q":
-        a = float(input("a: "))
-        b = float(input("b: "))
-        c = float(input("c: "))
-    xcoordinates = range(-900, 900, 1)
+        a = float(input("quadratic a: "))
+        b = float(input("quadratic b: "))
+        c = float(input("quadratic c: "))
+    if linetype == "c":
+        a = float(input("cubic a: "))
+        b = float(input("cubic b: "))
+        c = float(input("cubic c: "))
+        d = float(input("cubic d: "))
+    xcoordinates2 = range(-6000, 6000, 1)
+    xcoordinates = []
+    for x in xcoordinates2:
+        x = x/128
+        xcoordinates.append(x)
 
     if linetype == "l":
         for x in xcoordinates:
             sprites = Sprite(mycircle, (20*x+950, 20*((-m)*x-b)+500))
     if linetype == "q":
-        sprites = [Sprite(mycircle, (x+950, -a*x**2-b*x-c+500)) for x in xcoordinates]
+        sprites = [Sprite(mycircle, (20*x+950, 20*(-a*x**2-b*x-c)+500)) for x in xcoordinates]
+    if linetype == "c":
+        sprites = [Sprite(mycircle, (20*x+950, 20*(-a*x**3-b*x**2-c*x-d)+500)) for x in xcoordinates]
 
 
 
