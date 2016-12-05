@@ -39,10 +39,10 @@ for linetype in linetypelist:
         b = float(input("cubic b: "))
         c = float(input("cubic c: "))
         d = float(input("cubic d: "))
-    xcoordinates2 = range(-6000, 6000, 1)
+    xcoordinates2 = range(-3000, 3000, 1)
     xcoordinates = []
     for x in xcoordinates2:
-        x = x/128
+        x = x/64
         xcoordinates.append(x)
 
     if linetype == "l":
