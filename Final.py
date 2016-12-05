@@ -150,6 +150,7 @@ class Draw(App):
     def step(self):
         if self.a == "yes" and color != 0:
             if color == 1:
-                Sprite(dotg, (
+                pass
+                #Sprite(dotg, (
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
 my_draw.run()
