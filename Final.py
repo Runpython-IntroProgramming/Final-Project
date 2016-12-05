@@ -124,8 +124,13 @@ class Draw(App):
             Draw.listenKeyEvent("keydown", "r", self.brn)
             Draw.listenKeyEvent("keydown", "l", self.pale)
             Draw.listenMouseEvent("mousedown", self.mse_isdn)
+            Draw.listenMouseEvent("mouseup", self.mseno)
     def mse_isdn(self,event):
         self.a=1
+        self.mse_x = event.x
+        self.mse_x = event.y
+    def mseno(self,event):
+        self.a=0
     def green(self,event):
         color = 1
     def turq(self,event):
@@ -143,8 +148,7 @@ class Draw(App):
     def step(self):
         if self.a == 1 and color != 0:
             if color == 1:
-                pass
-                #Sprite(dotg, (
+                Sprite(dotg, (mse_i,))
     #"""
     def switch(self,event):
         stage += 1
