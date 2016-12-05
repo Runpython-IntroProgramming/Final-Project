@@ -13,7 +13,7 @@ SCREEN_HEIGHT = 800
 # Colors
 Lgreen = Color (0x7CFC00, 0.95)
 turqo = Color (0x40E0D0, 0.99)
-Orange = Color (0xFF8600, 1)
+orange = Color (0xFF8600, 1)
 black = Color (0x000000, 0.85)
 purp = Color (0x68228B, 0.6)
 brn = Color (0x5C3317, 0.9)
@@ -145,7 +145,7 @@ class Draw(App):
         color = 5
     def brn(self,event):
         color = 6
-    def brn(self,event):
+    def pale(self,event):
         color = 7
     def step(self):
         if self.a == "yes" and color != 0:
