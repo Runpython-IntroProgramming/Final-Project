@@ -82,7 +82,7 @@ class Ship(Sprite):
         self.x += 5
         self.y += self.vAddedy
         self.rotation += self.vAddedr
-        if self.y >= 760:
+        if self.y >= 765:
             self.visible = False
 
         
