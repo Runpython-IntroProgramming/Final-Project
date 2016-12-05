@@ -48,7 +48,7 @@ class Icon(Sprite):
         self.ct = 1 #nothing has been clicked on
         super().__init__(asset, position)
         self.center=(0.5,0.5)
-        #Draw.listenMouseEvent("mouseup", self.nm_up)
+        Draw.listenMouseEvent("mouseup", self.nm_up)
         if prop==True and stage==1:
             Draw.listenMouseEvent("mousedown", self.ym_dn)
 
@@ -128,6 +128,9 @@ class Draw(App):
         Draw.listenKeyEvent("keydown", "p", self.purp)
         Draw.listenKeyEvent("keydown", "r", self.brn)
         Draw.listenKeyEvent("keydown", "l", self.pale)
+        Draw.listenMouseEvent("mousedown", self.ym_dn)
+    def mse_isdn(self,event):
+        self.a=0
     def switch(self,event):
         stage += 1
     def green(self,event):
@@ -145,6 +148,8 @@ class Draw(App):
     def brn(self,event):
         color = 7
     def step(self):
-
+        if self.a == "yes" and color != 0:
+            if color == 1:
+                Sprite(dotg, (
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
 my_draw.run()
