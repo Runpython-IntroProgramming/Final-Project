@@ -44,13 +44,7 @@ class Ship(Sprite):
         PlaneGame.listenKeyEvent("keyup", "down arrow", self.thrustDownoff)
         PlaneGame.listenKeyEvent("keyup", "up arrow", self.thrustUpoff)
         PlaneGame.listenKeyEvent("keydown", "down arrow", self.thrustDown)
-        
-        
-        PlaneGame.listenKeyEvent("keydown", "i", self.thrustCounterClock)
-        PlaneGame.listenKeyEvent("keyup", "p", self.thrustClockoff)
-        PlaneGame.listenKeyEvent("keyup", "i", self.thrustCounterClockoff)
-        PlaneGame.listenKeyEvent("keydown", "p", self.thrustClock)
-        
+
         self.fxcenter = self.fycenter = 0.5
     def step(self):
         """
@@ -68,9 +62,9 @@ class Ship(Sprite):
         if self.vertThrust == 0:
             self.vAddedy += 0
         if self.RotThrust == 1:
-            self.vAddedr = -0.03
+            self.vAddedr = -0.3
         if self.RotThrust == -1:
-            self.vAddedr = 0.03
+            self.vAddedr = 0.3
         if self.RotThrust == 0:
             self.vAddedr = 0
         if self.x >= 2000:
@@ -81,7 +75,7 @@ class Ship(Sprite):
             self.vAddedy = -self.vAddedy 
         self.x += 5
         self.y += self.vAddedy
-        self.rotation += self.vAddedr
+        self.rotation = self.vAddedr
         if self.y >= 765:
             self.visible = False
 
@@ -104,35 +98,19 @@ class Ship(Sprite):
     
     def thrustUp(self, event):
         self.vertThrust = -1
-
+        self.RotThrust = -1
 
     def thrustDown(self, event):
         self.vertThrust = 1
-
+        
     
     def thrustDownoff(self, event):
         self.vertThrust = 0
-
+        self.RotThrust = 0
     
     def thrustUpoff(self, event):
         self.vertThrust = 0
-
-
-    def thrustCounterClock(self, event):
-        self.RotThrust = -1
-
-
-    def thrustClock(self, event):
-        self.RotThrust = 1
-
-    
-    def thrustClockoff(self, event):
         self.RotThrust = 0
-
-    
-    def thrustCounterClockoff(self, event):
-        self.RotThrust = 0
-
 
 class PlaneGame(App):
     def __init__(self, width, height):
