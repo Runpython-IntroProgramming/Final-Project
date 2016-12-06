@@ -122,6 +122,7 @@ def up(event):
         
 def down(event):
     global change
+    global first
     change=1
     first=1
     sqdir=(int(Position['dir'])//90)
