@@ -144,8 +144,6 @@ def ray():
     global screenside
     print(go,change)
     if change==1 and go==1:
-        clear=RectangleAsset(530,640, noline, white)
-        Sprite(clear,(110,0))
         print('ray has started')
         raydir=int(Position['dir'])
         wall=False
@@ -160,6 +158,9 @@ def ray():
             print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
+                if screenside=0:
+                    clear=RectangleAsset(530,640, noline, white)
+                    Sprite(clear,(110,0))
                 wallcolor='b'+str(distance)
                 print(wallcolor)
                 wallbox=RectangleAsset(((10/int(distance))*10),10*(100/int(distance)), thinline, b5)
