@@ -7,7 +7,7 @@ text on pop-up tab?
 
 """
 
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, TextAsset
 SCREEN_WIDTH = 1600
 SCREEN_HEIGHT = 800
 
@@ -128,6 +128,7 @@ class Draw(App):
         Draw.listenKeyEvent("keydown", "l", self.pale)
         Draw.listenMouseEvent("mousedown", self.mse_isdn)
         Draw.listenMouseEvent("mouseup", self.mseno)
+        """
         Draw.listenKeyEvent("keyup", "g", self.no_col)
         Draw.listenKeyEvent("keyup", "q", self.no_col)
         Draw.listenKeyEvent("keyup", "o", self.no_col)
@@ -135,6 +136,7 @@ class Draw(App):
         Draw.listenKeyEvent("keyup", "p", self.no_col)
         Draw.listenKeyEvent("keyup", "r", self.no_col)
         Draw.listenKeyEvent("keyup", "l", self.no_col)
+        """
     def switch(self,event):
         global stage
         stage += 1
@@ -181,9 +183,9 @@ class Draw(App):
         global color
         if self.a == 1 and color != 0:
             #print ("q is turqoise. ")
-            while color == 1:
+            if color == 1:
                 Sprite(dotg, (self.msx,self.msy))
-            while color == 2:
+            if color == 2:
                 Sprite(dotq, (self.msx,self.msy))
             if color == 3:
                 Sprite(doto, (self.msx,self.msy))
