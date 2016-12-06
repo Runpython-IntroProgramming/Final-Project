@@ -145,6 +145,7 @@ def ray():
     print(go,change)
     if change==1 and go==1:
         print('ray has started')
+        clear=RectangleAsset(530,640, noline, white)
         raydir=int(Position['dir'])
         wall=False
         distance=0
@@ -159,7 +160,6 @@ def ray():
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
                 if screenside==0:
-                    clear=RectangleAsset(530,640, noline, white)
                     Sprite(clear,(110,0))
                 wallcolor='b'+str(distance)
                 print(wallcolor)
