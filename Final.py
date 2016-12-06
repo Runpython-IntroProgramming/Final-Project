@@ -35,7 +35,7 @@ dotb = CircleAsset(1, noline, black)
 dotp = CircleAsset(1, noline, purp)
 dotr = CircleAsset(1, noline, brn)
 dotl = CircleAsset(1, noline, pale)
-box = RectangleAsset(10, 100, thinline, black)
+box = RectangleAsset(25, 1000, thinline, black)
 
 class Icon(Sprite):
     def __init__(self,asset,position,prop):
@@ -106,7 +106,6 @@ class Bunny(Icon):
         self.scale = 0.8
 
 class Draw(App):
-    #global stage
     #global color
     def __init__(self, width, height):
         global stage
@@ -117,7 +116,7 @@ class Draw(App):
         atree = Tree((75, 200), True)
         aflr = Flowr((50, 105), True)
         #bflr = Flowr((650, 420))
-        Sprite(box, (80, 10))
+        Sprite(box, (120, 25))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         if stage == 2:
             Draw.listenKeyEvent("keydown", "g", self.green)
@@ -178,7 +177,6 @@ class Draw(App):
                 Sprite(dotr, (self.mse_x,self.mse_y))
             if color == 7:
                 Sprite(dotl, (self.mse_x,self.mse_y))
-    #"""
     
 
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
