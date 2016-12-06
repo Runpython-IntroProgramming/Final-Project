@@ -150,7 +150,7 @@ def ray():
     global screenside
     print(go,change)
     if change==1 and go==1:
-        clear=RectangleAsset(530,640, noline, white)
+        clear=RectangleAsset(1000,640, noline, white)
         if first==1:
             Sprite(clear,(110,0))
             first=0
