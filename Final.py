@@ -31,11 +31,11 @@ stage=1
 color=0
 dotg = CircleAsset(3, noline, Lgreen)
 dotq = CircleAsset(3, noline, turqo)
-doto = CircleAsset(1, noline, orange)
-dotb = CircleAsset(1, noline, black)
-dotp = CircleAsset(1, noline, purp)
-dotr = CircleAsset(1, noline, brn)
-dotl = CircleAsset(1, noline, pale)
+doto = CircleAsset(3, noline, orange)
+dotb = CircleAsset(5, noline, black)
+dotp = CircleAsset(3, noline, purp)
+dotr = CircleAsset(2, noline, brn)
+dotl = CircleAsset(3, noline, pale)
 box = RectangleAsset(8, 1000, thinline, black)
 
 class Icon(Sprite):
@@ -133,8 +133,8 @@ class Draw(App):
         print("news! ", stage)
     def mse_isdn(self,event):
         self.a=1
-        self.mse_x = event.x
-        self.mse_x = event.y
+        self.msx = event.x
+        self.msy = event.y
     def mseno(self,event):
         self.a=0
     def green(self,event):
@@ -170,19 +170,19 @@ class Draw(App):
         if self.a == 1 and color != 0:
             print ("go colors go")
             if color == 1:
-                Sprite(dotg, (self.mse_x,self.mse_y))
+                Sprite(dotg, (self.msx,self.msy))
             if color == 2:
-                Sprite(dotq, (self.mse_x,self.mse_y))
+                Sprite(dotq, (self.msx,self.msy))
             if color == 3:
-                Sprite(doto, (self.mse_x,self.mse_y))
+                Sprite(doto, (self.msx,self.msy))
             if color == 4:
-                Sprite(dotb, (self.mse_x,self.mse_y))
+                Sprite(dotb, (self.msx,self.msy))
             if color == 5:
-                Sprite(dotp, (self.mse_x,self.mse_y))
+                Sprite(dotp, (self.msx,self.msy))
             if color == 6:
-                Sprite(dotr, (self.mse_x,self.mse_y))
+                Sprite(dotr, (self.msx,self.msy))
             if color == 7:
-                Sprite(dotl, (self.mse_x,self.mse_y))
+                Sprite(dotl, (self.msx,self.msy))
     
 
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
