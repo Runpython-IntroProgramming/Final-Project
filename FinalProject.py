@@ -123,11 +123,13 @@ class Bomb(Sprite):
         super().__init__(Bomb.asset, position)
         self.scale = 0.04
         self.ship = ship
-
+        self.visible = False
     
     def step(self):
         self.x = self.ship.x
         self.y = self.ship.y
+        if self.y >= 765:
+            self.visible = False
 
     
 class PlaneGame(App):
