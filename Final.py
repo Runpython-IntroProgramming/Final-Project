@@ -111,6 +111,7 @@ class Draw(App):
         global stage
         super().__init__(width, height)
         self.a=0
+        print("Welcome! Click and drag the icons to duplicate them")
         abun = Bunny((65, 520), True)
         acat = Cat((85, 380), True)
         atree = Tree((75, 200), True)
@@ -127,6 +128,13 @@ class Draw(App):
         Draw.listenKeyEvent("keydown", "l", self.pale)
         Draw.listenMouseEvent("mousedown", self.mse_isdn)
         Draw.listenMouseEvent("mouseup", self.mseno)
+        Draw.listenKeyEvent("keyup", "g", self.no_col)
+        Draw.listenKeyEvent("keyup", "q", self.no_col)
+        Draw.listenKeyEvent("keyup", "o", self.no_col)
+        Draw.listenKeyEvent("keyup", "b", self.no_col)
+        Draw.listenKeyEvent("keyup", "p", self.no_col)
+        Draw.listenKeyEvent("keyup", "r", self.no_col)
+        Draw.listenKeyEvent("keyup", "l", self.no_col)
     def switch(self,event):
         global stage
         stage += 1
@@ -165,13 +173,17 @@ class Draw(App):
         global color
         if stage == 2:
             color = 7
+    def no_col(self,event):
+        global color
+        if stage == 2:
+            color = 0
     def step(self):
         global color
         if self.a == 1 and color != 0:
-            print ("go colors go")
-            if color == 1:
+            #print ("q is turqoise. ")
+            while color == 1:
                 Sprite(dotg, (self.msx,self.msy))
-            if color == 2:
+            while color == 2:
                 Sprite(dotq, (self.msx,self.msy))
             if color == 3:
                 Sprite(doto, (self.msx,self.msy))
@@ -183,7 +195,6 @@ class Draw(App):
                 Sprite(dotr, (self.msx,self.msy))
             if color == 7:
                 Sprite(dotl, (self.msx,self.msy))
-    
 
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
 my_draw.run()
