@@ -18,6 +18,16 @@ class Background(Sprite):
         super().__init__(Background.asset, position)
         self.scale = 1.4
 
+class Bomb(Sprite):
+
+    asset = ImageAsset("images/bomb.png")
+    width = 100
+    height = 500
+
+    def __init__(self, position):
+        super().__init__(Background.asset, position)
+        self.scale = 1
+        
 class Ship(Sprite):
 
     asset = ImageAsset("images/il2m3-bp-fl-am-3view-mongolian.png")
@@ -118,6 +128,7 @@ class PlaneGame(App):
         Background((0, 0))
         Background((1300, 0))
         Ship((400,600))
+        Bomb((200,200))
                     
     def step(self):
         for ship in self.getSpritesbyClass(Ship):
