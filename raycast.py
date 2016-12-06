@@ -123,14 +123,14 @@ def down(event):
     global change
     change=1
     first=1
-    sqdir=(int(Position['dir'])//90)*90
+    sqdir=(int(Position['dir'])//90)
     if sqdir==0:
         Position['x']=Position['x']-1
-    if sqdir==90:
+    if sqdir==1:
         Position['y']=Position['y']-1
-    if sqdir==180:
+    if sqdir==2:
         Position['x']=Position['x']+1
-    if sqdir==270:
+    if sqdir==3:
         Position['y']=Position['y']+1
 def space(event):
     global go
