@@ -3,7 +3,7 @@ from math import sin, cos,tan, radians
 
 mapw= 100
 maph=100
-scrw=640
+scrw=700
 scrh=640
 SCREEN_WIDTH = scrw
 SCREEN_HEIGHT = scrh
