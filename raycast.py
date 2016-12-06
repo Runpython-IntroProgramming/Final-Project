@@ -119,6 +119,7 @@ def up(event):
         Position['x']=int(Position['x'])-1
     if sqdir==270:
         Position['y']=int(Position['y'])-1
+        
 def down(event):
     global change
     change=1
