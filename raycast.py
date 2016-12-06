@@ -144,6 +144,8 @@ def ray():
     global screenside
     print(go,change)
     if change==1 and go==1:
+        clear=RectangleAsset(540,640, thinline, red)
+        Sprite(
         print('ray has started')
         raydir=int(Position['dir'])
         wall=False
