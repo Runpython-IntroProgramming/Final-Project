@@ -18,22 +18,6 @@ class Background(Sprite):
         super().__init__(Background.asset, position)
         self.scale = 1.4
 
-class Bomb(Sprite):
-
-    asset = ImageAsset("images/bomb.png")
-    width = 2000
-    height = 1000
-
-    def __init__(self, position):
-        super().__init__(Bomb.asset, position)
-        self.scale = 0.04
-        self.loaded = True
-    def step(self):
-        if self.loaded == True:
-            self.x = Ship.x
-            self.y = Ship.y
-    
-    
 class Ship(Sprite):
 
     asset = ImageAsset("images/il2m3-bp-fl-am-3view-mongolian.png")
@@ -128,6 +112,25 @@ class Ship(Sprite):
         self.vertThrust = 0
         self.RotThrust = 0
 
+class Bomb(Sprite):
+
+    asset = ImageAsset("images/bomb.png")
+    width = 2000
+    height = 1000
+
+    def __init__(self, position):
+        super().__init__(Bomb.asset, position)
+        self.scale = 0.04
+        self.loaded = True
+    
+    def step(self):
+
+        if self.loaded == True:
+            
+            self.x = Ship.x
+            self.y = Ship.y
+
+    
 class PlaneGame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
