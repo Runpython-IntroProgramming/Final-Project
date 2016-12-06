@@ -111,27 +111,23 @@ class Ship(Sprite):
     def thrustUpoff(self, event):
         self.vertThrust = 0
         self.RotThrust = 0
-        
-    def MyX(self):
-        return self.x
-        
-    def MyY(self):
-        return self.y
+
+
 class Bomb(Sprite):
 
     asset = ImageAsset("images/bomb.png")
     width = 2000
     height = 1000
 
-    def __init__(self, position):
+    def __init__(self, position, ship):
         super().__init__(Bomb.asset, position)
         self.scale = 0.04
-        self.loaded = True
+        self.ship = ship
+
     
     def step(self):
-        if self.loaded == True:
-            self.x = Ship.MyX
-            self.y = Ship.MyY
+        self.x = self.ship.x
+        self.y = self.ship.y
 
     
 class PlaneGame(App):
@@ -139,8 +135,8 @@ class PlaneGame(App):
         super().__init__(width, height)
         Background((0, 0))
         Background((1300, 0))
-        Ship((400,600))
-        Bomb((400,600))
+        s = Ship((400,600))
+        Bomb((400,600),s)
                     
     def step(self):
         for ship in self.getSpritesbyClass(Ship):
