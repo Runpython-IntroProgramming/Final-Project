@@ -3,6 +3,7 @@ by Liam A.
 used: http://www.december.com/html/spec/color
 
 step functions
+text on pop-up tab?
 
 """
 
@@ -42,7 +43,6 @@ class Icon(Sprite):
         self.a="no"
         self.b=0
         self.c=0
-        
         self.both=False
         chk = 0 #preparing to check a condition
         self.ct = 1 #nothing has been clicked on
@@ -118,16 +118,15 @@ class Draw(App):
         #bflr = Flowr((650, 420))
         Sprite(box, (132, 25))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
-        if stage == 2:
-            Draw.listenKeyEvent("keydown", "g", self.green)
-            Draw.listenKeyEvent("keydown", "q", self.turq)
-            Draw.listenKeyEvent("keydown", "o", self.orange)
-            Draw.listenKeyEvent("keydown", "b", self.black)
-            Draw.listenKeyEvent("keydown", "p", self.purp)
-            Draw.listenKeyEvent("keydown", "r", self.brn)
-            Draw.listenKeyEvent("keydown", "l", self.pale)
-            Draw.listenMouseEvent("mousedown", self.mse_isdn)
-            Draw.listenMouseEvent("mouseup", self.mseno)
+        Draw.listenKeyEvent("keydown", "g", self.green)
+        Draw.listenKeyEvent("keydown", "q", self.turq)
+        Draw.listenKeyEvent("keydown", "o", self.orange)
+        Draw.listenKeyEvent("keydown", "b", self.black)
+        Draw.listenKeyEvent("keydown", "p", self.purp)
+        Draw.listenKeyEvent("keydown", "r", self.brn)
+        Draw.listenKeyEvent("keydown", "l", self.pale)
+        Draw.listenMouseEvent("mousedown", self.mse_isdn)
+        Draw.listenMouseEvent("mouseup", self.mseno)
     def switch(self,event):
         global stage
         stage += 1
@@ -140,25 +139,32 @@ class Draw(App):
         self.a=0
     def green(self,event):
         global color
-        color = 1
+        if stage == 2:
+            color = 1
     def turq(self,event):
         global color
-        color = 2
+        if stage == 2:
+            color = 2
     def orange(self,event):
         global color
-        color = 3
+        if stage == 2:
+            color = 3
     def black(self,event):
         global color
-        color = 4
+        if stage == 2:
+            color = 4
     def purp(self,event):
         global color
-        color = 5
+        if stage == 2:
+            color = 5
     def brn(self,event):
         global color
-        color = 6
+        if stage == 2:
+            color = 6
     def pale(self,event):
         global color
-        color = 7
+        if stage == 2:
+            color = 7
     def step(self):
         global color
         if self.a == 1 and color != 0:
