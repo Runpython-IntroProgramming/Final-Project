@@ -3,7 +3,7 @@ from math import sin, cos,tan, radians
 
 mapw= 100
 maph=100
-scrw=700
+scrw=1000
 scrh=640
 SCREEN_WIDTH = scrw
 SCREEN_HEIGHT = scrh
@@ -169,7 +169,7 @@ def ray():
                 raydir=raydir+10/distance
                 screenside=screenside+100/distance
                 wall=True
-                if screenside>=1000:
+                if screenside>=500:
                     change=0
                     screenside=0
                     print(change)
