@@ -21,8 +21,8 @@ class Background(Sprite):
 class Bomb(Sprite):
 
     asset = ImageAsset("images/bomb.png")
-    width = 100
-    height = 500
+    width = 2000
+    height = 1000
 
     def __init__(self, position):
         super().__init__(Background.asset, position)
