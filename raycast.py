@@ -90,6 +90,7 @@ first=1
 
 def right(event):
     global change
+    global first
     change=1
     first=1
     if Position['dir']<360:
