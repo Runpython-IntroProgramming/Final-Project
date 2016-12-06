@@ -169,7 +169,7 @@ def ray():
                 raydir=raydir+10/distance
                 screenside=screenside+100/distance
                 wall=True
-                if screenside==1000:
+                if screenside>=1000:
                     change=0
                     screenside=0
                     print(change)
