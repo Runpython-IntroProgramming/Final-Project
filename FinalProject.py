@@ -72,7 +72,7 @@ class Ship(Sprite):
         if self.x <= 0:
             self.x = 1999
         if self.y <=10:
-            self.vAddedy = -self.vAddedy 
+            self.y=11 
         self.x += 5
         self.y += self.vAddedy
         self.rotation = self.vAddedr
