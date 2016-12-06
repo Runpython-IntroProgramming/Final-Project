@@ -86,10 +86,12 @@ def drag(event):
 
 Position={"x":5,"y":5,"dir":90}
 change=1
+first=1
 
 def right(event):
     global change
     change=1
+    first=1
     if Position['dir']<360:
         Position['dir']=Position['dir']+1
     else:
@@ -98,6 +100,7 @@ def right(event):
 def left(event):
     global change
     change=1
+    first=1
     if Position['dir']>0:
         Position['dir']=Position['dir']-1
     else:
@@ -106,6 +109,7 @@ def left(event):
 def up(event):
     global change
     change=1
+    first=1
     sqdir=(int(Position['dir'])//90)*90
     if sqdir==0:
         Position['x']=Position['x']+1
@@ -118,6 +122,7 @@ def up(event):
 def down(event):
     global change
     change=1
+    first=1
     sqdir=(int(Position['dir'])//90)*90
     if sqdir==0:
         Position['x']=Position['x']-1
@@ -144,8 +149,10 @@ def ray():
     global screenside
     print(go,change)
     if change==1 and go==1:
-        print('ray has started')
         clear=RectangleAsset(530,640, noline, white)
+        if first==1:
+            Sprite(clear,(110,0))
+        print('ray has started')
         raydir=int(Position['dir'])
         wall=False
         distance=0
@@ -159,8 +166,6 @@ def ray():
             print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
-                if screenside==0:
-                    Sprite(clear,(110,0))
                 wallcolor='b'+str(distance)
                 print(wallcolor)
                 wallbox=RectangleAsset(((10/int(distance))*10),10*(100/int(distance)), thinline, b5)
