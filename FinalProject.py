@@ -27,7 +27,13 @@ class Bomb(Sprite):
     def __init__(self, position):
         super().__init__(Bomb.asset, position)
         self.scale = 0.04
-        
+        self.loaded = True
+    def step(self):
+        if self.loaded == True:
+            self.x = Ship.x
+            self.y = Ship.y
+    
+    
 class Ship(Sprite):
 
     asset = ImageAsset("images/il2m3-bp-fl-am-3view-mongolian.png")
@@ -128,10 +134,12 @@ class PlaneGame(App):
         Background((0, 0))
         Background((1300, 0))
         Ship((400,600))
-        Bomb((200,200))
+        Bomb((400,600))
                     
     def step(self):
         for ship in self.getSpritesbyClass(Ship):
+            ship.step()
+        for ship in self.getSpritesbyClass(Bomb):
             ship.step()
 
             
