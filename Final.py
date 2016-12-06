@@ -117,7 +117,7 @@ class Draw(App):
         atree = Tree((75, 200), True)
         aflr = Flowr((50, 105), True)
         #bflr = Flowr((650, 420))
-        #separater = box((80, 10))
+        Sprite(box, (80, 10))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         if stage == 2:
             Draw.listenKeyEvent("keydown", "g", self.green)
