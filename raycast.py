@@ -142,6 +142,7 @@ wall=True
 
 def ray():
     global wall
+    global first
     global walls
     global go
     global position
@@ -152,6 +153,7 @@ def ray():
         clear=RectangleAsset(530,640, noline, white)
         if first==1:
             Sprite(clear,(110,0))
+            first=0
         print('ray has started')
         raydir=int(Position['dir'])
         wall=False
