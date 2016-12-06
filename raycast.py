@@ -98,6 +98,7 @@ def right(event):
         Position['dir']=0
 
 def left(event):
+    global first
     global change
     change=1
     first=1
@@ -108,6 +109,7 @@ def left(event):
         
 def up(event):
     global change
+    global first
     change=1
     first=1
     sqdir=(int(Position['dir'])//90)*90
