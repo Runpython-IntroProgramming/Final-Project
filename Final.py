@@ -35,7 +35,7 @@ dotb = CircleAsset(1, noline, black)
 dotp = CircleAsset(1, noline, purp)
 dotr = CircleAsset(1, noline, brn)
 dotl = CircleAsset(1, noline, pale)
-box = RectangleAsset(25, 1000, thinline, black)
+box = RectangleAsset(8, 1000, thinline, black)
 
 class Icon(Sprite):
     def __init__(self,asset,position,prop):
@@ -116,7 +116,7 @@ class Draw(App):
         atree = Tree((75, 200), True)
         aflr = Flowr((50, 105), True)
         #bflr = Flowr((650, 420))
-        Sprite(box, (120, 25))
+        Sprite(box, (132, 25))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         if stage == 2:
             Draw.listenKeyEvent("keydown", "g", self.green)
