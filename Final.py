@@ -126,6 +126,10 @@ class Draw(App):
             Draw.listenKeyEvent("keydown", "l", self.pale)
             Draw.listenMouseEvent("mousedown", self.mse_isdn)
             Draw.listenMouseEvent("mouseup", self.mseno)
+    def switch(self,event):
+        global stage
+        stage += 1
+        print("news! ", stage)
     def mse_isdn(self,event):
         self.a=1
         self.mse_x = event.x
@@ -172,10 +176,7 @@ class Draw(App):
             if color == 7:
                 Sprite(dotl, (self.mse_x,self.mse_y))
     #"""
-    def switch(self,event):
-        global stage
-        stage += 1
-        print("news!")
+    
 
 my_draw = Draw(SCREEN_WIDTH, SCREEN_HEIGHT)
 my_draw.run()
