@@ -26,7 +26,7 @@ class Bomb(Sprite):
 
     def __init__(self, position):
         super().__init__(Background.asset, position)
-        self.scale = 1
+        self.scale = 0.2
         
 class Ship(Sprite):
 
