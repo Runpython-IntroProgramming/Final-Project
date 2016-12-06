@@ -42,7 +42,7 @@ class Icon(Sprite):
         self.a="no"
         self.b=0
         self.c=0
-        global stage
+        
         self.both=False
         chk = 0 #preparing to check a condition
         self.ct = 1 #nothing has been clicked on
@@ -53,33 +53,35 @@ class Icon(Sprite):
 
     def ym_dn(self,event):
         self.a="yes"
+        global stage
         lgtha = len(clkun)
-        if (self.ct)%2 == 1:
-            #calculating whether the mouse is close to an icon:
-            self.diffx = self.x-event.x
-            self.diffy = self.y-event.y
-            self.diffx = abs(self.diffx)
-            self.diffy = abs(self.diffy)
-            if self.diffx <= 40:
-                self.b=2
+        if stage == 1:
+            if (self.ct)%2 == 1:
+                #calculating whether the mouse is close to an icon:
+                self.diffx = self.x-event.x
+                self.diffy = self.y-event.y
+                self.diffx = abs(self.diffx)
+                self.diffy = abs(self.diffy)
+                if self.diffx <= 40:
+                    self.b=2
+                else:
+                    self.b=0
+                if self.diffy <= 40:
+                    self.c=2
+                else:
+                    self.c=0
+                if self.c==2 and self.b==2:
+                    print(type(self), id(self), "first click")
+                    clkun.append((event.x,event.y)) #add coord. of where clicked...
+                    clkun.append(type(self)) #and what icon was clicked, to list 'clkun'
             else:
-                self.b=0
-            if self.diffy <= 40:
-                self.c=2
-            else:
-                self.c=0
-            if self.c==2 and self.b==2:
-                print(type(self), id(self), "first click")
-                clkun.append((event.x,event.y)) #add coord. of where clicked...
-                clkun.append(type(self)) #and what icon was clicked, to list 'clkun'
-        else:
-            chk = clkun[lgtha-1]
-            if chk == type(self):
-                clkdx.append((event.x,event.y)) #add coord. of where clicked...
-                lgthb = len(clkdx)
-                clkun[lgtha-1](clkdx[lgthb-1], False) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
-                #print(clkun[lgtha-1], end=' ')
-                #print(clkdx[lgthb-1])
+                chk = clkun[lgtha-1]
+                if chk == type(self):
+                    clkdx.append((event.x,event.y)) #add coord. of where clicked...
+                    lgthb = len(clkdx)
+                    clkun[lgtha-1](clkdx[lgthb-1], False) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
+                    #print(clkun[lgtha-1], end=' ')
+                    #print(clkdx[lgthb-1])
         self.ct += 1
 
 class Flowr(Icon):
@@ -115,7 +117,7 @@ class Draw(App):
         atree = Tree((75, 200), True)
         aflr = Flowr((50, 105), True)
         #bflr = Flowr((650, 420))
-        separate = box((80, 10))
+        #separater = box((80, 10))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         if stage == 2:
             Draw.listenKeyEvent("keydown", "g", self.green)
