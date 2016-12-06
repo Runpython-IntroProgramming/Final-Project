@@ -112,13 +112,13 @@ def up(event):
     first=1
     sqdir=(int(Position['dir'])//90)*90
     if sqdir==0:
-        Position['x']=Position['x']+1
+        Position['x']=int(Position['x'])+1
     if sqdir==90:
-        Position['y']=Position['y']+1
+        Position['y']=int(Position['y'])+1
     if sqdir==180:
-        Position['x']=Position['x']-1
+        Position['x']=int(Position['x'])-1
     if sqdir==270:
-        Position['y']=Position['y']-1
+        Position['y']=int(Position['y'])-1
 def down(event):
     global change
     change=1
