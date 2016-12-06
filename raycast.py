@@ -148,10 +148,10 @@ def ray():
     global position
     global change
     global screenside
-    print(go,change)
     if change==1 and go==1:
         clear=RectangleAsset(1000,640, noline, white)
         if first==1:
+            print('clear')
             Sprite(clear,(110,0))
             first=0
         print('ray has started')
