@@ -48,7 +48,7 @@ class Icon(Sprite):
         self.ct = 1 #nothing has been clicked on
         super().__init__(asset, position)
         self.center=(0.5,0.5)
-        if prop==True and stage==1:
+        if prop==True:
             Draw.listenMouseEvent("mousedown", self.ym_dn)
 
     def ym_dn(self,event):
