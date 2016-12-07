@@ -109,7 +109,7 @@ class Bomb(Sprite):
         self.dropped = False
         
         PlaneGame.listenKeyEvent("keydown", "space", self.dropBomb)
-        PlaneGame.listenKeyEvent("keyup", "space", self.nodropBomb)
+        #PlaneGame.listenKeyEvent("keyup", "space", self.nodropBomb)
         
     def dropBomb(self, event):
         self.dropped = True
@@ -145,6 +145,7 @@ class PlaneGame(App):
         Background((2000, 0))
         s = Ship((400,600))
         Bomb((400,600),s)
+        
                     
     def step(self):
         for ship in self.getSpritesbyClass(Ship):
