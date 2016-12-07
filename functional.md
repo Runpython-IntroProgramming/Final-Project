@@ -8,8 +8,8 @@ The computer will then rapidly create a sophisticated image based on the previou
 After the user is done dragging and dropping icons, he or she will press the return key.
 Then they will be able to draw with several different colors. This will be done by dragging the mouse across the screen while holding down exactly one alphabetic key (either g, q, o, b, p, r, or l).
 
-
-
+_________________________________________________________________________________
+DELETE later...
 Instructions:
 A functional specification describes in great detail how a device or program will appear to an
 outside user. That is, it treats all hardware as a "black box", the contents of which are completely
