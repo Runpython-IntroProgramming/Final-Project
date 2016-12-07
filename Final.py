@@ -40,7 +40,8 @@ dotr = CircleAsset(2, noline, brn)
 dotl = CircleAsset(3, noline, pale)
 box = RectangleAsset(8, 1000, thinline, black)
 label = TextAsset("Icons")
-end1 = TextAsset("You have finished this program."
+trial = TextAsset("Ta da!")
+end1 = TextAsset("You have finished this program.")
 end2 = TextAsset("If you right click, you can save your image.")
 
 class Icon(Sprite):
@@ -76,7 +77,7 @@ class Icon(Sprite):
                 else:
                     self.c=0
                 if self.c==2 and self.b==2:
-                    print(type(self), id(self), "first click")
+                    #print(type(self), id(self), "first click")
                     clkun.append((event.x,event.y)) #add coord. of where clicked...
                     clkun.append(type(self)) #and what icon was clicked, to list 'clkun'
             else:
@@ -116,6 +117,7 @@ class Draw(App):
         global stage
         super().__init__(width, height)
         self.a=0
+        self.seeme = "yes"
         print("Welcome! Click and drag the icons to duplicate them")
         abun = Bunny((65, 520), True)
         acat = Cat((85, 380), True)
@@ -133,7 +135,6 @@ class Draw(App):
         Draw.listenKeyEvent("keydown", "l", self.pale)
         Draw.listenMouseEvent("mousedown", self.mse_isdn)
         Draw.listenMouseEvent("mouseup", self.mseno)
-        """
         Draw.listenKeyEvent("keyup", "g", self.no_col)
         Draw.listenKeyEvent("keyup", "q", self.no_col)
         Draw.listenKeyEvent("keyup", "o", self.no_col)
@@ -141,11 +142,14 @@ class Draw(App):
         Draw.listenKeyEvent("keyup", "p", self.no_col)
         Draw.listenKeyEvent("keyup", "r", self.no_col)
         Draw.listenKeyEvent("keyup", "l", self.no_col)
-        """
+        
     def switch(self,event):
         global stage
         stage += 1
         print("news! ", stage)
+        if stage == 3:
+            self.seeme = "no"
+            Sprite(trial, (1000,600))
     def mse_isdn(self,event):
         self.a=1
         self.msx = event.x
