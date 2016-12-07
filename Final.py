@@ -114,12 +114,12 @@ class Bird(Icon):
     asset = ImageAsset("images/blue_bird.png")
     def __init__(self,position,prop):
         super().__init__(Bird.asset, position,prop)
-        self.scale = 0.8
+        self.scale = 0.18
 class kid(Icon):
     asset = ImageAsset("images/cartoon_boy.png")
     def __init__(self,position,prop):
         super().__init__(kid.asset, position,prop)
-        self.scale = 0.8
+        self.scale = 0.08
 
 class Draw(App):
     #global color
@@ -133,8 +133,10 @@ class Draw(App):
         acat = Cat((85, 380), True)
         atree = Tree((75, 200), True)
         aflr = Flowr((50, 105), True)
+        abird = Bird((65, 600), True)
+        aboi = kid((50, 710), True)
         Sprite(box, (132, 25))
-        Sprite(label, (50, 600))
+        Sprite(label, (50, 40))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         Draw.listenKeyEvent("keydown", "g", self.green)
         Draw.listenKeyEvent("keydown", "q", self.turq)
