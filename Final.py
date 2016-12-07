@@ -120,7 +120,7 @@ class Draw(App):
         atree = Tree((75, 200), True)
         aflr = Flowr((50, 105), True)
         Sprite(box, (132, 25))
-        Sprite(label, (60, 800))
+        Sprite(label, (50, 600))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         Draw.listenKeyEvent("keydown", "g", self.green)
         Draw.listenKeyEvent("keydown", "q", self.turq)
