@@ -39,7 +39,9 @@ dotp = CircleAsset(3, noline, purp)
 dotr = CircleAsset(2, noline, brn)
 dotl = CircleAsset(3, noline, pale)
 box = RectangleAsset(8, 1000, thinline, black)
-label = TextAsset ("Icon")
+label = TextAsset("Icons")
+end1 = TextAsset("You have finished this program."
+end2 = TextAsset("If you right click, you can save your image.")
 
 class Icon(Sprite):
     def __init__(self,asset,position,prop):
