@@ -1,6 +1,8 @@
 """
 by Liam A.
-used: http://www.december.com/html/spec/color
+used: http://www.december.com/html/spec/color,
+http://orig14.deviantart.net/7b77/f/2013/203/5/5/cartoon_boy_by_navdbest-d6ekjw9.png
+http://cartoon-birds.clipartonline.net/_/rsrc/1472868952735/blue-birds-cartoon-bird-images/blue_bird_clipart_image_9.png?height=320&width=320
 
 step functions
 text on pop-up tab?
@@ -37,6 +39,7 @@ dotp = CircleAsset(3, noline, purp)
 dotr = CircleAsset(2, noline, brn)
 dotl = CircleAsset(3, noline, pale)
 box = RectangleAsset(8, 1000, thinline, black)
+label = TextAsset ("Icon")
 
 class Icon(Sprite):
     def __init__(self,asset,position,prop):
@@ -117,6 +120,7 @@ class Draw(App):
         atree = Tree((75, 200), True)
         aflr = Flowr((50, 105), True)
         Sprite(box, (132, 25))
+        Sprite(label, (60, 800))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         Draw.listenKeyEvent("keydown", "g", self.green)
         Draw.listenKeyEvent("keydown", "q", self.turq)
