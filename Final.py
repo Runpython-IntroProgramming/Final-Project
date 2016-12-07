@@ -116,7 +116,6 @@ class Draw(App):
         acat = Cat((85, 380), True)
         atree = Tree((75, 200), True)
         aflr = Flowr((50, 105), True)
-        #bflr = Flowr((650, 420))
         Sprite(box, (132, 25))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         Draw.listenKeyEvent("keydown", "g", self.green)
