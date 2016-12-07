@@ -123,11 +123,17 @@ class Bomb(Sprite):
             self.y = self.ship.y
         if self.dropped == True:
             self.visible = True
-            while self.visible == True:
+            if self.visible == True:
                 self.x += 5
                 self.y +=5
         if self.y >= 765:
             self.visible = False
+            self.dropped = False
+        if self.x >= 2000:
+            self.x = 10
+        if self.x <= 0:
+            self.x = 1999
+        
         
 
     
@@ -136,6 +142,7 @@ class PlaneGame(App):
         super().__init__(width, height)
         Background((0, 0))
         Background((1300, 0))
+        Background((2000, 0))
         s = Ship((400,600))
         Bomb((400,600),s)
                     
