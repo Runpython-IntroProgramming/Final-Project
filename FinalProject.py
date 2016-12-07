@@ -112,14 +112,23 @@ class Bomb(Sprite):
         PlaneGame.listenKeyEvent("keyup", "space", self.nodropBomb)
         
     def dropBomb(self, event):
-        
+        self.dropped = True
+    
+    def nodropBomb(self, event):
+        self.dropped = False
     
     def step(self):
         if self.dropped == False:
             self.x = self.ship.x
             self.y = self.ship.y
+        if self.dropped == True:
+            self.visible = True
+            while self.visible == True:
+                self.x += 5
+                self.y +=5
         if self.y >= 765:
             self.visible = False
+        
 
     
 class PlaneGame(App):
