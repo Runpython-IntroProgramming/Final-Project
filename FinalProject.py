@@ -29,7 +29,6 @@ class Ship(Sprite):
         self.vAddedx = 0
         self.vAddedy = 0
         self.vAddedr = 0
-        self.sideThrust = 0
         self.vertThrust = 0
         self.RotThrust = 0
         self.thrustframe = 1
@@ -79,23 +78,6 @@ class Ship(Sprite):
         if self.y >= 765:
             self.visible = False
 
-        
-    def thrustLeft(self, event):
-        self.sideThrust = -1
-
-
-    def thrustRight(self, event):
-        self.sideThrust = 1
-
-    
-    def thrustRightoff(self, event):
-        self.sideThrust = 0
-
-    
-    def thrustLeftoff(self, event):
-        self.sideThrust = 0
-
-    
     def thrustUp(self, event):
         self.vertThrust = -1
         self.RotThrust = -1
@@ -124,10 +106,18 @@ class Bomb(Sprite):
         self.scale = 0.04
         self.ship = ship
         self.visible = False
+        self.dropped = False
+        
+        PlaneGame.listenKeyEvent("keydown", "space", self.dropBomb)
+        PlaneGame.listenKeyEvent("keyup", "space", self.nodropBomb)
+        
+    def dropBomb(self, event):
+        
     
     def step(self):
-        self.x = self.ship.x
-        self.y = self.ship.y
+        if self.dropped == False:
+            self.x = self.ship.x
+            self.y = self.ship.y
         if self.y >= 765:
             self.visible = False
 
