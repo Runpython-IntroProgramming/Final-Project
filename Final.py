@@ -110,6 +110,16 @@ class Bunny(Icon):
     def __init__(self,position,prop):
         super().__init__(Bunny.asset, position,prop)
         self.scale = 0.8
+class Bird(Icon):
+    asset = ImageAsset("images/bunny.png")
+    def __init__(self,position,prop):
+        super().__init__(Bird.asset, position,prop)
+        self.scale = 0.8
+class kid(Icon):
+    asset = ImageAsset("images/bunny.png")
+    def __init__(self,position,prop):
+        super().__init__(kid.asset, position,prop)
+        self.scale = 0.8
 
 class Draw(App):
     #global color
