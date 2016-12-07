@@ -1,6 +1,6 @@
 # Andy Kotz final project: graphing calculator with regressions
 
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, TextAsset
 from ggame import CircleAsset
 from math import sin, cos, radians
 
@@ -35,7 +35,7 @@ Sprite (yaxis, (950, 0))
 yaxisrulingsprites = [Sprite(yaxisrulings, (947.5, y*20)) for y in range(-100, 100, 1)]
 xaxisrulingsprites = [Sprite(xaxisrulings, (x*20+10, 497)) for x in range(-150, 150, 1)]
 
-linetypelist = input("linear, quadratic, cubic (l, q, c). Separate by commas: ")
+linetypelist = input("linear, quadratic, cubic, plot (l, q, c, p). Separate by commas: ")
 linetypelist = linetypelist.split(",")
 for linetype in linetypelist:
     if linetype == "l":
@@ -50,6 +50,14 @@ for linetype in linetypelist:
         b = float(input("cubic b: "))
         c = float(input("cubic c: "))
         d = float(input("cubic d: "))
+    if linetype == "p":
+        again = True
+        while again == True:
+            point = input("input point x,y. press q to quit")
+            if point == "q":
+                again = False
+            if again 
+
     xcoordinates2 = range(-1500, 1500, 1)
     xcoordinates = []
     for x in xcoordinates2:
@@ -58,16 +66,30 @@ for linetype in linetypelist:
 
     if linetype == "l":
         for x in xcoordinates:
-            sprites = Sprite(mycircle, (20*x+950, 20*((-m)*x-b)+500))
+            yval = 20*((-m)*x-b)+500
+            if yval >= 0:
+                sprites = Sprite(mycircle, (20*x+950, yval))
     if linetype == "q":
-        sprites = [Sprite(mycircle, (20*x+950, 20*(-a*x**2-b*x-c)+500)) for x in xcoordinates]
+        for x in xcoordinates:
+            yval = 20*(-a*x**2-b*x-c)+500
+            if yval >= 0:
+                sprites = Sprite(mycircle, (20*x+950, yval))
     if linetype == "c":
-        sprites = [Sprite(mycircle, (20*x+950, 20*(-a*x**3-b*x**2-c*x-d)+500)) for x in xcoordinates]
-
+        for x in xcoordinates:
+            yval = 20*(-a*x**3-b*x**2-c*x-d)+500
+            if yval >= 0:
+                sprites = Sprite(mycircle, (20*x+950, yval))
+coords = None
 def mousePosition(event):
+    global text
+    global coords
+    if coords != None:
+        coords.destroy()
     xcurse.y = event.y-7
     ycurse.x = event.x-9
-
+    text = TextAsset("(" + str(round((event.x-959)/20)) + "," + str(round((-(event.y-507))/20)) + ")", style = '10pt Arial')
+    coords = Sprite(text, (event.x-7, event.y-22))
+    
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
