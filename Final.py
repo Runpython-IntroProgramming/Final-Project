@@ -9,7 +9,7 @@ text on pop-up tab?
 
 """
 
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, TextAsset
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, PolygonAsset, ImageAsset, TextAsset
 SCREEN_WIDTH = 1850
 SCREEN_HEIGHT = 1000
 
