@@ -30,6 +30,7 @@ xaxisrulings = RectangleAsset(1, 7, thinline, black)
 yaxisrulings = RectangleAsset(7, 1, thinline, black)
 thinline = LineStyle(0, black)
 mycircle = CircleAsset(3, thinline, blue)
+mycirclebig = CircleAsset(6, thinline, blue)
 Sprite (xaxis, (0, 500))
 Sprite (yaxis, (950, 0))
 yaxisrulingsprites = [Sprite(yaxisrulings, (947.5, y*20)) for y in range(-100, 100, 1)]
@@ -60,7 +61,7 @@ for linetype in linetypelist:
                 again = False
             if again == True:
                 point = point.split(",")
-                Sprite(mycircle, (20*int(point[0])+950, -20*int(point[1])+500))
+                Sprite(mycirclebig, (20*int(point[0])+950, -20*int(point[1])+500))
                 xlistpts.append(int(point[0]))
                 ylistpts.append(int(point[1]))
             if point == "r":
@@ -72,7 +73,10 @@ for linetype in linetypelist:
                     yavg = yavg + b
                 xavg = xavg/(len(xlistpts))
                 yavg = yavg/(len(ylistpts))
-                
+                slopelist = []
+                goforslope = 0
+                while goforslope <= len(xlistpts)-2:
+                    x = xlistpts[goforslope]
 
     xcoordinates2 = range(-1500, 1500, 1)
     xcoordinates = []
