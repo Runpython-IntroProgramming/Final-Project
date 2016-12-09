@@ -41,9 +41,8 @@ dotr = CircleAsset(2, noline, brn)
 dotl = CircleAsset(3, noline, pale)
 box = RectangleAsset(8, 1000, thinline, black)
 label = TextAsset("Icons")
-trial = TextAsset("Ta da!")
-end1 = TextAsset("You have finished this program.")
-end2 = TextAsset("If you click, you can save your image.")
+end1 = TextAsset("You have finished this program!")
+end2 = TextAsset("If you ctrl+click, you can save your image.")
 
 #overall class
 class Icon(Sprite):
@@ -130,7 +129,7 @@ class Draw(App):
         abird = Bird((65, 600), True)
         aboi = kid((55, 710), True)
         Sprite(box, (132, 25))
-        Sprite(label, (50, 40))
+        Sprite(label, (50, 30))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         Draw.listenKeyEvent("keydown", "g", self.green)
         Draw.listenKeyEvent("keydown", "q", self.turq)
