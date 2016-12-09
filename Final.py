@@ -41,8 +41,8 @@ dotr = CircleAsset(2, noline, brn)
 dotl = CircleAsset(3, noline, pale)
 box = RectangleAsset(8, 1000, thinline, black)
 label = TextAsset("Icons")
-end1 = TextAsset("You have finished this program!")
-end2 = TextAsset("If you ctrl+click, you can save your image.")
+end1 = TextAsset("You have finished this program!", width=500)
+end2 = TextAsset("If you ctrl+click, you can save your image.", width=500)
 
 #overall class
 class Icon(Sprite):
@@ -140,6 +140,7 @@ class Draw(App):
         Draw.listenKeyEvent("keydown", "l", self.pale)
         Draw.listenMouseEvent("mousedown", self.mse_isdn)
         Draw.listenMouseEvent("mouseup", self.mseno)
+        Draw.listenMouseEvent("mousemove", self.move)
         Draw.listenKeyEvent("keyup", "g", self.no_col)
         Draw.listenKeyEvent("keyup", "q", self.no_col)
         Draw.listenKeyEvent("keyup", "o", self.no_col)
@@ -154,13 +155,15 @@ class Draw(App):
         print("news! ", stage)
         if stage == 3:
             Sprite(end1, (1000,600))
-            Sprite(end2, (1050,700))
+            Sprite(end2, (1005,620))
     def mse_isdn(self,event):
         self.a=1
-        self.msx = event.x
-        self.msy = event.y
+        
     def mseno(self,event):
         self.a=0
+    def move:
+        self.msx = event.x
+        self.msy = event.y
     def green(self,event):
         global color
         if stage == 2:
