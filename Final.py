@@ -4,9 +4,6 @@ used: http://www.december.com/html/spec/color,
 http://orig14.deviantart.net/7b77/f/2013/203/5/5/cartoon_boy_by_navdbest-d6ekjw9.png
 http://cartoon-birds.clipartonline.net/_/rsrc/1472868952735/blue-birds-cartoon-bird-images/blue_bird_clipart_image_9.png?height=320&width=320
 
-step functions
-text on pop-up tab?
-
 """
 
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, PolygonAsset, ImageAsset, TextAsset
