@@ -23,6 +23,7 @@ brn = Color (0x5C3317, 0.9)
 pale = Color (0xFFFACD, 0.4)
 white = Color (0xFFFFFF, 0)
 
+#line styles
 bl_line = LineStyle(3, black)
 thinline = LineStyle(1, black)
 noline = LineStyle(0, white)
@@ -44,12 +45,11 @@ trial = TextAsset("Ta da!")
 end1 = TextAsset("You have finished this program.")
 end2 = TextAsset("If you click, you can save your image.")
 
+#overall class
 class Icon(Sprite):
     def __init__(self,asset,position,prop):
-        self.a="no"
         self.b=0
         self.c=0
-        self.both=False
         chk = 0 #preparing to check a condition
         self.ct = 1 #nothing has been clicked on
         super().__init__(asset, position)
@@ -57,7 +57,6 @@ class Icon(Sprite):
         if prop==True:
             Draw.listenMouseEvent("mousedown", self.ym_dn)
     def ym_dn(self,event):
-        #self.a="yes"
         global stage
         lgtha = len(clkun)
         if stage == 1:
@@ -86,7 +85,7 @@ class Icon(Sprite):
                     lgthb = len(clkdx)
                     clkun[lgtha-1](clkdx[lgthb-1], False) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
         self.ct += 1
-
+#subclasses
 class Flowr(Icon):
     asset = ImageAsset("images/pinkflowr.png")
     def __init__(self,position,prop):
@@ -119,7 +118,6 @@ class kid(Icon):
         self.scale = 0.06
 
 class Draw(App):
-    #global color
     def __init__(self, width, height):
         global stage
         super().__init__(width, height)
