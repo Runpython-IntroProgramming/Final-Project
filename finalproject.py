@@ -1,2 +1,2 @@
-currencies = {'Euro':.942218, 'Pound':.794856, 'Rupee':67.412529, 'Australian Dollar':1.341483, 'Canadian Dollar':1.320036, 'Singapore Dollar':1.424582, 'Swiss Franc':1.016520, 'Malaysian Rinnggit':4.420300, 'Japanese Yen':114.212492,'Chinese Yuan Renminbi':6.880900
+currencies = {'Euro':.942218, 'Pound':.794856, 'Rupee':67.412529, 'Australian Dollar':1.341483, 'Canadian Dollar':1.320036, 'Singapore Dollar':1.424582, 'Swiss Franc':1.016520, 'Malaysian Rinnggit':4.420300, 'Japanese Yen':114.212492,'Chinese Yuan Renminbi':6.880900, 'Argentine Peso':15.994313,'Bahraini Dinar':0.377000,'Botswana Pula':10.834236,'Brazilian Real':3.376349, 'Bruneian Dollar':1.424582,
 
