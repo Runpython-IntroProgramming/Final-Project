@@ -52,11 +52,21 @@ for linetype in linetypelist:
         d = float(input("cubic d: "))
     if linetype == "p":
         again = True
+        ylistpts=[]
+        xlistpts=[]
         while again == True:
-            point = input("input point x,y. press q to quit")
-            if point == "q":
+            point = input("input point x,y. press q to quit, r to regress: ")
+            if point == "q" or point == "r":
                 again = False
-            if again 
+            if again == True:
+                point = point.split(",")
+                Sprite(mycircle, (20*int(point[0])+950, -20*int(point[1])+500))
+                xlistpts.append(point[0])
+                ylistpts.append(point[1])
+            if point == "r":
+                xavg=0
+                for i in xlistpts:
+                    
 
     xcoordinates2 = range(-1500, 1500, 1)
     xcoordinates = []
