@@ -1,4 +1,4 @@
-Sources: http://www.x-rates.com/table/?from=USD&amount=1
+
 
 
 currencies = {'Euro':.942218, 'Pound':.794856, 'Rupee':67.412529, 'Australian Dollar':1.341483, 'Canadian Dollar':1.320036, 'Singapore Dollar':1.424582, 'Swiss Franc':1.016520, 'Malaysian Rinnggit':4.420300, 'Japanese Yen':114.212492, 'Chinese Yuan Renminbi':6.880900, 'Argentine Peso':15.994313, 'Bahraini Dinar':0.377000, 'Botswana Pula':10.834236, 'Brazilian Real':3.376349, 'Bruneian Dollar':1.424582, 'Bulgarian Lev':1.843010, 'Chilean Peso':654.800000, 'Colombian Peso':3003.499994, 'Croatian Kuna':7.102514, 'Czech Koruna':25.489149, 'Danish Krone':7.009617, 'Emirati Dirham':3.673000, 'Hong Kong Dollar':7.756443, 'Hungarian Forint':296.213068, 'Icelandic Krona':111.510000, 'Indonesian Rupiah':13352.062264, 'Iranian Rial':32150.000001, 'Israeli Shekel':3.813926, 'Kazakhstani Tenge':334.570007, 'Kuwaiti Dinar':0.304875, 'Latvian Lat':0.662191, 'Libyan Dinar':1.417500, 'Lithuanian Litas':3.253290,
