@@ -10,8 +10,8 @@ text on pop-up tab?
 """
 
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, TextAsset
-SCREEN_WIDTH = 1600
-SCREEN_HEIGHT = 800
+SCREEN_WIDTH = 1850
+SCREEN_HEIGHT = 1000
 
 # Colors
 Lgreen = Color (0x7CFC00, 0.95)
@@ -20,7 +20,7 @@ orange = Color (0xFF8600, 1)
 black = Color (0x000000, 0.85)
 purp = Color (0x68228B, 0.6)
 brn = Color (0x5C3317, 0.9)
-pale = Color (0xFFFACD, 0.4)
+pale = Color (0xFFFACD, 0.8)
 white = Color (0xFFFFFF, 0)
 
 #line styles
@@ -154,14 +154,13 @@ class Draw(App):
         stage += 1
         print("news! ", stage)
         if stage == 3:
-            Sprite(end1, (1000,600))
-            Sprite(end2, (1005,620))
+            Sprite(end1, (1250,800))
+            Sprite(end2, (1251,822))
     def mse_isdn(self,event):
         self.a=1
-        
     def mseno(self,event):
         self.a=0
-    def move:
+    def move(self,event):
         self.msx = event.x
         self.msy = event.y
     def green(self,event):
