@@ -86,15 +86,13 @@ class Icon(Sprite):
                     clkdx.append((event.x,event.y)) #add coord. of where clicked...
                     lgthb = len(clkdx)
                     clkun[lgtha-1](clkdx[lgthb-1], False) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
-                    #print(clkun[lgtha-1], end=' ')
-                    #print(clkdx[lgthb-1])
         self.ct += 1
 
 class Flowr(Icon):
     asset = ImageAsset("images/pinkflowr.png")
     def __init__(self,position,prop):
         super().__init__(Flowr.asset, position,prop)
-        self.scale = 0.1
+        self.scale = 0.2
 class Tree(Icon):
     asset = ImageAsset("images/tree.png")
     def __init__(self,position,prop):
@@ -119,7 +117,7 @@ class kid(Icon):
     asset = ImageAsset("images/cartoon_boy.png")
     def __init__(self,position,prop):
         super().__init__(kid.asset, position,prop)
-        self.scale = 0.08
+        self.scale = 0.06
 
 class Draw(App):
     #global color
@@ -161,7 +159,8 @@ class Draw(App):
         print("news! ", stage)
         if stage == 3:
             self.seeme = "no"
-            Sprite(trial, (1000,600))
+            Sprite(end1, (1000,600))
+            Sprite(end2, (1050,700))
     def mse_isdn(self,event):
         self.a=1
         self.msx = event.x
@@ -203,7 +202,6 @@ class Draw(App):
     def step(self):
         global color
         if self.a == 1 and color != 0:
-            #print ("q is turqoise. ")
             if color == 1:
                 Sprite(dotg, (self.msx,self.msy))
             if color == 2:
