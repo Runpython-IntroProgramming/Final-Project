@@ -79,7 +79,10 @@ for linetype in linetypelist:
                     x = xlistpts[goforslope+1]-xlistpts[goforslope]
                     y = ylistpts[goforslope+1]-ylistpts[goforslope]
                     slopelist.append(y/x)
-                for h in slopelist
+                slopeavg = 0
+                for h in slopelist:
+                    slopeavg = slopeavg + h
+                slopeavg = slopeavg/(len(slopelist))
 
     xcoordinates2 = range(-1500, 1500, 1)
     xcoordinates = []
