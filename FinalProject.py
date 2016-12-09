@@ -120,7 +120,7 @@ class Bomb(Sprite):
     def step(self):
         if self.dropped == False:
             self.x = self.ship.x
-            self.y = self.ship.y+12
+            self.y = self.ship.y+15
         if self.dropped == True:
             self.visible = True
             if self.visible == True:
