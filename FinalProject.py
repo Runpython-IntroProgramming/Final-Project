@@ -169,6 +169,8 @@ class PlaneGame(App):
             ship.step()
         for ship in self.getSpritesbyClass(Bomb):
             ship.step()
+        for ship in self.getSpritesbyClass(ExplosionBig):
+            ship.step()
 
             
 app = PlaneGame(0,0)
