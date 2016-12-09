@@ -22,9 +22,6 @@ purp = Color (0x68228B, 0.6)
 brn = Color (0x5C3317, 0.9)
 pale = Color (0xFFFACD, 0.8)
 white = Color (0xFFFFFF, 0)
-
-#line styles
-bl_line = LineStyle(3, black)
 thinline = LineStyle(1, black)
 noline = LineStyle(0, white)
 
