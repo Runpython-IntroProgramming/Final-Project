@@ -61,12 +61,18 @@ for linetype in linetypelist:
             if again == True:
                 point = point.split(",")
                 Sprite(mycircle, (20*int(point[0])+950, -20*int(point[1])+500))
-                xlistpts.append(point[0])
-                ylistpts.append(point[1])
+                xlistpts.append(int(point[0]))
+                ylistpts.append(int(point[1]))
             if point == "r":
                 xavg=0
+                yavg=0
                 for i in xlistpts:
-                    
+                    xavg = xavg + i
+                for b in ylistpts:
+                    yavg = yavg + b
+                xavg = xavg/(len(xlistpts))
+                yavg = yavg/(len(ylistpts))
+                
 
     xcoordinates2 = range(-1500, 1500, 1)
     xcoordinates = []
