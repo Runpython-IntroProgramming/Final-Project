@@ -34,7 +34,7 @@ color=0
 dotg = CircleAsset(3, noline, Lgreen)
 dotq = CircleAsset(3, noline, turqo)
 doto = CircleAsset(3, noline, orange)
-dotb = CircleAsset(5, noline, black)
+dotb = CircleAsset(4, noline, black)
 dotp = CircleAsset(3, noline, purp)
 dotr = CircleAsset(2, noline, brn)
 dotl = CircleAsset(3, noline, pale)
@@ -42,7 +42,7 @@ box = RectangleAsset(8, 1000, thinline, black)
 label = TextAsset("Icons")
 trial = TextAsset("Ta da!")
 end1 = TextAsset("You have finished this program.")
-end2 = TextAsset("If you right click, you can save your image.")
+end2 = TextAsset("If you click, you can save your image.")
 
 class Icon(Sprite):
     def __init__(self,asset,position,prop):
@@ -56,9 +56,8 @@ class Icon(Sprite):
         self.center=(0.5,0.5)
         if prop==True:
             Draw.listenMouseEvent("mousedown", self.ym_dn)
-
     def ym_dn(self,event):
-        self.a="yes"
+        #self.a="yes"
         global stage
         lgtha = len(clkun)
         if stage == 1:
@@ -125,14 +124,13 @@ class Draw(App):
         global stage
         super().__init__(width, height)
         self.a=0
-        self.seeme = "yes"
         print("Welcome! Click and drag the icons to duplicate them")
-        abun = Bunny((65, 520), True)
-        acat = Cat((85, 380), True)
-        atree = Tree((75, 200), True)
+        abun = Bunny((65, 500), True)
+        acat = Cat((80, 350), True)
+        atree = Tree((75, 225), True)
         aflr = Flowr((50, 105), True)
         abird = Bird((65, 600), True)
-        aboi = kid((50, 710), True)
+        aboi = kid((55, 710), True)
         Sprite(box, (132, 25))
         Sprite(label, (50, 40))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
@@ -158,7 +156,6 @@ class Draw(App):
         stage += 1
         print("news! ", stage)
         if stage == 3:
-            self.seeme = "no"
             Sprite(end1, (1000,600))
             Sprite(end2, (1050,700))
     def mse_isdn(self,event):
