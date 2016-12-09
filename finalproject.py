@@ -1,22 +1,2 @@
-import ggame
-from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
-from random import random
-SCREEN_WIDTH = 1500
-SCREEN_HEIGHT = 910
-red = Color(0xff0000, 1.0)
-green = Color(0x00ff00, 1.0)
-blue = Color(0x0000ff, 1.0)
-black = Color(0x000000, 1.0)
-white = Color(0xffffff, 1.0)
+currencies = {'Euro':.942218, 'Pound':.794856, 'Rupee':67.412529, 'Australian Dollar':1.341483, 'Canadian Dollar':1.320036, 'Singapore Dollar':1.424582, 'Swiss Franc':1.016520, 'Malaysian Rinnggit':4.420300, 'Japanese Yen':114.212492,'Chinese Yuan Renminbi':6.880900
 
-class Ball(Sprite):
-    asset=ImageAsset("ball.png")
-    def __init__(self, position):
-        super().__init__(Ball.asset, position)
-        Ball((100,100))
-    
-
-
-myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
-myapp.run()
-    
