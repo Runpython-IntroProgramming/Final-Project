@@ -145,7 +145,7 @@ class ExplosionBig(Sprite):
         super().__init__(ExplosionBig.asset, position)
         self.image = 0
         self.center = (0.5, 0.5)
-        self.scale = 0.75
+        self.scale = 0.7
         
     def step(self):
         self.setImage(self.image//2)  # slow it down
