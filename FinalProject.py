@@ -107,7 +107,7 @@ class Bomb(Sprite):
         self.ship = ship
         self.visible = False
         self.dropped = False
-        
+        self.counter = 0
         PlaneGame.listenKeyEvent("keydown", "space", self.dropBomb)
         #PlaneGame.listenKeyEvent("keyup", "space", self.nodropBomb)
         
@@ -120,15 +120,17 @@ class Bomb(Sprite):
     def step(self):
         if self.dropped == False:
             self.x = self.ship.x
-            self.y = self.ship.y
+            self.y = self.ship.y+12
         if self.dropped == True:
             self.visible = True
             if self.visible == True:
+                self.counter += 0.2
                 self.x += 5
-                self.y +=5
+                self.y += self.counter
         if self.y >= 765:
             self.visible = False
             self.dropped = False
+            self.counter = 0
         if self.x >= 2000:
             self.x = 10
         if self.x <= 0:
@@ -143,7 +145,7 @@ class PlaneGame(App):
         Background((0, 0))
         Background((1300, 0))
         Background((2000, 0))
-        s = Ship((400,600))
+        s = Ship((400,200))
         Bomb((400,600),s)
         
                     
