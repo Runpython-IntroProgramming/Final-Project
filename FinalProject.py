@@ -131,6 +131,7 @@ class Bomb(Sprite):
             self.visible = False
             self.dropped = False
             self.counter = 0
+            ExplosionBig(self.position)
         if self.x >= 2000:
             self.x = 10
         if self.x <= 0:
