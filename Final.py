@@ -68,7 +68,6 @@ class Icon(Sprite):
                 else:
                     self.c=0
                 if self.c==2 and self.b==2:
-                    #print(type(self), id(self), "first click")
                     clkun.append((event.x,event.y)) #add coord. of where clicked...
                     clkun.append(type(self)) #and what icon was clicked, to list 'clkun'
             else:
@@ -147,6 +146,8 @@ class Draw(App):
         global stage
         stage += 1
         print("news! ", stage)
+        if stage == 2:
+            print("You are done dragging and dropping! Now try dragging the mouse across the screen while holding one of the following keys: 'b', 'r', 'p', 'l', 'g', 'o', or 'q'.")
         if stage == 3:
             Sprite(end1, (1250,800))
             Sprite(end2, (1251,822))
