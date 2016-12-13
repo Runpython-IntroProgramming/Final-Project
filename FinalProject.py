@@ -20,7 +20,7 @@ class Background(Sprite):
 
 class Truck(Sprite):
 
-    asset = ImageAsset("images/Truck-side-edit.png")
+    asset = ImageAsset("images/Truck-side-edit copy.png")
     width = 1389
     height = 664
 
@@ -34,7 +34,7 @@ class Truck(Sprite):
         if self.x <= -180:
             self.x = 1999
         if self.collidingWithSprites(Bomb):
-            ExplosionBig(self.position)
+            self.visible = False
 
 class Ship(Sprite):
 
