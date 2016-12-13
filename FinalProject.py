@@ -172,6 +172,7 @@ class PlaneGame(App):
         Background((2000, 0))
         s = Ship((400,200))
         Bomb((400,600),s)
+        Truck((200,500))
         
                     
     def step(self):
