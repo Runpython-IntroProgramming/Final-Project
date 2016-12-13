@@ -16,7 +16,7 @@ class Background(Sprite):
 
     def __init__(self, position):
         super().__init__(Background.asset, position)
-        self.scale = 0.7
+        self.scale = 1.4
 
 class Truck(Sprite):
 
@@ -26,7 +26,7 @@ class Truck(Sprite):
 
     def __init__(self, position):
         super().__init__(Truck.asset, position)
-        self.scale = 1
+        self.scale = 0.5
 
 class Ship(Sprite):
 
