@@ -67,9 +67,9 @@ for linetype in linetypelist:
                 again = False
             if again == True:
                 point = point.split(",")
-                Sprite(mycirclebig, (20*int(point[0])+950, -20*int(point[1])+500))
-                xlistpts.append(int(point[0]))
-                ylistpts.append(int(point[1]))
+                Sprite(mycirclebig, (20*float(point[0])+950, -20*float(point[1])+500))
+                xlistpts.append(float(point[0]))
+                ylistpts.append(float(point[1]))
             if point == "r":
                 xavg=0
                 yavg=0
@@ -164,14 +164,15 @@ Sprite (yaxis, (950, 0))
 yaxisrulingsprites = [Sprite(yaxisrulings, (947.5, y*20)) for y in range(-100, 100, 1)]
 xaxisrulingsprites = [Sprite(xaxisrulings, (x*20+10, 497)) for x in range(-150, 150, 1)]
 
+
+
+linetypelist = input("linear, quadratic, cubic, plot (l, q, c, p). Separate by commas: ")
+linetypelist = linetypelist.split(",")
 xcoordinates2 = range(-1500, 1500, 1)
 xcoordinates = []
 for x in xcoordinates2:
     x = x/32
     xcoordinates.append(x)
-
-linetypelist = input("linear, quadratic, cubic, plot (l, q, c, p). Separate by commas: ")
-linetypelist = linetypelist.split(",")
 for linetype in linetypelist:
     if linetype == "l":
         m = float(input("linear m: "))
@@ -195,11 +196,12 @@ for linetype in linetypelist:
                 again = False
             if again == True:
                 point = point.split(",")
-                Sprite(mycirclebig, (20*int(point[0])+950, -20*int(point[1])+500))
+                Sprite(mycirclebig, (20*float(point[0])+950, -20*float(point[1])+500))
                 xlistpts.append(int(point[0]))
                 ylistpts.append(int(point[1]))
+                xlistpts = xlistpts.sort()
+                ylistpts = ylistpts.sort()
             if point == "r":
-                point = "q"
                 xavg=0
                 yavg=0
                 for i in xlistpts:
@@ -218,7 +220,7 @@ for linetype in linetypelist:
                 slopeavg = 0
                 for h in slopelist:
                     slopeavg = slopeavg + h
-                slopeavg = slopeavg/(len(slopelist))
+                slopeavg = -slopeavg/(len(slopelist))
                 bval = slopeavg*xavg+yavg
                 for x in xcoordinates:
                     yval = 20*((slopeavg)*x-bval)+500
