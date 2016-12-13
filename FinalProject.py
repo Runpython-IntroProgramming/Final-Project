@@ -26,7 +26,13 @@ class Truck(Sprite):
 
     def __init__(self, position):
         super().__init__(Truck.asset, position)
-        self.scale = 0.5
+        self.scale = 0.14
+        self.rectangularCollisionModel()
+    
+    def step(self):
+        self.x -= 2
+        if self.x <= -180:
+            self.x = 1999
 
 class Ship(Sprite):
 
@@ -119,7 +125,7 @@ class Bomb(Sprite):
         self.dropped = False
         self.counter = 0
         PlaneGame.listenKeyEvent("keydown", "space", self.dropBomb)
-        #PlaneGame.listenKeyEvent("keyup", "space", self.nodropBomb)
+        self.circularCollisionModel()
         
     def dropBomb(self, event):
         self.dropped = True
@@ -172,7 +178,7 @@ class PlaneGame(App):
         Background((2000, 0))
         s = Ship((400,200))
         Bomb((400,600),s)
-        Truck((200,400))
+        Truck((200,715))
         
                     
     def step(self):
@@ -181,6 +187,8 @@ class PlaneGame(App):
         for ship in self.getSpritesbyClass(Bomb):
             ship.step()
         for ship in self.getSpritesbyClass(ExplosionBig):
+            ship.step()
+        for ship in self.getSpritesbyClass(Truck):
             ship.step()
 
             
