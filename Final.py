@@ -36,7 +36,7 @@ dotl = CircleAsset(3, noline, pale)
 box = RectangleAsset(8, 1000, thinline, black)
 label = TextAsset("Icons")
 end1 = TextAsset("You have finished this program!", width=500)
-end2 = TextAsset("If you ctrl+click, you can save your image.", width=500)
+end2 = TextAsset("If you ctrl+click, you can save or copy your image.", width=500)
 
 #overall class
 class Icon(Sprite):
