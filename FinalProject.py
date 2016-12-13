@@ -26,8 +26,8 @@ class Truck(Sprite):
 
     def __init__(self, position):
         super().__init__(Truck.asset, position)
-        self.scale = 0.14
-        self.circularCollisionModel()
+        self.scale = 1
+        self.rectangularCollisionModel()
     
     def step(self):
         self.x -= 2
