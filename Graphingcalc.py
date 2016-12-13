@@ -199,6 +199,7 @@ for linetype in linetypelist:
                 xlistpts.append(int(point[0]))
                 ylistpts.append(int(point[1]))
             if point == "r":
+                point = "q"
                 xavg=0
                 yavg=0
                 for i in xlistpts:
@@ -218,8 +219,9 @@ for linetype in linetypelist:
                 for h in slopelist:
                     slopeavg = slopeavg + h
                 slopeavg = slopeavg/(len(slopelist))
+                bval = slopeavg*xavg+yavg
                 for x in xcoordinates:
-                    yval = 20*(slopeavg*(x-xavg)+yavg)+500
+                    yval = 20*((slopeavg)*x-bval)+500
                     if yval >= 0:
                         sprites = Sprite(mycircle, (20*x+950, yval))
 
