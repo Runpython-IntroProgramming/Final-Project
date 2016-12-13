@@ -20,7 +20,8 @@ user1=input("Enter name of currency you want to convert to.")
 if user1 in currencies:
     k=(currencies[user1])
     l=user
-    print(k*float(l))
+    m=k*(float(l))
+    print(m)
     
     
     
