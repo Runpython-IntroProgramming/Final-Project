@@ -19,10 +19,8 @@ user=input("Enter amount of US Dollars to convert.")
 user1=input("Enter name of currency you want to convert to.")
 if user1 in currencies:
     k=(currencies[user1])
-    print(k)
     l=user
-    print(l)
-    print(k*l)
+    print(k*float(l))
     
     
     
