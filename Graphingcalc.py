@@ -36,6 +36,12 @@ Sprite (yaxis, (950, 0))
 yaxisrulingsprites = [Sprite(yaxisrulings, (947.5, y*20)) for y in range(-100, 100, 1)]
 xaxisrulingsprites = [Sprite(xaxisrulings, (x*20+10, 497)) for x in range(-150, 150, 1)]
 
+xcoordinates2 = range(-1500, 1500, 1)
+xcoordinates = []
+for x in xcoordinates2:
+    x = x/32
+    xcoordinates.append(x)
+
 linetypelist = input("linear, quadratic, cubic, plot (l, q, c, p). Separate by commas: ")
 linetypelist = linetypelist.split(",")
 for linetype in linetypelist:
@@ -85,11 +91,6 @@ for linetype in linetypelist:
                     slopeavg = slopeavg + h
                 slopeavg = slopeavg/(len(slopelist))
 
-    xcoordinates2 = range(-1500, 1500, 1)
-    xcoordinates = []
-    for x in xcoordinates2:
-        x = x/32
-        xcoordinates.append(x)
 
     if linetype == "l":
         for x in xcoordinates:
