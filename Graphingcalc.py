@@ -91,7 +91,7 @@ for linetype in linetypelist:
                     slopeavg = slopeavg + h
                 slopeavg = slopeavg/(len(slopelist))
                 for x in xcoordinates:
-                    yval = 20*((-slopeavg)*x-b)+500
+                    yval = 20*(slopeavg*(x-xavg)+yavg)+500
                     if yval >= 0:
                         sprites = Sprite(mycircle, (20*x+950, yval))
 
