@@ -18,6 +18,16 @@ class Background(Sprite):
         super().__init__(Background.asset, position)
         self.scale = 1.4
 
+class Truck(Sprite):
+
+    asset = ImageAsset("images/Truck-side-edit.png")
+    width = 1389
+    height = 664
+
+    def __init__(self, position):
+        super().__init__(Truck.asset, position)
+        self.scale = 1
+
 class Ship(Sprite):
 
     asset = ImageAsset("images/il2m3-bp-fl-am-3view-mongolian.png")
