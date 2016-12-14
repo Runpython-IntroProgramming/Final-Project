@@ -20,7 +20,7 @@ class Background(Sprite):
 
 class Truck(Sprite):
 
-    asset = ImageAsset("images/Truck-side-edit copy.png")
+    asset = ImageAsset("images/Newtruck.png")
     width = 139
     height = 66
 
@@ -28,13 +28,14 @@ class Truck(Sprite):
         super().__init__(Truck.asset, position)
         self.scale = 1
         self.rectangularCollisionModel()
-    
+        self.visible = True
+        
     def step(self):
         self.x -= 2
         if self.x <= -180:
             self.x = 1999
-        #if self.collidingWithSprites(Bomb):
-         #   self.visible = False
+        if self.collidingWithSprites(Bomb):
+            self.visible = False
 
 class Ship(Sprite):
 
@@ -180,7 +181,7 @@ class PlaneGame(App):
         Background((2000, 0))
         s = Ship((400,200))
         Bomb((400,600),s)
-        Truck((200,715))
+        Truck((200,740))
         
                     
     def step(self):
