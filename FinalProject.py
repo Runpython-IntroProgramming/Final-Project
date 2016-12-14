@@ -27,7 +27,7 @@ class Truck(Sprite):
     def __init__(self, position):
         super().__init__(Truck.asset, position)
         self.scale = 1
-        self.rectangularCollisionModel()
+        self.circularCollisionModel()
         self.visible = True
         
     def step(self):
@@ -146,7 +146,11 @@ class Bomb(Sprite):
                 self.counter += 0.2
                 self.x += 5
                 self.y += self.counter
-        if self.y >= 765 or self.collidingWithSprites(Truck):
+        if self.collidingWithSprites(Truck):
+            self.visible = False
+            self.dropped = False
+            self.counter = 0
+        if self.y >= 765:
             self.visible = False
             self.dropped = False
             self.counter = 0
