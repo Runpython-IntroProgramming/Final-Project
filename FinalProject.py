@@ -32,10 +32,10 @@ class Truck(Sprite):
         
     def step(self):
         self.x -= 2
-        if self.x <= -180:
+        if self.x <= -10:
             self.x = 1999
         if self.collidingWithSprites(Bomb):
-            self.visible = False
+            print("boom")
 
 class Ship(Sprite):
 
