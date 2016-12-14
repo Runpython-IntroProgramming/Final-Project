@@ -22,7 +22,10 @@ if user1 in currencies:
     l=user
     m=k*(float(l))
     print(m)
-    print("You have
+    print(user1)
+
+    
+    
     
     
     
