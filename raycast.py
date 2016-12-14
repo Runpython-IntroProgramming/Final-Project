@@ -145,8 +145,10 @@ def space(event):
         go=0
 wall=True
 raydir=0
+inpov=0
 def ray():
     global wall
+    global inpov
     global raydir
     global first
     global walls
@@ -160,6 +162,7 @@ def ray():
             print('clear')
             Sprite(clear,(110,0))
             raydir=int(Position['dir'])
+            inpov=0
             first=0
         print('ray has started')
         wall=False
@@ -181,8 +184,9 @@ def ray():
                 print('sprite is displayed')
                 raydir=raydir+.01/distance
                 screenside=screenside+10/distance
+                inpov=abs(raydir-int(Position['dir']))
                 wall=True
-                if screenside>=200:
+                if inpov>=170:
                     change=0
                     screenside=0
                     print(change)
