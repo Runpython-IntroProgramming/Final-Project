@@ -187,8 +187,8 @@ def ray():
                     print(change)
             else:
                 print('else')
-                distance=distance+1
-                rayx=rayx+cos(radians(raydir))
+                distance=distance+cos(radians(raydir))
+                rayx=rayx+cos(radians(raydir))+sin(radians(raydir))
                 rayy=rayy+sin(radians(raydir))
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
