@@ -192,7 +192,7 @@ def ray():
                     print(change)
             else:
                 print('else')
-                distance=distance+abs(cos(radians(raydir)))+abs(sin(radians(raydir)))
+                distance=distance+1
                 rayx=rayx+cos(radians(raydir))
                 rayy=rayy+sin(radians(raydir))
 
