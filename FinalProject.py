@@ -37,6 +37,7 @@ class Truck(Sprite):
         if self.collidingWithSprites(Bomb):
             self.visible = False
             ExplosionBig(self.position)
+            self.destroy()
 
 class Ship(Sprite):
 
