@@ -116,9 +116,9 @@ class Ship(Sprite):
 
 class Bomb(Sprite):
 
-    asset = ImageAsset("images/bomb.png")
-    width = 2000
-    height = 1000
+    asset = ImageAsset("images/bomb2.png")
+    width = 200
+    height = 100
 
     def __init__(self, position, ship):
         super().__init__(Bomb.asset, position)
