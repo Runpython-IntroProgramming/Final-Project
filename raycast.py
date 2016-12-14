@@ -176,10 +176,10 @@ def ray():
                 print('wall is detected')
                 wallcolor='b'+str(distance)
                 print(wallcolor)
-                wallbox=RectangleAsset(((10/float(distance))),10*(100/float(distance)), thinline, b5)
+                wallbox=RectangleAsset(((10/float(distance))),10*(200/float(distance)), thinline, b5)
                 Sprite(wallbox,(screenside+110,0))
                 print('sprite is displayed')
-                raydir=raydir+1/distance
+                raydir=raydir+1.85/distance
                 screenside=screenside+10/distance
                 wall=True
                 if screenside>=500:
