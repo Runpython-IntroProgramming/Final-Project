@@ -21,7 +21,7 @@ class Background(Sprite):
 class Truck(Sprite):
 
     asset = ImageAsset("images/Newtruck.png")
-    width = 139
+    width = 100
     height = 66
 
     def __init__(self, position):
