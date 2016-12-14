@@ -158,9 +158,9 @@ def ray():
         if first==1:
             print('clear')
             Sprite(clear,(110,0))
+            raydir=int(Position['dir'])
             first=0
         print('ray has started')
-        raydir=int(Position['dir'])
         wall=False
         distance=0
         intilex=int(Position['x'])-int(Position['x'])//1
