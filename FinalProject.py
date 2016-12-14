@@ -36,6 +36,7 @@ class Truck(Sprite):
             self.x = 1999
         if self.collidingWithSprites(Bomb):
             self.visible = False
+            ExplosionBig(self.position)
 
 class Ship(Sprite):
 
@@ -186,6 +187,10 @@ class PlaneGame(App):
         s = Ship((400,200))
         Bomb((400,600),s)
         Truck((200,740))
+        Truck((200,200))
+        Truck((200,1100))
+        Truck((200,1350))
+        Truck((200,1700))
         
                     
     def step(self):
