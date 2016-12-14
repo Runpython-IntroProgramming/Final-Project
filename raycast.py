@@ -177,6 +177,7 @@ def ray():
             print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
+                print(rayx,rayy)
                 xdif=(int(Position['x'])-rayx)**2
                 print(xdif)
                 ydif=(int(Position['y'])-rayy)**2
