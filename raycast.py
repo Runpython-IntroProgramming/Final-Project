@@ -144,9 +144,10 @@ def space(event):
     else:
         go=0
 wall=True
-
+raydir=0
 def ray():
     global wall
+    global raydir
     global first
     global walls
     global go
