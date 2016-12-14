@@ -14,7 +14,6 @@ currencies = {'Euro':.942218, 'Pound':.794856, 'Rupee':67.412529,
 'Pakistani Rupee':104.750000, 'Philippine Peso':49.750000, 'Polish Zloty':4.184430, 'Qatari Riyal':3.641200, 'Romanian New Leu':4.240725, 'Russian Ruble':63.498941, 
 'Saudi Arabian Riyal':3.750250, 'South African Rand':13.654455, 'South Korean Won':1164.612381, 'Sri Lankan Rupee':148.320007, 
 'Swedish Krona':9.128824, 'Taiwan New Dollar':31.756537, 'Thai Baht':35.647564, 'Trinidadian Dollar':6.680000, 'Turkish Lira':3.452651, 'Venezuelan Bolivar':9.975000}
-
 user=input("Enter amount of US Dollars to convert.")
 user1=input("Enter name of currency you want to convert to.")
 if user1 in currencies:
@@ -23,6 +22,8 @@ if user1 in currencies:
     m=k*(float(l))
     print(m)
     print(user1 +"s")
+
+
     
 
     
