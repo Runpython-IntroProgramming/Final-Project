@@ -161,7 +161,7 @@ def ray():
         if first==1:
             print('clear')
             Sprite(clear,(110,0))
-            raydir=int(Position['dir'])
+            raydir=int(Position['dir'])-45
             inpov=0
             first=0
         print('ray has started')
@@ -186,7 +186,7 @@ def ray():
                 screenside=screenside+10/distance
                 inpov=abs(raydir-int(Position['dir']))
                 wall=True
-                if inpov>=114:
+                if inpov>=90:
                     change=0
                     screenside=0
                     print(change)
