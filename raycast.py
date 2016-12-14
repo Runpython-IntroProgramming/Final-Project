@@ -177,11 +177,11 @@ def ray():
             print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
-                xdif=(int(Position['x'])-rayx)^2
+                xdif=(int(Position['x'])-rayx)**2
                 print(xdif)
-                ydif=(int(Position['y'])-rayy)^2
+                ydif=(int(Position['y'])-rayy)**2
                 print(ydif)
-                distance=(abs(xdif)+abs(ydif))^(1/2)
+                distance=(abs(xdif)+abs(ydif))**(1/2)
                 print(distance)
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/(float(distance))), thinline, b5)
                 Sprite(wallbox,(screenside+110,0))
