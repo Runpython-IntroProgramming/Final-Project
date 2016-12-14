@@ -188,6 +188,7 @@ class PlaneGame(App):
         Truck((1100,740))
         Truck((1400,740))
         Truck((1700,740))
+
         
                     
     def step(self):
