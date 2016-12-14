@@ -187,10 +187,10 @@ class PlaneGame(App):
         s = Ship((400,200))
         Bomb((400,600),s)
         Truck((200,740))
-        Truck((200,200))
-        Truck((200,1100))
-        Truck((200,1350))
-        Truck((200,1700))
+        Truck((500,740))
+        Truck((800,740))
+        Truck((1100,740))
+        Truck((1400,740))
         
                     
     def step(self):
