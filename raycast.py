@@ -182,7 +182,7 @@ def ray():
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/float(distance)), thinline, b5)
                 Sprite(wallbox,(screenside+110,0))
                 print('sprite is displayed')
-                raydir=raydir+.01/distance
+                raydir=raydir+1/distance
                 screenside=screenside+10/distance
                 inpov=abs(raydir-int(Position['dir']))
                 wall=True
