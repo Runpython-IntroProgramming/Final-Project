@@ -53,12 +53,7 @@ class Ship(Sprite):
         self.RotThrust = 0
         self.thrustframe = 1
         self.scale = 0.25
-        """
-        PlaneGame.listenKeyEvent("keydown", "left arrow", self.thrustLeft)
-        PlaneGame.listenKeyEvent("keyup", "right arrow", self.thrustRightoff)
-        PlaneGame.listenKeyEvent("keyup", "left arrow", self.thrustLeftoff)
-        PlaneGame.listenKeyEvent("keydown", "right arrow", self.thrustRight)
-        """
+        self.circularCollisionModel()
         PlaneGame.listenKeyEvent("keydown", "up arrow", self.thrustUp)
         PlaneGame.listenKeyEvent("keyup", "down arrow", self.thrustDownoff)
         PlaneGame.listenKeyEvent("keyup", "up arrow", self.thrustUpoff)
