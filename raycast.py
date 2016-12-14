@@ -177,9 +177,9 @@ def ray():
             print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
-                wallcolor='b'+str(distance)
                 print(wallcolor)
                 distance=((int(Position['x'])-rayx)^2+(int(Position['y'])-rayy)^2)^(1/2)
+                print(distance)
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/(float(distance))), thinline, b5)
                 Sprite(wallbox,(screenside+110,0))
                 print('sprite is displayed')
