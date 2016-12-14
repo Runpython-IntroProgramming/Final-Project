@@ -186,7 +186,7 @@ def ray():
                 screenside=screenside+10/distance
                 inpov=abs(raydir-int(Position['dir']))
                 wall=True
-                if inpov>=90:
+                if inpov>=46:
                     change=0
                     screenside=0
                     print(change)
