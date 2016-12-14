@@ -35,7 +35,7 @@ class Truck(Sprite):
         if self.x <= -10:
             self.x = 1999
         if self.collidingWithSprites(Bomb):
-            print("boom")
+            self.visible = False
 
 class Ship(Sprite):
 
@@ -122,7 +122,7 @@ class Bomb(Sprite):
 
     def __init__(self, position, ship):
         super().__init__(Bomb.asset, position)
-        self.scale = 0.04
+        self.scale = 0.4
         self.ship = ship
         self.visible = False
         self.dropped = False
@@ -146,7 +146,7 @@ class Bomb(Sprite):
                 self.counter += 0.2
                 self.x += 5
                 self.y += self.counter
-        if self.y >= 765:
+        if self.y >= 765 or self.collidingWithSprites(Truck):
             self.visible = False
             self.dropped = False
             self.counter = 0
