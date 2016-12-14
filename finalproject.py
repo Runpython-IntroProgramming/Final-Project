@@ -22,7 +22,8 @@ if user1 in currencies:
     l=user
     m=k*(float(l))
     print(m)
-    print(user1)
+    print(user1 +"s")
+    
 
     
     
