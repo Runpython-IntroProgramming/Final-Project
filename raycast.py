@@ -177,6 +177,7 @@ def ray():
             print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
+                inpov=abs(raydir-int(Position['dir']))
                 xdif=(int(Position['x'])-rayx)
                 print(xdif)
                 ydif=(int(Position['y'])-rayy)**2
@@ -189,7 +190,6 @@ def ray():
                 print('sprite is displayed')
                 raydir=raydir+1/distance
                 screenside=screenside+10/distance
-                inpov=abs(raydir-int(Position['dir']))
                 wall=True
                 if inpov>=46:
                     change=0
