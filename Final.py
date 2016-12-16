@@ -154,6 +154,9 @@ class Draw(App):
             txt1 = Sprite(end1, (1250,800))
             txt2 = Sprite(end2, (1251,822))
             txt3 = Sprite(end3, (1252,844))
+            txt1.visible = True
+            txt2.visible = True
+            txt3.visible = True
         if stage == 4:
             txt1.visible = False
             txt2.visible = False
