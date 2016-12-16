@@ -184,7 +184,7 @@ def ray():
                 print(ydif)
                 distance1=(abs(xdif)**2+abs(ydif))**(1/2)
                 print(inpov)
-                distance=sin(radians(90-abs(inpov)))*distance1
+                distance=distance1/sin(radians(90-abs(inpov)))
                 print(distance)
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/(float(distance))), thinline, b5)
                 Sprite(wallbox,(screenside+110,0))
