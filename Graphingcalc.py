@@ -195,6 +195,11 @@ for linetype in linetypelist:
         b = float(input("cubic b: "))
         c = float(input("cubic c: "))
         d = float(input("cubic d: "))
+    if linetype == "f":
+        function = list(str(input("y= ")))
+        funcpos = 0
+        while funcpos <= len(function)-1:
+            
     if linetype == "p":
         again = True
         ylistpts=[]
