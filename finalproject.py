@@ -24,6 +24,7 @@ if question is "US Dollar":
     n=print(round(m,2))
     print(user1 +"s")
 if question is "Euro":
+    user=input("Enter amount of Euros to convert.")
     currencies1 = {'US Dollar':1.044662,'Pound':.794856, 'Rupee':67.412529, 
 'Australian Dollar':1.341483, 'Canadian Dollar':1.320036, 'Singapore Dollar':1.424582, 
 'Swiss Franc':1.016520, 'Malaysian Rinnggit':4.420300, 'Japanese Yen':114.212492, 
