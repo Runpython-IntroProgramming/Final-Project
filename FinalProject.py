@@ -95,7 +95,6 @@ class Ship(Sprite):
         if self.y >= 740:
             self.visible = False
             self.planeDead = True
-            ExplosionBig(self.position)
             self.destroy
     def thrustUp(self, event):
         self.vertThrust = -1
