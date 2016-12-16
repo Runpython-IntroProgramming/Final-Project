@@ -54,6 +54,7 @@ class Ship(Sprite):
         self.RotThrust = 0
         self.thrustframe = 1
         self.scale = 0.25
+        self.planeDead = False
         self.circularCollisionModel()
         PlaneGame.listenKeyEvent("keydown", "up arrow", self.thrustUp)
         PlaneGame.listenKeyEvent("keyup", "down arrow", self.thrustDownoff)
@@ -91,9 +92,10 @@ class Ship(Sprite):
         self.x += 5
         self.y += self.vAddedy
         self.rotation = self.vAddedr
-        if self.y >= 765:
+        if self.y >= 740:
             self.visible = False
-
+            self.planeDead = True
+            self.destroy
     def thrustUp(self, event):
         self.vertThrust = -1
         self.RotThrust = -1
@@ -151,6 +153,8 @@ class Bomb(Sprite):
             self.visible = False
             self.dropped = False
             self.counter = 0
+            if ship.planeDead = True:
+                self.destroy
             ExplosionBig(self.position)
         if self.x >= 2000:
             self.x = 10
