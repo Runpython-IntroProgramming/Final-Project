@@ -21,8 +21,8 @@ if user1 in currencies:
     l=user
     m=k*(float(l))
     print(round(m,2))
-    round(m,2)
     print(user1 +"s")
+    
 
 
 
