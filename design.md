@@ -25,6 +25,7 @@ The 8 keydown events are for the keys 'enter', 'q', 'r', 'o', 'p', 'g', 'l', 'b'
 The 7 key down events are for when the same 7 letter keys are released and they all trigger the same event called no_col. This event sets the variable color to 0 (if stage == 2).
 The first event it defines however, is the event 'switch'. Switch increases the variable stage whenever the 'return' key is pressed. This allows the program to switch from dragging and droppuing sprites for stage==1 to drawing on the screen with stage==2 (the user is notified of this as well). 
 When stage is increased to 3, all graphical actions are disabled and a message about a message explaining that the program is over is displayed on the graphics tab.
+When stage is increased to 4, the message trigger when stage == 3 is turned invisible. 
 The events mse_isdn and mse_no simply indicate whether the mouse is pressed or not by setting Draw.a to 1 or 0, respectively.
 The event move says that whenever the mouse's coordinates change, to set msx to event.x and msy to event.y.
 Next, the 7 color events all state that color is a global variable. They are named green, turq, orange, black, purp, brn, and pale; which, if stage == 2, set color to 1, 2, 3, 4, 5, 6, and 7, respectively.
