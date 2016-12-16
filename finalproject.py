@@ -24,7 +24,7 @@ if question is "US Dollar":
     n=print(round(m,2))
     print(user1 +"s")
 if question is "Euro":
-    k
+    currencies1 = {'US Dollar':1.044662, 'Argentine Peso':16.603598,'Bahraini Dinar':.393838,'Botswana Pula':11.255187,
     
 
 
