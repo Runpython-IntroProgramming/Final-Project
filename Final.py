@@ -37,6 +37,7 @@ box = RectangleAsset(8, 1000, thinline, black)
 label = TextAsset("Icons")
 end1 = TextAsset("You have finished this program!", width=500)
 end2 = TextAsset("If you ctrl+click, you can save or copy your image.", width=500)
+end3 = TextAsset("Press return again to hide this message.", width=500)
 
 #overall class
 class Icon(Sprite):
@@ -150,8 +151,13 @@ class Draw(App):
             print("You are done dragging and dropping!")
             print("Now try dragging the mouse across the screen while holding one of the following keys: 'b', 'r', 'p', 'l', 'g', 'o', or 'q'.")
         if stage == 3:
-            Sprite(end1, (1250,800))
-            Sprite(end2, (1251,822))
+            txt1 = Sprite(end1, (1250,800))
+            txt2 = Sprite(end2, (1251,822))
+            txt3 = Sprite(end3, (1252,844))
+        if stage == 4:
+            txt1.visible = False
+            txt2.visible = False
+            txt3.visible = False
     def mse_isdn(self,event):
         self.a=1
     def mseno(self,event):
