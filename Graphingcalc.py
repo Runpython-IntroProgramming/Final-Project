@@ -175,7 +175,7 @@ xaxisrulingsprites = [Sprite(xaxisrulings, (x*20+10, 497)) for x in range(-150, 
 
 
 
-linetypelist = input("linear, quadratic, cubic, plot (l, q, c, p). Separate by commas: ")
+linetypelist = input("linear, quadratic, cubic, plot, function (l, q, c, p, f). Separate by commas: ")
 linetypelist = linetypelist.split(",")
 xcoordinates2 = range(-1500, 1500, 1)
 xcoordinates = []
