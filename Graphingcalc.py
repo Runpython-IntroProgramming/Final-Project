@@ -42,7 +42,7 @@ for x in xcoordinates2:
     x = x/32
     xcoordinates.append(x)
 
-linetypelist = input("linear, quadratic, cubic, plot (l, q, c, p). Separate by commas: ")
+linetypelist = input("linear, quadratic, cubic, plot, function (l, q, c, p, f). Separate by commas: ")
 linetypelist = linetypelist.split(",")
 for linetype in linetypelist:
     if linetype == "l":
@@ -57,6 +57,15 @@ for linetype in linetypelist:
         b = float(input("cubic b: "))
         c = float(input("cubic c: "))
         d = float(input("cubic d: "))
+    if linetype == "f":
+        newvar = 0
+        function = list(input("y= "))
+        goforfunction = 0
+        while goforfunction <= len(function)-1:
+            if function[goforfunction].isdigit():
+                if function[goforfunction+1].isdigit():
+                    function[goforfunction] = int(function[goforfunction])*10 + int(function[goforfunction])
+                    function.remove(function[goforfunction+1])
     if linetype == "p":
         again = True
         ylistpts=[]
