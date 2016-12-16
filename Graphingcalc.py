@@ -199,7 +199,9 @@ for linetype in linetypelist:
         function = list(str(input("y= ")))
         funcpos = 0
         while funcpos <= len(function)-1:
-            
+            if str(function[funcpos]).isdigit():
+                if str(function[funcpos+1]).isdigit():
+                    
     if linetype == "p":
         again = True
         ylistpts=[]
