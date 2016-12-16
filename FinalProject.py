@@ -153,7 +153,7 @@ class Bomb(Sprite):
             self.visible = False
             self.dropped = False
             self.counter = 0
-            if ship.planeDead = True:
+            if ship.planeDead == True:
                 self.destroy
             ExplosionBig(self.position)
         if self.x >= 2000:
