@@ -124,6 +124,12 @@ class Draw(App):
         aboi = kid((55, 710), True)
         Sprite(box, (132, 25))
         Sprite(label, (50, 30))
+        self.txt1 = Sprite(end1, (1250,800))
+        self.txt1.visible = False
+        self.txt2 = Sprite(end2, (1251,822))
+        self.txt2.visible = False
+        self.txt3 = Sprite(end3, (1252,844))
+        self.txt3.visible = False
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         Draw.listenKeyEvent("keydown", "g", self.green)
         Draw.listenKeyEvent("keydown", "q", self.turq)
@@ -151,16 +157,13 @@ class Draw(App):
             print("You are done dragging and dropping!")
             print("Now try dragging the mouse across the screen while holding one of the following keys: 'b', 'r', 'p', 'l', 'g', 'o', or 'q'.")
         if stage == 3:
-            txt1 = Sprite(end1, (1250,800))
-            txt2 = Sprite(end2, (1251,822))
-            txt3 = Sprite(end3, (1252,844))
-            txt1.visible = True
-            txt2.visible = True
-            txt3.visible = True
+            self.txt1.visible = True
+            self.txt2.visible = True
+            self.txt3.visible = True
         if stage == 4:
-            txt1.visible = False
-            txt2.visible = False
-            txt3.visible = False
+            self.txt1.visible = False
+            self.txt2.visible = False
+            self.txt3.visible = False
     def mse_isdn(self,event):
         self.a=1
     def mseno(self,event):
