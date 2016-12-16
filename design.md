@@ -29,8 +29,8 @@ The events mse_isdn and mse_no simply indicate whether the mouse is pressed or n
 The event move says that whenever the mouse's coordinates change, to set msx to event.x and msy to event.y.
 Next, the 7 color events all state that color is a global variable. They are named green, turq, orange, black, purp, brn, and pale; which, if stage == 2, set color to 1, 2, 3, 4, 5, 6, and 7, respectively.
 After the aforementioned event no_col is defined, the step function is defined. This function starts by naming color as a global variable before having an if loop that only activates if the mouse is pressed down (a==1) and color is not equal to 0.
-Then, if color == 1 it places a green dot where the mouse was most recently placed, if color == 2 it places a turquoise one, if color == 3, it places an orange dot; if color == 4 a larger, black dot; if color == 5, a purple dot; if color == 6, a brown dot; and if color == 7, a light yellow dot. This is all done using the assets defined at the very beginning of the program.
-Then it creates my_draw as a version of Draw with the desired screen dimensions as set at the beginning of the program. It then executes my_draw.
+Then, if color == 1 it places a green dot where the mouse was most recently placed, if color == 2, it places a turquoise one; if color == 3, it places an orange dot; if color == 4 a larger, black dot; if color == 5, a purple dot; if color == 6, a brown dot; and if color == 7, a light yellow dot. This is all done using the assets defined at the very beginning of the program.
+Nexy, it creates my_draw as a version of Draw with the desired screen dimensions as set at the beginning of the program. It then executes my_draw.
 
 
 images: https://s-media-cache-ak0.pinimg.com/originals/d8/d9/59/d8d9596f8e39f135f86a01f61d381eec.jpg, https://s-media-cache-ak0.pinimg.com/originals/d8/d9/59/d8d9596f8e39f135f86a01f61d381eec.jpg; http://orig14.deviantart.net/7b77/f/2013/203/5/5/cartoon_boy_by_navdbest-d6ekjw9.png
