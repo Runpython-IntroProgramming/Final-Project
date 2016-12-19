@@ -18,6 +18,17 @@ class Background(Sprite):
         super().__init__(Background.asset, position)
         self.scale = 1.4
 
+class EvilPlane(Sprite):
+    asset = ImageAsset("images/il2m3-bp-fl-am-3view-mongolian copy copy.png")
+    width = 10
+    height = 10
+    
+    def __init__(self, position):
+        super().__init__(Truck.asset, position)
+        self.scale = 1
+        self.rectangularCollisionModel()
+        self.visible = True
+
 class Truck(Sprite):
 
     asset = ImageAsset("images/Newtruck.png")
