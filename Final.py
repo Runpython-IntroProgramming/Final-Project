@@ -171,6 +171,8 @@ class Draw(App):
     def move(self,event):
         self.msx = event.x
         self.msy = event.y
+    
+    #color events
     def green(self,event):
         global color
         if stage == 2:
@@ -203,6 +205,7 @@ class Draw(App):
         global color
         if stage == 2:
             color = 0
+    
     def step(self):
         global color
         if self.a == 1 and color != 0:
