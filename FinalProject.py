@@ -29,12 +29,12 @@ class Truck(Sprite):
         self.scale = 1
         self.circularCollisionModel()
         self.visible = True
-        
+        self.bomb = bomb
     def step(self):
         self.x -= 2
         if self.x <= -10:
             self.x = 1999
-        if self.collidingWithSprites(Bomb):
+        if self.collidingWithSprites(Bomb) and self.bomb.visible = True:
             self.visible = False
             ExplosionBig(self.position)
             self.destroy()
