@@ -84,6 +84,8 @@ if question is "Rupee":
     m3=k3*(float(l3))
     n=print(round(m3,2))
     print(user1 +"s")
+
+#update remaining ones
     
     
     
