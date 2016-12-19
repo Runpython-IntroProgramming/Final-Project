@@ -9,7 +9,7 @@ SCREEN_HEIGHT = 1000
 
 def isnumber(s):
     try:
-        float(s)
+        int(s)
         return True
     except ValueError:
         return False
