@@ -151,6 +151,7 @@ def ray():
     global inpov
     global raydir
     global first
+    global scrh
     global walls
     global go
     global position
@@ -187,7 +188,7 @@ def ray():
                 distance=distance1/sin(radians(90-abs(inpov)))
                 print(distance)
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/(float(distance))), thinline, b5)
-                Sprite(wallbox,(screenside+110,0))
+                Sprite(wallbox,(screenside+110,(scrh/2)-(10*(200/(float(distance))))/2))
                 print('sprite is displayed')
                 raydir=raydir+1/distance
                 screenside=screenside+10/distance
