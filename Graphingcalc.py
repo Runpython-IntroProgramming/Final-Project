@@ -7,6 +7,13 @@ from math import sin, cos, radians
 SCREEN_WIDTH = 1900
 SCREEN_HEIGHT = 1000
 
+def isnumber(s):
+    try:
+        float(s)
+        return True
+    except ValueError:
+        return False
+
 red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
 blue = Color(0x0000ff, 1.0)
@@ -58,15 +65,20 @@ for linetype in linetypelist:
         c = float(input("cubic c: "))
         d = float(input("cubic d: "))
     if linetype == "f":
-        newvar = 0
         function = list(input("y= "))
         goforfunction = 0
-        while goforfunction <= len(function)-1:
-            if function[goforfunction].isdigit():
-                if function[goforfunction+1].isdigit():
-                    function[goforfunction] = int(function[goforfunction])*10 + int(function[goforfunction])
-                    function.remove(function[goforfunction+1])
+        while goforfunction <= len(function)-2:
+            number1 = function[goforfunction]
+            number2 = function[goforfunction+1]
+            if isnumber(number1):
+                print ("yes1")
+                if isnumber(number2):
+                    print("yes2")
+                    newnumber1 = int(number1)*10+int(number2)
+                    function[goforfunction] = newnumber1
+                    function.remove(number2)
             goforfunction += 1
+        print (function)
     if linetype == "p":
         again = True
         ylistpts=[]
