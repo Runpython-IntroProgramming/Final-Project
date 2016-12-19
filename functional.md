@@ -1,5 +1,7 @@
 Draw me a Picture!
 
+This program allows the user to create an image using colors and icons.
+______________________________________________________________________________
 This program will be saved on github and accessed thru RunPython.
 The user will pick one of several icons. The Icons will be: bunny, bird, flower, dog, tree, boy.
 The user will click on an icon and then click on a point of the screen. A copy of the given icon will appear on that spot. After all the desired icons have been placed, the user will press return.
