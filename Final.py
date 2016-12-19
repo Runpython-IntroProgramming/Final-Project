@@ -6,7 +6,7 @@ http://cartoon-birds.clipartonline.net/_/rsrc/1472868952735/blue-birds-cartoon-b
 
 """
 
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, PolygonAsset, ImageAsset, TextAsset
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, ImageAsset, TextAsset
 SCREEN_WIDTH = 1850
 SCREEN_HEIGHT = 1000
 
@@ -115,7 +115,7 @@ class Draw(App):
         global stage
         super().__init__(width, height)
         self.a=0
-        print("Welcome! Click and drag the icons to duplicate them")
+        print("Welcome! Click and drag the icons to duplicate them.")
         abun = Bunny((65, 500), True)
         acat = Cat((80, 350), True)
         atree = Tree((75, 225), True)
@@ -152,7 +152,7 @@ class Draw(App):
     def switch(self,event):
         global stage
         stage += 1
-        print("news! ", stage)
+        #print("news! ", stage) an indicator
         if stage == 2:
             print("You are done dragging and dropping!")
             print("Now try dragging the mouse across the screen while holding one of the following keys: 'b', 'r', 'p', 'l', 'g', 'o', or 'q'.")
