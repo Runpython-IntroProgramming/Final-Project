@@ -28,7 +28,12 @@ class EvilPlane(Sprite):
         self.scale = 0.9
         self.rectangularCollisionModel()
         self.visible = True
-
+    def step(self):
+        self.x -= 2.5
+        if self.x <= -10:
+            self.x = 1999
+        
+        
 class Truck(Sprite):
 
     asset = ImageAsset("images/Newtruck.png")
