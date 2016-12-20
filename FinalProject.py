@@ -203,6 +203,7 @@ class PlaneGame(App):
         Truck((1100,740))
         Truck((1400,740))
         Truck((1700,740))
+        EvilPlane((400,400))
 
         
                     
@@ -214,6 +215,8 @@ class PlaneGame(App):
         for ship in self.getSpritesbyClass(ExplosionBig):
             ship.step()
         for ship in self.getSpritesbyClass(Truck):
+            ship.step()
+        for ship in self.getSpritesbyClass(EvilPlane):
             ship.step()
 
             
