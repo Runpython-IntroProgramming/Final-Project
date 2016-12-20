@@ -20,8 +20,8 @@ class Background(Sprite):
 
 class EvilPlane(Sprite):
     asset = ImageAsset("images/EvilPlane.png")
-    width = 1000
-    height = 291
+    width = 10
+    height = 10
     
     def __init__(self, position):
         super().__init__(EvilPlane.asset, position)
