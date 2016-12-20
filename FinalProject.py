@@ -82,9 +82,9 @@ class Ship(Sprite):
             self.vAddedx += 0
         """
         if self.vertThrust == 1:
-            self.vAddedy = 1.3
+            self.vAddedy = 1.6
         if self.vertThrust == -1:
-            self.vAddedy = -1.3
+            self.vAddedy = -1.6
         if self.vertThrust == 0:
             self.vAddedy = 0
         if self.RotThrust == 1:
