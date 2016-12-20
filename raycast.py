@@ -178,7 +178,7 @@ def ray():
             print('while works')
             print('0'+str(round(rayx))+'0'+str(round(rayy)))
             print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
-            if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
+            if walls['0'+str((rayx))+'0'+str((rayy))]==1:
                 inpov=abs(raydir-int(Position['dir']))
                 if tile=='0'+str(round(rayx))+'0'+str(round(rayy)):
                     tiledir=inpov
