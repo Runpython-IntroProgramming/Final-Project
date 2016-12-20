@@ -90,10 +90,11 @@ if question is "Australian Dollar":
     currencies4 = {'US Dollar':0.725529,'Euro':0.698169, 'Pound':0.587141, 'Rupee':49.300586, 'Canadian Dollar':0.969983, 'Singapore Dollar':1.048157, 'Swiss Franc':0.746332, 'Malaysian Rinnggit':3.248919, 'Japanese Yen':85.501910, 'Chinese Yuan Renminbi':5.043007, 'Argentine Peso':11.495702, 'Bahraini Dinar':0.273521, 'Botswana Pula':7.872715, 'Brazilian Real':2.428877, 'Bruneian Dollar':1.048157, 'Bulgarian Lev':1.365990, 'Chilean Peso':490.461954, 'Colombian Peso':2166.865670, 'Croatian Kuna':5.258816, 'Czech Koruna':18.863067, 'Danish Krone':5.190633, 'Emirati Dirham':2.664723, 'Hong Kong Dollar':5.634337, 
 'Hungarian Forint':217.053114, 'Icelandic Krona':82.826384, 'Indonesian Rupiah':9755.782661, 'Iranian Rial':23456.350721, 'Israeli Shekel':2.789593, 'Kazakhstani Tenge':243.175551, 'Kuwaiti Dinar':0.222375, 'Latvian Lat':0.490673, 'Libyan Dinar':1.033879, 'Lithuanian Litas':2.410637,'Mexican Peso':14.824184, 'Nepalese Rupee':78.971114, 'New Zealand Dollar':1.047752, 'Norwegian Krone':6.316391, 'Omani Rial':0.279038, 'Pakistani Rupee':76.071710, 'Philippine Peso':36.280075, 'Polish Zloty':3.085081, 'Qatari Riyal':2.641832, 'Romanian New Leu':3.150981, 'Russian Ruble':44.567401, 'Saudi Arabian Riyal':2.721822, 'South African Rand':10.122442, 'South Korean Won':865.698332, 'Sri Lankan Rupee':108.350492, 
 'Swedish Krona':6.789464, 'Taiwan New Dollar':23.275421, 'Thai Baht':26.130672, 'Trinidadian Dollar':4.861268, 'Turkish Lira':2.561928, 'Venezuelan Bolivar':7.251662}
+    user1=input("Enter name of currency you want to convert to.")
     if user1 in currencies4:
         k4=(currencies4[user1])
     l4=user
-    m4=k4*float(l4))
+    m4=k4*(float(l4))
     n=print(round(m4,2))
     print(user1 + "s")
     
