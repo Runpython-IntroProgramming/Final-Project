@@ -1,5 +1,6 @@
+
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
-from math import sin, cos,tan, radians, atan
+from math import sin, cos,tan, radians
 
 mapw= 100
 maph=100
@@ -168,8 +169,6 @@ def ray():
         print('ray has started')
         wall=False
         distance=0
-        tiledir=0
-        tile=0
         intilex=int(Position['x'])-int(Position['x'])//1
         intiley=int(Position['y'])-int(Position['y'])//1
         rayx=(int(Position['x'])*10)//10
@@ -178,20 +177,17 @@ def ray():
             print('while works')
             print('0'+str(round(rayx))+'0'+str(round(rayy)))
             print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
-            if walls['0'+str((rayx))+'0'+str((rayy))]==1:
-                inpov=abs(raydir-int(Position['dir']))
-                if tile=='0'+str(round(rayx))+'0'+str(round(rayy)):
-                    tiledir=inpov
-                tile='0'+str(round(rayx))+'0'+str(round(rayy))
+            if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
-                xdif=(int(Position['x'])-round(rayx))
+                inpov=abs(raydir-int(Position['dir']))
+                xdif=(int(Position['x'])-rayx)
                 print(xdif)
-                ydif=(int(Position['y'])-round(rayy))**2
+                ydif=(int(Position['y'])-rayy)**2
                 print(ydif)
                 distance1=(abs(xdif)**2+abs(ydif))**(1/2)
                 print(inpov)
-                distance=distance1*(sin(radians(90-tiledir)))
-                print(distance) 
+                distance=distance1*sin(radians(45+abs(inpov)))
+                print(distance)
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/(float(distance))), thinline, b5)
                 Sprite(wallbox,(screenside+110,(scrh/2)-(10*(200/(float(distance))))/2))
                 print('sprite is displayed')
