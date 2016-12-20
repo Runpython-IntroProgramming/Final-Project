@@ -29,7 +29,7 @@ class EvilPlane(Sprite):
         self.rectangularCollisionModel()
         self.visible = True
     def step(self):
-        self.x -= 2.5
+        self.x -= 8
         if self.x <= -10:
             self.x = 1999
         
