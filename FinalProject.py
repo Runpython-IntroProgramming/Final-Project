@@ -25,7 +25,7 @@ class EvilPlane(Sprite):
     
     def __init__(self, position):
         super().__init__(EvilPlane.asset, position)
-        self.scale = 1
+        self.scale = 0.9
         self.rectangularCollisionModel()
         self.visible = True
 
