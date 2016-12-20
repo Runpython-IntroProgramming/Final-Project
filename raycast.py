@@ -1,5 +1,5 @@
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
-from math import sin, cos,tan, radians
+from math import sin, cos,tan, radians, atan
 
 mapw= 100
 maph=100
@@ -179,13 +179,13 @@ def ray():
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
                 inpov=abs(raydir-int(Position['dir']))
-                xdif=(int(Position['x'])-rayx)
+                xdif=(int(Position['x'])-round(rayx))
                 print(xdif)
-                ydif=(int(Position['y'])-rayy)**2
+                ydif=(int(Position['y'])-round(rayy))**2
                 print(ydif)
                 distance1=(abs(xdif)**2+abs(ydif))**(1/2)
                 print(inpov)
-                distance=distance1*sin(radians(45+(45-abs(inpov))))
+                distance=distance1*(sin(radians(90-inpov)))
                 print(distance)
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/(float(distance))), thinline, b5)
                 Sprite(wallbox,(screenside+110,(scrh/2)-(10*(200/(float(distance))))/2))
