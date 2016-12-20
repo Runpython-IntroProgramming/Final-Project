@@ -35,15 +35,14 @@ class EvilPlane(Sprite):
         self.x -= 8
         if self.x <= -10:
             self.x = 1999
-       """
         if self.Ship.y > self.y:
             self.newY = -1
         if self.Ship.y < self.y:
-            self.newY = 1
+           self.newY = 1
         if self.Ship.y == self.y:
             self.newY = 0
         self.y += self.newY
-        """
+
         
 class Truck(Sprite):
 
