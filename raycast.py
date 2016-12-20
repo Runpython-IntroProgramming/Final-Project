@@ -180,8 +180,7 @@ def ray():
             print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 inpov=abs(raydir-int(Position['dir']))
-                if tile=='0'+str(round(rayx))+'0'+str(round(rayy)):
-                    tiledir=inpov
+               
                 tile='0'+str(round(rayx))+'0'+str(round(rayy))
                 print('wall is detected')
                 xdif=(int(Position['x'])-round(rayx))
@@ -191,7 +190,9 @@ def ray():
                 distance1=(abs(xdif)**2+abs(ydif))**(1/2)
                 print(inpov)
                 distance=distance1*(sin(radians(90-tiledir)))
-                print(distance)
+                if distance<distance1*(sin(radians(90-inpov))):
+                    tiledir=inpov
+                print(distance) 
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/(float(distance))), thinline, b5)
                 Sprite(wallbox,(screenside+110,(scrh/2)-(10*(200/(float(distance))))/2))
                 print('sprite is displayed')
