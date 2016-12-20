@@ -65,19 +65,18 @@ for linetype in linetypelist:
         c = float(input("cubic c: "))
         d = float(input("cubic d: "))
     if linetype == "f":
-        function = list(input("y= "))
+        function = list(input("y="))
         goforfunction = 0
         while goforfunction <= len(function)-2:
             number1 = function[goforfunction]
             number2 = function[goforfunction+1]
             if isnumber(number1):
-                print ("yes1")
                 if isnumber(number2):
-                    print("yes2")
                     newnumber1 = int(number1)*10+int(number2)
                     function[goforfunction] = newnumber1
                     function.remove(number2)
-            goforfunction += 1
+            else:
+                goforfunction += 1
         print (function)
     if linetype == "p":
         again = True
