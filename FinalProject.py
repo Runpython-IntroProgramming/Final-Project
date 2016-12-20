@@ -28,10 +28,20 @@ class EvilPlane(Sprite):
         self.scale = 0.9
         self.rectangularCollisionModel()
         self.visible = True
+        self.Ship = Ship
+        self.newY = 0
+        
     def step(self):
         self.x -= 8
         if self.x <= -10:
             self.x = 1999
+        if self.Ship.y > self.y:
+            self.newY = -1
+        if self.Ship.y < self.y:
+            self.newY = 1
+        if self.Ship.y == self.y:
+            self.newY = 0
+        self.y += self.newY
         
         
 class Truck(Sprite):
