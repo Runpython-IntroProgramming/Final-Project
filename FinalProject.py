@@ -24,7 +24,7 @@ class EvilPlane(Sprite):
     height = 10
     
     def __init__(self, position):
-        super().__init__(EvilPlane.asset, position)
+        super().__init__(EvilPlane.asset, position, Ship)
         self.scale = 0.9
         self.rectangularCollisionModel()
         self.visible = True
@@ -38,7 +38,7 @@ class EvilPlane(Sprite):
         if self.Ship.y > self.y:
             self.newY = -1
         if self.Ship.y < self.y:
-           self.newY = 1
+            self.newY = 1
         if self.Ship.y == self.y:
             self.newY = 0
         self.y += self.newY
