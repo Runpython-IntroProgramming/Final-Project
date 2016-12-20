@@ -19,12 +19,12 @@ class Background(Sprite):
         self.scale = 1.4
 
 class EvilPlane(Sprite):
-    asset = ImageAsset("images/il2m3-bp-fl-am-3view-mongolian copy copy.png")
-    width = 10
-    height = 10
+    asset = ImageAsset("images/EvilPlane.png")
+    width = 1000
+    height = 291
     
     def __init__(self, position):
-        super().__init__(Truck.asset, position)
+        super().__init__(EvilPlane.asset, position)
         self.scale = 1
         self.rectangularCollisionModel()
         self.visible = True
@@ -216,8 +216,8 @@ class PlaneGame(App):
             ship.step()
         for ship in self.getSpritesbyClass(Truck):
             ship.step()
-        for ship in self.getSpritesbyClass(EvilPlane):
-            ship.step()
+        #for ship in self.getSpritesbyClass(EvilPlane):
+        #    ship.step()
 
             
 app = PlaneGame(0,0)
