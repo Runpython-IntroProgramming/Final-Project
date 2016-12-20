@@ -85,7 +85,9 @@ if question is "Rupee":
     n=print(round(m3,2))
     print(user1 +"s")
 
-    
+if question is "Australian Dollar":
+    user=input("Enter amount of Australian Dollars to convert.")
+    currencies4 = 
     
     
     
