@@ -26,20 +26,12 @@ if question is "US Dollar":
 if question is "Euro":
     user=input("Enter amount of Euros to convert.")
     currencies1 = {'US Dollar':1.0444611,'Pound':0.841020, 'Rupee':70.874008, 
-'Australian Dollar':1.439401, 'Canadian Dollar':1.399551, 'Singapore Dollar':1.511327, 
-'Swiss Franc':1.068884, 'Malaysian Rinnggit':4.677768, 'Japanese Yen':121.910452, 
+'Australian Dollar':1.439401, 'Canadian Dollar':1.399551, 'Singapore Dollar':1.511327, 'Swiss Franc':1.068884, 'Malaysian Rinnggit':4.677768, 'Japanese Yen':121.910452, 
 'Chinese Yuan Renminbi':7.259663, 'Argentine Peso':16.549375, 'Bahraini Dinar':0.393871, 
-'Botswana Pula':11.338444, 'Brazilian Real':3.520775, 
-'Bruneian Dollar':1.511327, 'Bulgarian Lev':1.956431, 'Chilean Peso':707.568341, 
-'Colombian Peso':3146.212774, 'Croatian Kuna':7.531657, 'Czech Koruna':27.022209, 
-'Danish Krone':7.434797, 'Emirati Dirham':3.836961, 'Hong Kong Dollar':8.113706, 
-'Hungarian Forint':311.688823, 'Icelandic Krona':118.725100, 
-'Indonesian Rupiah':13959.519837, 'Iranian Rial':33729.771931, 'Israeli Shekel':4.031584, 
-'Kazakhstani Tenge':350.095382, 'Kuwaiti Dinar':0.319648, 'Latvian Lat':0.702800, 'Libyan Dinar':1.498800, 'Lithuanian Litas':3.452800,
-'Mexican Peso':21.315080, 'Nepalese Rupee':113.355307, 'New Zealand Dollar':1.504826, 'Norwegian Krone':9.048759, 'Omani Rial':0.402175, 
-'Pakistani Rupee':109.496068, 'Philippine Peso':52.217003, 'Polish Zloty':4.420556, 'Qatari Riyal':3.803115, 'Romanian New Leu':4.520514, 'Russian Ruble':64.652624, 
-'Saudi Arabian Riyal':3.918885, 'South African Rand':14.712153, 'South Korean Won':1240.730986, 'Sri Lankan Rupee':155.720127, 
-'Swedish Krona':9.761674, 'Taiwan New Dollar':33.425181, 'Thai Baht':37.454247, 'Trinidadian Dollar':7.039503, 'Turkish Lira':3.689053, 'Venezuelan Bolivar':10.435727}
+'Botswana Pula':11.338444, 'Brazilian Real':3.520775, 'Bruneian Dollar':1.511327, 'Bulgarian Lev':1.956431, 'Chilean Peso':707.568341, 'Colombian Peso':3146.212774, 'Croatian Kuna':7.531657, 'Czech Koruna':27.022209, 'Danish Krone':7.434797, 'Emirati Dirham':3.836961, 'Hong Kong Dollar':8.113706, 
+'Hungarian Forint':311.688823, 'Icelandic Krona':118.725100, 'Indonesian Rupiah':13959.519837, 'Iranian Rial':33729.771931, 'Israeli Shekel':4.031584, 
+'Kazakhstani Tenge':350.095382, 'Kuwaiti Dinar':0.319648, 'Latvian Lat':0.702800, 'Libyan Dinar':1.498800, 'Lithuanian Litas':3.452800,'Mexican Peso':21.315080, 'Nepalese Rupee':113.355307, 'New Zealand Dollar':1.504826, 'Norwegian Krone':9.048759, 'Omani Rial':0.402175, 'Pakistani Rupee':109.496068, 'Philippine Peso':52.217003, 'Polish Zloty':4.420556, 'Qatari Riyal':3.803115, 'Romanian New Leu':4.520514, 'Russian Ruble':64.652624, 
+'Saudi Arabian Riyal':3.918885, 'South African Rand':14.712153, 'South Korean Won':1240.730986, 'Sri Lankan Rupee':155.720127, 'Swedish Krona':9.761674, 'Taiwan New Dollar':33.425181, 'Thai Baht':37.454247, 'Trinidadian Dollar':7.039503, 'Turkish Lira':3.689053, 'Venezuelan Bolivar':10.435727}
     user1=input("Enter name of currency you want to convert to.")
     if user1 in currencies1:
         k1=(currencies1[user1])
