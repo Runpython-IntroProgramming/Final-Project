@@ -75,7 +75,7 @@ for linetype in linetypelist:
                     newnumber1 = int(number1)*10+int(number2)
                     function[goforfunction] = newnumber1
                     function.remove(number2)
-            elif not isnumber(number1):
+            if not isnumber(number1):
                 goforfunction += 1
         print (function)
     if linetype == "p":
