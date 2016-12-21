@@ -23,8 +23,8 @@ class EvilPlane(Sprite):
     width = 10
     height = 10
     
-    def __init__(self, position):
-        super().__init__(EvilPlane.asset, position, ship)
+    def __init__(self, position, ship):
+        super().__init__(EvilPlane.asset, position)
         self.scale = 0.9
         self.rectangularCollisionModel()
         self.visible = True
