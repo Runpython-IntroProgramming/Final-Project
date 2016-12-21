@@ -77,12 +77,12 @@ class Icon(Sprite):
                     clkdx.append((event.x,event.y)) #add coord. of where clicked...
                     lgthb = len(clkdx)
                     clkun[lgtha-1](clkdx[lgthb-1], False) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
-                    #noise
+                    go = Sound(self.noise)
         self.ct += 1
 #subclasses
 class Flowr(Icon):
     asset = ImageAsset("images/pinkflowr.png")
-    #noise = 
+    self.noise = SoundAsset("sounds/Flr.mp3")
     def __init__(self,position,prop):
         super().__init__(Flowr.asset, position,prop)
         self.scale = 0.2
