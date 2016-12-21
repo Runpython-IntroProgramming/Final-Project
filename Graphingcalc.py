@@ -68,6 +68,9 @@ for linetype in linetypelist:
         function = list(input("y="))
         goforfunction = 0
         while goforfunction <= len(function)-2:
+            print(len(function)-2)
+            print(goforfunction)
+            print(function)
             number1 = function[goforfunction]
             number2 = function[goforfunction+1]
             if isnumber(number1):
@@ -75,7 +78,7 @@ for linetype in linetypelist:
                     newnumber1 = int(number1)*10+int(number2)
                     function[goforfunction] = newnumber1
                     function.remove(number2)
-            if not isnumber(number1):
+            else:
                 goforfunction += 1
         print (function)
     if linetype == "p":
