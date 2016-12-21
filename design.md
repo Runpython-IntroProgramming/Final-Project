@@ -2,7 +2,7 @@ Draw me a Picture!
 
 ## Design Specification
 I will use runpython and the ggame library. This will utilize Python 3.
-The whole program is contained in a file called "final.py" which recalls several images stored in a folder of the repository and functions from the ggame folder.
+The whole program is contained in a file called "final.py" which recalls several images stored in the corresponding folders within the repository; and functions from the ggame folder.
 
 The program starts by defining the screen dimensions and then a list of colors (black, white, turqoise, orange, purple, pale/peach-colored; light green, and brown. Then it defines two line styles.
 Then the program creates two empty list and sets two global variables to preset values: "stage" to 1 and "color" to 0.
@@ -10,6 +10,7 @@ It then proceeds to create 11 graphical assets: 7 circles, 1 rectangle, and 3 te
 
 Then it creates a class "Icon" which will later have subclasses. Icon's init function has the arguments: self, asset, position, and prop. The init function includes setting several variable to their default values, calling the class' default init function via super().__init__ , and setting its center to its graphical center (0.5,0.5).
 Next, it sets a condition based on an argument defined when creating a sprite: "prop" standing for property (of the sprite). When this is true, the program will consider it what I call an icon (lowercase, not to be confused with "Icon"). For only the icons where prop is marked as true, the init function says for the program to listen for the mouse-event "mousedown".
+If prop == False, however, the corresponding sound will be played thru the speakers.
 The "mousedown" event has a number of steps. It starts by saying that the variable stage is global before calculating the length of the list 'clkun'. Two of the variables the program uses are stage and 'self.ct'. stage defines which stage of the program the program is in, so it starts in stage 1. ct (or self.ct) counts how many times the mouse has been clicked.
 Then, if stage==1, it checks for whether ct is an even or odd number. If ct is odd -- calculated by "if (self.ct)%2 == 1", then it calculates the absolute value of the differnce between first the x, and then the y; of the mouse and the given sprite.
 It uses the variables self.b and self.c to calculate whether the mouse is close to the sprite in first the x and then the y directions. If both "b" and "c" are equal to 2 (ie the mouse is within 40 pixels of the sprite in both directions), it records the coordinates of the mouse and the subclass of the sprite: type(self), in the list clkun.
@@ -17,6 +18,7 @@ If ct is even, so the opposite of the condition for it being odd, it will set th
 Finally, the mouse-event increases self.ct by 1, indicating the mouse has been clicked and that click has been processed.
 Then the program creates the subclasses for 6 kinds of icons: a boy, bird, bunny, cat, tree, and flower. It uses the appropriate image from the image folder and super().__init__ to recall the "Icon" class' init function, to create its own init function.
 It then sets the scale for the subclass, so that the sprites do not appear too large or small relative to each other.
+A sound file is referenced at the end of each subclass, so it is played when a non-"icon" sprite of the subclass is created.
 
 For its last class, the program creates the class Draw(App) which places all of the graphics on the screen. This class starts with its init function which has the arguments self, width, and height. It then proceeds to call stage a global variable and recalls the default app class' init function using super().__init__
 After displaying a message welcoming the user, the program places 8 sprites on the left side of the screen: the six inital icons, a box separating them from the remaining portion of the screen, and a label reading "Icons".
@@ -36,3 +38,4 @@ Nexy, it creates my_draw as a version of Draw with the desired screen dimensions
 
 images: https://s-media-cache-ak0.pinimg.com/originals/d8/d9/59/d8d9596f8e39f135f86a01f61d381eec.jpg, https://s-media-cache-ak0.pinimg.com/originals/d8/d9/59/d8d9596f8e39f135f86a01f61d381eec.jpg; http://orig14.deviantart.net/7b77/f/2013/203/5/5/cartoon_boy_by_navdbest-d6ekjw9.png
 http://cartoon-birds.clipartonline.net/_/rsrc/1472868952735/blue-birds-cartoon-bird-images/blue_bird_clipart_image_9.png?height=320&width=320 .
+-sounds have been made by yours truly
