@@ -121,6 +121,11 @@ class Ship(Sprite):
             self.visible = False
             self.planeDead = True
             self.destroy
+        if self.collidingWithSprites(EvilPlane):
+            self.visible = False
+            self.planeDead = True
+            ExplosionBig(self.position)
+            self.destroy
     def thrustUp(self, event):
         self.vertThrust = -1
         self.RotThrust = -1
