@@ -42,6 +42,10 @@ class EvilPlane(Sprite):
         if self.ship.y == self.y:
             self.newY = 0
         self.y += self.newY
+        if self.collidingWithSprites(Ship):
+            self.visible = False
+            ExplosionBig(self.position)
+            self.destroy
 
         
 class Truck(Sprite):
