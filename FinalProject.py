@@ -32,13 +32,13 @@ class EvilPlane(Sprite):
         self.newY = 0
         
     def step(self):
-        self.x -= 8
+        self.x -= 3
         if self.x <= -10:
             self.x = 1999
         if self.ship.y > self.y:
-            self.newY = -1
-        if self.ship.y < self.y:
             self.newY = 1
+        if self.ship.y < self.y:
+            self.newY = -1
         if self.ship.y == self.y:
             self.newY = 0
         self.y += self.newY
@@ -97,9 +97,9 @@ class Ship(Sprite):
             self.vAddedx += 0
         """
         if self.vertThrust == 1:
-            self.vAddedy = 1.6
+            self.vAddedy = 3
         if self.vertThrust == -1:
-            self.vAddedy = -1.6
+            self.vAddedy = -3
         if self.vertThrust == 0:
             self.vAddedy = 0
         if self.RotThrust == 1:
@@ -218,7 +218,7 @@ class PlaneGame(App):
         Truck((1100,740))
         Truck((1400,740))
         Truck((1700,740))
-        EvilPlane((1200,400))
+        EvilPlane((1200,400),s)
 
         
                     
