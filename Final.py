@@ -6,7 +6,7 @@ http://cartoon-birds.clipartonline.net/_/rsrc/1472868952735/blue-birds-cartoon-b
 
 """
 
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, ImageAsset, TextAsset
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, ImageAsset, TextAsset, Sound, SoundAsset
 SCREEN_WIDTH = 1850
 SCREEN_HEIGHT = 1000
 
@@ -81,6 +81,7 @@ class Icon(Sprite):
 #subclasses
 class Flowr(Icon):
     asset = ImageAsset("images/pinkflowr.png")
+    noise = 
     def __init__(self,position,prop):
         super().__init__(Flowr.asset, position,prop)
         self.scale = 0.2
