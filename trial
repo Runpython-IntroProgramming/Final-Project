@@ -16,3 +16,8 @@ with open("latest.json") as f:
     ## make a list of countries
     countries = [country for country in j['rates']]
     print(countries)
+
+
+
+    
+    
