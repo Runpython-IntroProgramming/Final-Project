@@ -18,6 +18,5 @@ with open("latest.json") as f:
     print(countries)
 
 
-
     
     
