@@ -4,7 +4,7 @@ import json
 with open("latest.json") as f:
     j = json.load(f)
     ## j is a dictionary type with all of the json data in it
-    ## prints the country that rates are with respet to (base)
+    ## prints the country that rates are with respect to (base)
     print(j['base'])
     ## prints the dictionary of all rates
     print(j['rates'])
