@@ -17,6 +17,3 @@ with open("latest.json") as f:
     countries = [country for country in j['rates']]
     print(countries)
 
-
-    
-    
