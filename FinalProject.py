@@ -3,7 +3,7 @@ FinalProject.py
 Author: Liam S
 Credit: 
 """
-from ggame import App, Sprite, ImageAsset, Frame
+from ggame import App, Sprite, ImageAsset, TextAsset, Frame
 from ggame import SoundAsset, Sound, TextAsset, Color
 import math
 from time import time
