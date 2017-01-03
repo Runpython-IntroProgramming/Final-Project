@@ -1,5 +1,5 @@
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
-from math import sin, cos,tan, radians
+from math import sin, cos,tan, radians, atan2
 
 mapw= 100
 maph=100
