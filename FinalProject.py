@@ -28,12 +28,13 @@ class WinnerScreen(Sprite):
 class LoserScreen(Sprite):
     asset = TextAsset("You Lose", style='400px Arial')
     
-    def __init__(self, position):
+    def __init__(self, position, ship):
         super().__init__(LoserScreen.asset, position)
         self.visible = False
+        self.ship = ship
         
     def step(self):
-        if Ship.planeDead == True:
+        if self.ship.planeDead == True:
             self.visible = True
         
 
@@ -111,14 +112,6 @@ class Ship(Sprite):
 
         self.fxcenter = self.fycenter = 0.5
     def step(self):
-        """
-        if self.sideThrust == 1:
-            self.vAddedx += 0.05
-        if self.sideThrust == -1:
-            self.vAddedx -= 0.05
-        if self.sideThrust == 0:
-            self.vAddedx += 0
-        """
         if self.vertThrust == 1:
             self.vAddedy = 3
         if self.vertThrust == -1:
@@ -248,7 +241,7 @@ class PlaneGame(App):
         Truck((1700,740))
         EvilPlane((1200,400),s)
         WinnerScreen((500,0))
-        LoserScreen((500,0))
+        LoserScreen((500,0),s)
         
                     
     def step(self):
