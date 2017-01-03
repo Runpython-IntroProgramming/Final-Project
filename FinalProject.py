@@ -19,7 +19,7 @@ class Background(Sprite):
         self.scale = 1.4
 
 class WinnerScreen(Sprite):
-    asset = TextAsset("You Win", width=200, style='100px Arial')
+    asset = TextAsset("You Win", width=200, style='500px Arial')
     
     def __init__(self, position):
         super().__init__(WinnerScreen.asset, position)
@@ -234,7 +234,7 @@ class PlaneGame(App):
         Truck((1400,740))
         Truck((1700,740))
         EvilPlane((1200,400),s)
-        WinnerScreen((400,400))
+        WinnerScreen((0,0))
         
                     
     def step(self):
