@@ -165,6 +165,8 @@ def ray():
             raydir=int(Position['dir'])-45
             inpov=0
             first=0
+            oldrayx=0
+            oldrayy=0
         print('ray has started')
         wall=False
         distance=0
@@ -185,7 +187,8 @@ def ray():
                 print(ydif)
                 distance1=(abs(xdif)**2+abs(ydif))**(1/2)
                 print(inpov)
-                distance=distance1*sin(radians(90-(inpov)))
+                if round(rayx)!=oldrayx and round(rayy)!=oldrayy:
+                    distance=distance1*sin(radians(90-(inpov)))
                 print(distance)
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/(float(distance))), thinline, b5)
                 Sprite(wallbox,(screenside+110,(scrh/2)-(10*(200/(float(distance))))/2))
@@ -193,6 +196,8 @@ def ray():
                 raydir=raydir+1/distance
                 screenside=screenside+10/distance
                 wall=True
+                oldrayx=round(rayx)
+                oldrayy=round(rayy)
                 if inpov>=46:
                     change=0
                     screenside=0
