@@ -50,6 +50,9 @@ class Icon(Sprite):
         self.center=(0.5,0.5)
         if prop==True:
             Draw.listenMouseEvent("mousedown", self.ym_dn)
+        if prop==False:
+            go = Sound(self.noise)
+            go.run()
     def ym_dn(self,event):
         global stage
         lgtha = len(clkun)
@@ -77,7 +80,7 @@ class Icon(Sprite):
                     clkdx.append((event.x,event.y)) #add coord. of where clicked...
                     lgthb = len(clkdx)
                     clkun[lgtha-1](clkdx[lgthb-1], False) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
-                    go = Sound(self.noise)
+                    #go = Sound(self.noise)
         self.ct += 1
 #subclasses
 class Flowr(Icon):
