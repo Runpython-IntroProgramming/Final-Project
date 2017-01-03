@@ -36,9 +36,9 @@ class EvilPlane(Sprite):
         if self.x <= -10:
             self.x = 1999
         if self.ship.y > self.y:
-            self.newY = 1
+            self.newY = 0.5
         if self.ship.y < self.y:
-            self.newY = -1
+            self.newY = -0.5
         if self.ship.y == self.y:
             self.newY = 0
         self.y += self.newY
