@@ -38,4 +38,4 @@ Nexy, it creates my_draw as a version of Draw with the desired screen dimensions
 
 images: https://s-media-cache-ak0.pinimg.com/originals/d8/d9/59/d8d9596f8e39f135f86a01f61d381eec.jpg, https://s-media-cache-ak0.pinimg.com/originals/d8/d9/59/d8d9596f8e39f135f86a01f61d381eec.jpg; http://orig14.deviantart.net/7b77/f/2013/203/5/5/cartoon_boy_by_navdbest-d6ekjw9.png
 http://cartoon-birds.clipartonline.net/_/rsrc/1472868952735/blue-birds-cartoon-bird-images/blue_bird_clipart_image_9.png?height=320&width=320 .
-Sounds have been made by yours truly
+Sounds have been made by yours truly.
