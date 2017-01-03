@@ -129,5 +129,4 @@ if question is "Malaysian Rinnggit":
     l8=user
     m8=k8*(float(l8))
     n=print(round(m8,2))
-
     print(user1 + "s")
