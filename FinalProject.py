@@ -19,7 +19,7 @@ class Background(Sprite):
         self.scale = 1.4
 
 class WinnerScreen(Sprite):
-    asset = TextAsset("You Win")
+    asset = TextAsset("You Win", width=200, style='20px Arial')
     
     def __init__(self, position):
         super().__init__(WinnerScreen.asset, position)
