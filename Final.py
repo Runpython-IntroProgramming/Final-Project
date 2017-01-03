@@ -115,7 +115,7 @@ class Bird(Icon):
         self.scale = 0.18
 class kid(Icon):
     asset = ImageAsset("images/cartoon_boy.png")
-    noise = SoundAsset("sounds/Bunny.mp3")
+    noise = SoundAsset("sounds/boi.mp3")
     def __init__(self,position,prop):
         super().__init__(kid.asset, position,prop)
         self.scale = 0.06
