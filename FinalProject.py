@@ -33,7 +33,9 @@ class LoserScreen(Sprite):
         self.visible = False
         
     def step(self):
-        if 
+        if Ship.planeDead == True:
+            self.visible = True
+        
 
 class EvilPlane(Sprite):
     asset = ImageAsset("images/EvilPlane.png")
@@ -246,6 +248,7 @@ class PlaneGame(App):
         Truck((1700,740))
         EvilPlane((1200,400),s)
         WinnerScreen((500,0))
+        LoserScreen((500,0))
         
                     
     def step(self):
@@ -258,6 +261,8 @@ class PlaneGame(App):
         for ship in self.getSpritesbyClass(Truck):
             ship.step()
         for ship in self.getSpritesbyClass(EvilPlane):
+            ship.step()
+        for ship in self.getSpritesbyClass(LoserScreen):
             ship.step()
 
             
