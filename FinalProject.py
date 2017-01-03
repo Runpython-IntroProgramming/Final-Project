@@ -21,7 +21,7 @@ class Background(Sprite):
 class WinnerScreen(Sprite):
     asset = TextAsset("You Win")
     
-    def __init__(self, position, ship):
+    def __init__(self, position):
         super().__init__(WinnerScreen.asset, position)
 
 class EvilPlane(Sprite):
