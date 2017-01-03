@@ -7,13 +7,7 @@ from math import sin, cos, radians
 SCREEN_WIDTH = 1900
 SCREEN_HEIGHT = 1000
 
-def isnumber(s):
-    try:
-        int(s)
-        return True
-    except ValueError:
-        return False
-
+coords = None
 red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
 blue = Color(0x0000ff, 1.0)
@@ -36,8 +30,8 @@ ycurse = Ycursorclass((0,0))
 xaxisrulings = RectangleAsset(1, 7, thinline, black)
 yaxisrulings = RectangleAsset(7, 1, thinline, black)
 thinline = LineStyle(0, black)
-mycircle = CircleAsset(3, thinline, blue)
-mycirclebig = CircleAsset(6, thinline, blue)
+circle = CircleAsset(3, thinline, blue)
+circlebig = CircleAsset(6, thinline, red)
 Sprite (xaxis, (0, 500))
 Sprite (yaxis, (950, 0))
 yaxisrulingsprites = [Sprite(yaxisrulings, (947.5, y*20)) for y in range(-100, 100, 1)]
@@ -49,38 +43,15 @@ for x in xcoordinates2:
     x = x/32
     xcoordinates.append(x)
 
-linetypelist = input("linear, quadratic, cubic, plot, function (l, q, c, p, f). Separate by commas: ")
+linetypelist = input("choose function, plot (f,p). Separate by commas: ")
 linetypelist = linetypelist.split(",")
 for linetype in linetypelist:
-    if linetype == "l":
-        m = float(input("linear m: "))
-        b = float(input("linear b: "))
-    if linetype == "q":
-        a = float(input("quadratic a: "))
-        b = float(input("quadratic b: "))
-        c = float(input("quadratic c: "))
-    if linetype == "c":
-        a = float(input("cubic a: "))
-        b = float(input("cubic b: "))
-        c = float(input("cubic c: "))
-        d = float(input("cubic d: "))
     if linetype == "f":
-        function = list(input("y="))
-        goforfunction = 0
-        while goforfunction <= len(function)-2:
-            print(len(function)-2)
-            print(goforfunction)
-            print(function)
-            number1 = function[goforfunction]
-            number2 = function[goforfunction+1]
-            if isnumber(number1):
-                if isnumber(number2):
-                    newnumber1 = int(number1)*10+int(number2)
-                    function[goforfunction] = newnumber1
-                    function.remove(number2)
-            else:
-                goforfunction += 1
-        print (function)
+        function = input("y=")
+        for x in xcoordinates:
+            yval = (-20*(eval(function))+500)
+            if yval >= 0 and yval <= 1000:
+                Sprite (circle, ((20*x+950), yval))
     if linetype == "p":
         again = True
         ylistpts=[]
@@ -91,25 +62,10 @@ for linetype in linetypelist:
                 again = False
             if again == True:
                 point = point.split(",")
-                Sprite(mycirclebig, (20*float(point[0])+950, -20*float(point[1])+500))
+                Sprite(circlebig, (20*float(point[0])+950, -20*float(point[1])+500))
                 xlistpts.append(float(point[0]))
                 ylistpts.append(float(point[1]))
-    if linetype == "l":
-        for x in xcoordinates:
-            yval = 20*((-m)*x-b)+500
-            if yval >= 0:
-                sprites = Sprite(mycircle, (20*x+950, yval))
-    if linetype == "q":
-        for x in xcoordinates:
-            yval = 20*(-a*x**2-b*x-c)+500
-            if yval >= 0:
-                sprites = Sprite(mycircle, (20*x+950, yval))
-    if linetype == "c":
-        for x in xcoordinates:
-            yval = 20*(-a*x**3-b*x**2-c*x-d)+500
-            if yval >= 0:
-                sprites = Sprite(mycircle, (20*x+950, yval))
-coords = None
+
 def mousePosition(event):
     global text
     global coords
