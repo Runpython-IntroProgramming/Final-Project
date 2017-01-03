@@ -6,7 +6,7 @@ The whole program is contained in a file called "final.py" which recalls several
 
 The program starts by defining the screen dimensions and then a list of colors (black, white, turqoise, orange, purple, pale/peach-colored; light green, and brown. Then it defines two line styles.
 Then the program creates two empty list and sets two global variables to preset values: "stage" to 1 and "color" to 0.
-It then proceeds to create 11 graphical assets: 7 circles, 1 rectangle, and 3 textassets. These are all placed on the screen later on.
+It then proceeds to create 12 graphical assets: 7 circles, 1 rectangle, and 4 textassets. These are all placed on the screen later on.
 
 Then it creates a class "Icon" which will later have subclasses. Icon's init function has the arguments: self, asset, position, and prop. The init function includes setting several variable to their default values, calling the class' default init function via super().__init__ , and setting its center to its graphical center (0.5,0.5).
 Next, it sets a condition based on an argument defined when creating a sprite: "prop" standing for property (of the sprite). When this is true, the program will consider it what I call an icon (lowercase, not to be confused with "Icon"). For only the icons where prop is marked as true, the init function says for the program to listen for the mouse-event "mousedown".
