@@ -95,6 +95,6 @@ if question is "Canadian Dollar":
     n=print(round(m5,2))
     print(user1 + "s")
 if question is "Singapore Dollar":
-    user=input("Enter amount of Singapre Dollars to convert.")
+    user=input("Enter amount of Singapore Dollars to convert.")
     
     
