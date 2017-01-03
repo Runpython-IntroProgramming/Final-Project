@@ -82,37 +82,37 @@ class Icon(Sprite):
 #subclasses
 class Flowr(Icon):
     asset = ImageAsset("images/pinkflowr.png")
-    self.noise = SoundAsset("sounds/Flr.mp3")
+    noise = SoundAsset("sounds/Flr.mp3")
     def __init__(self,position,prop):
         super().__init__(Flowr.asset, position,prop)
         self.scale = 0.2
 class Tree(Icon):
     asset = ImageAsset("images/tree.png")
-    self.noise = SoundAsset("sounds/Tree.mp3")
+    noise = SoundAsset("sounds/Tree.mp3")
     def __init__(self,position,prop):
         super().__init__(Tree.asset, position,prop)
         self.scale = 0.5
 class Cat(Icon):
     asset = ImageAsset("images/cute-cartoon-cat-cute-light-brown-cartoon-cat-with-a-black-nose-and-7VM6VK-clipart.png")
-    self.noise = SoundAsset("sounds/Cat.mp3")
+    noise = SoundAsset("sounds/Cat.mp3")
     def __init__(self,position,prop):
         super().__init__(Cat.asset, position,prop)
         self.scale = 0.2
 class Bunny(Icon):
     asset = ImageAsset("images/bunny.png")
-    self.noise = SoundAsset("sounds/Bunny.mp3")
+    noise = SoundAsset("sounds/Bunny.mp3")
     def __init__(self,position,prop):
         super().__init__(Bunny.asset, position,prop)
         self.scale = 0.8
 class Bird(Icon):
     asset = ImageAsset("images/blue_bird.png")
-    self.noise = SoundAsset("sounds/Birdie.mp3")
+    noise = SoundAsset("sounds/Birdie.mp3")
     def __init__(self,position,prop):
         super().__init__(Bird.asset, position,prop)
         self.scale = 0.18
 class kid(Icon):
     asset = ImageAsset("images/cartoon_boy.png")
-    self.noise = SoundAsset("sounds/Bunny.mp3")
+    noise = SoundAsset("sounds/Bunny.mp3")
     def __init__(self,position,prop):
         super().__init__(kid.asset, position,prop)
         self.scale = 0.06
