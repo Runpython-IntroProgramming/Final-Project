@@ -144,4 +144,13 @@ if question is "Japanese Yen":
     print(user1 + "s")
 if question is "Chinese Yuan Renminbi":
     user=input("Enter amount of Chinese Yuan Renminbis to convert.")
-    currencies10=
+    currencies10 = {'US Dollar':0.143661,'Euro':0.137894, 'Pound':0.117353, 'Rupee':9.809119, 'Australian Dollar':0.198710, 'Canadian Dollar':0.192787, 'Singapore Dollar':0.208210, 'Swiss Franc':0.147427, 'Malaysian Rinnggit':0.645039, 'Japanese Yen':16.899543, 'Argentine Peso':2.290101, 'Bahraini Dinar':0.054031, 'Botswana Pula':1.539860, 'Brazilian Real':0.468948, 'Bruneian Dollar':0.208210, 'Bulgarian Lev':0.269893, 'Chilean Peso':96.712765, 'Colombian Peso':427.837626, 'Croatian Kuna':1.041790, 'Czech Koruna':3.725886, 'Danish Krone':1.025231, 'Emirati Dirham':0.527596, 'Hong Kong Dollar':1.114302, 
+'Hungarian Forint':42.660468, 'Icelandic Krona':16.391268, 'Indonesian Rupiah':1933.265428, 'Iranian Rial':4650.889780, 'Israeli Shekel':0.555053, 'Kazakhstani Tenge':47.872245, 'Kuwaiti Dinar':0.044062, 'Latvian Lat':0.096912, 'Libyan Dinar':0.206369, 'Lithuanian Litas':0.476120,'Mexican Peso':3.033484, 'Nepalese Rupee':15.706693, 'New Zealand Dollar':0.207538, 'Norwegian Krone':1.242086, 'Omani Rial':0.055238, 'Pakistani Rupee':15.044208, 'Philippine Peso':7.151458, 'Polish Zloty':0.604990, 'Qatari Riyal':0.522970, 'Romanian New Leu':0.036935, 'Russian Ruble':0.623792, 'Saudi Arabian Riyal':0.538874, 'South African Rand':1.983725, 'South Korean Won':173.333456, 'Sri Lankan Rupee':21.546302, 
+'Swedish Krona':1.315163, 'Taiwan New Dollar':4.631855, 'Thai Baht':5.156067, 'Trinidadian Dollar':0.962487, 'Turkish Lira':0.516095, 'Venezuelan Bolivar':1.432992}
+    user1=input("Enter name of currency you want to convert to.")
+    if user1 in currencies10:
+        k10=(currencies10[user1])
+    l10=user
+    m10=k10*(float(l10))
+    n=print(round(m10,2))
+    print(user1 + "s")
