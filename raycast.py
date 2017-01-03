@@ -189,6 +189,8 @@ def ray():
                 print(inpov)
                 if round(rayx)!=oldrayx and round(rayy)!=oldrayy:
                     distance=distance1*sin(radians(90-(inpov)))
+                    oldrayx=round(rayx)
+                    oldrayy=round(rayy)
                 print(distance)
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/(float(distance))), thinline, b5)
                 Sprite(wallbox,(screenside+110,(scrh/2)-(10*(200/(float(distance))))/2))
@@ -196,8 +198,6 @@ def ray():
                 raydir=raydir+1/distance
                 screenside=screenside+10/distance
                 wall=True
-                oldrayx=round(rayx)
-                oldrayy=round(rayy)
                 if inpov>=46:
                     change=0
                     screenside=0
