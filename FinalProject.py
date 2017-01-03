@@ -20,9 +20,12 @@ class Background(Sprite):
 
 class WinnerScreen(Sprite):
     asset = TextAsset("You Win", style='400px Arial')
+    asset2 = TextAsset("You Lose", style='400px Arial')
     
     def __init__(self, position):
-        super().__init__(WinnerScreen.asset, position)
+        super().__init__(WinnerScreen.asset2, position)
+        
+
 
 class EvilPlane(Sprite):
     asset = ImageAsset("images/EvilPlane.png")
