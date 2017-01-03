@@ -106,3 +106,4 @@ if question is "Singapore Dollar":
     m6=k6*(float(l6))
     n=print(round(m6,2))
     print(user1 + "s") 
+    
