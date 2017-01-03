@@ -234,7 +234,7 @@ class PlaneGame(App):
         Truck((1400,740))
         Truck((1700,740))
         EvilPlane((1200,400),s)
-
+        WinnerScreen((400,400))
         
                     
     def step(self):
