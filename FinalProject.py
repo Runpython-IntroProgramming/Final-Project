@@ -18,6 +18,12 @@ class Background(Sprite):
         super().__init__(Background.asset, position)
         self.scale = 1.4
 
+class WinnerScreen(Sprite):
+    asset = TextAsset("You Win")
+    
+    def __init__(self, position, ship):
+        super().__init__(WinnerScreen.asset, position)
+
 class EvilPlane(Sprite):
     asset = ImageAsset("images/EvilPlane.png")
     width = 10
