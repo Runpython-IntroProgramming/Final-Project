@@ -2,7 +2,7 @@ Draw me a Picture!
 
 ## Design Specification
 I will use runpython and the ggame library. This will utilize Python 3.
-The whole program is contained in a file called "final.py" which recalls several images stored in the corresponding folders within the repository; and functions from the ggame folder.
+The whole program is contained in a file called "final.py" which recalls several images and sounds stored in the corresponding folders within the repository; and functions from the ggame folder.
 
 The program starts by defining the screen dimensions and then a list of colors (black, white, turqoise, orange, purple, pale/peach-colored; light green, and brown. Then it defines two line styles.
 Then the program creates two empty list and sets two global variables to preset values: "stage" to 1 and "color" to 0.
