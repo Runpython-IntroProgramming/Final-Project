@@ -52,7 +52,7 @@ class Icon(Sprite):
             Draw.listenMouseEvent("mousedown", self.ym_dn)
         if prop==False:
             go = Sound(self.noise)
-            #go.run()
+            go.play()
     def ym_dn(self,event):
         global stage
         lgtha = len(clkun)
