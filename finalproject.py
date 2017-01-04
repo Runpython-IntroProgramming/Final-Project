@@ -178,3 +178,20 @@ if question is "Bahraini Dinar":
     m12=k12*(float(l12))
     n=print(round(m12,2))
     print(user1 + "s")
+if question is "Botswana Pula":
+    user=input("Enter amount of Botswana Pulas to convert.")
+    currencies13 = {'US Dollar':0.093649,'Euro':0.089340, 'Pound':0.075993, 'Rupee':6.357354, 'Australian Dollar':0.128655, 'Canadian Dollar':0.124621, 'Singapore Dollar':0.134825, 'Swiss Franc':0.095661, 'Malaysian Rinnggit':0.421186, 'Japanese Yen':10.995923, 'Chinese Yuan Renminbi':0.649469, 'Argentine Peso':1.505670, 'Bahraini Dinar':0.035268, 'Brazilian Real':0.301182, 'Bruneian Dollar':0.134825, 'Bulgarian Lev':0.174747, 'Chilean Peso':62.866586, 'Colombian Peso':278.043940, 'Croatian Kuna':0.676613, 'Czech Koruna':2.414286, 'Danish Krone':0.664167, 'Emirati Dirham':0.343926, 'Hong Kong Dollar':0.726290, 
+'Hungarian Forint':27.518510, 'Icelandic Krona':10.597293, 'Indonesian Rupiah':1251.321313, 'Iranian Rial':3031.793373, 'Israeli Shekel':0.361315, 'Kazakhstani Tenge':31.269407, 'Kuwaiti Dinar':0.028722, 'Latvian Lat':0.062788, 'Libyan Dinar':0.134948, 'Lithuanian Litas':0.308473,'Mexican Peso':2.016038, 'Nepalese Rupee':10.205120, 'New Zealand Dollar':0.134558, 'Norwegian Krone':0.805490, 'Omani Rial':0.036008, 'Pakistani Rupee':9.807862, 'Philippine Peso':4.640740, 'Polish Zloty':0.390352, 'Qatari Riyal':0.340892, 'Romanian New Leu':0.403064, 'Russian Ruble':5.660186, 'Saudi Arabian Riyal':0.351247, 'South African Rand':1.277628, 'South Korean Won':112.039068, 'Sri Lankan Rupee':14.054830, 
+'Swedish Krona':0.853048, 'Taiwan New Dollar':3.008104, 'Thai Baht':3.353619, 'Trinidadian Dollar':0.628319, 'Turkish Lira':0.334574, 'Venezuelan Bolivar':0.934130}
+    user1=input("Enter name of currency you want to convert to.")
+    if user1 in currencies13:
+        k13=(currencies13[user1])
+    l13=user
+    m13=k13*(float(l13))
+    n=print(round(m13,2))
+    print(user1 + "s")
+if question is "Brazilian Real":
+    user=input("Enter amount of Brazilian Reals to convert.")
+    currencies14 = {'US Dollar':0.093649,'Euro':0.089340, 'Pound':0.075993, 'Rupee':6.357354, 'Australian Dollar':0.128655, 'Canadian Dollar':0.124621, 'Singapore Dollar':0.134825, 'Swiss Franc':0.095661, 'Malaysian Rinnggit':0.421186, 'Japanese Yen':10.995923, 'Chinese Yuan Renminbi':0.649469, 'Argentine Peso':1.505670, 'Bahraini Dinar':0.035268, 'Botswana Pula':0.301182, 'Bruneian Dollar':0.134825, 'Bulgarian Lev':0.174747, 'Chilean Peso':62.866586, 'Colombian Peso':278.043940, 'Croatian Kuna':0.676613, 'Czech Koruna':2.414286, 'Danish Krone':0.664167, 'Emirati Dirham':0.343926, 'Hong Kong Dollar':0.726290, 
+'Hungarian Forint':27.518510, 'Icelandic Krona':10.597293, 'Indonesian Rupiah':1251.321313, 'Iranian Rial':3031.793373, 'Israeli Shekel':0.361315, 'Kazakhstani Tenge':31.269407, 'Kuwaiti Dinar':0.028722, 'Latvian Lat':0.062788, 'Libyan Dinar':0.134948, 'Lithuanian Litas':0.308473,'Mexican Peso':2.016038, 'Nepalese Rupee':10.205120, 'New Zealand Dollar':0.134558, 'Norwegian Krone':0.805490, 'Omani Rial':0.036008, 'Pakistani Rupee':9.807862, 'Philippine Peso':4.640740, 'Polish Zloty':0.390352, 'Qatari Riyal':0.340892, 'Romanian New Leu':0.403064, 'Russian Ruble':5.660186, 'Saudi Arabian Riyal':0.351247, 'South African Rand':1.277628, 'South Korean Won':112.039068, 'Sri Lankan Rupee':14.054830, 
+'Swedish Krona':0.853048, 'Taiwan New Dollar':3.008104, 'Thai Baht':3.353619, 'Trinidadian Dollar':0.628319, 'Turkish Lira':0.334574, 'Venezuelan Bolivar':0.934130}
