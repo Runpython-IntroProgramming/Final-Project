@@ -181,9 +181,9 @@ def ray():
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print('wall is detected')
                 inpov=abs(raydir-int(Position['dir']))
-                xdif=(int(Position['x'])-rayx)
+                xdif=(int(Position['x'])-round(rayx))
                 print(xdif)
-                ydif=(int(Position['y'])-rayy)**2
+                ydif=(int(Position['y'])-round(rayy))**2
                 print(ydif)
                 distance1=(abs(xdif)**2+abs(ydif))**(1/2)
                 print(inpov)
