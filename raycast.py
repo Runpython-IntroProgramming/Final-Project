@@ -187,6 +187,7 @@ def ray():
                 print(ydif)
                 distance1=(abs(xdif)**2+abs(ydif))**(1/2)
                 print(inpov)
+                sidedistance=abs(45-screenside)
                 if round(rayx)!=oldrayx and round(rayy)!=oldrayy:
                     distance=distance1*sin(radians(90-(atan2(xdif,ydif))))
                     oldrayx=round(rayx)
