@@ -196,6 +196,8 @@ class Bomb(Sprite):
                 self.counter += 0.2
                 self.x += 5
                 self.y += self.counter
+        if self.ship.planeDead == True:
+            self.destroy
         if self.collidingWithSprites(Truck):
             self.visible = False
             self.dropped = False
