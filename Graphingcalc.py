@@ -108,7 +108,13 @@ for linetype in linetypelist:
                 rval = correlation(xlistpts, ylistpts)
                 regreslope = rval*(sdy/sdx)
                 regreintercept = ylistmean - (regreslope*xlistmean)
-                print ("Regression: y="+str(regreslope)+"x+"+str(regreintercept)+". r = " + str(rval))
+                regreinterceptprint = str(round(10*regreintercept)/10)
+                oper = "+"+regreinterceptprint
+                if regreintercept < 0:
+                    oper = "-"+regreinterceptprint
+                if regreintercept == 0:
+                    oper = ""
+                print ("Regression: y="+str((round(10*regreslope))/10)+"x"+ oper +". r = " + str(round(10000*rval)/10000))
                 for x in xcoordinates:
                     yval = (-20*(regreslope*x+regreintercept)+500)
                     if yval >= 0 and yval <= 1000:
