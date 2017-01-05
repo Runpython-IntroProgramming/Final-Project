@@ -35,11 +35,11 @@ dotr = CircleAsset(2, noline, brn)
 dotl = CircleAsset(3, noline, pale)
 box = RectangleAsset(8, 1000, thinline, black)
 label = TextAsset("Icons")
-start1 = TextAsset("Click on an icon to select it.")
-start2 = TextAsset("Click somewhere else to place a copy of that icon there.")
-middle1 = TextAsset("Now you can draw on the screen by dragging the mouse across")
-middle2 = TextAsset("the screen while pressing down both the mouse one")
-middle3 = TextAsset("of the following keys: 'q', 'r', 'o', 'p', 'g', 'l', or 'b' .")
+start1 = TextAsset("Click on an icon to select it.", width=500)
+start2 = TextAsset("Click somewhere else to place a copy of that icon there.", width=500)
+middle1 = TextAsset("Now you can draw on the screen by dragging the", width=500)
+middle2 = TextAsset("mouse across the screen while pressing down both the mouse and", width=500)
+middle3 = TextAsset("one of the following keys: 'q', 'r', 'o', 'p', 'g', 'l', or 'b' .", width=500)
 end1 = TextAsset("You have finished this program!", width=500)
 end2 = TextAsset("If you ctrl+click, you can save or copy your image.", width=500)
 hide = TextAsset("Press return to hide this message.", width=500)
@@ -147,20 +147,20 @@ class Draw(App):
         self.txt2.visible = False
         self.txt3 = Sprite(hide, (1252,844))
         self.txt3.visible = False
-        self.txt4 = Sprite(start1, (w2,h2))
-        #self.txt4.visible = False
-        self.txt5 = Sprite(start2, (w2,(h2+10)))
-        #self.txt5.visible = False
-        self.txt6 = Sprite(middle1, (w2,h2))
+        self.txt4 = Sprite(start1, (wth2,h2))
+        self.txt4.visible = False
+        self.txt5 = Sprite(start2, (wth2,(h2+20)))
+        self.txt5.visible = False
+        self.txt6 = Sprite(middle1, (wth2,h2))
         #self.txt6.visible = False
-        self.txt7 = Sprite(middle2, (w2,(h2+10)))
+        self.txt7 = Sprite(middle2, (wth2,(h2+20)))
         #self.txt7.visible = False
-        self.txt8 = Sprite(middle3, (w2,(h2+20)))
+        self.txt8 = Sprite(middle3, (wth2,(h2+40)))
         #self.txt8.visible = False
-        self.txt3a = Sprite(hide, (w2,(h2+30)))
+        self.txt3a = Sprite(hide, (wth2,(h2+60)))
         #self.txt3a.visible = False
-        self.txt3b = Sprite(hide, (w2,(h2+20)))
-        #self.txt3b.visible = False
+        self.txt3b = Sprite(hide, (wth2,(h2+40)))
+        self.txt3b.visible = False
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         Draw.listenKeyEvent("keydown", "g", self.green)
         Draw.listenKeyEvent("keydown", "q", self.turq)
