@@ -106,7 +106,8 @@ for linetype in linetypelist:
                     ymeanlist.append(y)
                 sdx = (sum(xmeanlist)/len(xmeanlist))**0.5
                 sdy = (sum(ymeanlist)/len(ymeanlist))**0.5
-                
+                rval = correlation(xlistpts, ylistpts)
+                print(rval)
 
 def mousePosition(event):
     global text
