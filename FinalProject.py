@@ -27,8 +27,7 @@ class WinnerScreen(Sprite):
         self.Trucks = 6
         
     def step(self):
-        self.Trucks = len(self.getSpritesbyClass(Truck))
-        print(self.Trucks)
+        self.Trucks = len(PlaneGame.getSpritesbyClass(Truck))
         if self.Trucks == 0:
             self.visible = True
        
