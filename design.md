@@ -1,6 +1,8 @@
-# Name of Your Project Here
+# Simple Raycaster
 
 ## Design Specification
+
+I will use runpython to build the program. It will use Python 3. For the level editor in the corner, the program will use a list to track what squares are selected. This List will carry over to the walls which are detected. 
 
 The design specificaiton is a counterpart to the Functional Speciffication. Where a functional specification concerns itself
 with inputs and outputs from the program, or the *experience* of a user running the program, the design specification is concerned with decisions that the engineer and programmer must make during its creation.
