@@ -7,6 +7,13 @@ from math import sin, cos, radians
 SCREEN_WIDTH = 1900
 SCREEN_HEIGHT = 1000
 
+def correlation(xlistpts,ylistpts):
+    N = len(xlistpts)
+    corgofor = 0
+    Exylist = []
+    while corgofor <= len(xlistpts)-1:
+        len
+
 coords = None
 red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
@@ -65,6 +72,22 @@ for linetype in linetypelist:
                 Sprite(circlebig, (20*float(point[0])+950, -20*float(point[1])+500))
                 xlistpts.append(float(point[0]))
                 ylistpts.append(float(point[1]))
+            if point == "r":
+                xlistmean = (sum(xlistpts))/len(xlistpts)
+                ylistmean = (sum(ylistpts))/len(ylistpts)
+                xmeanlist = []
+                ymeanlist = []
+                for i in xlistpts:
+                    x = i-xlistmean
+                    x = x**2
+                    xmeanlist.append(x)
+                for i in ylistpts:
+                    y = i-ylistmean
+                    y = y**2
+                    ymeanlist.append(y)
+                sdx = (sum(xmeanlist)/len(xmeanlist))**0.5
+                sdy = (sum(ymeanlist)/len(ymeanlist))**0.5
+                
 
 def mousePosition(event):
     global text
