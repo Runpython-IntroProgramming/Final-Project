@@ -116,6 +116,7 @@ for linetype in linetypelist:
                 goforh = 0
                 while goforh <= len(xlistpts)-1:
                     Sprite(circlebig, (20*float(xlistpts[goforh])+950, -20*float(ylistpts[goforh])+500))
+                    goforh += 1
 
 def mousePosition(event):
     global text
