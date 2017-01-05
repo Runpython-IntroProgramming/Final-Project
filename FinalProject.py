@@ -24,11 +24,14 @@ class WinnerScreen(Sprite):
     def __init__(self, position):
         super().__init__(WinnerScreen.asset, position)
         self.visible = False
+        self.Trucks = 6
         
     def step(self):
-        if len(self.getSpritesbyClass(Truck)) == 0:
+        self.Trucks = len(self.getSpritesbyClass(Truck))
+        print(self.Trucks)
+        if self.Trucks == 0:
             self.visible = True
-        
+       
 
 class LoserScreen(Sprite):
     asset = TextAsset("You Lose", style='400px Arial')
