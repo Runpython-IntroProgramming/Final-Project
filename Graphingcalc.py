@@ -12,7 +12,22 @@ def correlation(xlistpts,ylistpts):
     corgofor = 0
     Exylist = []
     while corgofor <= len(xlistpts)-1:
-        len
+        jum = xlistpts[corgofor]*ylistpts[corgofor]
+        Exylist.append(jum)
+        corgofor += 1
+    Exy = sum(Exylist)
+    Ex = sum(xlistpts)
+    Ey = sum(ylistpts)
+    Ex2list = []
+    Ey2list = []
+    for j in xlistpts:
+        jummy = j**2
+        Ex2list.append(jummy)
+    for i in ylistpts:
+        jumby = i**2
+        Ey2list.append(jumby)
+    Ex2 = sum(Ex2list)
+    Ey2 = sum(Ey2list)
 
 coords = None
 red = Color(0xff0000, 1.0)
