@@ -28,6 +28,7 @@ def correlation(xlistpts,ylistpts):
         Ey2list.append(jumby)
     Ex2 = sum(Ex2list)
     Ey2 = sum(Ey2list)
+    numerator = (N*Exy)-(Ex*Ey)
 
 coords = None
 red = Color(0xff0000, 1.0)
