@@ -29,6 +29,9 @@ def correlation(xlistpts,ylistpts):
     Ex2 = sum(Ex2list)
     Ey2 = sum(Ey2list)
     numerator = (N*Exy)-(Ex*Ey)
+    denominator = ((N*Ex2)-(Ex)**2)((N*Ey2)-(Ey)**2)
+    r = numerator/denominator
+    return (r)
 
 coords = None
 red = Color(0xff0000, 1.0)
