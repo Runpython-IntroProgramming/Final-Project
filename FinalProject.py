@@ -24,10 +24,9 @@ class WinnerScreen(Sprite):
     def __init__(self, position):
         super().__init__(WinnerScreen.asset, position)
         self.visible = False
-        deadtruck = 0
         
     def step(self):
-        if self.deadtruck == 6:
+        if len(self.getSpritesbyClass(Truck)) == 0:
             self.visible = True
         
 
@@ -93,7 +92,7 @@ class Truck(Sprite):
             self.visible = False
             ExplosionBig(self.position)
             self.destroy()
-            winner.deadtruck+=1
+            
 
 class Ship(Sprite):
 
@@ -245,6 +244,7 @@ class PlaneGame(App):
         Background((2000, 0))
         s = Ship((400,200))
         Bomb((400,600),s)
+        WinnerScreen((500,0))
         Truck((200,740))
         Truck((500,740))
         Truck((800,740))
@@ -252,7 +252,6 @@ class PlaneGame(App):
         Truck((1400,740))
         Truck((1700,740))
         EvilPlane((1200,400),s)
-        WinnerScreen((500,0))
         LoserScreen((500,0),s)
         
                     
