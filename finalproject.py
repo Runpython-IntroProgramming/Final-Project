@@ -250,4 +250,6 @@ if question is "Colombian Peso":
     m18=k18*(float(l18))
     n=print(round(m18,2))
     print(user1 + "s")
-    
+if question is "Croatian Kuna":
+    user=input("Enter amount of Croatian Kunas to convert.")
+    currencies19 = {
