@@ -29,7 +29,7 @@ def correlation(xlistpts,ylistpts):
     Ex2 = sum(Ex2list)
     Ey2 = sum(Ey2list)
     numerator = (N*Exy)-(Ex*Ey)
-    denominator = ((N*Ex2)-(Ex)**2)((N*Ey2)-(Ey)**2)
+    denominator = (((N*Ex2)-(Ex)**2)*((N*Ey2)-(Ey)**2))**0.5
     r = numerator/denominator
     return (r)
 
@@ -88,7 +88,6 @@ for linetype in linetypelist:
                 again = False
             if again == True:
                 point = point.split(",")
-                Sprite(circlebig, (20*float(point[0])+950, -20*float(point[1])+500))
                 xlistpts.append(float(point[0]))
                 ylistpts.append(float(point[1]))
             if point == "r":
@@ -107,7 +106,16 @@ for linetype in linetypelist:
                 sdx = (sum(xmeanlist)/len(xmeanlist))**0.5
                 sdy = (sum(ymeanlist)/len(ymeanlist))**0.5
                 rval = correlation(xlistpts, ylistpts)
-                print(rval)
+                regreslope = rval*(sdy/sdx)
+                regreintercept = ylistmean - (regreslope*xlistmean)
+                print ("Regression: y="+str(regreslope)+"x+"+str(regreintercept)+". r = " + str(rval))
+                for x in xcoordinates:
+                    yval = (-20*(regreslope*x+regreintercept)+500)
+                    if yval >= 0 and yval <= 1000:
+                        Sprite (circle, ((20*x+950), yval))
+                goforh = 0
+                while goforh <= len(xlistpts)-1:
+                    Sprite(circlebig, (20*float(xlistpts[goforh])+950, -20*float(ylistpts[goforh])+500))
 
 def mousePosition(event):
     global text
