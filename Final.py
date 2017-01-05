@@ -148,19 +148,17 @@ class Draw(App):
         self.txt3 = Sprite(hide, (1252,844))
         self.txt3.visible = False
         self.txt4 = Sprite(start1, (wth2,h2))
-        self.txt4.visible = False
         self.txt5 = Sprite(start2, (wth2,(h2+20)))
-        self.txt5.visible = False
         self.txt6 = Sprite(middle1, (wth2,h2))
-        #self.txt6.visible = False
+        self.txt6.visible = False
         self.txt7 = Sprite(middle2, (wth2,(h2+20)))
-        #self.txt7.visible = False
+        self.txt7.visible = False
         self.txt8 = Sprite(middle3, (wth2,(h2+40)))
-        #self.txt8.visible = False
+        self.txt8.visible = False
         self.txt3a = Sprite(hide, (wth2,(h2+60)))
-        #self.txt3a.visible = False
+        self.txt3a.visible = False
         self.txt3b = Sprite(hide, (wth2,(h2+40)))
-        self.txt3b.visible = False
+        #self.txt3b.visible = False
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         Draw.listenKeyEvent("keydown", "g", self.green)
         Draw.listenKeyEvent("keydown", "q", self.turq)
@@ -184,14 +182,27 @@ class Draw(App):
         global stage
         stage += 1
         #print("news! ", stage) an indicator
+        if stage == 1:
+            self.txt4.visible = False
+            self.txt5.visible = False
+            self.txt3b.visible = False
         if stage == 2:
             print("You are done dragging and dropping!")
+            self.txt6.visible = True
+            self.txt7.visible = True
+            self.txt8.visible = True
+            self.txt3a.visible = True
+        if stage ==3:    
             print("Now try dragging the mouse across the screen while holding one of the following keys: 'b', 'r', 'p', 'l', 'g', 'o', or 'q'.")
-        if stage == 3:
+            self.txt6.visible = False
+            self.txt7.visible = False
+            self.txt8.visible = False
+            self.txt3a.visible = False
+        if stage == 4:
             self.txt1.visible = True
             self.txt2.visible = True
             self.txt3.visible = True
-        if stage == 4:
+        if stage == 5:
             self.txt1.visible = False
             self.txt2.visible = False
             self.txt3.visible = False
@@ -206,35 +217,35 @@ class Draw(App):
     #color events
     def green(self,event):
         global color
-        if stage == 2:
+        if stage == 3:
             color = 1
     def turq(self,event):
         global color
-        if stage == 2:
+        if stage == 3:
             color = 2
     def orange(self,event):
         global color
-        if stage == 2:
+        if stage == 3:
             color = 3
     def black(self,event):
         global color
-        if stage == 2:
+        if stage == 3:
             color = 4
     def purp(self,event):
         global color
-        if stage == 2:
+        if stage == 3:
             color = 5
     def brn(self,event):
         global color
-        if stage == 2:
+        if stage == 3:
             color = 6
     def pale(self,event):
         global color
-        if stage == 2:
+        if stage == 3:
             color = 7
     def no_col(self,event):
         global color
-        if stage == 2:
+        if stage == 3:
             color = 0
     
     def step(self):
