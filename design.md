@@ -2,7 +2,7 @@
 
 ## Design Specification
 
-I will use runpython to build the program. It will use Python 3. For the level editor in the corner, the program will use a list to track what squares are selected. This List will carry over to the walls which are detected. 
+I will use runpython to build the program. It will use Python 3. For the level editor in the corner, the program will use a list to track what squares are selected. This Library will carry over to the walls which are detected. The walls will be detected by a "ray" which will start at the library for the players position and detect all tles between that position and the first tile in the line of the ray.
 
 The design specificaiton is a counterpart to the Functional Speciffication. Where a functional specification concerns itself
 with inputs and outputs from the program, or the *experience* of a user running the program, the design specification is concerned with decisions that the engineer and programmer must make during its creation.
