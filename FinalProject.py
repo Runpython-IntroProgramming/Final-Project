@@ -21,14 +21,15 @@ class Background(Sprite):
 class WinnerScreen(Sprite):
     asset = TextAsset("You Win", style='400px Arial')
     
-    def __init__(self, position):
+    def __init__(self, position, Loserscreen):
         super().__init__(WinnerScreen.asset, position)
         self.visible = False
         self.Trucks = 6
+        self.LoserScreen = LoserScreen
         
     def step(self):
         self.Trucks = len(PlaneGame.getSpritesbyClass(Truck))
-        if self.Trucks == 0:
+        if self.Trucks == 0 and self.LoserScreen.visible == False:
             self.visible = True
        
 
@@ -246,7 +247,6 @@ class PlaneGame(App):
         Background((2000, 0))
         s = Ship((400,200))
         Bomb((400,600),s)
-        WinnerScreen((500,0))
         Truck((200,740))
         Truck((500,740))
         Truck((800,740))
@@ -254,7 +254,8 @@ class PlaneGame(App):
         Truck((1400,740))
         Truck((1700,740))
         EvilPlane((1200,400),s)
-        LoserScreen((500,0),s)
+        l = LoserScreen((500,0),s)
+        WinnerScreen((500,0),l)
         
                     
     def step(self):
