@@ -43,6 +43,7 @@ middle3 = TextAsset("one of the following keys: 'q', 'r', 'o', 'p', 'g', 'l', or
 end1 = TextAsset("You have finished this program!", width=500)
 end2 = TextAsset("If you ctrl+click, you can save or copy your image.", width=500)
 hide = TextAsset("Press return to hide this message.", width=500)
+other = TextAsset("Press return again once you're done to advance to the next stage", width=600)
 h2 = (SCREEN_HEIGHT)/2
 wth2 = (SCREEN_WIDTH)/2
 
@@ -141,11 +142,11 @@ class Draw(App):
         aboi = kid((55, 710), True)
         Sprite(box, (132, 25))
         Sprite(label, (50, 30))
-        self.txt1 = Sprite(end1, (1250,800))
+        self.txt1 = Sprite(end1, (wth2,h2))
         self.txt1.visible = False
-        self.txt2 = Sprite(end2, (1251,822))
+        self.txt2 = Sprite(end2, (wth2,h2+20))
         self.txt2.visible = False
-        self.txt3 = Sprite(hide, (1252,844))
+        self.txt3 = Sprite(hide, (wth2,h2+40))
         self.txt3.visible = False
         self.txt4 = Sprite(start1, (wth2,h2))
         self.txt5 = Sprite(start2, (wth2,(h2+20)))
