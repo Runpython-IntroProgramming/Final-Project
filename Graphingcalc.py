@@ -156,10 +156,6 @@ for linetype in linetypelist:
                     yval = (-20*(regreslope*x+regreintercept)+500)
                     if yval >= 0 and yval <= 1000:
                         Sprite (circle, ((20*x+950), yval))
-                goforh = 0
-                while goforh <= len(xlistpts)-1:
-                    Sprite(circlebig, (20*float(xlistpts[goforh])+950, -20*float(ylistpts[goforh])+500))
-                    goforh += 1
             if point == "qr":
                 abc = quadreg(xlistpts,ylistpts)
                 quada = abc[0]
@@ -169,6 +165,10 @@ for linetype in linetypelist:
                     yval = (-20*(quada*(x**2)+quadb*x+quadc)+500)
                     if yval >= 0 and yval <= 1000:
                         Sprite (circle, ((20*x+950), yval))
+            goforh = 0
+            while goforh <= len(xlistpts)-1:
+                Sprite(circlebig, (20*float(xlistpts[goforh])+950, -20*float(ylistpts[goforh])+500))
+                goforh += 1
 
 def mousePosition(event):
     global text
