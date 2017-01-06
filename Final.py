@@ -147,8 +147,6 @@ class Draw(App):
         self.txt5 = Sprite(start2, (wth2,(h2+20)))
         self.txt9 = Sprite(other, (wth2, (h2+75)))
         
-        self.txt3a = Sprite(hide, (wth2,(h2+60)))
-        self.txt3a.visible = False
         #self.txt3b = Sprite(hide, (wth2,(h2+40)))
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         Draw.listenKeyEvent("keydown", "g", self.green)
@@ -183,13 +181,14 @@ class Draw(App):
             self.txt6 = Sprite(middle1, (wth2,h2))
             self.txt7 = Sprite(middle2, (wth2,(h2+20)))
             self.txt8 = Sprite(middle3, (wth2,(h2+40)))
-            self.txt9a = Sprite(other, (wth2, (h2+80)))
-            self.txt3a.visible = True
+            self.txt9a = Sprite(other, (wth2, (h2+95)))
+            self.txt3a = Sprite(hide, (wth2,(h2+60)))
             """
             self.txt6.visible = True
             self.txt7.visible = True
             self.txt8.visible = True
             self.txt9a.visible = True
+            self.txt3a.visible = True
             """
         if stage ==3:    
             print("Now try dragging the mouse across the screen while holding one of the following keys: 'b', 'r', 'p', 'l', 'g', 'o', or 'q'.")
