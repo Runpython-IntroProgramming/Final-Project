@@ -204,8 +204,9 @@ class Draw(App):
             """
             self.txt1.visible = True
             self.txt2.visible = True
-            self.txt3.visible = True
             """
+            self.txt3.visible = True
+            #"""
         if stage == 5:
             self.txt1.visible = False
             self.txt2.visible = False
