@@ -142,22 +142,11 @@ class Draw(App):
         aboi = kid((55, 710), True)
         Sprite(box, (132, 25))
         Sprite(label, (50, 30))
-        self.txt1 = Sprite(end1, (wth2,h2))
-        self.txt1.visible = False
-        self.txt2 = Sprite(end2, (wth2,h2+20))
-        self.txt2.visible = False
         self.txt3 = Sprite(hide, (wth2,h2+40))
         self.txt4 = Sprite(start1, (wth2,h2))
         self.txt5 = Sprite(start2, (wth2,(h2+20)))
-        self.txt6 = Sprite(middle1, (wth2,h2))
-        self.txt6.visible = False
-        self.txt7 = Sprite(middle2, (wth2,(h2+20)))
-        self.txt7.visible = False
-        self.txt8 = Sprite(middle3, (wth2,(h2+40)))
-        self.txt8.visible = False
-        self.txt9 = Sprite(other, (wth2, (h2+60)))
-        self.txt9a = Sprite(other, (wth2, (h2+80)))
-        self.txt9a.visible = False
+        self.txt9 = Sprite(other, (wth2, (h2+75)))
+        
         self.txt3a = Sprite(hide, (wth2,(h2+60)))
         self.txt3a.visible = False
         #self.txt3b = Sprite(hide, (wth2,(h2+40)))
@@ -191,11 +180,17 @@ class Draw(App):
             self.txt9.visible = False
         if stage == 2:
             print("You are done dragging and dropping!")
+            self.txt6 = Sprite(middle1, (wth2,h2))
+            self.txt7 = Sprite(middle2, (wth2,(h2+20)))
+            self.txt8 = Sprite(middle3, (wth2,(h2+40)))
+            self.txt9a = Sprite(other, (wth2, (h2+80)))
+            self.txt3a.visible = True
+            """
             self.txt6.visible = True
             self.txt7.visible = True
             self.txt8.visible = True
-            self.txt3a.visible = True
             self.txt9a.visible = True
+            """
         if stage ==3:    
             print("Now try dragging the mouse across the screen while holding one of the following keys: 'b', 'r', 'p', 'l', 'g', 'o', or 'q'.")
             self.txt6.visible = False
@@ -204,9 +199,13 @@ class Draw(App):
             self.txt3a.visible = False
             self.txt9a.visible = False
         if stage == 4:
+            self.txt1 = Sprite(end1, (wth2,h2))
+            self.txt2 = Sprite(end2, (wth2,h2+20))
+            """
             self.txt1.visible = True
             self.txt2.visible = True
             self.txt3.visible = True
+            """
         if stage == 5:
             self.txt1.visible = False
             self.txt2.visible = False
