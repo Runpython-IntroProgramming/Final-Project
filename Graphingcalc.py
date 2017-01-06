@@ -106,6 +106,7 @@ for x in xcoordinates2:
     x = x/32
     xcoordinates.append(x)
 
+pointpos = 1
 linetypelist = input("choose function, plot (f,p). Separate by commas: ")
 linetypelist = linetypelist.split(",")
 for linetype in linetypelist:
@@ -169,7 +170,11 @@ for linetype in linetypelist:
             while goforh <= len(xlistpts)-1:
                 Sprite(circlebig, (20*float(xlistpts[goforh])+950, -20*float(ylistpts[goforh])+500))
                 goforh += 1
-
+             goforlist = 1
+            while goforlist <= len(xlistpts)-1:
+                pointz = TextAsset("("+str(xlistpts[goforlist-1])+","+str(ylistpts[goforlist-1])+"), ("+str(xlistpts[goforlist])+","+str(ylistpts[goforlist])+")", style = '8pt Arial')
+                Sprite (pointz, (1, pointpos*10))
+                pointpos+=1
 def mousePosition(event):
     global text
     global coords
