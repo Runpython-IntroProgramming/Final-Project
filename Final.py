@@ -181,13 +181,6 @@ class Draw(App):
             self.txt8 = Sprite(middle3, (wth2,(h2+40)))
             self.txt9a = Sprite(other, (wth2, (h2+95)))
             self.txt3a = Sprite(hide, (wth2,(h2+60)))
-            """
-            self.txt6.visible = True
-            self.txt7.visible = True
-            self.txt8.visible = True
-            self.txt9a.visible = True
-            self.txt3a.visible = True
-            """
         if stage ==3:    
             print("Now try dragging the mouse across the screen while holding one of the following keys: 'b', 'r', 'p', 'l', 'g', 'o', or 'q'.")
             self.txt6.visible = False
@@ -200,10 +193,6 @@ class Draw(App):
             end2 = TextAsset("If you ctrl+click, you can save or copy your image.", width=500)
             self.txt1 = Sprite(end1, (wth2,h2))
             self.txt2 = Sprite(end2, (wth2,h2+20))
-            """
-            self.txt1.visible = True
-            self.txt2.visible = True
-            """
             self.txt3.visible = True
         if stage == 5:
             self.txt1.visible = False
