@@ -64,9 +64,9 @@ def quadreg(xlistpts,ylistpts):
     Exx2 = (Ex3) - ((Ex2*Ex)/N)
     Ex2y = (Ex2y) - ((Ex2*Ey)/N)
     Ex2x2 = (Ex4) - (((Ex2)**2)/N)
-    a = {(Ex2y*Exx)-(Exy*Exx2)}/{(Exx*Ex2x2)-(Exx2)**2}
-    b = {(Exy*Ex2x2)-(Ex2y*Exx2)}/{(Exx*Ex2x2)-(Exx2)**2}
-    c = (Ey/N)-{b*(Ex/N)}-{a*(Ex2/N)}
+    a = ((Ex2y*Exx)-(Exy*Exx2))/((Exx*Ex2x2)-(Exx2)**2)
+    b = ((Exy*Ex2x2)-(Ex2y*Exx2))/((Exx*Ex2x2)-(Exx2)**2)
+    c = (Ey/N)-(b*(Ex/N))-(a*(Ex2/N))
     returnlist = [a,b,c]
     return(returnlist)
 
