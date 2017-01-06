@@ -32,6 +32,42 @@ def correlation(xlistpts,ylistpts):
     denominator = (((N*Ex2)-(Ex)**2)*((N*Ey2)-(Ey)**2))**0.5
     r = numerator/denominator
     return (r)
+def quadreg(xlistpts,ylistpts):
+    N = len(xlistpts)
+    Ex = sum(xlistpts)
+    Ey = sum(ylistpts)
+    Ex2list = []
+    Ex3list = []
+    Ex4list = []
+    for j in xlistpts:
+        jummy = j**2
+        Ex2list.append(jummy)
+    Ex2 = sum(Ex2list)
+    for j in xlistpts:
+        jummy = j**3
+        Ex2list.append(jummy)
+    Ex3 = sum(Ex3list)
+    for j in xlistpts:
+        jummy = j**4
+        Ex2list.append(jummy)
+    Ex4 = sum(Ex4list)
+    corgofor = 0
+    while corgofor <= len(xlistpts)-1:
+        jum = xlistpts[corgofor]*ylistpts[corgofor]
+        Exylist.append(jum)
+        corgofor += 1
+    Exy = sum(Exylist)
+    Ex2y = Ex2+Ey
+    Exx = (Ex2)-(((Ex)**2)/N)
+    Exy = (Exy) - ((Ex*Ey)/N)
+    Exx2 = (Ex3) - ((Ex2*Ex)/N)
+    Ex2y = (Ex2y) - ((Ex2*Ey)/N)
+    Ex2x2 = (Ex4) - (((Ex2)**2)/N)
+    a = {(Ex2y*Exx)-(Exy*Exx2)}/{(Exx*Ex2x2)-(Exx2)**2}
+    b = {(Exy*Ex2x2)-(Ex2y*Exx2)}/{(Exx*Ex2x2)-(Exx2)**2}
+    c = (Ey/N)-{b*(Ex/N)}-{a*(Ex2/N)}
+    returnlist = [a,b,c]
+    return(returnlist)
 
 coords = None
 red = Color(0xff0000, 1.0)
@@ -83,14 +119,14 @@ for linetype in linetypelist:
         ylistpts=[]
         xlistpts=[]
         while again == True:
-            point = input("input point x,y. press q to quit, r to regress: ")
+            point = input("input point x,y. press q to quit, qr or lr to regress: ")
             if point == "q" or point == "r":
                 again = False
             if again == True:
                 point = point.split(",")
                 xlistpts.append(float(point[0]))
                 ylistpts.append(float(point[1]))
-            if point == "r":
+            if point == "lr":
                 xlistmean = (sum(xlistpts))/len(xlistpts)
                 ylistmean = (sum(ylistpts))/len(ylistpts)
                 xmeanlist = []
@@ -123,6 +159,15 @@ for linetype in linetypelist:
                 while goforh <= len(xlistpts)-1:
                     Sprite(circlebig, (20*float(xlistpts[goforh])+950, -20*float(ylistpts[goforh])+500))
                     goforh += 1
+            if point == "qr":
+                abc = quadreg(xlistpts,ylistpts)
+                quada = abc[0]
+                quadb = abc[1]
+                quadc = abc[2]
+                for x in xcoordinates:
+                    yval = (-20*(quada*(x**2)+quadb*x+quadc)+500)
+                    if yval >= 0 and yval <= 1000:
+                        Sprite (circle, ((20*x+950), yval))
 
 def mousePosition(event):
     global text
