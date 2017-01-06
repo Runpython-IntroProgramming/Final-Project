@@ -26,6 +26,8 @@ clkun=[]
 clkdx=[]
 stage=0
 color=0
+h2 = (SCREEN_HEIGHT)/2
+wth2 = (SCREEN_WIDTH)/2
 dotg = CircleAsset(3, noline, Lgreen)
 dotq = CircleAsset(3, noline, turqo)
 doto = CircleAsset(3, noline, orange)
@@ -35,17 +37,9 @@ dotr = CircleAsset(2, noline, brn)
 dotl = CircleAsset(3, noline, pale)
 box = RectangleAsset(8, 1000, thinline, black)
 label = TextAsset("Icons")
-start1 = TextAsset("Click on an icon to select it.", width=500)
-start2 = TextAsset("Click somewhere else to place a copy of that icon there.", width=500)
-middle1 = TextAsset("Now you can draw on the screen by dragging the", width=500)
-middle2 = TextAsset("mouse across the screen while pressing down both the mouse and", width=700)
-middle3 = TextAsset("one of the following keys: 'q', 'r', 'o', 'p', 'g', 'l', or 'b' .", width=500)
-end1 = TextAsset("You have finished this program!", width=500)
-end2 = TextAsset("If you ctrl+click, you can save or copy your image.", width=500)
+
 hide = TextAsset("Press return to hide this message.", width=500, style="30px Arial")
 other = TextAsset("Press return again once you're done to advance to the next stage.", width=600)
-h2 = (SCREEN_HEIGHT)/2
-wth2 = (SCREEN_WIDTH)/2
 
 #overall class
 class Icon(Sprite):
@@ -88,7 +82,6 @@ class Icon(Sprite):
                     clkdx.append((event.x,event.y)) #add coord. of where clicked...
                     lgthb = len(clkdx)
                     clkun[lgtha-1](clkdx[lgthb-1], False) #place the selected icon: @ lgth+2, @ clicked location: lgth+1
-                    #go = Sound(self.noise)
         self.ct += 1
 #subclasses
 class Flowr(Icon):
@@ -142,6 +135,8 @@ class Draw(App):
         aboi = kid((55, 710), True)
         Sprite(box, (132, 25))
         Sprite(label, (50, 30))
+        start1 = TextAsset("Click on an icon to select it.", width=500)
+        start2 = TextAsset("Click somewhere else to place a copy of that icon there.", width=500)
         self.txt3 = Sprite(hide, (wth2,h2+40))
         self.txt4 = Sprite(start1, (wth2,h2))
         self.txt5 = Sprite(start2, (wth2,(h2+20)))
@@ -178,6 +173,9 @@ class Draw(App):
             self.txt9.visible = False
         if stage == 2:
             print("You are done dragging and dropping!")
+            middle1 = TextAsset("Now you can draw on the screen by dragging the", width=500)
+            middle2 = TextAsset("mouse across the screen while pressing down both the mouse and", width=700)
+            middle3 = TextAsset("one of the following keys: 'q', 'r', 'o', 'p', 'g', 'l', or 'b' .", width=500)
             self.txt6 = Sprite(middle1, (wth2,h2))
             self.txt7 = Sprite(middle2, (wth2,(h2+20)))
             self.txt8 = Sprite(middle3, (wth2,(h2+40)))
@@ -198,6 +196,8 @@ class Draw(App):
             self.txt3a.visible = False
             self.txt9a.visible = False
         if stage == 4:
+            end1 = TextAsset("You have finished this program!", width=500)
+            end2 = TextAsset("If you ctrl+click, you can save or copy your image.", width=500)
             self.txt1 = Sprite(end1, (wth2,h2))
             self.txt2 = Sprite(end2, (wth2,h2+20))
             """
@@ -205,7 +205,6 @@ class Draw(App):
             self.txt2.visible = True
             """
             self.txt3.visible = True
-            #"""
         if stage == 5:
             self.txt1.visible = False
             self.txt2.visible = False
