@@ -286,3 +286,5 @@ if question is "Danish Krone":
     m21=k21*(float(l21))
     n=print(round(m21,2))
     print(user1 + "s")
+
+
