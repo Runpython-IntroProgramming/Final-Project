@@ -147,7 +147,6 @@ class Draw(App):
         self.txt2 = Sprite(end2, (wth2,h2+20))
         self.txt2.visible = False
         self.txt3 = Sprite(hide, (wth2,h2+40))
-        #self.txt3.visible = False
         self.txt4 = Sprite(start1, (wth2,h2))
         self.txt5 = Sprite(start2, (wth2,(h2+20)))
         self.txt6 = Sprite(middle1, (wth2,h2))
@@ -162,7 +161,6 @@ class Draw(App):
         self.txt3a = Sprite(hide, (wth2,(h2+60)))
         self.txt3a.visible = False
         #self.txt3b = Sprite(hide, (wth2,(h2+40)))
-        #self.txt3b.visible = False
         Draw.listenKeyEvent("keydown", "enter", self.switch)
         Draw.listenKeyEvent("keydown", "g", self.green)
         Draw.listenKeyEvent("keydown", "q", self.turq)
