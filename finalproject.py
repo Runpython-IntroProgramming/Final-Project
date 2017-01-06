@@ -262,3 +262,6 @@ if question is "Croatian Kuna":
     m19=k19*(float(l19))
     n=print(round(m19,2))
     print(user1 + "s")
+if question is "Czech Koruna":
+    user=input("Enter amount of Czech Korunas to convert.")
+    
