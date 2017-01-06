@@ -52,6 +52,7 @@ def quadreg(xlistpts,ylistpts):
         Ex2list.append(jummy)
     Ex4 = sum(Ex4list)
     corgofor = 0
+    Exylist = []
     while corgofor <= len(xlistpts)-1:
         jum = xlistpts[corgofor]*ylistpts[corgofor]
         Exylist.append(jum)
@@ -120,7 +121,7 @@ for linetype in linetypelist:
         xlistpts=[]
         while again == True:
             point = input("input point x,y. press q to quit, qr or lr to regress: ")
-            if point == "q" or point == "r":
+            if point == "q" or point == "qr" or point == "lr":
                 again = False
             if again == True:
                 point = point.split(",")
