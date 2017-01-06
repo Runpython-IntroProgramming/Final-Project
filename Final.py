@@ -42,7 +42,7 @@ middle2 = TextAsset("mouse across the screen while pressing down both the mouse 
 middle3 = TextAsset("one of the following keys: 'q', 'r', 'o', 'p', 'g', 'l', or 'b' .", width=500)
 end1 = TextAsset("You have finished this program!", width=500)
 end2 = TextAsset("If you ctrl+click, you can save or copy your image.", width=500)
-hide = TextAsset("Press return to hide this message.", width=500)
+hide = TextAsset("Press return to hide this message.", width=500, style="30px Arial")
 other = TextAsset("Press return again once you're done to advance to the next stage.", width=600)
 h2 = (SCREEN_HEIGHT)/2
 wth2 = (SCREEN_WIDTH)/2
