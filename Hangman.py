@@ -98,6 +98,7 @@ class Hangman(App):
         global allletters
         displayedword = ''
         guessedletter = input('Please guess a letter!')
+        guessedletter = guessedletter.lower()
         
         while alreadyguessed.count(guessedletter) > 0:
             guessedletter = input('You already guessed that letter! Try again:')
@@ -142,6 +143,8 @@ class Hangman(App):
         global finishedword
         global guessed
         guessedword = input("Guess the word!")
+        guessedword = guessedword.lower()
+        
         if guessedword == word:
             self.wordsprite.destroy()
             wordasset = TextAsset(finishedword, style='60px Helvetica',align='center',width=1000)
