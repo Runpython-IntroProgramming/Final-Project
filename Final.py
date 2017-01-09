@@ -228,7 +228,7 @@ class Draw(App):
     def purp(self,event):
         global color
         if stage == 3:
-            color = 5x
+            color = 5
     def brn(self,event):
         global color
         if stage == 3:
