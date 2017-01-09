@@ -358,7 +358,11 @@ if question is "Iranian Rial":
     m27=k27*(float(l27))
     n=print(round(m27,2))
     print(user1 + "s")
+if question is "Isreali Shekel":
+    user=input("Enter amount of Isreali Shekels to convert.")
     
+     
+ 
     
 
 
