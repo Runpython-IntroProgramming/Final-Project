@@ -22,12 +22,15 @@ white = Color (0xFFFFFF, 0)
 thinline = LineStyle(1, black)
 noline = LineStyle(0, white)
 
+#Lists & variables
 clkun=[]
 clkdx=[]
 stage=0
 color=0
 h2 = (SCREEN_HEIGHT)/2
 wth2 = (SCREEN_WIDTH)/2
+
+#Assets
 dotg = CircleAsset(3, noline, Lgreen)
 dotq = CircleAsset(3, noline, turqo)
 doto = CircleAsset(3, noline, orange)
@@ -37,7 +40,6 @@ dotr = CircleAsset(2, noline, brn)
 dotl = CircleAsset(3, noline, pale)
 box = RectangleAsset(8, 1000, thinline, black)
 label = TextAsset("Icons")
-
 hide = TextAsset("Press return to hide this message.", width=500, style="30px Arial")
 other = TextAsset("Press return again once you're done to advance to the next stage.", width=600)
 
@@ -226,7 +228,7 @@ class Draw(App):
     def purp(self,event):
         global color
         if stage == 3:
-            color = 5
+            color = 5x
     def brn(self,event):
         global color
         if stage == 3:
