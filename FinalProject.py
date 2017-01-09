@@ -24,7 +24,7 @@ class WinnerScreen(Sprite):
     def __init__(self, position, Loserscreen):
         super().__init__(WinnerScreen.asset, position)
         self.visible = False
-        self.Trucks = 6
+        self.Trucks = 13
         self.LoserScreen = LoserScreen
         
     def step(self):
