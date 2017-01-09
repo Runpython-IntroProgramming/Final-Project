@@ -170,11 +170,13 @@ for linetype in linetypelist:
             while goforh <= len(xlistpts)-1:
                 Sprite(circlebig, (20*float(xlistpts[goforh])+950, -20*float(ylistpts[goforh])+500))
                 goforh += 1
-             goforlist = 1
+            goforlist = 1
             while goforlist <= len(xlistpts)-1:
                 pointz = TextAsset("("+str(xlistpts[goforlist-1])+","+str(ylistpts[goforlist-1])+"), ("+str(xlistpts[goforlist])+","+str(ylistpts[goforlist])+")", style = '8pt Arial')
                 Sprite (pointz, (1, pointpos*10))
                 pointpos+=1
+                goforlist+=2
+                Sprite (pointz, (10, pointpos*10))
 def mousePosition(event):
     global text
     global coords
