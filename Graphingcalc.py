@@ -176,7 +176,7 @@ for linetype in linetypelist:
                 Sprite (pointz, (1, pointpos*10))
                 pointpos+=1
                 goforlist+=2
-                Sprite (pointz, (10, pointpos*10))
+                Sprite (pointz, (10, pointpos*15))
 def mousePosition(event):
     global text
     global coords
