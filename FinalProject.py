@@ -24,15 +24,16 @@ class WinnerScreen(Sprite):
     def __init__(self, position, Loserscreen):
         super().__init__(WinnerScreen.asset, position)
         self.visible = False
-        self.Trucks = 13
+        self.Trucks = 1
         self.LoserScreen = LoserScreen
-        
+        PlaneGame.listenKeyEvent("keydown", "r", self.reset)
     def step(self):
         self.Trucks = len(PlaneGame.getSpritesbyClass(Truck))
         if self.Trucks == 0 and self.LoserScreen.visible == False:
             self.visible = True
-       
-
+    def reset(self):
+        self.visible=False
+        
 class LoserScreen(Sprite):
     asset = TextAsset("You Lose", style='400px Arial')
     
@@ -284,5 +285,4 @@ class PlaneGame(App):
             
 app = PlaneGame(0,0)
 app.run()
-    
 
