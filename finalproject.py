@@ -394,8 +394,19 @@ if question is "Kuwaiti Dinar":
     m30=k30*(float(l30))
     n=print(round(m30,2))
     print(user1 + "s")
- if question is "Latvian Lat":
-     user=input("Enter amount of Latvian Lats to convert.")
+if question is "Libyan Dinar":
+    user=input("Enter amount of Libyan Dinars to convert.")
+    currencies31 = {'US Dollar':0.699301,'Euro':0.662565, 'Pound':0.574161, 'Rupee':47.781467, 'Australian Dollar':0.948861, 'Canadian Dollar':0.925295, 'Singapore Dollar':1.004120, 'Swiss Franc':0.711048, 'Malaysian Rinnggit':3.129196, 'Japanese Yen':80.927313, 'Chinese Yuan Renminbi':4.840699, 'Argentine Peso':11.080221, 'Bahraini Dinar':0.263654, 'Botswana Pula':7.455362, 'Brazilian Real':2.235032, 'Bruneian Dollar':1.004120, 'Bulgarian Lev':1.296500, 'Chilean Peso':468.531468, 'Colombian Peso':2066.783178, 'Croatian Kuna':5.012235, 'Czech Koruna':17.903341, 'Danish Krone':4.925158, 'Emirati Dirham':2.568497, 
+'Hong Kong Dollar':5.422579, 'Hungarian Forint':204.802893, 'Icelandic Krona':80.559441, 'Indonesian Rupiah':9305.951042, 'Iranian Rial':22664.335674, 'Israeli Shekel':2.688975, 'Kazakhstani Tenge':232.856510, 'Latvian Lat':0.465651, 'Kuwaiti Dinar':0.214261, 'Lithuanian Litas':2.287705, 'Mexican Peso':15.236095, 'Nepalese Rupee':76.246148, 'New Zealand Dollar':1.000779, 'Norwegian Krone':6.017844, 'Omani Rial':0.269230, 'Pakistani Rupee':73.304196, 'Philippine Peso':34.665034, 'Polish Zloty':2.895930, 'Qatari Riyal':2.545769, 'Romanian New Leu':2.979444, 'Russian Ruble':42.023537, 'Saudi Arabian Riyal':2.622735, 'South African Rand':9.597369, 'South Korean Won':840.029632, 'Sri Lankan Rupee':104.615259, 
+'Swedish Krona':6.346443, 'Taiwan New Dollar':22.326937, 'Thai Baht':24.861832, 'Trinidadian Dollar':4.654294, 'Turkish Lira':2.649103, 'Venezuelan Bolivar':6.989510}
+    user1=input("Enter name of currency you want to convert to.")
+    if user1 in currencies31:
+        k31=(currencies31[user1])
+    l31=user
+    m31=k31*(float(l31))
+    n=print(round(m31,2))
+    print(user1 + "s")
+
      
  
     
