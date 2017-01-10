@@ -394,6 +394,8 @@ if question is "Kuwaiti Dinar":
     m30=k30*(float(l30))
     n=print(round(m30,2))
     print(user1 + "s")
+ if question is "Latvian Lat":
+     user=input("Enter amount of Latvian Lats to convert.")
      
  
     
