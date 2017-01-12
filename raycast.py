@@ -178,6 +178,7 @@ def ray():
                 print("player position:",(int(Position['x'])*10)//10,(int(Position['y'])*10)//10)
                 print("x wall:",round(rayx))
                 print("y wall:",round(rayy))
+                print('angle', raydir)
                 inpov=abs(raydir-int(Position['dir']))
                 xdif=(int(Position['x'])-round(rayx))
                 ydif=(int(Position['y'])-round(rayy))**2
