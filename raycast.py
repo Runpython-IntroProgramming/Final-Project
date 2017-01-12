@@ -190,10 +190,9 @@ def ray():
                     distance=distance1*sin(radians(90-(atan2(xdif,ydif))))
                     oldrayx=round(rayx)
                     oldrayy=round(rayy)
-                print(distance)
+                print("distance:", distance)
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/(float(distance))), thinline, b5)
                 Sprite(wallbox,(screenside+110,(scrh/2)-(10*(200/(float(distance))))/2))
-                print('sprite is displayed')
                 raydir=raydir+1/distance
                 screenside=screenside+10/distance
                 wall=True
@@ -202,7 +201,6 @@ def ray():
                     screenside=0
                     print(change)
             else:
-                print('else')
                 distance=distance+1
                 rayx=rayx+cos(radians(raydir))
                 rayy=rayy+sin(radians(raydir))
