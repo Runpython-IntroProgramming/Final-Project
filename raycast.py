@@ -182,13 +182,11 @@ def ray():
                 print("y wall:",round(rayy))
                 inpov=abs(raydir-int(Position['dir']))
                 xdif=(int(Position['x'])-round(rayx))
-                print(xdif)
                 ydif=(int(Position['y'])-round(rayy))**2
-                print(ydif)
                 distance1=(abs(xdif)**2+abs(ydif))**(1/2)
                 print(inpov)
                 sidedistance=abs(45-screenside)
-                if round(rayx)!=oldrayx and round(rayy)!=oldrayy:
+                if round(rayx)!=oldrayx or round(rayy)!=oldrayy:
                     distance=distance1*sin(radians(90-(atan2(xdif,ydif))))
                     oldrayx=round(rayx)
                     oldrayy=round(rayy)
