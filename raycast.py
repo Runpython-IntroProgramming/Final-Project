@@ -174,8 +174,6 @@ def ray():
         rayx=(int(Position['x'])*10)//10
         rayy=(int(Position['y'])*10)//10
         while wall==False:
-            print('0'+str(round(rayx))+'0'+str(round(rayy)))
-            print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
                 print("player position:",(int(Position['x'])*10)//10,(int(Position['y'])*10)//10)
                 print("x wall:",round(rayx))
