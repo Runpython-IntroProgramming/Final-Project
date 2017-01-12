@@ -183,7 +183,6 @@ def ray():
                 xdif=(int(Position['x'])-round(rayx))
                 ydif=(int(Position['y'])-round(rayy))**2
                 distance1=(abs(xdif)**2+abs(ydif))**(1/2)
-                print(inpov)
                 sidedistance=abs(45-screenside)
                 if round(rayx)!=oldrayx or round(rayy)!=oldrayy:
                     distance=distance1*sin(radians(90-(atan2(xdif,ydif))))
