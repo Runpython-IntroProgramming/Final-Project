@@ -188,7 +188,8 @@ def ray():
                     distance=distance1*sin(radians(90-(atan2(xdif,ydif))))
                     oldrayx=round(rayx)
                     oldrayy=round(rayy)
-                print("distance:", distance)
+                print("Distance:", distance)
+                print('Apparent Height:',200/float(distance))
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/(float(distance))), thinline, b5)
                 Sprite(wallbox,(screenside+110,(scrh/2)-(10*(200/(float(distance))))/2))
                 raydir=raydir+1/distance
