@@ -2,16 +2,4 @@
 
 ## Design Specification
 
-I will use runpython to build the program. It will use Python 3. For the level editor in the corner, the program will use a list to track what squares are selected. This Library will carry over to the walls which are detected. The walls will be detected by a "ray" which will start at the library for the players position and detect all tles between that position and the first tile in the line of the ray.
-
-The design specificaiton is a counterpart to the Functional Speciffication. Where a functional specification concerns itself
-with inputs and outputs from the program, or the *experience* of a user running the program, the design specification is concerned with decisions that the engineer and programmer must make during its creation.
-
-The design specification should include information like:
-
-* What tools or frameworks will you use to build the project (e.g. http://runpython.com or ggame)?
-* What language will you use for coding (usually Python 3)?
-* For every element of the Functional Specification, what code will need to be written to support it?
-* What data will be stored or manipulated by the program? How will it be encoded and organized?
-* Describe the logic and/or code behind every interaction with the user, and behind everything displayed.
-* If your program uses an unusual or notable *algorithm*, what is the algorithm and how does it work?
+I will use runpython to build the program. It will use Python 3. For the level editor in the corner, the program will use a list to track what squares are selected. This Library will carry over to the walls which are detected. The walls will be detected by a "ray" which will start at the library for the players position and detect all tiles between that position and the first tile in the line of the ray. There will need to be movement sections in the code which work off of key presses. There will also be a loop for displaying the 3D graphics. This will need another loop in it for the ray which detects walls to continue to grow longer until it hits a wall. 
