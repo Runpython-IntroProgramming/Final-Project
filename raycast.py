@@ -160,7 +160,6 @@ def ray():
     if change==1 and go==1:
         clear=RectangleAsset(1000,640, noline, white)
         if first==1:
-            print('clear')
             Sprite(clear,(110,0))
             raydir=int(Position['dir'])-45
             inpov=0
@@ -175,11 +174,12 @@ def ray():
         rayx=(int(Position['x'])*10)//10
         rayy=(int(Position['y'])*10)//10
         while wall==False:
-            print('while works')
             print('0'+str(round(rayx))+'0'+str(round(rayy)))
             print(walls['0'+str(round(rayx))+'0'+str(round(rayy))])
             if walls['0'+str(round(rayx))+'0'+str(round(rayy))]==1:
-                print('wall is detected')
+                print("player position:",(int(Position['x'])*10)//10,(int(Position['y'])*10)//10)
+                print("x wall:",round(rayx))
+                print("y wall:",round(rayy))
                 inpov=abs(raydir-int(Position['dir']))
                 xdif=(int(Position['x'])-round(rayx))
                 print(xdif)
