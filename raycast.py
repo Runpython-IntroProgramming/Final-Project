@@ -28,8 +28,6 @@ height = list(range(0,int((scrh/10))+1))
 
 mwidth=list(range(0,int((mapw/10))+1))
 mheight = list(range(0,int((maph/10))+1))
-print(mwidth)
-print(mheight)
 click = 0
 
 go=0
@@ -189,7 +187,7 @@ def ray():
                     oldrayx=round(rayx)
                     oldrayy=round(rayy)
                 print("Distance:", distance)
-                print('Apparent Height:',200/float(distance))
+                print('Apparent Height:',2000/float(distance))
                 wallbox=RectangleAsset(((10/float(distance))),10*(200/(float(distance))), thinline, b5)
                 Sprite(wallbox,(screenside+110,(scrh/2)-(10*(200/(float(distance))))/2))
                 raydir=raydir+1/distance
