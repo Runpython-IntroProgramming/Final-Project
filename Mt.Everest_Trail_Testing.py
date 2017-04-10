@@ -11,9 +11,11 @@ false_holder=True
 truth_holder=True
 the_hike=1
 
-def destination(place):
+def destination(place, file):
     input("Welcome to {0}! You may: 1. Look around, 2. Attempt to Trade, 3. Stop to Rest, 4. See your health, 5. Review your items, 6. Go to the Store, 7. Continue on the hike".format(place))
-
+    picture=ImageAsset("images/" + file)
+    Sprite(picture, (0,0))
+    
 while truth_holder is True:
     game_menu=input("Welcome to Kathmandu! You may: Press 1 to Start the Hike, press 2 to learn more about the trek up Mt. Everest, press 3 to see the map of the Mt. Everest trek, or press 4 to quit the program.")
     if game_menu is "2":
