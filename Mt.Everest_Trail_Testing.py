@@ -21,9 +21,11 @@ while truth_holder is True:
     if game_menu is "2":
         input("The hike up Mount Everest is a long and difficult journey. It is filled with Hazards and danger. Type OK to continue.")  #Need to make more lengthy
     if game_menu is "3":
-        mt_everest_map = ImageAsset("images/mount-everest-north-face-map.jpg")
+        input("This part is under construction right now!")
+        """
+        mt_everest_map=ImageAsset("images/mount-everest-north-face-map.jpg")
         Sprite(mt_everest_map, (0,0))
-        truth_holder=False
+        """
     if game_menu is "4":
         raise SystemExit("Goodbye")
     if game_menu is "1":
