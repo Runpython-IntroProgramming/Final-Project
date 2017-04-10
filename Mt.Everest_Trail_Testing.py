@@ -1,3 +1,5 @@
+from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+
 rations=0
 clothes=0
 ice_picks=0
@@ -9,7 +11,8 @@ false_holder=True
 truth_holder=True
 the_hike=1
 
-
+def destination(place):
+    input("Welcome to {0}! You may: 1. Look around, 2. Attempt to Trade, 3. Stop to Rest, 4. See your health, 5. Review your items, 6. Go to the Store, 7. Continue on the hike".format(place))
 
 while truth_holder is True:
     game_menu=input("Welcome to Kathmandu! You may: Press 1 to Start the Hike, press 2 to learn more about the trek up Mt. Everest, press 3 to see the map of the Mt. Everest trek, or press 4 to quit the program.")
@@ -215,7 +218,10 @@ if item_menu is "1":
             are_you_sure=input("Are you sure you would like to leave the store and stop buying supplies? ")
             if are_you_sure is "yes":
                 false_holder=False
-            
+
         
 if the_hike==1:
     input("The hike will continue from here.")
+
+myapp = App()
+myapp.run()
