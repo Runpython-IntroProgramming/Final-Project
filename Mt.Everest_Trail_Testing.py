@@ -14,7 +14,8 @@ the_hike=1
 
 def map(file):
     picture=ImageAsset("images/" + file)
-    Sprite(picture, (0,0))
+    picture_sprite=Sprite(picture, (0,0))
+    picture_sprite.scale=0.7
     myapp = App()
     myapp.run()
     
@@ -22,14 +23,15 @@ def destination(place, file):
     thequestion=input("Welcome to {0}! You may: 1. Look around, 2. Attempt to Trade, 3. Stop to Rest, 4. See your health, 5. Review your items, 6. Go to the Store, 7. Continue on the hike".format(place))
     if thequestion is "1":
         picture=ImageAsset("images/" + file)
-        Sprite(picture, (0,0))
+        picture_sprite=Sprite(picture, (0,0))
+        
     
 while truth_holder is True:
     game_menu=input("Welcome to Kathmandu! You may: Press 1 to Start the Hike, press 2 to learn more about the trek up Mt. Everest, press 3 to see the map of the Mt. Everest trek, or press 4 to quit the program.")
     if game_menu is "2":
         input("The hike up Mount Everest is a long and difficult journey. It is filled with Hazards and danger. Type OK to continue.")  #Need to make more lengthy
     if game_menu is "3":
-        map("mount-everest-north-face-map.jpg")
+        map("mt-everest-base-camp.jpg")
         time.sleep(10)
     if game_menu is "4":
         raise SystemExit("Goodbye")
