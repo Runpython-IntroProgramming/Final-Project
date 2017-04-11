@@ -33,11 +33,12 @@ while truth_holder is True:
         input("The hike up Mount Everest is a long and difficult journey. It is filled with Hazards and danger. Type OK to continue.")  #Need to make more lengthy
     if game_menu is "3":
         map("mt-everest-base-camp.jpg", 0.7)
-        time.sleep(10)
+        
     if game_menu is "4":
         raise SystemExit("Goodbye")
     if game_menu is "1":
         truth_holder=False
+        
 while truth_holder is False:
     player_type=input("Many people attempt to hike Everest each year. Who are you? You may be: 1. A CEO from America, 2. An accountant from England, 3. A scientist from Australia. Press 4 to learn more about these choices and how they affect the game.")
     if player_type is "4":
