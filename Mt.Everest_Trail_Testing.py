@@ -12,10 +12,10 @@ false_holder=True
 truth_holder=True
 the_hike=1
 
-def map(file):
+def map(file,scale):
     picture=ImageAsset("images/" + file)
     picture_sprite=Sprite(picture, (0,0))
-    picture_sprite.scale=0.7
+    picture_sprite.scale = scale
     myapp = App()
     myapp.run()
     
@@ -31,7 +31,7 @@ while truth_holder is True:
     if game_menu is "2":
         input("The hike up Mount Everest is a long and difficult journey. It is filled with Hazards and danger. Type OK to continue.")  #Need to make more lengthy
     if game_menu is "3":
-        map("mt-everest-base-camp.jpg")
+        map("mt-everest-base-camp.jpg", 0.7)
         time.sleep(10)
     if game_menu is "4":
         raise SystemExit("Goodbye")
