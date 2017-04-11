@@ -24,7 +24,8 @@ def destination(place, file):
     if thequestion is "1":
         picture=ImageAsset("images/" + file)
         picture_sprite=Sprite(picture, (0,0))
-        
+        myapp = App()
+        myapp.run()
     
 while truth_holder is True:
     game_menu=input("Welcome to Kathmandu! You may: Press 1 to Start the Hike, press 2 to learn more about the trek up Mt. Everest, press 3 to see the map of the Mt. Everest trek, or press 4 to quit the program.")
@@ -238,5 +239,4 @@ if the_hike==1:
     destination("Kathmandu", "mount-everest-north-face-map.jpg")
 
 
-myapp = App()
-myapp.run()
+
