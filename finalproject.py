@@ -45,30 +45,39 @@ class win(Sprite):
         super().__init__(prize, position)
         
 class play(Sprite):
-    def __init__(self,position):
+    def __init__(self, position, vx, vy, ti):
         super().__init__(player, position)
+        dk.listenKeyEvent('keydown', 'left arrow', self.lup)
+        dk.listenKeyEvent('keydown', 'right arrow', self.rup)
+        dk.listenKeyEvent('keydown', 'up arrow', self.uup)
+        self.vx=vx
+        self.vy=vy
+        self.ti=ti
     def step(self):
-        ti = 0
-        ti=ti+0.2
-        self.y=self.y+vy
-        self.x=self.x+vx
-        vy = -ti*vy
-        myapp.listenKeyEvent('keydown', 'left arrow', lup)
-        myapp.listenKeyEvent('keydown', 'right arrow', rup)
-        def rup(self):
-            vx=vx+1
-        def lup(self):
-            vx=vx-1
+        self.ti=self.ti+0.02
+        self.vy =self.ti*self.vy
+        self.y=self.y+self.vy
+        self.x=self.x+self.vx
         on = self.collidingWithSprites(top)
         if len(on) > 0:
             ti = 0
-            vy = 0
+            self.vy = 0
         under = self.collidingWithSprites(bot)
         if len(under) > 0:
-            vy=-vy
+            self.vy=-self.vy
         csides = self.collidingWithSprites(side)
         if len(csides) > 0:
-            vx=-vx
+            self.vx=-self.vx
+    def rup(self, event):
+        if self.vx<5:
+            self.vx+=1
+    def lup(self, event):
+        if self.vx>-5:
+            self.vx-=1
+    def uup(self, event):
+        self.vy-=2
+        
+        
         
 
 myapp = dk(SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -98,7 +107,7 @@ bot ((900, 200))
 top ((-300, 190))
 bot ((-300, 200))
 
-playe = play((1000, 660))
+playe = play((1000, 640), 0, 0, 0)
 prizee = win((300, 175))
 
 
