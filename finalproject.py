@@ -43,7 +43,9 @@ class side(Sprite):
 class win(Sprite):
     def __init__(self,position):
         super().__init__(prize, position)
-        
+   
+onblock = 0
+
 class play(Sprite):
     def __init__(self, position, vx, vy, ti):
         super().__init__(player, position)
@@ -53,15 +55,19 @@ class play(Sprite):
         self.vx=vx
         self.vy=vy
         self.ti=ti
+        self.onblock=0
     def step(self):
+        onblock=0
         self.ti=self.ti+0.02
-        self.vy =self.ti*self.vy
+        self.vy =self.ti+self.vy
         self.y=self.y+self.vy
         self.x=self.x+self.vx
         on = self.collidingWithSprites(top)
         if len(on) > 0:
-            ti = 0
+            self.ti = 0
             self.vy = 0
+            self.y-=1
+            self.onblock =1
         under = self.collidingWithSprites(bot)
         if len(under) > 0:
             self.vy=-self.vy
@@ -75,7 +81,8 @@ class play(Sprite):
         if self.vx>-5:
             self.vx-=1
     def uup(self, event):
-        self.vy-=2
+        if onblock==1:
+            self.vy-=10
         
         
         
