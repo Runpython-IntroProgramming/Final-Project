@@ -1,5 +1,5 @@
 
-from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+from ggame import App, RectangleAsset, CircleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
 SCREEN_WIDTH = 1080
 SCREEN_HEIGHT = 720
@@ -16,6 +16,7 @@ sider = RectangleAsset (20, 720, noline, dgreen)
 capr = RectangleAsset (2, 30, noline, dgreen)
 player = RectangleAsset (20, 50, noline, purp)
 prize = RectangleAsset (35, 15, noline, gold)
+barrels = CircleAsset (10, noline, black)
 vy=0
 vx=0
 ti=0
@@ -27,6 +28,8 @@ class dk(App):
             bg = Sprite(bg_asset, (0,0))
     def step (self):
         playe.step()
+        bare.step()
+        
     
 
 class top(Sprite):
@@ -52,6 +55,44 @@ class win(Sprite):
 onblock = 0
 jump = 0
 wub=0
+go = 0
+
+class bar(Sprite):
+    def __init__(self, position, vx, vy, ti):
+        super().__init__(barrels, position)
+        self.vx = vx
+        self.vy = vy
+        self.ti = ti
+        self.onblock=0
+        self.go = 0
+    def step(self):
+        self.go=1
+        if self.go == 1:
+            if self.onblock == 1:
+                self.ti = 0
+                self.vy = 0
+            self.vy =self.ti+self.vy
+            self.y=self.y+self.vy
+            self.x=self.x+self.vx
+            self.vx = 2
+            if onblock != 1:
+                self.ti += 0.005
+            on = self.collidingWithSprites(top)
+            if len(on) > 0:
+                self.ti = 0
+                self.vy = 0
+                self.y-=.5
+                self.onblock = 1
+            under = self.collidingWithSprites(bot)
+            if len(under) > 0:
+                self.vy=-self.vy
+                self.y+=10
+            csides = self.collidingWithSprites(side)
+            ccap = self.collidingWithSprites(cap)
+            if len(csides) > 0:
+                self.vx=-self.vx
+            if len(ccap) > 0:
+                self.vx=-self.vx
 
 class play(Sprite):
     def __init__(self, position, vx, vy, ti):
@@ -144,6 +185,8 @@ bot ((-300, 200))
 playe = play((1000, 640), 0, 0, 0)
 prizee = win((300, 175))
 prizee = win((540, 10))
+
+bare = bar ((540, 12), 0, 0, 0)
 
 
 
