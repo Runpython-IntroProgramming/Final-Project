@@ -51,6 +51,7 @@ class win(Sprite):
    
 onblock = 0
 jump = 0
+wub=0
 
 class play(Sprite):
     def __init__(self, position, vx, vy, ti):
@@ -58,14 +59,17 @@ class play(Sprite):
         dk.listenKeyEvent('keydown', 'left arrow', self.lup)
         dk.listenKeyEvent('keydown', 'right arrow', self.rup)
         dk.listenKeyEvent('keydown', 'up arrow', self.uup)
+        dk.listenKeyEvent('keydown', 'w', self.wup)
         self.vx=vx
         self.vy=vy
         self.ti=ti
         self.onblock=0
         self.jump = 0
+        self.wub =0
     def step(self):
         onblock=0
-        self.ti=self.ti+0.01
+        if self.wub == 0:
+            self.ti=self.ti+0.01
         self.vy =self.ti+self.vy
         self.y=self.y+self.vy
         self.x=self.x+self.vx
@@ -89,6 +93,11 @@ class play(Sprite):
             if self.onblock ==1:
                 self.vy -= 7.5
                 self.jump = 0
+        if self.wub == 1:
+            if self.onblock == 1:
+                self.vy -= 3
+                self.ti+=0.0015
+                self.wub = 0
     def rup(self, event):
         if self.vx<3:
             self.vx+=1
@@ -98,6 +107,8 @@ class play(Sprite):
     def uup(self, event):
         if self.onblock==1:
             self.jump = 1
+    def wup(self, event):
+        self.wub = 1
         
         
         
@@ -132,6 +143,9 @@ bot ((-300, 200))
 
 playe = play((1000, 640), 0, 0, 0)
 prizee = win((300, 175))
+prizee = win((540, 10))
+
+
 
 
 
