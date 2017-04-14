@@ -13,6 +13,7 @@ noline = LineStyle(0, black)
 topr = RectangleAsset (1080, 20, noline, dgreen) 
 botr = RectangleAsset (1080, 20, noline, dgreen) 
 sider = RectangleAsset (20, 720, noline, dgreen) 
+capr = RectangleAsset (2, 30, noline, dgreen)
 player = RectangleAsset (20, 50, noline, purp)
 prize = RectangleAsset (35, 15, noline, gold)
 vy=0
@@ -39,6 +40,10 @@ class bot(Sprite):
 class side(Sprite):
     def __init__(self,position):
         super().__init__(sider, position)
+
+class cap(Sprite):
+    def __init__(self,position):
+        super().__init__(capr, position)
         
 class win(Sprite):
     def __init__(self,position):
@@ -75,11 +80,15 @@ class play(Sprite):
             self.vy=-self.vy
             self.y+=10
         csides = self.collidingWithSprites(side)
+        ccap = self.collidingWithSprites(cap)
         if len(csides) > 0:
             self.vx=-self.vx
+        if len(ccap) > 0:
+            self.vx=-self.vx
         if self.jump == 1:
-            self.vy -= 7.5
-            self.jump = 0
+            if self.onblock ==1:
+                self.vy -= 7.5
+                self.jump = 0
     def rup(self, event):
         if self.vx<3:
             self.vx+=1
@@ -102,6 +111,7 @@ side ((1070, 0))
 
 top ((500, 580))
 bot ((500, 590))
+cap ((498, 580))
 top ((-800, 580))
 bot ((-800, 590))
 
