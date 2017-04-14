@@ -12,6 +12,8 @@ gold = Color(0xcc9900, 1.0)
 noline = LineStyle(0, black)
 topr = RectangleAsset (1080, 20, noline, dgreen) 
 botr = RectangleAsset (1080, 20, noline, dgreen) 
+mtopr = RectangleAsset (300, 20, noline, dgreen) 
+mbotr = RectangleAsset (300, 20, noline, dgreen)
 sider = RectangleAsset (20, 720, noline, dgreen) 
 capr = RectangleAsset (2, 30, noline, dgreen)
 player = RectangleAsset (20, 50, noline, purp)
@@ -35,10 +37,18 @@ class dk(App):
 class top(Sprite):
     def __init__(self,position):
         super().__init__(topr, position)
+        
+class mtop(Sprite):
+    def __init__(self,position):
+        super().__init__(mtopr, position)
 
 class bot(Sprite):
     def __init__(self,position):
         super().__init__(botr, position)
+        
+class mbot(Sprite):
+    def __init__(self,position):
+        super().__init__(mbotr, position)
 
 class side(Sprite):
     def __init__(self,position):
@@ -66,6 +76,11 @@ class bar(Sprite):
         self.onblock=0
         self.go = 0
         self.vx = 2
+        self.visible = False
+        go = 0
+    def start(self):
+        self.visible = True
+        go = 1
     def step(self):
         self.go=1
         if self.go == 1:
@@ -78,7 +93,8 @@ class bar(Sprite):
             if onblock != 1:
                 self.ti += 0.005
             on = self.collidingWithSprites(top)
-            if len(on) > 0:
+            onm = self.collidingWithSprites(mtop)
+            if len(on) + len(onm) > 0:
                 self.ti = 0
                 self.vy = 0
                 self.onblock = 1
@@ -112,13 +128,17 @@ class play(Sprite):
         self.y=self.y+self.vy
         self.x=self.x+self.vx
         on = self.collidingWithSprites(top)
-        if len(on) > 0:
+        onm = self.collidingWithSprites(mtop)
+        if len(on) + len(onm) > 0:
             self.ti = 0
             self.vy = 0
             self.y-=.5
             self.onblock = 1
+        if len(on) + len(onm) == 0:
+            self.onblock = 0
         under = self.collidingWithSprites(bot)
-        if len(under) > 0:
+        underm = self.collidingWithSprites(mbot)
+        if len(under) + len (underm) > 0:
             self.vy=-self.vy
             self.y+=10
         csides = self.collidingWithSprites(side)
@@ -134,7 +154,7 @@ class play(Sprite):
         if self.wub == 1:
             if self.onblock == 1:
                 self.vy -= 3
-                self.ti+=0.0012
+                self.ti+=0.001
                 self.wub = 0
     def rup(self, event):
         if self.vx<3:
@@ -161,13 +181,15 @@ side ((1070, 0))
 top ((500, 580))
 bot ((500, 590))
 cap ((498, 580))
-top ((-800, 580))
-bot ((-800, 590))
+top ((-750, 580))
+bot ((-750, 590))
 
-top ((800, 450))
-bot ((800, 460))
-top ((-400, 450))
-bot ((-400, 460))
+top ((750, 450))
+bot ((750, 460))
+top ((-900, 450))
+bot ((-900, 460))
+mtop ((300, 450))
+mbot ((300, 460))
 
 top ((700, 320))
 bot ((700, 330))
