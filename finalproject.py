@@ -65,6 +65,7 @@ class bar(Sprite):
         self.ti = ti
         self.onblock=0
         self.go = 0
+        self.vx = 2
     def step(self):
         self.go=1
         if self.go == 1:
@@ -74,19 +75,15 @@ class bar(Sprite):
             self.vy =self.ti+self.vy
             self.y=self.y+self.vy
             self.x=self.x+self.vx
-            self.vx = 2
             if onblock != 1:
                 self.ti += 0.005
             on = self.collidingWithSprites(top)
             if len(on) > 0:
                 self.ti = 0
                 self.vy = 0
-                self.y-=.5
                 self.onblock = 1
-            under = self.collidingWithSprites(bot)
-            if len(under) > 0:
-                self.vy=-self.vy
-                self.y+=10
+            if len(on) == 0:
+                self.onblock=0
             csides = self.collidingWithSprites(side)
             ccap = self.collidingWithSprites(cap)
             if len(csides) > 0:
@@ -137,7 +134,7 @@ class play(Sprite):
         if self.wub == 1:
             if self.onblock == 1:
                 self.vy -= 3
-                self.ti+=0.0015
+                self.ti+=0.0012
                 self.wub = 0
     def rup(self, event):
         if self.vx<3:
