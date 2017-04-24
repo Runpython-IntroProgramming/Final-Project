@@ -31,7 +31,10 @@ class dk(App):
     def step (self):
         playe.step()
         bare.step()
-        
+        barh.step()
+        barj.step()
+        bark.step()
+        barl.step()
     
 
 class top(Sprite):
@@ -68,7 +71,7 @@ wub=0
 go = 0
 
 class bar(Sprite):
-    def __init__(self, position, vx, vy, ti):
+    def __init__(self, position, vx, vy, ti, delay):
         super().__init__(barrels, position)
         self.vx = vx
         self.vy = vy
@@ -77,12 +80,15 @@ class bar(Sprite):
         self.go = 0
         self.vx = 2
         self.visible = False
-        go = 0
+        self.tim=0
+        self.delay = delay
     def start(self):
         self.visible = True
         self.go = 1
     def step(self):
-        self.go=1
+        self.tim+=1
+        if self.tim == self.delay:
+            self.start()
         if self.go == 1:
             if self.onblock == 1:
                 self.ti = 0
@@ -132,14 +138,16 @@ class play(Sprite):
         if len(on) + len(onm) > 0:
             self.ti = 0
             self.vy = 0
-            self.y-=.5
+            self.y-=.6
             self.onblock = 1
         if len(on) + len(onm) == 0:
             self.onblock = 0
+        if self.ti>0.72:
+            self.y-=8
         under = self.collidingWithSprites(bot)
         underm = self.collidingWithSprites(mbot)
         if len(under) + len (underm) > 0:
-            self.vy=-self.vy
+            self.vy=-0.25*self.vy
             self.y+=10
         csides = self.collidingWithSprites(side)
         ccap = self.collidingWithSprites(cap)
@@ -207,7 +215,11 @@ playe = play((1000, 640), 0, 0, 0)
 prizee = win((300, 175))
 prizee = win((540, 10))
 
-bare = bar ((540, 12), 0, 0, 0)
+bare = bar ((540, 12), 0, 0, 0,5)
+barh = bar ((540, 12), -100, 0, 0,300)
+barj = bar ((540, 12), 0, 0, 0,900)
+bark = bar ((540, 12), -100, 0, 0,1200)
+barl = bar ((540, 12), 0, 0, 0,1600)
 
 
 
