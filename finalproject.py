@@ -80,7 +80,7 @@ class bar(Sprite):
         go = 0
     def start(self):
         self.visible = True
-        go = 1
+        self.go = 1
     def step(self):
         self.go=1
         if self.go == 1:
@@ -121,9 +121,9 @@ class play(Sprite):
         self.jump = 0
         self.wub =0
     def step(self):
-        onblock=0
+        self.onblock=0
         if self.wub == 0:
-            self.ti=self.ti+0.01
+            self.ti=self.ti+0.012
         self.vy =self.ti+self.vy
         self.y=self.y+self.vy
         self.x=self.x+self.vx
@@ -151,11 +151,13 @@ class play(Sprite):
             if self.onblock ==1:
                 self.vy -= 7.5
                 self.jump = 0
+                self.onblock=0
         if self.wub == 1:
             if self.onblock == 1:
-                self.vy -= 3
-                self.ti+=0.001
+                self.vy -= 3.1
+                self.ti+=0.0008
                 self.wub = 0
+        self.onblock=1
     def rup(self, event):
         if self.vx<3:
             self.vx+=1
