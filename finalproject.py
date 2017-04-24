@@ -112,6 +112,9 @@ class bar(Sprite):
                 self.vx=-self.vx
             if len(ccap) > 0:
                 self.vx=-self.vx
+            if self.x > 1030 and self.y>650:
+                self.x=540
+                self.y=12
 
 class play(Sprite):
     def __init__(self, position, vx, vy, ti):
@@ -166,6 +169,15 @@ class play(Sprite):
                 self.ti+=0.0008
                 self.wub = 0
         self.onblock=1
+        be = self.collidingWithSprites(bar)
+        #bh = self.collidingWithSprites(barh)
+        #bj = self.collidingWithSprites(barj)
+        #bk = self.collidingWithSprites(bark)
+        #bl = self.collidingWithSprites(barl)
+        if len(be) >= 1:
+            self.x=1000
+            self.y=660
+            ti=2
     def rup(self, event):
         if self.vx<3:
             self.vx+=1
@@ -215,11 +227,11 @@ playe = play((1000, 640), 0, 0, 0)
 prizee = win((300, 175))
 prizee = win((540, 10))
 
-bare = bar ((540, 12), 0, 0, 0,5)
-barh = bar ((540, 12), -100, 0, 0,300)
-barj = bar ((540, 12), 0, 0, 0,900)
-bark = bar ((540, 12), -100, 0, 0,1200)
-barl = bar ((540, 12), 0, 0, 0,1600)
+bare = bar ((540, 12), 0, 0, 0, 5)
+barh = bar ((540, 12), -100, 0, 0, 300)
+barj = bar ((540, 12), 0, 0, 0, 900)
+bark = bar ((540, 12), -100, 0, 0, 1100)
+barl = bar ((540, 12), 0, 0, 0, 1400)
 
 
 
