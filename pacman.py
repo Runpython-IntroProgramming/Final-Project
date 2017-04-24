@@ -27,10 +27,10 @@ Sprite(hline, (50,250))
 Sprite(hline, (300,200))
 
 pman=Sprite(CircleAsset(15,line,purple),(25,25))
-
-def spaceKey(event):
+pman.dir=0
+pman.go = True    
+def leftKey(event):
     pman.dir=4
-    pman.go = True
     
     
     
@@ -40,7 +40,7 @@ def step():
         
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run(step)
-myapp.listenKeyEvent('keydown', 'space', spaceKey)
-"""myapp.listenKeyEvent('keydown', 'up', upKey)
+myapp.listenKeyEvent('keydown', 'left', leftKey)
+myapp.listenKeyEvent('keydown', 'up', upKey)
 myapp.listenKeyEvent('keydown', 'down', downKey)
-myapp.listenKeyEvent('keydown', 'right', rightKey)"""
+myapp.listenKeyEvent('keydown', 'right', rightKey)
