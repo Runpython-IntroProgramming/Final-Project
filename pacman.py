@@ -29,18 +29,30 @@ Sprite(hline, (300,200))
 pman=Sprite(CircleAsset(15,line,purple),(25,25))
 pman.dir=0
 pman.go = True    
+
 def leftKey(event):
+    pman.dir=-4
+    up=0
+"""def rightKey(event):
     pman.dir=4
-    
-    
-    
+    up=0    
+def upKey(event):
+    pman.dir=-4
+    up=1
+def downKey(event):
+    pman.dir=4
+    up=1"""
 def step():
+    global up
     if pman.go:
-        pman.x += pman.dir
+        if up==0:
+            pman.x += pman.dir
+        if up==1:
+            pman.y += pman.dir
         
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run(step)
-myapp.listenKeyEvent('keydown', 'left', leftKey)
-myapp.listenKeyEvent('keydown', 'up', upKey)
-myapp.listenKeyEvent('keydown', 'down', downKey)
-myapp.listenKeyEvent('keydown', 'right', rightKey)
+myapp.listenKeyEvent('keydown', 'j', leftKey)
+myapp.listenKeyEvent('keydown', 'i', upKey)
+myapp.listenKeyEvent('keydown', 'k', downKey)
+myapp.listenKeyEvent('keydown', 'l', rightKey)
