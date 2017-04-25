@@ -1,6 +1,6 @@
 from ggame import App, RectangleAsset, ImageAsset, SoundAsset, CircleAsset
 from ggame import LineStyle, Color, Sprite, Sound
-from datetime import time
+from random import randint
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
@@ -9,8 +9,6 @@ speed=3
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
 line=LineStyle(0,blue)
-white = Color(0xfffafa,1)
-green = Color(0x00ff00, 1)
 black = Color(0, 1)
 bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, line, black)
 bg = Sprite(bg_asset, (0,0))
@@ -49,12 +47,16 @@ def step():
             snake.x=rond(snake.x)
         if (snake.x+20)>SCREEN_WIDTH or (snake.y+20)>SCREEN_HEIGHT or snake.x<0 or snake.y<0:
             snake.go=False
-            print("You lose")
+            print("You lose.")
+        dot=[(10*randint(0,40), 10*randint(0,30))]
+        
 
 class tail(Sprite):
     asset=RectangleAsset(20,20,line, purple)
     def __init__(self, position):
         super().__init__(notcell.asset, position)
+
+
         
 
     
