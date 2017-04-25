@@ -113,10 +113,7 @@ class bar(Sprite):
             if len(on) == 0:
                 self.onblock=0
             csides = self.collidingWithSprites(side)
-            ccap = self.collidingWithSprites(cap)
             if len(csides) > 0:
-                self.vx=-self.vx
-            if len(ccap) > 0:
                 self.vx=-self.vx
             if self.x > 1030 and self.y>650:
                 self.x=540
@@ -178,10 +175,6 @@ class play(Sprite):
                 self.wub = 0
         self.onblock=1
         be = self.collidingWithSprites(bar)
-        #bh = self.collidingWithSprites(barh)
-        #bj = self.collidingWithSprites(barj)
-        #bk = self.collidingWithSprites(bark)
-        #bl = self.collidingWithSprites(barl)
         if len(be) >= 1:
             self.x=1000
             self.y=660
@@ -215,23 +208,32 @@ bot ((500, 590))
 cap ((498, 580))
 top ((-750, 580))
 bot ((-750, 590))
+cap ((328, 580))
 
 top ((750, 450))
 bot ((750, 460))
+cap ((748, 450))
 top ((-900, 450))
 bot ((-900, 460))
+cap ((178, 450))
 mtop ((300, 450))
 mbot ((300, 460))
+cap ((298, 450))
+cap ((600, 450))
 
 top ((700, 320))
 bot ((700, 330))
+cap ((698, 320))
 top ((-500, 320))
 bot ((-500, 330))
+cap ((580, 320))
 
 top ((900, 190))
 bot ((900, 200))
+cap ((898, 190))
 top ((-300, 190))
 bot ((-300, 200))
+cap ((780, 190))
 
 playe = play((1000, 640), 0, 0, 0)
 prizee = win((300, 175))
