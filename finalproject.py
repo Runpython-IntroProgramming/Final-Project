@@ -76,15 +76,21 @@ class bar(Sprite):
         self.vx = vx
         self.vy = vy
         self.ti = ti
+        self.origx = self.x
+        self.origy = self.y
         self.onblock=0
         self.go = 0
-        self.vx = 2
         self.visible = False
         self.tim=0
         self.delay = delay
     def start(self):
         self.visible = True
         self.go = 1
+    def reset(self):
+        self.tim=0
+        self.x = self.origx
+        self.y = self.origy
+        self.visible = False
     def step(self):
         self.tim+=1
         if self.tim == self.delay:
@@ -129,7 +135,9 @@ class play(Sprite):
         self.onblock=0
         self.jump = 0
         self.wub =0
+        self.dead = 0
     def step(self):
+        self.dead = 0
         self.onblock=0
         if self.wub == 0:
             self.ti=self.ti+0.012
@@ -177,7 +185,9 @@ class play(Sprite):
         if len(be) >= 1:
             self.x=1000
             self.y=660
-            ti=2
+            self.ti=2
+            for x in dk.getSpritesbyClass(bar):
+                x.reset()
     def rup(self, event):
         if self.vx<3:
             self.vx+=1
@@ -227,11 +237,11 @@ playe = play((1000, 640), 0, 0, 0)
 prizee = win((300, 175))
 prizee = win((540, 10))
 
-bare = bar ((540, 12), 0, 0, 0, 5)
-barh = bar ((540, 12), -100, 0, 0, 300)
-barj = bar ((540, 12), 0, 0, 0, 900)
-bark = bar ((540, 12), -100, 0, 0, 1100)
-barl = bar ((540, 12), 0, 0, 0, 1400)
+bare = bar ((540, 12), 2, 0, 0, 5)
+barh = bar ((540, 12), -2, 0, 0, 20)
+barj = bar ((540, 12), 1.5, 0, 0, 600)
+bark = bar ((540, 12), -2, 0, 0, 1100)
+barl = bar ((540, 12), 2, 0, 0, 1200)
 
 
 
