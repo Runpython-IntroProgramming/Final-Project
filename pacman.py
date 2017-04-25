@@ -32,15 +32,19 @@ pman.dir=0
 pman.go = True    
 
 def leftKey(event):
+    global up
     pman.dir=-4
     up=0
 def rightKey(event):
+    global up
     pman.dir=4
     up=0    
 def upKey(event):
+    global up
     pman.dir=-4
     up=1
 def downKey(event):
+    global up
     pman.dir=4
     up=1
 def step():
