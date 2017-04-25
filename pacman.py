@@ -3,6 +3,7 @@ from ggame import LineStyle, Color, Sprite, Sound
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
+up=0
 
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
@@ -33,7 +34,7 @@ pman.go = True
 def leftKey(event):
     pman.dir=-4
     up=0
-"""def rightKey(event):
+def rightKey(event):
     pman.dir=4
     up=0    
 def upKey(event):
@@ -41,7 +42,7 @@ def upKey(event):
     up=1
 def downKey(event):
     pman.dir=4
-    up=1"""
+    up=1
 def step():
     global up
     if pman.go:
