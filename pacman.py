@@ -17,11 +17,16 @@ rond=lambda x: 2*(round(x/2,-1))
 snake=Sprite(RectangleAsset(20,20,line,purple),(20,20))
 snake.dir=0
 snake.go = True    
+class tail(Sprite):
+    asset=RectangleAsset(20,20,line, purple)
+    def __init__(self, position):
+        super().__init__(tail.asset, position)
 
 def leftKey(event):
     global up
     snake.dir=-speed
     up=0
+    tail((snake.x-20,snake.y))
 def rightKey(event):
     global up
     snake.dir=speed
@@ -36,7 +41,7 @@ def downKey(event):
     up=1
 def spaceKey(event):
     snake.dir=0
-def step():
+"""def step():
     global up
     if snake.go:
         if up==0:
@@ -48,13 +53,9 @@ def step():
         if (snake.x+20)>SCREEN_WIDTH or (snake.y+20)>SCREEN_HEIGHT or snake.x<0 or snake.y<0:
             snake.go=False
             print("You lose.")
-        dot=[(10*randint(0,40), 10*randint(0,30))]
+        dot=[(10*randint(0,40), 10*randint(0,30))]"""
         
 
-class tail(Sprite):
-    asset=RectangleAsset(20,20,line, purple)
-    def __init__(self, position):
-        super().__init__(notcell.asset, position)
 
 
         
@@ -62,7 +63,7 @@ class tail(Sprite):
     
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
-myapp.run(step)
+myapp.run("""step""")
 myapp.listenKeyEvent('keydown', 'j', leftKey)
 myapp.listenKeyEvent('keydown', 'i', upKey)
 myapp.listenKeyEvent('keydown', 'k', downKey)
