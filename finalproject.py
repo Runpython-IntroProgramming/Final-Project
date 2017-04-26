@@ -9,6 +9,7 @@ dgreen = Color(0x006600, 1.0)
 purp = Color(0x9900cc, 1.0)
 blue = Color(0x3399ff,1.0)
 gold = Color(0xcc9900, 1.0)
+red = Color(0xff6666, 1.0)
 noline = LineStyle(0, black)
 topr = RectangleAsset (1080, 20, noline, dgreen) 
 botr = RectangleAsset (1080, 20, noline, dgreen) 
@@ -17,6 +18,7 @@ mbotr = RectangleAsset (300, 20, noline, dgreen)
 sider = RectangleAsset (20, 720, noline, dgreen) 
 capr = RectangleAsset (2, 30, noline, dgreen)
 player = RectangleAsset (20, 50, noline, purp)
+heart = CircleAsset (15, noline, red)
 prize = RectangleAsset (35, 15, noline, gold)
 barrels = CircleAsset (10, noline, black)
 vy=0
@@ -118,6 +120,10 @@ class bar(Sprite):
             if self.x > 1030 and self.y>650:
                 self.x=540
                 self.y=12
+            dead = self.collidingWithSprites(bar)
+            if len(dead) >= 1:
+                self.tim = 1
+            
 
 class play(Sprite):
     def __init__(self, position, vx, vy, ti):
@@ -133,6 +139,7 @@ class play(Sprite):
         self.jump = 0
         self.wub =0
         self.dead = 0
+        self.countlives = 3
     def step(self):
         self.dead = 0
         self.onblock=0
@@ -181,6 +188,13 @@ class play(Sprite):
             self.ti=2
             for x in dk.getSpritesbyClass(bar):
                 x.reset()
+            if self.countlives == 3:
+                firstloss()
+            if self.countlives ==2:
+                secondloss()
+            if self.countlives ==2:
+                lastloss()
+            self.countlives -= 1
     def rup(self, event):
         if self.vx<3:
             self.vx+=1
@@ -194,6 +208,20 @@ class play(Sprite):
         self.wub = 1
         
         
+class liv(Sprite):
+    def __init__(self, position, lives):
+        super().__init__(heart, position)
+        self.lives = lives
+    def firstloss (self, event):
+        if self.lives == 3:
+            self.visible = False
+    def secondloss (self, event):
+        if self.lives == 2:
+            self.visible = False
+    def lastloss (self, event):
+        if self.lives == 1:
+            self.visible = False
+            
         
 
 myapp = dk(SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -244,6 +272,10 @@ barh = bar ((540, 12), -2, 0, 0, 20)
 barj = bar ((540, 12), 1.5, 0, 0, 600)
 bark = bar ((540, 12), -2, 0, 0, 1100)
 barl = bar ((540, 12), 2, 0, 0, 1200)
+
+hearta = liv ((32, 30), 3)
+heartb = liv ((72, 30), 2)
+heartc = liv ((112, 30), 1)
 
 
 
