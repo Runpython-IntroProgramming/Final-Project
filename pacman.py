@@ -26,7 +26,7 @@ def leftKey(event):
     global up
     snake.dir=-speed
     up=0
-    tail((snake.x-20,snake.y))
+    #tail((snake.x-20,snake.y))
 def rightKey(event):
     global up
     snake.dir=speed
@@ -41,7 +41,7 @@ def downKey(event):
     up=1
 def spaceKey(event):
     snake.dir=0
-"""def step():
+def step():
     global up
     if snake.go:
         if up==0:
@@ -53,7 +53,9 @@ def spaceKey(event):
         if (snake.x+20)>SCREEN_WIDTH or (snake.y+20)>SCREEN_HEIGHT or snake.x<0 or snake.y<0:
             snake.go=False
             print("You lose.")
-        dot=[(10*randint(0,40), 10*randint(0,30))]"""
+        dot=[(20*randint(0,40), 20*randint(0,30))]
+        for (x,y) in dot:
+            tail((x,y))
         
 
 
@@ -63,7 +65,7 @@ def spaceKey(event):
     
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
-myapp.run("""step""")
+myapp.run(step)
 myapp.listenKeyEvent('keydown', 'j', leftKey)
 myapp.listenKeyEvent('keydown', 'i', upKey)
 myapp.listenKeyEvent('keydown', 'k', downKey)
