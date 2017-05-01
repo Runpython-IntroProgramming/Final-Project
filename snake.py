@@ -46,13 +46,13 @@ def spaceKey(event):
     go=0
 
 if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-            go=0
-            print("You lose.")
+    go=0
+    print("You lose.")
 
-while go==1:
-    while up==0:
+if go==1:
+    if up==1:
         ntail(x,y)
-        x=x-20
+        x=x+20
         tail(x,y)
         
 
