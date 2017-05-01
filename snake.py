@@ -49,10 +49,18 @@ def spaceKey(event):
     global go
     go=0
 
-if go==1:
-    while (x+20)<=SCREEN_WIDTH and (y+20)<=SCREEN_HEIGHT and x>=0 and y>=0 and up==5:
-        print("ok")
-        x=x+300
+while go==1:
+    while (x+20)<=SCREEN_WIDTH and (y+20)<=SCREEN_HEIGHT and x>=0 and y>=0:
+        if up==0:
+            print("left")
+        if up==1:
+            print("right")
+        if up==2:
+            print("up")
+        if up==3:
+            print("down")
+        if up==5:
+            print("ok")
     
     
     if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
