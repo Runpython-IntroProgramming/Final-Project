@@ -1,4 +1,3 @@
-
 from ggame import App, RectangleAsset, ImageAsset, SoundAsset, CircleAsset
 from ggame import LineStyle, Color, Sprite, Sound
 from random import randint
@@ -31,36 +30,42 @@ class ntail(Sprite):
 tail((x,y))
 
 def leftKey(event):
-    global up
+    global up, go
     up=0
+    go=1
 def rightKey(event):
-    global up
-    up=1    
+    global up, go
+    up=1   
+    go=1
 def upKey(event):
-    global up
+    global up, go
     up=2
+    go=1
 def downKey(event):
-    global up
+    global up, go
     up=3
+    go=1
 def spaceKey(event):
+    global go
     go=0
-
-if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-    go=0
-    print("You lose.")
 
 if go==1:
-    if up==1:
-        ntail(x,y)
-        x=x+20
-        tail(x,y)
-        
-
+    while (x+20)<=SCREEN_WIDTH and (y+20)<=SCREEN_HEIGHT and x>=0 and y>=0 and up==5:
+        print("ok")
+        x=x+300
+    
+    
+    if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+        go=0
+        print("You lose.")   
 
 dot=[(20*randint(0,40), 20*randint(0,30))]
-for (x,y) in dot:
-    tail((x,y))
-            
+for (h,k) in dot:
+    tail((h,k))
+
+         
+
+
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
 myapp.listenKeyEvent('keydown', 'j', leftKey)
