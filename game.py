@@ -11,14 +11,18 @@ class Field(Sprite):
          self.vx=1
          self.vy=1
          self.vr=0
-"""
-class AOA:
+
+class AOA():
     def __init__(self, x, y, r):
         self.x = x
         self.y = y
         self.rotation = r
-    def angle(self):
-"""
+    def anglex(self):
+        return (-1 * math.cos(self.rotation))
+    def angley(self):
+        return (-1 * math.sin(self.rotation))
+        
+        
     
 class Plane(Sprite):
     airplane = ImageAsset("images/28293b2fe5801e03f1f70ed61c8397f6_airplane-clipart-transparent-airplane-clipart-transparent-background_2400-1009.png")
@@ -40,10 +44,10 @@ class Plane(Sprite):
     def step(self):
         #while self.vx >= 0:
         self.x += self.vx
-        #self.x -= 0.4
+        #self.vx -= 0.4
         #while self.vy >= 0:
+        #self.vy -= 0.4
         self.y += self.vy
-        #self.y -= 0.4
         self.rotation += self.vr
         """
          if self.rotation > 90:
