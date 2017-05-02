@@ -37,10 +37,13 @@ if go==1:
         go=1
         ntail((x,y))
         x=x-20
-        tail((x,y))
-        snk.append((x,y))
-        snk.remove(snk[0])
-        print(snk)
+        if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+            go=0
+        else:
+            tail((x,y))
+            snk.append((x,y))
+            snk.remove(snk[0])
+            print(snk)
     def rightKey(event):
         global up, go, x, y, snk
         up=1   
