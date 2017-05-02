@@ -82,17 +82,13 @@ class bar(Sprite):
         self.origy = self.y
         self.onblock=0
         self.go = 0
-        self.visible = False
         self.tim=0
         self.delay = delay
     def start(self):
         self.visible = True
         self.go = 1
-    def reset(self):
-        self.tim=0
         self.x = self.origx
         self.y = self.origy
-        self.visible = False
     def step(self):
         self.tim+=1
         if self.tim == self.delay:
@@ -120,9 +116,12 @@ class bar(Sprite):
             if self.x > 1030 and self.y>650:
                 self.x=540
                 self.y=12
-            dead = self.collidingWithSprites(bar)
+            dead = self.collidingWithSprites(play)
             if len(dead) >= 1:
-                self.tim = 1
+                self.tim = 0
+                self.x=self.origx
+                self.y=self.origy
+                self.go=0
             
 
 class play(Sprite):
@@ -189,11 +188,11 @@ class play(Sprite):
             for x in dk.getSpritesbyClass(bar):
                 x.reset()
             if self.countlives == 3:
-                firstloss()
+                hearta.firstloss()
             if self.countlives ==2:
-                secondloss()
-            if self.countlives ==2:
-                lastloss()
+                heartb.secondloss()
+            if self.countlives ==1:
+                heartc.lastloss()
             self.countlives -= 1
     def rup(self, event):
         if self.vx<3:
@@ -212,56 +211,30 @@ class liv(Sprite):
     def __init__(self, position, lives):
         super().__init__(heart, position)
         self.lives = lives
-    def firstloss (self, event):
+    def firstloss (self):
         if self.lives == 3:
             self.visible = False
-    def secondloss (self, event):
+            self.lives = 2
+    def secondloss (self):
         if self.lives == 2:
             self.visible = False
-    def lastloss (self, event):
+            self.lives = 1
+    def lastloss (self):
         if self.lives == 1:
             self.visible = False
+            self.lives = 0
             
         
 
 myapp = dk(SCREEN_WIDTH, SCREEN_HEIGHT)
 
-top ((0, 710))
-bot ((0, -10))
-side ((-10, 0))
-side ((1070, 0))
 
-top ((500, 580))
-bot ((500, 590))
-cap ((498, 580))
-top ((-750, 580))
-bot ((-750, 590))
-cap ((328, 580))
 
-top ((750, 450))
-bot ((750, 460))
-cap ((748, 450))
-top ((-900, 450))
-bot ((-900, 460))
-cap ((178, 450))
-mtop ((300, 450))
-mbot ((300, 460))
-cap ((298, 450))
-cap ((600, 450))
-
-top ((700, 320))
-bot ((700, 330))
-cap ((698, 320))
-top ((-500, 320))
-bot ((-500, 330))
-cap ((580, 320))
-
-top ((900, 190))
-bot ((900, 200))
-cap ((898, 190))
-top ((-300, 190))
-bot ((-300, 200))
-cap ((780, 190))
+levelone = [top ((0, 710)), bot ((0, -10)), side ((-10, 0)), side ((1070, 0)),
+top ((500, 580)), bot ((500, 590)), cap ((498, 580)), top ((-750, 580)), bot ((-750, 590)), cap ((328, 580)),
+top ((750, 450)), bot ((750, 460)), cap ((748, 450)), top ((-900, 450)), bot ((-900, 460)), cap ((178, 450)), mtop ((300, 450)), mbot ((300, 460)), cap ((298, 450)), cap ((600, 450)),
+top ((700, 320)), bot ((700, 330)), cap ((698, 320)), top ((-500, 320)), bot ((-500, 330)), cap ((580, 320)),
+top ((900, 190)), bot ((900, 200)), cap ((898, 190)), top ((-300, 190)), bot ((-300, 200)), cap ((780, 190))]
 
 playe = play((1000, 640), 0, 0, 0)
 prizee = win((300, 175))
@@ -276,7 +249,6 @@ barl = bar ((540, 12), 2, 0, 0, 1200)
 hearta = liv ((32, 30), 3)
 heartb = liv ((72, 30), 2)
 heartc = liv ((112, 30), 1)
-
 
 
 
