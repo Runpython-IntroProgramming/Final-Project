@@ -53,7 +53,7 @@ class Plane(Sprite):
              self.vx = 0
              self.y -= 
         """
-    def Forward(self, event)
+    def Forward(self, event):
         self.vx += 0.6
     def Slow(self, event):
         self.vx -= 0.6
