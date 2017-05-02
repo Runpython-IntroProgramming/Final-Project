@@ -38,6 +38,7 @@ if go==1:
         ntail((x,y))
         x=x-20
         if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+            print("you lose")
             go=0
         else:
             tail((x,y))
