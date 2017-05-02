@@ -16,7 +16,7 @@ rond=lambda x: 2*(round(x/2,-1))
 length=1
 x=20
 y=20
-go=1    
+go=0 
 
 class tail(Sprite):
     asset=RectangleAsset(20,20,line, purple)
@@ -49,7 +49,11 @@ def spaceKey(event):
     global go
     go=0
 
-while go==1:
+dot=[(20*randint(0,40), 20*randint(0,30))]
+for (h,k) in dot:
+    tail((h,k))
+
+if go==1:
     while (x+20)<=SCREEN_WIDTH and (y+20)<=SCREEN_HEIGHT and x>=0 and y>=0:
         if up==0:
             print("left")
@@ -63,15 +67,15 @@ while go==1:
         if up==3:
             print("down")
             x=400000
+        go=2
+if go==2:
+    print("ok")
+    go=1
 
-    
-    if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-        go=0
-        print("You lose.")   
+if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+    go=0
+    print("You lose.")   
 
-dot=[(20*randint(0,40), 20*randint(0,30))]
-for (h,k) in dot:
-    tail((h,k))
 
          
 
