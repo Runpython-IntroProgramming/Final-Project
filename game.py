@@ -19,12 +19,7 @@ class AOA():
         return (-1 * math.cos(self.rotation))
     def angley(self):
         return (-1 * math.sin(self.rotation))
-    
-    a = AOA(3,4,2)    
-    vx=a.anglex()
-    vy=a.angley()
-    vx=AOA(3,4,2).anglex()
-    
+        
 class Plane(Sprite):
     airplane = ImageAsset("images/28293b2fe5801e03f1f70ed61c8397f6_airplane-clipart-transparent-airplane-clipart-transparent-background_2400-1009.png")
     def __init__(self, position):
