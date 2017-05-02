@@ -17,6 +17,7 @@ length=1
 x=20
 y=20
 go=1
+snk=[(20,20)]
 
 class tail(Sprite):
     asset=RectangleAsset(20,20,line, purple)
@@ -29,24 +30,29 @@ class ntail(Sprite):
 
 tail((x,y))
 
-while go==1:
+if go==1:
     def leftKey(event):
-        global up, go
+        global up, go, x, y, snk
         up=0
         go=1
-        print("left")
+        ntail((x,y))
+        x=x-20
+        tail((x,y))
+        snk.append((x,y))
+        snk.remove(snk[0])
+        print(snk)
     def rightKey(event):
-        global up, go
+        global up, go, x, y, snk
         up=1   
         go=1
-        print("right")
+        
     def upKey(event):
-        global up, go
+        global up, go, x, y, snk
         up=2
         go=1
         print("up")
     def downKey(event):
-        global up, go
+        global up, go, x, y, snk
         up=3
         go=1
         print("down")
@@ -58,32 +64,12 @@ dot=[(20*randint(0,39), 20*randint(0,29))]
 for (h,k) in dot:
     tail((h,k))
 
-"""while go==1:
-    while (x+20)<=SCREEN_WIDTH and (y+20)<=SCREEN_HEIGHT and x>=0 and y>=0:
-        if up==0:
-            print("left")
-            x=400000
-        if up==1:
-            print("right")
-            x=400000
-        if up==2:
-            print("up")
-            x=400000
-        if up==3:
-            print("down")
-            x=400000
-        go=2
-if go==2:
-    print("ok")
-    go=1"""
-
 if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-    go=0
-    print("You lose.")   
-
-         
-
-
+        go=0
+        print("You lose.")   
+        
+        
+        
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
 myapp.listenKeyEvent('keydown', 'j', leftKey)
