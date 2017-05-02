@@ -19,6 +19,10 @@ y=20
 go=1
 snk=[(20,20)]
 
+dot=[(20*randint(0,39), 20*randint(0,29))]
+for (h,k) in dot:
+    tail((h,k))
+    
 class tail(Sprite):
     asset=RectangleAsset(20,20,line, purple)
     def __init__(self, position):
@@ -50,13 +54,17 @@ if go==1:
         go=1
         ntail((x,y))
         x=x+20
-        if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-            print("you lose")
-            go=0
-        else:
-            tail((x,y))
-            snk.append((x,y))
-            snk.remove(snk[0])
+        for (h,k) in dot:
+            if x==h and y==k:
+                
+            elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+                print("you lose")
+                go=0
+            
+            else:
+                tail((x,y))
+                snk.append((x,y))
+                snk.remove(snk[0])
 
     def upKey(event):
         global up, go, x, y, snk
@@ -88,9 +96,7 @@ if go==1:
         global go
         go=0"""
 
-dot=[(20*randint(0,39), 20*randint(0,29))]
-for (h,k) in dot:
-    tail((h,k))
+
 
 if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
         go=0
