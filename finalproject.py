@@ -119,6 +119,7 @@ class bar(Sprite):
             dead = self.collidingWithSprites(play)
             if len(dead) >= 1:
                 self.tim = 0
+                print ("test")
                 self.x=self.origx
                 self.y=self.origy
                 self.go=0
@@ -185,8 +186,6 @@ class play(Sprite):
             self.x=1000
             self.y=660
             self.ti=2
-            for x in dk.getSpritesbyClass(bar):
-                x.reset()
             if self.countlives == 3:
                 hearta.firstloss()
             if self.countlives ==2:
