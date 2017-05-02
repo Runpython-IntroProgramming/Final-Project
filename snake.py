@@ -44,22 +44,46 @@ if go==1:
             tail((x,y))
             snk.append((x,y))
             snk.remove(snk[0])
-            print(snk)
     def rightKey(event):
         global up, go, x, y, snk
-        up=1   
+        up=0
         go=1
-        
+        ntail((x,y))
+        x=x+20
+        if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+            print("you lose")
+            go=0
+        else:
+            tail((x,y))
+            snk.append((x,y))
+            snk.remove(snk[0])
+
     def upKey(event):
         global up, go, x, y, snk
-        up=2
+        up=0
         go=1
-        print("up")
+        ntail((x,y))
+        y=y-20
+        if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+            print("you lose")
+            go=0
+        else:
+            tail((x,y))
+            snk.append((x,y))
+            snk.remove(snk[0])
     def downKey(event):
         global up, go, x, y, snk
-        up=3
+        up=0
         go=1
-        print("down")
+        ntail((x,y))
+        y=y-20
+        if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+            print("you lose")
+            go=0
+        else:
+            tail((x,y))
+            snk.append((x,y))
+            snk.remove(snk[0])
     """def spaceKey(event):
         global go
         go=0"""
