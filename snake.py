@@ -16,7 +16,7 @@ rond=lambda x: 2*(round(x/2,-1))
 length=1
 x=20
 y=20
-go = 1    
+go=1    
 
 class tail(Sprite):
     asset=RectangleAsset(20,20,line, purple)
@@ -53,15 +53,17 @@ while go==1:
     while (x+20)<=SCREEN_WIDTH and (y+20)<=SCREEN_HEIGHT and x>=0 and y>=0:
         if up==0:
             print("left")
+            x=400000
         if up==1:
             print("right")
+            x=400000
         if up==2:
             print("up")
+            x=400000
         if up==3:
             print("down")
-        if up==5:
-            print("ok")
-    
+            x=400000
+
     
     if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
         go=0
