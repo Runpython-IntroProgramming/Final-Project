@@ -44,8 +44,6 @@ class Plane(Sprite):
         #self.vy -= 0.4
         self.rotation += self.vr
         angle=AOA(self.rotation)
-        self.vx=angle.anglex()
-        self.vy=angle.angley()
         self.y += self.vy
         self.x += self.vx
         """
@@ -59,9 +57,12 @@ class Plane(Sprite):
         self.vx -= 0.6
     def Up(self, event):
         self.vr += 0.1
+        self.vx=angle.anglex()
+        self.vy=angle.angley()
     def Down(self, event):
         self.vr -= 0.1
-        
+        self.vx=angle.anglex()
+        self.vy=angle.angley()
     def Stop(self, event):
         self.vr=0
     def Print(self, event):
