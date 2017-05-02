@@ -16,7 +16,7 @@ rond=lambda x: 2*(round(x/2,-1))
 length=1
 x=20
 y=20
-go=0 
+go=1
 
 class tail(Sprite):
     asset=RectangleAsset(20,20,line, purple)
@@ -29,31 +29,36 @@ class ntail(Sprite):
 
 tail((x,y))
 
-def leftKey(event):
-    global up, go
-    up=0
-    go=1
-def rightKey(event):
-    global up, go
-    up=1   
-    go=1
-def upKey(event):
-    global up, go
-    up=2
-    go=1
-def downKey(event):
-    global up, go
-    up=3
-    go=1
-def spaceKey(event):
-    global go
-    go=0
+while go==1:
+    def leftKey(event):
+        global up, go
+        up=0
+        go=1
+        print("left")
+    def rightKey(event):
+        global up, go
+        up=1   
+        go=1
+        print("right")
+    def upKey(event):
+        global up, go
+        up=2
+        go=1
+        print("up")
+    def downKey(event):
+        global up, go
+        up=3
+        go=1
+        print("down")
+    """def spaceKey(event):
+        global go
+        go=0"""
 
-dot=[(20*randint(0,40), 20*randint(0,30))]
+dot=[(20*randint(0,39), 20*randint(0,29))]
 for (h,k) in dot:
     tail((h,k))
 
-if go==1:
+"""while go==1:
     while (x+20)<=SCREEN_WIDTH and (y+20)<=SCREEN_HEIGHT and x>=0 and y>=0:
         if up==0:
             print("left")
@@ -70,12 +75,11 @@ if go==1:
         go=2
 if go==2:
     print("ok")
-    go=1
+    go=1"""
 
 if (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
     go=0
     print("You lose.")   
-
 
          
 
@@ -86,4 +90,4 @@ myapp.listenKeyEvent('keydown', 'j', leftKey)
 myapp.listenKeyEvent('keydown', 'i', upKey)
 myapp.listenKeyEvent('keydown', 'k', downKey)
 myapp.listenKeyEvent('keydown', 'l', rightKey)
-myapp.listenKeyEvent('keydown', 'space', spaceKey)
+#myapp.listenKeyEvent('keydown', 'space', spaceKey)
