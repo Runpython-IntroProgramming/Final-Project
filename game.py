@@ -64,11 +64,7 @@ class Plane(Sprite):
         #angle=AOA(self.rotation)
         self.y += self.vy
         self.x += self.vx
-        """
-         if self.rotation > 90:
-             self.vx = 0
-             self.y -= 
-        """
+        
     
 class Game(App):
     def __init__(self, width, height):
