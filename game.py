@@ -37,13 +37,31 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "e", self.Print)
         self.fxcenter = self.fycenter = 0.5
         
+        
+    def Forward(self, event):
+        self.vx += 0.6
+    def Slow(self, event):
+        self.vx -= 0.6
+    def Up(self, event):
+        self.vr += 0.1
+        #self.vx=angle.anglex()
+        #self.vy=angle.angley()
+    def Down(self, event):
+        self.vr -= 0.1
+        #self.vx=angle.anglex()
+        #self.vy=angle.angley()
+    def Stop(self, event):
+        self.vr=0
+    def Print(self, event):
+        print(self.rotation)
+    
     def step(self):
         #while self.vx >= 0:
         #self.vx -= 0.4
         #while self.vy >= 0:
         #self.vy -= 0.4
         self.rotation += self.vr
-        angle=AOA(self.rotation)
+        #angle=AOA(self.rotation)
         self.y += self.vy
         self.x += self.vx
         """
@@ -51,22 +69,6 @@ class Plane(Sprite):
              self.vx = 0
              self.y -= 
         """
-    def Forward(self, event):
-        self.vx += 0.6
-    def Slow(self, event):
-        self.vx -= 0.6
-    def Up(self, event):
-        self.vr += 0.1
-        self.vx=angle.anglex()
-        self.vy=angle.angley()
-    def Down(self, event):
-        self.vr -= 0.1
-        self.vx=angle.anglex()
-        self.vy=angle.angley()
-    def Stop(self, event):
-        self.vr=0
-    def Print(self, event):
-        print(self.rotation)
     
 class Game(App):
     def __init__(self, width, height):
