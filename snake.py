@@ -47,6 +47,7 @@ def leftKey(event):
             print("you lose")
             go=0
             ntail(snk[0])
+            quit()
         else:
             ntail(snk[0])
             tail((x,y))
@@ -66,6 +67,7 @@ def rightKey(event):
             print("you lose")
             go=0
             ntail(snk[0])
+            quit()
         else:
             ntail(snk[0])
             tail((x,y))
@@ -74,8 +76,16 @@ def rightKey(event):
 
 def upKey(event):
     global x, y, snk
+    e=0
     y=y-20
     for (h,k) in dot:
+        """for (c,d) in snk:
+            if x==c and y==d:
+                e=e+1
+        if e==2:
+            print("you lose")
+            ntail(snk[0])
+            quit()"""
         if x==h and y==k:
             snk.append((x,y))
             dot[0]=(20*randint(0,39), 20*randint(0,29))
@@ -83,8 +93,8 @@ def upKey(event):
                 tail((z,q))
         elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
             print("you lose")
-            go=0
             ntail(snk[0])
+            quit()
         else:
             ntail(snk[0])
             tail((x,y))
@@ -102,8 +112,8 @@ def downKey(event):
                 tail((z,q))
         elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
             print("you lose")
-            go=0
             ntail(snk[0])
+            quit()
         else:
             ntail(snk[0])
             tail((x,y))
