@@ -89,6 +89,12 @@ class bar(Sprite):
         self.go = 1
         self.x = self.origx
         self.y = self.origy
+    def dead(self):
+        for x in myapp.getSpritesbyClass(bar):
+            x.tim = -2
+            x.x = x.origx
+            x.y = x.origy
+            x.go=0
     def step(self):
         self.tim+=1
         if self.tim == self.delay:
@@ -116,13 +122,7 @@ class bar(Sprite):
             if self.x > 1030 and self.y>650:
                 self.x=540
                 self.y=12
-            dead = self.collidingWithSprites(play)
-            if len(dead) >= 1:
-                self.tim = 0
-                print ("test")
-                self.x=self.origx
-                self.y=self.origy
-                self.go=0
+            
             
 
 class play(Sprite):
@@ -186,6 +186,7 @@ class play(Sprite):
             self.x=1000
             self.y=660
             self.ti=2
+            be[0].dead()
             if self.countlives == 3:
                 hearta.firstloss()
             if self.countlives ==2:
@@ -229,7 +230,7 @@ myapp = dk(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 
 
-levelone = [top ((0, 710)), bot ((0, -10)), side ((-10, 0)), side ((1070, 0)),
+leveltwo = [top ((0, 710)), bot ((0, -10)), side ((-10, 0)), side ((1070, 0)),
 top ((500, 580)), bot ((500, 590)), cap ((498, 580)), top ((-750, 580)), bot ((-750, 590)), cap ((328, 580)),
 top ((750, 450)), bot ((750, 460)), cap ((748, 450)), top ((-900, 450)), bot ((-900, 460)), cap ((178, 450)), mtop ((300, 450)), mbot ((300, 460)), cap ((298, 450)), cap ((600, 450)),
 top ((700, 320)), bot ((700, 330)), cap ((698, 320)), top ((-500, 320)), bot ((-500, 330)), cap ((580, 320)),
