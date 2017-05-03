@@ -193,6 +193,8 @@ class play(Sprite):
                 heartb.secondloss()
             if self.countlives ==1:
                 heartc.lastloss()
+            if self.countlives ==0:
+                play.stop()
             self.countlives -= 1
     def rup(self, event):
         if self.vx<3:
@@ -205,6 +207,10 @@ class play(Sprite):
             self.jump = 1
     def wup(self, event):
         self.wub = 1
+    def stop(self):
+        self.vx=0
+        self.vy=0
+        self.ti=0
         
         
 class liv(Sprite):
