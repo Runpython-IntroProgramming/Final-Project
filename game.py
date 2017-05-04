@@ -11,6 +11,7 @@ class Field(Sprite):
          self.vx=1
          self.vy=1
          self.vr=0
+         self.scale=1.2
 
 class AOA():
     def __init__(self, r):
@@ -50,14 +51,16 @@ class Plane(Sprite):
         if self.confirmation > 0:
             self.vx = angle.anglex()
             self.vy = angle.angley()
+        
         self.y += self.vy
         self.x += self.vx
-        
+       
+     
     def Forward(self, event):
         self.vx += 0.6
         self.confirmation += 0.6
     def Slow(self, event):
-        self.confirmation -= 0.6
+        self.vx -= 0.00001
     def Up(self, event):
         self.vr += 0.1
     def Down(self, event):
