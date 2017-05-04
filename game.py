@@ -16,7 +16,7 @@ class AOA():
     def __init__(self, r):
         self.rotation = r
     def anglex(self):
-        return (-1 * math.cos(self.rotation))
+        return (1 * math.cos(self.rotation))
     def angley(self):
         return (-1 * math.sin(self.rotation))
         
@@ -46,8 +46,9 @@ class Plane(Sprite):
         #self.vy -= 0.4
         self.rotation += self.vr
         angle=AOA(self.rotation)
-        self.vx=angle.anglex()
-        self.vy=angle.angley()
+        if self.vx > 0:
+            self.vx=angle.anglex()
+            self.vy=angle.angley()
         self.y += self.vy
         self.x += self.vx
         
