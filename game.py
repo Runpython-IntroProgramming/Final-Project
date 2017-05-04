@@ -27,6 +27,8 @@ class Plane(Sprite):
         super().__init__(Plane.airplane, position)
         self.vx = 0
         self.vy = 0
+        self.ax = 0
+        self.ay = 0
         self.vr = 0
         self.scale = 0.1
         self.confirmation = 0
@@ -42,18 +44,19 @@ class Plane(Sprite):
         
     
     def step(self):
-        #while self.vx >= 0
-        #self.vx -= 0.4
-        #while self.vy >= 0
-        #self.vy -= 0.4
         self.rotation += self.vr
         angle=AOA(self.rotation)
         if self.confirmation > 0:
-            self.vx = angle.anglex()
-            self.vy = angle.angley()
-        
+            self.ax = angle.anglex()
+            self.ay = angle.angley()
+        if self.vx > 0:
+            self.vx -= 0.4
+        if self.vy > 0:
+            self.vy -= 0.4
         self.y += self.vy
         self.x += self.vx
+        self.y += self.ay
+        self.x += self.ax
         if (self.x > SCREEN_WIDTH):
             self.x = 0
             print("OH NO, A ROCK!")
