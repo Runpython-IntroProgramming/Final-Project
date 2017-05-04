@@ -54,7 +54,10 @@ class Plane(Sprite):
         
         self.y += self.vy
         self.x += self.vx
-       
+        if (self.x > SCREEN_WIDTH):
+            self.x = 0
+            print("OH NO, A ROCK!")
+            
      
     def Forward(self, event):
         self.vx += 0.6
