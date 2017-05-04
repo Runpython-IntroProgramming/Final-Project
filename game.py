@@ -28,6 +28,7 @@ class Plane(Sprite):
         self.vy = 0
         self.vr = 0
         self.scale = 0.1
+        self.confirmation = 0
         Game.listenKeyEvent("keydown", "d", self.Forward)
         Game.listenKeyEvent("keydown", "a", self.Slow)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
@@ -46,16 +47,17 @@ class Plane(Sprite):
         #self.vy -= 0.4
         self.rotation += self.vr
         angle=AOA(self.rotation)
-        if self.vx > 0:
-            self.vx=angle.anglex()
-            self.vy=angle.angley()
+        if self.confirmation > 0:
+            self.vx = angle.anglex()
+            self.vy = angle.angley()
         self.y += self.vy
         self.x += self.vx
         
     def Forward(self, event):
         self.vx += 0.6
+        self.confirmation += 0.6
     def Slow(self, event):
-        self.vx -= 0.6
+        self.confirmation -= 0.6
     def Up(self, event):
         self.vr += 0.1
     def Down(self, event):
