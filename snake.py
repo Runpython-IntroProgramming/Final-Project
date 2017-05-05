@@ -27,10 +27,14 @@ class ntail(Sprite):
     asset=RectangleAsset(20,20,line, black)
     def __init__(self, position):
         super().__init__(ntail.asset, position)
+class dots(Sprite):
+    asset=RectangleAsset(20,20,line, blue)
+    def __init__(self, position):
+        super().__init__(dots.asset, position)
 
 dot=[(20*randint(0,39), 20*randint(0,29))]
 for (h,k) in dot:
-    tail((h,k))
+    dots((h,k))
     
 tail((x,y))
 
@@ -40,9 +44,10 @@ def leftKey(event):
     for (h,k) in dot:
         if x==h and y==k:
             snk.append((x,y))
+            tail((x,y))
             dot[0]=(20*randint(0,39), 20*randint(0,29))
             for (z,q) in dot:
-                tail((z,q))
+                dots((z,q))
         elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
             print("you lose")
             go=0
@@ -53,16 +58,16 @@ def leftKey(event):
             tail((x,y))
             snk.append((x,y))
             snk.remove(snk[0])
-
 def rightKey(event):
     global x, y, snk, dot
     x=x+20
     for (h,k) in dot:
         if x==h and y==k:
             snk.append((x,y))
+            tail((x,y))
             dot[0]=(20*randint(0,39), 20*randint(0,29))
             for (z,q) in dot:
-                tail((z,q))
+                dots((z,q))
         elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
             print("you lose")
             go=0
@@ -88,9 +93,10 @@ def upKey(event):
             quit()"""
         if x==h and y==k:
             snk.append((x,y))
+            tail((x,y))
             dot[0]=(20*randint(0,39), 20*randint(0,29))
             for (z,q) in dot:
-                tail((z,q))
+                dots((z,q))
         elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
             print("you lose")
             ntail(snk[0])
@@ -107,9 +113,10 @@ def downKey(event):
     for (h,k) in dot:
         if x==h and y==k:
             snk.append((x,y))
+            tail((x,y))
             dot[0]=(20*randint(0,39), 20*randint(0,29))
             for (z,q) in dot:
-                tail((z,q))
+                dots((z,q))
         elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
             print("you lose")
             ntail(snk[0])
