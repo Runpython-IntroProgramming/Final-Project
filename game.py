@@ -57,7 +57,7 @@ class Plane(Sprite):
             self.vx -= 0.4
         if (self.vy > 0) and (self.y < 498):
             self.vy -= 0.4
-        if (self.y > 498):
+        if (self.y < 498):
             self.y += self.vy
             self.x += self.vx
         self.y += self.ay
@@ -82,6 +82,10 @@ class Plane(Sprite):
     def Restart(self, event):
         self.x = 0
         self.y=500
+        self.ax =0
+        self.ay =0
+        self.vx =0
+        self.vy =0
         
     
     
