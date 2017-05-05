@@ -39,6 +39,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keyup", "right arrow", self.Stop)
         Game.listenKeyEvent("keyup", "left arrow", self.Stop)
         Game.listenKeyEvent("keydown", "space", self.motorOn)
+        Game.listenKeyEvent("keydown", "r", self.Restart)
         self.fxcenter = self.fycenter = 0.5
         
         
@@ -56,8 +57,9 @@ class Plane(Sprite):
             self.vx -= 0.4
         if (self.vy > 0) and (self.y < 498):
             self.vy -= 0.4
-        self.y += self.vy
-        self.x += self.vx
+        if (self.y > 498):
+            self.y += self.vy
+            self.x += self.vx
         self.y += self.ay
         self.x += self.ax
         if (self.x > SCREEN_WIDTH):
@@ -77,6 +79,9 @@ class Plane(Sprite):
         self.vr=0
     def motorOn(self, event):
         self.vx += 0.2
+    def Restart(self, event):
+        self.x = 0
+        self.y=500
         
     
     
