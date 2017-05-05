@@ -40,6 +40,8 @@ class Plane(Sprite):
         Game.listenKeyEvent("keyup", "left arrow", self.Stop)
         Game.listenKeyEvent("keydown", "space", self.motorOn)
         Game.listenKeyEvent("keydown", "r", self.Restart)
+        Game.listenKeyEvent("keydown", "y", self.Stealth)
+        Game.listenKeyEvent("keyup", "y", self.ExitStealth)
         self.fxcenter = self.fycenter = 0.5
         
         
@@ -86,6 +88,10 @@ class Plane(Sprite):
         self.ay =0
         self.vx =0
         self.vy =0
+    def Stealth(self, event):
+        self.visible = False
+    def ExitStealth(self, event):
+        self.visible = True
         
     
     
