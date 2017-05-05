@@ -52,9 +52,9 @@ class Plane(Sprite):
         if self.confirmation < 0:
             self.x -= self.ax
             self.y -= self.ay 
-        if self.vx > 0:
+        if (self.vx > 0) and (self.y < 498):
             self.vx -= 0.4
-        if self.vy > 0:
+        if (self.vy > 0) and (self.y < 498):
             self.vy -= 0.4
         self.y += self.vy
         self.x += self.vx
