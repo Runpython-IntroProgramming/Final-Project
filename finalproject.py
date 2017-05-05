@@ -35,33 +35,7 @@ class dk(App):
         barl.step()
     
 
-class top(Sprite):
-    def __init__(self,position):
-        super().__init__(topr, position)
-        
-class mtop(Sprite):
-    def __init__(self,position):
-        super().__init__(mtopr, position)
 
-class bot(Sprite):
-    def __init__(self,position):
-        super().__init__(botr, position)
-        
-class mbot(Sprite):
-    def __init__(self,position):
-        super().__init__(mbotr, position)
-
-class side(Sprite):
-    def __init__(self,position):
-        super().__init__(sider, position)
-
-class cap(Sprite):
-    def __init__(self,position):
-        super().__init__(capr, position)
-        
-class win(Sprite):
-    def __init__(self,position):
-        super().__init__(prize, position)
    
 onblock = 0
 jump = 0
@@ -235,20 +209,51 @@ class block():
     def __init__(self, position, length):
         self.topr = RectangleAsset (length, 20, noline, dgreen) 
         self.botr = RectangleAsset (length, 20, noline, dgreen)
-        capr = RectangleAsset (self.x - 2, 28, noline, dgreen)
-        capr = RectangleAsset (self.x + length , 28, noline, dgreen)
+        self.cap1 = RectangleAsset (2, 28, noline, dgreen)
+        self.cap2 = RectangleAsset (2, 28, noline, dgreen)
+        Sprite (self.topr, (position[0], position[1]))
+        Sprite (self.botr, (position[0], position[1]-10))
+        Sprite (self.cap1, (position[0] - 2, position[1]-8))
+        Sprite (self.cap2, (position[0] + length, position[1]-8))
+    
+
+class top(Sprite):
+    def __init__(self,position):
+        super().__init__(topr, position)
         
-block ((300, 300), 600)
+class mtop(Sprite):
+    def __init__(self,position):
+        super().__init__(mtopr, position)
+
+class bot(Sprite):
+    def __init__(self,position):
+        super().__init__(botr, position)
+        
+class mbot(Sprite):
+    def __init__(self,position):
+        super().__init__(mbotr, position)
+
+class side(Sprite):
+    def __init__(self,position):
+        super().__init__(sider, position)
+
+class cap(Sprite):
+    def __init__(self,position):
+        super().__init__(capr, position)
+        
+class win(Sprite):
+    def __init__(self,position):
+        super().__init__(prize, position)
         
 
 myapp = dk(SCREEN_WIDTH, SCREEN_HEIGHT)
 
-
-#leveltwo = [top ((0, 710)), bot ((0, -10)), side ((-10, 0)), side ((1070, 0)),
-#top ((500, 580)), bot ((500, 590)), cap ((498, 582)), top ((-750, 580)), bot ((-750, 590)), cap ((330, 582)),
-#top ((750, 450)), bot ((750, 460)), cap ((748, 452)), top ((-900, 450)), bot ((-900, 460)), cap ((180, 452)), mtop ((300, 450)), mbot ((300, 460)), cap ((298, 452)), cap ((600, 452)),
-#top ((700, 320)), bot ((700, 330)), cap ((698, 322)), top ((-500, 320)), bot ((-500, 330)), cap ((580, 322)),
-#top ((900, 190)), bot ((900, 200)), cap ((898, 192)), top ((-300, 190)), bot ((-300, 200)), cap ((780, 192))]
+block ((300, 300), 600)
+leveltwo = [top ((0, 710)), bot ((0, -10)), side ((-10, 0)), side ((1070, 0)),
+top ((500, 580)), bot ((500, 590)), cap ((498, 582)), top ((-750, 580)), bot ((-750, 590)), cap ((330, 582)),
+top ((750, 450)), bot ((750, 460)), cap ((748, 452)), top ((-900, 450)), bot ((-900, 460)), cap ((180, 452)), mtop ((300, 450)), mbot ((300, 460)), cap ((298, 452)), cap ((600, 452)),
+top ((700, 320)), bot ((700, 330)), cap ((698, 322)), top ((-500, 320)), bot ((-500, 330)), cap ((580, 322)),
+top ((900, 190)), bot ((900, 200)), cap ((898, 192)), top ((-300, 190)), bot ((-300, 200)), cap ((780, 192))]
 
 
 
