@@ -11,10 +11,6 @@ blue = Color(0x3399ff,1.0)
 gold = Color(0xcc9900, 1.0)
 red = Color(0xff6666, 1.0)
 noline = LineStyle(0, black)
-topr = RectangleAsset (1080, 20, noline, dgreen) 
-botr = RectangleAsset (1080, 20, noline, dgreen) 
-mtopr = RectangleAsset (300, 20, noline, dgreen) 
-mbotr = RectangleAsset (300, 20, noline, dgreen)
 sider = RectangleAsset (20, 720, noline, dgreen) 
 capr = RectangleAsset (2, 28, noline, dgreen)
 player = RectangleAsset (20, 50, noline, purp)
@@ -234,17 +230,27 @@ class liv(Sprite):
             self.visible = False
             self.lives = 0
             
+
+class block():
+    def __init__(self, x, y, length):
+        self.topr = RectangleAsset (length, 20, noline, dgreen) 
+        self.botr = RectangleAsset (length, 20, noline, dgreen)
+        capr = RectangleAsset (self.x - 2, 28, noline, dgreen)
+        capr = RectangleAsset (self.x + length , 28, noline, dgreen)
+        
+block (300, 300, 600)
         
 
 myapp = dk(SCREEN_WIDTH, SCREEN_HEIGHT)
 
 
+#leveltwo = [top ((0, 710)), bot ((0, -10)), side ((-10, 0)), side ((1070, 0)),
+#top ((500, 580)), bot ((500, 590)), cap ((498, 582)), top ((-750, 580)), bot ((-750, 590)), cap ((330, 582)),
+#top ((750, 450)), bot ((750, 460)), cap ((748, 452)), top ((-900, 450)), bot ((-900, 460)), cap ((180, 452)), mtop ((300, 450)), mbot ((300, 460)), cap ((298, 452)), cap ((600, 452)),
+#top ((700, 320)), bot ((700, 330)), cap ((698, 322)), top ((-500, 320)), bot ((-500, 330)), cap ((580, 322)),
+#top ((900, 190)), bot ((900, 200)), cap ((898, 192)), top ((-300, 190)), bot ((-300, 200)), cap ((780, 192))]
 
-leveltwo = [top ((0, 710)), bot ((0, -10)), side ((-10, 0)), side ((1070, 0)),
-top ((500, 580)), bot ((500, 590)), cap ((498, 582)), top ((-750, 580)), bot ((-750, 590)), cap ((330, 582)),
-top ((750, 450)), bot ((750, 460)), cap ((748, 452)), top ((-900, 450)), bot ((-900, 460)), cap ((180, 452)), mtop ((300, 450)), mbot ((300, 460)), cap ((298, 452)), cap ((600, 452)),
-top ((700, 320)), bot ((700, 330)), cap ((698, 322)), top ((-500, 320)), bot ((-500, 330)), cap ((580, 322)),
-top ((900, 190)), bot ((900, 200)), cap ((898, 192)), top ((-300, 190)), bot ((-300, 200)), cap ((780, 192))]
+
 
 playe = play((1000, 640), 0, 0, 0)
 prizee = win((300, 175))
