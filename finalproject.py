@@ -232,13 +232,13 @@ class liv(Sprite):
             
 
 class block():
-    def __init__(self, x, y, length):
+    def __init__(self, position, length):
         self.topr = RectangleAsset (length, 20, noline, dgreen) 
         self.botr = RectangleAsset (length, 20, noline, dgreen)
-        capr = RectangleAsset (x - 2, 28, noline, dgreen)
-        capr = RectangleAsset (x + length , 28, noline, dgreen)
+        capr = RectangleAsset (self.x - 2, 28, noline, dgreen)
+        capr = RectangleAsset (self.x + length , 28, noline, dgreen)
         
-block (300, 300, 600)
+block ((300, 300), 600)
         
 
 myapp = dk(SCREEN_WIDTH, SCREEN_HEIGHT)
