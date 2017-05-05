@@ -38,7 +38,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "right arrow", self.Down)
         Game.listenKeyEvent("keyup", "right arrow", self.Stop)
         Game.listenKeyEvent("keyup", "left arrow", self.Stop)
-        Game.listenKeyEvent("keydown", "e", self.Print)
+        Game.listenKeyEvent("keydown", "space", self.motorOn)
         self.fxcenter = self.fycenter = 0.5
         
         
@@ -49,6 +49,9 @@ class Plane(Sprite):
         if self.confirmation > 0:
             self.ax = angle.anglex()
             self.ay = angle.angley()
+        if self.confirmation < 0:
+            self.x -= self.ax
+            self.y -= self.ay 
         if self.vx > 0:
             self.vx -= 0.4
         if self.vy > 0:
@@ -63,18 +66,18 @@ class Plane(Sprite):
             
      
     def Forward(self, event):
-        self.vx += 0.6
         self.confirmation += 0.6
     def Slow(self, event):
-        self.vx -= 0.00001
+        self.confirmation -= 0.6
     def Up(self, event):
         self.vr += 0.1
     def Down(self, event):
         self.vr -= 0.1
     def Stop(self, event):
         self.vr=0
-    def Print(self, event):
-        print(self.rotation)
+    def motorOn(self, event):
+        self.vx += 0.2
+        
     
     
 class Game(App):
