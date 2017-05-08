@@ -55,7 +55,6 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "right arrow", self.Down)
         Game.listenKeyEvent("keyup", "right arrow", self.Stop)
         Game.listenKeyEvent("keyup", "left arrow", self.Stop)
-        #Game.listenKeyEvent("keydown", "m", self.motorOn)
         Game.listenKeyEvent("keydown", "r", self.Restart)
         self.fxcenter = self.fycenter = 0.5
         
@@ -64,9 +63,11 @@ class Plane(Sprite):
     def step(self):
         self.rotation += self.vr
         angle=AOA(self.rotation)
+        
         if self.vx < 0:
             self.vx = 0
-        self.x += self.vx
+        if (self.y > 497):
+            self.x += self.vx
         if (self.x > SCREEN_WIDTH):
             self.x = 0
             print("OH NO, A ROCK!")
@@ -84,7 +85,6 @@ class Plane(Sprite):
         self.vr -= 0.1
     def Stop(self, event):
         self.vr=0
-    #def motorOn(self, event):
     def Restart(self, event):
         self.x = 0
         self.y=500
