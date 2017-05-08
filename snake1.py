@@ -18,7 +18,10 @@ x=20
 y=20
 snk=[(20,20)]
 dir=1
+go=0
 
+if x<SCREEN_WIDTH and x>=0 and y<SCREEN_HEIGHT and y>0:
+    go=0
 class tail(Sprite):
     asset=RectangleAsset(20,20,line, purple)
     def __init__(self, position):
@@ -40,15 +43,38 @@ tail((x,y))
 
 def leftKey(event):
     dir=0
+    go=1
 def rightKey(event):
     dir=1
+    go=1
 def downKey(event):
     dir=2
+    go=1
 def upKey(event):
     dir=3
-while x<SCREEN_WIDTH and x>=0 and y<SCREEN_HEIGHT and y>0:
+    go=1
+while go==1:
     if dir ==0:
-        print(left)
+        print("left")
+        ntail((x,y))
+        x=x-20
+        tail((x,y))
+    if dir ==1:
+        print("right")
+        ntail((x,y))
+        x=x+20
+        tail((x,y))
+    if dir ==2:
+        print("down")
+        ntail((x,y))
+        y=y+20
+        tail((x,y))
+    if dir ==3:
+        print("up")
+        ntail((x,y))
+        y=y-20
+        tail((x,y))
+
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
