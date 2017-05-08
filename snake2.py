@@ -37,3 +37,10 @@ for (h,k) in dot:
     dots((h,k))
     
 tail((x,y))
+
+myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp.run()
+"""myapp.listenKeyEvent('keydown', 'j', leftKey)
+myapp.listenKeyEvent('keydown', 'i', upKey)
+myapp.listenKeyEvent('keydown', 'k', downKey)
+myapp.listenKeyEvent('keydown', 'l', rightKey)"""
