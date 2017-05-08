@@ -140,9 +140,10 @@ class play(Sprite):
             self.y+=10
         csides = self.collidingWithSprites(side)
         ccap = self.collidingWithSprites(cap)
+        ccapb = self.collidingWithSprites(capb)
         if len(csides) > 0:
             self.vx=-self.vx
-        if len(ccap) > 0:
+        if len(ccap) + len(ccapb) > 0:
             self.vx=-self.vx
         if self.jump == 1:
             if self.onblock ==1:
@@ -209,37 +210,29 @@ class block():
     def __init__(self, position, length):
         self.topr = RectangleAsset (length, 20, noline, dgreen) 
         self.botr = RectangleAsset (length, 20, noline, dgreen)
-        self.cap1 = RectangleAsset (2, 28, noline, dgreen)
-        self.cap2 = RectangleAsset (2, 28, noline, dgreen)
-        Sprite (self.topr, (position[0], position[1]))
-        Sprite (self.botr, (position[0], position[1]-10))
-        Sprite (self.cap1, (position[0] - 2, position[1]-8))
-        Sprite (self.cap2, (position[0] + length, position[1]-8))
+        self.capr = RectangleAsset (2, 28, noline, dgreen)
+        class top(Sprite):
+            def __init__(self,position):
+                super().__init__(topr, position)
+        class bot(Sprite):
+            def __init__(self,position):
+                super().__init__(botr, (position[0], position[1]-10))
+        class cap(Sprite):
+            def __init__(self,position):
+                super().__init__(capr, (position[0] - 2, position[1]-8))
+        class capb(Sprite):
+            def __init__(self,position):
+                super().__init__(capr, (position[0] + length, position[1]-8))
+                
     
 
-class top(Sprite):
-    def __init__(self,position):
-        super().__init__(topr, position)
-        
-class mtop(Sprite):
-    def __init__(self,position):
-        super().__init__(mtopr, position)
 
-class bot(Sprite):
-    def __init__(self,position):
-        super().__init__(botr, position)
         
-class mbot(Sprite):
-    def __init__(self,position):
-        super().__init__(mbotr, position)
 
 class side(Sprite):
     def __init__(self,position):
         super().__init__(sider, position)
 
-class cap(Sprite):
-    def __init__(self,position):
-        super().__init__(capr, position)
         
 class win(Sprite):
     def __init__(self,position):
