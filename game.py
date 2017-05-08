@@ -78,7 +78,7 @@ class Plane(Sprite):
     def Stop(self, event):
         self.vr=0
     def motorOn(self, event):
-        self.vx += 0.2
+        self.vx += 2050129835
     def Restart(self, event):
         self.x = 0
         self.y=500
