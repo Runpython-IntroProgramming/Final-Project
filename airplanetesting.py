@@ -48,14 +48,14 @@ class Plane(Sprite):
         self.ay = 0
         self.vr = 0
         self.scale = 0.1
-        self.confirmation = 0
-        Game.listenKeyEvent("keydown", "d", self.Forward)
-        Game.listenKeyEvent("keydown", "a", self.Slow)
+        self.lift_off = 0
+        Game.listenKeyEvent("keydown", "d", self.RunwayForward)
+        Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
         Game.listenKeyEvent("keydown", "right arrow", self.Down)
         Game.listenKeyEvent("keyup", "right arrow", self.Stop)
         Game.listenKeyEvent("keyup", "left arrow", self.Stop)
-        Game.listenKeyEvent("keydown", "m", self.motorOn)
+        #Game.listenKeyEvent("keydown", "m", self.motorOn)
         Game.listenKeyEvent("keydown", "r", self.Restart)
         self.fxcenter = self.fycenter = 0.5
         
@@ -64,25 +64,27 @@ class Plane(Sprite):
     def step(self):
         self.rotation += self.vr
         angle=AOA(self.rotation)
-        
-        
+        if self.vx < 0:
+            self.vx = 0
+        self.x += self.vx
         if (self.x > SCREEN_WIDTH):
             self.x = 0
             print("OH NO, A ROCK!")
             
      
-    def Forward(self, event):
-        self.confirmation += 0.6
-    def Slow(self, event):
-        self.confirmation -= 0.6
+    def RunwayForward(self, event):
+        self.vx += 0.5
+        self.lift_off +=0.1
+    def RunwayBrake(self, event):
+        if self.vx > 0:
+            self.vx -= 1
     def Up(self, event):
         self.vr += 0.1
     def Down(self, event):
         self.vr -= 0.1
     def Stop(self, event):
         self.vr=0
-    def motorOn(self, event):
-        self.vx += 205
+    #def motorOn(self, event):
     def Restart(self, event):
         self.x = 0
         self.y=500
