@@ -38,7 +38,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "right arrow", self.Down)
         Game.listenKeyEvent("keyup", "right arrow", self.Stop)
         Game.listenKeyEvent("keyup", "left arrow", self.Stop)
-        Game.listenKeyEvent("keydown", "space", self.motorOn)
+        Game.listenKeyEvent("keydown", "m", self.motorOn)
         Game.listenKeyEvent("keydown", "r", self.Restart)
         self.fxcenter = self.fycenter = 0.5
         
