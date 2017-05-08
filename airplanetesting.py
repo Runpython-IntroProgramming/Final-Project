@@ -1,3 +1,20 @@
+"""
+when the motor is on (the vx is more than zero) and you point the nose in a direction, it will go in that direction.
+when it is on the runway and the motor is not on, it will not move.
+when it is on the runway, you control it through the wheels.
+when you are up to a certain speed, it will take off.
+you may not slow down the aircraft to a stop mid-flight(later on make it so it will nosedive instead).
+you may not go more than 70 degrees straight up and you may not fly upside down or the aircraft will fall out of the sky or nosedive. (can use a function for this)
+
+
+
+
+
+"""
+
+
+
+
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 import math
 SCREEN_WIDTH = 1000
@@ -47,21 +64,8 @@ class Plane(Sprite):
     def step(self):
         self.rotation += self.vr
         angle=AOA(self.rotation)
-        if self.confirmation > 0:
-            self.ax = angle.anglex()
-            self.ay = angle.angley()
-        if self.confirmation < 0:
-            self.x -= self.ax
-            self.y -= self.ay 
-        if (self.vx > 0) and (self.y < 498):
-            self.vx -= 0.4
-        if (self.vy > 0) and (self.y < 498):
-            self.vy -= 0.4
-        if (self.y < 498):
-            self.y += self.vy
-            self.x += self.vx
-        self.y += self.ay
-        self.x += self.ax
+        
+        
         if (self.x > SCREEN_WIDTH):
             self.x = 0
             print("OH NO, A ROCK!")
@@ -78,7 +82,7 @@ class Plane(Sprite):
     def Stop(self, event):
         self.vr=0
     def motorOn(self, event):
-        self.vx += 2050129835
+        self.vx += 205
     def Restart(self, event):
         self.x = 0
         self.y=500
