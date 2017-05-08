@@ -5,7 +5,7 @@ from random import randint
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
 up=0
-speed=3
+speed=20
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
 line=LineStyle(0,blue)
@@ -53,9 +53,9 @@ def step():
         if (snake.x+20)>SCREEN_WIDTH or (snake.y+20)>SCREEN_HEIGHT or snake.x<0 or snake.y<0:
             snake.go=False
             print("You lose.")
-        dot=[(20*randint(0,40), 20*randint(0,30))]
-        for (x,y) in dot:
-            tail((x,y))
+dot=[(20*randint(0,40), 20*randint(0,30))]
+for (x,y) in dot:
+    tail((x,y))
         
 
 
