@@ -69,6 +69,8 @@ class Plane(Sprite):
             self.ay = (2 * angle.angley())
             self.x += self.ax
             self.y += self.ay
+        if self.vx == 0:
+            self.lift_off = 0
         if self.vx < 0:
             self.vx = 0
         if (self.y > 497):
@@ -99,6 +101,7 @@ class Plane(Sprite):
         self.ay =0
         self.vx =0
         self.vy =0
+        self.rotation = 0
         
     
     
