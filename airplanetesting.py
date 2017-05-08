@@ -61,9 +61,14 @@ class Plane(Sprite):
         
     
     def step(self):
-        self.rotation += self.vr
+        if (self.lift_off > 1):
+            self.rotation += self.vr
         angle=AOA(self.rotation)
-        
+        if (self.lift_off > 1):
+            self.ax = (2 * angle.anglex())
+            self.ay = (2 * angle.angley())
+            self.x += self.ax
+            self.y += self.ay
         if self.vx < 0:
             self.vx = 0
         if (self.y > 497):
@@ -74,11 +79,11 @@ class Plane(Sprite):
             
      
     def RunwayForward(self, event):
-        self.vx += 0.5
-        self.lift_off +=0.1
+        self.vx += 0.05
+        self.lift_off +=0.05
     def RunwayBrake(self, event):
         if self.vx > 0:
-            self.vx -= 1
+            self.vx -= 0.1
     def Up(self, event):
         self.vr += 0.1
     def Down(self, event):
