@@ -76,6 +76,8 @@ class Plane(Sprite):
         if (self.x > SCREEN_WIDTH):
             self.x = 0
             print("OH NO, A ROCK!")
+        if (self.y > SCREEN_HEIGHT):
+            self.y = SCREEN_HEIGHT
             
      
     def RunwayForward(self, event):
