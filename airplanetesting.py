@@ -38,6 +38,7 @@ class AOA():
     def angley(self):
         return (-1 * math.sin(self.rotation))
         
+
 class Plane(Sprite):
     airplane = ImageAsset("images/28293b2fe5801e03f1f70ed61c8397f6_airplane-clipart-transparent-airplane-clipart-transparent-background_2400-1009.png")
     def __init__(self, position):
@@ -58,7 +59,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "r", self.Restart)
         self.fxcenter = self.fycenter = 0.5
         
-        
+    
     
     def step(self):
         if (self.lift_off > 1):
@@ -81,6 +82,8 @@ class Plane(Sprite):
             self.y = SCREEN_HEIGHT
         if (self.rotation > 1.3) and (self.rotation < 4.71):
             print("stall")
+            self.ay -= self.ay
+            self.rotation = 4.71
         
      
     def RunwayForward(self, event):
