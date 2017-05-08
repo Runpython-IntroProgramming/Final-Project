@@ -63,6 +63,8 @@ def leftKey(event):
             tail((x,y))
             snk.append((x,y))
             snk.remove(snk[0])
+            for (z,q) in dot:
+                dots((z,q))
 def rightKey(event):
     global x, y, snk, dot
     x=x+20
@@ -88,9 +90,11 @@ def rightKey(event):
             tail((x,y))
             snk.append((x,y))
             snk.remove(snk[0])
+            for (z,q) in dot:
+                dots((z,q))
 
 def upKey(event):
-    global x, y, snk
+    global x, y, snk, dot
     e=0
     y=y-20
     for (h,k) in dot:
@@ -114,9 +118,11 @@ def upKey(event):
             tail((x,y))
             snk.append((x,y))
             snk.remove(snk[0])
+            for (z,q) in dot:
+                dots((z,q))
 
 def downKey(event):
-    global x, y, snk
+    global x, y, snk, dot
     y=y+20
     for (h,k) in dot:
         for (c,d) in snk:
@@ -139,6 +145,8 @@ def downKey(event):
             tail((x,y))
             snk.append((x,y))
             snk.remove(snk[0])
+            for (z,q) in dot:
+                dots((z,q))
     
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
