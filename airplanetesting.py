@@ -77,10 +77,9 @@ class Plane(Sprite):
             self.x += self.vx
         if (self.x > SCREEN_WIDTH):
             self.x = 0
-            print("OH NO, A ROCK!")
         if (self.y > SCREEN_HEIGHT):
             self.y = SCREEN_HEIGHT
-        if (self.rotation > 1.3) and (self.rotation < 4.71)
+        if (self.rotation > 1.3) and (self.rotation < 4.71):
             print("stall")
         
      
