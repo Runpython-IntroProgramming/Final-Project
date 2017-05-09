@@ -28,34 +28,33 @@ class BigExplosion(Sprite):
         if self.image == 50:
             self.destroy()
 
-class Stars(Sprite):
+class Ocean(Sprite):
 
-    asset = ImageAsset("images/starfield.jpg")
+    asset = ImageAsset("toonvectors-83952-140.jpg")
     width = 512
     height = 512
 
     def __init__(self, position):
-        super().__init__(Stars.asset, position)
+        super().__init__(Ocean.asset, position)
 
-class Sun(Sprite):
+class Buoy(Sprite):
     
-    asset = ImageAsset("images/sun.png")
-    width = 80
-    height = 76
+    asset = ImageAsset("images/0ca8f4b47e5786473f59b66fedf0b96a_float20clipart-lobster-buoy-clip-art_300-267.png")
     
     def __init__(self, position):
-        super().__init__(Sun.asset, position)
+        super().__init__(Buoy.asset, position)
         self.mass = 30*1000
+        self.scale=0.2
         self.fxcenter = 0.5
         self.fycenter = 0.5
         self.circularCollisionModel()
 
-class SpaceShip(Sprite):
-    asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png", 
-        Frame(227,0,292-227,125), 4, 'vertical')
+class Ship(Sprite):
+    asset = ImageAsset("images/Rivamare-Birds-eye-view-drawing.png")
 
     def __init__(self, position):
-        super().__init__(SpaceShip.asset, position)
+        super().__init__(Ship.asset, position)
+        self.scale=0.1
         self.vx = 1
         self.vy = 1
         self.vr = 0
@@ -76,7 +75,7 @@ class SpaceShip(Sprite):
         vy = -cos(self.rotation) * self.v
         self.x += vx
         self.y += vy
-        ki=self.collidingWithSprites(Sun)
+        ki=self.collidingWithSprites(Buoy)
         self.rotation += self.vr
         if self.x > myapp.width:
             self.x = 0
@@ -145,13 +144,13 @@ class SpaceShip(Sprite):
 class SpaceGame(App):
     def __init__(self, width, height):
         super().__init__()
-        stars = Stars((0,0))
-        stars.scale = self.width/stars.width
-        self.ss = SpaceShip((300,200))
-        Sun((self.width/2,self.height/2))
+        ocean = Ocean((0,0))
+        ocean.scale = self.width/ocean.width
+        self.ss = Ship((300,200))
+        Buoy((self.width/2,self.height/2))
         
     def step(self):
-        for ship in self.getSpritesbyClass(SpaceShip):
+        for ship in self.getSpritesbyClass(Ship):
             ship.step()
         for exp in self.getSpritesbyClass(BigExplosion):
             exp.step()
