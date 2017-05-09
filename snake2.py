@@ -17,7 +17,8 @@ length=1
 x=20
 y=20
 snk=[(20,20)]
-go= True
+go= False
+dir=0
 
 
 class tail(Sprite):
@@ -38,13 +39,53 @@ for (h,k) in dot:
     dots((h,k))
     
 tail((x,y))
+
+
+def leftKey(event):
+    global dir, go
+    dir=0
+    go=True
+def rightKey(event):
+    global dir, go
+    dir=1
+    go=True
+def downKey(event):
+    global dir, go
+    dir=2
+    go=True
+def upKey(event):
+    global dir, go
+    dir=3
+    go=True
+
 def step():
+    global x,y,go,dir
     if go:
+        while dir==0:
+            print("left")
+            ntail((x,y))
+            x=x-20
+            tail((x,y))
+        while dir ==1:
+            print("right")
+            ntail((x,y))
+            x=x+20
+            tail((x,y))
+        while dir ==2:
+            print("down")
+            ntail((x,y))
+            y=y+20
+            tail((x,y))
+        while dir ==3:
+            print("up")
+            ntail((x,y))
+            y=y-20
+            tail((x,y))
         
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run(step)
-"""myapp.listenKeyEvent('keydown', 'j', leftKey)
+myapp.listenKeyEvent('keydown', 'j', leftKey)
 myapp.listenKeyEvent('keydown', 'i', upKey)
 myapp.listenKeyEvent('keydown', 'k', downKey)
-myapp.listenKeyEvent('keydown', 'l', rightKey)"""
+myapp.listenKeyEvent('keydown', 'l', rightKey)
