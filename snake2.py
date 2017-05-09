@@ -16,7 +16,7 @@ rond=lambda x: 2*(round(x/2,-1))
 length=1
 x=20
 y=20
-z=10
+z=9
 snk=[(20,20)]
 go= False
 dir=0
@@ -58,14 +58,17 @@ def upKey(event):
     global dir, go
     dir=3
     go=True
+def spaceKey(event):
+    global go
+    go=False
 
 
 if x<SCREEN_WIDTH and x>=0 and y<SCREEN_HEIGHT and y>0:
     go=False
 def step():
     global x,y,go,dir,z
-    z=z+1
     if go:
+        z=z+1
         if z==10:
             if dir==0:
                 print("left")
@@ -96,3 +99,4 @@ myapp.listenKeyEvent('keydown', 'j', leftKey)
 myapp.listenKeyEvent('keydown', 'i', upKey)
 myapp.listenKeyEvent('keydown', 'k', downKey)
 myapp.listenKeyEvent('keydown', 'l', rightKey)
+myapp.listenKeyEvent('keyup', 'space', spaceKey)
