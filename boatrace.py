@@ -30,7 +30,7 @@ class BigExplosion(Sprite):
 
 class Ocean(Sprite):
 
-    asset = ImageAsset("toonvectors-83952-140.jpg")
+    asset = ImageAsset("images/toonvectors-83952-140.jpg")
     width = 512
     height = 512
 
@@ -62,12 +62,12 @@ class Ship(Sprite):
         self.thrust = 0
         self.thrustframe = 1
         self.initposition = position
-        SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
-        SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
-        SpaceGame.listenKeyEvent("keydown", "left arrow", self.turnleft)
-        SpaceGame.listenKeyEvent("keyup", "left arrow", self.turnoff)
-        SpaceGame.listenKeyEvent("keydown", "right arrow", self.turnright)
-        SpaceGame.listenKeyEvent("keyup", "right arrow", self.turnoff)
+        BoatGame.listenKeyEvent("keydown", "space", self.thrustOn)
+        BoatGame.listenKeyEvent("keyup", "space", self.thrustOff)
+        BoatGame.listenKeyEvent("keydown", "left arrow", self.turnleft)
+        BoatGame.listenKeyEvent("keyup", "left arrow", self.turnoff)
+        BoatGame.listenKeyEvent("keydown", "right arrow", self.turnright)
+        BoatGame.listenKeyEvent("keyup", "right arrow", self.turnoff)
         self.fxcenter = self.fycenter = 0.5
     
     def step(self):
@@ -141,7 +141,7 @@ class Ship(Sprite):
             self.imagex = 0 # stop the animated rockets
             self.setImage(self.imagex)
 
-class SpaceGame(App):
+class BoatGame(App):
     def __init__(self, width, height):
         super().__init__()
         ocean = Ocean((0,0))
@@ -157,5 +157,5 @@ class SpaceGame(App):
             
 
 
-myapp = SpaceGame(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp = BoatGame(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
