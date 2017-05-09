@@ -16,7 +16,7 @@ rond=lambda x: 2*(round(x/2,-1))
 length=1
 x=20
 y=20
-z=9
+z=4
 snk=[(20,20)]
 go= False
 dir=0
@@ -69,24 +69,20 @@ def step():
     global x,y,go,dir,z
     if go:
         z=z+1
-        if z==10:
+        if z==5:
             if dir==0:
-                print("left")
                 ntail((x,y))
                 x=x-20
                 tail((x,y))
             if dir ==1:
-                print("right")
                 ntail((x,y))
                 x=x+20
                 tail((x,y))
             if dir ==2:
-                print("down")
                 ntail((x,y))
                 y=y+20
                 tail((x,y))
             if dir ==3:
-                print("up")
                 ntail((x,y))
                 y=y-20
                 tail((x,y))
