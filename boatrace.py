@@ -31,8 +31,6 @@ class BigExplosion(Sprite):
 class Ocean(Sprite):
 
     asset = ImageAsset("images/toonvectors-83952-140.jpg")
-    width = 512
-    height = 512
 
     def __init__(self, position):
         super().__init__(Ocean.asset, position)
@@ -145,7 +143,11 @@ class BoatGame(App):
     def __init__(self, width, height):
         super().__init__()
         ocean = Ocean((0,0))
+        print(self.width)
+        print(ocean.width)
+        print(ocean.scale)
         ocean.scale = self.width/ocean.width
+        print(ocean.scale)
         self.ss = Ship((300,200))
         Buoy((self.width/2,self.height/2))
         
