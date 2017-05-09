@@ -58,29 +58,32 @@ def upKey(event):
     dir=3
     go=True
 
+
+if x<SCREEN_WIDTH and x>=0 and y<SCREEN_HEIGHT and y>0:
+    go=False
 def step():
     global x,y,go,dir
     if go:
         while dir==0:
             print("left")
-            ntail((x,y))
+            #ntail((x,y))
             x=x-20
-            tail((x,y))
+            #tail((x,y))
         while dir ==1:
             print("right")
-            ntail((x,y))
+            #ntail((x,y))
             x=x+20
-            tail((x,y))
+            #tail((x,y))
         while dir ==2:
             print("down")
-            ntail((x,y))
+            #ntail((x,y))
             y=y+20
-            tail((x,y))
+            #tail((x,y))
         while dir ==3:
             print("up")
-            ntail((x,y))
+           # ntail((x,y))
             y=y-20
-            tail((x,y))
+            #tail((x,y))
         
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
