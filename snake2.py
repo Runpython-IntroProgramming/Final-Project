@@ -66,26 +66,113 @@ def spaceKey(event):
 if x<SCREEN_WIDTH and x>=0 and y<SCREEN_HEIGHT and y>0:
     go=False
 def step():
-    global x,y,go,dir,z
+    global x,y,go,dir,z, dot, snk
     if go:
         z=z+1
         if z==5:
             if dir==0:
-                ntail((x,y))
                 x=x-20
-                tail((x,y))
+                for (h,k) in dot:
+                    for (c,d) in snk:
+                        if x==c and y==d:
+                            print("you lose")
+                            ntail(snk[0])
+                            x=5000000000
+                    if x==h and y==k:
+                        snk.append((x,y))
+                        tail((x,y))
+                        dot[0]=(20*randint(0,39), 20*randint(0,29))
+                        for (z,q) in dot:
+                            dots((z,q))
+                    elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+                        print("you lose")
+                        go=0
+                        ntail(snk[0])
+                        x=5000000000
+                    else:
+                        ntail(snk[0])
+                        tail((x,y))
+                        snk.append((x,y))
+                        snk.remove(snk[0])
+                        for (z,q) in dot:
+                            dots((z,q))
             if dir ==1:
-                ntail((x,y))
                 x=x+20
-                tail((x,y))
+                for (h,k) in dot:
+                    for (c,d) in snk:
+                        if x==c and y==d:
+                            print("you lose")
+                            ntail(snk[0])
+                            x=5000000000
+                    if x==h and y==k:
+                        snk.append((x,y))
+                        tail((x,y))
+                        dot[0]=(20*randint(0,39), 20*randint(0,29))
+                        for (z,q) in dot:
+                            dots((z,q))
+                    elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+                        print("you lose")
+                        go=0
+                        ntail(snk[0])
+                        x=5000000000
+                    else:
+                        ntail(snk[0])
+                        tail((x,y))
+                        snk.append((x,y))
+                        snk.remove(snk[0])
+                        for (z,q) in dot:
+                            dots((z,q))
+
             if dir ==2:
-                ntail((x,y))
                 y=y+20
-                tail((x,y))
+                for (h,k) in dot:
+                    for (c,d) in snk:
+                        if x==c and y==d:
+                            print("you lose")
+                            ntail(snk[0])
+                            x=5000000000
+                    if x==h and y==k:
+                        snk.append((x,y))
+                        tail((x,y))
+                        dot[0]=(20*randint(0,39), 20*randint(0,29))
+                        for (z,q) in dot:
+                            dots((z,q))
+                    elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+                        print("you lose")
+                        ntail(snk[0])
+                        x=5000000000
+                    else:
+                        ntail(snk[0])
+                        tail((x,y))
+                        snk.append((x,y))
+                        snk.remove(snk[0])
+                        for (z,q) in dot:
+                            dots((z,q))
             if dir ==3:
-                ntail((x,y))
                 y=y-20
-                tail((x,y))
+                for (h,k) in dot:
+                    for (c,d) in snk:
+                        if x==c and y==d:
+                            print("you lose")
+                            ntail(snk[0])
+                            x=5000000000
+                    if x==h and y==k:
+                        snk.append((x,y))
+                        tail((x,y))
+                        dot[0]=(20*randint(0,39), 20*randint(0,29))
+                        for (z,q) in dot:
+                            dots((z,q))
+                    elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+                        print("you lose")
+                        ntail(snk[0])
+                        x=5000000000
+                    else:
+                        ntail(snk[0])
+                        tail((x,y))
+                        snk.append((x,y))
+                        snk.remove(snk[0])
+                        for (z,q) in dot:
+                            dots((z,q))
             z=0
         
 
