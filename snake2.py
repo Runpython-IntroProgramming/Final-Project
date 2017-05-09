@@ -16,6 +16,7 @@ rond=lambda x: 2*(round(x/2,-1))
 length=1
 x=20
 y=20
+z=10
 snk=[(20,20)]
 go= False
 dir=0
@@ -62,28 +63,31 @@ def upKey(event):
 if x<SCREEN_WIDTH and x>=0 and y<SCREEN_HEIGHT and y>0:
     go=False
 def step():
-    global x,y,go,dir
+    global x,y,go,dir,z
+    z=z+1
     if go:
-        while dir==0:
-            print("left")
-            #ntail((x,y))
-            x=x-20
-            #tail((x,y))
-        while dir ==1:
-            print("right")
-            #ntail((x,y))
-            x=x+20
-            #tail((x,y))
-        while dir ==2:
-            print("down")
-            #ntail((x,y))
-            y=y+20
-            #tail((x,y))
-        while dir ==3:
-            print("up")
-           # ntail((x,y))
-            y=y-20
-            #tail((x,y))
+        if z==10:
+            if dir==0:
+                print("left")
+                ntail((x,y))
+                x=x-20
+                tail((x,y))
+            if dir ==1:
+                print("right")
+                ntail((x,y))
+                x=x+20
+                tail((x,y))
+            if dir ==2:
+                print("down")
+                ntail((x,y))
+                y=y+20
+                tail((x,y))
+            if dir ==3:
+                print("up")
+                ntail((x,y))
+                y=y-20
+                tail((x,y))
+            z=0
         
 
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
