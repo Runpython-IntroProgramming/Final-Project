@@ -90,8 +90,9 @@ class Plane(Sprite):
         self.vx += 0.05
         self.lift_off +=0.05
     def RunwayBrake(self, event):
-        if self.vx > 0:
-            self.vx -= 2.5
+        if self.y > 497:
+            if self.vx > 0:
+                self.vx -= 2.5
     def Up(self, event):
         self.vr += 0.1
     def Down(self, event):
