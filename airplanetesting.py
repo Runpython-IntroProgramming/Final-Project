@@ -38,6 +38,22 @@ class AOA():
     def angley(self):
         return (-1 * math.sin(self.rotation))
         
+class Explosion(Sprite):
+    
+    asset = ImageAsset("images/explosion1.png", Frame(0,0,128,128), 10)
+
+    def __init__(self, position):
+        super().__init__(Explosion.asset, position)
+        self.image = 0
+        self.center = (0.5, 0.5)
+        
+    def step(self):
+        self.setImage(self.image//2)  # slow it down
+        self.image = self.image + 1
+        if self.image == 20:
+            self.destroy()
+
+
 
 class Plane(Sprite):
     airplane = ImageAsset("images/28293b2fe5801e03f1f70ed61c8397f6_airplane-clipart-transparent-airplane-clipart-transparent-background_2400-1009.png")
@@ -82,8 +98,12 @@ class Plane(Sprite):
             self.y = SCREEN_HEIGHT
         if (self.rotation > 1.3) and (self.rotation < 4.71):
             print("stall")
+            self.explode()
             self.rotation = -1.6
         
+    def explode(self):
+        self.visible = False
+        Explosion(self.position)
      
     def RunwayForward(self, event):
         self.vx += 0.05
@@ -125,6 +145,8 @@ class Game(App):
     def step(self):
         for airplane in self.getSpritesbyClass(Plane):
             airplane.step()
+        for asset in self.getSpritesbyClass(Explosion):
+            asset.step()
             
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
