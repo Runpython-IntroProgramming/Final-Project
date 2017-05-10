@@ -74,7 +74,7 @@ class Plane(Sprite):
             self.lift_off = 0
         if self.vx < 0:
             self.vx = 0
-        if (self.y > 497):
+        if (self.y > (SCREEN_HEIGHT - 3)):
             self.x += self.vx
         if (self.x > SCREEN_WIDTH):
             self.x = 0
@@ -100,11 +100,11 @@ class Plane(Sprite):
         self.vr=0
     def Restart(self, event):
         self.x = 0
-        self.y=500
-        self.ax =0
-        self.ay =0
-        self.vx =0
-        self.vy =0
+        self.y = (SELF_HEIGHT - 1)
+        self.ax = 0
+        self.ay = 0
+        self.vx = 0
+        self.vy = 0
         self.rotation = 0
         
         
