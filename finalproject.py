@@ -206,28 +206,27 @@ class liv(Sprite):
             self.lives = 0
             
 
+class top(Sprite):
+    def __init__(self,position, length):
+        super().__init__(RectangleAsset (length, 20, noline, dgreen) , position)
+class bot(Sprite):
+    def __init__(self,position):
+        super().__init__(RectangleAsset (length, 20, noline, dgreen), (position[0], position[1]-10))
+class cap(Sprite):
+    def __init__(self,position):
+        super().__init__(RectangleAsset (2, 28, noline, dgreen), (position[0] - 2, position[1]-8))
+class capb(Sprite):
+    def __init__(self,position):
+        super().__init__(RectangleAsset (2, 28, noline, dgreen), (position[0] + length, position[1]-8))
+
+
 class block():
-    def __init__(self, position, length):
-        topr = RectangleAsset (length, 20, noline, dgreen) 
-        botr = RectangleAsset (length, 20, noline, dgreen)
-        capr = RectangleAsset (2, 28, noline, dgreen)
-        class top(Sprite):
-            topr = RectangleAsset (length, 20, noline, dgreen) 
-            def __init__(self,position):
-                super().__init__(self.topr, position)
-        class bot(Sprite):
-            botr = RectangleAsset (length, 20, noline, dgreen)
-            def __init__(self,position):
-                super().__init__(self.botr, (position[0], position[1]-10))
-        class cap(Sprite):
-            capr = RectangleAsset (2, 28, noline, dgreen)
-            def __init__(self,position):
-                super().__init__(self.capr, (position[0] - 2, position[1]-8))
-        class capb(Sprite):
-            capr = RectangleAsset (2, 28, noline, dgreen)
-            def __init__(self,position):
-                super().__init__(self.capr, (position[0] + length, position[1]-8))
-                
+    def __init__(self, position, length): 
+        self.top = top(position, length)
+        self.bot = bot(position, length)
+        self.cap = cap(position, length)
+        self.cap2 = capb(position, length)
+        
         
 
 #leveltwo = [top ((0, 710)), bot ((0, -10)), side ((-10, 0)), side ((1070, 0)),
@@ -237,7 +236,7 @@ class block():
 #top ((900, 190)), bot ((900, 200)), cap ((898, 192)), top ((-300, 190)), bot ((-300, 200)), cap ((780, 192))]
  
 
-        
+
 
 class side(Sprite):
     def __init__(self,position):
@@ -251,9 +250,9 @@ class win(Sprite):
 
 myapp = dk(SCREEN_WIDTH, SCREEN_HEIGHT)
 
-block ((300, 300), 600)
 
 
+block ((300, 300), 600) 
 
 
 playe = play((1000, 640), 0, 0, 0)
