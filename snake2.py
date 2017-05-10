@@ -20,6 +20,7 @@ z=3
 snk=[(20,20)]
 go= False
 dir=0
+a=4
 
 
 class tail(Sprite):
@@ -47,29 +48,32 @@ def leftKey(event):
     if dir!=1 or len(snk)==1:
         dir=0
     go=True
-    z=3
+    z=a-1
 def rightKey(event):
     global dir, go
     if dir!=0 or len(snk)==1:
         dir=1
     go=True
-    z=3
+    z=a-1
 def downKey(event):
     global dir, go
     if dir!=3 or len(snk)==1:
         dir=2
     go=True
-    z=3
+    z=a-1
 def upKey(event):
     global dir, go
     if dir!=2 or len(snk)==1:
         dir=3
     go=True
-    z=3
+    z=a-1
 def spaceKey(event):
     global go
     if go:
         go=False
+if len(snk)==20:
+    a=3
+    print(a)
 
 if x<SCREEN_WIDTH and x>=0 and y<SCREEN_HEIGHT and y>0:
     go=False
@@ -77,7 +81,7 @@ def step():
     global x,y,go,dir,z, dot, snk
     if go:
         z=z+1
-        if z==4:
+        if z==a:
             if dir==0:
                 x=x-20
                 for (h,k) in dot:
@@ -90,6 +94,7 @@ def step():
                     if x==h and y==k:
                         snk.append((x,y))
                         tail((x,y))
+                        print(len(snk))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
                             dots((z,q))
@@ -119,6 +124,7 @@ def step():
                         snk.append((x,y))
                         tail((x,y))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
+                        print(len(snk))
                         for (z,q) in dot:
                             dots((z,q))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
@@ -147,6 +153,7 @@ def step():
                     if x==h and y==k:
                         snk.append((x,y))
                         tail((x,y))
+                        print(len(snk))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
                             dots((z,q))
@@ -174,6 +181,7 @@ def step():
                     if x==h and y==k:
                         snk.append((x,y))
                         tail((x,y))
+                        print(len(snk))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
                             dots((z,q))
