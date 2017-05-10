@@ -67,7 +67,6 @@ def spaceKey(event):
     if go:
         go=False
 
-
 if x<SCREEN_WIDTH and x>=0 and y<SCREEN_HEIGHT and y>0:
     go=False
 def step():
