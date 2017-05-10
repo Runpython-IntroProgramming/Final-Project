@@ -62,7 +62,7 @@ def downKey(event):
     z=3
 def upKey(event):
     global dir, go
-    if dir!=4 or len(snk)==1:
+    if dir!=2 or len(snk)==1:
         dir=3
     go=True
     z=3
