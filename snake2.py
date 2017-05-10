@@ -16,7 +16,7 @@ rond=lambda x: 2*(round(x/2,-1))
 length=1
 x=20
 y=20
-z=4
+z=3
 snk=[(20,20)]
 go= False
 dir=0
@@ -60,7 +60,8 @@ def upKey(event):
     go=True
 def spaceKey(event):
     global go
-    go=False
+    if go:
+        go=False
 
 
 if x<SCREEN_WIDTH and x>=0 and y<SCREEN_HEIGHT and y>0:
@@ -69,7 +70,7 @@ def step():
     global x,y,go,dir,z, dot, snk
     if go:
         z=z+1
-        if z==5:
+        if z==4:
             if dir==0:
                 x=x-20
                 for (h,k) in dot:
@@ -78,6 +79,7 @@ def step():
                             print("you lose")
                             ntail(snk[0])
                             x=5000000000
+                            go=False
                     if x==h and y==k:
                         snk.append((x,y))
                         tail((x,y))
@@ -89,6 +91,7 @@ def step():
                         go=0
                         ntail(snk[0])
                         x=5000000000
+                        go=False
                     else:
                         ntail(snk[0])
                         tail((x,y))
@@ -104,6 +107,7 @@ def step():
                             print("you lose")
                             ntail(snk[0])
                             x=5000000000
+                            go=False
                     if x==h and y==k:
                         snk.append((x,y))
                         tail((x,y))
@@ -115,6 +119,7 @@ def step():
                         go=0
                         ntail(snk[0])
                         x=5000000000
+                        go=False
                     else:
                         ntail(snk[0])
                         tail((x,y))
@@ -131,6 +136,7 @@ def step():
                             print("you lose")
                             ntail(snk[0])
                             x=5000000000
+                            go=False
                     if x==h and y==k:
                         snk.append((x,y))
                         tail((x,y))
@@ -141,6 +147,7 @@ def step():
                         print("you lose")
                         ntail(snk[0])
                         x=5000000000
+                        go=False
                     else:
                         ntail(snk[0])
                         tail((x,y))
@@ -156,6 +163,7 @@ def step():
                             print("you lose")
                             ntail(snk[0])
                             x=5000000000
+                            go=False
                     if x==h and y==k:
                         snk.append((x,y))
                         tail((x,y))
@@ -166,6 +174,7 @@ def step():
                         print("you lose")
                         ntail(snk[0])
                         x=5000000000
+                        go=False
                     else:
                         ntail(snk[0])
                         tail((x,y))
