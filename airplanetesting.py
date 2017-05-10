@@ -82,8 +82,7 @@ class Plane(Sprite):
             self.y = SCREEN_HEIGHT
         if (self.rotation > 1.3) and (self.rotation < 4.71):
             print("stall")
-            self.ay -= self.ay
-            self.rotation = 4.71
+            self.rotation = -1.6
         
      
     def RunwayForward(self, event):
