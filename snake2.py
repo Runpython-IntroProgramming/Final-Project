@@ -44,19 +44,23 @@ tail((x,y))
 
 def leftKey(event):
     global dir, go
-    dir=0
+    if dir!=1 or len(snk)==1:
+        dir=0
     go=True
 def rightKey(event):
     global dir, go
-    dir=1
+    if dir!=0 or len(snk)==1:
+        dir=1
     go=True
 def downKey(event):
     global dir, go
-    dir=2
+    if dir!=3 or len(snk)==1:
+        dir=2
     go=True
 def upKey(event):
     global dir, go
-    dir=3
+    if dir!=4 or len(snk)==1:
+        dir=3
     go=True
 def spaceKey(event):
     global go
@@ -76,7 +80,7 @@ def step():
                 for (h,k) in dot:
                     for (c,d) in snk:
                         if x==c and y==d:
-                            print("you lose")
+                            print("you lose.")
                             ntail(snk[0])
                             x=5000000000
                             go=False
@@ -87,7 +91,7 @@ def step():
                         for (z,q) in dot:
                             dots((z,q))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-                        print("you lose")
+                        print("you lose.")
                         go=0
                         ntail(snk[0])
                         x=5000000000
@@ -104,7 +108,7 @@ def step():
                 for (h,k) in dot:
                     for (c,d) in snk:
                         if x==c and y==d:
-                            print("you lose")
+                            print("you lose.")
                             ntail(snk[0])
                             x=5000000000
                             go=False
@@ -115,7 +119,7 @@ def step():
                         for (z,q) in dot:
                             dots((z,q))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-                        print("you lose")
+                        print("you lose.")
                         go=0
                         ntail(snk[0])
                         x=5000000000
@@ -133,7 +137,7 @@ def step():
                 for (h,k) in dot:
                     for (c,d) in snk:
                         if x==c and y==d:
-                            print("you lose")
+                            print("you lose.")
                             ntail(snk[0])
                             x=5000000000
                             go=False
@@ -144,7 +148,7 @@ def step():
                         for (z,q) in dot:
                             dots((z,q))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-                        print("you lose")
+                        print("you lose.")
                         ntail(snk[0])
                         x=5000000000
                         go=False
@@ -160,7 +164,7 @@ def step():
                 for (h,k) in dot:
                     for (c,d) in snk:
                         if x==c and y==d:
-                            print("you lose")
+                            print("you lose.")
                             ntail(snk[0])
                             x=5000000000
                             go=False
@@ -171,7 +175,7 @@ def step():
                         for (z,q) in dot:
                             dots((z,q))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-                        print("you lose")
+                        print("you lose.")
                         ntail(snk[0])
                         x=5000000000
                         go=False
@@ -184,7 +188,6 @@ def step():
                             dots((z,q))
             z=0
         
-
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run(step)
 myapp.listenKeyEvent('keydown', 'j', leftKey)
