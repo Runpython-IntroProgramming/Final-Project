@@ -17,8 +17,8 @@ you may not go more than 70 degrees straight up and you may not fly upside down 
 
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 import math
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 500
+SCREEN_WIDTH = 1200
+SCREEN_HEIGHT = 650
 
 class Field(Sprite):
     field=ImageAsset("images/field.jpg")
@@ -28,7 +28,7 @@ class Field(Sprite):
          self.vx=1
          self.vy=1
          self.vr=0
-         self.scale=1.2
+         self.scale=1.5
 
 class AOA():
     def __init__(self, r):
@@ -89,7 +89,7 @@ class Plane(Sprite):
         self.vx += 0.05
         self.lift_off +=0.05
     def RunwayBrake(self, event):
-        if self.y > 497:
+        if self.y > 647:
             if self.vx > 0:
                 self.vx -= 2.5
     def Up(self, event):
@@ -120,7 +120,7 @@ class Game(App):
         bg = Sprite(bg_asset, (0,0))
         """
         Field((0,0))
-        Plane((0,500))
+        Plane((0,650))
         
     def step(self):
         for airplane in self.getSpritesbyClass(Plane):
