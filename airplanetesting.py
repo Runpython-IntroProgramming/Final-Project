@@ -66,6 +66,7 @@ class Plane(Sprite):
         self.vr = 0
         self.scale = 0.3
         self.lift_off = 0
+        self.rotation = 0.1
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
