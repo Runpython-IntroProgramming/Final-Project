@@ -97,15 +97,18 @@ class Plane(Sprite):
         if (self.y > SCREEN_HEIGHT):
             self.y = SCREEN_HEIGHT
             self.explode()
-            self.ax=0
-            self.ay=0
-            self.vx=0
-            self.vy=0
-            self.vr=0
+            self.stop()
         if (self.rotation > 1.3) and (self.rotation < 4.71):
             print("stall")
             self.rotation = -1.6
         
+    def stop(self):
+        self.ax = 0
+        self.ay = 0
+        self.vx = 0
+        self.vy = 0
+        self.vr = 0
+    
     def explode(self):
         self.visible = False
         Explosion(self.position)
@@ -125,25 +128,18 @@ class Plane(Sprite):
         self.vr=0
     def Restart(self, event):
         self.x = 0
-        self.y = (SELF_HEIGHT - 1)
-        self.ax = 0
-        self.ay = 0
-        self.vx = 0
-        self.vy = 0
+        self.y = ((650) - 1)
+        self.stop()
         self.rotation = 0
         
-        
-    
-    
+
 class Game(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        """
         black = Color(0, 1)
         noline = LineStyle(0, black)
         bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, black)
         bg = Sprite(bg_asset, (0,0))
-        """
         Field((0,0))
         Plane((0,650))
         
