@@ -96,9 +96,14 @@ class Plane(Sprite):
             self.x = 0
         if (self.y > SCREEN_HEIGHT):
             self.y = SCREEN_HEIGHT
+            self.explode()
+            self.ax=0
+            self.ay=0
+            self.vx=0
+            self.vy=0
+            self.vr=0
         if (self.rotation > 1.3) and (self.rotation < 4.71):
             print("stall")
-            self.explode()
             self.rotation = -1.6
         
     def explode(self):
