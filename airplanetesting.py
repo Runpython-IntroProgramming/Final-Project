@@ -59,7 +59,7 @@ class Bomb(Sprite):
     
     def __init__(self, position):
         super().__init__(Bomb.nuke, position)
-        self.vx = 0.2
+        self.vx = 0.8
         self.vy = 1.5
         self.center = (1.2, 0.04)
         self.scale = 0.08
@@ -100,6 +100,7 @@ class Plane(Sprite):
         self.scale = 0.3
         self.lift_off = 0
         self.rotation = 0.06
+        self.bombs = 0
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
@@ -153,6 +154,7 @@ class Plane(Sprite):
         
     def bomb_drop(self):
         Bomb(self.position)
+        
      
     def RunwayForward(self, event):
         self.vx += 0.05
@@ -176,7 +178,9 @@ class Plane(Sprite):
     def Autopilot(self, event):
         self.rotation = 0
     def Drop_bomb(self, event):
-        self.bomb_drop()
+        self.bombs += 1
+        if self.bombs <= 6:
+            self.bomb_drop()
         
 
 class Game(App):
