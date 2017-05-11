@@ -61,8 +61,8 @@ class Bomb(Sprite):
         super().__init__(Bomb.nuke, position)
         self.vx = 0.2
         self.vy = 1.5
-        self.center = (0.5, 0.5)
-        self.scale = 0.1
+        self.center = (1.2, 0.04)
+        self.scale = 0.08
         
     def explode(self):
         self.visible = False
@@ -192,12 +192,13 @@ class Game(App):
         Plane((0,650))
         
     def step(self):
+        for nuke in self.getSpritesbyClass(Bomb):
+            nuke.step()
         for airplane in self.getSpritesbyClass(Plane):
             airplane.step()
         for asset in self.getSpritesbyClass(Explosion):
             asset.step()
-        for nuke in self.getSpritesbyClass(Bomb):
-            nuke.step()
+        
             
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
