@@ -73,6 +73,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keyup", "right arrow", self.Stop)
         Game.listenKeyEvent("keyup", "left arrow", self.Stop)
         Game.listenKeyEvent("keydown", "r", self.Restart)
+        Game.listenKeyEvent("keydown", "t", self.Autopilot)
         self.fxcenter = self.fycenter = 0.5
         
     
@@ -131,12 +132,14 @@ class Plane(Sprite):
         self.y = ((650) - 1)
         self.stop()
         self.rotation = 0
+    def Autopilot(self, event):
+        self.rotation = 0
         
 
 class Game(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        black = Color(0, 1)
+        black = Color(0, 2)
         noline = LineStyle(0, black)
         bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, black)
         bg = Sprite(bg_asset, (0,0))
