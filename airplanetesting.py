@@ -56,7 +56,7 @@ class Explosion(Sprite):
 
 
 class Plane(Sprite):
-    airplane = ImageAsset("images/28293b2fe5801e03f1f70ed61c8397f6_airplane-clipart-transparent-airplane-clipart-transparent-background_2400-1009.png")
+    airplane = ImageAsset("images/fighter.png")
     def __init__(self, position):
         super().__init__(Plane.airplane, position)
         self.vx = 0
@@ -64,7 +64,7 @@ class Plane(Sprite):
         self.ax = 0
         self.ay = 0
         self.vr = 0
-        self.scale = 0.1
+        self.scale = 0.3
         self.lift_off = 0
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
