@@ -66,7 +66,7 @@ class Plane(Sprite):
         self.vr = 0
         self.scale = 0.3
         self.lift_off = 0
-        self.rotation = 0.05
+        self.rotation = 0.06
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
@@ -86,8 +86,11 @@ class Plane(Sprite):
         if (self.lift_off > 1):
             self.ax = (2 * angle.anglex())
             self.ay = (2 * angle.angley())
+            if (self.y < 640):
+                self.ay += 0.03
             self.x += self.ax
             self.y += self.ay
+            
         if self.vx == 0:
             self.lift_off = 0
         if self.vx < 0:
@@ -101,8 +104,8 @@ class Plane(Sprite):
             self.explode()
             self.stop()
         if (self.rotation > 1.2) and (self.rotation < 4.71):
-            print("stall")
             self.rotation = -1.6
+        
         
     def stop(self):
         self.ax = 0
@@ -132,7 +135,8 @@ class Plane(Sprite):
         self.x = 0
         self.y = ((650) - 1)
         self.stop()
-        self.rotation = 0
+        self.rotation = 0.05
+        self.visible = True
     def Autopilot(self, event):
         self.rotation = 0
         
