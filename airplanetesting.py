@@ -98,7 +98,7 @@ class Plane(Sprite):
             self.y = SCREEN_HEIGHT
             self.explode()
             self.stop()
-        if (self.rotation > 1.3) and (self.rotation < 4.71):
+        if (self.rotation > 1.2) and (self.rotation < 4.71):
             print("stall")
             self.rotation = -1.6
         
@@ -140,6 +140,8 @@ class Game(App):
         noline = LineStyle(0, black)
         bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, noline, black)
         bg = Sprite(bg_asset, (0,0))
+        runway_asset = RectangleAsset(590, 15, noline, black)
+        runway = Sprite(runway_asset, (0, 635))
         Field((0,0))
         Plane((0,650))
         
