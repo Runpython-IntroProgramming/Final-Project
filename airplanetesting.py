@@ -53,7 +53,40 @@ class Explosion(Sprite):
         if self.image == 20:
             self.destroy()
 
-
+class Bomb(Sprite):
+    
+    nuke = ImageAsset("images/nuke.png")
+    
+    def __init__(self, position):
+        super().__init__(Bomb.nuke, position)
+        self.vx = 0.2
+        self.vy = 1.5
+        self.center = (0.5, 0.5)
+        self.scale = 0.1
+        
+    def explode(self):
+        self.visible = False
+        Explosion(self.position)
+        
+    def stop(self):
+        self.ax = 0
+        self.ay = 0
+        self.vx = 0
+        self.vy = 0
+        self.vr = 0
+        
+    def step(self):
+        self.x += self.vx
+        self.y += self.vy
+        if (self.y > SCREEN_HEIGHT):
+            self.y = SCREEN_HEIGHT
+            self.explode()
+            self.stop()
+            
+            
+        
+        
+    
 
 class Plane(Sprite):
     airplane = ImageAsset("images/fighter.png")
@@ -75,6 +108,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keyup", "left arrow", self.Stop)
         Game.listenKeyEvent("keydown", "r", self.Restart)
         Game.listenKeyEvent("keydown", "t", self.Autopilot)
+        Game.listenKeyEvent("keydown", "b", self.Drop_bomb)
         self.fxcenter = self.fycenter = 0.5
         
     
@@ -90,7 +124,6 @@ class Plane(Sprite):
                 self.ay += 0.03
             self.x += self.ax
             self.y += self.ay
-            
         if self.vx == 0:
             self.lift_off = 0
         if self.vx < 0:
@@ -117,6 +150,9 @@ class Plane(Sprite):
     def explode(self):
         self.visible = False
         Explosion(self.position)
+        
+    def bomb_drop(self):
+        Bomb(self.position)
      
     def RunwayForward(self, event):
         self.vx += 0.05
@@ -139,6 +175,8 @@ class Plane(Sprite):
         self.visible = True
     def Autopilot(self, event):
         self.rotation = 0
+    def Drop_bomb(self, event):
+        self.bomb_drop()
         
 
 class Game(App):
@@ -158,6 +196,8 @@ class Game(App):
             airplane.step()
         for asset in self.getSpritesbyClass(Explosion):
             asset.step()
+        for nuke in self.getSpritesbyClass(Bomb):
+            nuke.step()
             
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
