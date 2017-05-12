@@ -226,10 +226,6 @@ class block():
         self.bot = bot(position, length)
         self.cap = cap(position, length)
         self.cap2 = capb(position, length)
-        
-        
-
-
 
 
 class side(Sprite):
@@ -244,13 +240,20 @@ class win(Sprite):
 
 myapp = dk(SCREEN_WIDTH, SCREEN_HEIGHT)
 
-sid
+side ((-10,0))
+side ((1070, 0))
 
-block ((300, 300), 600) 
+block ((0, 720), 1080)
+block ((0, -10), 1080)
+block ((0, 576), 600)
+block ((800, 576), 300)
+block ((0, 432), 100)
+block ((0, 288), 100)
+block ((0, 144), 100)
 
 
 playe = play((1000, 640), 0, 0, 0)
-prizee = win((300, 175))
+prizee = win((300, 100))
 prizee = win((540, 10))
 
 bare = bar ((540, 12), 2, 0, 0, 5)
