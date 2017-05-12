@@ -106,7 +106,6 @@ def step():
                     if x==h and y==k:
                         snk.append((x,y))
                         tail((x,y))
-                        print(len(snk))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
                             dots((z,q))
@@ -134,7 +133,6 @@ def step():
                         snk.append((x,y))
                         tail((x,y))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
-                        print(len(snk))
                         for (z,q) in dot:
                             dots((z,q))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
@@ -161,7 +159,6 @@ def step():
                     if x==h and y==k:
                         snk.append((x,y))
                         tail((x,y))
-                        print(len(snk))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
                             dots((z,q))
@@ -187,7 +184,6 @@ def step():
                     if x==h and y==k:
                         snk.append((x,y))
                         tail((x,y))
-                        print(len(snk))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
                             dots((z,q))
