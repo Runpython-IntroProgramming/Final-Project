@@ -145,6 +145,7 @@ class Plane(Sprite):
         self.rotation = 0.08
         self.nobrakes = True
         self.bombs = 0
+        self.nukes = 0
         self.fxcenter = self.fycenter = 0.5
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
@@ -157,7 +158,8 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "b", self.Drop_bomb)
         Game.listenKeyEvent("keydown", "f", self.Air_Brakes)
         Game.listenKeyEvent("keyup", "f", self.No_Brakes)
-    
+        Game.listenKeyEvent("keydown", "n", self.Drop_Nuke)
+        
     
     
     def step(self):
@@ -206,6 +208,7 @@ class Plane(Sprite):
         self.visible = False
         Explosion(self.position)
         
+        
     def slow(self):
         self.ax = (self.ax - (self.ax *0.001))
         self.ay = (self.ay - (self.ay * 0.001))
@@ -217,6 +220,8 @@ class Plane(Sprite):
     def bomb_drop(self):
         Bomb(self.position)
         
+    def nuke_drop(self):
+        Nuke(self.position)
         
         
     def RunwayForward(self, event):
@@ -252,6 +257,11 @@ class Plane(Sprite):
             self.nobrakes = False
     def No_Brakes(self, event):
         self.nobrakes = True
+    def Drop_Nuke(self, event):
+        if (self.rotation > -0.2) and (self.rotation < 0.2):
+            self.nukes += 1
+            if self.nukes <= 6:
+                self.nuke_drop()
 
 class Game(App):
     def __init__(self, width, height):
