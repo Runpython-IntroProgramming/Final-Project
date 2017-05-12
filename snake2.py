@@ -170,6 +170,7 @@ def step():
                         ntail(snk[0])
                         tail((x,y))
                         snk.append((x,y))
+                        #snk.append(tail((x,y)))
                         snk.remove(snk[0])
                         for (z,q) in dot:
                             dots((z,q))
