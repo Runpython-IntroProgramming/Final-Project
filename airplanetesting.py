@@ -147,6 +147,7 @@ class Plane(Sprite):
             self.stop()
         if (self.rotation > 1.2) and (self.rotation < 4.71):
             self.y += 1.5
+            self.ax = 0
         if (self.x < 0):
             self.x = SCREEN_WIDTH
         
@@ -172,7 +173,8 @@ class Plane(Sprite):
     def bomb_drop(self):
         Bomb(self.position)
         
-     
+        
+        
     def RunwayForward(self, event):
         self.vx += 0.05
         self.lift_off +=0.05
