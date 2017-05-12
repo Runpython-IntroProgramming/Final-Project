@@ -45,10 +45,26 @@ class Explosion(Sprite):
     def __init__(self, position):
         super().__init__(Explosion.asset, position)
         self.image = 0
-        self.center = (0.5, 0.5)
+        self.center = (0.5, 0.56)
         
     def step(self):
         self.setImage(self.image//2)  # slow it down
+        self.image = self.image + 1
+        if self.image == 20:
+            self.destroy()
+            
+class NuclearExplosion(Sprite):
+    
+    asset = ImageAsset("images/7db0bd54cbd390ca9ccee6b132333292_explosion-clip-art-explosion-clipart-transparent-background_664-800.png")
+
+    def __init__(self, position):
+        super().__init__(NuclearExplosion.asset, position)
+        self.center = (0.5, 1)
+        self.image = 0
+        self.scale = 0.2
+        
+    def step(self):
+        # slow it down
         self.image = self.image + 1
         if self.image == 20:
             self.destroy()
@@ -82,12 +98,39 @@ class Bomb(Sprite):
             self.y = SCREEN_HEIGHT
             self.explode()
             self.stop()
-            
-            
-        
-        
+       
+       
+class Nuke(Sprite):
     
-
+    nuke = ImageAsset("images/nuke.png")
+    
+    def __init__(self, position):
+        super().__init__(Nuke.nuke, position)
+        self.vx = 0.8
+        self.vy = 1.5
+        self.center = (1.2, 0.04)
+        self.scale = 0.08
+        
+    def explode(self):
+        self.visible = False
+        NuclearExplosion(self.position)
+        
+    def stop(self):
+        self.ax = 0
+        self.ay = 0
+        self.vx = 0
+        self.vy = 0
+        self.vr = 0
+        
+    def step(self):
+        self.x += self.vx
+        self.y += self.vy
+        if (self.y > SCREEN_HEIGHT):
+            self.y = SCREEN_HEIGHT
+            self.explode()
+            self.stop()
+            
+    
 class Plane(Sprite):
     airplane = ImageAsset("images/fighter.png")
     def __init__(self, position):
@@ -225,9 +268,13 @@ class Game(App):
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
             nuke.step()
+        for nuke in self.getSpritesbyClass(Nuke):
+            nuke.step()
         for airplane in self.getSpritesbyClass(Plane):
             airplane.step()
         for asset in self.getSpritesbyClass(Explosion):
+            asset.step()
+        for asset in self.getSpritesbyClass(NuclearExplosion):
             asset.step()
         
             
