@@ -123,10 +123,6 @@ class play(Sprite):
         self.y=self.y+self.vy
         self.x=self.x+self.vx
         on = self.collidingWithSprites(top)
-        if len(on)  > 0:
-            self.ti = 0
-            self.vy = 0
-            self.y-=3
         if len(on) == 0:
             self.onblock = 0
         if self.ti>0.72:
@@ -168,6 +164,10 @@ class play(Sprite):
             if self.countlives ==0:
                 play.stop()
             self.countlives -= 1
+        if len(on)  > 0:
+            self.ti = 0
+            self.vy = 0
+            self.y-=1
     def rup(self, event):
         if self.vx<3:
             self.vx+=1
@@ -203,10 +203,10 @@ class liv(Sprite):
             self.lives = 0
             
 
-class top(Sprite):
+class bot(Sprite):
     def __init__(self,position, length):
         super().__init__(RectangleAsset (length, 20, noline, dgreen) , position)
-class bot(Sprite):
+class top(Sprite):
     def __init__(self,position, length):
         super().__init__(RectangleAsset (length, 20, noline, dgreen), (position[0], position[1]-10))
 class cap(Sprite):
