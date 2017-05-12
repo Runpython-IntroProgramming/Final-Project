@@ -4,8 +4,7 @@ from random import randint
 
 SCREEN_WIDTH = 800
 SCREEN_HEIGHT = 600
-up=5
-speed=3
+
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
 line=LineStyle(0,blue)
@@ -41,32 +40,46 @@ for (h,k) in dot:
     dots((h,k))
     
 tail((x,y))
-
-
+def playagain(event):
+    global dot, snk, x,y,z,go,dir
+    for (x,y) in dot:
+        ntail((x,y))
+    for (x,y) in snk:
+        ntail((x,y))
+    x=20
+    y=20
+    z=3
+    snk=[(20,20)]
+    go= False
+    dir=0
+    dot=[(20*randint(0,39), 20*randint(0,29))]
+    for (h,k) in dot:
+        dots((h,k))
+    tail((20,20))
 def leftKey(event):
     global dir, go
     if dir!=1 or len(snk)==1:
         dir=0
     go=True
-    z=a-1
+    z=3
 def rightKey(event):
     global dir, go
     if dir!=0 or len(snk)==1:
         dir=1
     go=True
-    z=a-1
+    z=3
 def downKey(event):
     global dir, go
     if dir!=3 or len(snk)==1:
         dir=2
     go=True
-    z=a-1
+    z=3
 def upKey(event):
     global dir, go
     if dir!=2 or len(snk)==1:
         dir=3
     go=True
-    z=a-1
+    z=3
 def spaceKey(event):
     global go
     if go:
@@ -81,14 +94,13 @@ def step():
     global x,y,go,dir,z, dot, snk
     if go:
         z=z+1
-        if z==a:
+        if z==4:
             if dir==0:
                 x=x-20
                 for (h,k) in dot:
                     for (c,d) in snk:
                         if x==c and y==d:
-                            print("you lose.")
-                            ntail(snk[0])
+                            print("you lose. Press r to play again.")
                             x=5000000000
                             go=False
                     if x==h and y==k:
@@ -99,9 +111,8 @@ def step():
                         for (z,q) in dot:
                             dots((z,q))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-                        print("you lose.")
+                        print("you lose. Press r to play again.")
                         go=0
-                        ntail(snk[0])
                         x=5000000000
                         go=False
                     else:
@@ -116,8 +127,7 @@ def step():
                 for (h,k) in dot:
                     for (c,d) in snk:
                         if x==c and y==d:
-                            print("you lose.")
-                            ntail(snk[0])
+                            print("you lose. Press r to play again.")
                             x=5000000000
                             go=False
                     if x==h and y==k:
@@ -128,9 +138,8 @@ def step():
                         for (z,q) in dot:
                             dots((z,q))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-                        print("you lose.")
+                        print("you lose. Press r to play again.")
                         go=0
-                        ntail(snk[0])
                         x=5000000000
                         go=False
                     else:
@@ -146,8 +155,7 @@ def step():
                 for (h,k) in dot:
                     for (c,d) in snk:
                         if x==c and y==d:
-                            print("you lose.")
-                            ntail(snk[0])
+                            print("you lose. Press r to play again.")
                             x=5000000000
                             go=False
                     if x==h and y==k:
@@ -158,8 +166,7 @@ def step():
                         for (z,q) in dot:
                             dots((z,q))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-                        print("you lose.")
-                        ntail(snk[0])
+                        print("you lose. Press r to play again.")
                         x=5000000000
                         go=False
                     else:
@@ -174,8 +181,7 @@ def step():
                 for (h,k) in dot:
                     for (c,d) in snk:
                         if x==c and y==d:
-                            print("you lose.")
-                            ntail(snk[0])
+                            print("you lose. Press r to play again.")
                             x=5000000000
                             go=False
                     if x==h and y==k:
@@ -186,8 +192,7 @@ def step():
                         for (z,q) in dot:
                             dots((z,q))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-                        print("you lose.")
-                        ntail(snk[0])
+                        print("you lose. Press r to play again.")
                         x=5000000000
                         go=False
                     else:
@@ -201,8 +206,9 @@ def step():
         
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run(step)
-myapp.listenKeyEvent('keydown', 'j', leftKey)
-myapp.listenKeyEvent('keydown', 'i', upKey)
-myapp.listenKeyEvent('keydown', 'k', downKey)
-myapp.listenKeyEvent('keydown', 'l', rightKey)
+myapp.listenKeyEvent('keydown', 'left arrow', leftKey)
+myapp.listenKeyEvent('keydown', 'up arrow', upKey)
+myapp.listenKeyEvent('keydown', 'down arrow', downKey)
+myapp.listenKeyEvent('keydown', 'right arrow', rightKey)
 myapp.listenKeyEvent('keyup', 'space', spaceKey)
+myapp.listenKeyEvent('keyup', 'r', playagain)
