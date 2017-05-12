@@ -83,8 +83,7 @@ class bar(Sprite):
             if onblock != 1:
                 self.ti += 0.005
             on = self.collidingWithSprites(top)
-            onm = self.collidingWithSprites(mtop)
-            if len(on) + len(onm) > 0:
+            if len(on) > 0:
                 self.ti = 0
                 self.vy = 0
                 self.onblock = 1
@@ -113,29 +112,27 @@ class play(Sprite):
         self.jump = 0
         self.wub =0
         self.dead = 0
+        self.vy=0
         self.countlives = 3
     def step(self):
         self.dead = 0
         self.onblock=0
         if self.wub == 0:
             self.ti=self.ti+0.012
-        self.vy =self.ti+self.vy
+        self.vy=self.ti+self.vy
         self.y=self.y+self.vy
         self.x=self.x+self.vx
         on = self.collidingWithSprites(top)
-        onm = self.collidingWithSprites(mtop)
-        if len(on) + len(onm) > 0:
+        if len(on)  > 0:
             self.ti = 0
             self.vy = 0
-            self.y-=.6
-            self.onblock = 1
-        if len(on) + len(onm) == 0:
+            self.y-=3
+        if len(on) == 0:
             self.onblock = 0
         if self.ti>0.72:
             self.y-=8
         under = self.collidingWithSprites(bot)
-        underm = self.collidingWithSprites(mbot)
-        if len(under) + len (underm) > 0:
+        if len(under) > 0:
             self.vy=-0.25*self.vy
             self.y+=10
         csides = self.collidingWithSprites(side)
@@ -155,7 +152,7 @@ class play(Sprite):
                 self.vy -= 3.1
                 self.ti+=0.0008
                 self.wub = 0
-        self.onblock=1
+                self.onblock = 0
         be = self.collidingWithSprites(bar)
         if len(be) >= 1:
             self.x=1000
@@ -251,7 +248,10 @@ block ((0, 432), 300)
 block ((480, 432), 450)
 block ((0, 288), 100)
 block ((250, 288), 500)
-block ((0, 144), 100)
+block ((900, 288), 500)
+block ((0, 144), 500)
+block ((650, 144), 600)
+
 
 
 playe = play((1000, 640), 0, 0, 0)
