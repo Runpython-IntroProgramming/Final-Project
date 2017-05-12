@@ -119,10 +119,8 @@ class Plane(Sprite):
             self.rotation += self.vr
             if (self.vr < -0.1):
                 self.vr = -0
-                self.explode()
             if (self.vr > 0.1):
                 self.vr = 0
-                self.explode()
         angle=AOA(self.rotation)
         if (self.lift_off > 1):
             self.ax = (2 * angle.anglex())
@@ -149,7 +147,8 @@ class Plane(Sprite):
             self.ax = 0
             self.ay = 5000
             print("stall")
-        
+        if (self.x < 0):
+            self.x = SCREEN_WIDTH
         
     def stop(self):
         self.ax = 0
