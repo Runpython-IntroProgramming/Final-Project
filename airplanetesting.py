@@ -117,6 +117,10 @@ class Plane(Sprite):
     def step(self):
         if (self.lift_off > 1):
             self.rotation += self.vr
+            if (self.vr < -0.1):
+                self.vr = -0
+            if (self.vr > 0.1):
+                self.vr = 0
         angle=AOA(self.rotation)
         if (self.lift_off > 1):
             self.ax = (2 * angle.anglex())
@@ -139,6 +143,10 @@ class Plane(Sprite):
             self.stop()
         if (self.rotation > 1.2) and (self.rotation < 4.71):
             self.rotation = -1.6
+        if (self.rotation < 4.71):
+            self.ax = 0
+            self.ay = 5000
+            print("stall")
         
         
     def stop(self):
@@ -170,11 +178,7 @@ class Plane(Sprite):
     def Stop(self, event):
         self.vr=0
     def Restart(self, event):
-        self.x = 0
-        self.y = ((650) - 1)
-        self.stop()
-        self.rotation = 0.05
-        self.visible = True
+        print(self.vr)
     def Autopilot(self, event):
         self.rotation = 0
     def Drop_bomb(self, event):
