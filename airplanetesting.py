@@ -100,6 +100,7 @@ class Plane(Sprite):
         self.scale = 0.3
         self.lift_off = 0
         self.rotation = 0.06
+        self.nobrakes = True
         self.bombs = 0
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
@@ -110,6 +111,8 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "r", self.Restart)
         Game.listenKeyEvent("keydown", "t", self.Autopilot)
         Game.listenKeyEvent("keydown", "b", self.Drop_bomb)
+        Game.listenKeyEvent("keydown", "f", self.Air_Brakes)
+        Game.listenKeyEvent("keyup", "f", self.No_Brakes)
         self.fxcenter = self.fycenter = 0.5
         
     
@@ -123,8 +126,9 @@ class Plane(Sprite):
                 self.vr = 0
         angle=AOA(self.rotation)
         if (self.lift_off > 1):
-            self.ax = (2 * angle.anglex())
-            self.ay = (2 * angle.angley())
+            if self.nobrakes is True:
+                self.ax = (2 * angle.anglex())
+                self.ay = (2 * angle.angley())
             if (self.y < 640):
                 self.ay += 0.03
             self.x += self.ax
@@ -143,10 +147,6 @@ class Plane(Sprite):
             self.stop()
         if (self.rotation > 1.2) and (self.rotation < 4.71):
             self.rotation = -1.6
-        if (self.rotation < 4.71):
-            self.ax = 0
-            self.ay = 5000
-            print("stall")
         if (self.x < 0):
             self.x = SCREEN_WIDTH
         
@@ -161,6 +161,14 @@ class Plane(Sprite):
         self.visible = False
         Explosion(self.position)
         
+    def slow(self):
+        self.ax = (self.ax - (self.ax *0.001))
+        self.ay = (self.ay - (self.ay * 0.001))
+        if self.ax <= 0:
+                self.ax = 0
+        if self.ay <= 0:
+                self.ay = 0
+                
     def bomb_drop(self):
         Bomb(self.position)
         
@@ -169,9 +177,10 @@ class Plane(Sprite):
         self.vx += 0.05
         self.lift_off +=0.05
     def RunwayBrake(self, event):
-        if self.y > 647:
+        if self.y > 640:
             if self.vx > 0:
                 self.vx -= 2.5
+                self.ax -= 2.5
     def Up(self, event):
         self.vr += 0.1
     def Down(self, event):
@@ -190,7 +199,12 @@ class Plane(Sprite):
         self.bombs += 1
         if self.bombs <= 6:
             self.bomb_drop()
-        
+    def Air_Brakes(self, event):
+        if self.rotation == 0:
+            self.slow()
+            self.nobrakes = False
+    def No_Brakes(self, event):
+        self.nobrakes = True
 
 class Game(App):
     def __init__(self, width, height):
