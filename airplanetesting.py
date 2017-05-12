@@ -220,7 +220,7 @@ class Game(App):
         runway_asset = RectangleAsset(590, 15, noline, black)
         runway = Sprite(runway_asset, (0, 635))
         Plane((0,650))
-        
+
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
             nuke.step()
