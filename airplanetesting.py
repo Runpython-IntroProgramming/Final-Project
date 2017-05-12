@@ -102,6 +102,7 @@ class Plane(Sprite):
         self.rotation = 0.08
         self.nobrakes = True
         self.bombs = 0
+        self.fxcenter = self.fycenter = 0.5
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
@@ -113,8 +114,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "b", self.Drop_bomb)
         Game.listenKeyEvent("keydown", "f", self.Air_Brakes)
         Game.listenKeyEvent("keyup", "f", self.No_Brakes)
-        self.fxcenter = self.fycenter = 0.5
-        
+    
     
     
     def step(self):
@@ -150,7 +150,8 @@ class Plane(Sprite):
             self.ax = 0
         if (self.x < 0):
             self.x = SCREEN_WIDTH
-        
+
+            
     def stop(self):
         self.ax = 0
         self.ay = 0
