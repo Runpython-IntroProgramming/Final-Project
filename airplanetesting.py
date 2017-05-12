@@ -99,7 +99,7 @@ class Plane(Sprite):
         self.vr = 0
         self.scale = 0.3
         self.lift_off = 0
-        self.rotation = 0.06
+        self.rotation = 0.08
         self.nobrakes = True
         self.bombs = 0
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
@@ -146,7 +146,7 @@ class Plane(Sprite):
             self.explode()
             self.stop()
         if (self.rotation > 1.2) and (self.rotation < 4.71):
-            self.rotation = -1.6
+            self.y += 1.5
         if (self.x < 0):
             self.x = SCREEN_WIDTH
         
@@ -196,9 +196,10 @@ class Plane(Sprite):
     def Autopilot(self, event):
         self.rotation = 0
     def Drop_bomb(self, event):
-        self.bombs += 1
-        if self.bombs <= 6:
-            self.bomb_drop()
+        if (self.rotation > -0.2) and (self.rotation < 0.2):
+            self.bombs += 1
+            if self.bombs <= 6:
+                self.bomb_drop()
     def Air_Brakes(self, event):
         if self.rotation == 0:
             self.slow()
