@@ -102,14 +102,14 @@ class Bomb(Sprite):
        
 class Nuke(Sprite):
     
-    nuke = ImageAsset("images/nuke.png")
+    nuke = ImageAsset("images/nuclearwarhead.png")
     
     def __init__(self, position):
         super().__init__(Nuke.nuke, position)
         self.vx = 0.8
         self.vy = 1.5
         self.center = (1.2, 0.04)
-        self.scale = 0.08
+        self.scale = 0.05
         
     def explode(self):
         self.visible = False
@@ -244,12 +244,14 @@ class Plane(Sprite):
         self.stop()
         self.rotation = 0.05
         self.visible = True
+        self.bombs = 0
+        self.nukes = 0
     def Autopilot(self, event):
         self.rotation = 0
     def Drop_bomb(self, event):
         if (self.rotation > -0.2) and (self.rotation < 0.2):
             self.bombs += 1
-            if self.bombs <= 6:
+            if self.bombs <= 8:
                 self.bomb_drop()
     def Air_Brakes(self, event):
         if self.rotation == 0:
@@ -260,7 +262,7 @@ class Plane(Sprite):
     def Drop_Nuke(self, event):
         if (self.rotation > -0.2) and (self.rotation < 0.2):
             self.nukes += 1
-            if self.nukes <= 6:
+            if self.nukes <= 2:
                 self.nuke_drop()
 
 class Game(App):
