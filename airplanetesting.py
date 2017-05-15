@@ -1,10 +1,9 @@
 """
-when the motor is on (the vx is more than zero) and you point the nose in a direction, it will go in that direction.
-when it is on the runway and the motor is not on, it will not move.
-when it is on the runway, you control it through the wheels.
-when you are up to a certain speed, it will take off.
-you may not slow down the aircraft to a stop mid-flight(later on make it so it will nosedive instead).
-you may not go more than 70 degrees straight up and you may not fly upside down or the aircraft will fall out of the sky or nosedive. (can use a function for this)
+show it turning back to autopilot
+make the bomb sprites limited by reusing them
+make the screen move
+make things to destroy
+make a homing missile
 
 
 
@@ -133,7 +132,7 @@ class Nuke(Sprite):
     
 class Plane(Sprite):
     airplane = ImageAsset("images/fighter.png")
-    def __init__(self, position):
+    def __init__(self, position, bomb_name_list):
         super().__init__(Plane.airplane, position)
         self.vx = 0
         self.vy = 0
@@ -208,7 +207,6 @@ class Plane(Sprite):
         self.visible = False
         Explosion(self.position)
         
-        
     def slow(self):
         self.ax = (self.ax - (self.ax *0.001))
         self.ay = (self.ay - (self.ay * 0.001))
@@ -222,7 +220,6 @@ class Plane(Sprite):
         
     def nuke_drop(self):
         Nuke(self.position)
-        
         
     def RunwayForward(self, event):
         self.vx += 0.05
@@ -275,7 +272,14 @@ class Game(App):
         Field((0,0))
         runway_asset = RectangleAsset(590, 15, noline, black)
         runway = Sprite(runway_asset, (0, 635))
-        Plane((0,650))
+        bomb_1 = Bomb((0,0))
+        bomb_2 = Bomb((0,0))
+        bomb_3 = Bomb((0,0))
+        bomb_4 = Bomb((0,0))
+        bomb_5 = Bomb((0,0))
+        bomb_6 = Bomb((0,0))
+        bomb_name_list = (bomb_1, bomb_2, bomb_3, bomb_4, bomb_5, bomb_6)
+        Plane((0,650), bomb_name_list)
 
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
