@@ -158,7 +158,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "f", self.Air_Brakes)
         Game.listenKeyEvent("keyup", "f", self.No_Brakes)
         Game.listenKeyEvent("keydown", "n", self.Drop_Nuke)
-        
+        self.bomb_name_list = bomb_name_list
     
     
     def step(self):
@@ -216,7 +216,14 @@ class Plane(Sprite):
                 self.ay = 0
                 
     def bomb_drop(self):
-        Bomb(self.position)
+        newbomb = self.bomb_name_list[0]
+        if newbomb.visible == False:
+            newbomb.visible = True
+            newbomb.vx = self.ax
+            newbomb.vy = 2
+            newbomb.position = (self.position)
+        
+        
         
     def nuke_drop(self):
         Nuke(self.position)
