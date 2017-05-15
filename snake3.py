@@ -38,24 +38,24 @@ class dots(Sprite):
 
 dot=[(20*randint(0,39), 20*randint(0,29))]
 for (h,k) in dot:
-    dots((h,k))
+    dt=[dots((h,k))]
 snak=[tail((x,y))]    
 
 def playagain(event):
-    global dot, snk, x,y,z,go,dir
-    for (x,y) in dot:
-        ntail((x,y))
-    for (x,y) in snk:
-        ntail((x,y))
+    global dot, snk, x,y,z,go,dir,dt, snak
     x=20
     y=20
     z=3
     snk=[(20,20)]
     go= False
     dir=0
+    for h in snak:
+        h.destroy()
+    for h in dt:
+        h.destroy()
     dot=[(20*randint(0,39), 20*randint(0,29))]
     for (h,k) in dot:
-        dots((h,k))
+        dt=[dots((h,k))]
     snak=[tail((x,y))]
 def leftKey(event):
     global dir, go
@@ -92,7 +92,7 @@ if len(snk)==20:
 if x<SCREEN_WIDTH and x>=0 and y<SCREEN_HEIGHT and y>0:
     go=False
 def step():
-    global x,y,go,dir,z, dot, snk
+    global x,y,go,dir,z, dot, snk, snak, dt
     if go:
         z=z+1
         if z==4:
@@ -109,18 +109,18 @@ def step():
                         snak.append(tail((x,y)))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
-                            dots((z,q))
+                            dt[0].destroy()
+                            dt[0]=(dots((z,q)))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
                         print("you lose. Press r to play again.")
                         go=0
                         x=5000000000
                         go=False
                     else:
-                        ntail(snk[0])
-                        tail((x,y))
                         snk.append((x,y))
                         snak.append(tail((x,y)))
                         snk.remove(snk[0])
+                        snak[0].destroy()
                         snak.remove(snak[0])
             if dir ==1:
                 x=x+20
@@ -135,18 +135,18 @@ def step():
                         snak.append(tail((x,y)))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
-                            dots((z,q))
+                            dt[0].destroy()
+                            dt[0]=(dots((z,q)))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
                         print("you lose. Press r to play again.")
                         go=0
                         x=5000000000
                         go=False
                     else:
-                        ntail(snk[0])
-                        tail((x,y))
                         snk.append((x,y))
                         snak.append(tail((x,y)))
                         snk.remove(snk[0])
+                        snak[0].destroy()
                         snak.remove(snak[0])
             if dir ==2:
                 y=y+20
@@ -161,18 +161,18 @@ def step():
                         snak.append(tail((x,y)))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
-                            dots((z,q))
+                            dt[0].destroy()
+                            dt[0]=(dots((z,q)))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
                         print("you lose. Press r to play again.")
                         go=0
                         x=5000000000
                         go=False
                     else:
-                        ntail(snk[0])
-                        tail((x,y))
                         snk.append((x,y))
                         snak.append(tail((x,y)))
                         snk.remove(snk[0])
+                        snak[0].destroy()
                         snak.remove(snak[0])
             if dir ==3:
                 y=y-20
@@ -187,18 +187,18 @@ def step():
                         snak.append(tail((x,y)))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
-                            dots((z,q))
+                            dt[0].destroy()
+                            dt[0]=(dots((z,q)))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
                         print("you lose. Press r to play again.")
                         go=0
                         x=5000000000
                         go=False
                     else:
-                        ntail(snk[0])
-                        tail((x,y))
                         snk.append((x,y))
                         snak.append(tail((x,y)))
                         snk.remove(snk[0])
+                        snak[0].destroy()
                         snak.remove(snak[0])
             z=0
         
