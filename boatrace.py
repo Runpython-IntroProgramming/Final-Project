@@ -124,28 +124,11 @@ class Ship(Sprite):
     def turnright(self, event):
         self.vr = -0.1
         
-    def registerKeys(self, keys):
-        commands = ["left", "right", "forward", "fire"]
-        self.keymap = dict(zip(keys, commands))
-        [self.app.listenKeyEvent("keydown", k, self.controldown) for k in keys]
-        [self.app.listenKeyEvent("keyup", k, self.controlup) for k in keys]
-        
-    def controldown(self, event):
-        if command == "forward":
-                self.thrust = 40.0
-                self.imagex = 1 # start the animated rockets
-                self.setImage(self.imagex)
-    def controlup(self, event):
-        command = self.keymap[event.key]
-        if command == "forward":
-            self.thrust = 0.0
-            self.imagex = 0 # stop the animated rockets
-            self.setImage(self.imagex)
 class Ship2(Ship):
     def assignkeys(self):
         print('A')
-        BoatGame.listenKeyEvent("keydown", "space", self.thrustOn)
-        BoatGame.listenKeyEvent("keyup", "space", self.thrustOff)
+        BoatGame.listenKeyEvent("keydown", "w", self.thrustOn)
+        BoatGame.listenKeyEvent("keyup", "w", self.thrustOff)
         BoatGame.listenKeyEvent("keydown", "a", self.turnleft)
         BoatGame.listenKeyEvent("keyup", "a", self.turnoff)
         BoatGame.listenKeyEvent("keydown", "d", self.turnright)
@@ -163,6 +146,8 @@ class BoatGame(App):
         
     def step(self):
         for ship in self.getSpritesbyClass(Ship):
+            ship.step()
+        for ship in self.getSpritesbyClass(Ship2):
             ship.step()
         for exp in self.getSpritesbyClass(BigExplosion):
             exp.step()
