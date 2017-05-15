@@ -238,9 +238,9 @@ class Plane(Sprite):
                 self.vx -= 2.5
                 self.ax -= 2.5
     def Up(self, event):
-        self.vr += 0.1
+        self.vr += 0.05
     def Down(self, event):
-        self.vr -= 0.1
+        self.vr -= 0.05
     def Stop(self, event):
         self.vr=0
     def Restart(self, event):
