@@ -27,10 +27,7 @@ class tail(Sprite):
     asset=RectangleAsset(20,20,line, purple)
     def __init__(self, position):
         super().__init__(tail.asset, position)
-class ntail(Sprite):
-    asset=RectangleAsset(20,20,line, black)
-    def __init__(self, position):
-        super().__init__(ntail.asset, position)
+
 class dots(Sprite):
     asset=RectangleAsset(20,20,line, blue)
     def __init__(self, position):
