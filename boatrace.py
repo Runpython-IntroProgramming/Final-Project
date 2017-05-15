@@ -52,21 +52,24 @@ class Ship(Sprite):
 
     def __init__(self, position):
         super().__init__(Ship.asset, position)
-        self.scale=0.1
+        self.scale=0.05
         self.vx = 1
         self.vy = 1
         self.vr = 0
         self.v = 0
         self.thrust = 0
         self.thrustframe = 1
+        self.assignkeys()
         self.initposition = position
-        BoatGame.listenKeyEvent("keydown", "space", self.thrustOn)
-        BoatGame.listenKeyEvent("keyup", "space", self.thrustOff)
+        self.fxcenter = self.fycenter = 0.5
+    
+    def assignkeys(self):
+        BoatGame.listenKeyEvent("keydown", "up arrow", self.thrustOn)
+        BoatGame.listenKeyEvent("keyup", "up arrow", self.thrustOff)
         BoatGame.listenKeyEvent("keydown", "left arrow", self.turnleft)
         BoatGame.listenKeyEvent("keyup", "left arrow", self.turnoff)
         BoatGame.listenKeyEvent("keydown", "right arrow", self.turnright)
         BoatGame.listenKeyEvent("keyup", "right arrow", self.turnoff)
-        self.fxcenter = self.fycenter = 0.5
     
     def step(self):
         vx = cos(self.rotation) * self.v
@@ -138,6 +141,16 @@ class Ship(Sprite):
             self.thrust = 0.0
             self.imagex = 0 # stop the animated rockets
             self.setImage(self.imagex)
+class Ship2(Ship):
+    def assignkeys(self):
+        print('A')
+        BoatGame.listenKeyEvent("keydown", "space", self.thrustOn)
+        BoatGame.listenKeyEvent("keyup", "space", self.thrustOff)
+        BoatGame.listenKeyEvent("keydown", "a", self.turnleft)
+        BoatGame.listenKeyEvent("keyup", "a", self.turnoff)
+        BoatGame.listenKeyEvent("keydown", "d", self.turnright)
+        BoatGame.listenKeyEvent("keyup", "d", self.turnoff)
+
 
 class BoatGame(App):
     def __init__(self, width, height):
@@ -145,6 +158,7 @@ class BoatGame(App):
         ocean = Ocean((0,0))
         ocean.scale = self.width/ocean.width
         self.ss = Ship((300,200))
+        self.sv= Ship2((600,200))
         Buoy((self.width/2,self.height/2))
         
     def step(self):
