@@ -78,6 +78,7 @@ class Bomb(Sprite):
         self.vy = 1.5
         self.center = (1.2, 0.04)
         self.scale = 0.08
+        self.visible = False
         
     def explode(self):
         self.visible = False
@@ -281,11 +282,7 @@ class Game(App):
         runway = Sprite(runway_asset, (0, 635))
         bomb_1 = Bomb((0,0))
         bomb_2 = Bomb((0,0))
-        bomb_3 = Bomb((0,0))
-        bomb_4 = Bomb((0,0))
-        bomb_5 = Bomb((0,0))
-        bomb_6 = Bomb((0,0))
-        bomb_name_list = (bomb_1, bomb_2, bomb_3, bomb_4, bomb_5, bomb_6)
+        bomb_name_list = (bomb_1, bomb_2)
         Plane((0,650), bomb_name_list)
 
     def step(self):
