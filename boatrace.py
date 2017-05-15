@@ -69,8 +69,8 @@ class Ship(Sprite):
         self.fxcenter = self.fycenter = 0.5
     
     def step(self):
-        vx = -sin(self.rotation) * self.v
-        vy = -cos(self.rotation) * self.v
+        vx = cos(self.rotation) * self.v
+        vy = -sin(self.rotation) * self.v
         self.x += vx
         self.y += vy
         ki=self.collidingWithSprites(Buoy)
@@ -143,11 +143,7 @@ class BoatGame(App):
     def __init__(self, width, height):
         super().__init__()
         ocean = Ocean((0,0))
-        print(self.width)
-        print(ocean.width)
-        print(ocean.scale)
         ocean.scale = self.width/ocean.width
-        print(ocean.scale)
         self.ss = Ship((300,200))
         Buoy((self.width/2,self.height/2))
         
