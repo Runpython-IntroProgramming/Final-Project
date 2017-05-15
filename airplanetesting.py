@@ -74,8 +74,8 @@ class Bomb(Sprite):
     
     def __init__(self, position):
         super().__init__(Bomb.nuke, position)
-        self.vx = 0.8
-        self.vy = 1.5
+        self.vx = 0
+        self.vy = 0
         self.center = (1.2, 0.04)
         self.scale = 0.08
         self.visible = False
