@@ -39,8 +39,8 @@ class dots(Sprite):
 dot=[(20*randint(0,39), 20*randint(0,29))]
 for (h,k) in dot:
     dots((h,k))
-snak=[tail((20,20))]    
-#tail((x,y))
+snak=[tail((x,y))]    
+
 def playagain(event):
     global dot, snk, x,y,z,go,dir
     for (x,y) in dot:
@@ -56,7 +56,7 @@ def playagain(event):
     dot=[(20*randint(0,39), 20*randint(0,29))]
     for (h,k) in dot:
         dots((h,k))
-    tail((20,20))
+    snak=[tail((x,y))]
 def leftKey(event):
     global dir, go
     if dir!=1 or len(snk)==1:
@@ -106,7 +106,7 @@ def step():
                             go=False
                     if x==h and y==k:
                         snk.append((x,y))
-                        tail((x,y))
+                        snak.append(tail((x,y)))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
                             dots((z,q))
@@ -119,9 +119,9 @@ def step():
                         ntail(snk[0])
                         tail((x,y))
                         snk.append((x,y))
+                        snak.append(tail((x,y)))
                         snk.remove(snk[0])
-                        for (z,q) in dot:
-                            dots((z,q))
+                        snak.remove(snak[0])
             if dir ==1:
                 x=x+20
                 for (h,k) in dot:
@@ -132,7 +132,7 @@ def step():
                             go=False
                     if x==h and y==k:
                         snk.append((x,y))
-                        tail((x,y))
+                        snak.append(tail((x,y)))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
                             dots((z,q))
@@ -145,10 +145,9 @@ def step():
                         ntail(snk[0])
                         tail((x,y))
                         snk.append((x,y))
+                        snak.append(tail((x,y)))
                         snk.remove(snk[0])
-                        for (z,q) in dot:
-                            dots((z,q))
-
+                        snak.remove(snak[0])
             if dir ==2:
                 y=y+20
                 for (h,k) in dot:
@@ -159,22 +158,22 @@ def step():
                             go=False
                     if x==h and y==k:
                         snk.append((x,y))
-                        tail((x,y))
+                        snak.append(tail((x,y)))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
                             dots((z,q))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
                         print("you lose. Press r to play again.")
+                        go=0
                         x=5000000000
                         go=False
                     else:
                         ntail(snk[0])
                         tail((x,y))
                         snk.append((x,y))
-                        #snk.append(tail((x,y)))
+                        snak.append(tail((x,y)))
                         snk.remove(snk[0])
-                        for (z,q) in dot:
-                            dots((z,q))
+                        snak.remove(snak[0])
             if dir ==3:
                 y=y-20
                 for (h,k) in dot:
@@ -185,21 +184,22 @@ def step():
                             go=False
                     if x==h and y==k:
                         snk.append((x,y))
-                        tail((x,y))
+                        snak.append(tail((x,y)))
                         dot[0]=(20*randint(0,39), 20*randint(0,29))
                         for (z,q) in dot:
                             dots((z,q))
                     elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
                         print("you lose. Press r to play again.")
+                        go=0
                         x=5000000000
                         go=False
                     else:
                         ntail(snk[0])
                         tail((x,y))
                         snk.append((x,y))
+                        snak.append(tail((x,y)))
                         snk.remove(snk[0])
-                        for (z,q) in dot:
-                            dots((z,q))
+                        snak.remove(snak[0])
             z=0
         
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
