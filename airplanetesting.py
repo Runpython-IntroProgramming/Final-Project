@@ -133,7 +133,7 @@ class Nuke(Sprite):
     
 class Plane(Sprite):
     airplane = ImageAsset("images/fighter.png")
-    def __init__(self, position, bomb_name_list):
+    def __init__(self, position, bomb_name_list, nuke_name_list):
         super().__init__(Plane.airplane, position)
         self.vx = 0
         self.vy = 0
@@ -160,6 +160,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keyup", "f", self.No_Brakes)
         Game.listenKeyEvent("keydown", "n", self.Drop_Nuke)
         self.bomb_name_list = bomb_name_list
+        self.nuke_name_list = nuke_name_list
     
     
     def step(self):
@@ -227,7 +228,12 @@ class Plane(Sprite):
         
         
     def nuke_drop(self):
-        Nuke(self.position)
+        newnuke = self.nuke_name_list[0]
+        if newnuke.visible == False:
+            newnuke.visible = True
+            newnuke.vx = self.ax
+            newnuke.vy = 2
+            newnuke.position = (self.position)
         
     def RunwayForward(self, event):
         self.vx += 0.05
@@ -280,10 +286,13 @@ class Game(App):
         Field((0,0))
         runway_asset = RectangleAsset(590, 15, noline, black)
         runway = Sprite(runway_asset, (0, 635))
+        nuke_1 = Nuke((0,0))
+        nuke_2 = Nuke((0,0))
+        nuke_name_list = (nuke_1, nuke_2)
         bomb_1 = Bomb((0,0))
         bomb_2 = Bomb((0,0))
         bomb_name_list = (bomb_1, bomb_2)
-        Plane((0,650), bomb_name_list)
+        Plane((0,650), bomb_name_list, nuke_name_list)
 
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
