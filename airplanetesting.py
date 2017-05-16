@@ -40,7 +40,7 @@ class Tank(Sprite):
         self.scale = 0.1
         self.visible = True
         self.fxcenter = self.fycenter = 0.5
-        Game.listenKeyEvent("keydown", "r", self.Restart)
+        Game.listenKeyEvent("keydown", "p", self.Restart)
 
     def step(self):
         #self.x += self.vx
@@ -50,7 +50,9 @@ class Tank(Sprite):
         bombCollision = self.collidingWithSprites(Explosion)
         if len(bombCollision) > 0:
             self.visible = False
-            
+        planeCollision = self.collidingWithSprites(Plane)
+        if len(planeCollision) > 0:
+            self.visible = False
     def Restart(self, event):
         self.visible = True
 
@@ -183,7 +185,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "right arrow", self.Down)
         Game.listenKeyEvent("keyup", "right arrow", self.Stop)
         Game.listenKeyEvent("keyup", "left arrow", self.Stop)
-        Game.listenKeyEvent("keydown", "r", self.Restart)
+        Game.listenKeyEvent("keydown", "p", self.Restart)
         Game.listenKeyEvent("keydown", "t", self.Autopilot)
         Game.listenKeyEvent("keydown", "b", self.Drop_bomb)
         Game.listenKeyEvent("keydown", "f", self.Air_Brakes)
@@ -232,7 +234,11 @@ class Plane(Sprite):
         bombCollision = self.collidingWithSprites(Explosion)
         if len(bombCollision) > 0:
             self.visible = False
-            
+        tankCollision = self.collidingWithSprites(Tank)
+        if len(tankCollision) > 0:
+            self.visible = False
+            self.explode()
+            self.stop()
     def stop(self):
         self.ax = 0
         self.ay = 0
