@@ -56,25 +56,25 @@ def leftKey(event):
     global dir, go
     if dir!=1 or len(snk)==1:
         dir=0
-    go=True
+        go=True
     z=3
 def rightKey(event):
     global dir, go
     if dir!=0 or len(snk)==1:
         dir=1
-    go=True
+        go=True
     z=3
 def downKey(event):
     global dir, go
     if dir!=3 or len(snk)==1:
         dir=2
-    go=True
+        go=True
     z=3
 def upKey(event):
     global dir, go
     if dir!=2 or len(snk)==1:
         dir=3
-    go=True
+        go=True
     z=3
 def spaceKey(event):
     global go
