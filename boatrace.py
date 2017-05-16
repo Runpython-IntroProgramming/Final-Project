@@ -51,7 +51,7 @@ class Ship(Sprite):
     asset = ImageAsset("images/Rivamare-Birds-eye-view-drawing.png")
 
     def __init__(self, position):
-        super().__init__(Ship.asset, position)
+        super().__init__(self.asset, position)
         self.scale=0.05
         self.vx = 1
         self.vy = 1
