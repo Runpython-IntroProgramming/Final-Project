@@ -125,7 +125,7 @@ class Ship(Sprite):
         self.vr = -0.1
         
 class Ship2(Ship):
-    asset = ImageAsset("Images/boat3.jpg")
+    asset = ImageAsset("images/boat3.jpg")
     
     def assignkeys(self):
         BoatGame.listenKeyEvent("keydown", "w", self.thrustOn)
