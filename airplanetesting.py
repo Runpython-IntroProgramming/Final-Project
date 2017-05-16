@@ -220,7 +220,12 @@ class Plane(Sprite):
             self.ax = 0
         if (self.x < 0):
             self.x = SCREEN_WIDTH
-
+        nukeCollision = self.collidingWithSprites(NuclearExplosion)
+        if len(nukeCollision) > 0:
+            self.visible = False
+        bombCollision = self.collidingWithSprites(Explosion)
+        if len(bombCollision) > 0:
+            self.visible = False
             
     def stop(self):
         self.ax = 0
