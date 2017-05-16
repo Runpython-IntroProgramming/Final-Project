@@ -16,6 +16,7 @@ capr = RectangleAsset (2, 28, noline, dgreen)
 player = RectangleAsset (20, 50, noline, purp)
 heart = CircleAsset (15, noline, red)
 prize = RectangleAsset (35, 15, noline, gold)
+toppp = RectangleAsset (1080, 20, noline, dgreen)
 barrels = CircleAsset (10, noline, black)
 vy=0
 vx=0
@@ -74,19 +75,19 @@ class bar(Sprite):
         if self.tim == self.delay:
             self.start()
         if self.go == 1:
+            on = self.collidingWithSprites(top)
+            self.onblock = 0
+            if len(on) > 0:
+                self.onblock = 1
             if self.onblock == 1:
                 self.ti = 0
                 self.vy = 0
+                self.y = on[0].y-10
             self.vy =self.ti+self.vy
             self.y=self.y+self.vy
             self.x=self.x+self.vx
             if onblock != 1:
                 self.ti += 0.005
-            on = self.collidingWithSprites(top)
-            if len(on) > 0:
-                self.ti = 0
-                self.vy = 0
-                self.onblock = 1
             if len(on) == 0:
                 self.onblock=0
             csides = self.collidingWithSprites(side)
@@ -117,16 +118,15 @@ class play(Sprite):
     def step(self):
         self.dead = 0
         self.onblock=0
+        #gravity
         if self.wub == 0:
             self.ti=self.ti+0.012
         self.vy=self.ti+self.vy
         self.y=self.y+self.vy
         self.x=self.x+self.vx
-        on = self.collidingWithSprites(top)
-        if len(on) == 0:
-            self.onblock = 0
         if self.ti>0.72:
             self.y-=8
+        #under and side collisions
         under = self.collidingWithSprites(bot)
         if len(under) > 0:
             self.vy=-0.25*self.vy
@@ -138,17 +138,6 @@ class play(Sprite):
             self.vx=-self.vx
         if len(ccap) + len(ccapb) > 0:
             self.vx=-self.vx
-        if self.jump == 1:
-            if self.onblock ==1:
-                self.vy -= 7.5
-                self.jump = 0
-                self.onblock=0
-        if self.wub == 1:
-            if self.onblock == 1:
-                self.vy -= 3.1
-                self.ti+=0.0008
-                self.wub = 0
-                self.onblock = 0
         be = self.collidingWithSprites(bar)
         if len(be) >= 1:
             self.x=1000
@@ -164,10 +153,28 @@ class play(Sprite):
             if self.countlives ==0:
                 play.stop()
             self.countlives -= 1
-        if len(on)  > 0:
+        on = self.collidingWithSprites(top)
+        if len(on) == 0:
+            self.onblock = 0
+        if len(on) == 1:
+            self.onblock = 1
+            self.y = on[0].y-self.height
+        if self.jump == 1:
+            if self.onblock ==1:
+                self.vy -= 7.8
+                self.jump = 0
+                self.onblock=0
+        if self.wub == 1:
+            if self.onblock == 1:
+                self.vy -= 3.5
+                self.ti+=0.0008
+                self.wub = 0
+                self.onblock = 0
+        if self.onblock == 1:
             self.ti = 0
             self.vy = 0
-            self.y-=1
+        #win
+        
     def rup(self, event):
         if self.vx<3:
             self.vx+=1
@@ -241,7 +248,6 @@ side ((-10,0))
 side ((1070, 0))
 
 block ((0, 720), 1080)
-block ((0, -10), 1080)
 block ((0, 576), 600)
 block ((800, 576), 300)
 block ((0, 432), 300)
@@ -252,17 +258,16 @@ block ((900, 288), 500)
 block ((0, 144), 500)
 block ((650, 144), 600)
 
-
+#topppp = toppp(0,-10)
 
 playe = play((1000, 640), 0, 0, 0)
-prizee = win((300, 100))
-prizee = win((540, 10))
+prizee = win((300, 120))
 
-bare = bar ((540, 12), 2, 0, 0, 5)
-barh = bar ((540, 12), -2, 0, 0, 20)
-barj = bar ((540, 12), 1.5, 0, 0, 600)
-bark = bar ((540, 12), -2, 0, 0, 1100)
-barl = bar ((540, 12), 2, 0, 0, 1200)
+bare = bar ((540, -10), 1.9, 0, 0, 5)
+barh = bar ((540, -10), -1.8, 0, 0, 20)
+barj = bar ((540, -10), 1.5, 0, 0, 600)
+bark = bar ((540, -10), -1.5, 0, 0, 1000)
+barl = bar ((540, -10), 2.1, 0, 0, 1200)
 
 hearta = liv ((32, 30), 3)
 heartb = liv ((72, 30), 2)
