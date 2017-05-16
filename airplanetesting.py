@@ -182,6 +182,9 @@ class Plane(Sprite):
         self.nukes = 0
         self.bombx = 0
         self.bomby = 0
+        self.create = 0
+        self.detroit = False
+        self.boston = 0
         self.fxcenter = self.fycenter = 0.5
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
@@ -244,6 +247,13 @@ class Plane(Sprite):
             self.visible = False
             self.explode()
             self.stop()
+        if (self.detroit is True) and self.boston < 10:
+            self.boston += 1
+            if (-0.05 < self.rotation < 0.05) is False:
+                self.rotation -= 0.09
+            if (-0.05 < self.rotation < 0.05) is True:
+                self.rotation = 0
+            
     def stop(self):
         self.ax = 0
         self.ay = 0
@@ -281,6 +291,7 @@ class Plane(Sprite):
             newbomb.y = self.bomby
             newbomb.x += self.vx
             newbomb.y += 2
+            self.bombx += self.vx
 
     def nuke_drop(self):
         newnuke = self.nuke_name_list[0]
@@ -313,7 +324,9 @@ class Plane(Sprite):
         self.bombs = 0
         self.nukes = 0
     def Autopilot(self, event):
-        self.rotation = 0
+        self.detroit = True
+        self.boston = 0
+        
     def Drop_bomb(self, event):
         if (self.rotation > -0.2) and (self.rotation < 0.2):
             self.bombs += 1
@@ -334,6 +347,7 @@ class Plane(Sprite):
         self.bombx = event.x
         self.bomby = event.y
         self.guided_bomb_drop()
+        
         
 
 class Game(App):
