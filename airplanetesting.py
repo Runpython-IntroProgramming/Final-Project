@@ -46,7 +46,7 @@ class Tank(Sprite):
         nukeCollision = self.collidingWithSprites(NuclearExplosion)
         if len(nukeCollision) > 0:
             self.visible = False
-        bombCollision = self.collidingWithSprites(Bomb)
+        bombCollision = self.collidingWithSprites(Explosion)
         if len(bombCollision) > 0:
             self.visible = False
 class AOA():
@@ -101,6 +101,7 @@ class Bomb(Sprite):
         self.visible = False
         
     def explode(self):
+        self.center = (0.5, 0.5)
         self.visible = False
         Explosion(self.position)
         
