@@ -110,6 +110,7 @@ class Nuke(Sprite):
         self.vy = 1.5
         self.center = (1.2, 0.04)
         self.scale = 0.05
+        self.visible = False
         
     def explode(self):
         self.visible = False
