@@ -180,6 +180,8 @@ class Plane(Sprite):
         self.nobrakes = True
         self.bombs = 0
         self.nukes = 0
+        self.bombx = 0
+        self.bomby = 0
         self.fxcenter = self.fycenter = 0.5
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
@@ -193,6 +195,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "f", self.Air_Brakes)
         Game.listenKeyEvent("keyup", "f", self.No_Brakes)
         Game.listenKeyEvent("keydown", "n", self.Drop_Nuke)
+        Game.listenMouseEvent("click", self.mouseClick)
         self.bomb_name_list = bomb_name_list
         self.nuke_name_list = nuke_name_list
     
@@ -268,8 +271,15 @@ class Plane(Sprite):
             newbomb.vy = 2
             newbomb.position = (self.position)
         
-        
-        
+    def guided_bomb_drop(self):
+        newbomb = self.bomb_name_list[0]
+        if newbomb.visible == False:
+            newbomb.visible = True
+            newbomb.x = self.bombx
+            newbomb.y = self.bomby
+            newbomb.x += self.vx
+            newbomb.y += 2
+
     def nuke_drop(self):
         newnuke = self.nuke_name_list[0]
         if newnuke.visible == False:
@@ -318,6 +328,11 @@ class Plane(Sprite):
             self.nukes += 1
             if self.nukes <= 2:
                 self.nuke_drop()
+    def mouseClick(self, event):
+        self.bombx = event.x
+        self.bomby = event.y
+        self.guided_bomb_drop()
+        
 
 class Game(App):
     def __init__(self, width, height):
