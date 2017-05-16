@@ -80,10 +80,7 @@ def spaceKey(event):
     global go
     if go:
         go=False
-if len(snk)==20:
-    a=3
-    print(a)
-
+        
 def step():
     global x, y, go, dir, z, dot, snk, snak, dt, lose
     if go and not lose:
