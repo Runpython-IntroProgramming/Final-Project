@@ -42,7 +42,7 @@ class Buoy(Sprite):
     def __init__(self, position):
         super().__init__(Buoy.asset, position)
         self.mass = 30*1000
-        self.scale=0.2
+        self.scale=0.075
         self.fxcenter = 0.5
         self.fycenter = 0.5
         self.circularCollisionModel()
@@ -52,7 +52,7 @@ class Ship(Sprite):
 
     def __init__(self, position):
         super().__init__(Ship.asset, position)
-        self.scale=0.025
+        self.scale=0.05
         self.vx = 1
         self.vy = 1
         self.vr = 0
@@ -126,7 +126,6 @@ class Ship(Sprite):
         
 class Ship2(Ship):
     def assignkeys(self):
-        print('A')
         BoatGame.listenKeyEvent("keydown", "w", self.thrustOn)
         BoatGame.listenKeyEvent("keyup", "w", self.thrustOff)
         BoatGame.listenKeyEvent("keydown", "a", self.turnleft)
