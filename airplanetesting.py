@@ -37,7 +37,7 @@ class Tank(Sprite):
         self.vx = 1
         self.vy = 0
         self.vr = 0
-        self.scale = 500
+        self.scale = 0.1
         self.visible = True
         self.fxcenter = self.fycenter = 0.5
 
@@ -308,7 +308,7 @@ class Game(App):
         Field((0,0))
         runway_asset = RectangleAsset(590, 15, noline, black)
         runway = Sprite(runway_asset, (0, 635))
-        Tank((900,650))
+        Tank((900,647))
         nuke_1 = Nuke((0,0))
         nuke_2 = Nuke((0,0))
         nuke_name_list = (nuke_1, nuke_2)
