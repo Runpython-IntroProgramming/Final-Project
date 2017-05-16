@@ -17,7 +17,7 @@ x=20
 y=20
 z=3
 snk=[(20,20)]
-
+lose= False
 go= False
 dir=0
 a=4
@@ -39,12 +39,12 @@ for (h,k) in dot:
 snak=[tail((x,y))]    
 
 def playagain(event):
-    global dot, snk, x,y,z,go,dir,dt, snak
+    global dot, snk, x,y,z,go,dir,dt, snak, lose
     x=20
     y=20
     z=3
     snk=[(20,20)]
-    go= False
+    lose = False
     dir=0
     for h in snak:
         h.destroy()
@@ -54,6 +54,7 @@ def playagain(event):
     for (h,k) in dot:
         dt=[dots((h,k))]
     snak=[tail((x,y))]
+    go= False
 def leftKey(event):
     global dir, go
     if dir!=1 or len(snk)==1:
@@ -86,11 +87,10 @@ if len(snk)==20:
     a=3
     print(a)
 
-if x<SCREEN_WIDTH and x>=0 and y<SCREEN_HEIGHT and y>0:
-    go=False
+
 def step():
-    global x,y,go,dir,z, dot, snk, snak, dt
-    if go:
+    global x,y,go,dir,z, dot, snk, snak, dt, lose
+    if go and not lose:
         z=z+1
         if z==4:
             if dir==0:
@@ -100,6 +100,7 @@ def step():
                         if x==c and y==d:
                             print("you lose. Press r to play again.")
                             x=5000000000
+                            lose=True
                             go=False
                     if x==h and y==k:
                         snk.append((x,y))
@@ -112,6 +113,7 @@ def step():
                         print("you lose. Press r to play again.")
                         go=0
                         x=5000000000
+                        lose=True
                         go=False
                     else:
                         snk.append((x,y))
@@ -126,6 +128,7 @@ def step():
                         if x==c and y==d:
                             print("you lose. Press r to play again.")
                             x=5000000000
+                            lose=True
                             go=False
                     if x==h and y==k:
                         snk.append((x,y))
@@ -138,6 +141,7 @@ def step():
                         print("you lose. Press r to play again.")
                         go=0
                         x=5000000000
+                        lose=True
                         go=False
                     else:
                         snk.append((x,y))
@@ -152,6 +156,7 @@ def step():
                         if x==c and y==d:
                             print("you lose. Press r to play again.")
                             x=5000000000
+                            lose=True
                             go=False
                     if x==h and y==k:
                         snk.append((x,y))
@@ -164,6 +169,7 @@ def step():
                         print("you lose. Press r to play again.")
                         go=0
                         x=5000000000
+                        lose=True
                         go=False
                     else:
                         snk.append((x,y))
@@ -178,6 +184,7 @@ def step():
                         if x==c and y==d:
                             print("you lose. Press r to play again.")
                             x=5000000000
+                            lose=True
                             go=False
                     if x==h and y==k:
                         snk.append((x,y))
@@ -190,6 +197,7 @@ def step():
                         print("you lose. Press r to play again.")
                         go=0
                         x=5000000000
+                        lose=True
                         go=False
                     else:
                         snk.append((x,y))
