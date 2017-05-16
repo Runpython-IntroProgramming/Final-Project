@@ -11,8 +11,6 @@ line=LineStyle(0,blue)
 black = Color(0, 1)
 bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, line, black)
 bg = Sprite(bg_asset, (0,0))
-rond=lambda x: 2*(round(x/2,-1))
-length=1
 x=20
 y=20
 z=3
@@ -20,8 +18,6 @@ snk=[(20,20)]
 lose= False
 go= False
 dir=0
-a=4
-
 
 class tail(Sprite):
     asset=RectangleAsset(20,20,line, purple)
@@ -54,7 +50,8 @@ def playagain(event):
     for (h,k) in dot:
         dt=[dots((h,k))]
     snak=[tail((x,y))]
-    go= False
+    go=False
+
 def leftKey(event):
     global dir, go
     if dir!=1 or len(snk)==1:
@@ -89,7 +86,7 @@ if len(snk)==20:
 
 
 def step():
-    global x,y,go,dir,z, dot, snk, snak, dt, lose
+    global x, y, go, dir, z, dot, snk, snak, dt, lose
     if go and not lose:
         z=z+1
         if z==4:
