@@ -41,6 +41,8 @@ class Tank(Sprite):
         self.visible = True
         self.fxcenter = self.fycenter = 0.5
         Game.listenKeyEvent("keydown", "p", self.Restart)
+        Game.listenKeyEvent("keydown", "u", self.Restart)
+
 
     def step(self):
         #self.x += self.vx
@@ -87,7 +89,7 @@ class NuclearExplosion(Sprite):
         super().__init__(NuclearExplosion.asset, position)
         self.center = (0.5, 1)
         self.image = 0
-        self.scale = 0.2
+        self.scale = 0.25
         
     def step(self):
         # slow it down
