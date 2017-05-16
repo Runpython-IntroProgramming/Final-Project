@@ -104,8 +104,8 @@ class Ship(Sprite):
             self.thrustframe += 1
             if self.thrustframe == 4:
                 self.thrustframe = 1
-            if self.v < 12:
-                self.v *= 1.1
+            if self.v < 8:
+                self.v *= 1.05
         else:
             self.setImage(0)
     def thrustOn(self, event):
