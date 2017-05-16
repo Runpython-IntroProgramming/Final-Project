@@ -25,10 +25,28 @@ class Field(Sprite):
     def __init__(self, position):
          super().__init__(Field.field, position)
          self.vx=1
-         self.vy=1
+         self.vy=0
          self.vr=0
          self.scale=1.5
 
+class Tank(Sprite):
+    base_tank = ImageAsset("images/15153-illustration-of-an-army-tank-pv.png")
+    
+    def __init__(self, position):
+        super().__init__(Tank.base_tank, position)
+        self.vx = 1
+        self.vy = 0
+        self.vr = 0
+        self.scale = 500
+        self.visible = True
+    def step(self):
+        #self.x += self.vx
+        nukeCollision = self.collidingWithSprites(Nuke)
+        if len(nukeCollision) > 0:
+            self.visible = False
+        bombCollision = self.collidingWithSprites(Bomb)
+        if len(bombCollision) > 0:
+            self.visible = False
 class AOA():
     def __init__(self, r):
         self.rotation = r
@@ -131,7 +149,7 @@ class Nuke(Sprite):
             if self.visible == True:
                 self.explode()
                 self.stop()
-            
+        
     
 class Plane(Sprite):
     airplane = ImageAsset("images/fighter.png")
@@ -288,6 +306,7 @@ class Game(App):
         Field((0,0))
         runway_asset = RectangleAsset(590, 15, noline, black)
         runway = Sprite(runway_asset, (0, 635))
+        Tank((900,650))
         nuke_1 = Nuke((0,0))
         nuke_2 = Nuke((0,0))
         nuke_name_list = (nuke_1, nuke_2)
@@ -295,7 +314,7 @@ class Game(App):
         bomb_2 = Bomb((0,0))
         bomb_name_list = (bomb_1, bomb_2)
         Plane((0,650), bomb_name_list, nuke_name_list)
-
+        
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
             nuke.step()
@@ -307,7 +326,8 @@ class Game(App):
             asset.step()
         for asset in self.getSpritesbyClass(NuclearExplosion):
             asset.step()
-        
+        for base_tank in self.getSpritesbyClass(Tank):
+            base_tank.step()
             
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
