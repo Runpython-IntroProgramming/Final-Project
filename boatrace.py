@@ -52,7 +52,7 @@ class Ship(Sprite):
 
     def __init__(self, position):
         super().__init__(Ship.asset, position)
-        self.scale=0.05
+        self.scale=0.025
         self.vx = 1
         self.vy = 1
         self.vr = 0
@@ -96,7 +96,7 @@ class Ship(Sprite):
             self.thrust=0
             self.visible=True
         if self.thrust == 0 and self.v >= 0.1:
-            self.v -= 0.1
+            self.v -= 0.05
         if self.thrust == 1 and self.v == 0:
             self.v = 1
         if self.thrust == 1:
@@ -104,8 +104,8 @@ class Ship(Sprite):
             self.thrustframe += 1
             if self.thrustframe == 4:
                 self.thrustframe = 1
-            if self.v < 8:
-                self.v *= 1.05
+            if self.v < 5:
+                self.v *= 1.025
         else:
             self.setImage(0)
     def thrustOn(self, event):
