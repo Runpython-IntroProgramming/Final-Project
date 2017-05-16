@@ -40,7 +40,7 @@ class Tank(Sprite):
         self.scale = 0.1
         self.visible = True
         self.fxcenter = self.fycenter = 0.5
-
+        
     def step(self):
         #self.x += self.vx
         nukeCollision = self.collidingWithSprites(NuclearExplosion)
@@ -49,6 +49,7 @@ class Tank(Sprite):
         bombCollision = self.collidingWithSprites(Explosion)
         if len(bombCollision) > 0:
             self.visible = False
+
 class AOA():
     def __init__(self, r):
         self.rotation = r
