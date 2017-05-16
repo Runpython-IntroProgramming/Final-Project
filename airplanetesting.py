@@ -39,6 +39,8 @@ class Tank(Sprite):
         self.vr = 0
         self.scale = 500
         self.visible = True
+        self.fxcenter = self.fycenter = 0.5
+
     def step(self):
         #self.x += self.vx
         nukeCollision = self.collidingWithSprites(Nuke)
