@@ -40,7 +40,8 @@ class Tank(Sprite):
         self.scale = 0.1
         self.visible = True
         self.fxcenter = self.fycenter = 0.5
-        
+        Game.listenKeyEvent("keydown", "r", self.Restart)
+
     def step(self):
         #self.x += self.vx
         nukeCollision = self.collidingWithSprites(NuclearExplosion)
@@ -49,6 +50,9 @@ class Tank(Sprite):
         bombCollision = self.collidingWithSprites(Explosion)
         if len(bombCollision) > 0:
             self.visible = False
+            
+    def Restart(self, event):
+        self.visible = True
 
 class AOA():
     def __init__(self, r):
@@ -120,6 +124,11 @@ class Bomb(Sprite):
             self.y = SCREEN_HEIGHT
             self.explode()
             self.stop()
+        tankCollision = self.collidingWithSprites(Tank)
+        if len(tankCollision) > 0:
+            self.explode()
+            self.stop()
+        
        
        
 class Nuke(Sprite):
@@ -153,6 +162,10 @@ class Nuke(Sprite):
             if self.visible == True:
                 self.explode()
                 self.stop()
+        tankCollision = self.collidingWithSprites(Tank)
+        if len(tankCollision) > 0:
+            self.explode()
+            self.stop()
         
     
 class Plane(Sprite):
