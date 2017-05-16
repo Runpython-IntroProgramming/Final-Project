@@ -43,7 +43,7 @@ class Tank(Sprite):
 
     def step(self):
         #self.x += self.vx
-        nukeCollision = self.collidingWithSprites(Nuke)
+        nukeCollision = self.collidingWithSprites(NuclearExplosion)
         if len(nukeCollision) > 0:
             self.visible = False
         bombCollision = self.collidingWithSprites(Bomb)
@@ -308,7 +308,7 @@ class Game(App):
         Field((0,0))
         runway_asset = RectangleAsset(590, 15, noline, black)
         runway = Sprite(runway_asset, (0, 635))
-        Tank((900,647))
+        Tank((900,642))
         nuke_1 = Nuke((0,0))
         nuke_2 = Nuke((0,0))
         nuke_name_list = (nuke_1, nuke_2)
