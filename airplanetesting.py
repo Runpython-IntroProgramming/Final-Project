@@ -124,10 +124,6 @@ class Bomb(Sprite):
             self.y = SCREEN_HEIGHT
             self.explode()
             self.stop()
-        tankCollision = self.collidingWithSprites(Tank)
-        if len(tankCollision) > 0:
-            self.explode()
-            self.stop()
         
        
        
@@ -162,10 +158,7 @@ class Nuke(Sprite):
             if self.visible == True:
                 self.explode()
                 self.stop()
-        tankCollision = self.collidingWithSprites(Tank)
-        if len(tankCollision) > 0:
-            self.explode()
-            self.stop()
+
         
     
 class Plane(Sprite):
