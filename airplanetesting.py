@@ -128,8 +128,9 @@ class Nuke(Sprite):
         self.y += self.vy
         if (self.y > SCREEN_HEIGHT):
             self.y = SCREEN_HEIGHT
-            self.explode()
-            self.stop()
+            if self.visible == True:
+                self.explode()
+                self.stop()
             
     
 class Plane(Sprite):
