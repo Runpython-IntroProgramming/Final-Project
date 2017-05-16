@@ -118,6 +118,7 @@ class play(Sprite):
     def step(self):
         self.dead = 0
         self.onblock=0
+        
         #gravity
         if self.wub == 0:
             self.ti=self.ti+0.012
@@ -126,6 +127,7 @@ class play(Sprite):
         self.x=self.x+self.vx
         if self.ti>0.72:
             self.y-=8
+            
         #under and side collisions
         under = self.collidingWithSprites(bot)
         if len(under) > 0:
@@ -138,6 +140,8 @@ class play(Sprite):
             self.vx=-self.vx
         if len(ccap) + len(ccapb) > 0:
             self.vx=-self.vx
+        
+        #dead
         be = self.collidingWithSprites(bar)
         if len(be) >= 1:
             self.x=1000
@@ -153,6 +157,8 @@ class play(Sprite):
             if self.countlives ==0:
                 play.stop()
             self.countlives -= 1
+        
+        #onblock and jumping
         on = self.collidingWithSprites(top)
         if len(on) == 0:
             self.onblock = 0
@@ -173,7 +179,13 @@ class play(Sprite):
         if self.onblock == 1:
             self.ti = 0
             self.vy = 0
+        
         #win
+        
+        
+        
+        
+        
         
     def rup(self, event):
         if self.vx<3:
