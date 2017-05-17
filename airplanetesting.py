@@ -199,6 +199,12 @@ class Plane(Sprite):
         Game.listenKeyEvent("keyup", "f", self.No_Brakes)
         Game.listenKeyEvent("keydown", "n", self.Drop_Nuke)
         Game.listenMouseEvent("click", self.mouseClick)
+        Game.listenKeyEvent("keydown", "up arrow", self.Up_fine)
+        Game.listenKeyEvent("keydown", "down arrow", self.Down_fine)
+        Game.listenKeyEvent("keyup", "down arrow", self.Stop)
+        Game.listenKeyEvent("keyup", "up arrow", self.Stop)
+
+
         self.bomb_name_list = bomb_name_list
         self.nuke_name_list = nuke_name_list
     
@@ -324,6 +330,10 @@ class Plane(Sprite):
         self.vr += 0.05
     def Down(self, event):
         self.vr -= 0.05
+    def Up_fine(self, event):
+        self.vr += 0.007
+    def Down_fine(self, event):
+        self.vr -= 0.007
     def Stop(self, event):
         self.vr=0
     def Restart(self, event):
