@@ -18,6 +18,10 @@ heart = CircleAsset (15, noline, red)
 prize = RectangleAsset (35, 15, noline, gold)
 toppp = RectangleAsset (1080, 20, noline, dgreen)
 barrels = CircleAsset (10, noline, black)
+global level
+level = 1
+global levelshift
+levelshift = 0
 vy=0
 vx=0
 ti=0
@@ -116,8 +120,11 @@ class play(Sprite):
         self.vy=0
         self.countlives = 3
     def step(self):
+        global levelshift
+        levelshift = 0
         self.dead = 0
         self.onblock=0
+        
         
         #gravity
         if self.wub == 0:
@@ -158,6 +165,7 @@ class play(Sprite):
                 play.stop()
             self.countlives -= 1
         
+        
         #onblock and jumping
         on = self.collidingWithSprites(top)
         if len(on) == 0:
@@ -180,9 +188,18 @@ class play(Sprite):
             self.ti = 0
             self.vy = 0
         
+        
         #win
-        
-        
+        winc = self.collidingWithSprites(win)
+        if len (winc) > 0:
+            global level
+            level += 1
+            global levelshift
+            levelshift = 1
+            be[0].dead()
+            self.x=1000
+            self.y=660
+            self.ti=2
         
         
         
@@ -259,16 +276,17 @@ myapp = dk(SCREEN_WIDTH, SCREEN_HEIGHT)
 side ((-10,0))
 side ((1070, 0))
 
-block ((0, 720), 1080)
-block ((0, 576), 600)
-block ((800, 576), 300)
-block ((0, 432), 300)
-block ((480, 432), 450)
-block ((0, 288), 100)
-block ((250, 288), 500)
-block ((900, 288), 500)
-block ((0, 144), 500)
-block ((650, 144), 600)
+lvl1 = [
+block ((0, 720), 1080),
+block ((0, 576), 600),
+block ((800, 576), 300),
+block ((0, 432), 300),
+block ((480, 432), 450),
+block ((0, 288), 100),
+block ((250, 288), 500),
+block ((900, 288), 500),
+block ((0, 144), 500),
+block ((650, 144), 600)]
 
 #topppp = toppp(0,-10)
 
