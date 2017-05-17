@@ -295,12 +295,12 @@ class Plane(Sprite):
             if self.rotation > 6.284:
                 self.rotation = 0
         if self.bombs < 7:
-            bomb_icon1 = bomb_icon_list[0]
-            bomb_icon2 = bomb_icon_list[1]
-            bomb_icon3 = bomb_icon_list[2]
-            bomb_icon4 = bomb_icon_list[3]
-            bomb_icon5 = bomb_icon_list[4]
-            bomb_icon6 = bomb_icon_list[5]
+            bomb_icon1 = self.bomb_icons[0]
+            bomb_icon2 = self.bomb_icons[1]
+            bomb_icon3 = self.bomb_icons[2]
+            bomb_icon4 = self.bomb_icons[3]
+            bomb_icon5 = self.bomb_icons[4]
+            bomb_icon6 = self.bomb_icons[5]
             if (self.bombs == 5):
                 bomb_icon6.visible = False
             if (self.bombs == 4):
@@ -448,7 +448,6 @@ class Game(App):
         bomb_1 = Bomb((0,0))
         bomb_2 = Bomb((0,0))
         bomb_name_list = (bomb_1, bomb_2)
-        Plane((0,650), bomb_name_list, nuke_name_list)
         bomb_icon1 = bombCounter((25,40))
         bomb_icon2 = bombCounter((50,40))
         bomb_icon3 = bombCounter((75,40))
@@ -456,6 +455,7 @@ class Game(App):
         bomb_icon5 = bombCounter((125,40))
         bomb_icon6 = bombCounter((150,40))
         bomb_icon_list = (bomb_icon1, bomb_icon2, bomb_icon3, bomb_icon4, bomb_icon5, bomb_icon6)
+        Plane((0,650), bomb_name_list, nuke_name_list, bomb_icon_list)
         
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
