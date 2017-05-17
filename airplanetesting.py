@@ -202,7 +202,7 @@ class Nuke(Sprite):
 class Plane(Sprite):
     airplane = ImageAsset("images/fighter.png")
     
-    def __init__(self, position, bomb_name_list, nuke_name_list, bomb_icon_list):
+    def __init__(self, position, bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list):
         super().__init__(Plane.airplane, position)
         self.vx = 0
         self.vy = 0
@@ -240,9 +240,9 @@ class Plane(Sprite):
         Game.listenKeyEvent("keyup", "up arrow", self.Stop)
         Game.listenKeyEvent("keydown", "r", self.Reload)
         self.bomb_icons = bomb_icon_list
+        self.nuke_icons = nuke_icon_list
         self.bomb_name_list = bomb_name_list
         self.nuke_name_list = nuke_name_list
-    
     
     def step(self):
         if (self.lift_off > 1):
@@ -343,6 +343,15 @@ class Plane(Sprite):
                 bomb_icon3.visible = False
                 bomb_icon2.visible = False
                 bomb_icon1.visible = False
+        if self.nukes < 3:
+            nuke_icon1 = self.nuke_icons[1]
+            nuke_icon2 = self.nuke_icons[0]
+            if (self.nukes == 1):
+                nuke_icon1.visible = False
+            if (self.nukes == 2):
+                nuke_icon1.visible = False
+                nuke_icon2.visible = False
+                print("lmao")
     def stop(self):
         self.ax = 0
         self.ay = 0
@@ -465,7 +474,7 @@ class Game(App):
         bomb_name_list = (bomb_1, bomb_2)
         nuke_icon1 = nukeCounter((180,45))
         nuke_icon2 = nukeCounter((205,45))
-        
+        nuke_icon_list = (nuke_icon1, nuke_icon2)
         bomb_icon1 = bombCounter((25,40))
         bomb_icon2 = bombCounter((50,40))
         bomb_icon3 = bombCounter((75,40))
@@ -473,7 +482,7 @@ class Game(App):
         bomb_icon5 = bombCounter((125,40))
         bomb_icon6 = bombCounter((150,40))
         bomb_icon_list = (bomb_icon1, bomb_icon2, bomb_icon3, bomb_icon4, bomb_icon5, bomb_icon6)
-        Plane((0,650), bomb_name_list, nuke_name_list, bomb_icon_list)
+        Plane((0,650), bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list)
         
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
