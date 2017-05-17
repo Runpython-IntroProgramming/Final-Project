@@ -257,7 +257,7 @@ class Plane(Sprite):
             self.visible = False
             self.explode()
             self.stop()
-        if (self.detroit is True) and self.boston < 70:
+        if (self.detroit is True) and self.boston < 100:
             self.boston += 1
             if (0 < self.rotation < 3.14):
                 if (-0.10 < self.rotation < 0.10) is False:
@@ -274,6 +274,10 @@ class Plane(Sprite):
                     self.rotation += 0.02
                 if (-0.10 < self.rotation < 0.10) is True:
                     self.rotation = 0
+            if -3.14 > self.rotation:
+                self.rotation = 0
+            if self.rotation > 6.284:
+                self.rotation = 0
             
     def stop(self):
         self.ax = 0
