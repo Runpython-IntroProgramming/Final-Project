@@ -7,7 +7,7 @@ make a homing missile/turret
 make the turning animation for Autopilot even more realistic
 make a boost
 make it more challenging
-
+make a counter on the screen for the number of bombs you have left
 0 to -3.05
 
 6.33 to 9.48
