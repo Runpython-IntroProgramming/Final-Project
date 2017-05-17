@@ -46,6 +46,9 @@ class bombCounter(Sprite):
         self.scale = 0.05
         self.visible = True
         self.rotation = 1.57
+        Game.listenKeyEvent("keydown", "r", self.Reload)
+    def Reload(self, event):
+        self.visible = True
         
 
 class Tank(Sprite):
@@ -148,7 +151,7 @@ class Bomb(Sprite):
             self.explode()
             self.stop()
         
-       
+    
        
 class Nuke(Sprite):
     
