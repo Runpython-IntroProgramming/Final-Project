@@ -50,6 +50,18 @@ class bombCounter(Sprite):
     def Reload(self, event):
         self.visible = True
         
+class nukeCounter(Sprite):
+    nuke_icon = ImageAsset("images/nuclearwarhead.png")
+    
+    def __init__(self, position):
+        super().__init__(nukeCounter.nuke_icon, position)
+        self.scale = 0.032
+        self.visible = True
+        self.rotation = 1.57
+        Game.listenKeyEvent("keydown", "r", self.Reload)
+    def Reload(self, event):
+        self.visible = True
+        
 
 class Tank(Sprite):
     base_tank = ImageAsset("images/15153-illustration-of-an-army-tank-pv.png")
@@ -451,6 +463,9 @@ class Game(App):
         bomb_1 = Bomb((0,0))
         bomb_2 = Bomb((0,0))
         bomb_name_list = (bomb_1, bomb_2)
+        nuke_icon1 = nukeCounter((180,45))
+        nuke_icon2 = nukeCounter((205,45))
+        
         bomb_icon1 = bombCounter((25,40))
         bomb_icon2 = bombCounter((50,40))
         bomb_icon3 = bombCounter((75,40))
