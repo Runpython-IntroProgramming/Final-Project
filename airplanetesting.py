@@ -294,7 +294,40 @@ class Plane(Sprite):
                 self.rotation = 0
             if self.rotation > 6.284:
                 self.rotation = 0
-            
+        if self.bombs < 7:
+            bomb_icon1 = bomb_icon_list[0]
+            bomb_icon2 = bomb_icon_list[1]
+            bomb_icon3 = bomb_icon_list[2]
+            bomb_icon4 = bomb_icon_list[3]
+            bomb_icon5 = bomb_icon_list[4]
+            bomb_icon6 = bomb_icon_list[5]
+            if (self.bombs == 5):
+                bomb_icon6.visible = False
+            if (self.bombs == 4):
+                bomb_icon6.visible = False
+                bomb_icon5.visible = False
+            if (self.bombs == 3):
+                bomb_icon6.visible = False
+                bomb_icon5.visible = False
+                bomb_icon4.visible = False
+            if (self.bombs == 2):
+                bomb_icon6.visible = False
+                bomb_icon5.visible = False
+                bomb_icon4.visible = False
+                bomb_icon3.visible = False
+            if (self.bombs == 1):
+                bomb_icon6.visible = False
+                bomb_icon5.visible = False
+                bomb_icon4.visible = False
+                bomb_icon3.visible = False
+                bomb_icon2.visible = False
+            if (self.bombs == 0):
+                bomb_icon6.visible = False
+                bomb_icon5.visible = False
+                bomb_icon4.visible = False
+                bomb_icon3.visible = False
+                bomb_icon2.visible = False
+                bomb_icon1.visible = False
     def stop(self):
         self.ax = 0
         self.ay = 0
