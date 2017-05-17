@@ -3,8 +3,10 @@ show it turning back to autopilot
 make the bomb sprites limited by reusing them
 make the screen move
 make things to destroy
-make a homing missile
-
+make a homing missile/turret
+make the turning animation for Autopilot even more realistic
+make a boost
+make it more challenging
 
 0 to -3.05
 
