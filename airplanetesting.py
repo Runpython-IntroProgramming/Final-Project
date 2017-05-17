@@ -301,27 +301,27 @@ class Plane(Sprite):
             bomb_icon4 = self.bomb_icons[3]
             bomb_icon5 = self.bomb_icons[4]
             bomb_icon6 = self.bomb_icons[5]
-            if (self.bombs == 5):
+            if (self.bombs == 1):
                 bomb_icon6.visible = False
-            if (self.bombs == 4):
+            if (self.bombs == 2):
                 bomb_icon6.visible = False
                 bomb_icon5.visible = False
             if (self.bombs == 3):
                 bomb_icon6.visible = False
                 bomb_icon5.visible = False
                 bomb_icon4.visible = False
-            if (self.bombs == 2):
+            if (self.bombs == 4):
                 bomb_icon6.visible = False
                 bomb_icon5.visible = False
                 bomb_icon4.visible = False
                 bomb_icon3.visible = False
-            if (self.bombs == 1):
+            if (self.bombs == 5):
                 bomb_icon6.visible = False
                 bomb_icon5.visible = False
                 bomb_icon4.visible = False
                 bomb_icon3.visible = False
                 bomb_icon2.visible = False
-            if (self.bombs == 0):
+            if (self.bombs == 6):
                 bomb_icon6.visible = False
                 bomb_icon5.visible = False
                 bomb_icon4.visible = False
