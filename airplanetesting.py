@@ -259,6 +259,11 @@ class Plane(Sprite):
                     self.rotation += 0.02
                 if (-0.10 < self.rotation < 0.10) is True:
                     self.rotation = 0
+            if (-3.14 > self.rotation > -0.2):
+                if (-0.10 < self.rotation < 0.10) is False:
+                    self.rotation += 0.02
+                if (-0.10 < self.rotation < 0.10) is True:
+                    self.rotation = 0
             
     def stop(self):
         self.ax = 0
