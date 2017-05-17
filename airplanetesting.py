@@ -351,7 +351,6 @@ class Plane(Sprite):
             if (self.nukes == 2):
                 nuke_icon1.visible = False
                 nuke_icon2.visible = False
-                print("lmao")
     def stop(self):
         self.ax = 0
         self.ay = 0
