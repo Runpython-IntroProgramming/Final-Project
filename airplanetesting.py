@@ -6,6 +6,10 @@ make things to destroy
 make a homing missile
 
 
+0 to -3.05
+
+6.33 to 9.48
+
 
 
 
@@ -203,7 +207,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "down arrow", self.Down_fine)
         Game.listenKeyEvent("keyup", "down arrow", self.Stop)
         Game.listenKeyEvent("keyup", "up arrow", self.Stop)
-
+        Game.listenKeyEvent("keydown", "r", self.Reload)
 
         self.bomb_name_list = bomb_name_list
         self.nuke_name_list = nuke_name_list
@@ -265,7 +269,11 @@ class Plane(Sprite):
                     self.rotation += 0.02
                 if (-0.10 < self.rotation < 0.10) is True:
                     self.rotation = 0
-    
+            if (0 > self.rotation > -3.14) is True:
+                if (-0.10 < self.rotation < 0.10) is False:
+                    self.rotation += 0.02
+                if (-0.10 < self.rotation < 0.10) is True:
+                    self.rotation = 0
             
     def stop(self):
         self.ax = 0
@@ -343,12 +351,12 @@ class Plane(Sprite):
     def Autopilot(self, event):
         self.detroit = True
         self.boston = 0
-        
     def Drop_bomb(self, event):
-        if (self.rotation > -0.2) and (self.rotation < 0.2):
-            self.bombs += 1
-            if self.bombs <= 8:
-                self.bomb_drop()
+        if self.visible == True:
+            if (self.rotation > -0.2) and (self.rotation < 0.2):
+                self.bombs += 1
+                if self.bombs <= 8:
+                    self.bomb_drop()
     def Air_Brakes(self, event):
         if self.rotation == 0:
             self.slow()
@@ -356,15 +364,18 @@ class Plane(Sprite):
     def No_Brakes(self, event):
         self.nobrakes = True
     def Drop_Nuke(self, event):
-        if (self.rotation > -0.2) and (self.rotation < 0.2):
-            self.nukes += 1
-            if self.nukes <= 2:
-                self.nuke_drop()
+        if self.visible == True: 
+            if (self.rotation > -0.2) and (self.rotation < 0.2):
+                self.nukes += 1
+                if self.nukes <= 2:
+                    self.nuke_drop()
     def mouseClick(self, event):
         self.bombx = event.x
         self.bomby = event.y
         self.guided_bomb_drop()
-        
+    def Reload(self, event):
+        self.bombs = 0
+        self.nukes = 0
 
 class Game(App):
     def __init__(self, width, height):
