@@ -8,6 +8,8 @@ make the turning animation for Autopilot even more realistic
 make a boost
 make it more challenging
 make a counter on the screen for the number of bombs you have left
+make a reusable explosion???
+
 0 to -3.05
 
 6.33 to 9.48
@@ -33,7 +35,18 @@ class Field(Sprite):
          self.vx=1
          self.vy=0
          self.vr=0
-         self.scale=1.5
+         self.scale = 1.5
+
+
+class bombCounter(Sprite):
+    bomb_icon = ImageAsset("images/nuke.png")
+    
+    def __init__(self, position):
+        super().__init__(bombCounter.bomb_icon, position)
+        self.scale = 0.05
+        self.visible = True
+        self.rotation = 1.57
+        
 
 class Tank(Sprite):
     base_tank = ImageAsset("images/15153-illustration-of-an-army-tank-pv.png")
@@ -79,7 +92,7 @@ class Explosion(Sprite):
     def __init__(self, position):
         super().__init__(Explosion.asset, position)
         self.image = 0
-        self.center = (0.5, 0.56)
+        self.center = (0.8, 0.56)
         
     def step(self):
         self.setImage(self.image//2)  # slow it down
@@ -173,6 +186,7 @@ class Nuke(Sprite):
     
 class Plane(Sprite):
     airplane = ImageAsset("images/fighter.png")
+    
     def __init__(self, position, bomb_name_list, nuke_name_list):
         super().__init__(Plane.airplane, position)
         self.vx = 0
@@ -401,6 +415,12 @@ class Game(App):
         bomb_2 = Bomb((0,0))
         bomb_name_list = (bomb_1, bomb_2)
         Plane((0,650), bomb_name_list, nuke_name_list)
+        bomb_icon1 = bombCounter((25,40))
+        bomb_icon2 = bombCounter((50,40))
+        bomb_icon3 = bombCounter((75,40))
+        bomb_icon4 = bombCounter((100,40))
+        bomb_icon5 = bombCounter((125,40))
+        bomb_icon6 = bombCounter((150,40))
         
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
