@@ -211,7 +211,7 @@ class Plane(Sprite):
         self.vr = 0
         self.scale = 0.3
         self.lift_off = 0
-        self.rotation = 0.08
+        self.rotation = 0.1
         self.nobrakes = True
         self.bombs = 0
         self.nukes = 0
