@@ -229,6 +229,8 @@ class Plane(Sprite):
         self.detroit = False
         self.boston = 0
         self.fxcenter = self.fycenter = 0.5
+        self.collide = 0
+        self.collisionMeme = False
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
@@ -304,6 +306,8 @@ class Plane(Sprite):
                     self.visible = False
                     self.explode()
                     self.stop()
+                    self.collide = 0
+                    self.collisionMeme = False
         if (self.detroit is True) and self.boston < 140:
             self.boston += 1
             if (0 < self.rotation < 3.14):
