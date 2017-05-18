@@ -139,7 +139,7 @@ class Bomb(Sprite):
         super().__init__(Bomb.nuke, position)
         self.vx = 0
         self.vy = 0
-        self.center = (1.2, 0.04)
+        self.center = (0.5, 0.5)
         self.scale = 0.08
         self.visible = False
         Game.listenKeyEvent("keydown", "h", self.Mid_Air)
@@ -391,8 +391,8 @@ class Plane(Sprite):
             newbomb.visible = True
             newbomb.vx = self.ax
             newbomb.vy = 2
-            newbomb.x = (self.x - 14)
-            newbomb.y = (self.y + 11)
+            newbomb.x = (self.x - 40)
+            newbomb.y = (self.y + 40)
         
     def guided_bomb_drop(self):
         newbomb = self.bomb_name_list[0]
