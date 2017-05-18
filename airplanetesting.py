@@ -400,8 +400,8 @@ class Plane(Sprite):
             newbomb.visible = True
             newbomb.vx = self.ax
             newbomb.vy = 2
-            newbomb.x = (self.x - 60)
-            newbomb.y = (self.y + 25)
+            newbomb.x = (self.x - 50)
+            newbomb.y = (self.y + 21)
         
     def guided_bomb_drop(self):
         newbomb = self.bomb_name_list[0]
