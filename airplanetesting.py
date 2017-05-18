@@ -296,11 +296,14 @@ class Plane(Sprite):
             self.visible = False
             self.explode()
             self.stop()
-        bombCollision = self.collidingWithSprites(Bomb)
-        if len(bombCollision) > 0:
-            self.visible = False
-            self.explode()
-            self.stop()
+        if self.collisionMeme == True:
+            self.collide += 1
+            if self.collide == 30:
+                bombCollision = self.collidingWithSprites(Bomb)
+                if len(bombCollision) > 0:
+                    self.visible = False
+                    self.explode()
+                    self.stop()
         if (self.detroit is True) and self.boston < 140:
             self.boston += 1
             if (0 < self.rotation < 3.14):
@@ -446,6 +449,7 @@ class Plane(Sprite):
         self.detroit = True
         self.boston = 0
     def Drop_bomb(self, event):
+        self.collisionMeme = True
         if self.visible == True:
             if (self.rotation > -0.2) and (self.rotation < 0.2):
                 self.bombs += 1
