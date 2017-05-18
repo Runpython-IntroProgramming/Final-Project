@@ -1,14 +1,11 @@
 """
-show it turning back to autopilot
-make the bomb sprites limited by reusing them
 make the screen move
-make things to destroy
 make a homing missile/turret
 make the turning animation for Autopilot even more realistic
 make a boost
 make it more challenging
-make a counter on the screen for the number of bombs you have left
 make a reusable explosion???
+
 
 0 to -3.05
 
@@ -408,9 +405,11 @@ class Plane(Sprite):
                 self.vx -= 2.5
                 self.ax -= 2.5
     def Up(self, event):
-        self.vr += 0.05
+        if (self.lift_off > 1):
+            self.vr += 0.05
     def Down(self, event):
-        self.vr -= 0.05
+        if (self.lift_off > 1):
+            self.vr -= 0.05
     def Up_fine(self, event):
         self.vr += 0.007
     def Down_fine(self, event):
