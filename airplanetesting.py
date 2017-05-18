@@ -285,17 +285,20 @@ class Plane(Sprite):
             self.ax = 0
         if (self.x < 0):
             self.x = SCREEN_WIDTH
-        nukeCollision = self.collidingWithSprites(NuclearExplosion)
-        if len(nukeCollision) > 0:
+        nuke_explosionCollision = self.collidingWithSprites(NuclearExplosion)
+        if len(nuke_explosionCollision) > 0:
             self.visible = False
-        bombCollision = self.collidingWithSprites(Explosion)
-        if len(bombCollision) > 0:
+        bomb_explosionCollision = self.collidingWithSprites(Explosion)
+        if len(bomb_explosionCollision) > 0:
             self.visible = False
         tankCollision = self.collidingWithSprites(Tank)
         if len(tankCollision) > 0:
             self.visible = False
             self.explode()
             self.stop()
+        bombCollision = self.collidingWithSprites(Bomb)
+        if len(bombCollision) > 0:
+            self.visible = False
         if (self.detroit is True) and self.boston < 140:
             self.boston += 1
             if (0 < self.rotation < 3.14):
@@ -359,6 +362,7 @@ class Plane(Sprite):
             if (self.nukes == 2):
                 nuke_icon1.visible = False
                 nuke_icon2.visible = False
+
     def stop(self):
         self.ax = 0
         self.ay = 0
@@ -387,7 +391,8 @@ class Plane(Sprite):
             newbomb.visible = True
             newbomb.vx = self.ax
             newbomb.vy = 2
-            newbomb.position = (self.position)
+            newbomb.x = (self.x - 14)
+            newbomb.y = (self.y + 11)
         
     def guided_bomb_drop(self):
         newbomb = self.bomb_name_list[0]
