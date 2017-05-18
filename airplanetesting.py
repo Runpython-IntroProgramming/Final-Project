@@ -143,6 +143,7 @@ class Bomb(Sprite):
         self.scale = 0.08
         self.visible = False
         Game.listenKeyEvent("keydown", "h", self.Mid_Air)
+        
     def explode(self):
         self.center = (0.5, 0.5)
         self.visible = False
@@ -163,6 +164,11 @@ class Bomb(Sprite):
             if self.visible == True:
                 self.explode()
                 self.stop()
+        explosionCollision = self.collidingWithSprites(NuclearExplosion)
+        if len(explosionCollision) > 0:
+            self.visible = False
+            self.stop()
+            self.explode()
         
     def Mid_Air(self, event):
         if self.visible == True:
