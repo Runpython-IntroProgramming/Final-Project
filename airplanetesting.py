@@ -5,6 +5,7 @@ make the turning animation for Autopilot even more realistic
 make a boost
 make it more challenging
 make a reusable explosion???
+bomb going out of boundries doesn't explode
 
 
 0 to -3.05
@@ -165,7 +166,7 @@ class Bomb(Sprite):
         if self.visible == True:
             self.explode()
     
-       
+
 class Nuke(Sprite):
     
     nuke = ImageAsset("images/nuclearwarhead.png")
