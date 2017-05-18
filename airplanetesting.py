@@ -178,7 +178,7 @@ class GuidedBomb(Sprite):
     nuke = ImageAsset("images/nuke.png")
     
     def __init__(self, position):
-        super().__init__(Bomb.nuke, position)
+        super().__init__(GuidedBomb.nuke, position)
         self.vx = 1.5
         self.vy = 1
         self.center = (0.5, 0.5)
@@ -563,6 +563,8 @@ class Game(App):
         
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
+            nuke.step()
+        for nuke in self.getSpritesbyClass(GuidedBomb):
             nuke.step()
         for nuke in self.getSpritesbyClass(Nuke):
             nuke.step()
