@@ -296,9 +296,7 @@ class Plane(Sprite):
             self.visible = False
             self.explode()
             self.stop()
-        bombCollision = self.collidingWithSprites(Bomb)
-        if len(bombCollision) > 0:
-            self.visible = False
+        
         if (self.detroit is True) and self.boston < 140:
             self.boston += 1
             if (0 < self.rotation < 3.14):
@@ -391,8 +389,8 @@ class Plane(Sprite):
             newbomb.visible = True
             newbomb.vx = self.ax
             newbomb.vy = 2
-            newbomb.x = (self.x - 40)
-            newbomb.y = (self.y + 40)
+            newbomb.x = (self.x - 60)
+            newbomb.y = (self.y + 25)
         
     def guided_bomb_drop(self):
         newbomb = self.bomb_name_list[0]
