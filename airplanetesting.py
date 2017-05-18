@@ -296,7 +296,11 @@ class Plane(Sprite):
             self.visible = False
             self.explode()
             self.stop()
-        
+        bombCollision = self.collidingWithSprites(Bomb)
+        if len(bombCollision) > 0:
+            self.visible = False
+            self.explode()
+            self.stop()
         if (self.detroit is True) and self.boston < 140:
             self.boston += 1
             if (0 < self.rotation < 3.14):
