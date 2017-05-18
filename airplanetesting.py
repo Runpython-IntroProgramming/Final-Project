@@ -6,6 +6,8 @@ make a boost
 make it more challenging
 make a reusable explosion???
 bomb going out of boundries doesn't explode
+make nuke explode other bombs
+make plane explode when it hits nuke
 
 
 0 to -3.05
