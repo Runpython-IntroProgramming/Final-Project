@@ -179,8 +179,8 @@ class GuidedBomb(Sprite):
     
     def __init__(self, position):
         super().__init__(Bomb.nuke, position)
-        self.vx = 0
-        self.vy = 0
+        self.vx = 1.5
+        self.vy = 1
         self.center = (0.5, 0.5)
         self.scale = 0.08
         self.visible = False
@@ -304,6 +304,7 @@ class Plane(Sprite):
         self.nuke_icons = nuke_icon_list
         self.bomb_name_list = bomb_name_list
         self.nuke_name_list = nuke_name_list
+        self.guided_bomb_list = guided_bomb_list
     
     def step(self):
         if (self.lift_off > 1):
@@ -455,14 +456,13 @@ class Plane(Sprite):
             newbomb.y = (self.y + 21)
         
     def guided_bomb_drop(self):
-        newbomb = self.bomb_name_list[0]
+        newbomb = self.guided_bomb_list[0]
         if newbomb.visible == False:
             newbomb.visible = True
             newbomb.x = self.bombx
             newbomb.y = self.bomby
-            newbomb.x += self.vx
-            newbomb.y += 2
-            self.bombx += self.vx
+            
+            
 
     def nuke_drop(self):
         newnuke = self.nuke_name_list[0]
@@ -546,7 +546,7 @@ class Game(App):
         nuke_name_list = (nuke_1, nuke_2)
         bomb_1 = Bomb((0,0))
         bomb_2 = Bomb((0,0))
-        guidedBomb = Bomb((0,0))
+        guidedBomb = GuidedBomb((0,0))
         guided_bomb_list = (guidedBomb)
         bomb_name_list = (bomb_1, bomb_2)
         nuke_icon1 = nukeCounter((180,45))
