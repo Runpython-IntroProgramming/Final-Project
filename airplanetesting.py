@@ -5,8 +5,7 @@ make the turning animation for Autopilot even more realistic
 make a boost
 make it more challenging
 make a reusable explosion???
-bomb going out of boundries doesn't explode
-make nuke explode other bombs
+bomb going out of boundries doesn't explode?
 make plane explode when it hits nuke
 
 
