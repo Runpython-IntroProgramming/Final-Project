@@ -107,7 +107,7 @@ class Explosion(Sprite):
     def __init__(self, position):
         super().__init__(Explosion.asset, position)
         self.image = 0
-        self.center = (0.8, 0.56)
+        self.center = (0.5, 0.56)
         
     def step(self):
         self.setImage(self.image//2)  # slow it down
