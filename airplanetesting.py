@@ -261,7 +261,7 @@ class Nuke(Sprite):
 class Plane(Sprite):
     airplane = ImageAsset("images/fighter.png")
     
-    def __init__(self, position, bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list):
+    def __init__(self, position, bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list, guided_bomb_list):
         super().__init__(Plane.airplane, position)
         self.vx = 0
         self.vy = 0
@@ -546,6 +546,8 @@ class Game(App):
         nuke_name_list = (nuke_1, nuke_2)
         bomb_1 = Bomb((0,0))
         bomb_2 = Bomb((0,0))
+        guidedBomb = Bomb((0,0))
+        guided_bomb_list = (guidedBomb)
         bomb_name_list = (bomb_1, bomb_2)
         nuke_icon1 = nukeCounter((180,45))
         nuke_icon2 = nukeCounter((205,45))
@@ -557,7 +559,7 @@ class Game(App):
         bomb_icon5 = bombCounter((125,40))
         bomb_icon6 = bombCounter((150,40))
         bomb_icon_list = (bomb_icon1, bomb_icon2, bomb_icon3, bomb_icon4, bomb_icon5, bomb_icon6)
-        Plane((0,650), bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list)
+        Plane((0,650), bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list, guided_bomb_list)
         
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
