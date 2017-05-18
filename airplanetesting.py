@@ -177,7 +177,7 @@ class Nuke(Sprite):
         self.center = (1.2, 0.04)
         self.scale = 0.05
         self.visible = False
-        Game.listenKeyEvent("keydown", "h", self.Mid_Air)
+        Game.listenKeyEvent("keydown", "j", self.Mid_Air)
         
     def explode(self):
         self.visible = False
