@@ -173,6 +173,52 @@ class Bomb(Sprite):
         if self.visible == True:
             self.explode()
     
+class GuidedBomb(Sprite):
+    
+    nuke = ImageAsset("images/nuke.png")
+    
+    def __init__(self, position):
+        super().__init__(Bomb.nuke, position)
+        self.vx = 0
+        self.vy = 0
+        self.center = (0.5, 0.5)
+        self.scale = 0.08
+        self.visible = False
+        Game.listenKeyEvent("keydown", "h", self.Mid_Air)
+        
+    def explode(self):
+        self.center = (0.5, 0.5)
+        self.visible = False
+        Explosion(self.position)
+        
+    def stop(self):
+        self.ax = 0
+        self.ay = 0
+        self.vx = 0
+        self.vy = 0
+        self.vr = 0
+        
+    def step(self):
+        self.x += self.vx
+        self.y += self.vy
+        if (self.y > SCREEN_HEIGHT):
+            self.y = SCREEN_HEIGHT
+            if self.visible == True:
+                self.explode()
+                self.stop()
+        explosionCollision = self.collidingWithSprites(NuclearExplosion)
+        if len(explosionCollision) > 0:
+            self.visible = False
+            self.stop()
+            self.explode()
+        
+    def Mid_Air(self, event):
+        if self.visible == True:
+            self.explode()
+    
+
+
+
 
 class Nuke(Sprite):
     
