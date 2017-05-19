@@ -322,6 +322,8 @@ class Plane(Sprite):
     def step(self):
         newbomb = self.bomb_name_list[0]
         self.mynamejeff = newbomb.visible
+        newnuke = self.nuke_name_list[0]
+        self.visibility_of_nuke = newnuke.visible
         if (self.lift_off > 1):
             self.rotation += self.vr
             if (self.vr < -0.1):
@@ -534,11 +536,12 @@ class Plane(Sprite):
     def No_Brakes(self, event):
         self.nobrakes = True
     def Drop_Nuke(self, event):
-        if self.visible == True: 
-            if (self.rotation > -0.2) and (self.rotation < 0.2):
-                self.nukes += 1
-                if self.nukes <= 2:
-                    self.nuke_drop()
+        if self.visibility_of_nuke == False:
+            if self.visible == True: 
+                if (self.rotation > -0.2) and (self.rotation < 0.2):
+                    self.nukes += 1
+                    if self.nukes <= 2:
+                        self.nuke_drop()
     def mouseClick(self, event):
         self.bombx = event.x
         self.bomby = event.y
