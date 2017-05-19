@@ -164,10 +164,11 @@ class Bomb(Sprite):
                 self.explode()
                 self.stop()
         explosionCollision = self.collidingWithSprites(NuclearExplosion)
-        if len(explosionCollision) > 0:
-            self.visible = False
-            self.stop()
-            self.explode()
+        if self.visible == True:
+            if len(explosionCollision) > 0:
+                self.visible = False
+                self.stop()
+                self.explode()
         
     def Mid_Air(self, event):
         if self.visible == True:
