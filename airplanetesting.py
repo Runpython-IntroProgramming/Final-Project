@@ -168,6 +168,9 @@ class Bomb(Sprite):
                 self.visible = False
                 self.stop()
                 self.explode()
+        if (self.x > SCREEN_WIDTH):
+            self.x = 0
+        
         
     def Mid_Air(self, event):
         self.variablememes += 1
