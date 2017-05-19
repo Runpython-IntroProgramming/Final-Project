@@ -298,6 +298,7 @@ class Plane(Sprite):
         self.visibility_of_nuke = False
         self.humane = False
         self.variablememes = 0
+        self.xy_multiplier = 3.5
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
@@ -335,8 +336,8 @@ class Plane(Sprite):
         angle=AOA(self.rotation)
         if (self.lift_off > 1):
             if self.nobrakes is True:
-                self.ax = (7 * angle.anglex())
-                self.ay = (7 * angle.angley())
+                self.ax = (self.xy_multiplier * angle.anglex())
+                self.ay = (self.xy_multiplier * angle.angley())
             if (self.y < 640):
                 self.ay += 0.03
             self.x += self.ax
