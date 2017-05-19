@@ -1,4 +1,4 @@
-# Title of Your Project Here
+# Snake Game
 
 
 
@@ -12,7 +12,9 @@ unknown to the user. The functional specification should include sections with t
 
 Your specification **should include** the following types of information:
 
-* A title. Replace the title at the beginning of this document.
+My program is a game which moves around a little snake, which when hits certain dots on the screen grows in length. The snake will die if it hits itself or if it hits the walls ot the game. 
+My game can be found on github and run through runpython.com
+The first screen that the user will see is a screen with a large black rectangle in the top left. This is the playing space.
 * Summary or introduction. In general, in a few lines or less, what is your program about or what is it about?
 * How does the user access your program? Is it shared via http://runpython.com? Is a web site? Embedded in 
   a single board computer? 
