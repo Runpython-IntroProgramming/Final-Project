@@ -190,9 +190,11 @@ class GuidedBomb(Sprite):
         self.center = (0.5, 0.5)
         self.scale = 0.08
         self.visible = False
+        self.rotation = 4.71
         Game.listenKeyEvent("keydown", "h", self.Mid_Air)
         Game.listenKeyEvent("keydown", "k", self.Left)
         Game.listenKeyEvent("keydown", "l", self.Right)
+        
     def explode(self):
         self.center = (0.5, 0.5)
         self.visible = False
@@ -288,8 +290,6 @@ class Plane(Sprite):
         self.nobrakes = True
         self.bombs = 0
         self.nukes = 0
-        self.bombx = 0
-        self.bomby = 0
         self.create = 0
         self.detroit = False
         self.boston = 0
@@ -320,6 +320,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "r", self.Reload)
         Game.listenKeyEvent("keydown", "z", self.Boost)
         Game.listenKeyEvent("keyup", "z", self.StopBoost)
+        Game.listenKeyEvent("keydown", "m", self.Drop_GuidedBomb)
         self.bomb_icons = bomb_icon_list
         self.nuke_icons = nuke_icon_list
         self.bomb_name_list = bomb_name_list
@@ -484,8 +485,7 @@ class Plane(Sprite):
         newbomb = self.guided_bomb_list[0]
         if newbomb.visible == False:
             newbomb.visible = True
-            newbomb.x = self.bombx
-            newbomb.y = self.bomby
+            newbomb.position = (self.position)
 
     def nuke_drop(self):
         newnuke = self.nuke_name_list[0]
@@ -536,6 +536,10 @@ class Plane(Sprite):
                     if self.bombs <= 8:
                         self.bomb_drop()
                         self.variablememes = 0
+    def Drop_GuidedBomb(self, event):
+        if self.visible == True:
+            if (self.rotation > -0.2) and (self.rotation < 0.2):
+                self.guided_bomb_drop()
     def Air_Brakes(self, event):
         if self.rotation == 0:
             self.slow()
