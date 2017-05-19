@@ -1,5 +1,4 @@
-from ggame import App, RectangleAsset 
-from ggame import LineStyle, Color, Sprite
+from ggame import App, RectangleAsset, LineStyle, Color, Sprite
 from random import randint
 
 SCREEN_WIDTH = 800
