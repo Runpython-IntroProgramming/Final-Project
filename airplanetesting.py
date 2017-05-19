@@ -234,7 +234,8 @@ class Nuke(Sprite):
         self.center = (1.2, 0.04)
         self.scale = 0.05
         self.visible = False
-        Game.listenKeyEvent("keydown", "j", self.Mid_Air)
+        self.variablememes = 0
+        Game.listenKeyEvent("keydown", "n", self.Mid_Air)
         
     def explode(self):
         self.visible = False
@@ -257,8 +258,11 @@ class Nuke(Sprite):
                 self.stop()
     
     def Mid_Air(self, event):
-        if self.visible == True:
-            self.explode()
+        self.variablememes += 1
+        if self.variablememes == 2:
+            if self.visible == True:
+                self.explode()
+                self.variablememes = 0
         
     
 class Plane(Sprite):
