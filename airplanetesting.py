@@ -282,6 +282,7 @@ class Plane(Sprite):
         self.fxcenter = self.fycenter = 0.5
         self.collide = 0
         self.collisionMeme = False
+        self.mynamejeff = False
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
@@ -454,6 +455,7 @@ class Plane(Sprite):
             newbomb.vy = 2
             newbomb.x = (self.x - 50)
             newbomb.y = (self.y + 21)
+            self.mynamejeff = newbomb.visible
         
     def guided_bomb_drop(self):
         newbomb = self.guided_bomb_list[0]
@@ -507,7 +509,8 @@ class Plane(Sprite):
         self.collisionMeme = True
         if self.visible == True:
             if (self.rotation > -0.2) and (self.rotation < 0.2):
-                self.bombs += 1
+                if self.mynamejeff == False:
+                    self.bombs += 1
                 if self.bombs <= 8:
                     self.bomb_drop()
     def Air_Brakes(self, event):
