@@ -261,6 +261,8 @@ class Nuke(Sprite):
             if self.visible == True:
                 self.explode()
                 self.stop()
+        if (self.x > SCREEN_WIDTH):
+            self.x = 0
     
     def Mid_Air(self, event):
         self.variablememes += 1
