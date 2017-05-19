@@ -123,7 +123,6 @@ class NuclearExplosion(Sprite):
         self.center = (0.5, 1)
         self.image = 0
         self.scale = 0.25
-        
     def step(self):
         # slow it down
         self.image = self.image + 1
@@ -141,8 +140,8 @@ class Bomb(Sprite):
         self.center = (0.5, 0.5)
         self.scale = 0.08
         self.visible = False
-        Game.listenKeyEvent("keydown", "h", self.Mid_Air)
-        
+        Game.listenKeyEvent("keydown", "b", self.Mid_Air)
+        self.variablememes = 0
     def explode(self):
         self.center = (0.5, 0.5)
         self.visible = False
@@ -171,8 +170,11 @@ class Bomb(Sprite):
                 self.explode()
         
     def Mid_Air(self, event):
-        if self.visible == True:
-            self.explode()
+        self.variablememes += 1
+        if self.variablememes == 2:
+            if self.visible == True:
+                self.explode()
+                self.variablememes = 0
     
 class GuidedBomb(Sprite):
     
@@ -513,10 +515,9 @@ class Plane(Sprite):
         self.collisionMeme = True
         if self.visible == True:
             if (self.rotation > -0.2) and (self.rotation < 0.2):
-                if self.mynamejeff == False:
-                    self.bombs += 1
-                    if self.bombs <= 8:
-                        self.bomb_drop()
+                self.bombs += 1
+                if self.bombs <= 8:
+                    self.bomb_drop()
     def Air_Brakes(self, event):
         if self.rotation == 0:
             self.slow()
@@ -526,12 +527,9 @@ class Plane(Sprite):
     def Drop_Nuke(self, event):
         if self.visible == True: 
             if (self.rotation > -0.2) and (self.rotation < 0.2):
-                if self.visibility_of_nuke == False:
-                    self.nukes += 1
-                    if self.nukes <= 2:
-                        self.nuke_drop()
-                        
-                            self.visibility_of_nuke = False
+                self.nukes += 1
+                if self.nukes <= 2:
+                    self.nuke_drop()
     def mouseClick(self, event):
         self.bombx = event.x
         self.bomby = event.y
