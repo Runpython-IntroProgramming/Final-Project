@@ -294,6 +294,7 @@ class Plane(Sprite):
         self.mynamejeff = False
         self.visibility_of_nuke = False
         self.humane = False
+        self.variablememes = 0
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
@@ -319,6 +320,8 @@ class Plane(Sprite):
         self.guided_bomb_list = guided_bomb_list
     
     def step(self):
+        newbomb = self.bomb_name_list[0]
+        self.mynamejeff = newbomb.visible
         if (self.lift_off > 1):
             self.rotation += self.vr
             if (self.vr < -0.1):
@@ -517,6 +520,7 @@ class Plane(Sprite):
         self.boston = 0
     def Drop_bomb(self, event):
         self.collisionMeme = True
+        if self.mynamejeff == False:
             if self.visible == True:
                 if (self.rotation > -0.2) and (self.rotation < 0.2):
                     self.bombs += 1
