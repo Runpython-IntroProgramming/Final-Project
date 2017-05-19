@@ -335,8 +335,8 @@ class Plane(Sprite):
         angle=AOA(self.rotation)
         if (self.lift_off > 1):
             if self.nobrakes is True:
-                self.ax = (37 * angle.anglex())
-                self.ay = (37 * angle.angley())
+                self.ax = (7 * angle.anglex())
+                self.ay = (7 * angle.angley())
             if (self.y < 640):
                 self.ay += 0.03
             self.x += self.ax
