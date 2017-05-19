@@ -317,6 +317,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keyup", "up arrow", self.Stop)
         Game.listenKeyEvent("keydown", "r", self.Reload)
         Game.listenKeyEvent("keydown", "z", self.Boost)
+        Game.listenKeyEvent("keyup", "z", self.StopBoost)
         self.bomb_icons = bomb_icon_list
         self.nuke_icons = nuke_icon_list
         self.bomb_name_list = bomb_name_list
@@ -551,6 +552,8 @@ class Plane(Sprite):
         self.nukes = 0
     def Boost(self, event):
         self.xy_multiplier = 20
+    def StopBoost(self, event):
+        self.xy_multiplier = 3.5
 
 class Game(App):
     def __init__(self, width, height):
