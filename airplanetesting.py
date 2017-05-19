@@ -146,6 +146,7 @@ class Bomb(Sprite):
         self.center = (0.5, 0.5)
         self.visible = False
         Explosion(self.position)
+        self.variablememes = 0
         
     def stop(self):
         self.ax = 0
@@ -240,6 +241,7 @@ class Nuke(Sprite):
     def explode(self):
         self.visible = False
         NuclearExplosion(self.position)
+        self.variablememes = 0
         
     def stop(self):
         self.ax = 0
@@ -472,8 +474,6 @@ class Plane(Sprite):
             newbomb.visible = True
             newbomb.x = self.bombx
             newbomb.y = self.bomby
-            
-            
 
     def nuke_drop(self):
         newnuke = self.nuke_name_list[0]
@@ -517,11 +517,14 @@ class Plane(Sprite):
         self.boston = 0
     def Drop_bomb(self, event):
         self.collisionMeme = True
-        if self.visible == True:
-            if (self.rotation > -0.2) and (self.rotation < 0.2):
-                self.bombs += 1
-                if self.bombs <= 8:
-                    self.bomb_drop()
+        self.variable += 1
+        if self.variablememes == 2:
+            if self.visible == True:
+                if (self.rotation > -0.2) and (self.rotation < 0.2):
+                    self.bombs += 1
+                    if self.bombs <= 8:
+                        self.bomb_drop()
+                        self.variablememes = 0
     def Air_Brakes(self, event):
         if self.rotation == 0:
             self.slow()
@@ -541,6 +544,7 @@ class Plane(Sprite):
     def Reload(self, event):
         self.bombs = 0
         self.nukes = 0
+
 
 class Game(App):
     def __init__(self, width, height):
