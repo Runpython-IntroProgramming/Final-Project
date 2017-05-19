@@ -298,7 +298,7 @@ class Plane(Sprite):
         self.visibility_of_nuke = False
         self.humane = False
         self.variablememes = 0
-        self.xy_multiplier = 3.5
+        self.xy_multiplier = 3
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
@@ -551,9 +551,9 @@ class Plane(Sprite):
         self.bombs = 0
         self.nukes = 0
     def Boost(self, event):
-        self.xy_multiplier = 20
+        self.xy_multiplier = 15
     def StopBoost(self, event):
-        self.xy_multiplier = 3.5
+        self.xy_multiplier = 3
 
 class Game(App):
     def __init__(self, width, height):
