@@ -188,7 +188,8 @@ class GuidedBomb(Sprite):
         self.scale = 0.08
         self.visible = False
         Game.listenKeyEvent("keydown", "h", self.Mid_Air)
-        
+        Game.listenKeyEvent("keydown", "k", self.Left)
+        Game.listenKeyEvent("keydown", "l", self.Right)
     def explode(self):
         self.center = (0.5, 0.5)
         self.visible = False
@@ -306,7 +307,6 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "f", self.Air_Brakes)
         Game.listenKeyEvent("keyup", "f", self.No_Brakes)
         Game.listenKeyEvent("keydown", "n", self.Drop_Nuke)
-        Game.listenMouseEvent("click", self.mouseClick)
         Game.listenKeyEvent("keydown", "up arrow", self.Up_fine)
         Game.listenKeyEvent("keydown", "down arrow", self.Down_fine)
         Game.listenKeyEvent("keyup", "down arrow", self.Stop)
@@ -332,8 +332,8 @@ class Plane(Sprite):
         angle=AOA(self.rotation)
         if (self.lift_off > 1):
             if self.nobrakes is True:
-                self.ax = (2 * angle.anglex())
-                self.ay = (2 * angle.angley())
+                self.ax = (37 * angle.anglex())
+                self.ay = (37 * angle.angley())
             if (self.y < 640):
                 self.ay += 0.03
             self.x += self.ax
@@ -541,10 +541,6 @@ class Plane(Sprite):
                     self.nukes += 1
                     if self.nukes <= 2:
                         self.nuke_drop()
-    def mouseClick(self, event):
-        self.bombx = event.x
-        self.bomby = event.y
-        self.guided_bomb_drop()
     def Reload(self, event):
         self.bombs = 0
         self.nukes = 0
