@@ -517,8 +517,6 @@ class Plane(Sprite):
         self.boston = 0
     def Drop_bomb(self, event):
         self.collisionMeme = True
-        self.variable += 1
-        if self.variablememes == 2:
             if self.visible == True:
                 if (self.rotation > -0.2) and (self.rotation < 0.2):
                     self.bombs += 1
