@@ -219,10 +219,10 @@ class GuidedBomb(Sprite):
     def Mid_Air(self, event):
         if self.visible == True:
             self.explode()
-    
-
-
-
+    def Left(self, event):
+        self.vx -= (self.vx + 0.4)
+    def Right(self, event):
+        self.vx += (0.7)
 
 class Nuke(Sprite):
     
