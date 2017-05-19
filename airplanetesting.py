@@ -284,6 +284,8 @@ class Plane(Sprite):
         self.collide = 0
         self.collisionMeme = False
         self.mynamejeff = False
+        self.visibility_of_nuke = False
+        self.humane = False
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
@@ -474,7 +476,8 @@ class Plane(Sprite):
             newnuke.vx = self.ax
             newnuke.vy = 2
             newnuke.position = (self.position)
-        
+            self.visibility_of_nuke = newnuke.visible
+            
     def RunwayForward(self, event):
         self.vx += 0.05
         self.lift_off +=0.05
@@ -512,8 +515,8 @@ class Plane(Sprite):
             if (self.rotation > -0.2) and (self.rotation < 0.2):
                 if self.mynamejeff == False:
                     self.bombs += 1
-                if self.bombs <= 8:
-                    self.bomb_drop()
+                    if self.bombs <= 8:
+                        self.bomb_drop()
     def Air_Brakes(self, event):
         if self.rotation == 0:
             self.slow()
@@ -523,9 +526,12 @@ class Plane(Sprite):
     def Drop_Nuke(self, event):
         if self.visible == True: 
             if (self.rotation > -0.2) and (self.rotation < 0.2):
-                self.nukes += 1
-                if self.nukes <= 2:
-                    self.nuke_drop()
+                if self.visibility_of_nuke == False:
+                    self.nukes += 1
+                    if self.nukes <= 2:
+                        self.nuke_drop()
+                        
+                            self.visibility_of_nuke = False
     def mouseClick(self, event):
         self.bombx = event.x
         self.bomby = event.y
