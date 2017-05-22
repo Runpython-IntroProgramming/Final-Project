@@ -187,6 +187,7 @@ class GuidedBomb(Sprite):
         super().__init__(GuidedBomb.bomb, position)
         self.vx = 0
         self.vy = 0
+        self.vr = 4.71
         self.center = (0.5, 0.5)
         self.scale = 0.08
         self.visible = False
@@ -210,6 +211,7 @@ class GuidedBomb(Sprite):
     def step(self):
         self.x += self.vx
         self.y += self.vy
+        self.rotation += self.vr
         if (self.y > SCREEN_HEIGHT):
             self.y = SCREEN_HEIGHT
             if self.visible == True:
@@ -223,6 +225,10 @@ class GuidedBomb(Sprite):
                 self.explode()
         if (self.x > SCREEN_WIDTH):
             self.x = 0
+        if self.rotation > 6.382:
+            self.rotation = 6.382
+        if self.rotation < 3.14:
+            self.rotation = 3.14
         
         
     def Mid_Air(self, event):
@@ -233,11 +239,9 @@ class GuidedBomb(Sprite):
                 self.variablememes = 0
                 
     def Right(self, event):
-        self.vx = -2
-        self.rotation = 5
+        self.vr += 0.05
     def Left(self, event):
-        self.vy = 2
-        self.rotation = 4.20
+        self.vr -= 0.05
                 
 class Nuke(Sprite):
     
@@ -498,7 +502,7 @@ class Plane(Sprite):
             newguidedbomb.position = (self.position)
             #newguidedbomb.vx = self.ax
             newguidedbomb.vy = 2
-            newbomb.rotation = 
+            newguidedbomb.rotation = 4.71
 
     def nuke_drop(self):
         newnuke = self.nuke_name_list[0]
