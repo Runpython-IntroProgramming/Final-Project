@@ -209,9 +209,12 @@ class GuidedBomb(Sprite):
         self.vr = 0
         
     def step(self):
+        self.rotation += self.vr
+        angle = AOA(self.rotation)
+        self.vx = (2 * angle.anglex())
+        self.vy = (2 * angle.angley())
         self.x += self.vx
         self.y += self.vy
-        self.rotation += self.vr
         if (self.y > SCREEN_HEIGHT):
             self.y = SCREEN_HEIGHT
             if self.visible == True:
