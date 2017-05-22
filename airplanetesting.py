@@ -181,24 +181,24 @@ class Bomb(Sprite):
     
 class GuidedBomb(Sprite):
     
-    nuke = ImageAsset("images/nuke.png")
+    bomb = ImageAsset("images/nuke.png")
     
     def __init__(self, position):
-        super().__init__(GuidedBomb.nuke, position)
-        self.vx = 1.5
-        self.vy = 1
+        super().__init__(GuidedBomb.bomb, position)
+        self.vx = 0
+        self.vy = 0
         self.center = (0.5, 0.5)
         self.scale = 0.08
         self.visible = False
-        self.rotation = 4.71
-        Game.listenKeyEvent("keydown", "h", self.Mid_Air)
-        Game.listenKeyEvent("keydown", "k", self.Left)
+        Game.listenKeyEvent("keydown", "j", self.Mid_Air)
         Game.listenKeyEvent("keydown", "l", self.Right)
-        
+        Game.listenKeyEvent("keydown", "k", self.Left)
+        self.variablememes = 0
     def explode(self):
         self.center = (0.5, 0.5)
         self.visible = False
         Explosion(self.position)
+        self.variablememes = 0
         
     def stop(self):
         self.ax = 0
@@ -216,19 +216,29 @@ class GuidedBomb(Sprite):
                 self.explode()
                 self.stop()
         explosionCollision = self.collidingWithSprites(NuclearExplosion)
-        if len(explosionCollision) > 0:
-            self.visible = False
-            self.stop()
-            self.explode()
+        if self.visible == True:
+            if len(explosionCollision) > 0:
+                self.visible = False
+                self.stop()
+                self.explode()
+        if (self.x > SCREEN_WIDTH):
+            self.x = 0
+        
         
     def Mid_Air(self, event):
-        if self.visible == True:
-            self.explode()
-    def Left(self, event):
-        self.vx -= (self.vx + 0.4)
+        self.variablememes += 1
+        if self.variablememes == 2:
+            if self.visible == True:
+                self.explode()
+                self.variablememes = 0
+                
     def Right(self, event):
-        self.vx += (0.7)
-
+        self.vx = -2
+        self.rotation = 5
+    def Left(self, event):
+        self.vy = 2
+        self.rotation = 4.20
+                
 class Nuke(Sprite):
     
     nuke = ImageAsset("images/nuclearwarhead.png")
@@ -482,10 +492,10 @@ class Plane(Sprite):
             self.mynamejeff = newbomb.visible
         
     def guided_bomb_drop(self):
-        newbomb = self.guided_bomb_list[0]
-        if newbomb.visible == False:
-            newbomb.visible = True
-            newbomb.position = (self.position)
+        newguidedbomb = self.guided_bomb_list[0]
+        if newguidedbomb.visible == False:
+            newguidedbomb.visible = True
+            newguidedbomb.position = (self.position)
 
     def nuke_drop(self):
         newnuke = self.nuke_name_list[0]
@@ -577,8 +587,9 @@ class Game(App):
         nuke_name_list = (nuke_1, nuke_2)
         bomb_1 = Bomb((0,0))
         bomb_2 = Bomb((0,0))
-        guidedBomb = GuidedBomb((0,0))
-        guided_bomb_list = (guidedBomb)
+        guidedBomb_1 = GuidedBomb((0,0))
+        guidedBomb_2 = GuidedBomb((0,0))
+        guided_bomb_list = (guidedBomb_1, guidedBomb_2)
         bomb_name_list = (bomb_1, bomb_2)
         nuke_icon1 = nukeCounter((180,45))
         nuke_icon2 = nukeCounter((205,45))
