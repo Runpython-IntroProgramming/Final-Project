@@ -105,7 +105,7 @@ class Ship(Sprite):
             if self.thrustframe == 4:
                 self.thrustframe = 1
             if self.v < 5:
-                self.v *= 1.025
+                self.v += 0.05
         else:
             self.setImage(0)
     def thrustOn(self, event):
@@ -125,9 +125,10 @@ class Ship(Sprite):
         self.vr = -0.1
         
 class Ship2(Ship):
-    asset = ImageAsset("images/boat10.jpg")
+    asset = ImageAsset("images/boat10.png")
     
     def assignkeys(self):
+        self.scale=0.1
         BoatGame.listenKeyEvent("keydown", "w", self.thrustOn)
         BoatGame.listenKeyEvent("keyup", "w", self.thrustOff)
         BoatGame.listenKeyEvent("keydown", "a", self.turnleft)
