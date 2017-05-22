@@ -496,6 +496,9 @@ class Plane(Sprite):
         if newguidedbomb.visible == False:
             newguidedbomb.visible = True
             newguidedbomb.position = (self.position)
+            #newguidedbomb.vx = self.ax
+            newguidedbomb.vy = 2
+            newbomb.rotation = 
 
     def nuke_drop(self):
         newnuke = self.nuke_name_list[0]
