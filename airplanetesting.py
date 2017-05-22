@@ -243,7 +243,7 @@ class GuidedBomb(Sprite):
                 self.variablememes = 0
                 
     def Right(self, event):
-        self.vr += 1
+        self.rotation += 0.5
     def Left(self, event):
         self.vr -= 1
                 
