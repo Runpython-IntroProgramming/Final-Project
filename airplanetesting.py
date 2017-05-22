@@ -195,7 +195,7 @@ class GuidedBomb(Sprite):
         Game.listenKeyEvent("keydown", "l", self.Right)
         Game.listenKeyEvent("keydown", "k", self.Left)
         self.variablememes = 0
-        self.rotation = 4.71
+        self.rotation = 0
     def explode(self):
         self.center = (0.5, 0.5)
         self.visible = False
@@ -211,9 +211,6 @@ class GuidedBomb(Sprite):
         
     def step(self):
         self.rotation += self.vr
-        angle = AOA(self.rotation)
-        self.vx = (2 * angle.anglex())
-        self.vy = (2 * angle.angley())
         self.x += self.vx
         self.y += self.vy
         if (self.y > SCREEN_HEIGHT):
@@ -229,10 +226,6 @@ class GuidedBomb(Sprite):
                 self.explode()
         if (self.x > SCREEN_WIDTH):
             self.x = 0
-        if self.rotation > 6.382:
-            self.rotation = 6.382
-        if self.rotation < 3.14:
-            self.rotation = 3.14
         
         
     def Mid_Air(self, event):
@@ -243,9 +236,9 @@ class GuidedBomb(Sprite):
                 self.variablememes = 0
                 
     def Right(self, event):
-        self.rotation += 0.5
+        self.vx += 0.5
     def Left(self, event):
-        self.vr -= 1
+        self.vx -= 0.5
                 
 class Nuke(Sprite):
     
