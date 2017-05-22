@@ -195,6 +195,7 @@ class GuidedBomb(Sprite):
         Game.listenKeyEvent("keydown", "l", self.Right)
         Game.listenKeyEvent("keydown", "k", self.Left)
         self.variablememes = 0
+        self.rotation = 4.71
     def explode(self):
         self.center = (0.5, 0.5)
         self.visible = False
@@ -242,9 +243,9 @@ class GuidedBomb(Sprite):
                 self.variablememes = 0
                 
     def Right(self, event):
-        self.vr += 0.05
+        self.vr += 1
     def Left(self, event):
-        self.vr -= 0.05
+        self.vr -= 1
                 
 class Nuke(Sprite):
     
