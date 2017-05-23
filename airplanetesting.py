@@ -1,11 +1,8 @@
 """
 make the screen move
 make a homing missile/turret
-make the turning animation for Autopilot even more realistic
-make a boost
 make it more challenging
 make a reusable explosion???
-bomb going out of boundries doesn't explode?
 add comments
 
 0 to -3.05
@@ -34,6 +31,20 @@ class Field(Sprite):
          self.vy=0
          self.vr=0
          self.scale = 1.5
+
+class Missile(Sprite):
+    missile = ImageAsset("images/missile.png")
+    
+    def __init__(self, position):
+        super().__init__(Missile.missile, position)
+        self.fxcenter = self.fycenter = 0.5
+        self.vx = 0
+        self.vy = 0
+        self.scale = 0.0000001
+        self.visible = True
+        self.vr = 0
+        self.rotation = 1.37
+        self.fxcenter = self.fycenter = 0.5
 
 class Gun(Sprite):
     
@@ -595,6 +606,7 @@ class Game(App):
         runway = Sprite(runway_asset, (0, 635))
         Tank((900,633))
         Gun((600,613))
+        Missile((605,614))
         nuke_1 = Nuke((0,0))
         nuke_2 = Nuke((0,0))
         nuke_name_list = (nuke_1, nuke_2)
