@@ -40,7 +40,7 @@ class Missile(Sprite):
         self.fxcenter = self.fycenter = 0.5
         self.vx = 0
         self.vy = 0
-        self.scale = 0.0000001
+        self.scale = 1
         self.visible = True
         self.vr = 0
         self.rotation = 1.37
