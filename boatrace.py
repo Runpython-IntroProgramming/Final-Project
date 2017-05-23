@@ -115,13 +115,13 @@ class Ship(Sprite):
         self.thrust = 0
     
     def turnleft(self, event):
-        self.vr = 0.1
+        self.vr = 0.05
     
     def turnoff(self, event):
         self.vr = 0
         
     def turnright(self, event):
-        self.vr = -0.1
+        self.vr = -0.05
         
 class Ship2(Ship):
     asset = ImageAsset("images/boat10.png")
