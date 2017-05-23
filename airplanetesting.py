@@ -22,13 +22,6 @@ import math
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 650
 
-class Wasted(Sprite):
-    wasted = ImageAsset("image/wasted.png")
-    
-    def __init__(self, position):
-         super().__init__(Wasted.wasted, position)
-         self.fxcenter = self.fycenter = 0.5
-         self.scale = 1.5
 class Field(Sprite):
     field=ImageAsset("images/field.jpg")
 
@@ -40,14 +33,14 @@ class Field(Sprite):
          self.scale = 1.5
 
 class Missile(Sprite):
-    asset = ImageAsset("images/rocket.png")
+    asset = ImageAsset("images/nuke.png")
     
     def __init__(self, position):
         super().__init__(Missile.asset, position)
         self.fxcenter = self.fycenter = 0.5
         self.vx = 0
         self.vy = 0
-        self.scale = 0.001
+        self.scale = 0.07
         self.visible = True
         self.vr = 0
         self.rotation = 1.37
