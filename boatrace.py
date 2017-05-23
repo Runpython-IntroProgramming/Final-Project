@@ -37,8 +37,7 @@ class Ocean(Sprite):
 
 class Buoy(Sprite):
     
-    asset = ImageAsset("images/0ca8f4b47e5786473f59b66fedf0b96a_float20clipart-lobster-buoy-clip-art_300-267.png")
-    
+    asset = ImageAsset("images/float-clipart-life-buoy-md.png")
     def __init__(self, position):
         super().__init__(Buoy.asset, position)
         self.mass = 30*1000
@@ -128,7 +127,7 @@ class Ship2(Ship):
     asset = ImageAsset("images/boat10.png")
     
     def assignkeys(self):
-        self.scale=0.1
+        self.scale=0.075
         BoatGame.listenKeyEvent("keydown", "w", self.thrustOn)
         BoatGame.listenKeyEvent("keyup", "w", self.thrustOff)
         BoatGame.listenKeyEvent("keydown", "a", self.turnleft)
