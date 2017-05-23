@@ -44,8 +44,6 @@ class Missile(Sprite):
         self.visible = True
         self.vr = 0
         self.rotation = 1.37
-        self.fxcenter = self.fycenter = 0.5
-
 class Gun(Sprite):
     
     AA = ImageAsset("images/canon.png")
@@ -55,6 +53,8 @@ class Gun(Sprite):
         self.visible = True
         self.fxcenter = self.fycenter = 0.5
         self.scale = 0.035
+        
+        
 class bombCounter(Sprite):
     bomb_icon = ImageAsset("images/nuke.png")
     
@@ -606,7 +606,7 @@ class Game(App):
         runway = Sprite(runway_asset, (0, 635))
         Tank((900,633))
         Gun((600,613))
-        Missile((605,614))
+        Missile((600,335))
         nuke_1 = Nuke((0,0))
         nuke_2 = Nuke((0,0))
         nuke_name_list = (nuke_1, nuke_2)
