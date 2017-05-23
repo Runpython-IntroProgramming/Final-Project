@@ -44,6 +44,8 @@ class Missile(Sprite):
         self.visible = True
         self.vr = 0
         self.rotation = 1.37
+        
+        
 class Gun(Sprite):
     
     AA = ImageAsset("images/canon.png")
