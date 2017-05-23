@@ -594,7 +594,7 @@ class Game(App):
         runway_asset = RectangleAsset(400, 15, noline, black)
         runway = Sprite(runway_asset, (0, 635))
         Tank((900,633))
-        Gun((600,603))
+        Gun((600,613))
         nuke_1 = Nuke((0,0))
         nuke_2 = Nuke((0,0))
         nuke_name_list = (nuke_1, nuke_2)
