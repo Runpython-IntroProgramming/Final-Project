@@ -35,7 +35,14 @@ class Field(Sprite):
          self.vr=0
          self.scale = 1.5
 
-
+class Gun(Sprite):
+    
+    AA = ImageAsset("images/canon.png")
+    
+    def __init__(self, position):
+        super().__init__(Gun.AA, position)
+        self.visible = True
+        
 class bombCounter(Sprite):
     bomb_icon = ImageAsset("images/nuke.png")
     
@@ -586,6 +593,7 @@ class Game(App):
         runway_asset = RectangleAsset(590, 15, noline, black)
         runway = Sprite(runway_asset, (0, 635))
         Tank((900,642))
+        Gun((80,650))
         nuke_1 = Nuke((0,0))
         nuke_2 = Nuke((0,0))
         nuke_name_list = (nuke_1, nuke_2)
@@ -606,6 +614,7 @@ class Game(App):
         bomb_icon6 = bombCounter((150,40))
         bomb_icon_list = (bomb_icon1, bomb_icon2, bomb_icon3, bomb_icon4, bomb_icon5, bomb_icon6)
         Plane((0,650), bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list, guided_bomb_list)
+        Gun((80,645))
         
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
