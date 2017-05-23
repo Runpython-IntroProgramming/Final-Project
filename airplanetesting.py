@@ -42,7 +42,8 @@ class Gun(Sprite):
     def __init__(self, position):
         super().__init__(Gun.AA, position)
         self.visible = True
-        
+        self.fxcenter = self.fycenter = 0.5
+        self.scale = 0.05
 class bombCounter(Sprite):
     bomb_icon = ImageAsset("images/nuke.png")
     
