@@ -33,14 +33,14 @@ class Field(Sprite):
          self.scale = 1.5
 
 class Missile(Sprite):
-    missile = ImageAsset("images/missile.png")
+    missile = ImageAsset("images/rocket.png")
     
     def __init__(self, position):
         super().__init__(Missile.missile, position)
         self.fxcenter = self.fycenter = 0.5
         self.vx = 0
         self.vy = 0
-        self.scale = 1
+        self.scale = 0.001
         self.visible = True
         self.vr = 0
         self.rotation = 1.37
