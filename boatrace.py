@@ -38,13 +38,23 @@ class Ocean(Sprite):
 class Buoy(Sprite):
     
     asset = ImageAsset("images/float-clipart-life-buoy-md.png")
-    def __init__(self, position):
+    
+    ap = 0
+    
+    def __init__(self, position, rotation):
         super().__init__(Buoy.asset, position)
+        self.rotation = rotation
         self.mass = 30*1000
         self.scale=0.075
         self.fxcenter = 0.5
         self.fycenter = 0.5
         self.circularCollisionModel()
+    
+    def step(self):
+        ki=self.collidingWithSprites(Ship)
+        if len(ki) > 0:
+            ap=1
+
 
 class Ship(Sprite):
     asset = ImageAsset("images/Rivamare-Birds-eye-view-drawing.png")
@@ -75,7 +85,6 @@ class Ship(Sprite):
         vy = -sin(self.rotation) * self.v
         self.x += vx
         self.y += vy
-        ki=self.collidingWithSprites(Buoy)
         self.rotation += self.vr
         if self.x > myapp.width:
             self.x = 0
@@ -85,15 +94,6 @@ class Ship(Sprite):
             self.y = 0
         if self.y < 0:
             self.y = myapp.height
-        if len(ki) > 0:
-            BigExplosion((self.x,self.y))
-            self.visible=False
-            self.x = 300
-            self.y = 200
-            self.v=0
-            self.rotation=0
-            self.thrust=0
-            self.visible=True
         if self.thrust == 0 and self.v >= 0.1:
             self.v -= 0.05
         if self.thrust == 1 and self.v == 0:
