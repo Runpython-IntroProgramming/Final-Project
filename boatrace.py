@@ -135,6 +135,12 @@ class Ship2(Ship):
         BoatGame.listenKeyEvent("keydown", "d", self.turnright)
         BoatGame.listenKeyEvent("keyup", "d", self.turnoff)
 
+class tally1(Sprite):
+    assest = ImageAsset("images/Tally1")
+    def __init__(self, position):
+        super().__init__(self.asset, position)
+    
+
 
 class BoatGame(App):
     def __init__(self, width, height):
