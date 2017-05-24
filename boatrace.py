@@ -136,36 +136,37 @@ class Ship2(Ship):
         BoatGame.listenKeyEvent("keyup", "d", self.turnoff)
 
 class tally1(Sprite):
-    assest = ImageAsset("images/Tally1")
+    asset = ImageAsset("images/Tally1.png")
     def __init__(self, position):
         super().__init__(self.asset, position)
         
 class tally2(Sprite):
-    assest = ImageAsset("images/Tally2")
+    asset = ImageAsset("images/Tally2.png")
     def __init__(self, position):
         super().__init__(self.asset, position)
 
 class tally3(Sprite):
-    assest = ImageAsset("images/Tally3")
+    asset = ImageAsset("images/Tally3.png")
     def __init__(self, position):
         super().__init__(self.asset, position)
 
 class tally4(Sprite):
-    assest = ImageAsset("images/Tally4")
+    asset = ImageAsset("images/Tally4.png")
     def __init__(self, position):
         super().__init__(self.asset, position)
 
 class tally5(Sprite):
-    assest = ImageAsset("images/Tally5")
+    asset = ImageAsset("images/Tally5.png")
     def __init__(self, position):
         super().__init__(self.asset, position)
+        self.scale=90
 
 
 class BoatGame(App):
     def __init__(self, width, height):
         super().__init__()
         ocean = Ocean((0,0))
-        tally1 = ((200,200))
+        tally5 = ((200,200))
         ocean.scale = self.width/ocean.width
         self.ss = Ship((300,200))
         self.sv= Ship2((600,200))
