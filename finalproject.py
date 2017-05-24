@@ -43,7 +43,8 @@ class dk(App):
         if level == 1:
             lvl1s = [block(x) for x in lvl1]
         if level == 2:
-            
+            for x in lvl1s:
+                x.destory()
             lvl2s = [block(x) for x in lvl2]
 
 
