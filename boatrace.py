@@ -140,24 +140,32 @@ class tally1(Sprite):
     
     def __init__(self, position):
         super().__init__(self.asset, position)
+        self.scale=0.075
+        self.fxcenter = self.fycenter = 0.5
         
 class tally2(Sprite):
     asset = ImageAsset("images/Tally2.png")
     
     def __init__(self, position):
         super().__init__(self.asset, position)
+        self.scale=0.075
+        self.fxcenter = self.fycenter = 0.5
 
 class tally3(Sprite):
     asset = ImageAsset("images/Tally3.png")
     
     def __init__(self, position):
         super().__init__(self.asset, position)
+        self.scale=0.075
+        self.fxcenter = self.fycenter = 0.5
 
 class tally4(Sprite):
     asset = ImageAsset("images/Tally4.png")
     
     def __init__(self, position):
         super().__init__(self.asset, position)
+        self.scale=0.075
+        self.fxcenter = self.fycenter = 0.5
 
 class tally5(Sprite):
     asset = ImageAsset("images/Tally5.png")
@@ -165,13 +173,14 @@ class tally5(Sprite):
     def __init__(self, position):
         super().__init__(self.asset, position)
         self.scale=0.075
+        self.fxcenter = self.fycenter = 0.5
 
 
 class BoatGame(App):
     def __init__(self, width, height):
         super().__init__()
         ocean = Ocean((0,0))
-        tal = tally5((200,200))
+        tal = tally5((self.width-20,200))
         ocean.scale = self.width/ocean.width
         self.ss = Ship((300,200))
         self.sv= Ship2((600,200))
