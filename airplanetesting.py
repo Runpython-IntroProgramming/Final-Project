@@ -32,6 +32,13 @@ class Field(Sprite):
          self.vr=0
          self.scale = 1.5
 
+class Guided():
+    def __init__(self, missile.x, missile.y, plane.x, plane.y):
+        self.x = (plane.x - missile.x)
+        self.y = (plane.y - missile.y)
+    def angleposition(self):
+        return (1 * math.tan((self.y / self.x)))
+
 class Missile(Sprite):
     asset = ImageAsset("images/nuke.png")
     
