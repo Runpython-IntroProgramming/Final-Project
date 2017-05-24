@@ -38,7 +38,13 @@ class dk(App):
         barj.step()
         bark.step()
         barl.step()
-    
+    def lvlchange (self):
+        global level
+        if level == 1:
+            lvl1s = [block(x) for x in lvl1]
+        if level == 2:
+            
+            lvl2s = [block(x) for x in lvl2]
 
 
    
@@ -119,9 +125,9 @@ class play(Sprite):
         self.dead = 0
         self.vy=0
         self.countlives = 3
-    def step(self):
         global levelshift
-        levelshift = 0
+        levelshift = 1
+    def step(self):
         self.dead = 0
         self.onblock=0
         
@@ -201,6 +207,12 @@ class play(Sprite):
             self.y=660
             self.ti=2
         
+        global levelshift
+        if levelshift == 1:
+            myapp.lvlchange()
+            global levelshift
+            levelshift = 0
+        
         
         
         
@@ -254,7 +266,9 @@ class capb(Sprite):
 
 
 class block():
-    def __init__(self, position, length): 
+    def __init__(self, spec): 
+        position = spec[0]
+        length = spec[1]
         self.top = top(position, length)
         self.bot = bot(position, length)
         self.cap = cap(position, length)
@@ -276,19 +290,10 @@ myapp = dk(SCREEN_WIDTH, SCREEN_HEIGHT)
 side ((-10,0))
 side ((1070, 0))
 
-lvl1 = [
-block ((0, 720), 1080),
-block ((0, 576), 600),
-block ((800, 576), 300),
-block ((0, 432), 300),
-block ((480, 432), 450),
-block ((0, 288), 100),
-block ((250, 288), 500),
-block ((900, 288), 500),
-block ((0, 144), 500),
-block ((650, 144), 600)]
 
-#topppp = toppp(0,-10)
+lvl1= [((0, 720), 1080), ((0, 576), 600), ((800, 576), 300), ((0, 432), 300), ((480, 432), 450), ((0, 288), 100),
+((250, 288), 500), ((900, 288), 500), ((0, 144), 500), ((650, 144), 600)]
+
 
 playe = play((1000, 640), 0, 0, 0)
 prizee = win((300, 120))
