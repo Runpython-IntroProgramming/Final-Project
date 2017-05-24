@@ -164,13 +164,14 @@ class tally5(Sprite):
     
     def __init__(self, position):
         super().__init__(self.asset, position)
+        self.scale=0.075
 
 
 class BoatGame(App):
     def __init__(self, width, height):
         super().__init__()
         ocean = Ocean((0,0))
-        tally5 = ((200,200))
+        tal = tally5((200,200))
         ocean.scale = self.width/ocean.width
         self.ss = Ship((300,200))
         self.sv= Ship2((600,200))
