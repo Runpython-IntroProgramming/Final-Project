@@ -180,7 +180,7 @@ class BoatGame(App):
     def __init__(self, width, height):
         super().__init__()
         ocean = Ocean((0,0))
-        tal = tally5((self.width-20,200))
+        tal = tally5((self.width-50,self.height-50))
         ocean.scale = self.width/ocean.width
         self.ss = Ship((300,200))
         self.sv= Ship2((600,200))
