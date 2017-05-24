@@ -33,9 +33,9 @@ class Field(Sprite):
          self.scale = 1.5
 
 class Guided():
-    def __init__(self, missile.x, missile.y, plane.x, plane.y):
-        self.x = (plane.x - missile.x)
-        self.y = (plane.y - missile.y)
+    def __init__(self, missilex, missiley, planex, planey):
+        self.x = (planex - missilex)
+        self.y = (planey - missiley)
     def angleposition(self):
         return (1 * math.tan((self.y / self.x)))
 
