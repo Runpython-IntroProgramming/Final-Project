@@ -139,7 +139,26 @@ class tally1(Sprite):
     assest = ImageAsset("images/Tally1")
     def __init__(self, position):
         super().__init__(self.asset, position)
-    
+        
+class tally2(Sprite):
+    assest = ImageAsset("images/Tally2")
+    def __init__(self, position):
+        super().__init__(self.asset, position)
+
+class tally3(Sprite):
+    assest = ImageAsset("images/Tally3")
+    def __init__(self, position):
+        super().__init__(self.asset, position)
+
+class tally4(Sprite):
+    assest = ImageAsset("images/Tally4")
+    def __init__(self, position):
+        super().__init__(self.asset, position)
+
+class tally5(Sprite):
+    assest = ImageAsset("images/Tally5")
+    def __init__(self, position):
+        super().__init__(self.asset, position)
 
 
 class BoatGame(App):
