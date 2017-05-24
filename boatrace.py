@@ -137,29 +137,33 @@ class Ship2(Ship):
 
 class tally1(Sprite):
     asset = ImageAsset("images/Tally1.png")
+    
     def __init__(self, position):
         super().__init__(self.asset, position)
         
 class tally2(Sprite):
     asset = ImageAsset("images/Tally2.png")
+    
     def __init__(self, position):
         super().__init__(self.asset, position)
 
 class tally3(Sprite):
     asset = ImageAsset("images/Tally3.png")
+    
     def __init__(self, position):
         super().__init__(self.asset, position)
 
 class tally4(Sprite):
     asset = ImageAsset("images/Tally4.png")
+    
     def __init__(self, position):
         super().__init__(self.asset, position)
 
 class tally5(Sprite):
     asset = ImageAsset("images/Tally5.png")
+    
     def __init__(self, position):
         super().__init__(self.asset, position)
-        self.scale=90
 
 
 class BoatGame(App):
