@@ -4,6 +4,8 @@ make enemy planes
 make it more challenging
 make a reusable explosion???
 add comments
+make the plane shoot bullets
+make the enemy plane shoot bullets
 
 0 to -3.05
 
@@ -39,11 +41,13 @@ class EnemyCopter(Sprite):
     def __init__(self, position):
         super().__init__(EnemyCopter.ecopter, position)
         self.vx = 3
-        self.scale = 0.3
+        self.scale = 0.25
         
         
     def step(self):
         self.x += self.vx
+        if self.x > 1200:
+            self.x = 0
         
     
     
