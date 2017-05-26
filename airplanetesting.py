@@ -34,12 +34,16 @@ class Field(Sprite):
         
         
 class EnemyCopter(Sprite):
-    ecopter = ImageAsset("images/helicopter.png")
+    ecopter = ImageAsset("images/fighter.png")
     
     def __init__(self, position):
         super().__init__(EnemyCopter.ecopter, position)
-        self.vx = 5
-        self.scale = 0.01
+        self.vx = 3
+        self.scale = 0.3
+        
+        
+    def step(self):
+        self.x += self.vx
         
     
     
@@ -619,6 +623,7 @@ class Game(App):
         bomb_icon_list = (bomb_icon1, bomb_icon2, bomb_icon3, bomb_icon4, bomb_icon5, bomb_icon6)
         Plane((0,650), bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list, guided_bomb_list)
         EnemyCopter((600,330))
+        
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
             nuke.step()
@@ -634,6 +639,8 @@ class Game(App):
             asset.step()
         for base_tank in self.getSpritesbyClass(Tank):
             base_tank.step()
+        for ecopter in self.getSpritesbyClass(EnemyCopter):
+            ecopter.step()
             
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
