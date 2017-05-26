@@ -43,6 +43,8 @@ class EnemyCopter(Sprite):
         self.vx = 3
         self.scale = 0.25
         self.fxcenter = self.fycenter = 0.5
+        Game.listenKeyEvent("keydown", "p", self.Restart)
+        Game.listenKeyEvent("keydown", "u", self.Restart)
         
     def explode(self):
         self.visible = False
@@ -57,6 +59,11 @@ class EnemyCopter(Sprite):
         planeCollision = self.collidingWithSprites(Plane)
         if len(planeCollision) > 0:
             self.explode()
+    def Restart(self, event):
+        self.visible = True
+        self.x = 600
+        self.y = 350
+        
             
             
             
