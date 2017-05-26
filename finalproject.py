@@ -36,3 +36,6 @@ class pongball(Sprite):
 
 
 class ponggame(Sprite):
+    
+app=ponggame(0,0)
+app.run()
