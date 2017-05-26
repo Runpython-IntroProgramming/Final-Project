@@ -63,7 +63,7 @@ class Buoy1(Buoy):
         ab=self.collidingWithSprites(Ship)
         bc=self.collidingWithSprites(Ship2)
         if len(ab) > 0:
-            self.visible=false
+            self.visible=False
         
 class Buoy2(Buoy):
     def __init__(self):
