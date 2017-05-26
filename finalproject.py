@@ -13,9 +13,26 @@ from time import time
 
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
-Class Pongblock1(Sprite):
+class Pongblock1(Sprite):
     asset=ImageAsset("",Frame(227,0,292-227,125), 4, 'vertical'))
-    
+    def __init__(self, position):
+        super().__init__(SpaceShip.asset, position)
+        self.vx = 1
+        self.vy = 1
+        ponggame.listenKeyEvent("keydown", "w", self.up)
+        ponggame.listenKeyEvent("keydown","s",self.down)
+        
 
-Class Pongblock2(Sprite):
+class Pongblock2(Sprite):
     asset=ImageAsset(""Frame(227,0,292-227,125), 4, 'vertical'))
+    def __init__(self, position):
+        super().__init__(SpaceShip.asset, position)
+        self.vx = 1
+        self.vy = 1
+        ponggame.listenKeyEvent("keydown", "w", self.up)
+        ponggame.listenKeyEvent("keydown","s",self.down)
+
+class pongball(Sprite):
+
+
+class ponggame(Sprite):
