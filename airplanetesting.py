@@ -45,6 +45,7 @@ class EnemyCopter(Sprite):
         planeCollision = self.collidingWithSprites(Plane)
         if len(planeCollision) > 0:
             self.visible = False
+        self.fxcenter = self.fycenter = 0.5
         
     def step(self):
         self.x += self.vx
