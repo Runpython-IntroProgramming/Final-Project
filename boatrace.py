@@ -8,7 +8,7 @@ Write and submit a program that implements the spacewar game:
 https://github.com/HHS-IntroProgramming/Spacewar
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
-from math import sin, cos
+from math import sin, cos, pi
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
@@ -50,11 +50,14 @@ class Buoy(Sprite):
         self.fycenter = 0.5
         self.circularCollisionModel()
     
-    def step(self):
+    """def step(self):
         ki=self.collidingWithSprites(Ship)
         if len(ki) > 0:
-            ap=1
-
+            ap=1"""
+class Buoy1(Buoy):
+    def __init__(self):
+        super().__init__((200,200), pi/2)
+        
 
 class Ship(Sprite):
     asset = ImageAsset("images/Rivamare-Birds-eye-view-drawing.png")
@@ -182,9 +185,9 @@ class BoatGame(App):
         ocean = Ocean((0,0))
         tal = tally5((self.width-50, 30))
         ocean.scale = self.width/ocean.width
-        self.ss = Ship((300,200))
-        self.sv= Ship2((600,200))
-        Buoy((self.width/2,self.height/2))
+        self.ss = Ship((100,self.height/2))
+        self.sv= Ship2((100,30+self.height/2))
+        Buoy1()
         
     def step(self):
         for ship in self.getSpritesbyClass(Ship):
