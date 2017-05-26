@@ -54,9 +54,24 @@ class Buoy(Sprite):
         ki=self.collidingWithSprites(Ship)
         if len(ki) > 0:
             ap=1"""
+            
 class Buoy1(Buoy):
     def __init__(self):
         super().__init__((myapp.width-150,myapp.height/2), pi/2)
+    
+    def step(self):
+        ab=self.collidingWithSprites(Ship)
+        bc=self.collidingWithSprites(Ship2)
+        if len(ab) > 0:
+            self.visible=false
+        
+class Buoy2(Buoy):
+    def __init__(self):
+        super().__init__((myapp.width*(3/5),myapp.height/4), pi/2)
+        
+class Buoy3(Buoy):
+    def __init__(self):
+        super().__init__((myapp.width*(1/4),myapp.height*(4/7)), (2*pi)/3)
         
 
 class Ship(Sprite):
@@ -197,8 +212,13 @@ class BoatGame(App):
         for exp in self.getSpritesbyClass(BigExplosion):
             exp.step()
             
+        b1.step()
+        
+            
 
 
 myapp = BoatGame(SCREEN_WIDTH, SCREEN_HEIGHT)
-Buoy1()
+b1 = Buoy1()
+b2 = Buoy2()
+b3 = Buoy3()
 myapp.run()
