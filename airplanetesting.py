@@ -34,7 +34,7 @@ class Field(Sprite):
          self.vr=0
          self.scale = 1.5
         
-        
+
 class EnemyCopter(Sprite):
     ecopter = ImageAsset("images/fighter.png")
     
@@ -42,16 +42,21 @@ class EnemyCopter(Sprite):
         super().__init__(EnemyCopter.ecopter, position)
         self.vx = 3
         self.scale = 0.25
-        
+        planeCollision = self.collidingWithSprites(Plane)
+        if len(planeCollision) > 0:
+            self.visible = False
         
     def step(self):
         self.x += self.vx
         if self.x > 1200:
             self.x = 0
-        
-    
-    
-    
+"""
+class Bullet(Sprite):
+    tan = Color(d2b48c, 2)
+    noline = LineStyle(0, black)
+    bullet_asset = RectangleAsset(4, 2, noline, tan)
+    bullet = Sprite(bullet
+"""
     
     
 class bombCounter(Sprite):
