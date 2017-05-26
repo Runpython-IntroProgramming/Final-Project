@@ -1,6 +1,6 @@
 """
 make the screen move
-make a homing missile/turret
+make enemy planes
 make it more challenging
 make a reusable explosion???
 add comments
@@ -32,6 +32,20 @@ class Field(Sprite):
          self.vr=0
          self.scale = 1.5
         
+        
+class EnemyCopter(Sprite):
+    ecopter = ImageAsset("images/helicopter.png")
+    
+    def __init__(self, position):
+        super().__init__(EnemyCopter.ecopter, position)
+        self.vx = 5
+        self.scale = 0.01
+        
+    
+    
+    
+    
+    
 class bombCounter(Sprite):
     bomb_icon = ImageAsset("images/nuke.png")
     
@@ -604,7 +618,7 @@ class Game(App):
         bomb_icon6 = bombCounter((150,40))
         bomb_icon_list = (bomb_icon1, bomb_icon2, bomb_icon3, bomb_icon4, bomb_icon5, bomb_icon6)
         Plane((0,650), bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list, guided_bomb_list)
-
+        EnemyCopter((600,330))
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
             nuke.step()
