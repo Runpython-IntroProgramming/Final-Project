@@ -42,15 +42,25 @@ class EnemyCopter(Sprite):
         super().__init__(EnemyCopter.ecopter, position)
         self.vx = 3
         self.scale = 0.25
-        planeCollision = self.collidingWithSprites(Plane)
-        if len(planeCollision) > 0:
-            self.visible = False
         self.fxcenter = self.fycenter = 0.5
         
+    def explode(self):
+        self.visible = False
+        Explosion(self.position)
+        self.x = 100
+        self.y = 0
+    
     def step(self):
         self.x += self.vx
         if self.x > 1200:
             self.x = 0
+        planeCollision = self.collidingWithSprites(Plane)
+        if len(planeCollision) > 0:
+            self.explode()
+            
+            
+            
+            
 """
 class Bullet(Sprite):
     tan = Color(d2b48c, 2)
