@@ -6,6 +6,7 @@ SCREEN_HEIGHT = 600
 
 blue=Color(0x87cefa, 1)
 purple=Color(0x7b68ee, 1)
+red=Color(0xff0000, 1)
 line=LineStyle(0,blue)
 black = Color(0, 1)
 bg_asset = RectangleAsset(SCREEN_WIDTH, SCREEN_HEIGHT, line, black)
@@ -17,6 +18,9 @@ snk=[(20,20)]
 lose= False
 go= False
 dir=0
+b=False
+blk=[]
+bk=[]
 
 class tail(Sprite):
     asset=RectangleAsset(20,20,line, purple)
@@ -27,6 +31,11 @@ class dots(Sprite):
     asset=RectangleAsset(20,20,line, blue)
     def __init__(self, position):
         super().__init__(dots.asset, position)
+        
+class block(Sprite):
+    asset=RectangleAsset(20,20,line, red)
+    def __init__(self, position):
+        super().__init__(block.asset, position)
 
 dot=[(20*randint(0,39), 20*randint(0,29))]
 for (h,k) in dot:
@@ -50,6 +59,8 @@ def playagain(event):
         dt=[dots((h,k))]
     snak=[tail((x,y))]
     go=False
+    b=False
+    
 
 def leftKey(event):
     global dir, go
@@ -79,9 +90,21 @@ def spaceKey(event):
     global go
     if go:
         go=False
+
+def blocker(event):
+    global b
+    b=True
+    blck=[(20*randint(0,39), 20*randint(0,29))]
+    for (x,y) in blck:
+        for (a,b) in dot:
+            for (h,k) in snk:
+                if h==x and y==k or a==x and b==y:
+                    blck=[(20*randint(0,39), 20*randint(0,29))]
+    for (h,k) in blck:
+        bk.append(block((h,k)))
         
 def step():
-    global x, y, go, dir, z, dot, snk, snak, dt, lose
+    global x, y, go, dir, z, dot, snk, snak, dt, lose,b
     if go and not lose:
         z=z+1
         if z==4:
@@ -177,6 +200,12 @@ def step():
                         snk.remove(snk[0])
                         snak[0].destroy()
                         snak.remove(snak[0])
+            if b:
+                for (h,k) in blck:
+                    if h==x and k==y:
+                        print("you lose. Press r to play again.")
+                        lose=True
+
             z=0
         
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
@@ -187,3 +216,4 @@ myapp.listenKeyEvent('keydown', 'down arrow', downKey)
 myapp.listenKeyEvent('keydown', 'right arrow', rightKey)
 myapp.listenKeyEvent('keyup', 'space', spaceKey)
 myapp.listenKeyEvent('keyup', 'r', playagain)
+myapp.listenKeyEvent('keyup', 'b', blocker)
