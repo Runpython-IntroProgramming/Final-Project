@@ -31,38 +31,6 @@ class Field(Sprite):
          self.vy=0
          self.vr=0
          self.scale = 1.5
-
-class Guided():
-    def __init__(self, missilex, missiley, planex, planey):
-        self.x = (planex - missilex)
-        self.y = (planey - missiley)
-    def angleposition(self):
-        return (1 * math.tan((self.y / self.x)))
-
-class Missile(Sprite):
-    asset = ImageAsset("images/nuke.png")
-    
-    def __init__(self, position):
-        super().__init__(Missile.asset, position)
-        self.fxcenter = self.fycenter = 0.5
-        self.vx = 0
-        self.vy = 0
-        self.scale = 0.07
-        self.visible = True
-        self.vr = 0
-        self.rotation = 1.37
-        
-        
-class Gun(Sprite):
-    
-    AA = ImageAsset("images/canon.png")
-    
-    def __init__(self, position):
-        super().__init__(Gun.AA, position)
-        self.visible = True
-        self.fxcenter = self.fycenter = 0.5
-        self.scale = 0.035
-        
         
 class bombCounter(Sprite):
     bomb_icon = ImageAsset("images/nuke.png")
@@ -613,9 +581,9 @@ class Game(App):
         Field((0,0))
         runway_asset = RectangleAsset(400, 15, noline, black)
         runway = Sprite(runway_asset, (0, 635))
-        Tank((900,633))
-        Gun((600,613))
-        Missile((600,335))
+        Tank((880,633))
+        Tank((1100,633))
+        Tank((600,633))
         nuke_1 = Nuke((0,0))
         nuke_2 = Nuke((0,0))
         nuke_name_list = (nuke_1, nuke_2)
