@@ -41,7 +41,7 @@ class EnemyCopter(Sprite):
     def __init__(self, position):
         super().__init__(EnemyCopter.ecopter, position)
         self.vx = 3
-        self.scale = 0.01
+        self.scale = 0.25
         self.fxcenter = self.fycenter = 0.5
         
     def explode(self):
@@ -415,6 +415,11 @@ class Plane(Sprite):
         bomb_explosionCollision = self.collidingWithSprites(Explosion)
         if len(bomb_explosionCollision) > 0:
             self.visible = False
+        enemyCollision = self.collidingWithSprites(EnemyCopter)
+        if len(enemyCollision) > 0:
+            self.visible = False
+            self.explode()
+            self.stop()
         tankCollision = self.collidingWithSprites(Tank)
         if len(tankCollision) > 0:
             self.visible = False
