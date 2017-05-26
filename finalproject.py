@@ -5,6 +5,7 @@ Credit:
 Assignment: Create a pong game with two movable blocks and the ball either bounces off the wall 
 or appears on the other side.
 optional: keep score
+bounde=self.collidingWithSprites(Pongblock1)
 """
 from ggame import App, Sprite, ImageAsset, Frame
 from ggame import SoundAsset, Sound, TextAsset, Color
