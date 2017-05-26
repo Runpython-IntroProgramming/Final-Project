@@ -56,7 +56,7 @@ class Buoy(Sprite):
             ap=1"""
 class Buoy1(Buoy):
     def __init__(self):
-        super().__init__((myapp.width-100,myapp.height/2), pi/2)
+        super().__init__((myapp.width-150,myapp.height/2), pi/2)
         
 
 class Ship(Sprite):
@@ -185,8 +185,8 @@ class BoatGame(App):
         ocean = Ocean((0,0))
         tal = tally5((self.width-50, 30))
         ocean.scale = self.width/ocean.width
-        self.ss = Ship((100,self.height/2))
-        self.sv= Ship2((100,30+self.height/2))
+        self.ss = Ship((100,-10+self.height/2))
+        self.sv= Ship2((100,20+self.height/2))
 
         
     def step(self):
