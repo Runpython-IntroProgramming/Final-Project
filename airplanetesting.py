@@ -41,7 +41,7 @@ class EnemyCopter(Sprite):
     def __init__(self, position):
         super().__init__(EnemyCopter.ecopter, position)
         self.vx = 3
-        self.scale = 0.25
+        self.scale = 0.01
         self.fxcenter = self.fycenter = 0.5
         
     def explode(self):
