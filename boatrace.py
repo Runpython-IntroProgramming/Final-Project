@@ -58,11 +58,14 @@ class Buoy(Sprite):
 class Buoy1(Buoy):
     def __init__(self):
         super().__init__((myapp.width-150,myapp.height/2), pi/2)
+
     
     def step(self):
+        cd=0
+        de=0
         ab=self.collidingWithSprites(Ship)
         bc=self.collidingWithSprites(Ship2)
-        if len(ab) > 0:
+        if len(ab) == len(bc) and len(bc) > 0:
             self.visible=False
         
 class Buoy2(Buoy):
