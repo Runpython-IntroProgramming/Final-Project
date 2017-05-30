@@ -56,6 +56,7 @@ class Buoy(Sprite):
         self.circularCollisionModel()
         self.boat1=False
         self.boat2=False
+        self.next.prev.occur=False
     
     def step(self):
         if self.visible:
