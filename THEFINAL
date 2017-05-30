@@ -5,10 +5,15 @@ print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰
 print ("⚫ THE FOREST : TEXT BASED ADVENTURE ⚫")
 print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
 
-print ("The plane you were just sleeping on crashes, you wake up in a dark forest, you appear to be the only one who survived, will you venture out to see if you can find some sort of civilization or wait on the plane until morning?")
-Des1= str(input( "do you venture out? [y/n]:"))
-#Venture out
+Des1 = print ("The plane you were just sleeping on crashes, you wake up in a dark forest, you appear to be the only one who survived, will you venture out to see if you can find some sort of civilization ?")
+def timer ():
+    now = time.localtime(time.time())
+    return now[60]
 
+Des1 = str(input( "do you venture out? [y/n]:"))
+#Venture out
 if Des1 in ['y', 'Y', 'Yes', 'YES', 'yes']:
-    print("You jump out of the smashed remains of the ships hull, your vision is minimal, and you hear strange animal noises in the far distance.")
-    
+    print("You jump out of the smashed remains of the ships hull, your vision is minimal, and you hear strange animal noises in the far distance.Do you keep walking? [y/n]:")
+ifDes1 in ['n','N','No','NO']:
+    print ("You stay locked in the cabin of the ship until dawn, just before you drift off to sleep 
+
