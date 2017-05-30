@@ -574,8 +574,8 @@ class Plane(Sprite):
         if self.visible == True:
             self.visible = False
             Explosion(self.position)
-            self.x = 200
-            self.y = 400
+            self.x = 0
+            self.y = 647
 
     
     def slow(self):
