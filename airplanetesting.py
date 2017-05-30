@@ -49,7 +49,7 @@ class Blimp(Sprite):
         self.vx = 0
         self.visible = False
         BigExplosion(self.position)
-        self.x = 100
+        self.x = 1000
         self.y = 0
 
     def step(self):
@@ -183,7 +183,7 @@ class BigExplosion(Sprite):
         self.scale = 2.3
         
     def step(self):
-        self.setImage(self.image//2)  # slow it down
+        self.setImage(self.image)  # slow it down
         self.image = self.image + 1
         if self.image == 20:
             self.destroy()
