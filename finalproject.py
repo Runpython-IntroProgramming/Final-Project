@@ -19,7 +19,7 @@ prize = RectangleAsset (35, 15, noline, gold)
 toppp = RectangleAsset (1080, 20, noline, dgreen)
 barrels = CircleAsset (10, noline, black)
 global level
-level = 1
+level = 2
 global levelshift
 levelshift = 0
 vy=0
@@ -41,11 +41,12 @@ class dk(App):
     def lvlchange (self):
         global level
         if level == 1:
-            lvl1s = [block(x) for x in lvl1]
+            self.lvl1s = [block(x) for x in lvl1]
         if level == 2:
-            for x in lvl1s:
-                x.destory()
+            #for p in self.lvl1s:
+                #p.destroy()
             lvl2s = [block(x) for x in lvl2]
+            
 
 
    
@@ -203,16 +204,21 @@ class play(Sprite):
             level += 1
             global levelshift
             levelshift = 1
-            be[0].dead()
+            bare.dead()
+            barl.dead()
+            bark.dead()
+            barj.dead()
+            barh.dead()
             self.x=1000
             self.y=660
             self.ti=2
-        
+            
         global levelshift
         if levelshift == 1:
             myapp.lvlchange()
             global levelshift
             levelshift = 0
+            
         
         
         
@@ -274,6 +280,12 @@ class block():
         self.bot = bot(position, length)
         self.cap = cap(position, length)
         self.cap2 = capb(position, length)
+        
+    def destroy(self):
+        self.top.destroy()
+        self.bot.destroy()
+        self.cap.destroy()
+        self.cap2.destroy()
 
 
 class side(Sprite):
@@ -295,11 +307,13 @@ side ((1070, 0))
 lvl1= [((0, 720), 1080), ((0, 576), 600), ((800, 576), 300), ((0, 432), 300), ((480, 432), 450), ((0, 288), 100),
 ((250, 288), 500), ((900, 288), 500), ((0, 144), 500), ((650, 144), 600)]
 
-lvl2=[((0, 720), 1080)]
+lvl4=[((0, 720), 1080)]
+
+lvl4=[((0, 720), 1080), ((0, 576), 900),((0, 432), 700),((0, 288), 500), ((0, 144), 300)]
 
 
 playe = play((1000, 640), 0, 0, 0)
-prizee = win((300, 120))
+prizee = win((100, 120))
 
 bare = bar ((540, -10), 1.9, 0, 0, 5)
 barh = bar ((540, -10), -1.8, 0, 0, 20)
