@@ -13,7 +13,7 @@ def timer ():
 Des1 = str(input( "do you venture out? [y/n]:"))
 #Venture out
 if Des1 in ['y', 'Y', 'Yes', 'YES', 'yes']:
-    print("You jump out of the smashed remains of the ships hull, your vision is minimal, and you hear strange animal noises in the far distance.Do you keep walking? [y/n]:")
-ifDes1 in ['n','N','No','NO']:
-    print ("You stay locked in the cabin of the ship until dawn, just before you drift off to sleep 
+    print("You jump out of the smashed remains of the planes hull, your vision is minimal, and you hear strange animal noises in the far distance.Do you keep walking? [y/n]:")
+if Des1 in ['n','N','No','NO']:
+    print ("You stay locked in the cabin of the ship until dawn, just before you drift off to sleep")
 
