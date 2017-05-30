@@ -48,7 +48,7 @@ class Blimp(Sprite):
     def explode(self):
         self.vx = 0
         self.visible = False
-        Explosion(self.position)
+        BigExplosion(self.position)
         self.x = 100
         self.y = 0
 
@@ -171,7 +171,24 @@ class AOA():
         return (1 * math.cos(self.rotation))
     def angley(self):
         return (-1 * math.sin(self.rotation))
+
+class BigExplosion(Sprite):
+    
+    asset = ImageAsset("images/explosion1.png", Frame(0,0,128,128), 10)
+
+    def __init__(self, position):
+        super().__init__(Explosion.asset, position)
+        self.image = 0
+        self.center = (0.5, 0.56)
+        self.scale = 2.3
         
+    def step(self):
+        self.setImage(self.image//2)  # slow it down
+        self.image = self.image + 1
+        if self.image == 20:
+            self.destroy()
+
+
 class Explosion(Sprite):
     
     asset = ImageAsset("images/explosion1.png", Frame(0,0,128,128), 10)
@@ -456,6 +473,11 @@ class Plane(Sprite):
         bomb_explosionCollision = self.collidingWithSprites(Explosion)
         if len(bomb_explosionCollision) > 0:
             self.visible = False
+        big_bomb_explosionCollision = self.collidingWithSprites(BigExplosion)
+        if len(big_bomb_explosionCollision) > 0:
+            self.visible = False
+            self.explode()
+            self.stop()
         enemyCollision = self.collidingWithSprites(EnemyCopter)
         if len(enemyCollision) > 0:
             self.visible = False
@@ -710,6 +732,8 @@ class Game(App):
             ecopter.step()
         for eblimp in self.getSpritesbyClass(Blimp):
             eblimp.step()
+        for asset in self.getSpritesbyClass(BigExplosion):
+            asset.step()
             
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
