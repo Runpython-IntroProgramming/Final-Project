@@ -49,24 +49,22 @@ class Buoy(Sprite):
         self.fxcenter = 0.5
         self.fycenter = 0.5
         self.circularCollisionModel()
+        self.boat1=False
+        self.boat2=False
     
-    """def step(self):
-        ki=self.collidingWithSprites(Ship)
-        if len(ki) > 0:
-            ap=1"""
+    def step(self):
+        ab=self.collidingWithSprites(Ship)
+        bc=self.collidingWithSprites(Ship2)
+        if len(ab) > 0:
+            self.boat1=True
+        if len(bc) > 0:
+            self.boat2=True
+        if self.boat1 and self.boat2:
+            self.visible=False
             
 class Buoy1(Buoy):
     def __init__(self):
         super().__init__((myapp.width-150,myapp.height/2), pi/2)
-
-    
-    def step(self):
-        cd=0
-        de=0
-        ab=self.collidingWithSprites(Ship)
-        bc=self.collidingWithSprites(Ship2)
-        if len(ab) == len(bc) and len(bc) > 0:
-            self.visible=False
         
 class Buoy2(Buoy):
     def __init__(self):
