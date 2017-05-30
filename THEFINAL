@@ -1,5 +1,7 @@
 import time
 import random
+
+#Title
 print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
 print ("⚫ THE FOREST : TEXT BASED ADVENTURE ⚫")
 print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
