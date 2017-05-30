@@ -78,6 +78,7 @@ class EnemyCopter(Sprite):
         Explosion(self.position)
         self.x = 100
         self.y = 0
+        self.vx = 0
     
     def step(self):
         self.x += self.vx
@@ -90,6 +91,7 @@ class EnemyCopter(Sprite):
         self.visible = True
         self.x = 600
         self.y = 350
+        self.vx = 3
         
             
             
