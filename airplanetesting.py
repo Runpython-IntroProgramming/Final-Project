@@ -42,18 +42,26 @@ class Blimp(Sprite):
         self.fxcenter = self.fycenter = 0.5
         self.scale = 0.15
         self.vx = -0.5
+        Game.listenKeyEvent("keydown", "p", self.Restart)
+        Game.listenKeyEvent("keydown", "u", self.Restart)
         
     def explode(self):
         self.visible = False
         Explosion(self.position)
         self.x = 100
         self.y = 0
+        self.vx = 0
     def step(self):
         self.x += self.vx
         planeCollision = self.collidingWithSprites(Plane)
         if len(planeCollision) > 0:
             self.explode()
-
+    def Restart(self, event):
+        self.visible = True
+        self.x = 300
+        self.y = 160
+        self.vx = -0.5
+        
 class EnemyCopter(Sprite):
     ecopter = ImageAsset("images/fighter.png")
     
