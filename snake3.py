@@ -19,7 +19,7 @@ lose= False
 go= False
 dir=0
 b=False
-blk=[]
+blck=[]
 bk=[]
 
 class tail(Sprite):
@@ -43,7 +43,7 @@ for (h,k) in dot:
 snak=[tail((x,y))]    
 
 def playagain(event):
-    global dot, snk, x,y,z,go,dir,dt, snak, lose
+    global dot, snk, x,y,z,go,dir,dt, snak, lose,b,blck,bk
     x=20
     y=20
     z=3
@@ -54,10 +54,14 @@ def playagain(event):
         h.destroy()
     for h in dt:
         h.destroy()
+    for h in bk:
+        h.destroy()
     dot=[(20*randint(0,39), 20*randint(0,29))]
     for (h,k) in dot:
         dt=[dots((h,k))]
     snak=[tail((x,y))]
+    blck=[]
+    bk=[]
     go=False
     b=False
     
@@ -92,16 +96,16 @@ def spaceKey(event):
         go=False
 
 def blocker(event):
-    global b
+    global b, blck, bk
     b=True
-    blck=[(20*randint(0,39), 20*randint(0,29))]
-    for (x,y) in blck:
+    blck.append((20*randint(0,39), 20*randint(0,29)))
+    for (r,t) in blck:
         for (a,b) in dot:
             for (h,k) in snk:
-                if h==x and y==k or a==x and b==y:
-                    blck=[(20*randint(0,39), 20*randint(0,29))]
-    for (h,k) in blck:
-        bk.append(block((h,k)))
+                if h==r and t==k or a==r and b==t:
+                    blck[len(blck)-1]=(20*randint(0,39), 20*randint(0,29))
+    bk.append(block(blck[len(blck)-1]))
+    go=True
         
 def step():
     global x, y, go, dir, z, dot, snk, snak, dt, lose,b
@@ -115,6 +119,12 @@ def step():
                         if x==c and y==d:
                             print("you lose. Press r to play again.")
                             lose=True
+                    if b:
+                        for (a,b) in blck:
+                            if a==x and b==y:
+                                print("you lose. Press r to play again.")
+                                lose=True
+                                z=0
                     if x==h and y==k:
                         snk.append((x,y))
                         snak.append(tail((x,y)))
@@ -138,6 +148,11 @@ def step():
                         if x==c and y==d:
                             print("you lose. Press r to play again.")
                             lose=True
+                    if b:
+                        for (a,b) in blck:
+                            if a==x and b==y:
+                                print("you lose. Press r to play again.")
+                                lose=True
                     if x==h and y==k:
                         snk.append((x,y))
                         snak.append(tail((x,y)))
@@ -161,6 +176,11 @@ def step():
                         if x==c and y==d:
                             print("you lose. Press r to play again.")
                             lose=True
+                    if b:
+                        for (a,b) in blck:
+                            if a==x and b==y:
+                                print("you lose. Press r to play again.")
+                                lose=True
                     if x==h and y==k:
                         snk.append((x,y))
                         snak.append(tail((x,y)))
@@ -184,6 +204,11 @@ def step():
                         if x==c and y==d:
                             print("you lose. Press r to play again.")
                             lose=True
+                    if b:
+                        for (a,b) in blck:
+                            if a==x and b==y:
+                                print("you lose. Press r to play again.")
+                                lose=True
                     if x==h and y==k:
                         snk.append((x,y))
                         snak.append(tail((x,y)))
@@ -200,12 +225,6 @@ def step():
                         snk.remove(snk[0])
                         snak[0].destroy()
                         snak.remove(snak[0])
-            if b:
-                for (h,k) in blck:
-                    if h==x and k==y:
-                        print("you lose. Press r to play again.")
-                        lose=True
-
             z=0
         
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
