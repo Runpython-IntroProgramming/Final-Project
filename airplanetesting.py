@@ -183,7 +183,7 @@ class BigExplosion(Sprite):
         self.scale = 2.3
         
     def step(self):
-        self.setImage(self.image)  # slow it down
+        self.setImage(self.image*4)  # slow it down
         self.image = self.image + 1
         if self.image == 20:
             self.destroy()
@@ -473,7 +473,8 @@ class Plane(Sprite):
         bomb_explosionCollision = self.collidingWithSprites(Explosion)
         if len(bomb_explosionCollision) > 0:
             self.visible = False
-        big_bomb_explosionCollision = self.collidingWithSprites(BigExplosion)
+        if self.visible == True:
+            big_bomb_explosionCollision = self.collidingWithSprites(BigExplosion)
         if len(big_bomb_explosionCollision) > 0:
             self.visible = False
             self.explode()
