@@ -1,8 +1,14 @@
 import time
 import random
 
-#Title
 print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
 print ("⚫ THE FOREST : TEXT BASED ADVENTURE ⚫")
 print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
 
+print ("The plane you were just sleeping on crashes, you wake up in a dark forest, you appear to be the only one who survived, will you venture out to see if you can find some sort of civilization or wait on the plane until morning?")
+Des1= str(input( "do you venture out? [y/n]:"))
+#Venture out
+
+if Des1 in ['y', 'Y', 'Yes', 'YES', 'yes']:
+    print("You jump out of the smashed remains of the ships hull, your vision is minimal, and you hear strange animal noises in the far distance.")
+    
