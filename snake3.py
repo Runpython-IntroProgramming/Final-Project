@@ -94,18 +94,18 @@ def spaceKey(event):
     global go
     if go:
         go=False
-
 def blocker(event):
-    global b, blck, bk
-    b=True
-    blck.append((20*randint(0,39), 20*randint(0,29)))
-    for (r,t) in blck:
-        for (a,b) in dot:
-            for (h,k) in snk:
-                if h==r and t==k or a==r and b==t:
-                    blck[len(blck)-1]=(20*randint(0,39), 20*randint(0,29))
-    bk.append(block(blck[len(blck)-1]))
-    go=True
+    global b, blck, bk,lose
+    if not lose:
+        b=True
+        blck.append((20*randint(0,39), 20*randint(0,29)))
+        for (r,t) in blck:
+            for (a,b) in dot:
+                for (h,k) in snk:
+                    if h==r and t==k or a==r and b==t:
+                        blck[len(blck)-1]=(20*randint(0,39), 20*randint(0,29))
+        bk.append(block(blck[len(blck)-1]))
+        go=True
         
 def step():
     global x, y, go, dir, z, dot, snk, snak, dt, lose,b
