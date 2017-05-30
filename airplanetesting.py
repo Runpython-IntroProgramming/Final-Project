@@ -473,8 +473,7 @@ class Plane(Sprite):
         bomb_explosionCollision = self.collidingWithSprites(Explosion)
         if len(bomb_explosionCollision) > 0:
             self.visible = False
-        if self.visible == True:
-            big_bomb_explosionCollision = self.collidingWithSprites(BigExplosion)
+        big_bomb_explosionCollision = self.collidingWithSprites(BigExplosion)
         if len(big_bomb_explosionCollision) > 0:
             self.visible = False
             self.explode()
@@ -569,12 +568,13 @@ class Plane(Sprite):
         self.vx = 0
         self.vy = 0
         self.vr = 0
+        
     
     def explode(self):
         self.visible = False
         Explosion(self.position)
         self.x = 0
-        self.y = 0
+        self.y = 649
         
     
     def slow(self):
