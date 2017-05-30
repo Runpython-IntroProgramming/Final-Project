@@ -46,11 +46,12 @@ class Blimp(Sprite):
         Game.listenKeyEvent("keydown", "u", self.Restart)
         
     def explode(self):
+        self.vx = 0
         self.visible = False
         Explosion(self.position)
         self.x = 100
         self.y = 0
-        self.vx = 0
+
     def step(self):
         self.x += self.vx
         planeCollision = self.collidingWithSprites(Plane)
@@ -214,6 +215,7 @@ class Bomb(Sprite):
         self.visible = False
         Game.listenKeyEvent("keydown", "b", self.Mid_Air)
         self.variablememes = 0
+        
     def explode(self):
         self.center = (0.5, 0.5)
         self.visible = False
