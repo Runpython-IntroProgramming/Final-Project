@@ -1,5 +1,6 @@
 import time
 import random
-print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
-print ("THE FOREST : TEXT BASED ADVENTURE")
-print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
+print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
+print ("⚫ THE FOREST : TEXT BASED ADVENTURE ⚫")
+print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
+
