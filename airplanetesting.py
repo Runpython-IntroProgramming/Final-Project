@@ -41,6 +41,18 @@ class Blimp(Sprite):
         super().__init__(Blimp.eblimp, position)
         self.fxcenter = self.fycenter = 0.5
         self.scale = 0.15
+        self.vx = -0.5
+        
+    def explode(self):
+        self.visible = False
+        Explosion(self.position)
+        self.x = 100
+        self.y = 0
+    def step(self):
+        self.x += self.vx
+        planeCollision = self.collidingWithSprites(Plane)
+        if len(planeCollision) > 0:
+            self.explode()
 
 class EnemyCopter(Sprite):
     ecopter = ImageAsset("images/fighter.png")
@@ -681,6 +693,8 @@ class Game(App):
             base_tank.step()
         for ecopter in self.getSpritesbyClass(EnemyCopter):
             ecopter.step()
+        for eblimp in self.getSpritesbyClass(Blimp):
+            eblimp.step()
             
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
