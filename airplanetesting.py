@@ -34,6 +34,13 @@ class Field(Sprite):
          self.vr=0
          self.scale = 1.5
         
+class Blimp(Sprite):
+    eblimp = ImageAsset("images/blimp.png")
+    
+    def __init__(self, position):
+        super().__init__(Blimp.eblimp, position)
+        self.fxcenter = self.fycenter = 0.5
+        self.scale = 0.15
 
 class EnemyCopter(Sprite):
     ecopter = ImageAsset("images/fighter.png")
@@ -655,6 +662,7 @@ class Game(App):
         bomb_icon_list = (bomb_icon1, bomb_icon2, bomb_icon3, bomb_icon4, bomb_icon5, bomb_icon6)
         Plane((0,650), bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list, guided_bomb_list)
         EnemyCopter((600,330))
+        Blimp((300, 160))
         
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
