@@ -41,8 +41,13 @@ class Buoy(Sprite):
     
     ap = 0
     
-    def __init__(self, position, rotation):
+    def __init__(self, position, rotation, next):
         super().__init__(Buoy.asset, position)
+        self.prev=None
+        self.visible=False
+        self.next=next
+        if self.next != None:
+            self.next.prev=self
         self.rotation = rotation
         self.mass = 30*1000
         self.scale=0.075
@@ -53,26 +58,31 @@ class Buoy(Sprite):
         self.boat2=False
     
     def step(self):
-        ab=self.collidingWithSprites(Ship)
-        bc=self.collidingWithSprites(Ship2)
-        if len(ab) > 0:
-            self.boat1=True
-        if len(bc) > 0:
-            self.boat2=True
-        if self.boat1 and self.boat2:
-            self.visible=False
+        if self.visible:
+            ab=self.collidingWithSprites(Ship)
+            bc=self.collidingWithSprites(Ship2)
+            if len(ab) > 0:
+                self.boat1=True
+            if len(bc) > 0:
+                self.boat2=True
+            if self.boat1 and self.boat2:
+                self.visible=False
+            if (len(ab) or len(bc)) and self.next != None:
+                self.next.visible=True
             
 class Buoy1(Buoy):
-    def __init__(self):
-        super().__init__((myapp.width-150,myapp.height/2), pi/2)
+    def __init__(self, next):
+        super().__init__((myapp.width-150,myapp.height/2), pi/2, next)
+        self.visible=True
         
 class Buoy2(Buoy):
-    def __init__(self):
-        super().__init__((myapp.width*(3/5),myapp.height/4), pi/2)
+    def __init__(self, next):
+        super().__init__((myapp.width*(3/5),myapp.height/4), pi/2, next)
+        
         
 class Buoy3(Buoy):
-    def __init__(self):
-        super().__init__((myapp.width*(1/4),myapp.height*(4/7)), (2*pi)/3)
+    def __init__(self, next):
+        super().__init__((myapp.width*(1/4),myapp.height*(4/7)), (2*pi)/3, next)
         
 
 class Ship(Sprite):
@@ -214,12 +224,14 @@ class BoatGame(App):
             exp.step()
             
         b1.step()
+        b2.step()
+        b3.step()
         
             
 
 
 myapp = BoatGame(SCREEN_WIDTH, SCREEN_HEIGHT)
-b1 = Buoy1()
-b2 = Buoy2()
-b3 = Buoy3()
+b3 = Buoy3(None)
+b2 = Buoy2(b3)
+b1 = Buoy1(b2)
 myapp.run()
