@@ -45,6 +45,10 @@ print("You approach the person from the front, and are shocked when you see they
 print("You approach the person from the side, they seem to notice your presence but don't turn to look at you, after a silence that seems like an eternity they say 'don't move, watch the treeline, they're everywhere in the shadows'")
 #fight scene
 #time.sleep (10)
+
+#if you survive after the fight, question to pick up a scratched old cd that was worn around the neck of one of the creatures, signaling device
+
 #if axe was picked up fight vs 1 monster
 #if axe wasnt picked up then the person is alive and helps you fight two monsters
-#random if they die while killing one of the creatures , then random if you survive alone, You make shelter and 
+#random if they die while killing one of the creatures , then random if you survive alone, You make shelter and often see the creatures around your camp, they seem to respect or fear you for killing what you think was one of their leaders, two days later, starving and paranoid, you see a plane 
+#if they survive, you both work together to build a shelter, after a few days
