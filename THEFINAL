@@ -21,7 +21,12 @@ if c1 in ['y','Y','yes','Yes']:
     print (a1p)
 else:
     print (a1n)
+#acquire axe
 #wander out
+
+print ("Outside you feel the stinging tropical rain on your face and the winds ripping through the hull of the planes carnage, you notice the sun is starting to come up and start walking to see if you can find any sign of civilization. While you walk you think you hear something following you several times but cant distinguish it from the rain and wind.")
+#wait
+c2 =str(input("[turn around] and face your fears or [keep walking?]"))
 
 
 
