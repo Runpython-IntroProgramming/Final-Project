@@ -22,6 +22,7 @@ if c1 in ['y','Y','yes','Yes']:
     
 else:
     print (a1n)
+    axe=1
 #time.sleep (30)
 #HOW DO I MAKE IT WAIT OMG NONE OF THESE FUNCTIONS WORK 
 #acquire axe
