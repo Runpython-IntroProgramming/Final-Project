@@ -36,8 +36,8 @@ print ("Outside you feel the stinging tropical rain on your face and the winds r
 #time.sleep(9)
 a2p= ("You sharply stop and turn around slowly...... nothing is behind you, but when you turn back to resume your course you see what you think is a small humanoid figure running on all fours off into the trees, you keep walking")
 a2n= ("You keep walking through the thickly wooded forest, losing your footing every other step due to the mud and wet leaves on the ground, ")
-c2 =str(input("[turn around] and face your fears or [keep walking]?"))
-if c2 in ['turn around']:
+c2 =str(input("[T]urn around and face your fears or [K]eep walking?"))
+if c2 in ['t','T']:
     print (a2p)
 else:
     print (a2n)
@@ -63,7 +63,7 @@ else:
 #time.sleep(7)
 #its ass whooping time bruh
 print ("⛬⛬⛬⛬⛬☠⛬⛬⛬⛬⛬")
-print ("⚬⚬⚬FIGHT⚬⚬⚬")
+print ("⚬⚬⚬⚬FIGHT⚬⚬⚬⚬")
 print ("⛬⛬⛬⛬⛬☠⛬⛬⛬⛬⛬")
 #time.sleep (10)
 
@@ -74,7 +74,7 @@ if axe == 1:
             xdm1 = int(random.randint(3, 10))
             zdm1 = int(random.randint(1, 5))
             #time.sleep(2)
-            if zdm1 > fdmg1:
+            if zdm1 > xdm1:
                 print ("The creature dodges your axe swing, steps to your side and swipes at your throat with its mangled sharp nails, sending you to your knees as everything goes dark")
                 complete = 0
             else:
@@ -83,9 +83,25 @@ if axe == 1:
 if axe == 0:
     print ("Both of you stand at the ready, watching the creatures as they approach")
     print ("They both charge you individually, the one with the spear takes on your new friend, while the one with the armor charges at you with the rock above his head")
+    rdm1 = int(random.randint(1, 8))
+    gdm1 = int(random.randint(1, 5))
+            #time.sleep(3)
+if gdm1 > rdm1:
+                print ("Despite your ruthless fighting, the creatures eventually overpower you, exhausted and terrified, they take their final blows with their weapons")
+                complete = 0
+elif rdm1 < 5:
+                    print ("You fight desperately for your life, taking out your opponent, while simultaneously, your partner and his assailant take killing blows at each other, you are all alone")
+                    complete = 1
+else:
+    print ("You both easily overpower your opponents, you fight swiftly with your axe, while your new ally wrenches the spear from the other and overtakes him within a matter of seconds")
+    complete = 2
 
+cd1= ("You take the cd on the necklace string from around the fallen attackers neck and place it around your own")
+cd2= ("You leave everything with the creatures remains, as a message to the others to not contest you in the future")
 
-
+if complete == [1,2]:
+    print ("do you take the CD from around the neck of the creature that charged you?")
+    
 
 #if you survive after the fight, question to pick up a scratched old cd that was worn around the neck of one of the creatures, signaling device
 #have certain variables in random function equal certain outcomes for the adventure
