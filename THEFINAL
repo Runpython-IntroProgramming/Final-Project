@@ -5,12 +5,8 @@ print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰
 print ("⚫ THE FOREST : TEXT BASED ADVENTURE ⚫")
 print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
  
-
-
-
-
 #starting scenario
- 
+
 print ("The plane you were just sleeping on crashes, you wake up in a dark forest where a hot summer storm is in full force, do you.. 1.) exit the plane immediately in hopes of finding another living passenger    or    2.) Scavenge the plane for supplies and then venture out")
 #time.sleep (30) 
 #Starting question
