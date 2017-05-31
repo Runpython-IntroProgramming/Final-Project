@@ -19,7 +19,7 @@ prize = RectangleAsset (35, 15, noline, gold)
 toppp = RectangleAsset (1080, 20, noline, dgreen)
 barrels = CircleAsset (10, noline, black)
 global level
-level = 2
+level = 3
 global levelshift
 levelshift = 0
 vy=0
@@ -43,9 +43,17 @@ class dk(App):
         if level == 1:
             self.lvl1s = [block(x) for x in lvl1]
         if level == 2:
-            #for p in self.lvl1s:
+            for p in self.lvl1s:
+                p.destroy()
+            self.lvl2s = [block(x) for x in lvl2]
+        if level == 3:
+            #for p in self.lvl2s:
                 #p.destroy()
-            lvl2s = [block(x) for x in lvl2]
+            self.lvl3s = [block(x) for x in lvl3]
+        if level == 3:
+            for p in self.lvl3s:
+                p.destroy()
+            self.lvl4s = [block(x) for x in lvl4]
             
 
 
@@ -307,7 +315,9 @@ side ((1070, 0))
 lvl1= [((0, 720), 1080), ((0, 576), 600), ((800, 576), 300), ((0, 432), 300), ((480, 432), 450), ((0, 288), 100),
 ((250, 288), 500), ((900, 288), 500), ((0, 144), 500), ((650, 144), 600)]
 
-lvl4=[((0, 720), 1080)]
+lvl2=[((0, 720), 1080), ((100, 576), 980), ((0, 432), 980), ((100, 288), 1000),((0, 144),980)]
+
+lvl3=[((0, 720), 1080), ((300, 576), 500), ((300, 432), 200), ((400, 432),200), ((300, 288),100)]
 
 lvl4=[((0, 720), 1080), ((0, 576), 900),((0, 432), 700),((0, 288), 500), ((0, 144), 300)]
 
