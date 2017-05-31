@@ -6,14 +6,8 @@ make a reusable explosion???
 add comments
 make the plane shoot bullets
 make the enemy plane shoot bullets
-
 0 to -3.05
-
 6.33 to 9.48
-
-
-
-
 """
 
 
@@ -42,30 +36,18 @@ class Blimp(Sprite):
         self.fxcenter = self.fycenter = 0.5
         self.scale = 0.15
         self.vx = -0.5
-        Game.listenKeyEvent("keydown", "p", self.Restart)
-        Game.listenKeyEvent("keydown", "u", self.Restart)
         
     def explode(self):
-        self.vx = 0
         self.visible = False
-        BigExplosion(self.position)
-        self.x = 1000
+        Explosion(self.position)
+        self.x = 100
         self.y = 0
-
     def step(self):
         self.x += self.vx
         planeCollision = self.collidingWithSprites(Plane)
         if len(planeCollision) > 0:
             self.explode()
-        if self.x < 0:
-            self.x = 1200
-        
-    def Restart(self, event):
-        self.visible = True
-        self.x = 300
-        self.y = 160
-        self.vx = -0.5
-        
+
 class EnemyCopter(Sprite):
     ecopter = ImageAsset("images/fighter.png")
     
@@ -82,7 +64,6 @@ class EnemyCopter(Sprite):
         Explosion(self.position)
         self.x = 100
         self.y = 0
-        self.vx = 0
     
     def step(self):
         self.x += self.vx
@@ -95,7 +76,6 @@ class EnemyCopter(Sprite):
         self.visible = True
         self.x = 600
         self.y = 350
-        self.vx = 3
         
             
             
@@ -171,24 +151,7 @@ class AOA():
         return (1 * math.cos(self.rotation))
     def angley(self):
         return (-1 * math.sin(self.rotation))
-
-class BigExplosion(Sprite):
-    
-    asset = ImageAsset("images/explosion1.png", Frame(0,0,128,128), 10)
-
-    def __init__(self, position):
-        super().__init__(Explosion.asset, position)
-        self.image = 0
-        self.center = (0.5, 0.56)
-        self.scale = 2.3
         
-    def step(self):
-        self.setImage(self.image*4)  # slow it down
-        self.image = self.image + 1
-        if self.image == 20:
-            self.destroy()
-
-
 class Explosion(Sprite):
     
     asset = ImageAsset("images/explosion1.png", Frame(0,0,128,128), 10)
@@ -232,7 +195,6 @@ class Bomb(Sprite):
         self.visible = False
         Game.listenKeyEvent("keydown", "b", self.Mid_Air)
         self.variablememes = 0
-        
     def explode(self):
         self.center = (0.5, 0.5)
         self.visible = False
@@ -473,11 +435,6 @@ class Plane(Sprite):
         bomb_explosionCollision = self.collidingWithSprites(Explosion)
         if len(bomb_explosionCollision) > 0:
             self.visible = False
-        big_bomb_explosionCollision = self.collidingWithSprites(BigExplosion)
-        if len(big_bomb_explosionCollision) > 0:
-            self.visible = False
-            self.stop()
-            self.explode()
         enemyCollision = self.collidingWithSprites(EnemyCopter)
         if len(enemyCollision) > 0:
             self.visible = False
@@ -568,15 +525,13 @@ class Plane(Sprite):
         self.vx = 0
         self.vy = 0
         self.vr = 0
-        
     
     def explode(self):
-        if self.visible == True:
-            self.visible = False
-            Explosion(self.position)
-            self.x = 0
-            self.y = 647
-
+        self.visible = False
+        Explosion(self.position)
+        self.x = 0
+        self.y = 0
+        
     
     def slow(self):
         self.ax = (self.ax - (self.ax *0.001))
@@ -734,8 +689,6 @@ class Game(App):
             ecopter.step()
         for eblimp in self.getSpritesbyClass(Blimp):
             eblimp.step()
-        for asset in self.getSpritesbyClass(BigExplosion):
-            asset.step()
             
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
