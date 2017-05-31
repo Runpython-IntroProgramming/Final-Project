@@ -42,8 +42,8 @@ class Blimp(Sprite):
     def explode(self):
         self.visible = False
         Explosion(self.position)
-        self.x = -1000
-        self.y = 0
+        self.x = 100
+        self.y = -1000
         
     def step(self):
         self.x += self.vx
