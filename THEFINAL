@@ -96,16 +96,28 @@ else:
     print ("You both easily overpower your opponents, you fight swiftly with your axe, while your new ally wrenches the spear from the other and overtakes him within a matter of seconds")
     complete = 2
 
+
+    
+
+
+
+
+
 cd1= ("You take the cd on the necklace string from around the fallen attackers neck and place it around your own")
 cd2= ("You leave everything with the creatures remains, as a message to the others to not contest you in the future")
 
-if complete == [1,2]:
-    print ("do you take the CD from around the neck of the creature that charged you?")
-    
-
+cc= str(input ("do you take the CD from around the neck of the creature that charged you? [Y/N]" ))
+if cc in ['y','Y','Yes','YES']:
+        print (cd1)
+else:
+    print (cd2)
 #if you survive after the fight, question to pick up a scratched old cd that was worn around the neck of one of the creatures, signaling device
 #have certain variables in random function equal certain outcomes for the adventure
 #if axe was picked up fight vs 1 monster
 #if axe wasnt picked up then the person is alive and helps you fight two monsters
 #random if they die while killing one of the creatures , then random if you survive alone, You make shelter and often see the creatures around your camp, they seem to respect or fear you for killing what you think was one of their leaders, two days later, starving and paranoid, you see a plane 
 #if they survive, you both work together to build a temporary shelter, after a few days you start to develope a close friendship with the other survivor, they have been stranded on the island for 
+
+
+
+#game over
