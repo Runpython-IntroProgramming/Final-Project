@@ -17,7 +17,7 @@ print ("The plane you were just sleeping on crashes, you wake up in a dark fores
 a1p = ("You jump out of the smashed remains of the planes hull, your vision is minimal, and you hear strange animal-like noises in the distance over the roar of the storm")
 a1n = ("You search through the wreckage of the plane and find a small orange emergency axe and the mangled bodies of several other passengers as well as a hole large enough to crawl out of and venture into the night")
 c1 = str(input("Do you venture out immmediately?"))
-if input in ['y','Y','yes','Yes']:
+if c1 in ['y','Y','yes','Yes']:
     print (a1p)
 else:
     print (a1n)
