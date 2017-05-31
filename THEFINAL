@@ -60,30 +60,29 @@ else:
     print ("From the treeline you see two thin humanoid creatures emerge, one carrys a spear and is wearing a scratch old CD around his neck. The one beside him has on what you can only assume to be the ribcage of another person around his own chest as a sort of armor and is weilding in both hands a heavy, blue stone")
     
 
-time.sleep(7)
+#time.sleep(7)
 #its ass whooping time bruh
 print ("⛬⛬⛬⛬⛬☠⛬⛬⛬⛬⛬")
-print ("⚬⚬FIGHT⚬⚬")
+print ("⚬⚬⚬FIGHT⚬⚬⚬")
 print ("⛬⛬⛬⛬⛬☠⛬⛬⛬⛬⛬")
 #time.sleep (10)
 
 if axe == 1:
             print ("You take a step back and ready your axe by your side, waiting for the creature to charge")
             print ("The creature charges, letting out a gutteral scream, you aim your axe strike, close your eyes and swing")
-            time.sleep(3)
+            #time.sleep(3)
             xdm1 = int(random.randint(3, 10))
             zdm1 = int(random.randint(1, 5))
-            time.sleep(2)
+            #time.sleep(2)
             if zdm1 > fdmg1:
                 print ("The creature dodges your axe swing, steps to your side and swipes at your throat with its mangled sharp nails, sending you to your knees as everything goes dark")
                 complete = 0
-                return complete
             else:
                 print ("Your axe swing catches the creature straight in the forehead, it lets out a screech, then sinks down onto the ground.")
                 complete = 1
-                return complete
 if axe == 0:
     print ("Both of you stand at the ready, watching the creatures as they approach")
+    print ("They both charge you individually, the one with the spear takes on your new friend, while the one with the armor charges at you with the rock above his head")
 
 
 
