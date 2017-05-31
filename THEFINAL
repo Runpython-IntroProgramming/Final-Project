@@ -38,12 +38,13 @@ else:
     print (a2n)
 #time.sleep (20)
 print("You approach a huge narrow clearing in the forest, on the other end is a tall but scalable stone ledge, over the ridge of the ledge you can just barely make out the head and torso of a person, their back is to you and they are not moving")
-#wait
-print("You find a way up to the ledge and approach the person)
+#wait (30)
+print("You find a way up to the ledge and approaach the person")
 #wait ....
-if axe=1:
-    print("You approach the person from the front, and are shocked when you see they are being supported by a long heavy spear from their neck into the ground")
-if axe=0:
-    print("You approach the person from the side, they seem to notice your presence but don't turn to look at you, after a silence that seems like an eternity they say 'don't move, watch the treeline, they're everywhere in the shadows'")
+print("You approach the person from the front, and are shocked when you see they are being supported by a long heavy spear from their neck into the ground")
+print("You approach the person from the side, they seem to notice your presence but don't turn to look at you, after a silence that seems like an eternity they say 'don't move, watch the treeline, they're everywhere in the shadows'")
 #fight scene
 #time.sleep (10)
+#if axe was picked up fight vs 1 monster
+#if axe wasnt picked up then the person is alive and helps you fight two monsters
+#random if they die while killing one of the creatures , then random if you survive alone, You make shelter and 
