@@ -1,18 +1,18 @@
 import time
 import random
-
+ 
 print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
 print ("⚫ THE FOREST : TEXT BASED ADVENTURE ⚫")
 print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
 #starting scenario
-
+ 
 print ("The plane you were just sleeping on crashes, you wake up in a dark forest where a hot summer storm is in full force, do you.. 1.) exit the plane immediately in hopes of finding another living passenger    or    2.) Scavenge the plane for supplies and then venture out")
-
+ 
 #Starting question
 a1p = ("You jump out of the smashed remains of the planes hull, your vision is minimal, and you hear strange animal-like noises in the distance over the roar of the storm")
 a1n = ("You search through the wreckage of the plane and find a small orange emergency axe and the mangled bodies of several other passengers as well as a hole large enough to crawl out of and venture into the night")
@@ -23,12 +23,15 @@ else:
     print (a1n)
 #acquire axe
 #wander out
-
+ 
 print ("Outside you feel the stinging tropical rain on your face and the winds ripping through the hull of the planes carnage, you notice the sun is starting to come up and start walking to see if you can find any sign of civilization. While you walk you think you hear something following you several times but cant distinguish it from the rain and wind.")
 #wait
-c2 =str(input("[turn around] and face your fears or [keep walking?]"))
-
-
-
+a2p= ("You sharply stop and turn around slowly #wait  ... nothing is behind you, but when you turn back to resume your course you see what you think is a small humanoid figure running on all fours off into the trees, you keep walking")
+a2n= ("You keep walking through the thickly wooded forest, losing your footing every other step due to the mud and wet leaves on the ground, ")
+c2 =str(input("[turn around] and face your fears or [keep walking]?"))
+if c2 in ['turn around']:
+    print (a2p)
+else:
+    print (a2n)
 
 
