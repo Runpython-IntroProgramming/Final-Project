@@ -4,13 +4,26 @@ import random
 print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
 print ("⚫ THE FOREST : TEXT BASED ADVENTURE ⚫")
 print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰⚟")
-#venture out queestion
-c1 = print ("The plane you were just sleeping on crashes, you wake up in a dark forest,a warm storm is in full force,you appear to be the only passenger who survived, will you venture out to see if you can find some sort of civilization ?")
-c1 = str(input( "do you venture out? [y/n]:"))
-if c1 in ['y', 'Y', 'Yes', 'YES', 'yes']:
-    print("You jump out of the smashed remains of the planes hull, your vision is minimal, and you hear strange animal-like noises in the distance over the roar of the storm")
-if c1 in [ 'n','N','No','NO']:
-    print ("You stay locked in the cabin of the plane until dawn, just before you drift off to sleep you think you see a humanoid figure on the horizon against a flash of lightning")
 
-#venture out affermative
+
+
+
+
+#starting scenario
+
+print ("The plane you were just sleeping on crashes, you wake up in a dark forest where a hot summer storm is in full force, do you.. 1.) exit the plane immediately in hopes of finding another living passenger    or    2.) Scavenge the plane for supplies and then venture out")
+
+#Starting question
+a1p = ("You jump out of the smashed remains of the planes hull, your vision is minimal, and you hear strange animal-like noises in the distance over the roar of the storm")
+a1n = ("You search through the wreckage of the plane and find a small orange emergency axe and the mangled bodies of several other passengers as well as a hole large enough to crawl out of and venture into the night")
+c1 = str(input("Do you venture out immmediately?"))
+if input in ['y','Y','yes','Yes']:
+    print (a1p)
+else:
+    print (a1n)
+#wander out
+
+
+
+
 
