@@ -8,7 +8,7 @@ print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰
 #starting scenario
 
 print ("The plane you were just sleeping on crashes, you wake up in a dark forest where a hot summer storm is in full force, do you.. 1.) exit the plane immediately in hopes of finding another living passenger    or    2.) Scavenge the plane for supplies and then venture out")
-#time.sleep (30) 
+#time.sleep (15) 
 #Starting question
 a1p = ("You jump out of the smashed remains of the planes hull, your vision is minimal, and you hear strange animal-like noises in the distance over the roar of the storm")
 a1n = ("You search through the wreckage of the plane and find a small orange emergency axe and the mangled bodies of several other passengers as well as a hole large enough to crawl out of and venture into the night")
@@ -22,11 +22,8 @@ else:
     axe=1
 #time.sleep (5)
 
-#HOW DO I MAKE IT WAIT OMG NONE OF THESE FUNCTIONS WORK 
-
-
-#acquire axe
-#wander out
+#acquire axe 1
+#wander out 2
  
 print ("Outside you feel the stinging tropical rain on your face and the winds ripping through the hull of the planes carnage, you notice the sun is starting to come up and start walking to see if you can find any sign of civilization. While you walk you think you hear something following you several times but cant distinguish it from the rain and wind.")
 #time.sleep(9)
@@ -79,39 +76,54 @@ if axe == 1:
 if axe == 0:
     print ("Both of you stand at the ready, watching the creatures as they approach")
     print ("They both charge you individually, the one with the spear takes on your new friend, while the one with the armor charges at you with the rock above his head")
-    rdm1 = int(random.randint(1, 8))
-    gdm1 = int(random.randint(1, 5))
+    dmgx = int(random.randint(1, 10))
+    dmgz = int(random.randint(1, 5))
             #time.sleep(3)
-if gdm1 > rdm1:
-                print ("Despite your ruthless fighting, the creatures eventually overpower you, exhausted and terrified, they take their final blows with their weapons")
+if dmgz > dmgx:
+                print ("Despite your ruthless fighting, the creatures eventually overpower you, exhausted and terrified, they take their final blows with their weapons ⚰ ")
                 complete = 0
-elif rdm1 < 5:
+elif dmgx < 5:
                     print ("You fight desperately for your life, taking out your opponent, while simultaneously, your partner and his assailant take killing blows at each other, you are all alone")
                     complete = 1
 else:
     print ("You both easily overpower your opponents, you fight swiftly with your axe, while your new ally wrenches the spear from the other and overtakes him within a matter of seconds")
     complete = 2
+#time.sleep (5)
+if complete == 0:
+    print (" YOU DIED ")
 
 
-    
 
 
 
-
-
-cd1= ("You take the cd on the necklace string from around the fallen attackers neck and place it around your own")
-cd2= ("You leave everything with the creatures remains, as a message to the others to not contest you in the future")
-
-cc= str(input ("do you take the CD from around the neck of the creature that charged you? [Y/N]" ))
+else:
+    cc= str(input ("do you take the CD from around the neck of the creature that charged you? [Y/N]:" ))
 if cc in ['y','Y','Yes','YES']:
         print (cd1)
 else:
     print (cd2)
-#if you survive after the fight, question to pick up a scratched old cd that was worn around the neck of one of the creatures, signaling device
-#have certain variables in random function equal certain outcomes for the adventure
-#if axe was picked up fight vs 1 monster
-#if axe wasnt picked up then the person is alive and helps you fight two monsters
-#random if they die while killing one of the creatures , then random if you survive alone, You make shelter and often see the creatures around your camp, they seem to respect or fear you for killing what you think was one of their leaders, two days later, starving and paranoid, you see a plane 
+    cd1= ("You take the cd on the necklace string from around the fallen attackers neck and place it around your own, a few days later, when paranoia and hunger are on the verge of driving you insane, you hear the familiar noise of a plane flying overhead, using the CD you flash the plane, it notices you and starts to descend")
+crash= int(random.randint(1,2):
+    if crash == [1]:
+        print ("As the plane starts to descend to a large flat field on the island to make its landing, you notice smoke coming off of one of the engines, the engine suddenly bursts into flame and explodes, the plane veers off into the woods to your right and explodes in a huge fireball, all of your hope is lost---- YOU DIED----")
+else:
+    print ("The plane circles around a few times, looking for a place to land, it then curves off in the direction of a large flat field you know the location of, you start sprinting as fast as you can, in the clearing you see the plane doors open, a couple of men hold out their arms, welcoming you inside to safety, YOU SURVIVED THE FOREST")
+
+    
+    
+cd2= ("You leave everything with the creatures remains, as a message to the others to not contest you in the future")
+
+
+
+
+
+
+
+# ☑ if you survive after the fight, question to pick up a scratched old cd that was worn around the neck of one of the creatures, signaling device
+# ☑ have certain variables in random function equal certain outcomes for the adventure
+# ☑ if axe was picked up fight vs 1 monster
+# ☑if axe wasnt picked up then the person is alive and helps you fight two monsters
+# ☑random if they die while killing one of the creatures , then random if you survive alone, You make shelter and often see the creatures around your camp, they seem to respect or fear you for killing what you think was one of their leaders, two days later, starving and paranoid, you see a plane 
 #if they survive, you both work together to build a temporary shelter, after a few days you start to develope a close friendship with the other survivor, they have been stranded on the island for 
 
 
