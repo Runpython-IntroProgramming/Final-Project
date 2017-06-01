@@ -8,11 +8,11 @@ print ("⚞☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰☰
 #starting scenario
 
 print ("The plane you were just sleeping on crashes, you wake up in a dark forest where a hot summer storm is in full force, do you.. 1.) exit the plane immediately in hopes of finding another living passenger    or    2.) Scavenge the plane for supplies and then venture out")
-#time.sleep (15) 
+time.sleep (15) 
 #Starting question
 a1p = ("You jump out of the smashed remains of the planes hull, your vision is minimal, and you hear strange animal-like noises in the distance over the roar of the storm")
 a1n = ("You search through the wreckage of the plane and find a small orange emergency axe and the mangled bodies of several other passengers as well as a hole large enough to crawl out of and venture into the night")
-c1 = str(input("Do you venture out immmediately?"))
+c1 = str(input("Do you venture out immmediately? [Y/N]:"))
 if c1 in ['y','Y','yes','Yes']:
     print (a1p)
     axe=0
@@ -20,13 +20,13 @@ else:
     #time.sleep(20)
     print (a1n)
     axe=1
-#time.sleep (5)
+time.sleep (5)
 
 #acquire axe 1
 #wander out 2
  
 print ("Outside you feel the stinging tropical rain on your face and the winds ripping through the hull of the planes carnage, you notice the sun is starting to come up and start walking to see if you can find any sign of civilization. While you walk you think you hear something following you several times but cant distinguish it from the rain and wind.")
-#time.sleep(9)
+time.sleep(9)
 a2p= ("You sharply stop and turn around slowly...... nothing is behind you, but when you turn back to resume your course you see what you think is a small humanoid figure running on all fours off into the trees, you keep walking")
 a2n= ("You keep walking through the thickly wooded forest, losing your footing every other step due to the mud and wet leaves on the ground, ")
 c2 =str(input("[T]urn around and face your fears or [K]eep walking?"))
@@ -34,11 +34,11 @@ if c2 in ['t','T']:
     print (a2p)
 else:
     print (a2n)
-#time.sleep (2)
+time.sleep (2)
 print("You approach a huge narrow clearing in the forest, on the other end is a tall but scalable stone ledge, over the ridge of the ledge you can just barely make out the head and torso of a person, their back is to you and they are not moving")
-#time.sleep (3)
+time.sleep (3)
 print("You find a way up to the ledge and approach the person")
-#time.sleep (4)
+time.sleep (4)
 a3n = print("You approach the person from the front, you recognize them as one of the other people that was on the plane, and are shocked when you see they are being supported by a long heavy spear from their neck into the ground")
 a3p = print("You approach the person from the side, you recognize them as one of the crew members from the flight ,they seem to notice your presence but don't turn to look at you, after a silence that seems like an eternity they say 'don't move, watch the treeline, they're everywhere in the shadows'")
 
@@ -53,20 +53,20 @@ else:
     print ("From the treeline you see two thin humanoid creatures emerge, one carrys a spear and is wearing a scratch old CD around his neck. The one beside him has on what you can only assume to be the ribcage of another person around his own chest as a sort of armor and is weilding in both hands a heavy, blue stone")
     
 
-#time.sleep(7)
-#its ass whooping time bruh
+time.sleep(7)
+#fight scene
 print ("⛬⛬⛬⛬⛬☠⛬⛬⛬⛬⛬")
 print ("⚬⚬⚬⚬FIGHT⚬⚬⚬⚬")
 print ("⛬⛬⛬⛬⛬☠⛬⛬⛬⛬⛬")
-#time.sleep (10)
+time.sleep (10)
 
 if axe == 1:
             print ("You take a step back and ready your axe by your side, waiting for the creature to charge")
             print ("The creature charges, letting out a gutteral scream, you aim your axe strike, close your eyes and swing")
-            #time.sleep(3)
+            time.sleep(3)
             xdm1 = int(random.randint(3, 10))
             zdm1 = int(random.randint(1, 5))
-            #time.sleep(2)
+            time.sleep(2)
             if zdm1 > xdm1:
                 print ("The creature dodges your axe swing, steps to your side and swipes at your throat with its mangled sharp nails, sending you to your knees as everything goes dark")
                 complete = 0
@@ -78,9 +78,9 @@ if axe == 0:
     print ("They both charge you individually, the one with the spear takes on your new friend, while the one with the armor charges at you with the rock above his head")
     dmgx = int(random.randint(1, 10))
     dmgz = int(random.randint(1, 5))
-            #time.sleep(3)
+            time.sleep(3)
 if dmgz > dmgx:
-                print ("Despite your ruthless fighting, the creatures eventually overpower you, exhausted and terrified, they take their final blows with their weapons ⚰ ")
+                print ("Despite your ruthless fighting, the creatures eventually overpower you, exhausted and terrified, they take their final blows with their weapons ---YOU DIED--- ")
                 complete = 0
 elif dmgx < 5:
                     print ("You fight desperately for your life, taking out your opponent, while simultaneously, your partner and his assailant take killing blows at each other, you are all alone")
@@ -88,30 +88,35 @@ elif dmgx < 5:
 else:
     print ("You both easily overpower your opponents, you fight swiftly with your axe, while your new ally wrenches the spear from the other and overtakes him within a matter of seconds")
     complete = 2
-#time.sleep (5)
+time.sleep (5)
 if complete == 0:
-    print (" YOU DIED ")
-
+    print (" ---GAME OVER--- ")
 
 
 
 
 else:
     cc= str(input ("do you take the CD from around the neck of the creature that charged you? [Y/N]:" ))
+cd2= ("You leave everything with the creatures remains, as a message to the others to not contest you in the future")
+cd1= ("You take the cd on the necklace string from around the fallen attackers neck and place it around your own, a few days later, when paranoia and hunger are on the verge of driving you insane, you hear the familiar noise of a plane flying overhead, using the CD you flash the plane, it notices you and starts to descend")
 if cc in ['y','Y','Yes','YES']:
         print (cd1)
+        NCK=1
 else:
     print (cd2)
-    cd1= ("You take the cd on the necklace string from around the fallen attackers neck and place it around your own, a few days later, when paranoia and hunger are on the verge of driving you insane, you hear the familiar noise of a plane flying overhead, using the CD you flash the plane, it notices you and starts to descend")
-crash= int(random.randint(1,2):
+    NCK=0
+
+if NCK == [1]:
+    crash= int(random.randint(1, 2))
     if crash == [1]:
         print ("As the plane starts to descend to a large flat field on the island to make its landing, you notice smoke coming off of one of the engines, the engine suddenly bursts into flame and explodes, the plane veers off into the woods to your right and explodes in a huge fireball, all of your hope is lost---- YOU DIED----")
-else:
-    print ("The plane circles around a few times, looking for a place to land, it then curves off in the direction of a large flat field you know the location of, you start sprinting as fast as you can, in the clearing you see the plane doors open, a couple of men hold out their arms, welcoming you inside to safety, YOU SURVIVED THE FOREST")
+        if crash == [2]:
+            print ("The plane circles around a few times, looking for a place to land, it then curves off in the direction of a large flat field you know the location of, you start sprinting as fast as you can, in the clearing you see the plane doors open, a couple of men hold out their arms, welcoming you inside to safety, ----YOU SURVIVED THE FOREST----")
 
     
-    
-cd2= ("You leave everything with the creatures remains, as a message to the others to not contest you in the future")
+if NCK== [0]:
+    print ("After slaying the leader creature, word of your triumph spread throughout the colonies and tribes of all the creatures on the island, you are revered as a god. The creatures respect you, feed you, and build you a new shelter, you live out the rest of your days as king of the killers, ----YOU SURVIVED THE FOREST----")
+
 
 
 
