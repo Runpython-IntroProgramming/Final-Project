@@ -54,6 +54,39 @@ class dk(App):
             for p in self.lvl3s:
                 p.destroy()
             self.lvl4s = [block(x) for x in lvl4]
+        if level == 5:
+            for p in self.lvl4s:
+                p.destroy()
+            self.lvl5s = [block(x) for x in lvl5]
+        if level == 6:
+            for p in self.lvl5s:
+                p.destroy()
+            self.lvl6s = [block(x) for x in lvl6]
+        if level == 7:
+            for p in self.lvl6s:
+                p.destroy()
+            self.lvl7s = [block(x) for x in lvl7]
+        if level == 8:
+            for p in self.lvl7s:
+                p.destroy()
+            self.lvl8s = [block(x) for x in lvl8]
+        if level == 9:
+            for p in self.lvl8s:
+                p.destroy()
+            self.lvl9s = [block(x) for x in lvl9]
+        if level == 10:
+            for p in self.lvl9s:
+                p.destroy()
+            self.lvl10s = [block(x) for x in lvl10]
+        if level == 11:
+            for p in self.lvl10s:
+                p.destroy()
+            self.lvl11s = [block(x) for x in lvl11]
+        if level == 12:
+            for p in self.lvl11s:
+                p.destroy()
+            self.lvl12s = [block(x) for x in lvl12]
+            
             
 
 
@@ -191,7 +224,7 @@ class play(Sprite):
             self.y = on[0].y-self.height
         if self.jump == 1:
             if self.onblock ==1:
-                self.vy -= 7.8
+                self.vy -= 8.5
                 self.jump = 0
                 self.onblock=0
         if self.wub == 1:
@@ -312,14 +345,20 @@ side ((-10,0))
 side ((1070, 0))
 
 
-lvl1= [((0, 720), 1080), ((0, 576), 600), ((800, 576), 300), ((0, 432), 300), ((480, 432), 450), ((0, 288), 100),
+lvl3= [((0, 720), 1080), ((0, 576), 600), ((800, 576), 300), ((0, 432), 300), ((480, 432), 450), ((0, 288), 100),
 ((250, 288), 500), ((900, 288), 500), ((0, 144), 500), ((650, 144), 600)]
 
-lvl2=[((0, 720), 1080), ((100, 576), 980), ((0, 432), 980), ((100, 288), 1000),((0, 144),980)]
+lvl5=[((0, 720), 1080), ((100, 576), 980), ((0, 432), 980), ((100, 288), 1000),((0, 144),980)]
 
-lvl3=[((0, 720), 1080), ((300, 576), 500), ((300, 432), 200), ((600, 432),200), ((300, 288),100), ((0, 144),250)]
+lvl4=[((0, 720), 1080), ((300, 576), 500), ((300, 432), 200), ((600, 432),200), ((300, 288),100), ((0, 144),250)]
 
-lvl4=[((0, 720), 1080), ((0, 576), 900),((0, 432), 700),((0, 288), 500), ((0, 144), 300)]
+lvl2=[((0, 720), 1080), ((0, 576), 900),((0, 432), 700),((0, 288), 500), ((0, 144), 300), ((630,144),600)]
+
+lvl6=[((0,720),1080), ((50,576),20), ((100,432),20),((50,288),20),((100, 144),20)]
+
+lvl1=[((0,720),1080), ((0,576),600), ((200,432),200),((0,288),200),((100, 144),200), ((400,144),600)]
+
+
 
 
 playe = play((1000, 640), 0, 0, 0)
