@@ -19,7 +19,7 @@ prize = RectangleAsset (35, 15, noline, gold)
 toppp = RectangleAsset (1080, 20, noline, dgreen)
 barrels = CircleAsset (10, noline, black)
 global level
-level = 1
+level = 7
 global levelshift
 levelshift = 0
 vy=0
@@ -63,8 +63,8 @@ class dk(App):
                 p.destroy()
             self.lvl6s = [block(x) for x in lvl6]
         if level == 7:
-            for p in self.lvl6s:
-                p.destroy()
+            #for p in self.lvl6s:
+                #p.destroy()
             self.lvl7s = [block(x) for x in lvl7]
         if level == 8:
             for p in self.lvl7s:
