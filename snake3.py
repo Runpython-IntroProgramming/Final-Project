@@ -114,117 +114,39 @@ def step():
         if z==4:
             if dir==0:
                 x=x-20
-                for (h,k) in dot:
-                    for (c,d) in snk:
-                        if x==c and y==d:
-                            print("you lose. Press r to play again.")
-                            lose=True
-                    if b:
-                        for (a,b) in blck:
-                            if a==x and b==y:
-                                print("you lose. Press r to play again.")
-                                lose=True
-                                z=0
-                    if x==h and y==k:
-                        snk.append((x,y))
-                        snak.append(tail((x,y)))
-                        dot[0]=(20*randint(0,39), 20*randint(0,29))
-                        for (z,q) in dot:
-                            dt[0].destroy()
-                            dt[0]=(dots((z,q)))
-                    elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-                        print("you lose. Press r to play again.")
-                        lose=True
-                    else:
-                        snk.append((x,y))
-                        snak.append(tail((x,y)))
-                        snk.remove(snk[0])
-                        snak[0].destroy()
-                        snak.remove(snak[0])
             if dir ==1:
                 x=x+20
-                for (h,k) in dot:
-                    for (c,d) in snk:
-                        if x==c and y==d:
-                            print("you lose. Press r to play again.")
-                            lose=True
-                    if b:
-                        for (a,b) in blck:
-                            if a==x and b==y:
-                                print("you lose. Press r to play again.")
-                                lose=True
-                    if x==h and y==k:
-                        snk.append((x,y))
-                        snak.append(tail((x,y)))
-                        dot[0]=(20*randint(0,39), 20*randint(0,29))
-                        for (z,q) in dot:
-                            dt[0].destroy()
-                            dt[0]=(dots((z,q)))
-                    elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-                        print("you lose. Press r to play again.")
-                        lose=True
-                    else:
-                        snk.append((x,y))
-                        snak.append(tail((x,y)))
-                        snk.remove(snk[0])
-                        snak[0].destroy()
-                        snak.remove(snak[0])
             if dir ==2:
                 y=y+20
-                for (h,k) in dot:
-                    for (c,d) in snk:
-                        if x==c and y==d:
-                            print("you lose. Press r to play again.")
-                            lose=True
-                    if b:
-                        for (a,b) in blck:
-                            if a==x and b==y:
-                                print("you lose. Press r to play again.")
-                                lose=True
-                    if x==h and y==k:
-                        snk.append((x,y))
-                        snak.append(tail((x,y)))
-                        dot[0]=(20*randint(0,39), 20*randint(0,29))
-                        for (z,q) in dot:
-                            dt[0].destroy()
-                            dt[0]=(dots((z,q)))
-                    elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
-                        print("you lose. Press r to play again.")
-                        lose=True
-                    else:
-                        snk.append((x,y))
-                        snak.append(tail((x,y)))
-                        snk.remove(snk[0])
-                        snak[0].destroy()
-                        snak.remove(snak[0])
-            if dir ==3:
+            if dir==3:
                 y=y-20
-                for (h,k) in dot:
-                    for (c,d) in snk:
-                        if x==c and y==d:
-                            print("you lose. Press r to play again.")
-                            lose=True
-                    if b:
-                        for (a,b) in blck:
-                            if a==x and b==y:
-                                print("you lose. Press r to play again.")
-                                lose=True
-                    if x==h and y==k:
-                        snk.append((x,y))
-                        snak.append(tail((x,y)))
-                        dot[0]=(20*randint(0,39), 20*randint(0,29))
-                        for (z,q) in dot:
-                            dt[0].destroy()
-                            dt[0]=(dots((z,q)))
-                    elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+            for (h,k) in dot:
+                for (c,d) in snk:
+                    if x==c and y==d:
                         print("you lose. Press r to play again.")
                         lose=True
-                    else:
-                        snk.append((x,y))
-                        snak.append(tail((x,y)))
-                        snk.remove(snk[0])
-                        snak[0].destroy()
-                        snak.remove(snak[0])
+                if b:
+                    for (a,b) in blck:
+                        if a==x and b==y:
+                            print("you lose. Press r to play again.")
+                            lose=True
+                            
+                if x==h and y==k:
+                    snk.append((x,y))
+                    snak.append(tail((x,y)))
+                    dot[0]=(20*randint(0,39), 20*randint(0,29))
+                    for (z,q) in dot:
+                        dt[0].destroy()
+                        dt[0]=(dots((z,q)))
+                elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
+                    print("you lose. Press r to play again.")
+                    lose=True
+                else:
+                    snk.append((x,y))
+                    snak.append(tail((x,y)))
+                    snk.remove(snk[0])
+                    snak[0].destroy()
+                    snak.remove(snak[0])
             z=0
         
 myapp = App(SCREEN_WIDTH, SCREEN_HEIGHT)
