@@ -133,24 +133,30 @@ class Tank(Sprite):
         self.vr = 0
         self.scale = 0.1
         self.visible = True
+        self.memes = 0
         self.fxcenter = self.fycenter = 0.5
         Game.listenKeyEvent("keydown", "p", self.Restart)
         Game.listenKeyEvent("keydown", "u", self.Restart)
 
 
     def step(self):
-        #self.x += self.vx
+        self.x += self.vx
         nukeCollision = self.collidingWithSprites(NuclearExplosion)
         if len(nukeCollision) > 0:
             self.visible = False
         bombCollision = self.collidingWithSprites(Explosion)
         if len(bombCollision) > 0:
-            self.visible = False
+            self.memes += 1
+            self.vx = 0
+            if self.memes >= 2:
+                self.visible = False
         planeCollision = self.collidingWithSprites(Plane)
         if len(planeCollision) > 0:
             self.visible = False
     def Restart(self, event):
         self.visible = True
+        self.memes = 0
+        
 
 class AOA():
     def __init__(self, r):
