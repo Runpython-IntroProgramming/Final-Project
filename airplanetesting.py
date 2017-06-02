@@ -144,15 +144,18 @@ class Tank(Sprite):
         nukeCollision = self.collidingWithSprites(NuclearExplosion)
         if len(nukeCollision) > 0:
             self.visible = False
+            self.y = -500
         bombCollision = self.collidingWithSprites(Explosion)
         if len(bombCollision) > 0:
             self.memes += 1
             self.vx = 0
             if self.memes >= 2:
                 self.visible = False
+                self.y = -500
         planeCollision = self.collidingWithSprites(Plane)
         if len(planeCollision) > 0:
             self.visible = False
+            self.y = -500
         if self.x >= 1300:
             self.x = -20
             
