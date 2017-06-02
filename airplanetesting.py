@@ -153,6 +153,9 @@ class Tank(Sprite):
         planeCollision = self.collidingWithSprites(Plane)
         if len(planeCollision) > 0:
             self.visible = False
+        if self.x >= 1300:
+            self.x = -20
+            
     def Restart(self, event):
         self.visible = True
         self.memes = 0
