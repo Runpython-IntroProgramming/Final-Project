@@ -50,6 +50,8 @@ class Blimp(Sprite):
         planeCollision = self.collidingWithSprites(Plane)
         if len(planeCollision) > 0:
             self.explode()
+        if self.x >= 1200:
+            self.x = -100
             
     def Restart(self, event):
         self.visible = True
