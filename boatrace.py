@@ -60,9 +60,9 @@ class Buoy(Sprite):
         self.occurbc=False
     
     def step(self):
+        ab=self.collidingWithSprites(Ship)
+        bc=self.collidingWithSprites(Ship2)
         if self.visible and (not self.prev or (self.prev.occurab and self.prev.occurbc)):
-            ab=self.collidingWithSprites(Ship)
-            bc=self.collidingWithSprites(Ship2)
             if len(ab) > 0:
                 self.boat1=True
             if len(bc) > 0:
@@ -71,8 +71,8 @@ class Buoy(Sprite):
                 self.visible=False
                 self.occurab=True
                 self.occurbc=True
-            if (len(ab) or len(bc)) and self.next != None:
-                self.next.visible=True
+        if (len(ab) or len(bc)) and self.next != None:
+            self.next.visible=True
             
 class Buoy1(Buoy):
     def __init__(self, next):
@@ -215,8 +215,8 @@ class BoatGame(App):
         ocean = Ocean((0,0))
         tal = tally5((self.width-50, 30))
         ocean.scale = self.width/ocean.width
-        self.ss = Ship((100,-10+self.height/2))
-        self.sv= Ship2((100,20+self.height/2))
+        self.ss = Ship((100,50))
+        self.sv= Ship2((100,80))
 
         
     def step(self):
