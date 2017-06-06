@@ -21,6 +21,7 @@ dir=0
 b=False
 blck=[]
 bk=[]
+s=4
 
 class tail(Sprite):
     asset=RectangleAsset(20,20,line, purple)
@@ -111,7 +112,7 @@ def step():
     global x, y, go, dir, z, dot, snk, snak, dt, lose,b
     if go and not lose:
         z=z+1
-        if z==4:
+        if z==s:
             if dir==0:
                 x=x-20
             if dir ==1:
