@@ -109,7 +109,6 @@ def blocker(event):
         go=True
 def speedup(event):
     global s, z
-    print(s)
     if s>1:
         s=s-1
         z=0
