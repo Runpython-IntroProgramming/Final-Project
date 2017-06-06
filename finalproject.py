@@ -19,7 +19,7 @@ prize = RectangleAsset (35, 15, noline, gold)
 toppp = RectangleAsset (1080, 20, noline, dgreen)
 barrels = CircleAsset (10, noline, black)
 global level
-level = 7
+level = 1
 global levelshift
 levelshift = 0
 vy=0
@@ -31,6 +31,8 @@ class dk(App):
             super().__init__(width, height)
             bg_asset = RectangleAsset(width, height, noline, lgreen)
             bg = Sprite(bg_asset, (0,0))
+            self.lvltext = 0
+            self.leveltext = 0
     def step (self):
         playe.step()
         bare.step()
@@ -40,9 +42,14 @@ class dk(App):
         barl.step()
     def lvlchange (self):
         global level
-        lvltxt = TextAsset(level)
         if level == 1:
             self.lvl1s = [block(x) for x in lvl1]
+            self.lvltxt = TextAsset(level)
+            self.leveltext = Sprite(self.lvltxt, (1000,50))
+        if level > 1:
+            self.leveltext.destroy()
+            self.lvltxt = TextAsset(level)
+            self.leveltext = Sprite(self.lvltxt, (1000,50))
         if level == 2:
             for p in self.lvl1s:
                 p.destroy()
