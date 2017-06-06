@@ -1,5 +1,5 @@
 
-from ggame import App, RectangleAsset, CircleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+from ggame import App, RectangleAsset, CircleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
 
 SCREEN_WIDTH = 1080
 SCREEN_HEIGHT = 720
@@ -40,6 +40,7 @@ class dk(App):
         barl.step()
     def lvlchange (self):
         global level
+        lvltxt = TextAsset(level)
         if level == 1:
             self.lvl1s = [block(x) for x in lvl1]
         if level == 2:
