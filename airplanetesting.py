@@ -138,6 +138,7 @@ class Tank(Sprite):
         self.scale = 0.1
         self.visible = True
         self.memes = 0
+        self.positiones = self.position
         self.fxcenter = self.fycenter = 0.5
         Game.listenKeyEvent("keydown", "p", self.Restart)
         Game.listenKeyEvent("keydown", "u", self.Restart)
@@ -167,8 +168,8 @@ class Tank(Sprite):
         self.visible = True
         self.memes = 0
         self.y = 633
-        self.vx = 1
-        
+        self.vx = 0
+        self.position = self.positiones
 
 class AOA():
     def __init__(self, r):
