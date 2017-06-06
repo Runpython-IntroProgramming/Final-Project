@@ -71,7 +71,9 @@ class Buoy(Sprite):
                 self.visible=False
                 self.occurab=True
                 self.occurbc=True
-        if (len(ab) or len(bc)) and self.next != None:
+        if len(ab) and (self.prev==None or (self.prev and self.prev.occurab)) and self.next != None:
+            self.next.visible=True
+        if len(bc) and (self.prev==None or (self.prev and self.prev.occurbc)) and self.next != None:
             self.next.visible=True
             
 class Buoy1(Buoy):
