@@ -6,6 +6,7 @@ make a reusable explosion???
 add comments
 make the plane shoot bullets
 make the enemy plane shoot bullets
+tanks will not move after respawning after being killed
 0 to -3.05
 6.33 to 9.48
 """
@@ -52,7 +53,8 @@ class Blimp(Sprite):
             self.explode()
         if self.x >= 1200:
             self.x = -100
-            
+        if self.x < 0:
+            self.x = 1300
     def Restart(self, event):
         self.visible = True
         self.x = 300
