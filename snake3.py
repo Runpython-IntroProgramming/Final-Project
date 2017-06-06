@@ -44,7 +44,8 @@ for (h,k) in dot:
 snak=[tail((x,y))]    
 
 def playagain(event):
-    global dot, snk, x,y,z,go,dir,dt, snak, lose,b,blck,bk
+    global dot, snk, x,y,z,go,dir,dt, snak, lose,b,blck,bk,s
+    s=4
     x=20
     y=20
     z=3
@@ -66,31 +67,30 @@ def playagain(event):
     go=False
     b=False
     
-
 def leftKey(event):
     global dir, go
     if dir!=1 or len(snk)==1:
         dir=0
         go=True
-    z=3
+    z=s-1
 def rightKey(event):
     global dir, go
     if dir!=0 or len(snk)==1:
         dir=1
         go=True
-    z=3
+    z=s-1
 def downKey(event):
     global dir, go
     if dir!=3 or len(snk)==1:
         dir=2
         go=True
-    z=3
+    z=s-1
 def upKey(event):
     global dir, go
     if dir!=2 or len(snk)==1:
         dir=3
         go=True
-    z=3
+    z=s-1
 def spaceKey(event):
     global go
     if go:
@@ -107,9 +107,18 @@ def blocker(event):
                         blck[len(blck)-1]=(20*randint(0,39), 20*randint(0,29))
         bk.append(block(blck[len(blck)-1]))
         go=True
+def speedup(event):
+    global s, z
+    print(s)
+    if s>1:
+        s=s-1
+        z=0
+def slowdown(event):
+    global s
+    s=s+1
         
 def step():
-    global x, y, go, dir, z, dot, snk, snak, dt, lose,b
+    global x, y, go, dir, z, dot, snk, snak, dt, lose, b, s
     if go and not lose:
         z=z+1
         if z==s:
@@ -159,3 +168,5 @@ myapp.listenKeyEvent('keydown', 'right arrow', rightKey)
 myapp.listenKeyEvent('keyup', 'space', spaceKey)
 myapp.listenKeyEvent('keyup', 'r', playagain)
 myapp.listenKeyEvent('keyup', 'b', blocker)
+myapp.listenKeyEvent('keyup', 's', speedup)
+myapp.listenKeyEvent('keyup', 'x', slowdown)
