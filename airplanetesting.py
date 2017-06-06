@@ -168,7 +168,7 @@ class Tank(Sprite):
         self.visible = True
         self.memes = 0
         self.y = 633
-        self.vx = 0
+        self.vx = 1
         self.position = self.positiones
 
 class AOA():
