@@ -44,12 +44,12 @@ class dk(App):
         global level
         if level == 1:
             self.lvl1s = [block(x) for x in lvl1]
-            self.lvltxt = TextAsset(level)
-            self.leveltext = Sprite(self.lvltxt, (1000,50))
+            self.lvltxt = TextAsset(level,style='40px luminari')
+            self.leveltext = Sprite(self.lvltxt, (1000,25))
         if level > 1:
             self.leveltext.destroy()
-            self.lvltxt = TextAsset(level)
-            self.leveltext = Sprite(self.lvltxt, (1000,50))
+            self.lvltxt = TextAsset(level,style='40px luminari')
+            self.leveltext = Sprite(self.lvltxt, (1000,25))
         if level == 2:
             for p in self.lvl1s:
                 p.destroy()
