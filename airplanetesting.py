@@ -2,6 +2,8 @@
 add comments
 make the plane shoot bullets
 make the enemy plane shoot bullets
+make the enemies blow up to bombs
+make a kamikaze
 the nuke and bomb will explode if you hit the button while above the angle, meaning that it will explode if you drop it.
 0 to -3.05
 6.33 to 9.48
@@ -80,7 +82,7 @@ class EnemyCopter(Sprite):
             self.explode()
     def Restart(self, event):
         self.visible = True
-        self.x = 600
+        self.x = -100
         self.y = 350
         
             
