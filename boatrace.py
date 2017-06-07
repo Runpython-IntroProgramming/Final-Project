@@ -54,10 +54,10 @@ class Buoy(Sprite):
         self.fxcenter = 0.5
         self.fycenter = 0.5
         self.circularCollisionModel()
-        self.boat1=False
-        self.boat2=False
         self.occurab=False
         self.occurbc=False
+        self.boat1=False
+        self.boat2=False
     
     def step(self):
         ab=self.collidingWithSprites(Ship)
@@ -65,15 +65,15 @@ class Buoy(Sprite):
         if self.visible and (not self.prev or (self.prev.occurab and self.prev.occurbc)):
             if len(ab) > 0:
                 self.boat1=True
+                self.occurab=True
             if len(bc) > 0:
                 self.boat2=True
+                self.occurbc=True
             if self.boat1 and self.boat2:
                 self.visible=False
-                self.occurab=True
-                self.occurbc=True
-        if len(ab) and (self.prev==None or (self.prev and self.prev.occurab)) and self.next != None:
+        if (self.prev==None or self.prev.occurab) and len(ab) and self.next != None:
             self.next.visible=True
-        if len(bc) and (self.prev==None or (self.prev and self.prev.occurbc)) and self.next != None:
+        if (self.prev==None or self.prev.occurbc) and len(bc) and self.next != None:
             self.next.visible=True
             
 class Buoy1(Buoy):
