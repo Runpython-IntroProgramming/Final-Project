@@ -26,7 +26,7 @@ class Field(Sprite):
          self.scale = 1.5
         
 class Blimp(Sprite):
-    eblimp = ImageAsset("images/blimp.png")
+    eblimp = ImageAsset("images/blimp1.png")
     
     def __init__(self, position):
         super().__init__(Blimp.eblimp, position)
