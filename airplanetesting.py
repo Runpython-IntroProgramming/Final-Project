@@ -122,7 +122,7 @@ class nukeCounter(Sprite):
         
 
 class Tank(Sprite):
-    base_tank = ImageAsset("images/15153-illustration-of-an-army-tank-pv.png")
+    base_tank = ImageAsset("images/tank1.png")
     
     def __init__(self, position):
         super().__init__(Tank.base_tank, position)
