@@ -55,12 +55,12 @@ class Blimp(Sprite):
         self.y = 160
         
 class EnemyCopter(Sprite):
-    ecopter = ImageAsset("images/fighter.png")
+    ecopter = ImageAsset("images/fighter1.png")
     
     def __init__(self, position):
         super().__init__(EnemyCopter.ecopter, position)
         self.vx = 3
-        self.scale = 0.25
+        self.scale = 0.5
         self.fxcenter = self.fycenter = 0.5
         Game.listenKeyEvent("keydown", "p", self.Restart)
         Game.listenKeyEvent("keydown", "u", self.Restart)
@@ -688,7 +688,7 @@ class Game(App):
         bomb_icon6 = bombCounter((150,40))
         bomb_icon_list = (bomb_icon1, bomb_icon2, bomb_icon3, bomb_icon4, bomb_icon5, bomb_icon6)
         Plane((0,650), bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list, guided_bomb_list)
-        EnemyCopter((600,330))
+        EnemyCopter((-600,330))
         Blimp((300, 160))
         
     def step(self):
