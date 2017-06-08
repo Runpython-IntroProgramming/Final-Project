@@ -117,13 +117,13 @@ class EnemyChopper(Sprite):
             
             
             
-"""
+
 class Bullet(Sprite):
-    tan = Color(d2b48c, 2)
-    noline = LineStyle(0, black)
-    bullet_asset = RectangleAsset(4, 2, noline, tan)
-    bullet = Sprite(bullet
-"""
+    bullet = ImageAsset("images/bullet.png")
+    
+    def __init__(self, position):
+        
+
     
     
 class bombCounter(Sprite):
