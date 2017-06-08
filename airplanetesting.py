@@ -85,6 +85,34 @@ class EnemyCopter(Sprite):
         self.x = -100
         self.y = 350
         
+class EnemyChopper(Sprite):
+    echopper = ImageAsset("images/chopper.png")
+    
+    def __init__(self, position):
+        super().__init__(EnemyChopper.echopper, position)
+        self.vx = 3
+        self.scale = 0.25
+        self.fxcenter = self.fycenter = 0.5
+        Game.listenKeyEvent("keydown", "p", self.Restart)
+        Game.listenKeyEvent("keydown", "u", self.Restart)
+        
+    def explode(self):
+        self.visible = False
+        Explosion(self.position)
+        self.x = 100
+        self.y = -3000
+    
+    def step(self):
+        self.x += self.vx
+        if self.x > 1200:
+            self.x = 0
+        planeCollision = self.collidingWithSprites(Plane)
+        if len(planeCollision) > 0:
+            self.explode()
+    def Restart(self, event):
+        self.visible = True
+        self.x = 0
+        self.y = 330
             
             
             
@@ -692,6 +720,7 @@ class Game(App):
         Plane((0,650), bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list, guided_bomb_list)
         EnemyCopter((-600,330))
         Blimp((300, 160))
+        EnemyChopper((0,330))
         
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
@@ -712,6 +741,8 @@ class Game(App):
             ecopter.step()
         for eblimp in self.getSpritesbyClass(Blimp):
             eblimp.step()
+        for echopper in self.getSpritesbyClass(EnemyChopper):
+            echopper.step()
             
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
