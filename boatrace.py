@@ -8,7 +8,7 @@ Write and submit a program that implements the spacewar game:
 https://github.com/HHS-IntroProgramming/Spacewar
 """
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
-from math import sin, cos, pi
+from math import sin, cos, pi, sqrt
 
 SCREEN_WIDTH = 640
 SCREEN_HEIGHT = 480
@@ -100,6 +100,7 @@ class Ship(Sprite):
         self.vx = 1
         self.vy = 1
         self.vr = 0
+        self.rotation=(7*pi)/4
         self.v = 0
         self.thrust = 0
         self.thrustframe = 1
@@ -217,8 +218,8 @@ class BoatGame(App):
         ocean = Ocean((0,0))
         tal = tally5((self.width-50, 30))
         ocean.scale = self.width/ocean.width
-        self.ss = Ship((100,50))
-        self.sv= Ship2((100,80))
+        self.ss = Ship((65,50))
+        self.sv= Ship2((65-sqrt(300),50+sqrt(300)))
 
         
     def step(self):
