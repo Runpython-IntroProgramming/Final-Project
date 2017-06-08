@@ -82,8 +82,8 @@ class EnemyCopter(Sprite):
             self.explode()
     def Restart(self, event):
         self.visible = True
-        self.x = -100
-        self.y = 350
+        self.x = -600
+        self.y = 360
         
 class EnemyChopper(Sprite):
     echopper = ImageAsset("images/chopper.png")
@@ -718,7 +718,7 @@ class Game(App):
         bomb_icon6 = bombCounter((150,40))
         bomb_icon_list = (bomb_icon1, bomb_icon2, bomb_icon3, bomb_icon4, bomb_icon5, bomb_icon6)
         Plane((0,650), bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list, guided_bomb_list)
-        EnemyCopter((-600,330))
+        EnemyCopter((-600,360))
         Blimp((300, 160))
         EnemyChopper((0,330))
         
