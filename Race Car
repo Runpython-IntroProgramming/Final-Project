@@ -1,0 +1,7 @@
+"""
+RACE CAR PROGRAM
+"""
+
+
+asset = ImageAsset("Race Track.jpg")
+print(ImageAsset)
