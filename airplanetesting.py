@@ -18,7 +18,7 @@ SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 650
 
 class Field(Sprite):
-    field=ImageAsset("images/field.jpg")
+    field=ImageAsset("images/field2.jpg")
 
     def __init__(self, position):
          super().__init__(Field.field, position)
