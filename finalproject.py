@@ -36,7 +36,16 @@ class Pongblock2(Pongblock):
     print("kyle")
 class pongball(Sprite):
      print("kyle")
-
+class Scoreline(Sprite):
+    blue = Color(0x0000ff, 1.0)
+    thinline= LineStyle(1, blue)
+    rectangle_asset=RectangleAsset(10, 2000, thinline, blue)
+    rectangle = Sprite(rectangle_asset, (00,-100))
+class Scoreline2(Sprite):
+    blue = Color(0x0000ff, 1.0)
+    thinline= LineStyle(1, blue)
+    rectangle_asset=RectangleAsset(10, 2000, thinline, blue)
+    rectangle = Sprite(rectangle_asset, (1500,-100))
 class ponggame(App):
     def __init__(self , width, height):
         super().__init__(width, height)
