@@ -90,6 +90,10 @@ class Buoy3(Buoy):
     def __init__(self, next):
         super().__init__((myapp.width*(1/4),myapp.height*(4/7)), (2*pi)/3, next)
         
+class Buoy4(Buoy):
+    def __init__(self, next):
+        super().__init__((myapp.width*(5/6),myapp.height*(4/7)), (pi)/8, next)
+        
 
 class Ship(Sprite):
     asset = ImageAsset("images/Rivamare-Birds-eye-view-drawing.png")
@@ -233,12 +237,14 @@ class BoatGame(App):
         b1.step()
         b2.step()
         b3.step()
+        b4.step()
         
             
 
 
 myapp = BoatGame(SCREEN_WIDTH, SCREEN_HEIGHT)
-b3 = Buoy3(None)
+b4 = Buoy4(None)
+b3 = Buoy3(b4)
 b2 = Buoy2(b3)
 b1 = Buoy1(b2)
 myapp.run()
