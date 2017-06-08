@@ -121,9 +121,22 @@ class EnemyChopper(Sprite):
 class Bullet(Sprite):
     bullet = ImageAsset("images/bullet.png")
     
-    def __init__(self, position):
+    def __init__(self, position, plane_rotation):
+        super().__init__(Bullet.bullet, position)
+        self.scale = 0.5
+        self.rotation = plane_rotation
+        self.vx = 0
+        self.vy = 0
+        self.center = (0.5, 0.5)
         
-
+    def step(self):
+        self.vx = angle.anglex
+        self.vy = angle.angley
+        angle=AOA(self.rotation)
+        self.x += self.vx
+        self.y += self.vy
+        
+        
     
     
 class bombCounter(Sprite):
@@ -437,6 +450,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "z", self.Boost)
         Game.listenKeyEvent("keyup", "z", self.StopBoost)
         Game.listenKeyEvent("keydown", "m", self.Drop_GuidedBomb)
+        Game.listenKeyEvent("keydown", "h", self.Shoot)
         self.bomb_icons = bomb_icon_list
         self.nuke_icons = nuke_icon_list
         self.bomb_name_list = bomb_name_list
@@ -577,6 +591,9 @@ class Plane(Sprite):
         self.vy = 0
         self.vr = 0
     
+    def shoot(self):
+        Bullet(self.position, self.rotation)
+    
     def explode(self):
         self.visible = False
         Explosion(self.position)
@@ -684,7 +701,9 @@ class Plane(Sprite):
         self.xy_multiplier = 15
     def StopBoost(self, event):
         self.xy_multiplier = 3
-
+    def Shoot(self, event):
+        self.shoot()
+        
 class Game(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -745,6 +764,7 @@ class Game(App):
             eblimp.step()
         for echopper in self.getSpritesbyClass(EnemyChopper):
             echopper.step()
-            
+        for bullet in self.getSpritesbyClass(Bullet):
+            bullet.step()
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
