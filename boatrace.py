@@ -127,13 +127,29 @@ class Ship(Sprite):
         self.y += vy
         self.rotation += self.vr
         if self.x > myapp.width:
-            self.x = 0
+            self.x = 65
+            self.y = 50
+            self.v = 0
+            self.thrust = 0
+            self.rotation = (7*pi)/4
         if self.x < 0:
-            self.x = myapp.width
+            self.x = 65
+            self.y=50
+            self.v = 0
+            self.thrust = 0
+            self.rotation = (7*pi)/4
         if self.y > myapp.height:
-            self.y = 0
+            self.x = 65
+            self.y = 50
+            self.v = 0
+            self.thrust = 0
+            self.rotation = (7*pi)/4
         if self.y < 0:
-            self.y = myapp.height
+            self.x = 65
+            self.y = 50
+            self.v = 0
+            self.thrust = 0
+            self.rotation = (7*pi)/4
         if self.thrust == 0 and self.v >= 0.1:
             self.v -= 0.05
         if self.thrust == 1 and self.v == 0:
