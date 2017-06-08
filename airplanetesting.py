@@ -93,6 +93,7 @@ class EnemyChopper(Sprite):
         self.vx = 3
         self.scale = 0.25
         self.fxcenter = self.fycenter = 0.5
+        self.positiones = self.position
         Game.listenKeyEvent("keydown", "p", self.Restart)
         Game.listenKeyEvent("keydown", "u", self.Restart)
         
@@ -111,8 +112,7 @@ class EnemyChopper(Sprite):
             self.explode()
     def Restart(self, event):
         self.visible = True
-        self.x = 0
-        self.y = 330
+        self.position = self.positiones
             
             
             
@@ -721,6 +721,8 @@ class Game(App):
         EnemyCopter((-600,360))
         Blimp((300, 160))
         EnemyChopper((0,330))
+        EnemyChopper((300,20))
+
         
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
