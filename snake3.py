@@ -22,6 +22,7 @@ b=False
 blck=[]
 bk=[]
 s=4
+best=0
 
 class tail(Sprite):
     asset=RectangleAsset(20,20,line, purple)
@@ -117,7 +118,7 @@ def slowdown(event):
     s=s+1
         
 def step():
-    global x, y, go, dir, z, dot, snk, snak, dt, lose, b, s
+    global x, y, go, dir, z, dot, snk, snak, dt, lose, b, s, best
     if go and not lose:
         z=z+1
         if z==s:
@@ -134,11 +135,17 @@ def step():
                     if x==c and y==d:
                         print("you lose. Press r to play again.")
                         lose=True
+                        if len(snk)>best:
+                            best=len(snk)
+                        print("Your longest length is "+str(best))
                 if b:
                     for (a,b) in blck:
                         if a==x and b==y:
                             print("you lose. Press r to play again.")
                             lose=True
+                            if len(snk)>best:
+                                best=len(snk)
+                            print("Your longest length is "+str(best))
                             
                 if x==h and y==k:
                     snk.append((x,y))
@@ -150,6 +157,9 @@ def step():
                 elif (x+20)>SCREEN_WIDTH or (y+20)>SCREEN_HEIGHT or x<0 or y<0:
                     print("you lose. Press r to play again.")
                     lose=True
+                    if len(snk)>best:
+                        best=len(snk)
+                    print("Your longest length is "+str(best))
                 else:
                     snk.append((x,y))
                     snak.append(tail((x,y)))
