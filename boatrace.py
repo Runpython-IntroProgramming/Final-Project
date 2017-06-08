@@ -163,6 +163,7 @@ class Ship(Sprite):
                 self.v += 0.05
         else:
             self.setImage(0)
+            
     def thrustOn(self, event):
         self.thrust = 1
         
@@ -190,6 +191,50 @@ class Ship2(Ship):
         BoatGame.listenKeyEvent("keyup", "a", self.turnoff)
         BoatGame.listenKeyEvent("keydown", "d", self.turnright)
         BoatGame.listenKeyEvent("keyup", "d", self.turnoff)
+    
+    def step(self):
+        vx = cos(self.rotation) * self.v
+        vy = -sin(self.rotation) * self.v
+        self.x += vx
+        self.y += vy
+        self.rotation += self.vr
+        if self.x > myapp.width:
+            self.x = 65-sqrt(300)
+            self.y = 50+sqrt(300)
+            self.v = 0
+            self.thrust = 0
+            self.rotation = (7*pi)/4
+        if self.x < 0:
+            self.x = 65-sqrt(300)
+            self.y = 50+sqrt(300)
+            self.v = 0
+            self.thrust = 0
+            self.rotation = (7*pi)/4
+        if self.y > myapp.height:
+            self.x = 65-sqrt(300)
+            self.y = 50+sqrt(300)
+            self.v = 0
+            self.thrust = 0
+            self.rotation = (7*pi)/4
+        if self.y < 0:
+            self.x = 65-sqrt(300)
+            self.y = 50+sqrt(300)
+            self.v = 0
+            self.thrust = 0
+            self.rotation = (7*pi)/4
+        if self.thrust == 0 and self.v >= 0.1:
+            self.v -= 0.05
+        if self.thrust == 1 and self.v == 0:
+            self.v = 1
+        if self.thrust == 1:
+            self.setImage(self.thrustframe)
+            self.thrustframe += 1
+            if self.thrustframe == 4:
+                self.thrustframe = 1
+            if self.v < 5:
+                self.v += 0.05
+        else:
+            self.setImage(0)
 
 class tally1(Sprite):
     asset = ImageAsset("images/Tally1.png")
