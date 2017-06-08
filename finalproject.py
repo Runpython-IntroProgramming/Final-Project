@@ -18,7 +18,7 @@ class Pongblock(Sprite):
     black = Color(0x000000, 1.0)
     thinline= LineStyle(1, black)
     rectangle_asset=RectangleAsset(50, 200, thinline, black)
-    rectangle = Sprite(rectangle_asset, (60,60))
+    rectangle = Sprite(rectangle_asset, (60,250))
     def __init__(self, position):
         self.vx = 1
         self.vy = 1
@@ -33,7 +33,7 @@ class Pongblock1(Sprite):
     black = Color(0x000000, 1.0)
     thinline= LineStyle(1, black)
     rectangle_asset=RectangleAsset(50, 200, thinline, black)
-    rectangle1 = Sprite(rectangle_asset, (1400,60))
+    rectangle1 = Sprite(rectangle_asset, (1400,250))
     def __init__(self, position):
         self.vx = 1
         self.vy = 1
