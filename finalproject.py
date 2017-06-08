@@ -1,7 +1,7 @@
 """
 Finalproject.py
 Author: Sam Pych
-Credit:
+Credit: Thomas Kyle Postans
 Assignment: Create a pong game with two movable blocks and the ball either bounces off the wall 
 or appears on the other side.
 optional: keep score
