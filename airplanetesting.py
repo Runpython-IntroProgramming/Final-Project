@@ -128,7 +128,7 @@ class Bullet(Sprite):
         self.vx = 0
         self.vy = 0
         self.center = (0.5, 0.5)
-        
+
     def step(self):
         self.vx = angle.anglex
         self.vy = angle.angley
