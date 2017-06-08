@@ -478,6 +478,8 @@ class Plane(Sprite):
         Game.listenKeyEvent("keyup", "z", self.StopBoost)
         Game.listenKeyEvent("keydown", "m", self.Drop_GuidedBomb)
         Game.listenKeyEvent("keydown", "h", self.Shoot)
+        Game.listenKeyEvent("keydown", "x", self.SlowDown)
+        Game.listenKeyEvent("keyup", "x", self.StopSlow)
         self.bomb_icons = bomb_icon_list
         self.nuke_icons = nuke_icon_list
         self.bomb_name_list = bomb_name_list
@@ -727,6 +729,10 @@ class Plane(Sprite):
     def Boost(self, event):
         self.xy_multiplier = 15
     def StopBoost(self, event):
+        self.xy_multiplier = 3
+    def SlowDown(self, event):
+        self.xy_multiplier = 1
+    def StopSlow(self, event):
         self.xy_multiplier = 3
     def Shoot(self, event):
         self.shoot()
