@@ -19,7 +19,6 @@ class Pongblock(Sprite):
     thinline= LineStyle(1, black)
     rectangle_asset=RectangleAsset(50, 200, thinline, black)
     rectangle = Sprite(rectangle_asset, (60,60))
-    rectangle1 = Sprite(rectangle_asset, (1400,60))
     def __init__(self, position):
         self.vx = 1
         self.vy = 1
@@ -30,10 +29,21 @@ class Pongblock(Sprite):
     def down(self, event):
         self.vy +=2
         
-class Pongblock1(Pongblock):
-    print("kyle")
-class Pongblock2(Pongblock):
-    print("kyle")
+class Pongblock1(Sprite):
+    black = Color(0x000000, 1.0)
+    thinline= LineStyle(1, black)
+    rectangle_asset=RectangleAsset(50, 200, thinline, black)
+    rectangle1 = Sprite(rectangle_asset, (1400,60))
+    def __init__(self, position):
+        self.vx = 1
+        self.vy = 1
+        ponggame.listenKeyEvent("keydown", "w", self.up)
+        ponggame.listenKeyEvent("keydown","s",self.down)
+    def up(self, event):
+        self.vy -= 2
+    def down(self, event):
+        self.vy +=2
+    
 class pongball(Sprite):
      print("kyle")
 class Scoreline(Sprite):
@@ -49,9 +59,9 @@ class Scoreline2(Sprite):
 class ponggame(App):
     def __init__(self , width, height):
         super().__init__(width, height)
-        Pongblock1((10,10))
+        Pongblock((10,10))
         
-        Pongblock2((350,250))
+        Pongblock1((350,250))
         
 app=ponggame(0,0)
 app.run()
