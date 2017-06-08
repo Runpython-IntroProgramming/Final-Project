@@ -49,6 +49,9 @@ class Blimp(Sprite):
         planeCollision = self.collidingWithSprites(Plane)
         if len(planeCollision) > 0:
             self.explode()
+        bombCollision = self.collidingWithSprites(Explosion)
+        if len(bombCollision) > 0:
+            self.visible = False
         if self.x < 0:
             self.x = 1250
     def Restart(self, event):
@@ -80,6 +83,9 @@ class EnemyCopter(Sprite):
         planeCollision = self.collidingWithSprites(Plane)
         if len(planeCollision) > 0:
             self.explode()
+        bombCollision = self.collidingWithSprites(Explosion)
+        if len(bombCollision) > 0:
+            self.visible = False
     def Restart(self, event):
         self.visible = True
         self.x = -600
@@ -110,6 +116,9 @@ class EnemyChopper(Sprite):
         planeCollision = self.collidingWithSprites(Plane)
         if len(planeCollision) > 0:
             self.explode()
+        bombCollision = self.collidingWithSprites(Explosion)
+        if len(bombCollision) > 0:
+            self.visible = False
     def Restart(self, event):
         self.visible = True
         self.position = self.positiones
@@ -283,6 +292,24 @@ class Bomb(Sprite):
         explosionCollision = self.collidingWithSprites(NuclearExplosion)
         if self.visible == True:
             if len(explosionCollision) > 0:
+                self.visible = False
+                self.stop()
+                self.explode()
+        blimpCollision = self.collidingWithSprites(Blimp)
+        if self.visible == True:
+            if len(blimpCollision) > 0:
+                self.visible = False
+                self.stop()
+                self.explode()
+        copterCollision = self.collidingWithSprites(EnemyCopter)
+        if self.visible == True:
+            if len(copterCollision) > 0:
+                self.visible = False
+                self.stop()
+                self.explode()
+        chopperCollision = self.collidingWithSprites(EnemyChopper)
+        if self.visible == True:
+            if len(chopperCollision) > 0:
                 self.visible = False
                 self.stop()
                 self.explode()
