@@ -45,7 +45,14 @@ class Pongblock1(Sprite):
         self.vy +=2
     
 class pongball(Sprite):
-     print("kyle")
+    red = Color(0xff0000, 1.0)
+    thinline= LineStyle(1, red)
+    circle=CircleAsset(200, thinline, red)
+    def __init__(self, position):
+        self.vx = 1
+        self.vy = 1
+        ponggame.listenKeyEvent("keydown", "w", self.up)
+        ponggame.listenKeyEvent("keydown","s",self.down)
 class Scoreline(Sprite):
     blue = Color(0x0000ff, 1.0)
     thinline= LineStyle(1, blue)
@@ -62,6 +69,7 @@ class ponggame(App):
         Pongblock((10,10))
         
         Pongblock1((350,250))
+        
         
 app=ponggame(0,0)
 app.run()
