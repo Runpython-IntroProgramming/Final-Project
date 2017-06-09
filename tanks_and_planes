@@ -181,6 +181,20 @@ class nukeCounter(Sprite):
     def Reload(self, event):
         self.visible = True
         
+class CTank(Sprite):
+    control = ImageAsset("images/armytank.png")
+    
+    def __init__(self, position):
+        super().__init__(CTank.control, position)
+        self.fxcenter = 0.12
+        self.fycenter = 0.4
+        self.vx = 0
+        self.scale = 0.3
+        self.vr = 0.1
+        
+    def step(self):
+        self.rotation += self.vr
+        
 
 class Tank(Sprite):
     base_tank = ImageAsset("images/tank1.png")
@@ -829,6 +843,7 @@ class Game(App):
         Blimp((300, 160))
         EnemyChopper((0,330))
         EnemyChopper((300,20))
+        CTank((600,600))
 
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
@@ -857,6 +872,8 @@ class Game(App):
             memes.step()
         for asset in self.getSpritesbyClass(GiantExplosion):
             asset.step()
+        for control in self.getSpritesbyClass(CTank):
+            control.step()
             
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
