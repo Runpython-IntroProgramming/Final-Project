@@ -1,7 +1,27 @@
 """
 RACE CAR PROGRAM
 """
+from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+import math
+
+class track(Sprite):
+
+    asset = ImageAsset("Race Track.jpg")
+    width = 600
+    height = 500
+    
+    def __init__(self, position):
+        super().__init__(track.asset, position)
+        
 
 
-asset = ImageAsset("Race Track.jpg")
-print(ImageAsset)
+class racecar(App):
+
+    def __init__(self, width, height):
+        super().__init__(width, height)
+        for x in range(self.width//track.width + 1):
+            for y in range(self.height//track.height + 1):
+                track((x*track.width, y*track.height))
+                
+myapp = racecar(0,0)
+myapp.run()
