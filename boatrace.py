@@ -60,13 +60,14 @@ class Buoy(Sprite):
     def step(self):
         ab=self.collidingWithSprites(Ship)
         bc=self.collidingWithSprites(Ship2)
-        if self.visible and ((not self.prev) or (self.prev.occurab and self.prev.occurbc)):
+        if self.visible and ((not self.prev) or self.prev.occurab):
             if len(ab) > 0:
                 self.occurab=True
+        if self.visible and ((not self.prev) or self.prev.occurbc):
             if len(bc) > 0:
                 self.occurbc=True
-            if self.occurab and self.occurbc:
-                self.visible=False
+        if self.occurab and self.occurbc:
+            self.visible=False
         if (self.prev==None or self.prev.occurab) and len(ab) and self.next != None:
             self.next.visible=True
         if (self.prev==None or self.prev.occurbc) and len(bc) and self.next != None:
@@ -88,9 +89,12 @@ class Buoy3(Buoy):
         
 class Buoy4(Buoy):
     def __init__(self, next):
-        super().__init__((myapp.width*(5/6),myapp.height*(4/7)), (pi)/8, next)
-        
-
+        super().__init__((myapp.width*(5/6),myapp.height*(6/7)), (pi)/8, next)
+    
+class Buoy5(Buoy):
+    def __init__(self, next):
+        super().__init__((myapp.width*(2/7),myapp.height*(6/7)), (5*pi)/6, next)
+    
 class Ship(Sprite):
     asset = ImageAsset("images/Rivamare-Birds-eye-view-drawing.png")
 
@@ -107,6 +111,16 @@ class Ship(Sprite):
         self.assignkeys()
         self.initposition = position
         self.fxcenter = self.fycenter = 0.5
+        """self.buoy1l=0
+        self.buoy2l=0
+        self.buoy3l=0
+        self.buoy4l=0
+        self.buoy5l=0
+        self.buoy1s=0
+        self.buoy2s=0
+        self.buoy3s=0
+        self.buoy4s=0
+        self.buoy5s=0"""
     
     def assignkeys(self):
         BoatGame.listenKeyEvent("keydown", "up arrow", self.thrustOn)
@@ -159,7 +173,28 @@ class Ship(Sprite):
                 self.v += 0.05
         else:
             self.setImage(0)
-            
+    """self.buoy1l=self.collidingWithSprites(Buoy1)
+    self.buoy2l=self.collidingWithSprites(Buoy2)
+    self.buoy3l=self.collidingWithSprites(Buoy3)
+    self.buoy4l=self.collidingWithSprites(Buoy4)
+    self.buoy5l=self.collidingWithSprites(Buoy5)
+    if len(self.buoy5l)>0:
+        self.buoy5s=1
+    if len(self.buoy1l)>0:
+        self.buoy1s=1
+    if len(self.buoy2l)>0:
+        self.buoy2s=1
+    if len(self.buoy3l)>0:
+        self.buoy3s=1
+    if len(self.buoy4l)>0:
+        self.buoy4s=1
+    if len(self.buoy5l)>0:
+        self.buoy5s=1
+    if self.buoy5s==1 and self.buoy1s==1 and self.buoy2s==1 and self.buoy3s==1 and self.buoy4s==1:
+        print("kk")
+        ship1wins()"""
+
+
     def thrustOn(self, event):
         self.thrust = 1
         
@@ -231,6 +266,8 @@ class Ship2(Ship):
                 self.v += 0.05
         else:
             self.setImage(0)
+    """def ship1wins(self):
+        self.visbile=False"""
 
 class tally1(Sprite):
     asset = ImageAsset("images/Tally1.png")
@@ -295,12 +332,14 @@ class BoatGame(App):
         b2.step()
         b3.step()
         b4.step()
+        b5.step()
         
             
 
 
 myapp = BoatGame(SCREEN_WIDTH, SCREEN_HEIGHT)
-b4 = Buoy4(None)
+b5 = Buoy5(None)
+b4 = Buoy4(b5)
 b3 = Buoy3(b4)
 b2 = Buoy2(b3)
 b1 = Buoy1(b2)
