@@ -441,7 +441,7 @@ class Wasted(Sprite):
         
     def step(self):
         self.image += 1
-        if self.image > 10:
+        if self.image > 1:
             self.visible = False
 
 
