@@ -247,7 +247,7 @@ class GiantExplosion(Sprite):
         super().__init__(Explosion.asset, position)
         self.image = 0
         self.center = (0.5, 0.56)
-        self.scale = 2
+        self.scale = 3.5
         
     def step(self):
         self.setImage(self.image//2)  # slow it down
