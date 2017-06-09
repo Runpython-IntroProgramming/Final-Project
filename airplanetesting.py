@@ -544,6 +544,8 @@ class Plane(Sprite):
         bomb_explosionCollision = self.collidingWithSprites(Explosion)
         if len(bomb_explosionCollision) > 0:
             self.visible = False
+            self.x = 100
+            self.y = -1100
             self.wasted()
         enemyCollision = self.collidingWithSprites(EnemyCopter)
         if len(enemyCollision) > 0:
