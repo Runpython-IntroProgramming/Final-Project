@@ -53,6 +53,22 @@ class pongball(Sprite):
     def __init__(self, position):
         self.vx = 1
         self.vy = 1
+    def step(self, T, dT):
+        super().step(T, dT)
+        if self.visible:
+            collides = self.collidingWithSprites(Pongblock1)
+            if len(collides):
+                if collides[0].visible:
+                    collides[0].explode()
+                    self.explode()
+    def step(self, T, dT):
+        super().step(T, dT)
+        if self.visible:
+            collides = self.collidingWithSprites(Pongblock)
+            if len(collides):
+                if collides[0].visible:
+                    collides[0].explode()
+                    self.explode()
 class Scoreline(Sprite):
     blue = Color(0x0000ff, 1.0)
     thinline= LineStyle(1, blue)
@@ -63,6 +79,8 @@ class Scoreline2(Sprite):
     thinline= LineStyle(1, blue)
     rectangle_asset=RectangleAsset(10, 2000, thinline, blue)
     rectangle = Sprite(rectangle_asset, (1500,-100))
+class Scoreboard:
+    print("kyle")
 class ponggame(App):
     def __init__(self , width, height):
         super().__init__(width, height)
