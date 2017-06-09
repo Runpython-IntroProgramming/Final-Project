@@ -193,7 +193,7 @@ class CTank(Sprite):
         self.vr = 0.1
         
     def step(self):
-        self.rotation += self.vr
+        self.x += self.vx
         
 
 class Tank(Sprite):
