@@ -429,7 +429,29 @@ class Nuke(Sprite):
                 self.explode()
                 self.variablememes = 0
         
+class Wasted(Sprite):
+    memes = ImageAsset("images/wasted.png")
     
+    def __init__(self, position):
+        super().__init__(Wasted.memes, position)
+        self.scale = 1
+        self.fxcenter = self.fycenter = 0.5
+        self.image = 0
+        self.visible = True
+        Game.listenKeyEvent("keydown", "1", self.ZoomOut)
+        Game.listenKeyEvent("keydown", "2", self.ZoomIn)
+        
+    def step(self):
+        self.image += 1
+        if self.image > 10:
+            self.visible = False
+        
+    
+    def ZoomOut(self, event):
+        self.scale -= 0.01
+    def ZoomIn(self, event):
+        self.scale += 0.01
+
 class Plane(Sprite):
     airplane = ImageAsset("images/fighter.png")
     
@@ -529,6 +551,7 @@ class Plane(Sprite):
         bomb_explosionCollision = self.collidingWithSprites(Explosion)
         if len(bomb_explosionCollision) > 0:
             self.visible = False
+            self.wasted()
         enemyCollision = self.collidingWithSprites(EnemyCopter)
         if len(enemyCollision) > 0:
             self.visible = False
@@ -620,10 +643,14 @@ class Plane(Sprite):
         self.vy = 0
         self.vr = 0
     
+    def wasted(self):
+        Wasted((600,325))
+        print("wasted")
     def shoot(self):
         Bullet(self.position, self.rotation)
     
     def explode(self):
+        self.wasted()
         self.visible = False
         Explosion(self.position)
         self.x = 1100
@@ -775,7 +802,6 @@ class Game(App):
         EnemyChopper((0,330))
         EnemyChopper((300,20))
 
-        
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
             nuke.step()
