@@ -142,12 +142,12 @@ class Bullet(Sprite):
     def __init__(self, position, plane_rotation):
         super().__init__(Bullet.bullet, position)
         self.scale = 0.5
-        self.rotation = plane_rotation
         self.vx = 0
         self.vy = 0
         self.center = (0.5, 0.5)
 
     def step(self):
+        self.rotation = plane_rotation
         self.vx = angle.anglex
         self.vy = angle.angley
         angle=AOA(self.rotation)
@@ -178,6 +178,7 @@ class nukeCounter(Sprite):
         self.visible = True
         self.rotation = 1.57
         Game.listenKeyEvent("keydown", "r", self.Reload)
+        
     def Reload(self, event):
         self.visible = True
         
