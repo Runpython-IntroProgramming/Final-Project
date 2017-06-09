@@ -2,7 +2,6 @@
 add comments
 make the plane shoot bullets
 make the enemy plane shoot bullets
-make the enemies blow up to bombs
 make a kamikaze
 the nuke and bomb will explode if you hit the button while above the angle, meaning that it will explode if you drop it.
 0 to -3.05
@@ -240,6 +239,22 @@ class Explosion(Sprite):
         if self.image == 20:
             self.destroy()
             
+class GiantExplosion(Sprite):
+    
+    asset = ImageAsset("images/explosion1.png", Frame(0,0,128,128), 10)
+
+    def __init__(self, position):
+        super().__init__(Explosion.asset, position)
+        self.image = 0
+        self.center = (0.5, 0.56)
+        self.scale = 2
+        
+    def step(self):
+        self.setImage(self.image//2)  # slow it down
+        self.image = self.image + 1
+        if self.image == 20:
+            self.destroy()
+        
 class NuclearExplosion(Sprite):
     
     asset = ImageAsset("images/7db0bd54cbd390ca9ccee6b132333292_explosion-clip-art-explosion-clipart-transparent-background_664-800.png")
@@ -495,6 +510,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "h", self.Shoot)
         Game.listenKeyEvent("keydown", "x", self.SlowDown)
         Game.listenKeyEvent("keyup", "x", self.StopSlow)
+        Game.listenKeyEvent("keydown", "k", self.Kamikaze)
         self.bomb_icons = bomb_icon_list
         self.nuke_icons = nuke_icon_list
         self.bomb_name_list = bomb_name_list
@@ -650,6 +666,13 @@ class Plane(Sprite):
         Explosion(self.position)
         self.x = 1100
         self.y = -500000000
+    
+    def bigexplode(self):
+        self.wasted()
+        self.visible = False
+        GiantExplosion(self.position)
+        self.x = 1100
+        self.y = -500000000
         
     
     def slow(self):
@@ -758,7 +781,8 @@ class Plane(Sprite):
         self.xy_multiplier = 3
     def Shoot(self, event):
         self.shoot()
-        
+    def Kamikaze(self, event):
+        self.bigexplode()
 class Game(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -822,5 +846,8 @@ class Game(App):
             bullet.step()
         for memes in self.getSpritesbyClass(Wasted):
             memes.step()
+        for asset in self.getSpritesbyClass(GiantExplosion):
+            asset.step()
+            
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
