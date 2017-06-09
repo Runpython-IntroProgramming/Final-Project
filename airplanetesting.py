@@ -793,13 +793,14 @@ class Plane(Sprite):
     def StopBoost(self, event):
         self.xy_multiplier = 3
     def SlowDown(self, event):
-        self.xy_multiplier = 1
+        self.xy_multiplier = 1.75
     def StopSlow(self, event):
         self.xy_multiplier = 3
     def Shoot(self, event):
         self.shoot()
     def Kamikaze(self, event):
         self.bigexplode()
+
 class Game(App):
     def __init__(self, width, height):
         super().__init__(width, height)
