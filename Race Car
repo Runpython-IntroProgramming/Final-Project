@@ -12,8 +12,25 @@ class track(Sprite):
     
     def __init__(self, position):
         super().__init__(track.asset, position)
-        
 
+
+class car(Sprite):
+    
+    asset = ImageAsset("Car.png")
+    width = 70
+    height = 50
+    
+    def __init__(self, position):
+        super().__init__(track.asset,position)
+
+class car2(Sprite):
+    
+    asset = ImageAsset("Car2.png")
+    width = 70
+    height = 50
+    
+    def __init__(self, position):
+        super().__init__(track.asset,position)
 
 class racecar(App):
 
@@ -22,6 +39,9 @@ class racecar(App):
         for x in range(self.width//track.width + 1):
             for y in range(self.height//track.height + 1):
                 track((x*track.width, y*track.height))
-                
+        car((0,0))
+        car2((0,0))
+
+
 myapp = racecar(0,0)
 myapp.run()
