@@ -441,7 +441,7 @@ class Wasted(Sprite):
         
     def step(self):
         self.image += 1
-        if self.image > 1:
+        if self.image > 10:
             self.visible = False
 
 
@@ -818,5 +818,7 @@ class Game(App):
             echopper.step()
         for bullet in self.getSpritesbyClass(Bullet):
             bullet.step()
+        for memes in self.getSpritesbyClass(Wasted):
+            memes.step()
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
