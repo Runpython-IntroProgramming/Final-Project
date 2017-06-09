@@ -479,7 +479,7 @@ class Wasted(Sprite):
 
 
 class Plane(Sprite):
-    airplane = ImageAsset("images/fighter.png")
+    airplane = ImageAsset("images/experimental1.png")
     
     def __init__(self, position, bomb_name_list, nuke_name_list, bomb_icon_list, nuke_icon_list, guided_bomb_list):
         super().__init__(Plane.airplane, position)
