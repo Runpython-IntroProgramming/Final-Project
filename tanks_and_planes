@@ -869,4 +869,3 @@ class Game(App):
             
 myapp = Game(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
-Contact GitHub 
