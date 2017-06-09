@@ -195,8 +195,6 @@ class CTank(Sprite):
         Game.listenKeyEvent("keyup", "left arrow", self.Stop)
         Game.listenKeyEvent("keydown", "right arrow", self.Backward)
         Game.listenKeyEvent("keyup", "right arrow", self.Stop)
-
-
         
     def step(self):
         self.x += self.vx
