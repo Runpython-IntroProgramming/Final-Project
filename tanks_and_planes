@@ -506,20 +506,16 @@ class Plane(Sprite):
         self.xy_multiplier = 3
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
-        Game.listenKeyEvent("keydown", "left arrow", self.Up)
-        Game.listenKeyEvent("keydown", "right arrow", self.Down)
-        Game.listenKeyEvent("keyup", "right arrow", self.Stop)
-        Game.listenKeyEvent("keyup", "left arrow", self.Stop)
+        Game.listenKeyEvent("keydown", "w", self.Up)
+        Game.listenKeyEvent("keydown", "s", self.Down)
+        Game.listenKeyEvent("keyup", "s", self.Stop)
+        Game.listenKeyEvent("keyup", "w", self.Stop)
         Game.listenKeyEvent("keydown", "p", self.Restart)
         Game.listenKeyEvent("keydown", "t", self.Autopilot)
         Game.listenKeyEvent("keydown", "b", self.Drop_bomb)
         Game.listenKeyEvent("keydown", "f", self.Air_Brakes)
         Game.listenKeyEvent("keyup", "f", self.No_Brakes)
         Game.listenKeyEvent("keydown", "n", self.Drop_Nuke)
-        Game.listenKeyEvent("keydown", "up arrow", self.Up_fine)
-        Game.listenKeyEvent("keydown", "down arrow", self.Down_fine)
-        Game.listenKeyEvent("keyup", "down arrow", self.Stop)
-        Game.listenKeyEvent("keyup", "up arrow", self.Stop)
         Game.listenKeyEvent("keydown", "r", self.Reload)
         Game.listenKeyEvent("keydown", "z", self.Boost)
         Game.listenKeyEvent("keyup", "z", self.StopBoost)
@@ -742,10 +738,6 @@ class Plane(Sprite):
     def Down(self, event):
         if (self.lift_off > 1):
             self.vr -= 0.05
-    def Up_fine(self, event):
-        self.vr += 0.007
-    def Down_fine(self, event):
-        self.vr -= 0.007
     def Stop(self, event):
         self.vr=0
     def Restart(self, event):
