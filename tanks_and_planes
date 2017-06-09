@@ -191,9 +191,22 @@ class CTank(Sprite):
         self.vx = 0
         self.scale = 0.3
         self.vr = 0.1
+        Game.listenKeyEvent("keydown", "left arrow", self.Forward)
+        Game.listenKeyEvent("keyup", "left arrow", self.Stop)
+        Game.listenKeyEvent("keydown", "right arrow", self.Backward)
+        Game.listenKeyEvent("keyup", "right arrow", self.Stop)
+
+
         
     def step(self):
         self.x += self.vx
+
+    def Forward(self, event):
+        self.vx = -1
+    def Stop(self, event):
+        self.vx = 0
+    def Backward(self, event):
+        self.vx = 1
         
 
 class Tank(Sprite):
