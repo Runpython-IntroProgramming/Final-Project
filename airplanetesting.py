@@ -51,6 +51,9 @@ class Blimp(Sprite):
         bombCollision = self.collidingWithSprites(Explosion)
         if len(bombCollision) > 0:
             self.visible = False
+        explosionCollision = self.collidingWithSprites(GiantExplosion)
+        if len(explosionCollision) > 0:
+            self.visible = False
         if self.x < 0:
             self.x = 1250
     def Restart(self, event):
@@ -85,6 +88,10 @@ class EnemyCopter(Sprite):
         bombCollision = self.collidingWithSprites(Explosion)
         if len(bombCollision) > 0:
             self.visible = False
+        explosionCollision = self.collidingWithSprites(GiantExplosion)
+        if len(explosionCollision) > 0:
+            self.visible = False
+        
     def Restart(self, event):
         self.visible = True
         self.x = -600
@@ -117,6 +124,9 @@ class EnemyChopper(Sprite):
             self.explode()
         bombCollision = self.collidingWithSprites(Explosion)
         if len(bombCollision) > 0:
+            self.visible = False
+        explosionCollision = self.collidingWithSprites(GiantExplosion)
+        if len(explosionCollision) > 0:
             self.visible = False
     def Restart(self, event):
         self.visible = True
@@ -197,6 +207,13 @@ class Tank(Sprite):
             self.y = -500
         bombCollision = self.collidingWithSprites(Explosion)
         if len(bombCollision) > 0:
+            self.memes += 1
+            self.vx = 0
+            if self.memes >= 2:
+                self.visible = False
+                self.y = -500
+        explosionCollision = self.collidingWithSprites(GiantExplosion)
+        if len(explosionCollision) > 0:
             self.memes += 1
             self.vx = 0
             if self.memes >= 2:
