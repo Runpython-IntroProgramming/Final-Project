@@ -438,19 +438,12 @@ class Wasted(Sprite):
         self.fxcenter = self.fycenter = 0.5
         self.image = 0
         self.visible = True
-        Game.listenKeyEvent("keydown", "1", self.ZoomOut)
-        Game.listenKeyEvent("keydown", "2", self.ZoomIn)
         
     def step(self):
         self.image += 1
         if self.image > 10:
             self.visible = False
-        
-    
-    def ZoomOut(self, event):
-        self.scale -= 0.01
-    def ZoomIn(self, event):
-        self.scale += 0.01
+
 
 class Plane(Sprite):
     airplane = ImageAsset("images/fighter.png")
