@@ -38,9 +38,9 @@ class Celebration(Sprite):
     fireworks = ImageAsset("images/fireworks.png")
     
     def __init__(self, position):
-        super().__init__(Congrats.text, position)
+        super().__init__(Celebration.fireworks, position)
         self.fxcenter = self.fycenter = 0.5
-        self.scale = 0.8
+        self.scale = 1
         
     
 
@@ -858,6 +858,9 @@ class Game(App):
         EnemyChopper((0,330))
         EnemyChopper((300,20))
         Congrats((600,325))
+        Celebration((600,325))
+        
+        
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
             nuke.step()
