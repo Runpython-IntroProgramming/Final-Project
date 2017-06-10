@@ -42,7 +42,13 @@ class Celebration(Sprite):
         self.fxcenter = self.fycenter = 0.5
         self.scale = 1
         
+class American(Sprite):
+    flag = ImageAsset("images/flag.jpg")
     
+    def __init__(self, position):
+        super().__init__(American.flag, position)
+        self.fxcenter = self.fycenter = 0.5
+        self.scale = 0.4
 
 class Blimp(Sprite):
     eblimp = ImageAsset("images/blimp1.png")
@@ -859,7 +865,8 @@ class Game(App):
         EnemyChopper((300,20))
         Celebration((600,325))
         Congrats((600,325))
-        
+        American((200,500))
+        American((1000,500))
         
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
