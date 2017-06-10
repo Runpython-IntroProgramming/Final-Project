@@ -873,10 +873,7 @@ class Game(App):
         Blimp((300, 160))
         EnemyChopper((0,330))
         EnemyChopper((300,20))
-        Celebration((600,325))
-        Congrats((600,325))
-        American((200,500))
-        American((1000,500))
+        
         
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
