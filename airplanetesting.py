@@ -834,6 +834,7 @@ class Plane(Sprite):
         self.bigexplode()
     def Celebration(self, event):
         self.celebrate()
+        self.stop()
 
 
 class Game(App):
