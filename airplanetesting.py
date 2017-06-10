@@ -553,6 +553,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "x", self.SlowDown)
         Game.listenKeyEvent("keyup", "x", self.StopSlow)
         Game.listenKeyEvent("keydown", "k", self.Kamikaze)
+        Game.listenKeyEvent("keydown", "7", self.Celebration)
         self.bomb_icons = bomb_icon_list
         self.nuke_icons = nuke_icon_list
         self.bomb_name_list = bomb_name_list
@@ -744,6 +745,12 @@ class Plane(Sprite):
             newguidedbomb.vy = 2
             newguidedbomb.rotation = 4.71
 
+    def celebrate(self):
+        Celebration((600,325))
+        Congrats((600,325))
+        American((200,500))
+        American((1000,500))
+
     def nuke_drop(self):
         newnuke = self.nuke_name_list[0]
         if newnuke.visible == False:
@@ -825,6 +832,9 @@ class Plane(Sprite):
         self.shoot()
     def Kamikaze(self, event):
         self.bigexplode()
+    def Celebration(self, event):
+        self.celebrate()
+
 
 class Game(App):
     def __init__(self, width, height):
