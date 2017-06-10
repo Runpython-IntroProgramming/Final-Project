@@ -26,14 +26,23 @@ class Field(Sprite):
          self.vr=0
          self.scale = 1.5
         
+class Congrats(Sprite):
+    text = ImageAsset("images/text.png")
+    
+    def __init__(self, position):
+        super().__init__(Congrats.text, position)
+        self.fxcenter = self.fycenter = 0.5
+        self.scale = 0.8
+        
 class Celebration(Sprite):
     fireworks = ImageAsset("images/fireworks.png")
     
     def __init__(self, position):
-        super().__init__(Celebration.fireworks)
-        self.fxcenter = self.fycenter = 0
-        self.scale = 1
-        self.visible = True
+        super().__init__(Congrats.text, position)
+        self.fxcenter = self.fycenter = 0.5
+        self.scale = 0.8
+        
+    
 
 class Blimp(Sprite):
     eblimp = ImageAsset("images/blimp1.png")
@@ -848,8 +857,7 @@ class Game(App):
         Blimp((300, 160))
         EnemyChopper((0,330))
         EnemyChopper((300,20))
-        Celebration((600,325))
-
+        Congrats((600,325))
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
             nuke.step()
