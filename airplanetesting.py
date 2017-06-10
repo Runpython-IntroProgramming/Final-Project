@@ -618,7 +618,7 @@ class Plane(Sprite):
             self.stop()
         if self.collisionMeme == True:
             self.collide += 1
-            if self.collide == 18:
+            if self.collide == 28:
                 bombCollision = self.collidingWithSprites(Bomb)
                 if len(bombCollision) > 0:
                     self.visible = False
