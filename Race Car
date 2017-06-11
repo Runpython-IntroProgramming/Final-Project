@@ -28,9 +28,6 @@ class car(Sprite):
         self.vx = 0
         self.vy = 0
         self.vr = 0
-        self.thrust = 0
-        self.thrustframe = 1
-        self.sun = s
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "up arrow", self.thrustOn) 
@@ -76,9 +73,6 @@ class car2(Sprite):
         self.vx = 0
         self.vy = 0
         self.vr = 0
-        self.thrust = 0
-        self.thrustframe = 1
-        self.sun = s
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "up arrow", self.thrustOn) 
