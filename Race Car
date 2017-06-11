@@ -111,8 +111,8 @@ class racecar(App):
         for x in range(self.width//track.width + 1):
             for y in range(self.height//track.height + 1):
                 track((x*track.width, y*track.height))
-        car((0,0))
-        car2((0,0))
+        car((0,0),s)
+        car2((0,0),s)
 
 
 myapp = racecar(0,0)
