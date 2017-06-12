@@ -190,7 +190,7 @@ class CTank(Sprite):
         Game.listenKeyEvent("keyup", "left arrow", self.Stop)
         Game.listenKeyEvent("keydown", "right arrow", self.Backward)
         Game.listenKeyEvent("keyup", "right arrow", self.Stop)
-        Game.listenKeyEvent("keydown", "1", self.Shoot)
+        Game.listenKeyEvent("keydown", "enter", self.Shoot)
     
     def shoot(self):
         Bullet(self.position)
