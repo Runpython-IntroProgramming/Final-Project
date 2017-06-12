@@ -30,8 +30,8 @@ class Pongblock(Sprite):
     def step(self):
         self.y += self.vy
         #self.y += self.vy
-        if self.y >420:
-            self.y=421
+        if self.y >400:
+            self.y=399
         if self.y <-1:
             self.y=0
     def up(self, event):
@@ -60,8 +60,8 @@ class Pongblock1(Sprite):
     def step(self):
         self.y += self.vy
         #self.y += self.vy
-        if self.y >420:
-            self.y=421
+        if self.y >400:
+            self.y=399
         if self.y <-1:
             self.y=0
     def up(self, event):
@@ -113,7 +113,7 @@ class Scoreboard:
 class ponggame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        Pongblock((10,10))
+        Pongblock((100,10))
         
         Pongblock1((1100,250))
         
@@ -121,6 +121,8 @@ class ponggame(App):
         
     def step(self):
         for x in self.getSpritesbyClass(Pongblock1):
+            x.step()
+        for x in self.getSpritesbyClass(Pongblock):
             x.step()
         
 app = ponggame(0,0)
