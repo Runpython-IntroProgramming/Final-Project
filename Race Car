@@ -83,6 +83,14 @@ class car2(Sprite):
  
     def turnleft(self, event):
         self.vr+=.4
+        
+    def step(self):
+        if self.visible:
+            collides = self.collidewithsprites(____)
+            collides = self.collidewithsprites(____)
+            if len(colliges):
+                if collides[0].visible:
+                    collides[0].explode()
 
 class racecar(App):
 
