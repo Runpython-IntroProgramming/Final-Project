@@ -63,15 +63,23 @@ class Buoy(Sprite):
         if self.visible and ((not self.prev) or self.prev.occurab):
             if len(ab) > 0:
                 self.occurab=True
+            if self.next==None and len(ab) > 0 and myapp.ss.won==False:
+                myapp.ss.won = True
+                myapp.sv.explode()
         if self.visible and ((not self.prev) or self.prev.occurbc):
             if len(bc) > 0:
                 self.occurbc=True
+            if self.next==None and len(bc) > 0 and myapp.sv.won==False:
+                myapp.sv.won = True
+                myapp.ss.explode()
         if self.occurab and self.occurbc:
             self.visible=False
         if (self.prev==None or self.prev.occurab) and len(ab) and self.next != None:
             self.next.visible=True
         if (self.prev==None or self.prev.occurbc) and len(bc) and self.next != None:
             self.next.visible=True
+
+                
             
 class Buoy1(Buoy):
     def __init__(self, next):
@@ -111,6 +119,7 @@ class Ship(Sprite):
         self.assignkeys()
         self.initposition = position
         self.fxcenter = self.fycenter = 0.5
+        self.won = False
         """self.buoy1l=0
         self.buoy2l=0
         self.buoy3l=0
@@ -171,33 +180,13 @@ class Ship(Sprite):
                 self.thrustframe = 1
             if self.v < 5:
                 self.v += 0.05
-        else:
-            self.setImage(0)
-    """self.buoy1l=self.collidingWithSprites(Buoy1)
-    self.buoy2l=self.collidingWithSprites(Buoy2)
-    self.buoy3l=self.collidingWithSprites(Buoy3)
-    self.buoy4l=self.collidingWithSprites(Buoy4)
-    self.buoy5l=self.collidingWithSprites(Buoy5)
-    if len(self.buoy5l)>0:
-        self.buoy5s=1
-    if len(self.buoy1l)>0:
-        self.buoy1s=1
-    if len(self.buoy2l)>0:
-        self.buoy2s=1
-    if len(self.buoy3l)>0:
-        self.buoy3s=1
-    if len(self.buoy4l)>0:
-        self.buoy4s=1
-    if len(self.buoy5l)>0:
-        self.buoy5s=1
-    if self.buoy5s==1 and self.buoy1s==1 and self.buoy2s==1 and self.buoy3s==1 and self.buoy4s==1:
-        print("kk")
-        ship1wins()"""
-
 
     def thrustOn(self, event):
         self.thrust = 1
         
+    def explode(self):
+        BigExplosion((self.x,self.y))
+        self.destroy()
         
     def thrustOff(self, event):
         self.thrust = 0
@@ -317,7 +306,7 @@ class BoatGame(App):
         tal = tally5((self.width-50, 30))
         ocean.scale = self.width/ocean.width
         self.ss = Ship((65,50))
-        self.sv= Ship2((65-sqrt(300),50+sqrt(300)))
+        self.sv = Ship2((65-sqrt(300),50+sqrt(300)))
 
         
     def step(self):
