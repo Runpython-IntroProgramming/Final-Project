@@ -120,16 +120,6 @@ class Ship(Sprite):
         self.initposition = position
         self.fxcenter = self.fycenter = 0.5
         self.won = False
-        """self.buoy1l=0
-        self.buoy2l=0
-        self.buoy3l=0
-        self.buoy4l=0
-        self.buoy5l=0
-        self.buoy1s=0
-        self.buoy2s=0
-        self.buoy3s=0
-        self.buoy4s=0
-        self.buoy5s=0"""
     
     def assignkeys(self):
         BoatGame.listenKeyEvent("keydown", "up arrow", self.thrustOn)
@@ -255,8 +245,6 @@ class Ship2(Ship):
                 self.v += 0.05
         else:
             self.setImage(0)
-    """def ship1wins(self):
-        self.visbile=False"""
 
 class tally1(Sprite):
     asset = ImageAsset("images/Tally1.png")
@@ -303,7 +291,6 @@ class BoatGame(App):
     def __init__(self, width, height):
         super().__init__()
         ocean = Ocean((0,0))
-        tal = tally5((self.width-50, 30))
         ocean.scale = self.width/ocean.width
         self.ss = Ship((65,50))
         self.sv = Ship2((65-sqrt(300),50+sqrt(300)))
