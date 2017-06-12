@@ -191,7 +191,10 @@ class CTank(Sprite):
         Game.listenKeyEvent("keydown", "right arrow", self.Backward)
         Game.listenKeyEvent("keyup", "right arrow", self.Stop)
         Game.listenKeyEvent("keydown", "1", self.Shoot)
-        
+    
+    def shoot(self):
+        Bullet(self.position)
+    
     def step(self):
         self.x += self.vx
 
@@ -202,8 +205,7 @@ class CTank(Sprite):
     def Backward(self, event):
         self.vx = 1
     def Shoot(self, event):
-        Bullet(self.position)
-        
+        self.shoot()
 
 class Tank(Sprite):
     base_tank = ImageAsset("images/tank1.png")
