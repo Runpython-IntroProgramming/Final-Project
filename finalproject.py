@@ -94,7 +94,6 @@ class pongball(Sprite):
                     collides[0].explode()
                     self.explode()
         self.x += self.vx
-        print("memes are dreams")
         
 class Scoreline(Sprite):
     blue = Color(0x0000ff, 1.0)
