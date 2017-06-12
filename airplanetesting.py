@@ -169,9 +169,10 @@ class Bullet(Sprite):
         self.vx = 0
         self.vy = 0
         self.center = (0.5, 0.5)
+        self.memes = plane_rotation
 
     def step(self):
-        self.rotation = plane_rotation
+        self.rotation = self.memes
         self.vx = angle.anglex
         self.vy = angle.angley
         angle=AOA(self.rotation)
@@ -549,7 +550,7 @@ class Plane(Sprite):
         Game.listenKeyEvent("keydown", "z", self.Boost)
         Game.listenKeyEvent("keyup", "z", self.StopBoost)
         Game.listenKeyEvent("keydown", "m", self.Drop_GuidedBomb)
-        Game.listenKeyEvent("keydown", "h", self.Shoot)
+        Game.listenKeyEvent("keydown", "s", self.Shoot)
         Game.listenKeyEvent("keydown", "x", self.SlowDown)
         Game.listenKeyEvent("keyup", "x", self.StopSlow)
         Game.listenKeyEvent("keydown", "k", self.Kamikaze)
