@@ -142,12 +142,13 @@ class Bullet(Sprite):
     def __init__(self, position):
         super().__init__(Bullet.bullet, position)
         self.scale = 0.03
-        self.vx = -1
+        self.vx = -3
         self.center = (0.5, 0.5)
         self.rotation = 3.14
         
     def step(self):
         self.x += self.vx
+        self.y += 0.3
         
         
     
