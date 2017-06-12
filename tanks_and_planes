@@ -149,6 +149,7 @@ class Bullet(Sprite):
     def explode(self):
         self.visible = False
         Explosion(self.position)
+        self.y = -1000000000000000000
     
     def step(self):
         self.x += self.vx
