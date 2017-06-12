@@ -146,12 +146,16 @@ class Bullet(Sprite):
         self.center = (0.5, 0.5)
         self.rotation = 3.14
         
+    def explode(self):
+        self.visible = False
+        Explosion(self.position)
+    
     def step(self):
         self.x += self.vx
         self.y += 0.3
-        bombCollision = self.collidingWithSprites(Explosion)
+        bombCollision = self.collidingWithSprites(Tank)
         if len(bombCollision) > 0:
-            self.visible = False
+            self.explode()
         
     
     
