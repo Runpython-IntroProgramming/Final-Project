@@ -18,17 +18,22 @@ class Pongblock(Sprite):
     black = Color(0x000000, 1.0)
     thinline= LineStyle(1, black)
     rectangle_asset=RectangleAsset(50, 200, thinline, black)
-    rectangle = Sprite(rectangle_asset, (60,250))
+    #rectangle1 = Sprite(rectangle_asset, (1100,250))
     def __init__(self, position):
+        super().__init__(Pongblock1.rectangle_asset, position)
         self.vy = 1
-        ponggame.listenKeyEvent("keydown", "w", self.up)
-        ponggame.listenKeyEvent("keydown","a",self.left)
-        ponggame.listenKeyEvent("keydown","s",self.down)
-        ponggame.listenKeyEvent("keydown","d",self.right)
-        
+        ponggame.listenKeyEvent("keydown", "up arrow", self.up)
+        ponggame.listenKeyEvent("keydown","left arrow",self.left)
+        ponggame.listenKeyEvent("keydown","down arrow",self.down)
+        ponggame.listenKeyEvent("keydown","right arrow",self.right)
         self.fxcenter = self.fycenter = 0.5
     def step(self):
         self.y += self.vy
+        #self.y += self.vy
+        if self.y >420:
+            self.y=421
+        if self.y <-1:
+            self.y=0
     def up(self, event):
         self.vy -=2
     def down(self, event):
@@ -37,13 +42,15 @@ class Pongblock(Sprite):
         self.vx -=2
     def right(self, event):
         self.vx +=2
+    
         
 class Pongblock1(Sprite):
     black = Color(0x000000, 1.0)
     thinline= LineStyle(1, black)
     rectangle_asset=RectangleAsset(50, 200, thinline, black)
-    rectangle1 = Sprite(rectangle_asset, (1100,250))
+    #rectangle1 = Sprite(rectangle_asset, (1100,250))
     def __init__(self, position):
+        super().__init__(Pongblock1.rectangle_asset, position)
         self.vy = 1
         ponggame.listenKeyEvent("keydown", "w", self.up)
         ponggame.listenKeyEvent("keydown","a",self.left)
@@ -52,12 +59,15 @@ class Pongblock1(Sprite):
         self.fxcenter = self.fycenter = 0.5
     def step(self):
         self.y += self.vy
-        self.y += self.vy
+        #self.y += self.vy
+        if self.y >420:
+            self.y=421
+        if self.y <-1:
+            self.y=0
     def up(self, event):
         self.vy -=2
     def down(self, event):
-        if self.y == 0:
-            self.vy +=2
+        self.vy +=2
     def left(self, event):
         self.vx -=2
     def right(self, event):
@@ -101,13 +111,17 @@ class Scoreline2(Sprite):
 class Scoreboard:
     print("kyle")
 class ponggame(App):
-      def __init__(self, width, height):
+    def __init__(self, width, height):
         super().__init__(width, height)
         Pongblock((10,10))
         
-        Pongblock1((350,250))
+        Pongblock1((1100,250))
         
         pongball((200,150))
+        
+    def step(self):
+        for x in self.getSpritesbyClass(Pongblock1):
+            x.step()
         
 app = ponggame(0,0)
 app.run()
