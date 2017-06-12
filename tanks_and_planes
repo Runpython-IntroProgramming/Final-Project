@@ -157,6 +157,9 @@ class Bullet(Sprite):
         bombCollision = self.collidingWithSprites(Tank)
         if len(bombCollision) > 0:
             self.explode()
+        planeCollision = self.collidingWithSprites(Plane)
+        if len(planeCollision) > 0:
+            self.explode()
         
     
     
