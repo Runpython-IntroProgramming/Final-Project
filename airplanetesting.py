@@ -779,6 +779,8 @@ class Plane(Sprite):
         Congrats((600,325))
         American((200,500))
         American((1000,500))
+        American((970,210))
+
 
     def nuke_drop(self):
         newnuke = self.nuke_name_list[0]
@@ -903,6 +905,7 @@ class Game(App):
         Blimp((300, 160))
         EnemyChopper((0,330))
         EnemyChopper((300,20))
+        American((970,210))
         
         
     def step(self):
