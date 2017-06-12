@@ -181,14 +181,15 @@ class Bullet(Sprite):
         self.center = (0.5, 0.5)
         self.memes = plane_rotation
         self.rotation = self.memes
+        print("done making a bullet")
 
     def step(self):
         angle=AOA(self.rotation)
-        self.vx = angle.anglex
-        self.vy = angle.angley
+        self.vx = angle.anglex()
+        self.vy = angle.angley()
         self.x += self.vx
         self.y += self.vy
-        
+
         
     
     
