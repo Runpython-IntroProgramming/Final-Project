@@ -85,7 +85,7 @@ class pongball(Sprite):
     def step(self, T, dT):
         super().step(T, dT)
         if self.visible:
-            collides = self.collidingWithSprites(Pongblock1)
+            collides = self.collidingWithSprites(Scoreline)
             if len(collides):
                 if collides[0].visible:
                     collides[0].explode()
@@ -93,7 +93,7 @@ class pongball(Sprite):
     def step(self, T, dT):
         super().step(T, dT)
         if self.visible:
-            collides = self.collidingWithSprites(Pongblock)
+            collides = self.collidingWithSprites(Scoreline2)
             if len(collides):
                 if collides[0].visible:
                     collides[0].explode()
