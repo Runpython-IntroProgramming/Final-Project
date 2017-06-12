@@ -183,9 +183,9 @@ class Bullet(Sprite):
         self.rotation = self.memes
 
     def step(self):
+        angle=AOA(self.rotation)
         self.vx = angle.anglex
         self.vy = angle.angley
-        angle=AOA(self.rotation)
         self.x += self.vx
         self.y += self.vy
         
@@ -729,6 +729,7 @@ class Plane(Sprite):
     def wasted(self):
         Wasted((600,325))
         print("wasted")
+        
     def shoot(self):
         Bullet(self.position, self.rotation)
     
