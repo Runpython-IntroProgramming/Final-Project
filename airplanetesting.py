@@ -80,6 +80,10 @@ class Blimp(Sprite):
             self.visible = False
         if self.x < 0:
             self.x = 1250
+        nukeCollision = self.collidingWithSprites(NuclearExplosion)
+        if len(nukeCollision) > 0:
+            self.visible = False
+            
     def Restart(self, event):
         self.visible = True
         self.x = 300
@@ -114,6 +118,9 @@ class EnemyCopter(Sprite):
             self.visible = False
         explosionCollision = self.collidingWithSprites(GiantExplosion)
         if len(explosionCollision) > 0:
+            self.visible = False
+        nukeCollision = self.collidingWithSprites(NuclearExplosion)
+        if len(nukeCollision) > 0:
             self.visible = False
         
     def Restart(self, event):
@@ -151,6 +158,9 @@ class EnemyChopper(Sprite):
             self.visible = False
         explosionCollision = self.collidingWithSprites(GiantExplosion)
         if len(explosionCollision) > 0:
+            self.visible = False
+        nukeCollision = self.collidingWithSprites(NuclearExplosion)
+        if len(nukeCollision) > 0:
             self.visible = False
     def Restart(self, event):
         self.visible = True
@@ -479,6 +489,24 @@ class Nuke(Sprite):
                 self.stop()
         if (self.x > SCREEN_WIDTH):
             self.x = 0
+        blimpCollision = self.collidingWithSprites(Blimp)
+        if self.visible == True:
+            if len(blimpCollision) > 0:
+                self.visible = False
+                self.stop()
+                self.explode()
+        copterCollision = self.collidingWithSprites(EnemyCopter)
+        if self.visible == True:
+            if len(copterCollision) > 0:
+                self.visible = False
+                self.stop()
+                self.explode()
+        chopperCollision = self.collidingWithSprites(EnemyChopper)
+        if self.visible == True:
+            if len(chopperCollision) > 0:
+                self.visible = False
+                self.stop()
+                self.explode()
     
     def Mid_Air(self, event):
         self.variablememes += 1
