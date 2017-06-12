@@ -79,6 +79,7 @@ class pongball(Sprite):
     circle_asset=CircleAsset(25, thinline, red)
     circle1 = Sprite(circle_asset, (600,300))
     circle=CircleAsset(1500, thinline, red)
+    
     def __init__(self, position):
         self.vx = 1
         self.vy = 1
@@ -86,36 +87,31 @@ class pongball(Sprite):
         super().step(T, dT)
         if self.visible:
             collides = self.collidingWithSprites(Scoreline)
-            if len(collides):
-                if collides[0].visible:
-                    collides[0].explode()
-                    self.explode()
-    def step(self, T, dT):
-        super().step(T, dT)
-        if self.visible:
             collides = self.collidingWithSprites(Scoreline2)
             if len(collides):
                 if collides[0].visible:
                     collides[0].explode()
                     self.explode()
+        self.x += self.vx
+        print("memes are dreams")
 class Scoreline(Sprite):
     blue = Color(0x0000ff, 1.0)
     thinline= LineStyle(1, blue)
-    rectangle_asset=RectangleAsset(10, 2000, thinline, blue)
-    rectangle = Sprite(rectangle_asset, (00,-100))
+    rectangle_asset=RectangleAsset(10, 1200, thinline, blue)
+    rectangle = Sprite(rectangle_asset, (00,-600))
 class Scoreline2(Sprite):
     blue = Color(0x0000ff, 1.0)
     thinline= LineStyle(1, blue)
-    rectangle_asset=RectangleAsset(10, 2000, thinline, blue)
-    rectangle = Sprite(rectangle_asset, (1200,-100))
+    rectangle_asset=RectangleAsset(10, 1200, thinline, blue)
+    rectangle = Sprite(rectangle_asset, (1200,-600))
 class Scoreboard:
     print("kyle")
 class ponggame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
-        Pongblock((100,10))
+        Pongblock1((100,10))
         
-        Pongblock1((1100,250))
+        Pongblock((1100,250))
         
         pongball((200,150))
         
@@ -124,6 +120,7 @@ class ponggame(App):
             x.step()
         for x in self.getSpritesbyClass(Pongblock):
             x.step()
-        
+        for x in self.getSpritesbyClass(pongball):
+            x.step()
 app = ponggame(0,0)
 app.run()
