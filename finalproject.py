@@ -77,14 +77,15 @@ class pongball(Sprite):
     red = Color(0xff0000, 1.0)
     thinline= LineStyle(1, red)
     circle_asset=CircleAsset(25, thinline, red)
-    circle1 = Sprite(circle_asset, (600,300))
+    #circle1 = Sprite(circle_asset, (600,300))
     circle=CircleAsset(1500, thinline, red)
     
     def __init__(self, position):
+        super().__init__(pongball.circle_asset, position)
         self.vx = 1
         self.vy = 1
-    def step(self, T, dT):
-        super().step(T, dT)
+        
+    def step(self):
         if self.visible:
             collides = self.collidingWithSprites(Scoreline)
             collides = self.collidingWithSprites(Scoreline2)
@@ -94,6 +95,7 @@ class pongball(Sprite):
                     self.explode()
         self.x += self.vx
         print("memes are dreams")
+        
 class Scoreline(Sprite):
     blue = Color(0x0000ff, 1.0)
     thinline= LineStyle(1, blue)
@@ -113,7 +115,7 @@ class ponggame(App):
         
         Pongblock((1100,250))
         
-        pongball((200,150))
+        pongball((600,400))
         
     def step(self):
         for x in self.getSpritesbyClass(Pongblock1):
