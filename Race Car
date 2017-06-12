@@ -63,10 +63,10 @@ class car2(Sprite):
         self.vx = 0
         self.vy = 0
         self.vr = 0
-        racecar.listenKeyEvent("keydown", "up arrow", self.goup)
-        racecar.listenKeyEvent("keydown", "right arrow", self.turnright)
-        racecar.listenKeyEvent("keydown", "left arrow", self.turnleft)
-        racecar.listenKeyEvent("keydown", "down arrow", self.goback)
+        racecar.listenKeyEvent("keydown", "w", self.goup)
+        racecar.listenKeyEvent("keydown", "d", self.turnright)
+        racecar.listenKeyEvent("keydown", "a", self.turnleft)
+        racecar.listenKeyEvent("keydown", "s", self.goback)
  
         self.fxcenter = self.fycenter = 0.5
          
