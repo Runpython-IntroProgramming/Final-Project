@@ -76,7 +76,7 @@ class Pongblock1(Sprite):
 class pongball(Sprite):
     red = Color(0xff0000, 1.0)
     thinline= LineStyle(1, red)
-    circle_asset=CircleAsset(50, thinline, red)
+    circle_asset=CircleAsset(25, thinline, red)
     circle1 = Sprite(circle_asset, (600,300))
     circle=CircleAsset(1500, thinline, red)
     def __init__(self, position):
