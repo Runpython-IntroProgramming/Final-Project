@@ -863,7 +863,6 @@ class Game(App):
         EnemyChopper((0,330))
         EnemyChopper((300,20))
         CTank((1000,590))
-        Bullet((600,325))
 
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
