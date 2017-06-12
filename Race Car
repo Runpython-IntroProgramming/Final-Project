@@ -17,33 +17,23 @@ class track(Sprite):
 class car(Sprite):
     
     asset = ImageAsset("Car.png")
-    width = 70
-    height = 50
+    width = 30
+    height = 10
     
     def __init__(self, position):
         super().__init__(track.asset,position)
         
-    def __init__(self, position, s):
-        super().__init__(SpaceShip.asset, position)
+    def __init__(self, position):
+        super().__init__(car.asset, position)
         self.vx = 0
         self.vy = 0
         self.vr = 0
-        SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
-        SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
-        SpaceGame.listenKeyEvent("keydown", "up arrow", self.thrustOn) 
-        SpaceGame.listenKeyEvent("keyup", "up arrow", self.thrustOff)
-        SpaceGame.listenKeyEvent("keydown", "up arrow", self.goup)
-        SpaceGame.listenKeyEvent("keydown", "right arrow", self.turnright)
-        SpaceGame.listenKeyEvent("keydown", "left arrow", self.turnleft)
-        SpaceGame.listenKeyEvent("keydown", "down arrow", self.goback)
+        racecar.listenKeyEvent("keydown", "up arrow", self.goup)
+        racecar.listenKeyEvent("keydown", "right arrow", self.turnright)
+        racecar.listenKeyEvent("keydown", "left arrow", self.turnleft)
+        racecar.listenKeyEvent("keydown", "down arrow", self.goback)
  
         self.fxcenter = self.fycenter = 0.5
- 
-    def thrustOn(self, event):
-        self.thrust = 1
- 
-    def thrustOff(self, event):
-        self.thrust = 0
          
     def goup(self, event):
         self.vy+=(-.3*(math.cos(self.rotation)))
@@ -62,33 +52,23 @@ class car(Sprite):
 class car2(Sprite):
     
     asset = ImageAsset("Car2.png")
-    width = 70
-    height = 50
+    width = 30
+    height = 10
     
     def __init__(self, position):
         super().__init__(track.asset,position)
     
-    def __init__(self, position, s):
-        super().__init__(SpaceShip.asset, position)
+    def __init__(self, position):
+        super().__init__(car2.asset, position)
         self.vx = 0
         self.vy = 0
         self.vr = 0
-        SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
-        SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
-        SpaceGame.listenKeyEvent("keydown", "up arrow", self.thrustOn) 
-        SpaceGame.listenKeyEvent("keyup", "up arrow", self.thrustOff)
-        SpaceGame.listenKeyEvent("keydown", "up arrow", self.goup)
-        SpaceGame.listenKeyEvent("keydown", "right arrow", self.turnright)
-        SpaceGame.listenKeyEvent("keydown", "left arrow", self.turnleft)
-        SpaceGame.listenKeyEvent("keydown", "down arrow", self.goback)
+        racecar.listenKeyEvent("keydown", "up arrow", self.goup)
+        racecar.listenKeyEvent("keydown", "right arrow", self.turnright)
+        racecar.listenKeyEvent("keydown", "left arrow", self.turnleft)
+        racecar.listenKeyEvent("keydown", "down arrow", self.goback)
  
         self.fxcenter = self.fycenter = 0.5
-             
-    def thrustOn(self, event):
-        self.thrust = 1
- 
-    def thrustOff(self, event):
-        self.thrust = 0
          
     def goup(self, event):
         self.vy+=(-.3*(math.cos(self.rotation)))
@@ -111,9 +91,9 @@ class racecar(App):
         for x in range(self.width//track.width + 1):
             for y in range(self.height//track.height + 1):
                 track((x*track.width, y*track.height))
-        car((0,0),s)
-        car2((0,0),s)
+        car((200,100))
+        car2((200,300))
 
 
-myapp = racecar(0,0)
+myapp = racecar(600,500)
 myapp.run()
