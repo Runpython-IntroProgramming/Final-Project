@@ -1,7 +1,7 @@
 """
 Finalproject.py
 Author: Sam Pych
-Credit: Thomas Kyle Postans
+Credit: Thomas Kyle Postans, Hagin
 Assignment: Create a pong game with two movable blocks and the ball either bounces off the wall 
 or appears on the other side.
 optional: keep score
@@ -20,36 +20,55 @@ class Pongblock(Sprite):
     rectangle_asset=RectangleAsset(50, 200, thinline, black)
     rectangle = Sprite(rectangle_asset, (60,250))
     def __init__(self, position):
-        self.vx = 1
         self.vy = 1
         ponggame.listenKeyEvent("keydown", "w", self.up)
+        ponggame.listenKeyEvent("keydown","a",self.left)
         ponggame.listenKeyEvent("keydown","s",self.down)
+        ponggame.listenKeyEvent("keydown","d",self.right)
+        
+        self.fxcenter = self.fycenter = 0.5
+    def step(self):
+        self.y += self.vy
     def up(self, event):
-        self.vy -= 2
+        self.vy -=2
     def down(self, event):
         self.vy +=2
+    def left(self, event):
+        self.vx -=2
+    def right(self, event):
+        self.vx +=2
         
 class Pongblock1(Sprite):
     black = Color(0x000000, 1.0)
     thinline= LineStyle(1, black)
     rectangle_asset=RectangleAsset(50, 200, thinline, black)
-    rectangle1 = Sprite(rectangle_asset, (1400,250))
+    rectangle1 = Sprite(rectangle_asset, (1100,250))
     def __init__(self, position):
-        self.vx = 1
         self.vy = 1
         ponggame.listenKeyEvent("keydown", "w", self.up)
+        ponggame.listenKeyEvent("keydown","a",self.left)
         ponggame.listenKeyEvent("keydown","s",self.down)
+        ponggame.listenKeyEvent("keydown","d",self.right)
+        self.fxcenter = self.fycenter = 0.5
+    def step(self):
+        self.y += self.vy
+        self.y += self.vy
     def up(self, event):
-        self.vy -= 2
+        self.vy -=2
     def down(self, event):
-        self.vy +=2
+        if self.y == 0:
+            self.vy +=2
+    def left(self, event):
+        self.vx -=2
+    def right(self, event):
+        self.vx +=2
     
 class pongball(Sprite):
     red = Color(0xff0000, 1.0)
     thinline= LineStyle(1, red)
     circle_asset=CircleAsset(50, thinline, red)
-    circle1 = Sprite(circle_asset, (800,300))
-    circle=CircleAsset(200, thinline, red)
+    circle1 = Sprite(circle_asset, (600,300))
+    circle=CircleAsset(1500, thinline, red)
     def __init__(self, position):
         self.vx = 1
         self.vy = 1
@@ -78,11 +97,11 @@ class Scoreline2(Sprite):
     blue = Color(0x0000ff, 1.0)
     thinline= LineStyle(1, blue)
     rectangle_asset=RectangleAsset(10, 2000, thinline, blue)
-    rectangle = Sprite(rectangle_asset, (1500,-100))
+    rectangle = Sprite(rectangle_asset, (1200,-100))
 class Scoreboard:
     print("kyle")
 class ponggame(App):
-    def __init__(self , width, height):
+      def __init__(self, width, height):
         super().__init__(width, height)
         Pongblock((10,10))
         
@@ -90,5 +109,5 @@ class ponggame(App):
         
         pongball((200,150))
         
-app=ponggame(0,0)
+app = ponggame(0,0)
 app.run()
