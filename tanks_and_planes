@@ -139,20 +139,15 @@ class EnemyChopper(Sprite):
 class Bullet(Sprite):
     bullet = ImageAsset("images/bullet.png")
     
-    def __init__(self, position, plane_rotation):
+    def __init__(self, position):
         super().__init__(Bullet.bullet, position)
-        self.scale = 0.5
-        self.rotation = plane_rotation
-        self.vx = 0
-        self.vy = 0
+        self.scale = 0.03
+        self.vx = -1
         self.center = (0.5, 0.5)
-
+        self.rotation = 3.14
+        
     def step(self):
-        self.vx = angle.anglex
-        self.vy = angle.angley
-        angle=AOA(self.rotation)
         self.x += self.vx
-        self.y += self.vy
         
         
     
@@ -195,6 +190,7 @@ class CTank(Sprite):
         Game.listenKeyEvent("keyup", "left arrow", self.Stop)
         Game.listenKeyEvent("keydown", "right arrow", self.Backward)
         Game.listenKeyEvent("keyup", "right arrow", self.Stop)
+        Game.listenKeyEvent("keydown", "1", self.Shoot)
         
     def step(self):
         self.x += self.vx
@@ -205,6 +201,8 @@ class CTank(Sprite):
         self.vx = 0
     def Backward(self, event):
         self.vx = 1
+    def Shoot(self, event):
+        Bullet(self.position)
         
 
 class Tank(Sprite):
@@ -855,6 +853,7 @@ class Game(App):
         EnemyChopper((0,330))
         EnemyChopper((300,20))
         CTank((1000,590))
+        Bullet((600,325))
 
     def step(self):
         for nuke in self.getSpritesbyClass(Bomb):
