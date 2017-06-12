@@ -19,7 +19,7 @@ prize = RectangleAsset (35, 15, noline, gold)
 toppp = RectangleAsset (1080, 20, noline, dgreen)
 barrels = CircleAsset (10, noline, black)
 global level
-level = 6
+level = 1
 global levelshift
 levelshift = 0
 vy=0
@@ -45,11 +45,11 @@ class dk(App):
         if level == 1:
             self.lvl1s = [block(x) for x in lvl1]
             self.lvltxt = TextAsset(level,style='40px luminari')
-            self.leveltext = Sprite(self.lvltxt, (1000,25))
-        #if level > 1:
-            #self.leveltext.destroy()
-            #self.lvltxt = TextAsset(level,style='40px luminari')
-            #self.leveltext = Sprite(self.lvltxt, (1000,25))
+            self.leveltext = Sprite(self.lvltxt, (1000,15))
+        if level > 1:
+            self.leveltext.destroy()
+            self.lvltxt = TextAsset(level,style='40px luminari')
+            self.leveltext = Sprite(self.lvltxt, (1000,15))
         if level == 2:
             for p in self.lvl1s:
                 p.destroy()
@@ -67,8 +67,8 @@ class dk(App):
                 p.destroy()
             self.lvl5s = [block(x) for x in lvl5]
         if level == 6:
-            #for p in self.lvl5s:
-                #p.destroy()
+            for p in self.lvl5s:
+                p.destroy()
             self.lvl6s = [block(x) for x in lvl6]
         if level == 7:
             for p in self.lvl6s:
@@ -178,10 +178,32 @@ class play(Sprite):
         self.countlives = 3
         global levelshift
         levelshift = 1
+        self.timertxt=0
+        self.timert=0
+        global timercount, timerlist, alltime
+        timercount=0
+        timerlist = []
+        alltime = 0
+        timeasset = TextAsset("level",style = '25px luminari')
+        timmeasset = Sprite(timeasset, (930, 25))
+        timmmeasset = TextAsset("time",style = '25px luminari')
+        timmmmeasset = Sprite(timmmeasset, (930, 73))
     def step(self):
         self.dead = 0
         self.onblock=0
         
+        #timer
+        global alltime
+        alltime += 0.015625
+        if (alltime)%1 == 0:
+            global timerlist, timercount
+            timercount += 1
+            self.timertxt = TextAsset(timercount,style='40px luminari')
+            if len(timerlist)>0:
+                for x in timerlist:
+                    x.destroy()
+                    timerlist=[]
+            timerlist.append(Sprite(self.timertxt, (1000, 60)))
         
         #gravity
         if self.wub == 0:
