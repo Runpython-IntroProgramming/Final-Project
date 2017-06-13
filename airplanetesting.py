@@ -181,7 +181,11 @@ class Bullet(Sprite):
         self.center = (0.5, 0.5)
         self.memes = plane_rotation
         self.rotation = self.memes
-        print("done making a bullet")
+        
+    def explode(self):
+        self.visible = False
+        Explosion(self.position)
+        self.y = 1000000000000
 
     def step(self):
         angle=AOA(self.rotation)
@@ -189,6 +193,18 @@ class Bullet(Sprite):
         self.vy = angle.angley()
         self.x += self.vx
         self.y += self.vy
+        BlimpCollision = self.collidingWithSprites(Blimp)
+        if len(BlimpCollision) > 0:
+            self.explode()
+        EnemyPlaneCollision = self.collidingWithSprites(EnemyCopter)
+        if len(EnemyPlaneCollision) > 0:
+            self.explode()
+        EnemyChopperCollision = self.collidingWithSprites(EnemyChopper)
+        if len(EnemyChopperCollision) > 0:
+            self.explode()
+        TankCollision = self.collidingWithSprites(Tank)
+        if len(TankCollision) > 0:
+            self.explode()
 
         
     
@@ -337,6 +353,7 @@ class Bomb(Sprite):
         self.visible = False
         Game.listenKeyEvent("keydown", "b", self.Mid_Air)
         self.variablememes = 0
+        
     def explode(self):
         self.center = (0.5, 0.5)
         self.visible = False
