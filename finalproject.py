@@ -166,7 +166,7 @@ class play(Sprite):
         dk.listenKeyEvent('keydown', 'left arrow', self.lup)
         dk.listenKeyEvent('keydown', 'right arrow', self.rup)
         dk.listenKeyEvent('keydown', 'up arrow', self.uup)
-        dk.listenKeyEvent('keydown', 'w', self.wup)
+        dk.listenKeyEvent('keydown', 'space', self.wup)
         self.vx=vx
         self.vy=vy
         self.ti=ti
