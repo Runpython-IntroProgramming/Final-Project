@@ -188,6 +188,8 @@ class play(Sprite):
         timmeasset = Sprite(timeasset, (930, 25))
         timmmeasset = TextAsset("time",style = '25px luminari')
         timmmmeasset = Sprite(timmmeasset, (930, 73))
+        livesasset=TextAsset("lives",style = '15px luminari')
+        livvesasset = Sprite(livesasset, (60, 50))
     def step(self):
         self.dead = 0
         self.onblock=0
