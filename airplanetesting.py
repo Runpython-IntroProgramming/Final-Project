@@ -181,6 +181,7 @@ class Bullet(Sprite):
         self.center = (-3, 0.5)
         self.memes = plane_rotation
         self.rotation = self.memes
+        self.count = 0
         
     def explode(self):
         self.visible = False
