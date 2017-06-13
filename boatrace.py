@@ -122,7 +122,47 @@ class Buoy9(Buoy):
 class Buoy10(Buoy):
     def __init__(self, next):
         super().__init__((myapp.width*(8/11),myapp.height*(5/8)), (4*pi)/9, next)
+        
+class Buoy11(Buoy):
+    def __init__(self, next):
+        super().__init__((myapp.width*(4/9),myapp.height*(3/5)), (2*pi)/11, next)
     
+class Buoy12(Buoy):
+    def __init__(self, next):
+        super().__init__((myapp.width*(10/11),myapp.height*(8/9)), (6*pi)/11, next)
+
+class Buoy13(Buoy):
+    def __init__(self, next):
+        super().__init__((myapp.width*(2/9),myapp.height*(4/5)), (7*pi)/5, next)
+        
+class Buoy14(Buoy):
+    def __init__(self, next):
+        super().__init__((myapp.width*(9/11),myapp.height*(1/9)), (2*pi)/5, next)
+        
+class Buoy15(Buoy):
+    def __init__(self, next):
+        super().__init__((myapp.width*(1/2),myapp.height*(5/8)), (2*pi)/4, next)
+        
+class Buoy16(Buoy):
+    def __init__(self, next):
+        super().__init__((myapp.width*(7/11),myapp.height*(4/8)), (7*pi)/12, next)
+        
+class Buoy17(Buoy):
+    def __init__(self, next):
+        super().__init__((myapp.width*(2/11),myapp.height*(3/4)), (2*pi)/3, next)
+        
+class Buoy18(Buoy):
+    def __init__(self, next):
+        super().__init__((myapp.width*(9/12),myapp.height*(1/3)), (5*pi)/4, next)
+
+class Buoy19(Buoy):
+    def __init__(self, next):
+        super().__init__((myapp.width*(2/5),myapp.height*(4/6)), (7*pi)/9, next)
+        
+class Buoy20(Buoy):
+    def __init__(self, next):
+        super().__init__((myapp.width*(8/9),myapp.height*(3/8)), (4*pi)/7, next)
+
 class Ship(Sprite):
     asset = ImageAsset("images/Rivamare-Birds-eye-view-drawing.png")
 
@@ -334,11 +374,31 @@ class BoatGame(App):
         b8.step()
         b9.step()
         b10.step()
+        b11.step()
+        b12.step()
+        b13.step()
+        b14.step()
+        b15.step()
+        b16.step()
+        b17.step()
+        b18.step()
+        b19.step()
+        b20.step()
             
 
 
 myapp = BoatGame(SCREEN_WIDTH, SCREEN_HEIGHT)
-b10 = Buoy10(None)
+b20 = Buoy20(None)
+b19 = Buoy19(b20)
+b18 = Buoy18(b19)
+b17 = Buoy17(b18)
+b16 = Buoy16(b17)
+b15 = Buoy15(b16)
+b14 = Buoy14(b15)
+b13 = Buoy13(b14)
+b12 = Buoy12(b13)
+b11 = Buoy11(b12)
+b10 = Buoy10(b11)
 b9 = Buoy9(b10)
 b8 = Buoy8(b9)
 b7 = Buoy7(b8)
