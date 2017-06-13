@@ -576,6 +576,7 @@ class Plane(Sprite):
         self.humane = False
         self.variablememes = 0
         self.xy_multiplier = 3
+        self.count1 = 0
         Game.listenKeyEvent("keydown", "d", self.RunwayForward)
         Game.listenKeyEvent("keydown", "a", self.RunwayBrake)
         Game.listenKeyEvent("keydown", "left arrow", self.Up)
@@ -750,6 +751,8 @@ class Plane(Sprite):
         
     def shoot(self):
         Bullet(((self.x + 50), self.y), self.rotation)
+
+        
     
     def explode(self):
         self.wasted()
