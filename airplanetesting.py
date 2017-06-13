@@ -175,10 +175,10 @@ class Bullet(Sprite):
     
     def __init__(self, position, plane_rotation):
         super().__init__(Bullet.bullet, position)
-        self.scale = 0.5
+        self.scale = 0.03
         self.vx = 0
         self.vy = 0
-        self.center = (0.5, 0.5)
+        self.center = (-3, 0.5)
         self.memes = plane_rotation
         self.rotation = self.memes
         
