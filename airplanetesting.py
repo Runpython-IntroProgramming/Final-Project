@@ -189,8 +189,8 @@ class Bullet(Sprite):
 
     def step(self):
         angle=AOA(self.rotation)
-        self.vx = angle.anglex()
-        self.vy = angle.angley()
+        self.vx = (angle.anglex() * 15)
+        self.vy = (angle.angley() * 15)
         self.x += self.vx
         self.y += self.vy
         BlimpCollision = self.collidingWithSprites(Blimp)
