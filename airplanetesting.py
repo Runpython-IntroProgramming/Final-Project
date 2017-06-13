@@ -178,7 +178,7 @@ class Bullet(Sprite):
         self.scale = 0.02
         self.vx = 0
         self.vy = 0
-        self.center = (-3, 0.5)
+        self.center = (0.5, 0.5)
         self.memes = plane_rotation
         self.rotation = self.memes
         self.count = 0
@@ -750,7 +750,7 @@ class Plane(Sprite):
         print("wasted")
         
     def shoot(self):
-        Bullet(self.position, self.rotation)
+        Bullet(((self.x + 50), self.y), self.rotation)
     
     def explode(self):
         self.wasted()
