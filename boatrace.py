@@ -2,7 +2,6 @@
 spaceshooter.py
 Author: will laycock
 Credit: me
-
 Assignment:
 Write and submit a program that implements the spacewar game:
 https://github.com/HHS-IntroProgramming/Spacewar
@@ -78,8 +77,6 @@ class Buoy(Sprite):
             self.next.visible=True
         if (self.prev==None or self.prev.occurbc) and len(bc) and self.next != None:
             self.next.visible=True
-
-                
             
 class Buoy1(Buoy):
     def __init__(self, next):
@@ -89,7 +86,6 @@ class Buoy1(Buoy):
 class Buoy2(Buoy):
     def __init__(self, next):
         super().__init__((myapp.width*(3/5),myapp.height/4), pi/2, next)
-        
         
 class Buoy3(Buoy):
     def __init__(self, next):
@@ -149,11 +145,11 @@ class Buoy16(Buoy):
         
 class Buoy17(Buoy):
     def __init__(self, next):
-        super().__init__((myapp.width*(2/11),myapp.height*(3/4)), (2*pi)/3, next)
+        super().__init__((myapp.width*(2/11),myapp.height*(2/3)), (2*pi)/3, next)
         
 class Buoy18(Buoy):
     def __init__(self, next):
-        super().__init__((myapp.width*(9/12),myapp.height*(1/3)), (5*pi)/4, next)
+        super().__init__((myapp.width*(9/12),myapp.height*(6/8)), (5*pi)/4, next)
 
 class Buoy19(Buoy):
     def __init__(self, next):
@@ -162,7 +158,7 @@ class Buoy19(Buoy):
 class Buoy20(Buoy):
     def __init__(self, next):
         super().__init__((myapp.width*(8/9),myapp.height*(3/8)), (4*pi)/7, next)
-
+    
 class Ship(Sprite):
     asset = ImageAsset("images/Rivamare-Birds-eye-view-drawing.png")
 
@@ -384,6 +380,7 @@ class BoatGame(App):
         b18.step()
         b19.step()
         b20.step()
+        
             
 
 
