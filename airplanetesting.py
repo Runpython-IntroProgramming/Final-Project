@@ -203,9 +203,6 @@ class Bullet(Sprite):
         EnemyChopperCollision = self.collidingWithSprites(EnemyChopper)
         if len(EnemyChopperCollision) > 0:
             self.explode()
-        TankCollision = self.collidingWithSprites(Tank)
-        if len(TankCollision) > 0:
-            self.explode()
 
         
     
