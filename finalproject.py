@@ -30,8 +30,8 @@ class Pongblock(Sprite):
     def step(self):
         self.y += self.vy
         #self.y += self.vy
-        if self.y >400:
-            self.y=399
+        if self.y >380:
+            self.y=379
         if self.y <-1:
             self.y=0
     def up(self, event):
@@ -60,8 +60,8 @@ class Pongblock1(Sprite):
     def step(self):
         self.y += self.vy
         #self.y += self.vy
-        if self.y >400:
-            self.y=399
+        if self.y >380:
+            self.y=379
         if self.y <-1:
             self.y=0
     def up(self, event):
@@ -79,42 +79,53 @@ class pongball(Sprite):
     circle_asset=CircleAsset(25, thinline, red)
     #circle1 = Sprite(circle_asset, (600,300))
     circle=CircleAsset(1500, thinline, red)
-    
     def __init__(self, position):
         super().__init__(pongball.circle_asset, position)
-        self.vx = 1
-        self.vy = 1
-        
+        self.vx = 2
+        self.vy = 2
+        self.fxcenter = self.fycenter = 0.5
     def step(self):
+        self.x += self.vx
+        self.y += self.vy
         if self.visible:
             collides = self.collidingWithSprites(Scoreline)
-            collides = self.collidingWithSprites(Scoreline2)
             if len(collides):
+                print('hello')
                 if collides[0].visible:
-                    collides[0].explode()
-                    self.explode()
-        self.x += self.vx
-        
+                    collides[0].destroy()
+                    self.destroy()
+        if self.visible:
+            collides2 = self.collidingWithSprites(Scoreline2)
+            if len(collides2):
+                if collides2[0].visible:
+                    collides2[0].destroy()
+                    self.destroy()
 class Scoreline(Sprite):
     blue = Color(0x0000ff, 1.0)
     thinline= LineStyle(1, blue)
-    rectangle_asset=RectangleAsset(10, 1200, thinline, blue)
-    rectangle = Sprite(rectangle_asset, (00,-600))
+    rectangle_asset=RectangleAsset(10, 2000, thinline, blue)
+    #rectangle = Sprite(rectangle_asset, (00,-100))
+    def __init__(self, position):
+        super().__init__(Scoreline.rectangle_asset, position)
 class Scoreline2(Sprite):
     blue = Color(0x0000ff, 1.0)
     thinline= LineStyle(1, blue)
-    rectangle_asset=RectangleAsset(10, 1200, thinline, blue)
-    rectangle = Sprite(rectangle_asset, (1200,-600))
+    rectangle_asset=RectangleAsset(10, 2000, thinline, blue)
+    #rectangle = Sprite(rectangle_asset, (1200,-100))
+    def __init__(self, position):
+        super().__init__(Scoreline2.rectangle_asset, position)
+    
 class Scoreboard:
     print("kyle")
 class ponggame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
         Pongblock1((100,10))
-        
+        Scoreline((00,-100))
         Pongblock((1100,250))
-        
-        pongball((600,400))
+        Scoreline2((1200,-100))
+        pongball((1000,100))
+        print(self.getSpritesbyClass(pongball))
         
     def step(self):
         for x in self.getSpritesbyClass(Pongblock1):
@@ -123,5 +134,6 @@ class ponggame(App):
             x.step()
         for x in self.getSpritesbyClass(pongball):
             x.step()
+            
 app = ponggame(0,0)
 app.run()
