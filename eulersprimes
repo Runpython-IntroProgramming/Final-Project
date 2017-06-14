@@ -1,0 +1,109 @@
+import random
+from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+myapp=App()
+red = Color(0xff0000, 1)
+black = Color(0, 1)
+gray = Color(0x8c8c8c, 1)
+white = Color(0xffffff, 1)
+noline = LineStyle(0, red)
+thinline = LineStyle(1, white)
+
+NA = RectangleAsset(10, 10, noline, gray)
+A = RectangleAsset(10, 10, thinline, black)
+
+one = RectangleAsset(10, 10, thinline, red)
+one1 = Sprite(one, (600, 300))
+
+MAX= int(input("To what number should I count primes? "))
+intlist = list(range(2, MAX+1))
+
+i = 0
+listindex=0
+
+while i != 1:
+    if listindex >= len(intlist):
+        i = 1
+    
+    else:
+        p = intlist[listindex]
+        n = MAX//p
+        a=2
+        n1 = a*p
+        nlist = []
+        while a != n+1:
+            n1 = a*p
+            nlist.append(n1)
+            a += 1
+        for i in nlist:
+            if i in intlist:
+                intlist.remove(i)
+        listindex+=1
+print(intlist)
+somelist = list(range(0,MAX+40))
+number = 1
+width = -1
+height = -1
+posw = 0
+posh = 0
+x = 600
+y=300
+
+while number < MAX:
+    width +=2
+    height +=2
+    posw = 0
+    posh = 0
+    while posw != width and number < MAX:
+        number += 1
+        posw += 1
+        x -= 10
+        
+        if number in intlist:
+            somelist[number] = Sprite(A, (x, y))
+        else:
+            somelist[number] = Sprite(NA, (x,y))
+        
+        
+    while posh != height and number < MAX:
+        number += 1
+        
+        posh += 1
+        y -= 10
+        if number in intlist:
+            
+            somelist[number] = Sprite(A, (x, y))
+        else:
+            somelist[number] = Sprite(NA, (x,y))
+        
+        
+    while posw != (-1) and number < MAX:
+        number += 1
+        posw -= 1
+        x += 10
+        if number in intlist:
+            
+            somelist[number] = Sprite(A, (x, y))
+        else:
+            somelist[number] = Sprite(NA, (x,y))
+    while posh != (-1) and number < MAX:
+        
+        number += 1
+        posh -= 1
+        y += 10
+        if number in intlist:
+            
+            somelist[number] = Sprite(A, (x, y))
+        else:
+            somelist[number] = Sprite(NA, (x,y))
+
+    
+    
+
+myapp.run()
+    
+        
+    
+    
+        
+
+        
