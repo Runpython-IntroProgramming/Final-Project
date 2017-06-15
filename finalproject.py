@@ -1,7 +1,7 @@
 """
 Finalproject.py
 Author: Sam Pych
-Credit: Thomas Kyle Postans, Hagin
+Credit: Thomas Kyle Postans, Hagin, My Space Game, David Wilson
 Assignment: Create a pong game with two movable blocks and the ball either bounces off the wall 
 or appears on the other side.
 optional: keep score
@@ -81,41 +81,51 @@ class pongball(Sprite):
     circle=CircleAsset(1500, thinline, red)
     def __init__(self, position):
         super().__init__(pongball.circle_asset, position)
-        self.vx = 2
+        self.vx = 4
         self.vy = 2
+        previousY = self.vy  
         self.fxcenter = self.fycenter = 0.5
-        if self.y >380:
-            self.y=379
-        if self.y <-1:
-            self.y=0
     def step(self):
         self.x += self.vx
         self.y += self.vy
+        if self.y >380:
+            self.vy=-3
+        if self.y <-1:
+            self.vy=3
         if self.visible:
             collides = self.collidingWithSprites(Scoreline)
             if len(collides):
-                print('hello')
                 if collides[0].visible:
-                    collides[0].destroy()
-                    self.destroy()
+                    print("arrow keys win")
+                    self.x += self.vx
+                    self.x += self.vx
+                    return True
         if self.visible:
             collides2 = self.collidingWithSprites(Scoreline2)
             if len(collides2):
                 if collides2[0].visible:
-                    collides2[0].destroy()
-                    self.destroy()
+                    print("wasd wins")
+                    self.x += self.vx
+                    self.x += self.vx
+                    return True
         if self.visible:
             collides3 = self.collidingWithSprites(Pongblock1)
             if len(collides3):
                 if collides3[0].visible:
-                    self.vy=-self.y
-                    self.vx=-self.x
+                    print('paddle2')
+                    self.vx = 4
+                    self.vy = 1.5
+                    self.x += self.vx
+                    self.y += self.vy
         if self.visible:
             collides4 = self.collidingWithSprites(Pongblock)
             if len(collides4):
                 if collides4[0].visible:
-                    self.vy=-self.y
-                    self.vx=-self.x
+                    print('paddle2')
+                    self.vx = -4
+                    self.vy = -0.5
+                    self.x += self.vx
+                    self.y += self.vy
                     
 class Scoreline(Sprite):
     blue = Color(0x0000ff, 1.0)
@@ -151,7 +161,10 @@ class ponggame(App):
             x.step()
         for x in self.getSpritesbyClass(pongball):
             x.step()
-        
+    def restart(self):
+        if pongball == True:
+            score = 0
+            score += 1    
             
 app = ponggame(0,0)
 app.run()
