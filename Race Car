@@ -1,8 +1,10 @@
+
+
 class hangman():
     
     def __init__(self):
 		print("Welcome to 'Hangman', are you ready to play?")
-		user_choice_1 = input("(1)Yes, for I want to play.\n(2)No, I do not want to play.\n ->")
+		user_choice_1 = input("(1)Yes, I want to play.\n(2)No, I do not want to play.\n ->")
 		
 		if user_choice_1 == '1':
 		    print("Loading Game")
@@ -23,7 +25,7 @@ class hangman():
     def core_game(self):
 		guesses = 0
 		letters_used = ""
-		the_word = input("What word will you have the other person geuss at?")
+		the_word = input("What word will you have the other person geuss at? ")
 		progress = ["?"]*len(the_word)
 		    
 		while guesses < 6:
@@ -68,13 +70,15 @@ class hangman():
             print("|             ")
             print("|             ")
             print("|             ")
+            print("|___________")
         elif guesses == 1:
             print("________      ")
             print("|      |      ")
             print("|      0      ")
             print("|             ")
             print("|             ")
-            print("|             ")     
+            print("|             ")
+            print("|___________")
         elif guesses == 2:
             print("________      ")
             print("|      |      ")
@@ -82,6 +86,7 @@ class hangman():
             print("|     /       ")
             print("|             ")
             print("|             ")
+            print("|___________")
         elif guesses == 3:
             print("________      ")
             print("|      |      ")
@@ -89,6 +94,7 @@ class hangman():
             print("|     /|      ")
             print("|             ")
             print("|             ")
+            print("|___________")
         elif guesses == 4:
             print("________      ")
             print("|      |      ")
@@ -96,6 +102,7 @@ class hangman():
             print("|     /|\     ")
             print("|             ")
             print("|             ")
+            print("|___________")
         elif guesses == 5:
             print("________      ")
             print("|      |      ")
@@ -103,6 +110,7 @@ class hangman():
             print("|     /|\     ")
             print("|     /       ")
             print("|             ")
+            print("|___________")
         else:
             print("________      ")
             print("|      |      ")
@@ -110,7 +118,7 @@ class hangman():
             print("|     /|\     ")
             print("|     / \     ")
             print("|             ")
-            print("The noose tightens. You can't breathe. You have failed!")
+            print("|___________")
             print("GAME OVER!")
             return
 
