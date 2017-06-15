@@ -32,7 +32,7 @@ class hangman():
 		    guess = input("Guess a letter ->")
 		    if guess in the_word and guess not in letters_used:
 				print("Your guess was correct!")
-				letters_used += "," + guess
+				letters_used += guess + "," 
 				self.hangman_graphic(guesses)
 				print("Progress: ") 
 				print (self.progress_updater(guess, the_word, progress))
