@@ -84,6 +84,10 @@ class pongball(Sprite):
         self.vx = 2
         self.vy = 2
         self.fxcenter = self.fycenter = 0.5
+        if self.y >380:
+            self.y=379
+        if self.y <-1:
+            self.y=0
     def step(self):
         self.x += self.vx
         self.y += self.vy
@@ -100,6 +104,19 @@ class pongball(Sprite):
                 if collides2[0].visible:
                     collides2[0].destroy()
                     self.destroy()
+        if self.visible:
+            collides3 = self.collidingWithSprites(Pongblock1)
+            if len(collides3):
+                if collides3[0].visible:
+                    self.vy=-self.y
+                    self.vx=-self.x
+        if self.visible:
+            collides4 = self.collidingWithSprites(Pongblock)
+            if len(collides4):
+                if collides4[0].visible:
+                    self.vy=-self.y
+                    self.vx=-self.x
+                    
 class Scoreline(Sprite):
     blue = Color(0x0000ff, 1.0)
     thinline= LineStyle(1, blue)
@@ -134,6 +151,7 @@ class ponggame(App):
             x.step()
         for x in self.getSpritesbyClass(pongball):
             x.step()
+        
             
 app = ponggame(0,0)
 app.run()
