@@ -1,3 +1,5 @@
+#Work cited: You, Brendan, Internet
+#DONKEY KONG SIMULATION
 
 from ggame import App, RectangleAsset, CircleAsset, ImageAsset, Sprite, LineStyle, Color, Frame, TextAsset
 
