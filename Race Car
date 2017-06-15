@@ -28,7 +28,7 @@ class hangman():
     def core_game(self):
 		guesses = 0
 		letters_used = ""
-		the_word = input("What word will you have the other person geuss at? ")
+		the_word = input("What word will you have the other person guess at? (Less than 4 letters)")
 		progress = ["?"]*len(the_word)
 		    
 		while guesses < 6:
@@ -67,7 +67,7 @@ class hangman():
 		
     def hangman_graphic(self, guesses):
         if guesses == 0:
-            print("________      ")
+            print("________")
             print("|      |      ")
             print("|             ")
             print("|             ")
