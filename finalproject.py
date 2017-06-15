@@ -89,9 +89,9 @@ class pongball(Sprite):
         self.x += self.vx
         self.y += self.vy
         if self.y >500:
-            self.vy=-8
+            self.vy=-7
         if self.y <-1:
-            self.vy=8
+            self.vy=7
         if self.visible:
             collides = self.collidingWithSprites(Scoreline)
             if len(collides):
@@ -111,7 +111,7 @@ class pongball(Sprite):
             collides3 = self.collidingWithSprites(Pongblock1)
             if len(collides3):
                 if collides3[0].visible:
-                    self.vx = 7
+                    self.vx = 6
                     self.vy = 6
                     self.x += self.vx
                     self.y += self.vy
@@ -119,7 +119,7 @@ class pongball(Sprite):
             collides4 = self.collidingWithSprites(Pongblock)
             if len(collides4):
                 if collides4[0].visible:
-                    self.vx = -7
+                    self.vx = -6
                     self.vy = -4
                     self.x += self.vx
                     self.y += self.vy
@@ -139,8 +139,8 @@ class Scoreline2(Sprite):
     def __init__(self, position):
         super().__init__(Scoreline2.rectangle_asset, position)
     
-class Scoreboard:
-    print("kyle")
+#class Scoreboard:
+# Not enough time to do it
 class ponggame(App):
     def __init__(self, width, height):
         super().__init__(width, height)
@@ -158,5 +158,7 @@ class ponggame(App):
             x.step()
         for x in self.getSpritesbyClass(pongball):
             x.step()
+    def restart(self):
+        ponggame.listenKeyEvent("keydown","spacebar",self.restart)
 app = ponggame(0,0)
 app.run()
