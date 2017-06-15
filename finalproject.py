@@ -81,14 +81,14 @@ class pongball(Sprite):
     circle=CircleAsset(1500, thinline, red)
     def __init__(self, position):
         super().__init__(pongball.circle_asset, position)
-        self.vx = 4
-        self.vy = 2
+        self.vx = 2
+        self.vy = 10
         previousY = self.vy  
         self.fxcenter = self.fycenter = 0.5
     def step(self):
         self.x += self.vx
         self.y += self.vy
-        if self.y >380:
+        if self.y >500:
             self.vy=-3
         if self.y <-1:
             self.vy=3
@@ -112,18 +112,16 @@ class pongball(Sprite):
             collides3 = self.collidingWithSprites(Pongblock1)
             if len(collides3):
                 if collides3[0].visible:
-                    print('paddle2')
-                    self.vx = 4
-                    self.vy = 1.5
+                    self.vx = 7
+                    self.vy = 6
                     self.x += self.vx
                     self.y += self.vy
         if self.visible:
             collides4 = self.collidingWithSprites(Pongblock)
             if len(collides4):
                 if collides4[0].visible:
-                    print('paddle2')
-                    self.vx = -4
-                    self.vy = -0.5
+                    self.vx = -7
+                    self.vy = -4
                     self.x += self.vx
                     self.y += self.vy
                     
