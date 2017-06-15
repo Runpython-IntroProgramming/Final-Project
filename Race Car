@@ -1,4 +1,4 @@
-
+printstr = ""
 
 class hangman():
     
@@ -21,6 +21,9 @@ class hangman():
     def start_game(self):
 		print("The rules of hangman are simple. You need to choose the correct letters to live, if you do you do choose the right letters, you are being built until you die from the noose.")
 		self.core_game()
+
+    def myprint(text):
+        printstr = printstr + "\n" + text
 	
     def core_game(self):
 		guesses = 0
@@ -29,10 +32,10 @@ class hangman():
 		progress = ["?"]*len(the_word)
 		    
 		while guesses < 6:
-		    guess = input("Guess a letter ->")
+		    guess = input("Guess a letter: " + printstr + "\n" + letters_used + "\n" + progress.join(''))
 		    if guess in the_word and guess not in letters_used:
 				print("Your guess was correct!")
-				letters_used += guess + "," 
+				letters_used +=  "," + guess
 				self.hangman_graphic(guesses)
 				print("Progress: ") 
 				print (self.progress_updater(guess, the_word, progress))
