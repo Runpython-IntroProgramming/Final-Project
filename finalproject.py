@@ -17,7 +17,7 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 class Pongblock(Sprite):
     black = Color(0x000000, 1.0)
     thinline= LineStyle(1, black)
-    rectangle_asset=RectangleAsset(50, 200, thinline, black)
+    rectangle_asset=RectangleAsset(50, 100, thinline, black)
     #rectangle1 = Sprite(rectangle_asset, (1100,250))
     def __init__(self, position):
         super().__init__(Pongblock1.rectangle_asset, position)
@@ -30,8 +30,8 @@ class Pongblock(Sprite):
     def step(self):
         self.y += self.vy
         #self.y += self.vy
-        if self.y >380:
-            self.y=379
+        if self.y >480:
+            self.y=479
         if self.y <-1:
             self.y=0
     def up(self, event):
@@ -47,7 +47,7 @@ class Pongblock(Sprite):
 class Pongblock1(Sprite):
     black = Color(0x000000, 1.0)
     thinline= LineStyle(1, black)
-    rectangle_asset=RectangleAsset(50, 200, thinline, black)
+    rectangle_asset=RectangleAsset(50, 100, thinline, black)
     #rectangle1 = Sprite(rectangle_asset, (1100,250))
     def __init__(self, position):
         super().__init__(Pongblock1.rectangle_asset, position)
@@ -60,8 +60,8 @@ class Pongblock1(Sprite):
     def step(self):
         self.y += self.vy
         #self.y += self.vy
-        if self.y >380:
-            self.y=379
+        if self.y >480:
+            self.y=479
         if self.y <-1:
             self.y=0
     def up(self, event):
@@ -89,9 +89,9 @@ class pongball(Sprite):
         self.x += self.vx
         self.y += self.vy
         if self.y >500:
-            self.vy=-3
+            self.vy=-8
         if self.y <-1:
-            self.vy=3
+            self.vy=8
         if self.visible:
             collides = self.collidingWithSprites(Scoreline)
             if len(collides):
@@ -107,7 +107,6 @@ class pongball(Sprite):
                     print("wasd wins")
                     self.x += self.vx
                     self.x += self.vx
-                    return True
         if self.visible:
             collides3 = self.collidingWithSprites(Pongblock1)
             if len(collides3):
@@ -159,10 +158,5 @@ class ponggame(App):
             x.step()
         for x in self.getSpritesbyClass(pongball):
             x.step()
-    def restart(self):
-        if pongball == True:
-            score = 0
-            score += 1    
-            
 app = ponggame(0,0)
 app.run()
