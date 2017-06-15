@@ -32,7 +32,7 @@ class hangman():
 		progress = ["?"]*len(the_word)
 		    
 		while guesses < 6:
-		    guess = input("Guess a letter: " + printstr + "\n" + letters_used + "\n" + progress.join(''))
+		    guess = input("Guess a letter: " + printstr + "\n" + letters_used + "\n" + ''.join(progress))
 		    if guess in the_word and guess not in letters_used:
 				print("Your guess was correct!")
 				letters_used +=  "," + guess
