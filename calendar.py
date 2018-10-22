@@ -11,6 +11,7 @@ subjecterrordefaulttoother = False
 
 #Day config
 days = ["tomorrow", "today", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+daysdate = [""]
 nodaydefaulttotomorrow = False
 dayerrordefaulttotomorrow = False
 
@@ -41,6 +42,7 @@ def subjectmanager(repeat):
         
 def daymanager(repeat):
     rawday = input("day: ").lower().replace(" ","-").replace("/","-")
+    if rawday 
     for d in days:
         if rawday == s[0:len(rawday)]:
             if nodaydefaulttotomorrow:
