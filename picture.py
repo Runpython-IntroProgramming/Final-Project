@@ -1,7 +1,8 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
 
 # add your code here \/  \/  \/
-red = Color(0xFF9494, 1)
+darkred = Color(0xFF9494, 1)
+red = Color(0xFF9494, .5)
 green = Color(0x00ff00, 1.0)
 blue = Color(0x0000ff, .3)
 black = Color(0x000000, 1.0)
@@ -18,10 +19,16 @@ Sprite(background)
 leftbar = RectangleAsset(200, 1000, line0, red)
 Sprite(leftbar, (10,60))
 
-banner = RectangleAsset(1100, 50, line0, red)
+banner = RectangleAsset(1100, 50, line0, darkred)
 Sprite(banner)
 
+daybox = RectangleAsset(100, 120, line0, red)
 
+for column in range(7):
+    for row in range(7):
+        Sprite(daybox, (220 + 110*column,60 + 130*row))
+
+"""
 roof = PolygonAsset([(0,0), (100,-150), (200,0)], line1, green)
 Sprite(roof, (400,50))
 
@@ -32,6 +39,6 @@ tree = EllipseAsset(50, 100, line1, green)
 Sprite(tree, (800,200))
 
 # add your code here /\  /\  /\
-
+"""
 myapp = App()
 myapp.run()
