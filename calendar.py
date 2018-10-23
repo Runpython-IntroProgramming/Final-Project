@@ -1,15 +1,21 @@
-from datetime import *
-print (datetime.today().day())
+from datetime import datetime
+thisweekday = datetime.today().weekday()
 thistime = str(datetime.today())
-"""
-thisday = int(thistime[5:7])
-print (thisday)
+thismonth = int(thistime[5:7])
 thisday = int(thistime[8:10])
-print (thisday)
 thisyear = int(thistime[2:4])
-print (thisyear)
-"""
+leapyears = []
+for x in repeatsuntildefault
 
+def daysinmonth(month)
+if month in [4, 6, 9, 11]:
+    return 30
+elif thismonth == 2:
+    if
+    else:
+        daysthismonth = 29
+else:
+    return 31
 #Configuration
 repeatsuntildefault = 2
 
@@ -21,6 +27,7 @@ subjecterrordefaulttoother = False
 
 #Day config
 days = ["tomorrow", "today", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+daysindex = [0, 1, 2, 3, 4, 5, 6]
 daysdate = [""]
 nodaydefaulttotomorrow = False
 dayerrordefaulttotomorrow = False
