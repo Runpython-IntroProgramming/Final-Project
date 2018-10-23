@@ -1,4 +1,4 @@
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, TextAsset
 
 # add your code here \/  \/  \/
 darkred = Color(0xFF9494, 1)
@@ -23,6 +23,9 @@ banner = RectangleAsset(1100, 50, line0, darkred)
 Sprite(banner)
 
 daybox = RectangleAsset(100, 120, line0, red)
+
+test = TextAsset("subject:")
+Sprite(test)
 
 for column in range(7):
     for row in range(7):
