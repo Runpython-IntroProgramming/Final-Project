@@ -1,13 +1,14 @@
-from datetime import datetime
-print (datetime.today())
+from datetime import *
+print (datetime.today().day())
 thistime = str(datetime.today())
+"""
 thisday = int(thistime[5:7])
 print (thisday)
 thisday = int(thistime[8:10])
 print (thisday)
 thisyear = int(thistime[2:4])
 print (thisyear)
-
+"""
 
 #Configuration
 repeatsuntildefault = 2
