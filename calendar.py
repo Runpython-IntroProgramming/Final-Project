@@ -1,4 +1,13 @@
 from datetime import datetime
+print (datetime.today())
+thistime = str(datetime.today())
+thisday = int(thistime[5:7])
+print (thisday)
+thisday = int(thistime[8:10])
+print (thisday)
+thisyear = int(thistime[2:4])
+print (thisyear)
+
 
 #Configuration
 repeatsuntildefault = 2
@@ -24,7 +33,6 @@ def newevent():
 
 def subjectmanager(repeat):
     rawsubject = input("subject: ").lower().replace(" ","")
-    if month 1:12 day 1:31 year
     for s in subjects:
         if rawsubject == s[0:len(rawsubject)]:
             if nosubjectdefaulttoother:
@@ -42,9 +50,10 @@ def subjectmanager(repeat):
         
 def daymanager(repeat):
     rawday = input("day: ").lower().replace(" ","-").replace("/","-")
-    if rawday 
+#    if rawday > 0 and rawday < 32:
+        
     for d in days:
-        if rawday == s[0:len(rawday)]:
+        if rawday == d[0:len(rawday)]:
             if nodaydefaulttotomorrow:
                 return d
             elif len(rawday) > 0:
@@ -58,6 +67,5 @@ def daymanager(repeat):
         day2 = daymanager(repeat)
         return day2
         
-newevent()
-print (datetime.today())
+#newevent()
     
