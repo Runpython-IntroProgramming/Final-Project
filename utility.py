@@ -4,7 +4,7 @@
 subjects = ["other", "latin", "geopolitics", "psychology", "chemistry", "computerprogramming", "philosophy", "precalculus", "debate", "modelun", "boyscouts"]
     #edit "subjects" list as necessary, but keep "other" first
 noSubjectDefaultOther = True
-subjectErrorDefaultOther = False
+subjectErrorDefaultOther = True
 
 def subjectManager(rawsubject, repeat):
     rawsubject = rawsubject.lower().replace(" ","")
