@@ -18,7 +18,7 @@ def subjectManager(rawsubject, repeat):
             elif subjectErrorDefaultOther:
 # or repeat >= repeatsUntilDefault
 #           print ('Defaulting to "other".')
-            return "other"
+                return "other"
 """
     else:
         repeat += 1
