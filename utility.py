@@ -10,7 +10,7 @@ def subjectManager(rawsubject, repeat):
     rawsubject = rawsubject.lower().replace(" ","")
     for s in subjects:
         if rawsubject == s[0:len(rawsubject)]:
-            if NoSubjectDefaultOther:
+            if noSubjectDefaultOther:
                 return s
             elif len(rawsubject) > 0:
                 return s
