@@ -16,31 +16,49 @@ def subjectManager(rawsubject):
             return "other"
 ###subjectManager###
 
+###dateManager###
+daysoftheweek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+def dateManager(rawdate):
+    rawdate = rawdate.lower().replace("-","/").replace("~","/").replace(" ","")
+    if rawdate[0:4] == "next ":
+        skipweek = True
+        skiptext = 4
+    if rawdate == 0: 
+    
+    for l in daysoftheweek:
+        if rawsubject == s[0:len(rawsubject)]:
+            if noSubjectDefaultOther:
+                return s
+            elif len(rawsubject) > 0:
+                return s
+        elif subjectErrorDefaultOther:
+            return "other"
+
+
 ###calendarManager###
 import datetime
 import calendar
-"""
-def leapYear(year):
-    if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
-        return True
-    else:
-        return False
-def daysInMonth(month, year):
-    if month in [4, 6, 9, 11]:
-        return 30
-    elif thismonth == 2:
-        if leapYear(year):
-            return 29
-        else:
-            return 28
-    else:
-        return 31
-"""
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, KeyEvent, MouseEvent
+black = Color(0x000000, 1.0)
+grey = Color(0x808080, 1.0)
+white = Color(0xffffff, 1.0)
+line = LineStyle(1, black)
 
-def calendarManager(month, year):
+deadcell = RectangleAsset(10, 10, line, black)
+
+newcell = RectangleAsset(10, 10, line, white)
+
+oldcell = RectangleAsset(10, 10, line, grey)
+
+def calendarManager(year, month):
     for day in range(1,calendar.monthrange(year, month)[1]+1):
-        days.append(day)
+        Sprite(datetime.datetime(year, month, day).weekday()
 
-
+"""
 print(datetime.datetime(2018, 10, 31, 13))
 print(datetime.datetime.today().weekday())
+"""
+calendarManager(2018,10)
+
+app = App()
+app.run()
