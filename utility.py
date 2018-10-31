@@ -1,3 +1,4 @@
+repeatsuntildefault = 2
 #SUBJECTMANAGER
 #configuration
 subjects = ["other", "latin", "geopolitics", "psychology", "chemistry", "computerprogramming", "philosophy", "precalculus", "debate", "modelun", "boyscouts"]
@@ -5,7 +6,7 @@ subjects = ["other", "latin", "geopolitics", "psychology", "chemistry", "compute
 nosubjectdefaulttoother = False
 subjecterrordefaulttoother = False
 
-def subjectManager(rawsubject, repeat):
+def subjectManager(rawsubject, repeat, repeatsuntildefault):
     rawsubject = rawsubject.lower().replace(" ","")
     for s in subjects:
         if rawsubject == s[0:len(rawsubject)]:
