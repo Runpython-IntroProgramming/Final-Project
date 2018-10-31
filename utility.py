@@ -19,22 +19,23 @@ def subjectManager(rawsubject):
 ###dateManager###
 daysoftheweek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 def dateManager(rawdate):
-    rawdate = rawdate.lower().replace("-","/").replace("~","/").replace(" ","")
-    if rawdate[0:4] == "next ":
-        skipweek = True
-        skiptext = 4
-    if rawdate == 0: 
-    
-    for l in daysoftheweek:
-        if rawsubject == s[0:len(rawsubject)]:
+    rawdate = rawdate.lower().replace("-","/").replace("~","/")
+    skip = 0
+    if rawdate[0:5] == "next ":
+        skip = 5
+    for day in daysoftheweek:
+        if rawdate[skip:len(rawdate)] == day[0:len(rawsubject) - skip]:
+            return l
+dateManager("next mon")
+"""
             if noSubjectDefaultOther:
-                return s
+                return l
             elif len(rawsubject) > 0:
                 return s
         elif subjectErrorDefaultOther:
             return "other"
-
-
+"""
+"""
 ###calendarManager###
 import datetime
 import calendar
@@ -54,11 +55,12 @@ def calendarManager(year, month):
     for day in range(1,calendar.monthrange(year, month)[1]+1):
         Sprite(datetime.datetime(year, month, day).weekday()
 
-"""
+
 print(datetime.datetime(2018, 10, 31, 13))
 print(datetime.datetime.today().weekday())
-"""
+
 calendarManager(2018,10)
 
 app = App()
 app.run()
+"""
