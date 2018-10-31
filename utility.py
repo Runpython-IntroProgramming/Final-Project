@@ -38,6 +38,9 @@ def daysInMonth(month, year):
             return 28
     else:
         return 31
-def calendarManager:
+def calendarManager(month, year):
+    days = []
+    for day in daysInMonth(month, year):
+        days.append
     
 
