@@ -15,9 +15,10 @@ def subjectManager(rawsubject, repeat):
             elif len(rawsubject) > 0:
                 return s
 #    print ("Does not match a subject.")
-    if subjectErrorDefaultOther """or repeat >= repeatsUntilDefault""":
-#        print ('Defaulting to "other".')
-        return "other"
+            elif subjectErrorDefaultOther:
+# or repeat >= repeatsUntilDefault
+#           print ('Defaulting to "other".')
+            return "other"
 """
     else:
         repeat += 1
