@@ -17,12 +17,9 @@ def subjectManager(rawsubject):
 ###subjectManager###
 
 ###calendarManager###
-from datetime import datetime
-thisweekday = datetime.today().weekday()
-thistime = str(datetime.today())
-thismonth = int(thistime[5:7])
-thisday = int(thistime[8:10])
-thisyear = int(thistime[2:4])
+import datetime
+import calendar
+"""
 def leapYear(year):
     if year % 4 == 0 and year % 100 != 0 or year % 400 == 0:
         return True
@@ -38,9 +35,12 @@ def daysInMonth(month, year):
             return 28
     else:
         return 31
-def calendarManager(month, year):
-    days = []
-    for day in daysInMonth(month, year):
-        days.append
-    
+"""
 
+def calendarManager(month, year):
+    for day in range(1,calendar.monthrange(year, month)[1]+1):
+        days.append(day)
+
+
+print(datetime.datetime(2018, 10, 31, 13))
+print(datetime.datetime.today().weekday())
