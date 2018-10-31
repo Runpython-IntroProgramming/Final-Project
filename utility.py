@@ -14,7 +14,7 @@ def subjectManager(rawsubject, repeat):
                 return s
             elif len(rawsubject) > 0:
                 return s
-    print ("Does not match a subject.")
+#    print ("Does not match a subject.")
 
 
 """
