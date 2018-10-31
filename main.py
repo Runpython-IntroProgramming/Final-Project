@@ -6,7 +6,7 @@ thismonth = int(thistime[5:7])
 thisday = int(thistime[8:10])
 thisyear = int(thistime[2:4])
 leapyears = []
-for x in repeatsuntildefault
+# x in repeatsuntildefault
 
 #Day config
 days = ["tomorrow", "today", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
@@ -28,14 +28,16 @@ else:
     return 31
 """
 #Configuration
-repeatsuntildefault = 2
+
 
 def newevent():
-    rawsubject = input("subject:")
-    newsubject = subjectmanager(rawsubject, 0)
+    rawsubject = input("subject: ")
+    newsubject = subjectManager(rawsubject, 0)
     print (newsubject)
+
+"""
     newtitle = input("title: ")
     newday = daymanager(1)
     print (newday)
-
+"""
 newevent()
