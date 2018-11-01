@@ -41,6 +41,29 @@ def dateManager(rawdate):
     for day in daywords:
         if rawdate[skip:len(rawdate)] == day[0:len(rawdate) - skip]:
             return wordToDate(daywords.index(day)-2, skip)
+    
+    slashlist = []
+    for index in len(rawdate):
+        if rawdate[index] == "/":
+            slashlist.append(index)
+    toslash1 = rawdate[0:slashlist[0]]
+    month = int(toslash1)
+    if len(slashlist) == 1:
+        slash1toend = rawdate[slashlist[0]+1:len(rawdate)]
+        year = datetime.now().year
+        day = int(slash1toend)
+    elif len(slashlist) == 2:
+        slash2toend = rawdate[slashlist[1]+1:len(rawdate)]
+        slash1toslash2 = rawdate[slashlist[0]+1:slashlist[1]]
+        if len(slash2toend) == 0:
+            year = datetime.now().year
+        elif len(slash2toend) in range(1:4):
+        year = int(rawdate[slashlist[1]+1:len(rawdate)])
+        day = 
+    
+    return
+
+
     if int(rawdate[0:2]) in range(1,13) and rawdate[2] == "/":
         month = int(rawdate[0:2])
         if rawdate[5] == "/":
