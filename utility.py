@@ -18,19 +18,21 @@ def subjectManager(rawsubject):
 ###dateManager###
 from datetime import datetime, timedelta
 from calendar import calendar, monthrange
+thisyear = datetime.now().year
+today = datetime.now().date()
 def wordToDate(day, skip):
     days = []
     if day == "today":
-        return datetime.now().date()
+        return today
     elif day == "tomorrow":
-        return datetime.now().date() + timedelta(days=1)
+        return today + timedelta(days=1)
     else:
         for x in range(7):
-            if day == (datetime.now().date() + timedelta(days=x)).weekday():
+            if day == (today + timedelta(days=x)).weekday():
                 if skip == 5:
-                    return datetime.now().date() + timedelta(days=x+7)
+                    return today + timedelta(days=x+7)
                 else:
-                    return datetime.now().date() + timedelta(days=x)
+                    return today + timedelta(days=x)
 
 daywords = ["tomorrow", "today", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 def dateManager(rawdate):
@@ -48,18 +50,23 @@ def dateManager(rawdate):
             slashlist.append(index)
     toslash1 = rawdate[0:slashlist[0]]
     month = int(toslash1)
-    if len(slashlist) == 1:
-        slash1toend = rawdate[slashlist[0]+1:len(rawdate)]
-        year = datetime.now().year
-        day = int(slash1toend)
-    elif len(slashlist) == 2:
-        slash2toend = rawdate[slashlist[1]+1:len(rawdate)]
-        slash1toslash2 = rawdate[slashlist[0]+1:slashlist[1]]
-        if len(slash2toend) == 0:
-            year = datetime.now().year
-        elif len(slash2toend) in range(1:4):
-        year = int(rawdate[slashlist[1]+1:len(rawdate)])
-        day = 
+    if month in range(1,13):
+        if len(slashlist) == 1:
+            slash1toend = rawdate[slashlist[0]+1:len(rawdate)]
+            year = thisyear
+            day = int(slash1toend)
+        elif len(slashlist) == 2:
+            slash2toend = rawdate[slashlist[1]+1:len(rawdate)]
+            slash1toslash2 = rawdate[slashlist[0]+1:slashlist[1]]
+            if len(slash2toend) == 0:
+                year = thisyear
+            elif len(slash2toend) in range(1,4):
+                year = int(slash2toend) + int(str(thisyear)[0])*1000
+            elif len(slash2toend) == 4:
+                year = int(slash2toend)
+            day = int(slash1toslash2)
+        if day in range(1,monthrange(year,month)[1]+1)
+            return datetime(year, month, day).date()
     
     return
 
@@ -77,7 +84,7 @@ def dateManager(rawdate):
             year = datetime.now().year
         if int(rawdate[3:5]) in range(1,monthrange(year,month)[1]+1):
             day = int(rawdate[3:5])
-            return datetime(year, month, day).date()
+            return 
         else:
             return
     else:
