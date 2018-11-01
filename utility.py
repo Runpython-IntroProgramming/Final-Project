@@ -14,19 +14,52 @@ def subjectManager(rawsubject):
                 return s
         elif subjectErrorDefaultOther:
             return "other"
-###subjectManager###
 
 ###dateManager###
-daysoftheweek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+from datetime import datetime, timedelta
+from calendar import calendar, monthrange
+def wordToDate(day, skip):
+    days = []
+    if day == "today":
+        return datetime.now().date()
+    elif day == "tomorrow":
+        return datetime.now().date() + timedelta(days=1)
+    else:
+        for x in range(7):
+            if day == (datetime.now().date() + timedelta(days=x)).weekday():
+                if skip == 5:
+                    return datetime.now().date() + timedelta(days=x+7)
+                else:
+                    return datetime.now().date() + timedelta(days=x)
+
+daywords = ["tomorrow", "today", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 def dateManager(rawdate):
     rawdate = rawdate.lower().replace("-","/").replace("~","/")
     skip = 0
     if rawdate[0:5] == "next ":
         skip = 5
-    for day in daysoftheweek:
-        if rawdate[skip:len(rawdate)] == day[0:len(rawsubject) - skip]:
-            return l
-dateManager("next mon")
+    for day in daywords:
+        if rawdate[skip:len(rawdate)] == day[0:len(rawdate) - skip]:
+            return wordToDate(daywords.index(day)-2, skip)
+    if int(rawdate[0:2]) in range(1,13) and rawdate[2] == "/":
+        month = int(rawdate[0:2])
+        if rawdate[5] == "/":
+            if type(int(rawdate[6:10])) == int and type(int(rawdate[8:10])) == int:
+                year = int(rawdate[6:10])
+            elif type(int(rawdate[6:8])) == int:
+                year = int(rawdate[6:8]) + 2000
+            else:
+                year = datetime.now().year
+        else:
+            year = datetime.now().year
+        if int(rawdate[3:5]) in range(1,monthrange(year,month)[1]+1):
+            day = int(rawdate[3:5])
+            return datetime(year, month, day).date()
+        else:
+            return
+    else:
+        return
+print(dateManager("a0/31/2018"))
 """
             if noSubjectDefaultOther:
                 return l
@@ -37,8 +70,7 @@ dateManager("next mon")
 """
 """
 ###calendarManager###
-import datetime
-import calendar
+
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, KeyEvent, MouseEvent
 black = Color(0x000000, 1.0)
 grey = Color(0x808080, 1.0)
