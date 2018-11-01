@@ -33,7 +33,6 @@ def wordToDate(day, skip):
                     return today + timedelta(days=x+7)
                 else:
                     return today + timedelta(days=x)
-
 daywords = ["tomorrow", "today", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 def dateManager(rawdate):
     rawdate = rawdate.lower().replace("-","/").replace("~","/")
@@ -43,7 +42,6 @@ def dateManager(rawdate):
     for day in daywords:
         if rawdate[skip:len(rawdate)] == day[0:len(rawdate) - skip]:
             return wordToDate(daywords.index(day)-2, skip)
-    
     slashlist = []
     for index in range(len(rawdate)):
         if rawdate[index] == "/":
@@ -71,27 +69,7 @@ def dateManager(rawdate):
 
 print(dateManager(input("Write a day of the week or date in (mm/dd/yyyy). DateManager will retrieve the numerical date: ")))
 """
-            if noSubjectDefaultOther:
-                return l
-            elif len(rawsubject) > 0:
-                return s
-        elif subjectErrorDefaultOther:
-            return "other"
-"""
-"""
 ###calendarManager###
-
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, KeyEvent, MouseEvent
-black = Color(0x000000, 1.0)
-grey = Color(0x808080, 1.0)
-white = Color(0xffffff, 1.0)
-line = LineStyle(1, black)
-
-deadcell = RectangleAsset(10, 10, line, black)
-
-newcell = RectangleAsset(10, 10, line, white)
-
-oldcell = RectangleAsset(10, 10, line, grey)
 
 def calendarManager(year, month):
     for day in range(1,calendar.monthrange(year, month)[1]+1):
