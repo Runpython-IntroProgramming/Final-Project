@@ -59,7 +59,7 @@ def dateManager(rawdate):
             return
     else:
         return
-print(dateManager("a0/31/2018"))
+print(dateManager(input("Write a day of the week or date in (mm/dd/yyyy). DateManager will retrieve the numerical date: ")))
 """
             if noSubjectDefaultOther:
                 return l
