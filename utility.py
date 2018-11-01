@@ -45,7 +45,7 @@ def dateManager(rawdate):
             return wordToDate(daywords.index(day)-2, skip)
     
     slashlist = []
-    for index in len(rawdate):
+    for index in range(len(rawdate)):
         if rawdate[index] == "/":
             slashlist.append(index)
     toslash1 = rawdate[0:slashlist[0]]
@@ -65,30 +65,10 @@ def dateManager(rawdate):
             elif len(slash2toend) == 4:
                 year = int(slash2toend)
             day = int(slash1toslash2)
-        if day in range(1,monthrange(year,month)[1]+1)
+        if day in range(1,monthrange(year,month)[1]+1):
             return datetime(year, month, day).date()
-    
     return
 
-
-    if int(rawdate[0:2]) in range(1,13) and rawdate[2] == "/":
-        month = int(rawdate[0:2])
-        if rawdate[5] == "/":
-            if type(int(rawdate[6:10])) == int and type(int(rawdate[8:10])) == int:
-                year = int(rawdate[6:10])
-            elif type(int(rawdate[6:8])) == int:
-                year = int(rawdate[6:8]) + 2000
-            else:
-                year = datetime.now().year
-        else:
-            year = datetime.now().year
-        if int(rawdate[3:5]) in range(1,monthrange(year,month)[1]+1):
-            day = int(rawdate[3:5])
-            return 
-        else:
-            return
-    else:
-        return
 print(dateManager(input("Write a day of the week or date in (mm/dd/yyyy). DateManager will retrieve the numerical date: ")))
 """
             if noSubjectDefaultOther:
