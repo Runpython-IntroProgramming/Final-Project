@@ -43,6 +43,10 @@ class PvZ(App):
             Sprite(houseroof5,(-150,45))
             houseroof6 = RectangleAsset(200, 325, thinline, lightbrown2)
             Sprite(houseroof6,(-150,370))
+            
+            sunflower = ImageAsset("clipart644433.png")
+            Sprite(sunflower,(0,0))
+            
             grid = RectangleAsset(110,110,whiteline,brown)
             x = 150 
             y = 95
