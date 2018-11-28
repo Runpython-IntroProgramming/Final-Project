@@ -26,6 +26,15 @@ gridline = LineStyle(1, grey)
 tile1 = Color(0x00b33c, 1.0)
 tile2 = Color(0x00e64d, 1.0)
 
+# Sunflower---------------------------------------------------------------------
+
+class Sunflower(Sprite):
+    def __init__(self,position):
+        sunflower_asset = ImageAsset("images/clipart644433 (1).png")
+        sunflower_asset.scale = 0.15
+        super().__init__(sunflower_asset, position)
+
+
 class PvZ(App):
     def __init__(self):
             super().__init__()
@@ -96,17 +105,8 @@ class PvZ(App):
                 self.y = event.y
             
         def sunflowerplacement(self,event):
-                Sunflower((self.x,self.y))
+            Sunflower((self.x,self.y))
 
-                
-                
-
-class Sunflower(Sprite):
-    def __init__(self,position):
-        sunflower_asset = ImageAsset("images/clipart644433 (1).png")
-        sunflower = Sprite(sunflower_asset,(170,100))
-        sunflower.scale = 0.15
-        super().__init__(sunflower, position)
 
             
 myapp = PvZ()
