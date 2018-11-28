@@ -6,7 +6,7 @@ pink = Color(0xFF00FF, 1.0)
 red = Color(0xFF5733, 1.0)
 white = Color(0xFFFFFF, 1.0)
 red = Color(0xff0000, 1.0)
-green = Color(0x00ff00, 1.0)
+green = Color(0x009933, 1.0)
 blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 white = Color(0xffffff, 1.0)
@@ -24,12 +24,17 @@ greenline = LineStyle(1, green)
 whiteline = LineStyle(1, white)
 gridline = LineStyle(1, grey)
 tile1 = Color(0x00b33c, 1.0)
+tile2 = Color(0x00e64d, 1.0)
 
 class PvZ(App):
     def __init__(self):
             super().__init__()
-            background = RectangleAsset(1500, 1000, noline, green)
-            Sprite(background)
+            
+# House-------------------------------------------------------------------------
+            background = ImageAsset("images/1.jpg")
+            backgroundscale=Sprite(background)
+            backgroundscale.scale = 1.5
+            
             houseroof1 = RectangleAsset(100, 125, thinline, lightbrown)
             Sprite(houseroof1,(20,85))
             houseroof2 = RectangleAsset(100, 125, thinline, lightbrown2)
@@ -45,21 +50,64 @@ class PvZ(App):
             houseroof6 = RectangleAsset(200, 325, thinline, lightbrown2)
             Sprite(houseroof6,(-150,370))
             
+# Grid--------------------------------------------------------------------------
+            
             grid = RectangleAsset(110,110,whiteline,tile1)
             grid2 = RectangleAsset(110,110,whiteline,tile2)
             x = 150 
             y = 95
-            for b in range(5):
-                for a in range(10):
-                    Sprite(grid, (x,y))
-                    x = x + 110
-                x = 150
-                Sprite(grid,(x,y))
-                y = y + 110
+            for a in range(10):
+                Sprite(grid2,(x,y))
+                x = x + 110
+            
+            c = 150 
+            d = 110+95
+            for a in range(10):
+                Sprite(grid,(c,d))
+                c = c + 110
+             
+            e = 150 
+            f = 2*(110)+95
+            for a in range(10):
+                Sprite(grid2,(e,f))
+                e = e + 110
+             
+            g = 150 
+            h = 3*(110)+95
+            for a in range(10):
+                Sprite(grid,(g,h))
+                g = g + 110
+             
+            k = 150 
+            l = 4*(110)+95
+            for a in range(10):
+                Sprite(grid2,(k,l))
+                k = k + 110
+# Function Calling--------------------------------------------------------------
+            PvZ.listenMouseEvent("mousemove", self.moveMouse)
+            PvZ.listenKeyEvent('keydown', 's', self.sunflowerplacement) 
+            
+# Functions---------------------------------------------------------------------
+            x=0
+            y=0
+            
+        def moveMouse(self, event):
+                self.x = event.x
+                self.y = event.y
+            
+        def sunflowerplacement(self,event):
+                Sunflower((self.x,self.y))
+
                 
-            sunflower_asset = ImageAsset("images/clipart644433 (1).png")
-            sunflower = Sprite(sunflower_asset,(170,100))
-            sunflower.scale = 0.15
                 
+
+class Sunflower(Sprite):
+    def __init__(self,position):
+        sunflower_asset = ImageAsset("images/clipart644433 (1).png")
+        sunflower = Sprite(sunflower_asset,(170,100))
+        sunflower.scale = 0.15
+        super().__init__(sunflower, position)
+
+            
 myapp = PvZ()
 myapp.run()
