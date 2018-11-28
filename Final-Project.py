@@ -23,6 +23,7 @@ redline = LineStyle(1, red)
 greenline = LineStyle(1, green)
 whiteline = LineStyle(1, white)
 gridline = LineStyle(1, grey)
+tile1 = Color(0x00b33c, 1.0)
 
 class PvZ(App):
     def __init__(self):
@@ -44,10 +45,8 @@ class PvZ(App):
             houseroof6 = RectangleAsset(200, 325, thinline, lightbrown2)
             Sprite(houseroof6,(-150,370))
             
-            sunflower = ImageAsset("clipart644433.png")
-            Sprite(sunflower,(0,0))
-            
-            grid = RectangleAsset(110,110,whiteline,brown)
+            grid = RectangleAsset(110,110,whiteline,tile1)
+            grid2 = RectangleAsset(110,110,whiteline,tile2)
             x = 150 
             y = 95
             for b in range(5):
@@ -57,6 +56,10 @@ class PvZ(App):
                 x = 150
                 Sprite(grid,(x,y))
                 y = y + 110
+                
+            sunflower_asset = ImageAsset("images/clipart644433 (1).png")
+            sunflower = Sprite(sunflower_asset,(170,100))
+            sunflower.scale = 0.15
                 
 myapp = PvZ()
 myapp.run()
