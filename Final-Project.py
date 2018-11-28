@@ -34,11 +34,12 @@ class Sunflower(Sprite):
         sunflower_asset.scale = 0.15
         super().__init__(sunflower_asset, position)
 
+# PvZ---------------------------------------------------------------------------
 
 class PvZ(App):
     def __init__(self):
             super().__init__()
-            
+        
 # House-------------------------------------------------------------------------
             background = ImageAsset("images/1.jpg")
             backgroundscale=Sprite(background)
@@ -105,7 +106,7 @@ class PvZ(App):
                 self.y = event.y
             
         def sunflowerplacement(self,event):
-            Sunflower((self.x,self.y))
+            Sunflower((0,0))
 
 
             
