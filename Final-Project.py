@@ -1,4 +1,8 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
+from math import floor
+
+SCREEN_WIDTH = 1000
+SCREEN_HEIGHT = 800
 
 blue = Color(0x2EFEC8, 1.0)
 black = Color(0x000000, 1.0)
@@ -44,7 +48,7 @@ class PvZ(App):
 # House-------------------------------------------------------------------------
         
         background = ImageAsset("images/1.jpg")
-        backgroundscale=Sprite(background)
+        backgroundscale = Sprite(background)
         backgroundscale.scale = 1.5
         
         houseroof5 = RectangleAsset(200, 325, thinline, lightbrown)
@@ -120,6 +124,7 @@ class PvZ(App):
         for a in range(10):
             Sprite(grid2,(k,l))
             k = k + 110
+            
 # Function Calling--------------------------------------------------------------
        
         PvZ.listenMouseEvent("mousemove", self.moveMouse)
@@ -135,7 +140,16 @@ class PvZ(App):
             self.y = event.y
         
     def sunflowerplacement(self,event):
-        Sunflower((self.x,self.y))
+        x = floor(self.x/110)*110
+        y = floor(self.y/110)*110
+        Sunflower((x,y))
+    
+# Collisions--------------------------------------------------------------------
+    def step(self):
+        for a in self.getSpritesbyClass(Sunflower):
+            if a.collidingWithSprites(Background):
+             self.destroy()
+
 
 
             
