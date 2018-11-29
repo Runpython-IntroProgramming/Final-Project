@@ -41,17 +41,18 @@ class PvZ(App):
         super().__init__()
         
 # House-------------------------------------------------------------------------
+        
         background = ImageAsset("images/1.jpg")
         backgroundscale=Sprite(background)
         backgroundscale.scale = 1.5
         
         houseroof1 = RectangleAsset(100, 125, thinline, lightbrown)
-        Sprite(houseroof1,(20,85))
+        Sprite(houseroof1,(20,120))
         houseroof2 = RectangleAsset(100, 125, thinline, lightbrown2)
-        Sprite(houseroof2,(20,210))
+        Sprite(houseroof2,(20,245))
         
         houseroof3 = RectangleAsset(100, 125, thinline, lightbrown)
-        Sprite(houseroof3,(20,410))
+        Sprite(houseroof3,(20,30))
         houseroof4 = RectangleAsset(100, 125, thinline, lightbrown2)
         Sprite(houseroof4,(20,535))
         
@@ -65,39 +66,41 @@ class PvZ(App):
         grid = RectangleAsset(110,110,whiteline,tile1)
         grid2 = RectangleAsset(110,110,whiteline,tile2)
         x = 150 
-        y = 95
+        y = 125
         for a in range(10):
             Sprite(grid2,(x,y))
             x = x + 110
         
         c = 150 
-        d = 110+95
+        d = 110+125
         for a in range(10):
             Sprite(grid,(c,d))
             c = c + 110
          
         e = 150 
-        f = 2*(110)+95
+        f = 2*(110)+125
         for a in range(10):
             Sprite(grid2,(e,f))
             e = e + 110
          
         g = 150 
-        h = 3*(110)+95
+        h = 3*(110)+125
         for a in range(10):
             Sprite(grid,(g,h))
             g = g + 110
          
         k = 150 
-        l = 4*(110)+95
+        l = 4*(110)+125
         for a in range(10):
             Sprite(grid2,(k,l))
             k = k + 110
 # Function Calling--------------------------------------------------------------
+       
         PvZ.listenMouseEvent("mousemove", self.moveMouse)
         PvZ.listenKeyEvent('keydown', 's', self.sunflowerplacement) 
         
 # Functions---------------------------------------------------------------------
+       
         x=0
         y=0
         
