@@ -36,8 +36,8 @@ tile2 = Color(0x00e64d, 1.0)
 class Sunflower(Sprite):
     def __init__(self,position):
         sunflower_asset = ImageAsset("images/clipart644433 (1).png")
-        sunflower_asset.scale = 0.15
         super().__init__(sunflower_asset, position)
+        self.scale = 0.17
 
 # PvZ---------------------------------------------------------------------------
 
@@ -95,6 +95,7 @@ class PvZ(App):
         
         grid = RectangleAsset(110,110,whiteline,tile1)
         grid2 = RectangleAsset(110,110,whiteline,tile2)
+        
         x = 150 
         y = 125
         for a in range(10):
@@ -140,17 +141,12 @@ class PvZ(App):
             self.y = event.y
         
     def sunflowerplacement(self,event):
-        x = floor(self.x/110)*110
-        y = floor(self.y/110)*110
+        x = floor(self.x/110)*110 
+        y = (floor(self.y/110)*110)
         Sunflower((x,y))
+        self.scale = 0.2
     
 # Collisions--------------------------------------------------------------------
-    def step(self):
-        for a in self.getSpritesbyClass(Sunflower):
-            if a.collidingWithSprites(Background):
-             self.destroy()
-
-
 
             
 myapp = PvZ()
