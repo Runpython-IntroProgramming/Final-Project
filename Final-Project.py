@@ -58,8 +58,35 @@ class PvZ(App):
         chimneyhole = RectangleAsset(20, 30, thinline, black)
         Sprite(chimneyhole,(35,260))
         
-        chimneyline
+        chimneyline = RectangleAsset(2, 60, noline, black)
+        Sprite(chimneyline,(27,245))
         
+        chimneyline = RectangleAsset(2, 60, noline, black)
+        Sprite(chimneyline,(34,245))
+        
+        chimneyline = RectangleAsset(2, 60, noline, black)
+        Sprite(chimneyline,(41,245))
+        
+        chimneyline = RectangleAsset(2, 60, noline, black)
+        Sprite(chimneyline,(48,245))
+        
+        chimneyline = RectangleAsset(2, 60, noline, black)
+        Sprite(chimneyline,(55,245))
+        
+        chimneyline = RectangleAsset(2, 60, noline, black)
+        Sprite(chimneyline,(62,245))
+        
+        chimneylineacross = RectangleAsset(50, 2, noline, black)
+        Sprite(chimneylineacross,(20,260))
+        
+        chimneylineacross = RectangleAsset(50, 2, noline, black)
+        Sprite(chimneylineacross,(20,275))
+        
+        chimneylineacross = RectangleAsset(50, 2, noline, black)
+        Sprite(chimneylineacross,(20,290))
+        
+        chimneylineacross = RectangleAsset(50, 2, noline, black)
+        Sprite(chimneylineacross,(20,305))
 # Grid--------------------------------------------------------------------------
         
         grid = RectangleAsset(110,110,whiteline,tile1)
