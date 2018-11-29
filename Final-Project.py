@@ -4,6 +4,7 @@ blue = Color(0x2EFEC8, 1.0)
 black = Color(0x000000, 1.0)
 pink = Color(0xFF00FF, 1.0)
 red = Color(0xFF5733, 1.0)
+orange = Color(0xe66700, 1.0)
 white = Color(0xFFFFFF, 1.0)
 red = Color(0xff0000, 1.0)
 green = Color(0x009933, 1.0)
@@ -46,20 +47,18 @@ class PvZ(App):
         backgroundscale=Sprite(background)
         backgroundscale.scale = 1.5
         
-        houseroof1 = RectangleAsset(100, 125, thinline, lightbrown)
-        Sprite(houseroof1,(20,120))
-        houseroof2 = RectangleAsset(100, 125, thinline, lightbrown2)
-        Sprite(houseroof2,(20,245))
-        
-        houseroof3 = RectangleAsset(100, 125, thinline, lightbrown)
-        Sprite(houseroof3,(20,30))
-        houseroof4 = RectangleAsset(100, 125, thinline, lightbrown2)
-        Sprite(houseroof4,(20,535))
-        
         houseroof5 = RectangleAsset(200, 325, thinline, lightbrown)
-        Sprite(houseroof5,(-150,45))
+        Sprite(houseroof5,(-90,45))
         houseroof6 = RectangleAsset(200, 325, thinline, lightbrown2)
-        Sprite(houseroof6,(-150,370))
+        Sprite(houseroof6,(-90,370))
+        
+        chimney = RectangleAsset(50, 60, thinline, orange)
+        Sprite(chimney,(20,245))
+        
+        chimneyhole = RectangleAsset(20, 30, thinline, black)
+        Sprite(chimneyhole,(35,260))
+        
+        chimneyline
         
 # Grid--------------------------------------------------------------------------
         
