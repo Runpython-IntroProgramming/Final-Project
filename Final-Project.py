@@ -43,7 +43,7 @@ class Sunflower(Sprite):
 
 class Peashooter(Sprite):
     def __init__(self,position):
-        peashooter_asset = ImageAsset("images/clipart644433 (1).png")
+        peashooter_asset = ImageAsset("images/clipart215049.png")
         super().__init__(peashooter_asset, position)
         self.scale = 0.17
         
@@ -145,6 +145,7 @@ class PvZ(App):
        
         PvZ.listenMouseEvent("mousemove", self.moveMouse)
         PvZ.listenKeyEvent('keydown', 's', self.sunflowerplacement) 
+        PvZ.listenKeyEvent('keydown', 'p', self.peashooterplacement) 
         
 # Functions---------------------------------------------------------------------
        
@@ -156,6 +157,13 @@ class PvZ(App):
             self.y = event.y
         
     def sunflowerplacement(self,event):
+        x = (floor(self.x/110)*110) + 52
+        y = (floor(self.y/110)*110) + 20
+        if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
+            Sunflower((x,y))
+            self.scale = 0.2
+    
+    def peashooterplacement(self,event):
         x = (floor(self.x/110)*110) + 52
         y = (floor(self.y/110)*110) + 20
         if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
