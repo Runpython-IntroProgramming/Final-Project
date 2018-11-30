@@ -141,8 +141,8 @@ class PvZ(App):
             self.y = event.y
         
     def sunflowerplacement(self,event):
-        x = floor(self.x/110)*110 
-        y = (floor(self.y/110)*110)
+        x = (floor(self.x/110)*110) + 52
+        y = (floor(self.y/110)*110) + 20
         Sunflower((x,y))
         self.scale = 0.2
     
