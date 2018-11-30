@@ -1,5 +1,6 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 from math import floor
+from time import sleep
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
@@ -12,6 +13,7 @@ orange = Color(0xe66700, 1.0)
 white = Color(0xFFFFFF, 1.0)
 red = Color(0xff0000, 1.0)
 green = Color(0x009933, 1.0)
+peagreen = Color(0x33cc33, 1.0)
 blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 white = Color(0xffffff, 1.0)
@@ -30,12 +32,13 @@ whiteline = LineStyle(1, white)
 gridline = LineStyle(1, grey)
 tile1 = Color(0x00b33c, 1.0)
 tile2 = Color(0x00e64d, 1.0)
-
+hs = 0
 # Sunflower---------------------------------------------------------------------
 
 class Sunflower(Sprite):
     def __init__(self,position):
         sunflower_asset = ImageAsset("images/clipart644433 (1).png")
+        hs = 100
         super().__init__(sunflower_asset, position)
         self.scale = 0.17
         
@@ -45,7 +48,12 @@ class Peashooter(Sprite):
     def __init__(self,position):
         peashooter_asset = ImageAsset("images/clipart215049.png")
         super().__init__(peashooter_asset, position)
-        self.scale = 0.17
+        self.scale = 0.07
+        
+class Pea(Sprite):
+    def __init__(self,position):
+        pea_asset = CircleAsset(20, noline, peagreen)
+        super().__init__(pea_asset, position)
         
 # Background---------------------------------------------------------------------        
 
@@ -161,14 +169,13 @@ class PvZ(App):
         y = (floor(self.y/110)*110) + 20
         if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
             Sunflower((x,y))
-            self.scale = 0.2
     
     def peashooterplacement(self,event):
         x = (floor(self.x/110)*110) + 52
-        y = (floor(self.y/110)*110) + 20
+        y = (floor(self.y/110)*110) + 25
         if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
-            Sunflower((x,y))
-            self.scale = 0.2
+            Peashooter((x,y))
+            Pea((x,y))
     
 # Collisions--------------------------------------------------------------------
 
