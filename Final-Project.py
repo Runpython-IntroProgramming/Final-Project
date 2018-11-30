@@ -38,6 +38,12 @@ class Sunflower(Sprite):
         sunflower_asset = ImageAsset("images/clipart644433 (1).png")
         super().__init__(sunflower_asset, position)
         self.scale = 0.17
+        
+class Background(Sprite):
+    def __init__(self,position):
+        background = ImageAsset("images/1.jpg")
+        super().__init__(background, position)
+        self.scale = 1.5
 
 # PvZ---------------------------------------------------------------------------
 
@@ -47,9 +53,12 @@ class PvZ(App):
         
 # House-------------------------------------------------------------------------
         
-        background = ImageAsset("images/1.jpg")
-        backgroundscale = Sprite(background)
-        backgroundscale.scale = 1.5
+        Background((0,0))
+        
+        for a in self.getSpritesbyClass(Sunflower):
+            if a.collidingWithSprites(Background):
+                a.destroy()
+        
         
         houseroof5 = RectangleAsset(200, 325, thinline, lightbrown)
         Sprite(houseroof5,(-90,45))
@@ -91,6 +100,7 @@ class PvZ(App):
         
         chimneylineacross = RectangleAsset(50, 2, noline, black)
         Sprite(chimneylineacross,(20,305))
+        
 # Grid--------------------------------------------------------------------------
         
         grid = RectangleAsset(110,110,whiteline,tile1)
