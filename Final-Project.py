@@ -177,8 +177,8 @@ class PvZ(App):
         if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
             Peashooter((x,y))
             Pea((x+70,y+13))
-            for a in self.getSpritesbyClass(Pea):
-                a.vx += 1.8
+        for a in self.getSpritesbyClass(Pea):
+            a.vx += 1.8
     
 # Collisions--------------------------------------------------------------------
 
