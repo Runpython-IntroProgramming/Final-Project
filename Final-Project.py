@@ -39,6 +39,16 @@ class Sunflower(Sprite):
         super().__init__(sunflower_asset, position)
         self.scale = 0.17
         
+# Peashooter--------------------------------------------------------------------
+
+class Peashooter(Sprite):
+    def __init__(self,position):
+        peashooter_asset = ImageAsset("images/clipart644433 (1).png")
+        super().__init__(peashooter_asset, position)
+        self.scale = 0.17
+        
+# Background---------------------------------------------------------------------        
+
 class Background(Sprite):
     def __init__(self,position):
         background = ImageAsset("images/1.jpg")
@@ -51,14 +61,9 @@ class PvZ(App):
     def __init__(self):
         super().__init__()
         
-# House-------------------------------------------------------------------------
+# House+Background--------------------------------------------------------------
         
         Background((0,0))
-        
-        for a in self.getSpritesbyClass(Sunflower):
-            if a.collidingWithSprites(Background):
-                a.destroy()
-        
         
         houseroof5 = RectangleAsset(200, 325, thinline, lightbrown)
         Sprite(houseroof5,(-90,45))
@@ -153,8 +158,9 @@ class PvZ(App):
     def sunflowerplacement(self,event):
         x = (floor(self.x/110)*110) + 52
         y = (floor(self.y/110)*110) + 20
-        Sunflower((x,y))
-        self.scale = 0.2
+        if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
+            Sunflower((x,y))
+            self.scale = 0.2
     
 # Collisions--------------------------------------------------------------------
 
