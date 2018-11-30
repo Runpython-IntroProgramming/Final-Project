@@ -176,7 +176,9 @@ class PvZ(App):
         y = (floor(self.y/110)*110) + 25
         if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
             Peashooter((x,y))
-            Pea((x+70,y+13))
+            for a in range(1000):
+                sleep(2)
+                Pea((x+70,y+13))
         
     def step(self):
         for a in self.getSpritesbyClass(Pea):
