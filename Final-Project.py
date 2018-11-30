@@ -13,7 +13,7 @@ orange = Color(0xe66700, 1.0)
 white = Color(0xFFFFFF, 1.0)
 red = Color(0xff0000, 1.0)
 green = Color(0x009933, 1.0)
-peagreen = Color(0x33cc33, 1.0)
+peagreen = Color(0x66ff33, 1.0)
 blue = Color(0x0000ff, 1.0)
 black = Color(0x000000, 1.0)
 white = Color(0xffffff, 1.0)
@@ -52,7 +52,8 @@ class Peashooter(Sprite):
         
 class Pea(Sprite):
     def __init__(self,position):
-        pea_asset = CircleAsset(20, noline, peagreen)
+        pea_asset = CircleAsset(13, thinline, peagreen)
+        self.vx = 0
         super().__init__(pea_asset, position)
         
 # Background---------------------------------------------------------------------        
@@ -175,7 +176,9 @@ class PvZ(App):
         y = (floor(self.y/110)*110) + 25
         if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
             Peashooter((x,y))
-            Pea((x,y))
+            Pea((x+70,y+13))
+            for a in self.getSpritesbyClass(Pea):
+                a.vx += 1.8
     
 # Collisions--------------------------------------------------------------------
 
