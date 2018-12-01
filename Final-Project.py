@@ -38,9 +38,16 @@ hs = 0
 class Sunflower(Sprite):
     def __init__(self,position):
         sunflower_asset = ImageAsset("images/clipart644433 (1).png")
-        hs = 100
         super().__init__(sunflower_asset, position)
         self.scale = 0.17
+        
+# Walnut------------------------------------------------------------------------
+
+class Walnut(Sprite):
+    def __init__(self,position):
+        walnut_asset = ImageAsset("images/kisspng-plants-vs-zombies-2-it-s-about-time-english-waln-walnut-5ab4aed18776e0.5829646215217906735549.png")
+        super().__init__(walnut_asset, position)
+        self.scale = 0.085
         
 # Peashooter--------------------------------------------------------------------
 
@@ -55,6 +62,15 @@ class Pea(Sprite):
         pea_asset = CircleAsset(13, thinline, peagreen)
         self.vx = 0
         super().__init__(pea_asset, position)
+        
+# Zombie------------------------------------------------------------------------
+
+class RegularZombie(Sprite):
+    def __init__(self,position):
+        regularzombie_asset = ImageAsset("images/clipart844194.png")
+        self.vx = 0
+        super().__init__(regularzombie_asset, position)
+        self.scale = 0.23
         
 # Background---------------------------------------------------------------------        
 
@@ -155,6 +171,8 @@ class PvZ(App):
         PvZ.listenMouseEvent("mousemove", self.moveMouse)
         PvZ.listenKeyEvent('keydown', 's', self.sunflowerplacement) 
         PvZ.listenKeyEvent('keydown', 'p', self.peashooterplacement) 
+        PvZ.listenKeyEvent('keydown', 'w', self.walnutplacement)
+        PvZ.listenKeyEvent('keydown', 'q', self.regularzombieplacement)
         
 # Functions---------------------------------------------------------------------
        
@@ -164,30 +182,49 @@ class PvZ(App):
     def moveMouse(self, event):
             self.x = event.x
             self.y = event.y
-        
+    
     def sunflowerplacement(self,event):
         x = (floor(self.x/110)*110) + 52
         y = (floor(self.y/110)*110) + 20
+        print(self.x , self.y)
         if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
             Sunflower((x,y))
+            print(self.x , self.y)
     
     def peashooterplacement(self,event):
         x = (floor(self.x/110)*110) + 52
         y = (floor(self.y/110)*110) + 25
         if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
             Peashooter((x,y))
-            for a in range(1000):
-                sleep(2)
-                Pea((x+70,y+13))
+            Pea((x+70,y+13))
         
+    def walnutplacement(self,event):
+        x = (floor(self.x/110)*110) + 55
+        y = (floor(self.y/110)*110) + 25
+        if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
+            Walnut((x,y))
+            
+    def regularzombieplacement(self,event):
+        x = 1250
+        y = 125
+        RegularZombie((x, y - 30))
+ 
+# Collisions--------------------------------------------------------------------
+      
     def step(self):
         for a in self.getSpritesbyClass(Pea):
             a.x += a.vx
             a.vx = 5
+        
+        for b in self.getSpritesbyClass(RegularZombie):
+            b.x -= b.vx
+            b.vx = 0.7
+        
             
+            #if a.collidingWithSprites(RegularZombie):
+            
+        
     
-# Collisions--------------------------------------------------------------------
-
             
 myapp = PvZ()
 myapp.run()
