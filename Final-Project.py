@@ -38,6 +38,7 @@ hs = 0
 class Sunflower(Sprite):
     def __init__(self,position):
         sunflower_asset = ImageAsset("images/clipart644433 (1).png")
+        x = 100
         super().__init__(sunflower_asset, position)
         self.scale = 0.17
         
@@ -215,13 +216,14 @@ class PvZ(App):
         for a in self.getSpritesbyClass(Pea):
             a.x += a.vx
             a.vx = 5
-        
+                
+            
         for b in self.getSpritesbyClass(RegularZombie):
             b.x -= b.vx
             b.vx = 0.7
-        
             
-            #if a.collidingWithSprites(RegularZombie):
+            if a.collidingWithSprites(Pea):
+                print(gg)
             
         
     
