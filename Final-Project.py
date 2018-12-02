@@ -32,7 +32,7 @@ whiteline = LineStyle(1, white)
 gridline = LineStyle(1, grey)
 tile1 = Color(0x00b33c, 1.0)
 tile2 = Color(0x00e64d, 1.0)
-hs = 0
+
 # Sunflower---------------------------------------------------------------------
 
 class Sunflower(Sprite):
@@ -88,6 +88,7 @@ class PvZ(App):
         super().__init__()
         
 # House+Background--------------------------------------------------------------
+        rzh = 100
         
         Background((0,0))
         
@@ -187,10 +188,8 @@ class PvZ(App):
     def sunflowerplacement(self,event):
         x = (floor(self.x/110)*110) + 52
         y = (floor(self.y/110)*110) + 20
-        print(self.x , self.y)
         if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
             Sunflower((x,y))
-            print(self.x , self.y)
     
     def peashooterplacement(self,event):
         x = (floor(self.x/110)*110) + 52
@@ -209,6 +208,7 @@ class PvZ(App):
         x = 1250
         y = 125
         RegularZombie((x, y - 30))
+        
  
 # Collisions--------------------------------------------------------------------
       
@@ -216,15 +216,22 @@ class PvZ(App):
         for a in self.getSpritesbyClass(Pea):
             a.x += a.vx
             a.vx = 5
+            
+            if a.collidingWithSprites(RegularZombie):
+                a.destroy()
                 
             
-        for b in self.getSpritesbyClass(RegularZombie):
-            b.x -= b.vx
-            b.vx = 0.7
+        for a in self.getSpritesbyClass(RegularZombie):
+            a.x -= a.vx
+            a.vx = 0.7
             
             if a.collidingWithSprites(Pea):
-                print(gg)
+                    a.rzh - 10
+                    if a.rzh <= 0:
+                        a.destroy()
             
+            
+               
         
     
             
