@@ -2,9 +2,6 @@ from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, El
 from math import floor
 from time import sleep
 
-SCREEN_WIDTH = 1000
-SCREEN_HEIGHT = 800
-
 blue = Color(0x2EFEC8, 1.0)
 black = Color(0x000000, 1.0)
 pink = Color(0xFF00FF, 1.0)
@@ -70,6 +67,7 @@ class RegularZombie(Sprite):
     def __init__(self,position):
         regularzombie_asset = ImageAsset("images/clipart844194.png")
         self.vx = 0
+        self.rzh = 100
         super().__init__(regularzombie_asset, position)
         self.scale = 0.23
         
@@ -84,8 +82,8 @@ class Background(Sprite):
 # PvZ---------------------------------------------------------------------------
 
 class PvZ(App):
-    def __init__(self):
-        super().__init__()
+    def __init__(self,width,height):
+        super().__init__(width,height)
         
 # House+Background--------------------------------------------------------------
         rzh = 100
@@ -196,7 +194,7 @@ class PvZ(App):
         y = (floor(self.y/110)*110) + 25
         if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
             Peashooter((x,y))
-            Pea((x+70,y+13))
+            
         
     def walnutplacement(self,event):
         x = (floor(self.x/110)*110) + 55
@@ -210,30 +208,30 @@ class PvZ(App):
         RegularZombie((x, y - 30))
         
  
-# Collisions--------------------------------------------------------------------
-      
+# Collisions + Step-------------------------------------------------------------
+    time = 0  
     def step(self):
-        for a in self.getSpritesbyClass(Pea):
-            a.x += a.vx
-            a.vx = 5
+        self.time += 1
+        if self.time > 0:
             
-            if a.collidingWithSprites(RegularZombie):
-                a.destroy()
+            for a in self.getSpritesbyClass(Pea):
+                a.x += a.vx
+                a.vx = 5
                 
+                if a.collidingWithSprites(RegularZombie) or a.x >= 1800:
+                    a.destroy()
+                   
+            for sprite in self.getSpritesbyClass(Peashooter):
+                if self.time % 200 == 0:
+                    Pea((sprite.x+70,sprite.y+15))
+                    
+            for a in self.getSpritesbyClass(RegularZombie):
+                a.x -= a.vx
+                a.vx = 0.7
             
-        for a in self.getSpritesbyClass(RegularZombie):
-            a.x -= a.vx
-            a.vx = 0.7
-            
-            if a.collidingWithSprites(Pea):
-                    a.rzh - 10
-                    if a.rzh <= 0:
-                        a.destroy()
-            
-            
+                if a.collidingWithSprites(Pea):
+                    a.destroy()
                
-        
-    
             
-myapp = PvZ()
+myapp = PvZ(1270,720)
 myapp.run()
