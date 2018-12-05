@@ -85,6 +85,7 @@ class PvZ(App):
         super().__init__(width,height)
         
 # House+Background--------------------------------------------------------------
+        FirstRow = {}
         
         Background((0,0))
         
@@ -222,7 +223,7 @@ class PvZ(App):
                         if b.rzh >= 0:
                             a.destroy()
                  
-                if a.x >= 1800:
+                elif a.x >= 1800:
                     a.destroy()
                  
             for sprite in self.getSpritesbyClass(Peashooter):
