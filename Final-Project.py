@@ -1,6 +1,5 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 from math import floor
-from time import sleep
 
 blue = Color(0x2EFEC8, 1.0)
 black = Color(0x000000, 1.0)
@@ -67,7 +66,7 @@ class RegularZombie(Sprite):
     def __init__(self,position):
         regularzombie_asset = ImageAsset("images/clipart844194.png")
         self.vx = 0
-        self.rzh = 100
+        self.rzh = 10
         super().__init__(regularzombie_asset, position)
         self.scale = 0.23
         
@@ -86,7 +85,6 @@ class PvZ(App):
         super().__init__(width,height)
         
 # House+Background--------------------------------------------------------------
-        rzh = 100
         
         Background((0,0))
         
@@ -218,9 +216,15 @@ class PvZ(App):
                 a.x += a.vx
                 a.vx = 5
                 
-                if a.collidingWithSprites(RegularZombie) or a.x >= 1800:
+                if a.collidingWithSprites(RegularZombie):
+                    for b in self.getSpritesbyClass(RegularZombie):
+                        b.rzh -= 1
+                        if b.rzh >= 0:
+                            a.destroy()
+                 
+                if a.x >= 1800:
                     a.destroy()
-                   
+                 
             for sprite in self.getSpritesbyClass(Peashooter):
                 if self.time % 200 == 0:
                     Pea((sprite.x+70,sprite.y+15))
@@ -230,7 +234,9 @@ class PvZ(App):
                 a.vx = 0.7
             
                 if a.collidingWithSprites(Pea):
-                    a.destroy()
+                    a.rzh -= 1
+                    if a.rzh <= 0:
+                        a.destroy()
                
             
 myapp = PvZ(1270,720)
