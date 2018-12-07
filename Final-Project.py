@@ -205,7 +205,7 @@ class PvZ(App):
         x = 1250
         y = 125
         RegularZombie((x, y - 30))
-        RegularZombie((x, y + 85))
+        RegularZombie((x, y + 80))
 
         
  
