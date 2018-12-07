@@ -171,7 +171,7 @@ class PvZ(App):
         PvZ.listenKeyEvent('keydown', 's', self.sunflowerplacement) 
         PvZ.listenKeyEvent('keydown', 'p', self.peashooterplacement) 
         PvZ.listenKeyEvent('keydown', 'w', self.walnutplacement)
-        PvZ.listenKeyEvent('keydown', 'q', self.regularzombieplacement)
+        PvZ.listenKeyEvent('keydown', 'enter', self.regularzombieplacement)
         
 # Functions---------------------------------------------------------------------
        
@@ -205,6 +205,7 @@ class PvZ(App):
         x = 1250
         y = 125
         RegularZombie((x, y - 30))
+        RegularZombie((x, y + 85))
 
         
  
@@ -217,19 +218,16 @@ class PvZ(App):
             for a in self.getSpritesbyClass(Pea):
                 a.x += a.vx
                 a.vx = 5
-                
-                for b in self.getSpritesbyClass(RegularZombie):
-                    if a.collidingWith(b):
-                        b.rzh -= 1
-                        if b.rzh >= 0:
-                            a.destroy()
-                 
-                    elif a.x >= 1800:
-                        a.destroy()
-                 
-            for sprite in self.getSpritesbyClass(Peashooter):
-                if self.time % 100 == 0:
-                    Pea((sprite.x+70,sprite.y+15))
+                if a.x >= 1800:
+                    a.destroy()
+                    
+                    
+                else:    
+                    for b in self.getSpritesbyClass(RegularZombie):
+                        if a.collidingWith(b):
+                            b.rzh -= 1
+                            if b.rzh >= 0:
+                                a.destroy()
                     
             for a in self.getSpritesbyClass(RegularZombie):
                 a.x -= a.vx
@@ -239,6 +237,11 @@ class PvZ(App):
                     a.rzh -= 1
                     if a.rzh <= 0:
                         a.destroy()
+            
+            for a in self.getSpritesbyClass(Peashooter):
+                if self.time % 100 == 0:
+                    Pea((a.x+70,a.y+15))
+                
                
             
 myapp = PvZ(1270,720)
