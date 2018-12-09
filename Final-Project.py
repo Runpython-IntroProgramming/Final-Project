@@ -34,10 +34,17 @@ tile2 = Color(0x00e64d, 1.0)
 class Sunflower(Sprite):
     def __init__(self,position):
         sunflower_asset = ImageAsset("images/clipart644433 (1).png")
-        x = 100
+        sh = 100
         super().__init__(sunflower_asset, position)
         self.scale = 0.17
         
+class Sun(Sprite):
+    def __init__(self,position):
+        sun_asset = ImageAsset("images/clipart90644.png")
+        self.vy = 0
+        super().__init__(sun_asset, position)
+        self.scale = 0.03
+    
 # Walnut------------------------------------------------------------------------
 
 class Walnut(Sprite):
@@ -88,7 +95,8 @@ class PvZ(App):
         FirstRow = {}
         
         Background((0,0))
-        
+
+
         houseroof5 = RectangleAsset(200, 325, thinline, lightbrown)
         Sprite(houseroof5,(-90,45))
         houseroof6 = RectangleAsset(200, 325, thinline, lightbrown2)
@@ -213,6 +221,7 @@ class PvZ(App):
     time = 0  
     def step(self):
         self.time += 1
+        #print(self.time)
         if self.time > 0:
             
             for a in self.getSpritesbyClass(Pea):
@@ -220,6 +229,13 @@ class PvZ(App):
                 a.vx = 5
                 if a.x >= 1800:
                     a.destroy()
+                    
+            for a in self.getSpritesbyClass(Sun):
+                a.y += a.vy
+                a.vy = -1
+                if a.x >= 1800:
+                    a.destroy()
+                    
                     
                     
                 else:    
@@ -241,6 +257,17 @@ class PvZ(App):
             for a in self.getSpritesbyClass(Peashooter):
                 if self.time % 100 == 0:
                     Pea((a.x+70,a.y+15))
+            
+            x = 300
+            y = 600
+            if self.time % 700 == 0:
+                Sun((x,y))
+            
+            if self.time % 1600 == 0:
+                Sun((x+300,y))
+                
+            if self.time % 2000 == 0:
+                Sun((x+300,y))
                 
                
             
