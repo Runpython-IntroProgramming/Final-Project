@@ -239,8 +239,7 @@ class PvZ(App):
             
             for a in self.getSpritesbyClass(Peashooter):
                 if self.time % 100 == 0:
-                    Pea((a.x+70,a.y+15))
-            
+
             x = 300
             y = 600
             if self.time % 700 == 0:
@@ -251,7 +250,6 @@ class PvZ(App):
                 
             if self.time % 2000 == 0:
                 Sun((x+300,y))
-                
                
             
 myapp = PvZ(1270,720)
