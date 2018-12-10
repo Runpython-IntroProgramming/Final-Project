@@ -213,13 +213,12 @@ class PvZ(App):
                 if a.x >= 1800:
                     a.destroy()
                     
-            for a in self.getSpritesbyClass(Sun):
-                a.y += a.vy
-                a.vy = -1
-                if a.x >= 1800:
-                    a.destroy()
-                    
-                    
+            #for a in self.getSpritesbyClass(Sun):
+                #a.y += a.vy
+                #a.vy = -1
+                #if a.y <= -100:
+                    #a.destroy()
+            
                     
                 else:    
                     for b in self.getSpritesbyClass(RegularZombie):
@@ -239,7 +238,8 @@ class PvZ(App):
             
             for a in self.getSpritesbyClass(Peashooter):
                 if self.time % 100 == 0:
-
+                    Pea((a.x+70,a.y+15))
+        
             x = 300
             y = 600
             if self.time % 700 == 0:
