@@ -95,12 +95,11 @@ class PvZ(App):
         FirstRow = {}
         
         Background((0,0))
-
-
-        houseroof5 = RectangleAsset(200, 325, thinline, lightbrown)
-        Sprite(houseroof5,(-90,45))
-        houseroof6 = RectangleAsset(200, 325, thinline, lightbrown2)
-        Sprite(houseroof6,(-90,370))
+        
+        houseroof = RectangleAsset(200, 325, thinline, lightbrown)
+        Sprite(houseroof,(-90,45))
+        houseroof2 = RectangleAsset(200, 325, thinline, lightbrown2)
+        Sprite(houseroof2,(-90,370))
         
         chimney = RectangleAsset(50, 60, thinline, orange)
         Sprite(chimney,(20,245))
@@ -108,35 +107,19 @@ class PvZ(App):
         chimneyhole = RectangleAsset(20, 30, thinline, black)
         Sprite(chimneyhole,(35,260))
         
-        chimneyline = RectangleAsset(2, 60, noline, black)
-        Sprite(chimneyline,(27,245))
+        clx=27
+        cly=245
+        for a in range (6):
+            chimneyline = RectangleAsset(2, 60, noline, black)
+            Sprite(chimneyline,(clx,cly))
+            clx += 7
         
-        chimneyline = RectangleAsset(2, 60, noline, black)
-        Sprite(chimneyline,(34,245))
-        
-        chimneyline = RectangleAsset(2, 60, noline, black)
-        Sprite(chimneyline,(41,245))
-        
-        chimneyline = RectangleAsset(2, 60, noline, black)
-        Sprite(chimneyline,(48,245))
-        
-        chimneyline = RectangleAsset(2, 60, noline, black)
-        Sprite(chimneyline,(55,245))
-        
-        chimneyline = RectangleAsset(2, 60, noline, black)
-        Sprite(chimneyline,(62,245))
-        
-        chimneylineacross = RectangleAsset(50, 2, noline, black)
-        Sprite(chimneylineacross,(20,260))
-        
-        chimneylineacross = RectangleAsset(50, 2, noline, black)
-        Sprite(chimneylineacross,(20,275))
-        
-        chimneylineacross = RectangleAsset(50, 2, noline, black)
-        Sprite(chimneylineacross,(20,290))
-        
-        chimneylineacross = RectangleAsset(50, 2, noline, black)
-        Sprite(chimneylineacross,(20,305))
+        clax = 20
+        clay = 260
+        for a in range (4):
+            chimneylineacross = RectangleAsset(50, 2, noline, black)
+            Sprite(chimneylineacross,(clax,clay))
+            clay += 15
         
 # Grid--------------------------------------------------------------------------
         
