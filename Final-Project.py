@@ -186,7 +186,10 @@ class PvZ(App):
             if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
                 Sunflower((x,y))
                 self.Amount_of_Sun -= 50
-                print("You have " + str(self.Amount_of_Sun) + " of Sun") 
+                print("You have " + str(self.Amount_of_Sun) + " of Sun")
+                if self.time % 300 == 0:
+                    Sun(
+                
     
     def peashooterplacement(self,event):
         if self.Amount_of_Sun >= 100:
