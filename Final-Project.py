@@ -188,7 +188,7 @@ class PvZ(App):
                 self.Amount_of_Sun -= 50
                 print("You have " + str(self.Amount_of_Sun) + " of Sun")
                 if self.time % 300 == 0:
-                    Sun(
+                    Sun((0,0))
                 
     
     def peashooterplacement(self,event):
