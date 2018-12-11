@@ -49,13 +49,6 @@ class Block(Sprite):
 #Grid((60,60))
 #Sprite(grid,(30,30))
 
-class FireBoy(Sprite):
-    Fireboy = RectangleAsset(15,35, noline,pink)
-    
-    def __init__(self, position):
-        super.__init__(FireBoy.Fireboy,position)
-        FireBoy = Sprite(Fireboy,position)
-        
 
 class Game(App):
     
