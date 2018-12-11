@@ -45,6 +45,11 @@ class Sun(Sprite):
         super().__init__(sun_asset, position)
         self.scale = 0.03
     
+class Sundestroyer(Sprite):
+    def __init__(self,position):
+        destroyer_asset = CircleAsset(0, noline, black)
+        super().__init__(destroyer_asset, position)
+        
 # Walnut------------------------------------------------------------------------
 
 class Walnut(Sprite):
@@ -92,7 +97,7 @@ class PvZ(App):
         super().__init__(width,height)
         
 # House+Background--------------------------------------------------------------
-        FirstRow = {}
+        print("You have " + str(self.Amount_of_Sun) + " of Sun")
         
         Background((0,0))
         
@@ -163,6 +168,7 @@ class PvZ(App):
         PvZ.listenKeyEvent('keydown', 'p', self.peashooterplacement) 
         PvZ.listenKeyEvent('keydown', 'w', self.walnutplacement)
         PvZ.listenKeyEvent('keydown', 'enter', self.regularzombieplacement)
+        PvZ.listenMouseEvent('click', self.sundestroyerplacement)
         
 # Functions---------------------------------------------------------------------
        
@@ -174,34 +180,46 @@ class PvZ(App):
             self.y = event.y
     
     def sunflowerplacement(self,event):
-        x = (floor(self.x/110)*110) + 52
-        y = (floor(self.y/110)*110) + 20
-        if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
-            Sunflower((x,y))
+        if self.Amount_of_Sun >= 50:
+            x = (floor(self.x/110)*110) + 52
+            y = (floor(self.y/110)*110) + 20
+            if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
+                Sunflower((x,y))
+                self.Amount_of_Sun -= 50
+                print("You have " + str(self.Amount_of_Sun) + " of Sun") 
     
     def peashooterplacement(self,event):
-        x = (floor(self.x/110)*110) + 52
-        y = (floor(self.y/110)*110) + 25
-        if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
-            Peashooter((x,y))
-            
+        if self.Amount_of_Sun >= 100:
+            x = (floor(self.x/110)*110) + 52
+            y = (floor(self.y/110)*110) + 25
+            if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
+                Peashooter((x,y))
+                self.Amount_of_Sun -= 100
+                print("You have " + str(self.Amount_of_Sun) + " of Sun") 
         
     def walnutplacement(self,event):
-        x = (floor(self.x/110)*110) + 55
-        y = (floor(self.y/110)*110) + 25
-        if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
-            Walnut((x,y))
+        if self.Amount_of_Sun >= 100:
+            x = (floor(self.x/110)*110) + 55
+            y = (floor(self.y/110)*110) + 25
+            if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
+                Walnut((x,y))
+                self.Amount_of_Sun -= 50
+                print("You have " + str(self.Amount_of_Sun) + " of Sun") 
             
     def regularzombieplacement(self,event):
         x = 1250
         y = 125
         RegularZombie((x, y - 30))
         RegularZombie((x, y + 80))
+        
+    def sundestroyerplacement(self,event):
+        Sundestroyer((self.x,self.y))
 
         
  
 # Collisions + Step-------------------------------------------------------------
     time = 0  
+    Amount_of_Sun = 50
     def step(self):
         self.time += 1
         #print(self.time)
@@ -212,20 +230,29 @@ class PvZ(App):
                 a.vx = 5
                 if a.x >= 1800:
                     a.destroy()
-                    
-            #for a in self.getSpritesbyClass(Sun):
-                #a.y += a.vy
-                #a.vy = -1
-                #if a.y <= -100:
-                    #a.destroy()
             
-                    
                 else:    
                     for b in self.getSpritesbyClass(RegularZombie):
                         if a.collidingWith(b):
                             b.rzh -= 1
                             if b.rzh >= 0:
                                 a.destroy()
+                                
+            for a in self.getSpritesbyClass(Sun):
+                a.y += a.vy
+                a.vy = -1
+                if a.y <= -100:
+                    a.destroy()
+                
+                for b in self.getSpritesbyClass(Sundestroyer):
+                    if b.collidingWith(a) == False:
+                        b.destroy()
+                        
+                    elif b.collidingWith(a):
+                        a.destroy()
+                        b.destroy()
+                        self.Amount_of_Sun += 50
+                        print("You have " + str(self.Amount_of_Sun) + " of Sun") 
                     
             for a in self.getSpritesbyClass(RegularZombie):
                 a.x -= a.vx
@@ -242,13 +269,13 @@ class PvZ(App):
         
             x = 300
             y = 600
-            if self.time % 700 == 0:
+            if self.time == 300:
                 Sun((x,y))
             
-            if self.time % 1600 == 0:
+            if self.time % 700 == 0:
                 Sun((x+300,y))
                 
-            if self.time % 2000 == 0:
+            if self.time % 1100 == 0:
                 Sun((x+300,y))
                
             
