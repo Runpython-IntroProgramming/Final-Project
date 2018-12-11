@@ -276,7 +276,7 @@ class PvZ(App):
                 Sun((x+300,y))
                 
             if self.time % 1100 == 0:
-                Sun((x+300,y))
+                Sun((x+600,y))
                
             
 myapp = PvZ(1270,720)
