@@ -28,12 +28,29 @@ greenline = LineStyle(1, green)
 gridline = LineStyle(1, grey)
 grid = RectangleAsset(30,30,gridline,white)
 
+class Grid(Sprite):
+    white = Color(0xffffff, 1.0)
+    grey = Color(0xC0C0C0, 1.0)
+    gridline = LineStyle(1, grey)
+    grid = RectangleAsset(30,30,gridline,red)
+    
+    def __init__(self,position):
+        super.__init__(Grid.grid,position)
+        self.vx = (position)
+
+Grid((0,0))
+
 class FireBoy(Sprite):
+    Fireboy = RectangleAsset(15,35, noline,pink)
+    
     def __init__(self, position):
-        FireBoy = RectangleAsset(15,35, noline,pink)
+        super.__init__(FireBoy.Fireboy,position)
+        FireBoy = Sprite(Fireboy,position)
+        
 
 class Game(App):
     def __init__(self):
+        
         super().__init__()
         x=0
         y=0
@@ -45,8 +62,6 @@ class Game(App):
             Sprite(grid,(x,y))
             y = y + 30
     
-    FireBoy((50,50))
-
 
 
 
