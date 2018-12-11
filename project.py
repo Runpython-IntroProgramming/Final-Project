@@ -52,9 +52,9 @@ class Block(Sprite):
 
 class Game(App):
     
-    def __init__(self, width, height):
-        super().__init__(width, height)
-        Game.listenMouseEvent("click",self.baby)
+    def __init__(self):
+        super().__init__()
+        Game.listenMouseEvent("click",self.block)
     
     Cells = []
     def __init__(self):
@@ -76,7 +76,7 @@ class Game(App):
             
         #print(self.Cells)
     
-    def baby(self,event):
+    def block(self,event):
         print("hi")
         for m in self.Cells:
             if m[0] <= event.x <= m[0]+30:
