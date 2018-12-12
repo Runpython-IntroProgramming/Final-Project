@@ -50,6 +50,13 @@ class Bottom(Sprite):
     poly = PolygonAsset([(0, 0),(30,0),(15,-20)], side, pink)
     def __init__(self,position):
         super().__init__(Bottom.poly,position)
+        
+class Spikes(Sprite):
+    pink = Color(0xFF00FF, .5)
+    side = LineStyle(1,pink)
+    poly = PolygonAsset([(0, 0),(10,0),(5,-10)], side, pink)
+    def __init__(self,position):
+        super().__init__(Spikes.poly,position)
 
 class Game(App):
     Cells = []
@@ -168,15 +175,33 @@ class Game(App):
         for m in range(25):
             Bottom((m*30,520))
             
-        Bottom((90, 70))
-        Bottom((630, 70))
-        Bottom((120, 280))
-        Bottom((600, 310))
-        Bottom((690, 370))
-        Bottom((450, 370))
-        Bottom((330, 310))
-        Bottom((360, 310))
-        Bottom((240, 280))
+        Spikes((90, 80))
+        Spikes((630, 80))
+        Spikes((120, 290))
+        Spikes((600, 320))
+        Spikes((690, 380))
+        Spikes((450, 380))
+        Spikes((330, 320))
+        Spikes((360, 320))
+        Spikes((240, 290))
+        Spikes((100, 80))
+        Spikes((640, 80))
+        Spikes((130, 290))
+        Spikes((610, 320))
+        Spikes((700, 380))
+        Spikes((460, 380))
+        Spikes((340, 320))
+        Spikes((370, 320))
+        Spikes((250, 290))
+        Spikes((110, 80))
+        Spikes((650, 80))
+        Spikes((140, 290))
+        Spikes((620, 320))
+        Spikes((710, 380))
+        Spikes((470, 380))
+        Spikes((350, 320))
+        Spikes((380, 320))
+        Spikes((260, 290))
         #print(self.Cells)
     
     
