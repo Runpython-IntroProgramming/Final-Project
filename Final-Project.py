@@ -167,7 +167,6 @@ class PvZ(App):
         PvZ.listenKeyEvent('keydown', 's', self.sunflowerplacement) 
         PvZ.listenKeyEvent('keydown', 'p', self.peashooterplacement) 
         PvZ.listenKeyEvent('keydown', 'w', self.walnutplacement)
-        PvZ.listenKeyEvent('keydown', 'enter', self.regularzombieplacement)
         PvZ.listenMouseEvent('click', self.sundestroyerplacement)
         
 # Functions---------------------------------------------------------------------
@@ -207,19 +206,13 @@ class PvZ(App):
                 Walnut((x,y))
                 self.Amount_of_Sun -= 50
                 print("You have " + str(self.Amount_of_Sun) + " of Sun") 
-            
-    def regularzombieplacement(self,event):
-        x = 1250
-        y = 125
-        RegularZombie((x, y - 30))
-        RegularZombie((x, y + 80))
-        
+    
     def sundestroyerplacement(self,event):
         Sundestroyer((self.x,self.y))
 
         
  
-# Collisions + Step-------------------------------------------------------------
+# Step--------------------------------------------------------------------------
     time = 0  
     Amount_of_Sun = 50
     def step(self):
@@ -281,15 +274,36 @@ class PvZ(App):
                 Sun((x,y))
                 
             if self.time == 500:
-                Sun((x,y))
+                Sun((x+300,y))
                 
             if self.time == 1500:
                 Sun((x+300,y))
                 
             if self.time == 2500:
                 Sun((x+600,y))
+                
+            if self.time == 1500:
+                Sun((x,y))
                
+# Zombies-----------------------------------------------------------------------
+            #Lane 1 = RegularZombie((x, y - 30))
+            #Lane 2 = RegularZombie((x, y + 80))
+            #Lane 3 = RegularZombie((x, y + 195))
+            #Lane 4 = RegularZombie((x, y + 310))
+            #Lane 5 = RegularZombie((x, y + 425))
             
+            x = 1250
+            y = 125
             
+            if self.time == 400:
+                RegularZombie((x, y - 30))
+                
+            if self.time == 900:
+                RegularZombie((x, y + 310))
+                
+                
+                
+                
+                   
 myapp = PvZ(1270,720)
 myapp.run()
