@@ -41,7 +41,7 @@ class Sunflower(Sprite):
 class Sun(Sprite):
     def __init__(self,position):
         sun_asset = ImageAsset("images/clipart90644.png")
-        self.vy = 0
+        self.vy = 1
         super().__init__(sun_asset, position)
         self.scale = 0.03
     
@@ -187,8 +187,7 @@ class PvZ(App):
                 Sunflower((x,y))
                 self.Amount_of_Sun -= 50
                 print("You have " + str(self.Amount_of_Sun) + " of Sun")
-                if self.time % 300 == 0:
-                    Sun((0,0))
+                    
                 
     
     def peashooterplacement(self,event):
@@ -243,8 +242,7 @@ class PvZ(App):
                                 
             for a in self.getSpritesbyClass(Sun):
                 a.y += a.vy
-                a.vy = -1
-                if a.y <= -100:
+                if a.y >= 800:
                     a.destroy()
                 
                 for b in self.getSpritesbyClass(Sundestroyer):
@@ -269,18 +267,29 @@ class PvZ(App):
             for a in self.getSpritesbyClass(Peashooter):
                 if self.time % 100 == 0:
                     Pea((a.x+70,a.y+15))
-        
-            x = 300
-            y = 600
-            if self.time == 300:
-                Sun((x,y))
             
-            if self.time % 700 == 0:
+            for a in self.getSpritesbyClass(Sunflower):
+                x = a.x
+                y = a.y
+                if self.time % 1000 == 0:
+                    sun = Sun((x,y))
+                    sun.vy = -0.2
+            
+            x = 300
+            y = -100
+            if self.time == 200:
+                Sun((x,y))
+                
+            if self.time == 500:
+                Sun((x,y))
+                
+            if self.time == 1500:
                 Sun((x+300,y))
                 
-            if self.time % 1100 == 0:
+            if self.time == 2500:
                 Sun((x+600,y))
                
+            
             
 myapp = PvZ(1270,720)
 myapp.run()
