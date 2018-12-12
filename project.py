@@ -76,7 +76,11 @@ class Game(App):
     Cells = []
     def __init__(self):
         super().__init__()
-        Game.listenMouseEvent("click",self.block)
+        #Game.listenMouseEvent("click",self.block)
+        Game.listenKeyEvent('keydown', 'right arrow',  self.right)
+        Game.listenKeyEvent('keyup', 'right arrow',  self.rightstop)
+        Game.listenKeyEvent('keydown', 'left arrow',  self.left)
+        Game.listenKeyEvent('keyup', 'left arrow',  self.leftstop)
     
         x=0
         y=0
