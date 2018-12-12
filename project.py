@@ -170,13 +170,13 @@ class Game(App):
         #print(self.Cells)
     
     
-    def block(self,event):
+    '''def block(self,event):
         #print("hi")
         for m in self.Cells:
             if m[0] <= event.x <= m[0]+30:
                 if m[1] <= event.y <= m[1]+30:
                     Block((m[0],m[1]))
-                    print((m[0],m[1]))
+                    print((m[0],m[1]))'''
     
 
 
