@@ -47,9 +47,9 @@ class Block(Sprite):
 class Bottom(Sprite):
     pink = Color(0xFF00FF, .5)
     side = LineStyle(1,pink)
-    square = RectangleAsset(30,30,side,pink)
+    poly = PolygonAsset([(0, 0),(30,0),(15,-20)], side, pink)
     def __init__(self,position):
-        super().__init__(Bottom.square,position)
+        super().__init__(Bottom.poly,position)
 
 class Game(App):
     Cells = []
@@ -166,17 +166,27 @@ class Game(App):
         Block((510, 480)) 
         
         for m in range(25):
-            Bottom((m*30,510))
+            Bottom((m*30,520))
+            
+        Bottom((90, 70))
+        Bottom((630, 70))
+        Bottom((120, 280))
+        Bottom((600, 310))
+        Bottom((690, 370))
+        Bottom((450, 370))
+        Bottom((330, 310))
+        Bottom((360, 310))
+        Bottom((240, 280))
         #print(self.Cells)
     
     
-    '''def block(self,event):
+    def block(self,event):
         #print("hi")
         for m in self.Cells:
             if m[0] <= event.x <= m[0]+30:
                 if m[1] <= event.y <= m[1]+30:
                     Block((m[0],m[1]))
-                    print((m[0],m[1]))'''
+                    print((m[0],m[1]))
     
 
 
