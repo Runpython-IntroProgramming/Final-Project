@@ -71,6 +71,35 @@ class Person(Sprite):
     poly = RectangleAsset(10,20, side, blue)
     def __init__(self,position):
         super().__init__(Person.poly,position)
+        self.vx = 0
+        self.vy = 0
+        
+class Side(Sprite):
+    blue = Color(0x0000CF, .5)
+    side = LineStyle(1,blue)
+    poly = RectangleAsset(1,20, side, blue)
+    def __init__(self,position):
+        super().__init__(Side.poly,position)
+        self.vx = 0
+        self.vy = 0
+        
+class Top(Sprite):
+    blue = Color(0x0000CF, .5)
+    side = LineStyle(1,blue)
+    poly = RectangleAsset(10,1, side, blue)
+    def __init__(self,position):
+        super().__init__(Top.poly,position)
+        self.vx = 0
+        self.vy = 0
+        
+class bottom(Sprite):
+    blue = Color(0x0000CF, .5)
+    side = LineStyle(1,blue)
+    poly = RectangleAsset(10,1, side, blue)
+    def __init__(self,position):
+        super().__init__(bottom.poly,position)
+        self.vx = 0
+        self.vy = 0
 
 class Game(App):
     Cells = []
@@ -81,6 +110,8 @@ class Game(App):
         Game.listenKeyEvent('keyup', 'right arrow',  self.rightstop)
         Game.listenKeyEvent('keydown', 'left arrow',  self.left)
         Game.listenKeyEvent('keyup', 'left arrow',  self.leftstop)
+        Game.listenKeyEvent('keydown', 'up arrow',  self.up)
+        Game.listenKeyEvent('keyup', 'up arrow',  self.upstop)
     
         x=0
         y=0
@@ -214,6 +245,10 @@ class Game(App):
         Gem((730, 335))
         
         Person((10,460))
+        Side((10,460))
+        Side((20,460))
+        Top((10,460))
+        bottom((10,480))
 
         #print(self.Cells)
     
@@ -228,16 +263,32 @@ class Game(App):
             
     def left(self,event):
         for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vx -= 1
+            if Sprite.collidingWithSprites(Block):
+                Sprite.vx = 0
+            else:
+                Sprite.vx -= 1
             
     def leftstop(self,event):
+        for Sprite in self.getSpritesbyClass(Person):
+            Sprite.vx = 0
+    
+    def up(self,event):
+        for Sprite in self.getSpritesbyClass(Person):
+            if Sprite.collidingWithSprites(Block):
+                Sprite.vy = 0
+            else:
+                Sprite.vy += 1
+    
+    def upstop(self,event):
         for Sprite in self.getSpritesbyClass(Person):
             Sprite.vx = 0
     
     def step(self):
         for Sprite in self.getSpritesbyClass(Person):
             Sprite.x += Sprite.vx
-        
+            
+    
+    
     #def jump(self,event):
         
     
