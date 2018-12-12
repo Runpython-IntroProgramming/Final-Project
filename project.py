@@ -54,9 +54,23 @@ class Bottom(Sprite):
 class Spikes(Sprite):
     pink = Color(0xFF00FF, .5)
     side = LineStyle(1,pink)
-    poly = PolygonAsset([(0, 0),(10,0),(5,-10)], side, pink)
+    poly = PolygonAsset([(0, 0),(5,-10),(10,0),(15,-10),(20,0),(25,-10),(30,0)], side, pink)
     def __init__(self,position):
         super().__init__(Spikes.poly,position)
+        
+class Gem(Sprite):
+    green = Color(0x00ff00, .5)
+    side = LineStyle(1,green)
+    poly = PolygonAsset([(0, 0),(5,-10),(10,0),(5,10)], side, green)
+    def __init__(self,position):
+        super().__init__(Gem.poly,position)
+   
+class Person(Sprite):
+    blue = Color(0x0000CF, .5)
+    side = LineStyle(1,blue)
+    poly = RectangleAsset(10,20, side, blue)
+    def __init__(self,position):
+        super().__init__(Person.poly,position)
 
 class Game(App):
     Cells = []
@@ -184,24 +198,19 @@ class Game(App):
         Spikes((330, 320))
         Spikes((360, 320))
         Spikes((240, 290))
-        Spikes((100, 80))
-        Spikes((640, 80))
-        Spikes((130, 290))
-        Spikes((610, 320))
-        Spikes((700, 380))
-        Spikes((460, 380))
-        Spikes((340, 320))
-        Spikes((370, 320))
-        Spikes((250, 290))
-        Spikes((110, 80))
-        Spikes((650, 80))
-        Spikes((140, 290))
-        Spikes((620, 320))
-        Spikes((710, 380))
-        Spikes((470, 380))
-        Spikes((350, 320))
-        Spikes((380, 320))
-        Spikes((260, 290))
+        
+        Gem((40, 215))
+        Gem((280, 95))
+        Gem((340, 35))
+        Gem((460, 35))
+        Gem((700, 155))
+        Gem((490, 455))
+        Gem((190, 425))
+        Gem((10, 155))
+        Gem((730, 335))
+        
+        Person((10,460))
+
         #print(self.Cells)
     
     
