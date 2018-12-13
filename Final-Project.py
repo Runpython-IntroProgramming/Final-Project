@@ -332,7 +332,7 @@ class PvZ(App):
                 RegularZombie((x, y + 190))
                 
             if self.time == 3100:
-                RegularZombie((x, y + 190))
+                RegularZombie((x, y + 300))
                    
 myapp = PvZ(1270,720)
 myapp.run()
