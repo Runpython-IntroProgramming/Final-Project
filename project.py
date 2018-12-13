@@ -246,11 +246,11 @@ class Game(App):
         Gem((10, 155))
         Gem((730, 335))
         
-        Person((10,460))
-        Side((10,460))
-        Side((20,460))
-        Top((10,460))
-        bottom((10,480))
+        Person((10,450))
+        Side((10,450))
+        Side((20,450))
+        Top((10,450))
+        bottom((10,460))
 
         #print(self.Cells)
     
@@ -302,10 +302,8 @@ class Game(App):
                     
             for d in self.getSpritesbyClass(bottom):
                 if d.collidingWithSprites(Bottom):
-                    d.vx = 0
-                    d.vy = 0
-                    Sprite.vx = 0
-                    Sprite.vy = 0
+                    d.vy >= 0
+                    Sprite.vy >= 0
                     
             Sprite.x += Sprite.vx 
             Sprite.y += Sprite.vy
