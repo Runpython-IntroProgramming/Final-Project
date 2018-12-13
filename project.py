@@ -249,8 +249,8 @@ class Game(App):
         Person((10,450))
         Side((10,450))
         Side((20,450))
-        Top((10,450))
-        bottom((10,460))
+        Top((10,460))
+        bottom((10,450))
 
         #print(self.Cells)
     
@@ -300,10 +300,10 @@ class Game(App):
                     Sprite.vx = 0
                     Sprite.vy = 0
                     
-            for d in self.getSpritesbyClass(bottom):
-                if d.collidingWithSprites(Bottom):
-                    d.vy >= 0
-                    Sprite.vy >= 0
+            #for d in self.getSpritesbyClass(bottom):
+             #   if d.collidingWithSprites(Bottom):
+              #      d.vy >= 0
+               #     Sprite.vy >= 0
                     
             Sprite.x += Sprite.vx 
             Sprite.y += Sprite.vy
@@ -313,12 +313,10 @@ class Game(App):
             for b in self.getSpritesbyClass(Top):
                 b.x += Sprite.vx
                 b.y += Sprite.vy
-            for c in self.getSpritesbyClass(Top):
+            for c in self.getSpritesbyClass(Bottom):
                 c.x += Sprite.vx
                 c.y += Sprite.vy
-            for d in self.getSpritesbyClass(Top):
-                d.x += Sprite.vx
-                d.y += Sprite.vy
+
             
     
     
