@@ -281,7 +281,7 @@ class Game(App):
     
     def step(self):
         for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vy+=1
+            #Sprite.vy+=1
             for gem in self.getSpritesbyClass(Gem):
                 if gem.collidingWithSprites(Person):
                     print("You get a gem")
