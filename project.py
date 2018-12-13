@@ -44,12 +44,12 @@ class Block(Sprite):
     def __init__(self,position):
         super().__init__(Block.square,position)
 
-class Bottom(Sprite):
+class BottomSpike(Sprite):
     pink = Color(0xFF00FF, .5)
     side = LineStyle(1,pink)
     poly = PolygonAsset([(0, 0),(30,0),(15,-20)], side, pink)
     def __init__(self,position):
-        super().__init__(Bottom.poly,position)
+        super().__init__(BottomSpike.poly,position)
         
 class Spikes(Sprite):
     pink = Color(0xFF00FF, .5)
@@ -222,7 +222,7 @@ class Game(App):
         Block((510, 480)) 
         
         for m in range(25):
-            Bottom((m*30,520))
+            BottomSpike((m*30,520))
             
         Spikes((90, 80))
         Spikes((630, 80))
@@ -249,8 +249,8 @@ class Game(App):
         Person((10,450))
         Side((10,450))
         Side((20,450))
-        Top((10,460))
-        bottom((10,450))
+        Top((10,450))
+        bottom((10,470))
 
         #print(self.Cells)
     
@@ -313,7 +313,7 @@ class Game(App):
             for b in self.getSpritesbyClass(Top):
                 b.x += Sprite.vx
                 b.y += Sprite.vy
-            for c in self.getSpritesbyClass(Bottom):
+            for c in self.getSpritesbyClass(bottom):
                 c.x += Sprite.vx
                 c.y += Sprite.vy
 
