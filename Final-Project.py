@@ -63,6 +63,7 @@ class Walnut(Sprite):
 class Peashooter(Sprite):
     def __init__(self,position):
         peashooter_asset = ImageAsset("images/clipart215049.png")
+        rph = 7
         super().__init__(peashooter_asset, position)
         self.scale = 0.07
         
@@ -267,6 +268,13 @@ class PvZ(App):
                 if self.time % 800 == 0:
                     sun = Sun((x,y))
                     sun.vy = -0.2
+                    
+            for a in self.getSpritesbyClass(Peashooter):
+                for b in self.getSpritesbyClass(RegularZombie): 
+                    if b.collidingWith(a):
+                        b.vx = 0
+                        if time % 200 == 0:
+                            a.rph - 1
                     
 # Natural Sun-------------------------------------------------------------------
 
