@@ -63,7 +63,7 @@ class Walnut(Sprite):
 class Peashooter(Sprite):
     def __init__(self,position):
         peashooter_asset = ImageAsset("images/clipart215049.png")
-        self.rph = 7
+        self.rph = 4
         super().__init__(peashooter_asset, position)
         self.scale = 0.07
         
@@ -269,12 +269,14 @@ class PvZ(App):
                     sun = Sun((x,y))
                     sun.vy = -0.2
                     
-            for a in self.getSpritesbyClass(Peashooter):
-                for b in self.getSpritesbyClass(RegularZombie): 
+            for a in self.getSpritesbyClass(RegularZombie):
+                for b in self.getSpritesbyClass(Peashooter): 
                     if b.collidingWith(a):
-                        b.vx = 0
+                        a.vx = 0
                         if self.time % 200 == 0:
-                            a.rph -= 1
+                            b.rph -= 1
+                            if b.rph <= 0:
+                                b.destroy()
                     
 # Natural Sun-------------------------------------------------------------------
 
@@ -324,7 +326,13 @@ class PvZ(App):
                 RegularZombie((x, y + 190))
                 
             if self.time == 2600:
-                RegularZombie((x, y - 30))    
+                RegularZombie((x, y - 30))   
+            
+            if self.time == 2900:
+                RegularZombie((x, y + 190))
+                
+            if self.time == 3100:
+                RegularZombie((x, y + 190))
                    
 myapp = PvZ(1270,720)
 myapp.run()
