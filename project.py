@@ -273,37 +273,54 @@ class Game(App):
     
     def up(self,event):
         for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vy +=1
+            Sprite.vy -=1
     
     def upstop(self,event):
         for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vx = 0
+            Sprite.vy = 0
     
     def step(self):
         for Sprite in self.getSpritesbyClass(Person):
-            Sprite.x += Sprite.vx
-            
-            if Sprite.collidingWithSprites(Gem):
-                print("You get a gem")
-                Gem.destroy
+            Sprite.vy+=1
+            for gem in self.getSpritesbyClass(Gem):
+                if gem.collidingWithSprites(Person):
+                    print("You get a gem")
+                    gem.destroy
             
             for a in self.getSpritesbyClass(Side):
-                a.x += Sprite.vx
-                a.y += Sprite.vy  
-                
                 if a.collidingWithSprites(Block):
                     a.vx = 0
                     Sprite.vx = 0
                     
                     
             for b in self.getSpritesbyClass(Top):
-                b.x += Sprite.vx
-                b.y += Sprite.vy
-                
                 if b.collidingWithSprites(Block):
                     b.vx = 0
+                    b.vy = 0
                     Sprite.vx = 0
-                
+                    Sprite.vy = 0
+                    
+            for d in self.getSpritesbyClass(bottom):
+                if d.collidingWithSprites(Bottom):
+                    d.vx = 0
+                    d.vy = 0
+                    Sprite.vx = 0
+                    Sprite.vy = 0
+                    
+            Sprite.x += Sprite.vx 
+            Sprite.y += Sprite.vy
+            for a in self.getSpritesbyClass(Side):
+                a.x += Sprite.vx
+                a.y += Sprite.vy 
+            for b in self.getSpritesbyClass(Top):
+                b.x += Sprite.vx
+                b.y += Sprite.vy
+            for c in self.getSpritesbyClass(Top):
+                c.x += Sprite.vx
+                c.y += Sprite.vy
+            for d in self.getSpritesbyClass(Top):
+                d.x += Sprite.vx
+                d.y += Sprite.vy
             
     
     
