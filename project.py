@@ -77,7 +77,7 @@ class Person(Sprite):
 class Side(Sprite):
     blue = Color(0x0000CF, .5)
     side = LineStyle(1,blue)
-    poly = RectangleAsset(1,20, side, blue)
+    poly = RectangleAsset(1,19, side, blue)
     def __init__(self,position):
         super().__init__(Side.poly,position)
         self.vx = 0
@@ -263,10 +263,7 @@ class Game(App):
             
     def left(self,event):
         for Sprite in self.getSpritesbyClass(Person):
-            if Sprite.collidingWithSprites(Block):
-                Sprite.vx = 0
-            else:
-                Sprite.vx -= 1
+            Sprite.vx -= 1
             
     def leftstop(self,event):
         for Sprite in self.getSpritesbyClass(Person):
@@ -274,10 +271,7 @@ class Game(App):
     
     def up(self,event):
         for Sprite in self.getSpritesbyClass(Person):
-            if Sprite.collidingWithSprites(Block):
-                Sprite.vy = 0
-            else:
-                Sprite.vy += 1
+            Sprite.vy +=1
     
     def upstop(self,event):
         for Sprite in self.getSpritesbyClass(Person):
@@ -286,6 +280,24 @@ class Game(App):
     def step(self):
         for Sprite in self.getSpritesbyClass(Person):
             Sprite.x += Sprite.vx
+            
+            for a in self.getSpritesbyClass(Side):
+                a.x += Sprite.vx
+                a.y += Sprite.vy  
+                
+                if a.collidingWithSprites(Block):
+                    a.vx = 0
+                    Sprite.vx = 0
+                    
+                    
+            for b in self.getSpritesbyClass(Top):
+                b.x += Sprite.vx
+                b.y += Sprite.vy
+                
+                if b.collidingWithSprites(Block):
+                    b.vx = 0
+                    Sprite.vx = 0
+                
             
     
     
