@@ -234,6 +234,8 @@ class Game(App):
         Spikes((360, 320))
         Spikes((240, 290))
         
+        Gem((40, 460))
+        
         Gem((40, 215))
         Gem((280, 95))
         Gem((340, 35))
@@ -280,6 +282,10 @@ class Game(App):
     def step(self):
         for Sprite in self.getSpritesbyClass(Person):
             Sprite.x += Sprite.vx
+            
+            if Sprite.collidingWithSprites(Gem):
+                print("You get a gem")
+                Gem.destroy
             
             for a in self.getSpritesbyClass(Side):
                 a.x += Sprite.vx
