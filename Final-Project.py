@@ -264,10 +264,12 @@ class PvZ(App):
             for a in self.getSpritesbyClass(Sunflower):
                 x = a.x
                 y = a.y
-                if self.time % 1000 == 0:
+                if self.time % 800 == 0:
                     sun = Sun((x,y))
                     sun.vy = -0.2
-            
+                    
+# Natural Sun-------------------------------------------------------------------
+
             x = 300
             y = -100
             if self.time == 200:
@@ -276,21 +278,24 @@ class PvZ(App):
             if self.time == 500:
                 Sun((x+300,y))
                 
+            if self.time == 1000:
+                Sun((x+600,y))
+                
             if self.time == 1500:
                 Sun((x+300,y))
                 
             if self.time == 2500:
                 Sun((x+600,y))
                 
-            if self.time == 1500:
+            if self.time == 3500:
                 Sun((x,y))
                
 # Zombies-----------------------------------------------------------------------
             #Lane 1 = RegularZombie((x, y - 30))
             #Lane 2 = RegularZombie((x, y + 80))
-            #Lane 3 = RegularZombie((x, y + 195))
-            #Lane 4 = RegularZombie((x, y + 310))
-            #Lane 5 = RegularZombie((x, y + 425))
+            #Lane 3 = RegularZombie((x, y + 190))
+            #Lane 4 = RegularZombie((x, y + 300))
+            #Lane 5 = RegularZombie((x, y + 410))
             
             x = 1250
             y = 125
@@ -299,11 +304,19 @@ class PvZ(App):
                 RegularZombie((x, y - 30))
                 
             if self.time == 900:
-                RegularZombie((x, y + 310))
+                RegularZombie((x, y + 300))
                 
+            if self.time == 1800:
+                RegularZombie((x, y + 410))
                 
+            if self.time == 2200:
+                RegularZombie((x, y + 80))
+            
+            if self.time == 2500:
+                RegularZombie((x, y + 190))
                 
-                
+            if self.time == 2600:
+                RegularZombie((x, y - 30))    
                    
 myapp = PvZ(1270,720)
 myapp.run()
