@@ -68,7 +68,7 @@ class Gem(Sprite):
 class Person(Sprite):
     blue = Color(0x0000CF, .5)
     side = LineStyle(1,blue)
-    poly = RectangleAsset(10,20, side, blue)
+    poly = RectangleAsset(10,10, side, blue)
     def __init__(self,position):
         super().__init__(Person.poly,position)
         self.vx = 0
@@ -77,7 +77,7 @@ class Person(Sprite):
 class Sideleft(Sprite):
     blue = Color(0x0000CF, .5)
     side = LineStyle(1,blue)
-    poly = RectangleAsset(1,19, side, blue)
+    poly = RectangleAsset(1,8, side, blue)
     def __init__(self,position):
         super().__init__(Sideleft.poly,position)
         self.vx = 0
@@ -86,7 +86,7 @@ class Sideleft(Sprite):
 class Sideright(Sprite):
     blue = Color(0x0000CF, .5)
     side = LineStyle(1,blue)
-    poly = RectangleAsset(1,19, side, blue)
+    poly = RectangleAsset(1,8, side, blue)
     def __init__(self,position):
         super().__init__(Sideright.poly,position)
         self.vx = 0
@@ -121,6 +121,8 @@ class Game(App):
         Game.listenKeyEvent('keyup', 'left arrow',  self.leftstop)
         Game.listenKeyEvent('keydown', 'up arrow',  self.up)
         Game.listenKeyEvent('keyup', 'up arrow',  self.upstop)
+        Game.listenKeyEvent('keydown', 'down arrow',  self.down)
+        Game.listenKeyEvent('keyup', 'down arrow',  self.downstop)
     
         x=0
         y=0
@@ -256,10 +258,10 @@ class Game(App):
         Gem((730, 335))
         
         Person((10,450))
-        Sideleft((10,450))
-        Sideright((20,450))
+        Sideleft((10,451))
+        Sideright((20,451))
         Top((11,450))
-        bottom((11,470))
+        bottom((11,460))
 
         #print(self.Cells)
     
@@ -287,9 +289,17 @@ class Game(App):
     def upstop(self,event):
         for Sprite in self.getSpritesbyClass(Person):
             Sprite.vy = 0
+            
+    def down(self,event):
+        for Sprite in self.getSpritesbyClass(Person):
+            Sprite.vy +=1
+    
+    def downstop(self,event):
+        for Sprite in self.getSpritesbyClass(Person):
+            Sprite.vy = 0
     
     def step(self):
-        for Sprite in self.getSpritesbyClass(Person):
+        for sprite in self.getSpritesbyClass(Person):
             #Sprite.vy+=1
             for gem in self.getSpritesbyClass(Gem):
                 if gem.collidingWithSprites(Person):
@@ -298,13 +308,13 @@ class Game(App):
             
             for a in self.getSpritesbyClass(Sideright):
                 if a.collidingWithSprites(Block):
-                    Sprite.x -= 1
-                    Sprite.vx = 0
+                    sprite.x -= 1
+                    sprite.vx = 0
                     
             for b in self.getSpritesbyClass(Sideleft):
                 if b.collidingWithSprites(Block):
-                    Sprite.x += 1
-                    Sprite.vx = 0
+                    sprite.x += 1
+                    sprite.vx = 0
                    
             for c in self.getSpritesbyClass(Top):
                 if c.collidingWithSprites(Block):
@@ -316,20 +326,21 @@ class Game(App):
               #      d.vy >= 0
                #     Sprite.vy >= 0
                     
-            Sprite.x += Sprite.vx 
-            Sprite.y += Sprite.vy
+            sprite.x += sprite.vx 
+            sprite.y += sprite.vy
+            
             for a in self.getSpritesbyClass(Sideleft):
-                a.x += Sprite.vx
-                a.y += Sprite.vy 
+                a.x += sprite.vx
+                a.y += sprite.vy 
             for b in self.getSpritesbyClass(Sideright):
-                b.x += Sprite.vx
-                b.y += Sprite.vy 
+                b.x += sprite.vx
+                b.y += sprite.vy 
             for c in self.getSpritesbyClass(Top):
-                c.x += Sprite.vx
-                c.y += Sprite.vy
+                c.x += sprite.vx
+                c.y += sprite.vy
             for d in self.getSpritesbyClass(bottom):
-                d.x += Sprite.vx
-                d.y += Sprite.vy
+                d.x += sprite.vx
+                d.y += sprite.vy
 
             
     
