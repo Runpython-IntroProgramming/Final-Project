@@ -74,15 +74,24 @@ class Person(Sprite):
         self.vx = 0
         self.vy = 0
         
-class Side(Sprite):
+class Sideleft(Sprite):
     blue = Color(0x0000CF, .5)
     side = LineStyle(1,blue)
     poly = RectangleAsset(1,19, side, blue)
     def __init__(self,position):
-        super().__init__(Side.poly,position)
+        super().__init__(Sideleft.poly,position)
         self.vx = 0
         self.vy = 0
-        
+
+class Sideright(Sprite):
+    blue = Color(0x0000CF, .5)
+    side = LineStyle(1,blue)
+    poly = RectangleAsset(1,19, side, blue)
+    def __init__(self,position):
+        super().__init__(Sideright.poly,position)
+        self.vx = 0
+        self.vy = 0
+
 class Top(Sprite):
     blue = Color(0x0000CF, .5)
     side = LineStyle(1,blue)
@@ -247,8 +256,8 @@ class Game(App):
         Gem((730, 335))
         
         Person((10,450))
-        Side((10,450))
-        Side((20,450))
+        Sideleft((10,450))
+        Sideright((20,450))
         Top((11,450))
         bottom((11,470))
 
@@ -287,13 +296,16 @@ class Game(App):
                     print("You get a gem")
                     gem.destroy
             
-            for a in self.getSpritesbyClass(Side):
+            for a in self.getSpritesbyClass(Sideright):
                 if a.collidingWithSprites(Block):
                     Sprite.vx -= 1
                     
-                    
-            for b in self.getSpritesbyClass(Top):
+            for b in self.getSpritesbyClass(Sideleft):
                 if b.collidingWithSprites(Block):
+                    Sprite.vx += 1
+                   
+            for c in self.getSpritesbyClass(Top):
+                if c.collidingWithSprites(Block):
                     Sprite.vy += 1
                     
             #for d in self.getSpritesbyClass(bottom):
@@ -303,15 +315,18 @@ class Game(App):
                     
             Sprite.x += Sprite.vx 
             Sprite.y += Sprite.vy
-            for a in self.getSpritesbyClass(Side):
+            for a in self.getSpritesbyClass(Sideleft):
                 a.x += Sprite.vx
                 a.y += Sprite.vy 
-            for b in self.getSpritesbyClass(Top):
+            for b in self.getSpritesbyClass(Sideright):
                 b.x += Sprite.vx
-                b.y += Sprite.vy
-            for c in self.getSpritesbyClass(bottom):
+                b.y += Sprite.vy 
+            for c in self.getSpritesbyClass(Top):
                 c.x += Sprite.vx
                 c.y += Sprite.vy
+            for d in self.getSpritesbyClass(bottom):
+                d.x += Sprite.vx
+                d.y += Sprite.vy
 
             
     
