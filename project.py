@@ -294,7 +294,7 @@ class Game(App):
             for gem in self.getSpritesbyClass(Gem):
                 if gem.collidingWithSprites(Person):
                     print("You get a gem")
-                    gem.destroy
+                    gem.destroy()
             
             for a in self.getSpritesbyClass(Sideright):
                 if a.collidingWithSprites(Block):
