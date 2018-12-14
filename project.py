@@ -298,15 +298,18 @@ class Game(App):
             
             for a in self.getSpritesbyClass(Sideright):
                 if a.collidingWithSprites(Block):
-                    Sprite.vx -= 1
+                    Sprite.x -= 1
+                    Sprite.vx = 0
                     
             for b in self.getSpritesbyClass(Sideleft):
                 if b.collidingWithSprites(Block):
-                    Sprite.vx += 1
+                    Sprite.x += 1
+                    Sprite.vx = 0
                    
             for c in self.getSpritesbyClass(Top):
                 if c.collidingWithSprites(Block):
-                    Sprite.vy += 1
+                    Sprite.y += 1
+                    Sprite.vy = 0
                     
             #for d in self.getSpritesbyClass(bottom):
              #   if d.collidingWithSprites(Bottom):
