@@ -268,7 +268,7 @@ class Game(App):
     
     def right(self,event):
         for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vx += 1
+            Sprite.vx = 2
             
     def rightstop(self,event):
         for Sprite in self.getSpritesbyClass(Person):
@@ -276,7 +276,7 @@ class Game(App):
             
     def left(self,event):
         for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vx -= 1
+            Sprite.vx = -2
             
     def leftstop(self,event):
         for Sprite in self.getSpritesbyClass(Person):
@@ -284,7 +284,7 @@ class Game(App):
     
     def up(self,event):
         for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vy -=1
+            Sprite.vy = -1
     
     def upstop(self,event):
         for Sprite in self.getSpritesbyClass(Person):
@@ -292,7 +292,7 @@ class Game(App):
             
     def down(self,event):
         for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vy +=1
+            Sprite.vy = 1
     
     def downstop(self,event):
         for Sprite in self.getSpritesbyClass(Person):
@@ -309,28 +309,25 @@ class Game(App):
             for a in self.getSpritesbyClass(Sideright):
                 if a.collidingWithSprites(Block):
                     sprite.x -= 1
-                    a.x -= 1
                     sprite.vx = 0
                     a.vx = 0
                     
             for b in self.getSpritesbyClass(Sideleft):
                 if b.collidingWithSprites(Block):
                     sprite.x += 1
-                    b.x += 1
                     sprite.vx = 0
                     b.vx = 0
                    
             for c in self.getSpritesbyClass(Top):
                 if c.collidingWithSprites(Block):
-                    Sprite.y += 1
-                    c.y += 1
-                    Sprite.vy = 0
+                    sprite.y += 1
+                    sprite.vy = 0
                     c.vy = 0
                     
             for d in self.getSpritesbyClass(bottom):
                 if c.collidingWithSprites(BottomSpike):
-                    Sprite.y += 0
-                    Sprite.vy = 0
+                    sprite.y += 0
+                    sprite.vy = 0
                     
             #for d in self.getSpritesbyClass(bottom):
              #   if d.collidingWithSprites(Bottom):
@@ -341,17 +338,17 @@ class Game(App):
             sprite.y += sprite.vy
             
             for a in self.getSpritesbyClass(Sideleft):
-                a.x += sprite.vx
-                a.y += sprite.vy 
+                a.x = sprite.x
+                a.y = sprite.y+1
             for b in self.getSpritesbyClass(Sideright):
-                b.x += sprite.vx
-                b.y += sprite.vy 
+                b.x = sprite.x+10
+                b.y = sprite.y+1
             for c in self.getSpritesbyClass(Top):
-                c.x += sprite.vx
-                c.y += sprite.vy
+                c.x = sprite.x+1
+                c.y = sprite.y
             for d in self.getSpritesbyClass(bottom):
-                d.x += sprite.vx
-                d.y += sprite.vy
+                d.x = sprite.x+1
+                d.y = sprite.y+10
 
             
     
