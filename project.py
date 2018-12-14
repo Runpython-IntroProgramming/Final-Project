@@ -86,7 +86,7 @@ class Side(Sprite):
 class Top(Sprite):
     blue = Color(0x0000CF, .5)
     side = LineStyle(1,blue)
-    poly = RectangleAsset(10,1, side, blue)
+    poly = RectangleAsset(8,1, side, blue)
     def __init__(self,position):
         super().__init__(Top.poly,position)
         self.vx = 0
@@ -95,7 +95,7 @@ class Top(Sprite):
 class bottom(Sprite):
     blue = Color(0x0000CF, .5)
     side = LineStyle(1,blue)
-    poly = RectangleAsset(10,1, side, blue)
+    poly = RectangleAsset(8,1, side, blue)
     def __init__(self,position):
         super().__init__(bottom.poly,position)
         self.vx = 0
@@ -249,8 +249,8 @@ class Game(App):
         Person((10,450))
         Side((10,450))
         Side((20,450))
-        Top((10,450))
-        bottom((10,470))
+        Top((11,450))
+        bottom((11,470))
 
         #print(self.Cells)
     
@@ -289,16 +289,12 @@ class Game(App):
             
             for a in self.getSpritesbyClass(Side):
                 if a.collidingWithSprites(Block):
-                    a.vx = 0
-                    Sprite.vx = 0
+                    Sprite.vx -= 1
                     
                     
             for b in self.getSpritesbyClass(Top):
                 if b.collidingWithSprites(Block):
-                    b.vx = 0
-                    b.vy = 0
-                    Sprite.vx = 0
-                    Sprite.vy = 0
+                    Sprite.vy += 1
                     
             #for d in self.getSpritesbyClass(bottom):
              #   if d.collidingWithSprites(Bottom):
