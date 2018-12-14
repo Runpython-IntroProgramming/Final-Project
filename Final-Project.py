@@ -55,6 +55,7 @@ class Sundestroyer(Sprite):
 class Walnut(Sprite):
     def __init__(self,position):
         walnut_asset = ImageAsset("images/kisspng-plants-vs-zombies-2-it-s-about-time-english-waln-walnut-5ab4aed18776e0.5829646215217906735549.png")
+        self.wh = 10
         super().__init__(walnut_asset, position)
         self.scale = 0.085
         
@@ -200,7 +201,7 @@ class PvZ(App):
                 print("You have " + str(self.Amount_of_Sun) + " of Sun") 
         
     def walnutplacement(self,event):
-        if self.Amount_of_Sun >= 100:
+        if self.Amount_of_Sun >= 50:
             x = (floor(self.x/110)*110) + 55
             y = (floor(self.y/110)*110) + 25
             if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
@@ -277,6 +278,16 @@ class PvZ(App):
                             b.rph -= 1
                             if b.rph <= 0:
                                 b.destroy()
+                                
+            for a in self.getSpritesbyClass(RegularZombie):
+                for b in self.getSpritesbyClass(Walnut): 
+                    if b.collidingWith(a):
+                        a.vx = 0
+                        if self.time % 200 == 0:
+                            b.wh -= 1
+                            if b.wh <= 0:
+                                b.destroy()
+                
                     
 # Natural Sun-------------------------------------------------------------------
 
@@ -300,7 +311,7 @@ class PvZ(App):
             if self.time == 3500:
                 Sun((x,y))
                
-# Zombies-----------------------------------------------------------------------
+# Zombies lvl 1-----------------------------------------------------------------
             #Lane 1 = RegularZombie((x, y - 30))
             #Lane 2 = RegularZombie((x, y + 80))
             #Lane 3 = RegularZombie((x, y + 190))
