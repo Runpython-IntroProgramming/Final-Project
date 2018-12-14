@@ -34,7 +34,7 @@ tile2 = Color(0x00e64d, 1.0)
 class Sunflower(Sprite):
     def __init__(self,position):
         sunflower_asset = ImageAsset("images/clipart644433 (1).png")
-        sh = 100
+        sh = 4
         super().__init__(sunflower_asset, position)
         self.scale = 0.17
         
@@ -84,6 +84,15 @@ class RegularZombie(Sprite):
         super().__init__(regularzombie_asset, position)
         self.scale = 0.23
         
+# DoublePea---------------------------------------------------------------------
+
+class DoublePeashooter(Sprite):
+    def __init__(self,position):
+        peashooter_asset = ImageAsset("images/clipart1948168.png")
+        self.dph = 4
+        super().__init__(peashooter_asset, position)
+        self.scale = 0.06
+        
 # Background---------------------------------------------------------------------        
 
 class Background(Sprite):
@@ -99,6 +108,7 @@ class PvZ(App):
         super().__init__(width,height)
         
 # House+Background--------------------------------------------------------------
+        
         print("You have " + str(self.Amount_of_Sun) + " of Sun")
         
         Background((0,0))
@@ -170,6 +180,7 @@ class PvZ(App):
         PvZ.listenKeyEvent('keydown', 'p', self.peashooterplacement) 
         PvZ.listenKeyEvent('keydown', 'w', self.walnutplacement)
         PvZ.listenMouseEvent('click', self.sundestroyerplacement)
+        PvZ.listenKeyEvent('keydown', 'd', self.doublepeashooterplacement)
         
 # Functions---------------------------------------------------------------------
        
@@ -189,8 +200,6 @@ class PvZ(App):
                 self.Amount_of_Sun -= 50
                 print("You have " + str(self.Amount_of_Sun) + " of Sun")
                     
-                
-    
     def peashooterplacement(self,event):
         if self.Amount_of_Sun >= 100:
             x = (floor(self.x/110)*110) + 52
@@ -198,6 +207,15 @@ class PvZ(App):
             if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
                 Peashooter((x,y))
                 self.Amount_of_Sun -= 100
+                print("You have " + str(self.Amount_of_Sun) + " of Sun") 
+                
+    def doublepeashooterplacement(self,event):
+        if self.Amount_of_Sun >= 100:
+            x = (floor(self.x/110)*110) + 52
+            y = (floor(self.y/110)*110) + 25
+            if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
+                DoublePeashooter((x,y))
+                self.Amount_of_Sun -= 200
                 print("You have " + str(self.Amount_of_Sun) + " of Sun") 
         
     def walnutplacement(self,event):
@@ -216,7 +234,7 @@ class PvZ(App):
  
 # Step--------------------------------------------------------------------------
     time = 0  
-    Amount_of_Sun = 50
+    Amount_of_Sun = 5000
     def step(self):
         self.time += 1
         #print(self.time)
@@ -262,7 +280,12 @@ class PvZ(App):
             for a in self.getSpritesbyClass(Peashooter):
                 if self.time % 100 == 0:
                     Pea((a.x+70,a.y+15))
-            
+                    
+            for a in self.getSpritesbyClass(DoublePeashooter):
+                if self.time % 100 == 0 or (self.time - 20) % 100 == 0:
+                    Pea((a.x+70,a.y+15))
+                
+                    
             for a in self.getSpritesbyClass(Sunflower):
                 x = a.x
                 y = a.y
@@ -280,6 +303,15 @@ class PvZ(App):
                                 b.destroy()
                                 
             for a in self.getSpritesbyClass(RegularZombie):
+                for b in self.getSpritesbyClass(DoublePeashooter): 
+                    if b.collidingWith(a):
+                        a.vx = 0
+                        if self.time % 200 == 0:
+                            b.dph -= 1
+                            if b.dph <= 0:
+                                b.destroy()
+                                
+            for a in self.getSpritesbyClass(RegularZombie):
                 for b in self.getSpritesbyClass(Walnut): 
                     if b.collidingWith(a):
                         a.vx = 0
@@ -287,7 +319,21 @@ class PvZ(App):
                             b.wh -= 1
                             if b.wh <= 0:
                                 b.destroy()
-                
+                                
+            for a in self.getSpritesbyClass(RegularZombie):
+                for b in self.getSpritesbyClass(Sunflower): 
+                    if b.collidingWith(a):
+                        a.vx = 0
+                        if self.time % 200 == 0:
+                            b.sh -= 1
+                            if b.sh <= 0:
+                                b.destroy()
+            """                    
+            for a in self.getSpritesbyClass(Sunflower):
+                for b in self.getSpritesbyClass(Walnut): 
+                    if b.collidingWith(a):
+                        b.destroy()
+            """
                     
 # Natural Sun-------------------------------------------------------------------
 
