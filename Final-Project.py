@@ -1,5 +1,6 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 from math import floor
+from random import randint
 
 blue = Color(0x2EFEC8, 1.0)
 black = Color(0x000000, 1.0)
@@ -210,7 +211,7 @@ class PvZ(App):
                 print("You have " + str(self.Amount_of_Sun) + " of Sun") 
                 
     def doublepeashooterplacement(self,event):
-        if self.Amount_of_Sun >= 100:
+        if self.Amount_of_Sun >= 200:
             x = (floor(self.x/110)*110) + 52
             y = (floor(self.y/110)*110) + 25
             if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
@@ -234,7 +235,7 @@ class PvZ(App):
  
 # Step--------------------------------------------------------------------------
     time = 0  
-    Amount_of_Sun = 5000
+    Amount_of_Sun = 50
     def step(self):
         self.time += 1
         #print(self.time)
@@ -390,6 +391,31 @@ class PvZ(App):
                 
             if self.time == 3100:
                 RegularZombie((x, y + 300))
+                
+            if self.time == 3200:
+                RegularZombie((x, y + 410))
+                
+            if self.time == 3250:
+                RegularZombie((x, y + 80))
+                
+            if self.time == 3400:
+                RegularZombie((x, y - 30))
+                
+        if self.time > 3500:
+            x = 1250
+            y = 125
+            if self.time % 75 ==0:
+                random = randint(1,5)
+                if random == 1:
+                    RegularZombie((x, y - 30))
+                if random == 2:
+                    RegularZombie((x, y + 80))
+                if random == 3:
+                    RegularZombie((x, y + 190))
+                if random == 4:
+                    RegularZombie((x, y + 300))
+                if random == 5:
+                    RegularZombie((x, y + 410))
                    
 myapp = PvZ(1270,720)
 myapp.run()
