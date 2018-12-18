@@ -303,7 +303,7 @@ class Game(App):
         for sprite in self.getSpritesbyClass(Person):
             #Sprite.vy+=1
             for gem in self.getSpritesbyClass(Gem):
-                if gem.collidingWithSprites(Person):
+                if not gem.collidingWithSprites(Person):
                     print("You get a gem")
                     gem.destroy()
             
@@ -320,6 +320,7 @@ class Game(App):
                     b.vx = 0
                    
             for c in self.getSpritesbyClass(Top):
+                #print(c.collidingWithSprites(Block))
                 if c.collidingWithSprites(Block):
                     #print(c.collidingWithSprites(Block))
                     sprite.y += 1
@@ -327,7 +328,7 @@ class Game(App):
                     c.vy = 0
             
             for d in self.getSpritesbyClass(bottom):
-                print(d.collidingWithSprites(Block))
+                #print(d.collidingWithSprites(Block))
                 if d.collidingWithSprites(Block) == []:
                     sprite.vy = 1
                 else:
