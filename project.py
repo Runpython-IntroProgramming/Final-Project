@@ -302,8 +302,8 @@ class Game(App):
         
         for sprite in self.getSpritesbyClass(Person):
             #Sprite.vy+=1
-            for gem in self.getSpritesbyClass(Gem):
-                if not gem.collidingWithSprites(Person):
+            for gem in self.getSpritesbyClass(Gem)[:]:
+                if gem.collidingWithSprites(Person):
                     print("You get a gem")
                     gem.destroy()
             
