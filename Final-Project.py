@@ -102,7 +102,8 @@ class ConeHeadZombie(Sprite):
         conezombie_asset = ImageAsset("images/ConeHeadZombie.png")
         self.vx = 0
         self.chh = 15
-        super().__init__(regularcone
+        super().__init__(conezombie_asset,position)
+        self.scale = 0.16
         
 # DoublePea---------------------------------------------------------------------
 
@@ -279,10 +280,10 @@ class PvZ(App):
                             if b.bhh >= 0:
                                 a.destroy()
                                 
-                    for b in self.getSpritesbyClass(BucketHeadZombie):
+                    for b in self.getSpritesbyClass(ConeHeadZombie):
                         if a.collidingWith(b):
-                            b.bhh -= 1
-                            if b.bhh >= 0:
+                            b.chh -= 1
+                            if b.chh >= 0:
                                 a.destroy()
                                 
             for a in self.getSpritesbyClass(Sun):
@@ -309,7 +310,7 @@ class PvZ(App):
                     if a.bhh <= 0:
                         a.destroy()
                         
-             for a in self.getSpritesbyClass(ConeHeadZombie):
+            for a in self.getSpritesbyClass(ConeHeadZombie):
                 a.x -= a.vx
                 a.vx = 0.4
                 
@@ -414,6 +415,42 @@ class PvZ(App):
                             b.sh -= 1
                             if b.sh <= 0:
                                 b.destroy()
+                                
+            for a in self.getSpritesbyClass(ConeHeadZombie):
+                for b in self.getSpritesbyClass(Peashooter): 
+                    if b.collidingWith(a):
+                        a.vx = 0
+                        if self.time % 200 == 0:
+                            b.rph -= 1
+                            if b.rph <= 0:
+                                b.destroy()
+                                
+            for a in self.getSpritesbyClass(ConeHeadZombie):
+                for b in self.getSpritesbyClass(DoublePeashooter): 
+                    if b.collidingWith(a):
+                        a.vx = 0
+                        if self.time % 200 == 0:
+                            b.dph -= 1
+                            if b.dph <= 0:
+                                b.destroy()
+                                
+            for a in self.getSpritesbyClass(ConeHeadZombie):
+                for b in self.getSpritesbyClass(Walnut): 
+                    if b.collidingWith(a):
+                        a.vx = 0
+                        if self.time % 200 == 0:
+                            b.wh -= 1
+                            if b.wh <= 0:
+                                b.destroy()
+                                
+            for a in self.getSpritesbyClass(ConeHeadZombie):
+                for b in self.getSpritesbyClass(Sunflower): 
+                    if b.collidingWith(a):
+                        a.vx = 0
+                        if self.time % 200 == 0:
+                            b.sh -= 1
+                            if b.sh <= 0:
+                                b.destroy()
             """                    
             for a in self.getSpritesbyClass(Sunflower):
                 for b in self.getSpritesbyClass(Walnut): 
@@ -502,10 +539,27 @@ class PvZ(App):
                 if random == 5:
                     RegularZombie((x, y + 440))
                     
-        if self.time > 3500:
+        if self.time > 0:
             x = 1250
             y = 125   
             if self.time % 500 == 0:
+                random = randint(0,5)
+                if random == 1:
+                    ConeHeadZombie((x, y - 15))
+                if random == 2:
+                    ConeHeadZombie((x, y + 95))
+                if random == 3:
+                    ConeHeadZombie((x, y + 205))
+                if random == 4:
+                    ConeHeadZombie((x, y + 315))
+                if random == 5:
+                    ConeHeadZombie((x, y + 425))
+                    
+                    
+        if self.time > 5000:
+            x = 1250
+            y = 125   
+            if self.time % 300 == 0:
                 random = randint(0,5)
                 if random == 1:
                     BucketHeadZombie((x, y - 15))
@@ -517,6 +571,5 @@ class PvZ(App):
                     BucketHeadZombie((x, y + 315))
                 if random == 5:
                     BucketHeadZombie((x, y + 425))
-                    
 myapp = PvZ(1270,720)
 myapp.run()
