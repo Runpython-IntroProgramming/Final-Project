@@ -330,6 +330,8 @@ class Game(App):
                 print(d.collidingWithSprites(Block))
                 if d.collidingWithSprites(Block) == []:
                     sprite.vy = 1
+                else:
+                    sprite.vy = 0
                 
             for e in self.getSpritesbyClass(bottom):
                 if e.collidingWithSprites(BottomSpike):
