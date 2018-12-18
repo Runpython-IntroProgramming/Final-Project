@@ -269,6 +269,8 @@ class PvZ(App):
             
                 else:    
                     for b in self.getSpritesbyClass(RegularZombie):
+                        if b.x <= 0:
+                            print("YOU LOST")
                         if a.collidingWith(b):
                             b.rzh -= 1
                             if b.rzh >= 0:
