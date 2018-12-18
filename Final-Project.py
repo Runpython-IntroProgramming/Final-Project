@@ -103,7 +103,7 @@ class ConeHeadZombie(Sprite):
         self.vx = 0
         self.chh = 15
         super().__init__(conezombie_asset,position)
-        self.scale = 0.16
+        self.scale = 0.26
         
 # DoublePea---------------------------------------------------------------------
 
@@ -315,7 +315,7 @@ class PvZ(App):
                 a.vx = 0.4
                 
                 if a.collidingWithSprites(Pea):
-                    a.bhh -= 1
+                    a.chh -= 1
                     if a.chh <= 0:
                         a.destroy()
                 
@@ -539,27 +539,27 @@ class PvZ(App):
                 if random == 5:
                     RegularZombie((x, y + 440))
                     
-        if self.time > 0:
+        if self.time > 3500:
             x = 1250
             y = 125   
-            if self.time % 500 == 0:
+            if self.time % 300 == 0:
                 random = randint(0,5)
                 if random == 1:
-                    ConeHeadZombie((x, y - 15))
+                    ConeHeadZombie((x, y ))
                 if random == 2:
-                    ConeHeadZombie((x, y + 95))
+                    ConeHeadZombie((x, y + 110))
                 if random == 3:
-                    ConeHeadZombie((x, y + 205))
+                    ConeHeadZombie((x, y + 220))
                 if random == 4:
-                    ConeHeadZombie((x, y + 315))
+                    ConeHeadZombie((x, y + 330))
                 if random == 5:
-                    ConeHeadZombie((x, y + 425))
+                    ConeHeadZombie((x, y + 440))
                     
                     
         if self.time > 5000:
             x = 1250
             y = 125   
-            if self.time % 300 == 0:
+            if self.time % 500 == 0:
                 random = randint(0,5)
                 if random == 1:
                     BucketHeadZombie((x, y - 15))
