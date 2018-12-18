@@ -89,11 +89,20 @@ class RegularZombie(Sprite):
 
 class BucketHeadZombie(Sprite):
     def __init__(self,position):
-        regularzombie_asset = ImageAsset("images/Buckethead_Zombie.png")
+        bucketzombie_asset = ImageAsset("images/Buckethead_Zombie.png")
         self.vx = 0
         self.bhh = 20
-        super().__init__(regularzombie_asset, position)
+        super().__init__(bucketzombie_asset, position)
         self.scale = 0.16
+        
+# Bucket Head Zombie------------------------------------------------------------
+
+class ConeHeadZombie(Sprite):
+    def __init__(self,position):
+        conezombie_asset = ImageAsset("images/ConeHeadZombie.png")
+        self.vx = 0
+        self.chh = 15
+        super().__init__(regularcone
         
 # DoublePea---------------------------------------------------------------------
 
@@ -264,6 +273,18 @@ class PvZ(App):
                             if b.rzh >= 0:
                                 a.destroy()
                                 
+                    for b in self.getSpritesbyClass(BucketHeadZombie):
+                        if a.collidingWith(b):
+                            b.bhh -= 1
+                            if b.bhh >= 0:
+                                a.destroy()
+                                
+                    for b in self.getSpritesbyClass(BucketHeadZombie):
+                        if a.collidingWith(b):
+                            b.bhh -= 1
+                            if b.bhh >= 0:
+                                a.destroy()
+                                
             for a in self.getSpritesbyClass(Sun):
                 a.y += a.vy
                 if a.y >= 800:
@@ -284,8 +305,17 @@ class PvZ(App):
                 a.vx = 0.4
                 
                 if a.collidingWithSprites(Pea):
-                    a.rzh -= 1
-                    if a.rzh <= 0:
+                    a.bhh -= 1
+                    if a.bhh <= 0:
+                        a.destroy()
+                        
+             for a in self.getSpritesbyClass(ConeHeadZombie):
+                a.x -= a.vx
+                a.vx = 0.4
+                
+                if a.collidingWithSprites(Pea):
+                    a.bhh -= 1
+                    if a.chh <= 0:
                         a.destroy()
                 
             for a in self.getSpritesbyClass(RegularZombie):
