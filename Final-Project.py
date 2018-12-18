@@ -83,7 +83,17 @@ class RegularZombie(Sprite):
         self.vx = 0
         self.rzh = 10
         super().__init__(regularzombie_asset, position)
-        self.scale = 0.23
+        self.scale = 0.18
+        
+# Bucket Head Zombie------------------------------------------------------------
+
+class BucketHeadZombie(Sprite):
+    def __init__(self,position):
+        regularzombie_asset = ImageAsset("images/Buckethead_Zombie.png")
+        self.vx = 0
+        self.bhh = 20
+        super().__init__(regularzombie_asset, position)
+        self.scale = 0.16
         
 # DoublePea---------------------------------------------------------------------
 
@@ -268,7 +278,16 @@ class PvZ(App):
                         b.destroy()
                         self.Amount_of_Sun += 50
                         print("You have " + str(self.Amount_of_Sun) + " of Sun") 
-                    
+                        
+            for a in self.getSpritesbyClass(BucketHeadZombie):
+                a.x -= a.vx
+                a.vx = 0.4
+                
+                if a.collidingWithSprites(Pea):
+                    a.rzh -= 1
+                    if a.rzh <= 0:
+                        a.destroy()
+                
             for a in self.getSpritesbyClass(RegularZombie):
                 a.x -= a.vx
                 a.vx = 0.4
@@ -329,6 +348,42 @@ class PvZ(App):
                             b.sh -= 1
                             if b.sh <= 0:
                                 b.destroy()
+                                
+            for a in self.getSpritesbyClass(BucketHeadZombie):
+                for b in self.getSpritesbyClass(Peashooter): 
+                    if b.collidingWith(a):
+                        a.vx = 0
+                        if self.time % 200 == 0:
+                            b.rph -= 1
+                            if b.rph <= 0:
+                                b.destroy()
+                                
+            for a in self.getSpritesbyClass(BucketHeadZombie):
+                for b in self.getSpritesbyClass(DoublePeashooter): 
+                    if b.collidingWith(a):
+                        a.vx = 0
+                        if self.time % 200 == 0:
+                            b.dph -= 1
+                            if b.dph <= 0:
+                                b.destroy()
+                                
+            for a in self.getSpritesbyClass(BucketHeadZombie):
+                for b in self.getSpritesbyClass(Walnut): 
+                    if b.collidingWith(a):
+                        a.vx = 0
+                        if self.time % 200 == 0:
+                            b.wh -= 1
+                            if b.wh <= 0:
+                                b.destroy()
+                                
+            for a in self.getSpritesbyClass(BucketHeadZombie):
+                for b in self.getSpritesbyClass(Sunflower): 
+                    if b.collidingWith(a):
+                        a.vx = 0
+                        if self.time % 200 == 0:
+                            b.sh -= 1
+                            if b.sh <= 0:
+                                b.destroy()
             """                    
             for a in self.getSpritesbyClass(Sunflower):
                 for b in self.getSpritesbyClass(Walnut): 
@@ -359,63 +414,79 @@ class PvZ(App):
                 Sun((x,y))
                
 # Zombies lvl 1-----------------------------------------------------------------
-            #Lane 1 = RegularZombie((x, y - 30))
-            #Lane 2 = RegularZombie((x, y + 80))
-            #Lane 3 = RegularZombie((x, y + 190))
-            #Lane 4 = RegularZombie((x, y + 300))
-            #Lane 5 = RegularZombie((x, y + 410))
+            #Lane 1 = RegularZombie((x, y))
+            #Lane 2 = RegularZombie((x, y + 110))
+            #Lane 3 = RegularZombie((x, y + 210))
+            #Lane 4 = RegularZombie((x, y + 330))
+            #Lane 5 = RegularZombie((x, y + 440))
             
             x = 1250
             y = 125
             
             if self.time == 400:
-                RegularZombie((x, y - 30))
+                RegularZombie((x, y))
                 
             if self.time == 900:
-                RegularZombie((x, y + 300))
+                RegularZombie((x, y + 330))
                 
             if self.time == 1800:
-                RegularZombie((x, y + 410))
+                RegularZombie((x, y + 440))
                 
             if self.time == 2200:
-                RegularZombie((x, y + 80))
+                RegularZombie((x, y +110))
             
             if self.time == 2500:
-                RegularZombie((x, y + 190))
+                RegularZombie((x, y + 210))
                 
             if self.time == 2600:
-                RegularZombie((x, y - 30))   
+                RegularZombie((x, y))   
             
             if self.time == 2900:
-                RegularZombie((x, y + 190))
+                RegularZombie((x, y + 210))
                 
             if self.time == 3100:
-                RegularZombie((x, y + 300))
+                RegularZombie((x, y + 330))
                 
             if self.time == 3200:
-                RegularZombie((x, y + 410))
+                RegularZombie((x, y + 440))
                 
             if self.time == 3250:
-                RegularZombie((x, y + 80))
+                RegularZombie((x, y + 120))
                 
             if self.time == 3400:
-                RegularZombie((x, y - 30))
+                RegularZombie((x, y))
                 
         if self.time > 3500:
             x = 1250
             y = 125
-            if self.time % 75 ==0:
-                random = randint(1,5)
+            if self.time % 125 == 0:
+                random = randint(0,5)
                 if random == 1:
-                    RegularZombie((x, y - 30))
+                    RegularZombie((x, y))
                 if random == 2:
-                    RegularZombie((x, y + 80))
+                    RegularZombie((x, y + 120))
                 if random == 3:
-                    RegularZombie((x, y + 190))
+                    RegularZombie((x, y + 210))
                 if random == 4:
-                    RegularZombie((x, y + 300))
+                    RegularZombie((x, y + 330))
                 if random == 5:
-                    RegularZombie((x, y + 410))
-                   
+                    RegularZombie((x, y + 440))
+                    
+        if self.time > 3500:
+            x = 1250
+            y = 125   
+            if self.time % 500 == 0:
+                random = randint(0,5)
+                if random == 1:
+                    BucketHeadZombie((x, y - 15))
+                if random == 2:
+                    BucketHeadZombie((x, y + 95))
+                if random == 3:
+                    BucketHeadZombie((x, y + 205))
+                if random == 4:
+                    BucketHeadZombie((x, y + 315))
+                if random == 5:
+                    BucketHeadZombie((x, y + 425))
+                    
 myapp = PvZ(1270,720)
 myapp.run()
