@@ -299,6 +299,7 @@ class Game(App):
             Sprite.vy = 0
     
     def step(self):
+        
         for sprite in self.getSpritesbyClass(Person):
             #Sprite.vy+=1
             for gem in self.getSpritesbyClass(Gem):
@@ -320,12 +321,18 @@ class Game(App):
                    
             for c in self.getSpritesbyClass(Top):
                 if c.collidingWithSprites(Block):
+                    #print(c.collidingWithSprites(Block))
                     sprite.y += 1
                     sprite.vy = 0
                     c.vy = 0
-                    
+            
             for d in self.getSpritesbyClass(bottom):
-                if c.collidingWithSprites(BottomSpike):
+                print(d.collidingWithSprites(Block))
+                if d.collidingWithSprites(Block) == []:
+                    sprite.vy = 1
+                
+            for e in self.getSpritesbyClass(bottom):
+                if e.collidingWithSprites(BottomSpike):
                     sprite.y += 0
                     sprite.vy = 0
                     
