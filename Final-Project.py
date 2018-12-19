@@ -224,7 +224,6 @@ class PvZ(App):
             y = (floor(self.y/110)*110) + 20
             if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
                 Sunflower((x,y))
-                print(x,y)
                 self.Amount_of_Sun -= 50
                 print("You have " + str(self.Amount_of_Sun) + " of Sun")
                     
@@ -314,7 +313,7 @@ class PvZ(App):
             for a in self.getSpritesbyClass(BucketHeadZombie):
                 a.x -= a.vx
                 a.vx = 0.4
-                if a.x == 150:
+                if floor(a.x) == 150:
                     print("YOU LOST :(")
                             
                 if a.collidingWithSprites(Pea):
@@ -325,7 +324,7 @@ class PvZ(App):
             for a in self.getSpritesbyClass(ConeHeadZombie):
                 a.x -= a.vx
                 a.vx = 0.4
-                if a.x == 150:
+                if floor(a.x) == 150:
                     print("YOU LOST :(")
                 
                 if a.collidingWithSprites(Pea):
@@ -531,6 +530,35 @@ class PvZ(App):
                 for b in self.getSpritesbyClass(Peashooter): 
                     if b.collidingWith(a):
                         b.destroy()
+                        
+            for a in self.getSpritesbyClass(Peashooter):
+                for b in self.getSpritesbyClass(Peashooter): 
+                    if b.collidingWith(a):
+                        b.destroy()
+                        self.Amount_of_Sun += 100
+                        print("You have " + str(self.Amount_of_Sun) + " of Sun")
+                        
+            for a in self.getSpritesbyClass(DoublePeashooter):
+                for b in self.getSpritesbyClass(DoublePeashooter): 
+                    if b.collidingWith(a):
+                        b.destroy()
+                        self.Amount_of_Sun += 200
+                        print("You have " + str(self.Amount_of_Sun) + " of Sun")
+                        
+            for a in self.getSpritesbyClass(Sunflower):
+                for b in self.getSpritesbyClass(Sunflower): 
+                    if b.collidingWith(a):
+                        b.destroy()
+                        self.Amount_of_Sun += 50
+                        print("You have " + str(self.Amount_of_Sun) + " of Sun")
+                        
+            for a in self.getSpritesbyClass(Walnut):
+                for b in self.getSpritesbyClass(Walnut): 
+                    if b.collidingWith(a):
+                        b.destroy()
+                        self.Amount_of_Sun += 50
+                        print("You have " + str(self.Amount_of_Sun) + " of Sun")
+                        
                     
 # Natural Sun-------------------------------------------------------------------
 
