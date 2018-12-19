@@ -35,7 +35,7 @@ tile2 = Color(0x00e64d, 1.0)
 class Sunflower(Sprite):
     def __init__(self,position):
         sunflower_asset = ImageAsset("images/clipart644433 (1).png")
-        sh = 4
+        self.sh = 4
         super().__init__(sunflower_asset, position)
         self.scale = 0.17
         
@@ -490,7 +490,7 @@ class PvZ(App):
 # Zombies lvl 1-----------------------------------------------------------------
             #Lane 1 = RegularZombie((x, y))
             #Lane 2 = RegularZombie((x, y + 110))
-            #Lane 3 = RegularZombie((x, y + 210))
+            #Lane 3 = RegularZombie((x, y + 220))
             #Lane 4 = RegularZombie((x, y + 330))
             #Lane 5 = RegularZombie((x, y + 440))
             
@@ -510,13 +510,13 @@ class PvZ(App):
                 RegularZombie((x, y +110))
             
             if self.time == 2500:
-                RegularZombie((x, y + 210))
+                RegularZombie((x, y + 220))
                 
             if self.time == 2600:
                 RegularZombie((x, y))   
             
             if self.time == 2900:
-                RegularZombie((x, y + 210))
+                RegularZombie((x, y + 220))
                 
             if self.time == 3100:
                 RegularZombie((x, y + 330))
@@ -540,7 +540,7 @@ class PvZ(App):
                 if random == 2:
                     RegularZombie((x, y + 120))
                 if random == 3:
-                    RegularZombie((x, y + 210))
+                    RegularZombie((x, y + 220))
                 if random == 4:
                     RegularZombie((x, y + 330))
                 if random == 5:
