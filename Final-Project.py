@@ -218,6 +218,7 @@ class PvZ(App):
             y = (floor(self.y/110)*110) + 20
             if x >= 150 and x <= 1248 and y >= 125 and y <= 675:
                 Sunflower((x,y))
+                print(x,y)
                 self.Amount_of_Sun -= 50
                 print("You have " + str(self.Amount_of_Sun) + " of Sun")
                     
@@ -269,8 +270,6 @@ class PvZ(App):
             
                 else:    
                     for b in self.getSpritesbyClass(RegularZombie):
-                        if b.x <= 0:
-                            print("YOU LOST")
                         if a.collidingWith(b):
                             b.rzh -= 1
                             if b.rzh >= 0:
@@ -306,7 +305,9 @@ class PvZ(App):
             for a in self.getSpritesbyClass(BucketHeadZombie):
                 a.x -= a.vx
                 a.vx = 0.4
-                
+                if a.x == 150:
+                    print("YOU LOST :(")
+                            
                 if a.collidingWithSprites(Pea):
                     a.bhh -= 1
                     if a.bhh <= 0:
@@ -315,6 +316,8 @@ class PvZ(App):
             for a in self.getSpritesbyClass(ConeHeadZombie):
                 a.x -= a.vx
                 a.vx = 0.4
+                if a.x == 150:
+                    print("YOU LOST :(")
                 
                 if a.collidingWithSprites(Pea):
                     a.chh -= 1
@@ -324,7 +327,9 @@ class PvZ(App):
             for a in self.getSpritesbyClass(RegularZombie):
                 a.x -= a.vx
                 a.vx = 0.4
-            
+                if a.x == 150:
+                    print("YOU LOST :(")
+                            
                 if a.collidingWithSprites(Pea):
                     a.rzh -= 1
                     if a.rzh <= 0:
