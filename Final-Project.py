@@ -51,6 +51,11 @@ class Sundestroyer(Sprite):
         destroyer_asset = CircleAsset(0, noline, black)
         super().__init__(destroyer_asset, position)
         
+class Plantdestroyer(Sprite):
+    def __init__(self,position):
+        destroyer_asset = CircleAsset(0, noline, black)
+        super().__init__(destroyer_asset, position)
+        
 # Walnut------------------------------------------------------------------------
 
 class Walnut(Sprite):
@@ -202,6 +207,7 @@ class PvZ(App):
         PvZ.listenKeyEvent('keydown', 'w', self.walnutplacement)
         PvZ.listenMouseEvent('click', self.sundestroyerplacement)
         PvZ.listenKeyEvent('keydown', 'd', self.doublepeashooterplacement)
+        PvZ.listenKeyEvent('keydown','z', self.plantdestroyerplacement)
         
 # Functions---------------------------------------------------------------------
        
@@ -251,6 +257,9 @@ class PvZ(App):
     
     def sundestroyerplacement(self,event):
         Sundestroyer((self.x,self.y))
+        
+    def plantdestroyerplacement(self,event):
+        Plantdestroyer((self.x,self.y))
 
         
  
@@ -327,7 +336,7 @@ class PvZ(App):
             for a in self.getSpritesbyClass(RegularZombie):
                 a.x -= a.vx
                 a.vx = 0.4
-                if a.x == 150:
+                if floor(a.x) == 150:
                     print("YOU LOST :(")
                             
                 if a.collidingWithSprites(Pea):
@@ -338,11 +347,26 @@ class PvZ(App):
             for a in self.getSpritesbyClass(Peashooter):
                 if self.time % 100 == 0:
                     Pea((a.x+70,a.y+15))
+                
+                for b in self.getSpritesbyClass(Plantdestroyer):
+                    if b.collidingWith(a) == False:
+                        b.destroy()
+                        
+                    elif b.collidingWith(a):
+                        a.destroy()
+                        b.destroy()
                     
             for a in self.getSpritesbyClass(DoublePeashooter):
                 if self.time % 100 == 0 or (self.time - 20) % 100 == 0:
                     Pea((a.x+70,a.y+15))
                 
+                for b in self.getSpritesbyClass(Plantdestroyer):
+                    if b.collidingWith(a) == False:
+                        b.destroy()
+                        
+                    elif b.collidingWith(a):
+                        a.destroy()
+                        b.destroy()
                     
             for a in self.getSpritesbyClass(Sunflower):
                 x = a.x
@@ -351,6 +375,24 @@ class PvZ(App):
                     sun = Sun((x,y))
                     sun.vy = -0.2
                     
+                for b in self.getSpritesbyClass(Plantdestroyer):
+                    if b.collidingWith(a) == False:
+                        b.destroy()
+                        
+                    elif b.collidingWith(a):
+                        a.destroy()
+                        b.destroy()
+                        
+            for a in self.getSpritesbyClass(Walnut):
+                
+                for b in self.getSpritesbyClass(Plantdestroyer):
+                    if b.collidingWith(a) == False:
+                        b.destroy()
+                        
+                    elif b.collidingWith(a):
+                        a.destroy()
+                        b.destroy()
+                    
             for a in self.getSpritesbyClass(RegularZombie):
                 for b in self.getSpritesbyClass(Peashooter): 
                     if b.collidingWith(a):
@@ -458,12 +500,37 @@ class PvZ(App):
                             b.sh -= 1
                             if b.sh <= 0:
                                 b.destroy()
-            """                    
+                                
             for a in self.getSpritesbyClass(Sunflower):
                 for b in self.getSpritesbyClass(Walnut): 
                     if b.collidingWith(a):
                         b.destroy()
-            """
+                        
+            for a in self.getSpritesbyClass(Peashooter):
+                for b in self.getSpritesbyClass(Walnut): 
+                    if b.collidingWith(a):
+                        b.destroy()
+                        
+     
+            for a in self.getSpritesbyClass(DoublePeashooter):
+                for b in self.getSpritesbyClass(Walnut): 
+                    if b.collidingWith(a):
+                        b.destroy()
+            
+            for a in self.getSpritesbyClass(Peashooter):
+                for b in self.getSpritesbyClass(Sunflower): 
+                    if b.collidingWith(a):
+                        b.destroy()
+                        
+            for a in self.getSpritesbyClass(DoublePeashooter):
+                for b in self.getSpritesbyClass(Sunflower): 
+                    if b.collidingWith(a):
+                        b.destroy()
+                        
+            for a in self.getSpritesbyClass(DoublePeashooter):
+                for b in self.getSpritesbyClass(Peashooter): 
+                    if b.collidingWith(a):
+                        b.destroy()
                     
 # Natural Sun-------------------------------------------------------------------
 
