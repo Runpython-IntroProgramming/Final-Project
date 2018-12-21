@@ -148,7 +148,7 @@ Press "d" to place a doublepeashooter
         
 Press "w" to place a Walnut
         
-Have fun! :) 8=========D xoxoxoxoxo
+Have fun! :)
         """)
         
         print("You have " + str(self.Amount_of_Sun) + " of Sun")
