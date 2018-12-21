@@ -135,10 +135,6 @@ class PvZ(App):
         
 # House+Background--------------------------------------------------------------
         
-        
-        
-        print("You have " + str(self.Amount_of_Sun) + " of Sun")
-        
         print("""
 Welcome to Plants vs. Zombies!
         
@@ -155,7 +151,7 @@ Press "w" to place a Walnut
 Have fun! :) 8=========D xoxoxoxoxo
         """)
         
-        
+        print("You have " + str(self.Amount_of_Sun) + " of Sun")
         
         Background((0,0))
         
