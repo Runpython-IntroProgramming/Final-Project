@@ -116,6 +116,7 @@ class Game(App):
         super().__init__()
         
         self.gameover = False
+        gemgotlist  = []
         
         #Game.listenMouseEvent("click",self.block)
         Game.listenKeyEvent('keydown', 'right arrow',  self.right)
@@ -308,6 +309,8 @@ class Game(App):
             for gem in self.getSpritesbyClass(Gem)[:]:
                 if gem.collidingWithSprites(Person):
                     print("You get a gem")
+                    gemgotlist.append(1)
+                    self.text=Sprite(TextAsset("GEMS:{0}"{len(gemgotlist)}, width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,10))
                     gem.destroy()
             
             for a in self.getSpritesbyClass(Sideright):
@@ -348,8 +351,16 @@ class Game(App):
                     sprite.vx = 0
                     self.gameover = True
                     
-            if sprite.vy < -5:
-                sprite.vy=-5
+            for f in self.getSpritesbyClass(bottom):
+                if e.collidingWithSprites(Spikes):
+                    sprite.y += 0
+                    sprite.vy = 0
+                    sprite.x += 0
+                    sprite.vx = 0
+                    self.gameover = True
+                    
+            if sprite.vy < -3:
+                sprite.vy=-3
                     
             #for d in self.getSpritesbyClass(bottom):
              #   if d.collidingWithSprites(Bottom):
