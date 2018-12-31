@@ -311,7 +311,7 @@ class Game(App):
                 if gem.collidingWithSprites(Person):
                     #print("You get a gem")
                     self.gemgot += 1
-                    self.text=Sprite(TextAsset("GEMS:{0}".format(self.gemgot), width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,10))
+                    self.text=Sprite(TextAsset("GEMS:{0}".format(self.gemgot), width=1000, align='center',style='30px Arial', fill=Color(0x22ffff,1)), (760,10))
                     gem.destroy()
             
             for a in self.getSpritesbyClass(Sideright):
