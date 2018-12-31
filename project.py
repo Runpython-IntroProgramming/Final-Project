@@ -1,7 +1,7 @@
 #Ella Edmonds Final Project
 #Fireboy and Water Girl
 
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, Frame
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, Frame, TextAsset
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
@@ -114,6 +114,9 @@ class Game(App):
     Cells = []
     def __init__(self):
         super().__init__()
+        
+        self.gameover = False
+        
         #Game.listenMouseEvent("click",self.block)
         Game.listenKeyEvent('keydown', 'right arrow',  self.right)
         Game.listenKeyEvent('keyup', 'right arrow',  self.rightstop)
@@ -341,6 +344,9 @@ class Game(App):
                 if e.collidingWithSprites(BottomSpike):
                     sprite.y += 0
                     sprite.vy = 0
+                    sprite.x += 0
+                    sprite.vx = 0
+                    self.gameover = True
                     
             if sprite.vy < -5:
                 sprite.vy=-5
@@ -365,6 +371,10 @@ class Game(App):
             for d in self.getSpritesbyClass(bottom):
                 d.x = sprite.x+1
                 d.y = sprite.y+10
+                
+        if self.gameover:
+            self.text=Sprite(TextAsset("GAME OVER :(", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,10))
+            myapp.gameover=True
 
             
     
