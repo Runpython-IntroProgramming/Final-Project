@@ -109,6 +109,21 @@ class bottom(Sprite):
         super().__init__(bottom.poly,position)
         self.vx = 0
         self.vy = 0
+        
+class Score(Sprite):
+    scores = []
+    gemgot = 0
+    def scoreChange(totalscore):
+        #print(Present1.totalscore)
+        for i in range(len(Score.scores)):
+            i = i - gemgot
+            Score.scores[i].destroy()
+            del Score.scores[i]
+            gemgot += 1
+        s_asset=TextAsset(("GEMS: {0}").format(gemgot), width=500, align='left',style='30px Arial', fill=Color(0xff222,1))
+        Score.scores.append(Sprite(s_asset, (0,0)))
+        
+        
 
 class Game(App):
     Cells = []
@@ -311,7 +326,8 @@ class Game(App):
                 if gem.collidingWithSprites(Person):
                     #print("You get a gem")
                     self.gemgot += 1
-                    self.text=Sprite(TextAsset("GEMS:{0}".format(self.gemgot), width=1000, align='center',style='30px Arial', fill=Color(0x22ffff,1)), (760,10))
+                    Score.scoreChange(self.gemgot)
+                    #self.text=Sprite(TextAsset("GEMS:{0}".format(self.gemgot), width=1000, align='center',style='30px Arial', fill=Color(0x22ffff,1)), (760,10))
                     gem.destroy()
             
             for a in self.getSpritesbyClass(Sideright):
