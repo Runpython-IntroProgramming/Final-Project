@@ -112,16 +112,17 @@ class bottom(Sprite):
         
 class Score(Sprite):
     scores = []
-    gemgot = 0
+    #gemgot = 0
     def scoreChange(totalscore):
         #print(Present1.totalscore)
         for i in range(len(Score.scores)):
+            gemgot = 0
             i = i - gemgot
             Score.scores[i].destroy()
             del Score.scores[i]
             gemgot += 1
         s_asset=TextAsset(("GEMS: {0}").format(gemgot), width=500, align='left',style='30px Arial', fill=Color(0xff222,1))
-        Score.scores.append(Sprite(s_asset, (0,0)))
+        Score.scores.append(Sprite(s_asset, (760,0)))
         
         
 
