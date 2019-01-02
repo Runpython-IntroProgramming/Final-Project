@@ -112,9 +112,9 @@ class bottom(Sprite):
         self.vy = 0
 
 class finish(Sprite):
-    pink = Color(0xFF00FF, 1.0)
-    side = LineStyle(1,pink)
-    poly = RectangleAsset(10,40, side, pink)
+    purple = Color(0x380966, .7)
+    side = LineStyle(1,purple)
+    poly = RectangleAsset(10,40, side, purple)
     def __init__(self,position):
         super().__init__(finish.poly,position)
         self.vx = 0
@@ -302,7 +302,7 @@ class Game(App):
             sprite.vx = 0
     
     def up(self,event):
-        if self.grounded == True: 
+        #if self.grounded == True: 
             for sprite in self.getSpritesbyClass(Person):
                 sprite.vy = -5
     
