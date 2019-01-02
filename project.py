@@ -301,7 +301,7 @@ class Game(App):
         finish((10,10))
         finish((730,10))
         
-        Person((640,100))
+        Person((10,450))
         Sideleft((10,451))
         Sideright((20,451))
         Top((11,450))
