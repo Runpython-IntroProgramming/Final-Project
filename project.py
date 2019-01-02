@@ -426,23 +426,23 @@ class Game(App):
                 myapp.gameover=True
             elif self.gemgot <= 5:
                 self.text=Sprite(TextAsset("You Ended the Game", width=1000, align='center',style='30px Arial', fill=Color(0x22ff2f,1)), (760,50))
-                self.text=Sprite(TextAsset("Grade: F :(", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,80))
+                self.text=Sprite(TextAsset("Grade: F :(", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,90))
                 myapp.gameover=True
             elif self.gemgot == 6:
                 self.text=Sprite(TextAsset("You Ended the Game", width=1000, align='center',style='30px Arial', fill=Color(0x22ff2f,1)), (760,50))
-                self.text=Sprite(TextAsset("Grade: D :(", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,80))
+                self.text=Sprite(TextAsset("Grade: D :(", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,90))
                 myapp.gameover=True
             elif self.gemgot == 7:
                 self.text=Sprite(TextAsset("You Ended the Game", width=1000, align='center',style='30px Arial', fill=Color(0x22ff2f,1)), (760,50))
-                self.text=Sprite(TextAsset("Grade: C :/", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,80))
+                self.text=Sprite(TextAsset("Grade: C :/", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,90))
                 myapp.gameover=True
             elif self.gemgot == 8:
                 self.text=Sprite(TextAsset("You Ended the Game", width=1000, align='center',style='30px Arial', fill=Color(0x22ff2f,1)), (760,50))
-                self.text=Sprite(TextAsset("Grade: B :/", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,80))
+                self.text=Sprite(TextAsset("Grade: B :/", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,90))
                 myapp.gameover=True
             elif self.gemgot == 9:
                 self.text=Sprite(TextAsset("You Ended the Game", width=1000, align='center',style='30px Arial', fill=Color(0x22ff2f,1)), (760,50))
-                self.text=Sprite(TextAsset("Grade: A- :)", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,80))
+                self.text=Sprite(TextAsset("Grade: A- :)", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,90))
                 myapp.gameover=True
             elif self.gemgot == 10:
                 self.text=Sprite(TextAsset("You Win :)", width=1000, align='center',style='30px Arial', fill=Color(0x00ff00, 1.0)), (760,50))
