@@ -274,6 +274,7 @@ class Game(App):
         Gem((730, 335))
         
         finish((10,10))
+        finish((730,10))
         
         Person((10,450))
         Sideleft((10,451))
