@@ -14,7 +14,7 @@ print("You can end the game by running into either of the two purple blocks in t
 print()
 print("You win the game if you can collect all 10 gems!")
 print()
-print("p.s. if you're frustrated and want to cheat just comment out line 321 :)"
+print("p.s. if you're frustrated and want to cheat just comment out line 321 :)")
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
@@ -258,7 +258,8 @@ class Game(App):
         Block((720, 180))
         Block((570, 150))
         Block((480, 480))
-        Block((510, 480)) 
+        Block((510, 480))
+        Block((300,120))
         
         for m in range(25):
             BottomSpike((m*30,520))
