@@ -5,6 +5,7 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, Frame, TextAsset
 
 print("Use right, left and up arrows to move the player.")
+print("     -if stuck press the up arrow")
 print()
 print("Try and collect as many gems as possible.")
 print()
@@ -14,7 +15,7 @@ print("You can end the game by running into either of the two purple blocks in t
 print()
 print("You win the game if you can collect all 10 gems!")
 print()
-print("p.s. if you're frustrated and want to cheat just comment out line 321 :)")
+print("p.s. if you're frustrated and want to cheat just comment out line 330 :)")
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
@@ -265,7 +266,7 @@ class Game(App):
             BottomSpike((m*30,520))
             
         for m in range(25):
-            BottomSpike((m*30,-30))
+            BottomSpike((m*30,-25))
             
         for m in range(40):
             BottomSpike((m*30,680))
@@ -274,7 +275,7 @@ class Game(App):
             BottomSpike((m*-30,680))
             
         for m in range(27):
-            BottomSpike((-40,m*20))
+            BottomSpike((-30,m*20))
             
         Spikes((90, 80))
         Spikes((630, 80))
@@ -300,7 +301,7 @@ class Game(App):
         finish((10,10))
         finish((730,10))
         
-        Person((10,450))
+        Person((640,100))
         Sideleft((10,451))
         Sideright((20,451))
         Top((11,450))
