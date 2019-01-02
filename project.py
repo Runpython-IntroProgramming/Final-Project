@@ -315,6 +315,8 @@ class Game(App):
                     self.gemgot += 1
                     self.text=Sprite(TextAsset("GEMS:{0}".format(self.gemgot), width=1000, align='center',style='30px Arial', fill=Color(0x22ffff,1)), (760,10))
                     gem.destroy()
+                    if self.gemgot == 10:
+                        self.gameover=True
             
             for a in self.getSpritesbyClass(Sideright):
                 if a.collidingWithSprites(Block):
@@ -387,8 +389,12 @@ class Game(App):
                 d.y = sprite.y+10
                 
         if self.gameover:
-            self.text=Sprite(TextAsset("GAME OVER :(", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,50))
-            myapp.gameover=True
+            if self.gemgot < 10:
+                self.text=Sprite(TextAsset("GAME OVER :(", width=1000, align='center',style='30px Arial', fill=Color(0xff2222,1)), (760,50))
+                myapp.gameover=True
+            elif self.gemgot == 10:
+                self.text=Sprite(TextAsset("You Win :)", width=1000, align='center',style='30px Arial', fill=Color(0x00ff00, 1.0)), (760,50))
+                myapp.gameover=True
 
             
     
