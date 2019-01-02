@@ -5,9 +5,13 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, Frame, TextAsset
 
 print("Use right, left and up arrows to move the player.")
+print()
 print("Try and collect as many gems as possible.")
+print()
 print("If you land on the pink spikes you die.")
+print()
 print("You can end the game by running into either of the two purple blocks in the top corners.")
+print()
 print("You win the game if you can collect all 10 gems!")
 
 SCREEN_WIDTH = 1000
