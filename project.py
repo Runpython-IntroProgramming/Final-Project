@@ -302,7 +302,7 @@ class Game(App):
             sprite.vx = 0
     
     def up(self,event):
-        #if self.grounded == True: 
+        if self.grounded == True: 
             for sprite in self.getSpritesbyClass(Person):
                 sprite.vy = -5
     
