@@ -5,7 +5,6 @@
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, Frame, TextAsset
 
 print("Use right, left and up arrows to move the player.")
-print("     -if stuck press the up arrow")
 print()
 print("Try and collect as many gems as possible.")
 print()
@@ -15,7 +14,7 @@ print("You can end the game by running into either of the two purple blocks in t
 print()
 print("You win the game if you can collect all 10 gems!")
 print()
-print("p.s. if you're frustrated and want to cheat just comment out line 330 :)")
+print("p.s. if you're frustrated and want to cheat just comment out line 329 :)")
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
