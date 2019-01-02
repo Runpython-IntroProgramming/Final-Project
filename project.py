@@ -1,5 +1,6 @@
 #Ella Edmonds Final Project
 #Fireboy and Water Girl
+#Sources: Noah and Katie
 
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, Frame, TextAsset
 
@@ -117,6 +118,7 @@ class Game(App):
         
         self.gameover = False
         gemgotlist  = []
+        self.grounded = False
         
         #Game.listenMouseEvent("click",self.block)
         Game.listenKeyEvent('keydown', 'right arrow',  self.right)
@@ -271,36 +273,37 @@ class Game(App):
     
     
     def right(self,event):
-        for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vx = 2
+        for sprite in self.getSpritesbyClass(Person):
+            sprite.vx = 2
             
     def rightstop(self,event):
-        for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vx = 0
+        for sprite in self.getSpritesbyClass(Person):
+            sprite.vx = 0
             
     def left(self,event):
-        for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vx = -2
+        for sprite in self.getSpritesbyClass(Person):
+            sprite.vx = -2
             
     def leftstop(self,event):
-        for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vx = 0
+        for sprite in self.getSpritesbyClass(Person):
+            sprite.vx = 0
     
     def up(self,event):
-        for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vy = -5
+        if self.grounded == True: 
+            for sprite in self.getSpritesbyClass(Person):
+                sprite.vy = -5
     
     def upstop(self,event):
-        for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vy = 0
+        for sprite in self.getSpritesbyClass(Person):
+            sprite.vy = 0
             
     def down(self,event):
-        for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vy = 2
+        for sprite in self.getSpritesbyClass(Person):
+            sprite.vy = 2
     
     def downstop(self,event):
-        for Sprite in self.getSpritesbyClass(Person):
-            Sprite.vy = 0
+        for sprite in self.getSpritesbyClass(Person):
+            sprite.vy = 0
     
     text=Sprite(TextAsset("GEMS:{0}".format(0), width=1000, align='center',style='30px Arial', fill=Color(0x22ffff,1)), (760,10))
     gemgot = 0
@@ -342,11 +345,17 @@ class Game(App):
                 #print(d.collidingWithSprites(Block))
                 if d.collidingWithSprites(Block) == []:
                     sprite.vy += .2
+                    self.grounded = False
                 else:
                     if sprite.vy < 0:
                         sprite.vy = sprite.vy
+                        self.grounded = True
+                    #elif sprite.vy > 0:
+                        #sprite.vy = sprite.vy
+                        #self.grounded = True
                     else:
                         sprite.vy = 0
+                        self.grounded = True
                 
             for e in self.getSpritesbyClass(bottom):
                 if e.collidingWithSprites(BottomSpike):
@@ -364,8 +373,8 @@ class Game(App):
                     sprite.vx = 0
                     self.gameover = True
                     
-            if sprite.vy < -3:
-                sprite.vy=-3
+            #if sprite.vy < -3:
+                #sprite.vy=-3
                     
             #for d in self.getSpritesbyClass(bottom):
              #   if d.collidingWithSprites(Bottom):
