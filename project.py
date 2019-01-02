@@ -302,6 +302,7 @@ class Game(App):
         for Sprite in self.getSpritesbyClass(Person):
             Sprite.vy = 0
     
+    text=Sprite(TextAsset("GEMS:{0}".format(0), width=1000, align='center',style='30px Arial', fill=Color(0x22ffff,1)), (760,10))
     gemgot = 0
     def step(self):
         
@@ -310,7 +311,6 @@ class Game(App):
             for gem in self.getSpritesbyClass(Gem)[:]:
                 if gem.collidingWithSprites(Person):
                     #print("You get a gem")
-                    self.text=Sprite(TextAsset("GEMS:{0}".format(self.gemgot), width=1000, align='center',style='30px Arial', fill=Color(0x22ffff,1)), (760,10))
                     self.text.destroy()
                     self.gemgot += 1
                     self.text=Sprite(TextAsset("GEMS:{0}".format(self.gemgot), width=1000, align='center',style='30px Arial', fill=Color(0x22ffff,1)), (760,10))
