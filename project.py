@@ -13,6 +13,8 @@ print()
 print("You can end the game by running into either of the two purple blocks in the top corners.")
 print()
 print("You win the game if you can collect all 10 gems!")
+print()
+print("p.s. if you're frustrated and wanna cheat just comment out line 321 :)"
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
