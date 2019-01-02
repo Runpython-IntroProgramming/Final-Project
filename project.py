@@ -421,8 +421,8 @@ class Game(App):
                     sprite.vx = 0
                     self.gameover = True
                     
-            #if sprite.vy < -3:
-                #sprite.vy=-3
+            if sprite.vy > 2.5:
+                sprite.vy=2.5
                     
             #for d in self.getSpritesbyClass(bottom):
              #   if d.collidingWithSprites(Bottom):
