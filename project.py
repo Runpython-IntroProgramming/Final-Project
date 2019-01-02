@@ -261,13 +261,19 @@ class Game(App):
         for m in range(25):
             BottomSpike((m*30,520))
             
+        for m in range(40):
+            BottomSpike((m*30,670))
+            
+        for m in range(10):
+            BottomSpike((m*-30,670))
+            
         Spikes((90, 80))
         Spikes((630, 80))
         Spikes((120, 290))
         Spikes((600, 320))
         Spikes((720, 380))
         Spikes((450, 380))
-        Spikes((330, 320))
+        Spikes((300, 320))
         Spikes((360, 320))
         Spikes((240, 290))
         
