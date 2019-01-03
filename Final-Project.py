@@ -331,6 +331,9 @@ Have fun! :)
                 a.vx = 0.4
                 if floor(a.x) == 150:
                     print("YOU LOST :(")
+                    
+                if floor(a.x) == 145:
+                    a.vx = 0
                             
                 if a.collidingWithSprites(Pea):
                     a.bhh -= 1
@@ -342,7 +345,10 @@ Have fun! :)
                 a.vx = 0.4
                 if floor(a.x) == 150:
                     print("YOU LOST :(")
-                
+                    
+                if floor(a.x) == 145:
+                    a.vx = 0
+                    
                 if a.collidingWithSprites(Pea):
                     a.chh -= 1
                     if a.chh <= 0:
@@ -353,7 +359,10 @@ Have fun! :)
                 a.vx = 0.4
                 if floor(a.x) == 150:
                     print("YOU LOST :(")
-                            
+                    
+                if floor(a.x) == 145:
+                    a.vx = 0
+                    
                 if a.collidingWithSprites(Pea):
                     a.rzh -= 1
                     if a.rzh <= 0:
