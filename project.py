@@ -1,5 +1,5 @@
 #Ella Edmonds Final Project
-#Block Game
+#Block Game (Single Player)
 #Sources: Noah and Katie
 
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, PolygonAsset, Frame, TextAsset
