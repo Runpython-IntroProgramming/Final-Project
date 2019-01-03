@@ -137,7 +137,7 @@ class finish(Sprite):
 class Game(App):
     Cells = []
     def __init__(self):
-        super().__init__()
+        super().__init__(1000,540)
         
         self.gameover = False
         gemgotlist  = []
@@ -276,7 +276,7 @@ class Game(App):
             BottomSpike((m*-30,680))
             
         for m in range(27):
-            BottomSpike((-30,m*20))
+            BottomSpike((-40,m*20))
             
         Spikes((90, 80))
         Spikes((630, 80))
