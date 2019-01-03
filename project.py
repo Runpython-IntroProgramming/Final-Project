@@ -16,7 +16,7 @@ print("You win the game if you can collect all 10 gems!")
 print()
 print("p.s. if you're frustrated and want to cheat just comment out line 331 :)")
 print()
-print("Want to play against a friend? Use this link: https://github.com/ellaedmonds/Final-Project/blob/master/project.py")
+print("Want to play against a friend? Use this link: https://github.com/ellaedmonds/tutorials/blob/master/multiplayerfinal.py")
 
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
