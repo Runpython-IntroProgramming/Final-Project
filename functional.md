@@ -1,4 +1,4 @@
-# Title of Your Project Here
+# Compact Personal Planner in Python
 
 
 
