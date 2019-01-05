@@ -2,10 +2,6 @@ import pygame
 import datetime
 import utility
 
-# can be obunga, chungus, field, camp, or garden
-backgroundFile = "camp.png"
-
-
 def get_weekday(key_day):
     key_weekday = key_day.weekday() + 1
     if key_weekday == 7:
@@ -93,7 +89,18 @@ class Background(pygame.sprite.Sprite):
         self.rect.left, self.rect.top = location
 
 
-background = Background(backgroundFile, [0, 0])
+backgrounds = ["obunga", "chungus", "field", "camp", "garden"]
+backgroundIndex = 3
+
+
+def cycle_background(index):
+    if index == len(backgrounds) - 1:
+        index = 0
+    else:
+        index += 1
+    return index
+
+
 
 run = True
 update = True
@@ -110,6 +117,7 @@ selectedDay = today
 while run:
     if update:
         pygame.display.update()
+    background = Background(backgrounds[backgroundIndex] + ".png", [0, 0])
     window.blit(background.image, background.rect)
     if screen == 1:
         pygame.draw.polygon(window, color, ((width - 50, 25), (width - 25, 25), (width - 25, 50), (width - 50, 50)), 1)
@@ -208,6 +216,9 @@ while run:
                         for k in letters + numbers + otherKeys:
                             if str(chr(event.key)) == k:
                                 rawInput += chr(event.key)
+            elif screen == 2:
+                if event.key == pygame.K_f:
+                    backgroundIndex = cycle_background(backgroundIndex)
             elif screen == 3 and box == 4:
                 if event.key == pygame.K_BACKSPACE:
                     rawInput = rawInput[0:-1]
