@@ -1,4 +1,4 @@
-# Compact Personal Planner in Python
+# Compact Personal Planner
 
 
 
