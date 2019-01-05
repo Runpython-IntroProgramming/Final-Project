@@ -12,32 +12,6 @@ Upon running main.py, the user is greeted with the main screen of the program, w
 
 On the right screen, the user can see the planner's recognized list of subjects towards the top of the screen. In the center, the user can click on the query field, input the name of a subject with keyboard input, and add a subject if it does not already exist by clicking the "+" button, or remove a subject if the subject already exists by clicking the "-" button. The list of subjects above will update to reflect any changes that the user makes in the query field. The user can return to the main screen by clicking the button in the top left.
 
-On the left screen, the user can input new tasks into the planner through the three query fields. The user can input a subject in the top query field by clicking on the field and using keyboard input. 
+On the left screen, the user can input new tasks into the planner through the three query fields. The user can input a subject in the top query field by clicking on the field and using keyboard input. Pressing enter will autocomplete the user's input to match a previously inputted subject from the subject list on the right screen and confirm the subject the user wishes to input. The user can input a date for the task in the center query field by clicking on the field and using keyboad input. Pressing enter will autocomplete the user's input into a formalized numerical date and confirm the date the user wishes to input. The program will autocomplete numerical dates (1/7/19), numerical dates without years (1/7), days of the week (today, tomorrow, Monday), and days of the week preceded with the word "next" (next Monday). Finally, the user can input the name of the task in the bottom quary field by clicking on it and using keyboard input. Pressing enter in the bottom field when the subject and date have been entered as well will enter a new task, which will appear on the main screen. The user can return to the main screen by clicking the button in the top right.
 
-
-
-A functional specification describes in great detail how a device or program will appear to an
-outside user. That is, it treats all hardware as a "black box", the contents of which are completely
-unknown to the user. The functional specification should include sections with the following information:
-
-Your specification **should include** the following types of information:
-
-* A title. Replace the title at the beginning of this document.
-* Summary or introduction. In general, in a few lines or less, what is your program about or what is it about?
-* How does the user access your program? Is it shared via https://runpython.org? Is a web site? Embedded in 
-  a single board computer? 
-* If there are graphics screens involved, describe every screen that the user will experience: what is it for? 
-  What did the user have to do to get there and how does she move on to the next?
-* For each graphics screen, describe every active control input and what it does. What elements on the screen will
-  change in response to user input?
-* Does the program respond to mouse input? What, exactly, does the mouse do?
-* Does the program respond to keyboard input? How?
-* What graphical assets will be used?
-* Does the user have to do anything to install the program?
-
-Your specification should **not** include the following types of information:
-
-* The language you will use to create it.
-* Names of any specific files in the project.
-* How you will structure the classes, functions and code in your program.
-* The name of any files or tools that you will use to design the program.
+The planner also features a set of backgrounds which can cycled by using the "f" key on the main screen.
