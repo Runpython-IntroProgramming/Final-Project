@@ -29,17 +29,55 @@ def delSubject(subject):
         subjects.remove(subject)
     saveSubjects()
 
+
+def getEvents():
+    events = []
+    timeOutput = "test"
+    subjectOutput = "test"
+    rawOutput = "test"
+    with open("eventDump.txt", 'r') as d:
+        eventStr = [line.rstrip('\n') for line in d]
+        for e in eventStr:
+            first = 0
+            for i in range(0, len(e)):
+                if e[i] == "|" and first == 0:
+                    timeOutput = e[0:i]
+                    first = i
+                elif e[i] == "|" and not first == 0:
+                    subjectOutput = e[first+1:i]
+                    rawOutput = e[i+1:]
+            events.append([datetime.strptime(timeOutput, '%Y-%m-%d').date(), subjectOutput, rawOutput])
+    return(events)
+
+events = getEvents()
+
+
+def saveEvents():
+    with open('eventDump.txt', 'w') as d:
+        for p in events:
+            print (p)
+            d.write(str(p[0]) + "|" + p[1] + "|" + p[2] + '\n')
+
+def addEvent(timeOutput, subjectOutput, rawOutput):
+    event = [timeOutput, subjectOutput, rawOutput]
+    conflict = False
+    for e in events:
+        if event == e:
+            conflict = True
+    if not conflict:
+        events.append(event)
+    saveEvents()
+
+def delEvent(event):
+    if event in events:
+        events.remove(event)
+    saveEvents()
+
 days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
 def weekdayManager(rawInput):
     for d in days:
         if rawInput == d[:len(rawInput)]:
             return days.index(d),rawInput[len(d)+1:]
-
-
-
-
-
-
 
 def orderManager(rawInput):
 #tests 11th - 13th
@@ -122,15 +160,18 @@ def numericalDateManager(rawInput):
         if day in range(1,monthrange(year,month)[1]+1):
             return datetime(year, month, day).date()
 
+
 def dynamicDateManager(rawInput):
     print("test")
+
 
 def staticDateManager(rawInput, modifier):
     if rawInput == "tomorrow"[0:len(rawInput)]:
         return today() + timedelta(days=1)
     if rawInput == "today"[0:len(rawInput)]:
         return today()
-#finds "next mon" and "mon"
+
+# finds "next mon" and "mon"
     try:
         for x in range(7):
             if weekdayManager(rawInput)[0] == (today() + timedelta(days=x)).weekday():
@@ -165,7 +206,9 @@ def staticDateManager(rawInput, modifier):
     """
     return numericalDateManager(rawInput)
     """
-def tagManager(rawInput):
+
+
+def subjecttagmanager(rawInput):
     rawInput = rawInput.lower()
 
     rawSubject = rawInput.replace(" ","")
@@ -173,6 +216,8 @@ def tagManager(rawInput):
         if rawSubject == s[0:len(rawSubject)]:
             return s
 
+
+def datetagmanager(rawInput):
     rawInput = rawInput.replace("the ", "").replace("in ","").replace("of ", "")
     modifiers = ["next ", "until ", "every "]
     modifier = []
@@ -222,7 +267,7 @@ class Event():
 """
 
 
-
+"""
 run = True
 while run:
     choice = input("Type 'i' for an input, 'a' to add a subject, or 'd' to delete a subject. Type 'e' to exit.")
@@ -238,3 +283,4 @@ while run:
         print (subjects)
     elif choice == "e":
         run = False
+"""
