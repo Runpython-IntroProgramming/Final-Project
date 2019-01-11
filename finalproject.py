@@ -1,12 +1,10 @@
 #!/usr/bin/env python
-#code not functional in runpython.org
 
 import argparse
 import curses
 import random
 
-
-# Helper classes
+#Helper classes
 class Game:
     WON = 'Won'
     LOST = 'Lost'
@@ -17,6 +15,7 @@ class Cell:
     CLEARED = 'Cleared'
     FILLED = 'Filled'
 
+#Controls state of the display board
 class State:
     def __init__(self):
         self.refresh()
@@ -28,9 +27,7 @@ class State:
         self.cells = [[Cell.FILLED for i in range(WIDTH)]
                                    for j in range(HEIGHT)]
 
-
-
-# Run loop
+# Run loop every time key gets pressed
 def main(stdscr):
     state = State()
     key = None
@@ -40,15 +37,13 @@ def main(stdscr):
         key = stdscr.getch()
         respond(state, key)
 
-
-
-# Display the minesweeper board
+# Display the minesweeper board and state of game
 def display(stdscr, state):
     if state.game == Game.WON:
         header = "Congratulations, you won! Press 'r' to play again"
         commands = ['r - restart']
     elif state.game == Game.LOST:
-        header = "Whoops, you hit a mine! Press 'r' to play again"
+        header = "ZUDI, you hit a mine! Press 'r' to play again"
         commands = ['r - restart']
     elif state.game == Game.PLAY:
         header = "Choose a cell using the arrow keys"
@@ -57,7 +52,7 @@ def display(stdscr, state):
     stdscr.clear()
     stdscr.addstr(0, 0, header)
 
-    # Draw the board
+    #Drawing the board
     stdscr.addstr(2, 0, ' '.join('+{}+'.format('-' * WIDTH)))
 
     for row in range(HEIGHT):
@@ -74,6 +69,7 @@ def display(stdscr, state):
     stdscr.move(row + 3, col * 2 + 2)
     stdscr.refresh()
 
+#Creating characters for each space
 def charForCell(state, row, col):
     if state.cells[row][col] == Cell.FILLED:
         return '#'
@@ -81,18 +77,14 @@ def charForCell(state, row, col):
         return '!'
     elif state.cells[row][col] == Cell.CLEARED:
         mines = adjacentMines(state, row, col)
-
         if mines == 0:
             return ' '
         else:
             return str(mines)
 
-
-
-# Respond to the user's action
+# Responding to the user's action
 def respond(state, key):
     row, col = state.cursor
-
     if state.game != Game.PLAY:
         if key == ord('r'):
             state.refresh()
@@ -109,12 +101,14 @@ def respond(state, key):
     elif key == ord('f'):
         flag(state, row, col)
 
+#Functino for flagging and deflagging each space
 def flag(state, row, col):
     if state.cells[row][col] == Cell.FILLED:
         state.cells[row][col] = Cell.FLAGGED
     elif state.cells[row][col] == Cell.FLAGGED:
         state.cells[row][col] = Cell.FILLED
 
+#Function for pressing enter
 def click(state, row, col):
     if state.cells[row][col] != Cell.FILLED:
         return
@@ -122,46 +116,38 @@ def click(state, row, col):
         state.game = Game.LOST
     else:
         uncover(state, row, col)
-
         if all(state.cells[row][col] != Cell.FILLED
                for row in range(HEIGHT)
                for col in range(WIDTH)):
             state.game = Game.WON
 
+#Uncovering squares with no adjacent mines
 def uncover(state, row, col):
     if (0 <= row < HEIGHT and
         0 <= col < WIDTH and
         state.cells[row][col] == Cell.FILLED):
-
         state.cells[row][col] = Cell.CLEARED
-
         if adjacentMines(state, row, col) == 0:
             [uncover(state, row + i, col + j)
                 for i in (-1, 0, 1)
                 for j in (-1, 0, 1)
                 if (i, j) != (0, 0)]
 
-
-
-# Helper functions
+#creating randomized mines
 def generateMines():
     mines = set()
-
     while len(mines) < NUM_MINES:
         cell = (random.randint(0, HEIGHT - 1),
                 random.randint(0, WIDTH - 1))
-
         mines.add(cell)
-
     return mines
 
+#Function to show number of mines in adjacent squares
 def adjacentMines(state, row, col):
     return sum(
         (row + i, col + j) in state.mines
         for i in (-1, 0, 1)
         for j in (-1, 0, 1))
-
-
 
 # Initialize the game and start the run loop
 description = "A simple text-based implementation of the classic game Minesweeper"
