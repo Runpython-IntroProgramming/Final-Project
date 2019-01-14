@@ -1,15 +1,14 @@
-# Name of Your Project Here
+# Minesweeper Game 
 
 ## Design Specification
 
-The design specificaiton is a counterpart to the Functional Speciffication. Where a functional specification concerns itself
-with inputs and outputs from the program, or the *experience* of a user running the program, the design specification is concerned with decisions that the engineer and programmer must make during its creation.
+Description: A simple text-based implementation of the classic game Minesweeper
 
-The design specification should include information like:
+Usage: python ./minesweeper.py [--width] [--height] [--mines] [-h --help]
+optional arguments: -h, --help show this help message and exit --width WIDTH the width of the minesweeper board (default: 10) --height HEIGHT the height of the minesweeper board (default: 10) --mines MINES the number of mines to place on the board (default: 15)
 
-* What tools or frameworks will you use to build the project (e.g. https://runpython.org or ggame)?
-* What language will you use for coding (usually Python 3)?
-* For every element of the Functional Specification, what code will need to be written to support it?
-* What data will be stored or manipulated by the program? How will it be encoded and organized?
-* Describe the logic and/or code behind every interaction with the user, and behind everything displayed.
-* If your program uses an unusual or notable *algorithm*, what is the algorithm and how does it work?
+I used the text editor named PyCharm to create this game and ran it through the mac terminal.
+This python code runs recurrent main loop every time you press a key to determine whether the space is a mine, number, or empty space. 
+By pressing various keys, the user can perform certain functions such as f to flag a space, r to restart, or q to quit the game.
+The code takes the input from the keyboard and uses a respond function to edit a given space. The display function then refreshes the board and the user can make another move. 
+The curses function enables the user to move throuhought the display board and make edits in real time very easily. Every time enter, f, r, or q are pressed, the board will change in a specific way.
