@@ -1,33 +1,14 @@
-# Title of Your Project Here
+# Minesweeper Game 
 
 
 
 ## Functional Specification
 
-This document should become the functional specification of the project you are working on.
-
-A functional specification describes in great detail how a device or program will appear to an
-outside user. That is, it treats all hardware as a "black box", the contents of which are completely
-unknown to the user. The functional specification should include sections with the following information:
-
-Your specification **should include** the following types of information:
-
-* A title. Replace the title at the beginning of this document.
-* Summary or introduction. In general, in a few lines or less, what is your program about or what is it about?
-* How does the user access your program? Is it shared via https://runpython.org? Is a web site? Embedded in 
-  a single board computer? 
-* If there are graphics screens involved, describe every screen that the user will experience: what is it for? 
-  What did the user have to do to get there and how does she move on to the next?
-* For each graphics screen, describe every active control input and what it does. What elements on the screen will
-  change in response to user input?
-* Does the program respond to mouse input? What, exactly, does the mouse do?
-* Does the program respond to keyboard input? How?
-* What graphical assets will be used?
-* Does the user have to do anything to install the program?
-
-Your specification should **not** include the following types of information:
-
-* The language you will use to create it.
-* Names of any specific files in the project.
-* How you will structure the classes, functions and code in your program.
-* The name of any files or tools that you will use to design the program.
+- This game uses a recurrent function to refresh the board each time the user presses a specific key and displays various changes based on the key they press and the random design of the board. 
+- The user can access the game by downloading the text from a text editor and calling it in the mac terminal:
+		For example: if code is saved to downloads, go to terminal and type “cd downloads” and then type “python ‘name_of_file’” 
+- The user always sees the same display board, although its interior changes as you perform actions throughout the game. 
+- This game uses one screen which can be altered by pressing single key commands. These elements include pound signs being flagged or uncovered to reveal a mine, a number, or an empty space. 
+- This program doesn’t use the mouse; instead, the arrows can be used to move from space to space on the displayed board.
+- No graphic assets were used to display the board or play the game. 
+- No installation is required, although it may require a downloaded python app to download the file to be run in the terminal. 
