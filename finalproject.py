@@ -142,9 +142,9 @@ class Collide(Sprite):
 
 class Wallblock(Sprite):
     def __init__(self, x, y, w, h, color):
-        grid=lambda W: (W-W%51)
+        
         super().__init__(RectangleAsset(w-1,h-1,noline, color),
-            (grid(x), grid(y)))
+            (x,y)
         collideswith = self.collidingWithSprites(type(self))
         if len(collideswith):
             collideswith[0].destroy()
