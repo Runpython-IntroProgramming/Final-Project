@@ -56,6 +56,8 @@ class Player(Sprite):
         self.collidebottom=Collide(position,10,5,blue)
         self.collideleft=Collide(position,5,22,red)
         self.collideright=Collide(position,5,22,pink)
+        self.leftslide=False
+        self.rightslide=False
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
@@ -91,19 +93,29 @@ class Player(Sprite):
                 self.vy=0
                 self.resting=1
         elif len(downcollide)==0:
-            self.vy=self.vy+.2
+            if self.rightslide==True:
+                self.vy=1
+            else:
+                self.vy=self.vy+.2
             self.resting=0
             if len(upcollide):
                 self.y=self.y+3
                 self.vy=self.vy*-.5
+            
+                
         leftcollide=self.collideleft.collidingWithSprites(Block)
         if len(leftcollide):
             self.x=self.x+3
-            self.vx=self.vx*-0.5
+            self.vx=0
         rightcollide=self.collideright.collidingWithSprites(Block)
         if len(rightcollide):
             self.x=self.x-3
-            self.vx=self.vx*-0.5
+            self.vx=0
+            if self.right==1:
+                self.rightslide=True
+        if not len(rightcollide):
+            self.rightslide=False
+        
         if self.left==1:
             self.vx=-3
         else:
@@ -142,9 +154,9 @@ class Collide(Sprite):
 
 class Wallblock(Sprite):
     def __init__(self, x, y, w, h, color):
-        
+        grid=lambda W: (W-W%51)
         super().__init__(RectangleAsset(w-1,h-1,noline, color),
-            (x,y)
+            (grid(x), grid(y)))
         collideswith = self.collidingWithSprites(type(self))
         if len(collideswith):
             collideswith[0].destroy()
@@ -152,6 +164,12 @@ class Wallblock(Sprite):
 class Platform(Wallblock):
     def __init__(self, x, y):
         super().__init__(x, y, 50, 10, blue)
+class Block(Wallblock):
+    def __init__(self, x, y):
+        super().__init__(x, y, 50, 50, red)
+"""class Longblock(Wallblock):
+    def __init__(self, x, y):
+        super().__init__(x, y, 101, 50, pink)"""
 class sprong(Wallblock):
     def __init__(self, x, y):
         super().__init__(x, y, 50, 10, pink)
