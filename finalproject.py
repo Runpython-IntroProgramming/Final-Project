@@ -152,12 +152,6 @@ class Wallblock(Sprite):
 class Platform(Wallblock):
     def __init__(self, x, y):
         super().__init__(x, y, 50, 10, blue)
-class Block(Wallblock):
-    def __init__(self, x, y):
-        super().__init__(x, y, 50, 50, red)
-"""class Longblock(Wallblock):
-    def __init__(self, x, y):
-        super().__init__(x, y, 101, 50, pink)"""
 class sprong(Wallblock):
     def __init__(self, x, y):
         super().__init__(x, y, 50, 10, pink)
