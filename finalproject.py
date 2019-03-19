@@ -83,7 +83,7 @@ class Player(Sprite):
             
             self.vy=-10
         if len(downcollide)>0:
-            print("yno")   
+             
             if self.vy>0:
                 if self.vy>=3:
                     self.vy=0
