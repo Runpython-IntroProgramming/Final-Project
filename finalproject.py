@@ -63,6 +63,7 @@ class Player(Sprite):
         SpaceGame.listenKeyEvent("keyup", "left arrow", self.leftoff)
         SpaceGame.listenKeyEvent("keydown", "right arrow", self.righton)
         SpaceGame.listenKeyEvent("keyup", "right arrow", self.rightoff)
+        SpaceGame.listenKeyEvent("keydown", "down arrow", self.leap)
         self.fxcenter = self.fycenter = 0.5
         
     def step(self):
@@ -95,9 +96,9 @@ class Player(Sprite):
         elif len(downcollide)==0:
             if self.rightslide==True and self.vy>1:
                 self.vy=1
-                
+                self.leftleap=True
             if self.leftslide==True and self.vy>1:
-        
+                self.rightleap=True
                 self.vy=1
             else:
                 self.vy=self.vy+.2
@@ -114,7 +115,7 @@ class Player(Sprite):
         self.leftslide=True
         if not len(leftcollide):
             self.leftslide=False
-            
+            self.rightleap=False
         rightcollide=self.collideright.collidingWithSprites(Variblock)
         if len(rightcollide):
             self.x=self.x-3
@@ -122,7 +123,7 @@ class Player(Sprite):
             self.rightslide=True
         if not len(rightcollide):
             self.rightslide=False
-    
+            self.leftleap=False
         if self.left==1:
             self.vx=-3
         else:
@@ -151,7 +152,7 @@ class Player(Sprite):
         self.right=1
     def rightoff(self, event):
         self.right=0
-
+    def leap
 class Collide(Sprite):
     def __init__(self, position,w,h,color):
         super().__init__(RectangleAsset(w,h,noline, color), position)
