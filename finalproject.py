@@ -93,6 +93,7 @@ class Player(Sprite):
             if self.rightslide==True and self.vy>1:
                 self.vy=1
             if self.leftslide==True and self.vy>1:
+        
                 self.vy=1
             else:
                 self.vy=self.vy+.2
@@ -106,19 +107,18 @@ class Player(Sprite):
         if len(leftcollide):
             self.x=self.x+3
             self.vx=0
-            if self.left==1:
-                self.leftslide=True
+        self.leftslide=True
         if not len(leftcollide):
             self.leftslide=False
+            
         rightcollide=self.collideright.collidingWithSprites(Block)
         if len(rightcollide):
             self.x=self.x-3
             self.vx=0
-            if self.right==1:
-                self.rightslide=True
+            self.rightslide=True
         if not len(rightcollide):
             self.rightslide=False
-        
+    
         if self.left==1:
             self.vx=-3
         else:
@@ -129,14 +129,13 @@ class Player(Sprite):
         
         if self.thrust == 1:
             self.vy = -7
-            
             self.thrust=0
         else:
             if self.y>=x:
                 self.vy=0
         
     def thrustOn(self, event):
-        if self.y>=x or self.resting==1:
+        if self.resting==1:
             self.thrust = 1
     def thrustOff(self, event):
         self.thrust = 0
