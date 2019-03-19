@@ -55,6 +55,8 @@ class Player(Sprite):
         self.collideright=Collide(position,5,22,pink)
         self.leftslide=False
         self.rightslide=False
+        self.leftleap=False
+        self.rightleap=False
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
@@ -93,6 +95,7 @@ class Player(Sprite):
         elif len(downcollide)==0:
             if self.rightslide==True and self.vy>1:
                 self.vy=1
+                
             if self.leftslide==True and self.vy>1:
         
                 self.vy=1
@@ -104,7 +107,7 @@ class Player(Sprite):
                 self.vy=self.vy*-.5
             
                 
-        leftcollide=self.collideleft.collidingWithSprites(Block)
+        leftcollide=self.collideleft.collidingWithSprites(Variblock)
         if len(leftcollide):
             self.x=self.x+3
             self.vx=0
@@ -112,7 +115,7 @@ class Player(Sprite):
         if not len(leftcollide):
             self.leftslide=False
             
-        rightcollide=self.collideright.collidingWithSprites(Block)
+        rightcollide=self.collideright.collidingWithSprites(Variblock)
         if len(rightcollide):
             self.x=self.x-3
             self.vx=0
