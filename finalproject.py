@@ -94,7 +94,8 @@ class Player(Sprite):
                 self.resting=1
         elif len(downcollide)==0:
             if self.rightslide==True:
-                self.vy=1
+                if self.vy>1:
+                    self.vy=self.vy-.2
             else:
                 self.vy=self.vy+.2
             self.resting=0
