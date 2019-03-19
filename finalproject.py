@@ -40,7 +40,7 @@ class Player(Sprite):
     asset = RectangleAsset(10,20,blkline,green) 
     
     
-    def __init__(self, position,):
+    def __init__(self, position):
         super().__init__(Player.asset, position)
         self.vx = 0
         self.vy = 0
@@ -74,8 +74,8 @@ class Player(Sprite):
         self.collideright.y =self.y
         self.collideleft.x =self.x-7
         self.collideleft.y =self.y
-        upcollide=self.collidetop.collidingWithSprites(Block)
-        downcollide=self.collidebottom.collidingWithSprites(Block)
+        upcollide=self.collidetop.collidingWithSprites(Variblock)
+        downcollide=self.collidebottom.collidingWithSprites(Variblock)
         downcollidep=self.collidebottom.collidingWithSprites(Platform)
         downcollide.extend(downcollidep)
         downcollides=self.collidebottom.collidingWithSprites(sprong)
@@ -83,6 +83,7 @@ class Player(Sprite):
             
             self.vy=-10
         if len(downcollide)>0:
+            print("yno")   
             if self.vy>0:
                 if self.vy>=3:
                     self.vy=0
@@ -170,9 +171,11 @@ class Platform(Wallblock):
 class Block(Wallblock):
     def __init__(self, x, y):
         super().__init__(x, y, 50, 50, red)
-class Longblock(polyblock):
-    def __init__(self, x, y):
-        super().__init__(PolygonAsset([(200,200),(10,20),(40,50)],noline,black))
+
+class Variblock(Sprite):
+    def __init__(self, w, h, x, y):
+        super().__init__(RectangleAsset(w,h,noline,grey),(x,y))
+
 class sprong(Wallblock):
     def __init__(self, x, y):
         super().__init__(x, y, 50, 10, pink)
@@ -189,11 +192,12 @@ class SpaceGame(App):
         ground_asset = RectangleAsset(self.width, beeg, noline, white)
         #bg = Sprite(bg_asset, (0,0))
         ground = Sprite(ground_asset, (0, x+beeg/2))
-        Player((100,100))
+        self.levelindex=0
         self.listenKeyEvent("keydown", "w", self.Block)
         self.listenKeyEvent("keydown", "p", self.Platform)
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "l", self.sprong)
+        self.listenKeyEvent("keydown", "enter", self.newlevel)
     def Mouse(self, event):
         self.pos = (event.x, event.y)
     
@@ -203,6 +207,12 @@ class SpaceGame(App):
         Platform(self.pos[0], self.pos[1])
     def sprong(self,event):
         sprong(self.pos[0], self.pos[1])  
+    def newlevel(self,event):
+        if self.levelindex==0:
+            Player((100,100))
+            Variblock(50,800,0,0)
+            Variblock(1050,50,0,500)
+            self.levelindex=1
         
     def step(self):
         for ship in self.getSpritesbyClass(Player):
