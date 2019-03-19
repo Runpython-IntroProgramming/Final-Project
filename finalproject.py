@@ -129,6 +129,7 @@ class Player(Sprite):
         
         if self.thrust == 1:
             self.vy = -7
+            
             self.thrust=0
         else:
             if self.y>=x:
