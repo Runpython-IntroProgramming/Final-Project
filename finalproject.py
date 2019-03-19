@@ -170,9 +170,9 @@ class Platform(Wallblock):
 class Block(Wallblock):
     def __init__(self, x, y):
         super().__init__(x, y, 50, 50, red)
-"""class Longblock(Wallblock):
+class Longblock(polyblock):
     def __init__(self, x, y):
-        super().__init__(x, y, 101, 50, pink)"""
+        super().__init__(PolygonAsset([(200,200),(10,20),(40,50)],noline,black))
 class sprong(Wallblock):
     def __init__(self, x, y):
         super().__init__(x, y, 50, 10, pink)
