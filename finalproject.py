@@ -37,9 +37,6 @@ grid=RectangleAsset(30,30,gridline,white)
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
 class Player(Sprite):
-    """
-    Animated space ship
-    """
     asset = RectangleAsset(10,20,blkline,green) 
     
     
@@ -93,9 +90,10 @@ class Player(Sprite):
                 self.vy=0
                 self.resting=1
         elif len(downcollide)==0:
-            if self.rightslide==True:
-                if self.vy>1:
-                    self.vy=self.vy-.2
+            if self.rightslide==True and self.vy>1:
+                self.vy=1
+            if self.leftslide==True and self.vy>1:
+                self.vy=1
             else:
                 self.vy=self.vy+.2
             self.resting=0
@@ -108,6 +106,10 @@ class Player(Sprite):
         if len(leftcollide):
             self.x=self.x+3
             self.vx=0
+            if self.left==1:
+                self.leftslide=True
+        if not len(leftcollide):
+            self.leftslide=False
         rightcollide=self.collideright.collidingWithSprites(Block)
         if len(rightcollide):
             self.x=self.x-3
