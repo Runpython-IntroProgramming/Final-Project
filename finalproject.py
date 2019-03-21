@@ -51,8 +51,8 @@ class Player(Sprite):
         self.resting=0
         self.collidetop=Collide(position,15,5,green)
         self.collidebottom=Collide(position,10,5,blue)
-        self.collideleft=Collide(position,5,22,red)
-        self.collideright=Collide(position,5,22,pink)
+        self.collideleft=Collide(position,5,15,red)
+        self.collideright=Collide(position,5,15,pink)
         self.leftslide=False
         self.rightslide=False
         self.leftleap=False
@@ -88,8 +88,9 @@ class Player(Sprite):
         if len(downcollide):
              if self.vy>0:
                 if self.vy>=3:
+                    self.y=self.y-self.vy*0.3
                     self.vy=0
-                    self.y=self.y-3
+                    
                 self.vy=0
                 self.resting=1
         elif len(downcollide)==0:
@@ -109,6 +110,7 @@ class Player(Sprite):
                 
         leftcollide=self.collideleft.collidingWithSprites(Variblock)
         if len(leftcollide):
+            #print("left")
             self.x=self.x-self.vx
             self.vx=0
         self.leftslide=True
@@ -117,6 +119,7 @@ class Player(Sprite):
             self.rightleap=False
         rightcollide=self.collideright.collidingWithSprites(Variblock)
         if len(rightcollide):
+            #print("right")
             self.x=self.x-self.vx
             self.vx=0
             self.rightslide=True
