@@ -128,12 +128,12 @@ class Player(Sprite):
             self.rightslide=False
             self.leftleap=False
         if self.left==1:
-            if self.vx>=-5:
-                self.vx=self.vx-.5
+            if self.vx>=-3:
+                self.vx=self.vx-.3
         else:
             if self.right==1:
-                if self.vx<=5:
-                    self.vx=self.vx+.5
+                if self.vx<=3:
+                    self.vx=self.vx+.3
             else:
                 if self.resting==1:
                     self.vx=0
@@ -146,9 +146,11 @@ class Player(Sprite):
                 self.vy=0
         if self.leap==True:
             if self.rightleap==True:
-                self.vx=10
+                self.vx=7
+                self.vy=-5
             if self.leftleap==True:
-                self.vx=-10
+                self.vx=-7
+                self.vy=-5
     def thrustOn(self, event):
         if self.resting==1:
             self.thrust = 1
