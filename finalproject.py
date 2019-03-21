@@ -57,15 +57,15 @@ class Player(Sprite):
         self.rightslide=False
         self.leftleap=False
         self.rightleap=False
-        self.leap=0
+        self.leap=False
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
         SpaceGame.listenKeyEvent("keyup", "left arrow", self.leftoff)
         SpaceGame.listenKeyEvent("keydown", "right arrow", self.righton)
         SpaceGame.listenKeyEvent("keyup", "right arrow", self.rightoff)
-        SpaceGame.listenKeyEvent("keydown", "down arrow", self.leap)
-        SpaceGame.listenKeyEvent("keyup", "down arrow", self.noleap)
+        SpaceGame.listenKeyEvent("keydown", "down arrow", self.Leap)
+        SpaceGame.listenKeyEvent("keyup", "down arrow", self.noLeap)
         self.fxcenter = self.fycenter = 0.5
         
     def step(self):
@@ -144,10 +144,10 @@ class Player(Sprite):
         else:
             if self.y>=x:
                 self.vy=0
-        if self.leap==1:
+        if self.leap==True:
             if self.rightleap==True:
                 self.vx=10
-            elif self.leftleap==True:
+            if self.leftleap==True:
                 self.vx=-10
     def thrustOn(self, event):
         if self.resting==1:
@@ -162,10 +162,10 @@ class Player(Sprite):
         self.right=1
     def rightoff(self, event):
         self.right=0
-    def leap(self, event):
-        self.leap=1
-    def noleap(self, event):
-        self.leap=0
+    def Leap(self, event):
+        self.leap=True
+    def noLeap(self, event):
+        self.leap=False
 class Collide(Sprite):
     def __init__(self, position,w,h,color):
         super().__init__(RectangleAsset(w,h,noline, color), position)
