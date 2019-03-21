@@ -57,13 +57,14 @@ class Player(Sprite):
         self.rightslide=False
         self.leftleap=False
         self.rightleap=False
+        self.leap=False
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
         SpaceGame.listenKeyEvent("keyup", "left arrow", self.leftoff)
         SpaceGame.listenKeyEvent("keydown", "right arrow", self.righton)
         SpaceGame.listenKeyEvent("keyup", "right arrow", self.rightoff)
-        #SpaceGame.listenKeyEvent("keydown", "down arrow", self.leap)
+        SpaceGame.listenKeyEvent("keydown", "down arrow", self.leap)
         self.fxcenter = self.fycenter = 0.5
         
     def step(self):
@@ -74,9 +75,9 @@ class Player(Sprite):
         self.collidebottom.x =self.x
         self.collidebottom.y =self.y+10
         self.collideright.x =self.x+7
-        self.collideright.y =self.y
+        self.collideright.y =self.y-1
         self.collideleft.x =self.x-7
-        self.collideleft.y =self.y
+        self.collideleft.y =self.y-1
         upcollide=self.collidetop.collidingWithSprites(Variblock)
         downcollide=self.collidebottom.collidingWithSprites(Variblock)
         downcollidep=self.collidebottom.collidingWithSprites(Platform)
@@ -143,7 +144,11 @@ class Player(Sprite):
         else:
             if self.y>=x:
                 self.vy=0
-        
+        if self.leap==True:
+            if self.rightleap==True:
+                self.vx=10
+            elif self.leftleap==True:
+                self.vx=-10
     def thrustOn(self, event):
         if self.resting==1:
             self.thrust = 1
@@ -157,7 +162,8 @@ class Player(Sprite):
         self.right=1
     def rightoff(self, event):
         self.right=0
-    #def leap
+    def leap(self, event):
+        self.leap=True
 class Collide(Sprite):
     def __init__(self, position,w,h,color):
         super().__init__(RectangleAsset(w,h,noline, color), position)
