@@ -85,9 +85,8 @@ class Player(Sprite):
         if len(downcollides):
             
             self.vy=-10
-        if len(downcollide)>0:
-             
-            if self.vy>0:
+        if len(downcollide):
+             if self.vy>0:
                 if self.vy>=3:
                     self.vy=0
                     self.y=self.y-3
