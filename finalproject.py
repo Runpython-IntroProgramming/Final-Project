@@ -85,7 +85,6 @@ class Player(Sprite):
         downcollide.extend(downcollidep)
         downcollides=self.collidebottom.collidingWithSprites(sprong)
         if len(downcollides):
-            
             self.vy=-10
         if len(downcollide):
              if self.vy>0:
