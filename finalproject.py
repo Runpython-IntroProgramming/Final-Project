@@ -110,7 +110,7 @@ class Player(Sprite):
                 
         leftcollide=self.collideleft.collidingWithSprites(Variblock)
         if len(leftcollide):
-            self.x=self.x+3
+            self.x=self.x-self.vx
             self.vx=0
         self.leftslide=True
         if not len(leftcollide):
@@ -118,7 +118,7 @@ class Player(Sprite):
             self.rightleap=False
         rightcollide=self.collideright.collidingWithSprites(Variblock)
         if len(rightcollide):
-            self.x=self.x-3
+            self.x=self.x-self.vx
             self.vx=0
             self.rightslide=True
         if not len(rightcollide):
@@ -165,9 +165,8 @@ class Collide(Sprite):
 
 class Wallblock(Sprite):
     def __init__(self, x, y, w, h, color):
-        grid=lambda W: (W-W%51)
         super().__init__(RectangleAsset(w-1,h-1,noline, color),
-            (grid(x), grid(y)))
+            (x, y))
         collideswith = self.collidingWithSprites(type(self))
         if len(collideswith):
             collideswith[0].destroy()
@@ -220,6 +219,8 @@ class SpaceGame(App):
             Variblock(50,800,0,0)
             Variblock(1050,50,0,500)
             Variblock(50,800,970,0)
+            sprong(500,500)
+            Variblock(200,30,550,300)
             self.levelindex=1
         
     def step(self):
