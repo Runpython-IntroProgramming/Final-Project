@@ -216,6 +216,7 @@ class SpaceGame(App):
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "l", self.sprong)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
+        levelfinish=self.Player.collidingWithSprites(self)
     def Mouse(self, event):
         self.pos = (event.x, event.y)
     
