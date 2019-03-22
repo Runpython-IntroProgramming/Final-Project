@@ -233,6 +233,7 @@ class SpaceGame(App):
             Variblock(50,800,970,0)
             sprong(500,500)
             Variblock(200,30,550,300)
+            Variblock(200,30,0,300)
             self.levelindex=1
         
     def step(self):
