@@ -198,10 +198,8 @@ class sprong(Wallblock):
     def __init__(self, x, y):
         super().__init__(x, y, 50, 10, pink)
 class goal(Sprite):
-    def __init__(self, position,w,h,color):
-        super().__init__(RectangleAsset(30,30,noline, red, position)
-        self.fxcenter = 0.5
-        self.fycenter = 0.5
+    def __init__(self, w, h, x, y):
+        super().__init__(RectangleAsset(w,h,noline,red),(x,y))
         
 
         
@@ -223,7 +221,7 @@ class SpaceGame(App):
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "l", self.sprong)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
-        levelfinish=self.Player.collidingWithSprites(goal)
+        self.levelfinish=[]
     def Mouse(self, event):
         self.pos = (event.x, event.y)
     
@@ -242,10 +240,11 @@ class SpaceGame(App):
             sprong(500,500)
             Variblock(200,30,550,300)
             Variblock(200,30,0,300)
-            goal(400,400)
+            goal(20,20,50,270)
             self.levelindex=1
         
     def step(self):
+        self.levelfinish=self.Player.collidingWithSprites(goal)
         for ship in self.getSpritesbyClass(Player):
             ship.step()
         
