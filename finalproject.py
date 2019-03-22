@@ -222,6 +222,7 @@ class SpaceGame(App):
         self.listenKeyEvent("keydown", "l", self.sprong)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.levelfinish=[]
+        self.terrainlist=[]
         self.p = None
     def Mouse(self, event):
         self.pos = (event.x, event.y)
@@ -242,9 +243,11 @@ class SpaceGame(App):
             Variblock(200,30,550,300)
             Variblock(200,30,0,300)
             goal(20,20,50,270)
+            self.terrainlist=getSpritesbyClass(Variblock)
         if self.levelindex==1:
             print("yeet")
-            Variblock.destroy(self)
+            for terrain in self.terrainlist:
+                destroy()
         
     def step(self):
         if self.p:
