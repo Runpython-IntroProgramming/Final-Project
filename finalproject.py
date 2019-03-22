@@ -244,13 +244,13 @@ class SpaceGame(App):
             goal(20,20,50,270)
         if self.levelindex==1:
             print("yeet")
+            Variblock.destroy(self)
         
     def step(self):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
-        if len(self.levelfinish):
-            self.levelindex=1
-            self.levelfinish=[]
+            if len(self.levelfinish):
+                self.levelindex=1
         for ship in self.getSpritesbyClass(Player):
             ship.step()
         
