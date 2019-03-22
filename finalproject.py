@@ -222,6 +222,7 @@ class SpaceGame(App):
         self.listenKeyEvent("keydown", "l", self.sprong)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.levelfinish=[]
+        self.p = None
     def Mouse(self, event):
         self.pos = (event.x, event.y)
     
@@ -233,7 +234,7 @@ class SpaceGame(App):
         sprong(self.pos[0], self.pos[1])  
     def newlevel(self,event):
         if self.levelindex==0:
-            Player((100,100))
+            self.p = Player((100,100))
             Variblock(50,800,0,0)
             Variblock(1050,50,0,500)
             Variblock(50,800,970,0)
@@ -244,7 +245,8 @@ class SpaceGame(App):
             self.levelindex=1
         
     def step(self):
-        self.levelfinish=self.Player.collidingWithSprites(goal)
+        if self.p:
+            self.levelfinish=self.p.collidingWithSprites(goal)
         for ship in self.getSpritesbyClass(Player):
             ship.step()
         
