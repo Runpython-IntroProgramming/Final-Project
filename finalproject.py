@@ -224,7 +224,7 @@ class SpaceGame(App):
         self.listenKeyEvent("keydown", "l", self.sprong)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.levelfinish=[]
-        self.terrainlist=[]
+        self.terrainlist=None
         self.p = None
     def Mouse(self, event):
         self.pos = (event.x, event.y)
@@ -245,9 +245,6 @@ class SpaceGame(App):
             Variblock(200,30,0,300)
             goal(20,20,500,500)
             Spike(100,10,300,300)
-            self.terrainlist=self.getSpritesbyClass(Variblock)
-            self.terrainlist.append(self.getSpritesbyClass(Player))
-            self.terrainlist.append(self.getSpritesbyClass(Spike))
         if self.levelindex==1:
             for s in self.getSpritesbyClass(Variblock):
                 s.destroy()
@@ -259,9 +256,12 @@ class SpaceGame(App):
             if len(self.levelfinish):
                 self.levelindex=1
             if len(self.playerhurt):
-                for s in self.terrainlist:
-                    s.destroy()
-                    
+                for s in self.getSpritesbyClass(Player):
+                    s.destroy
+                for s in self.getSpritesbyClass(Spike):
+                    s.destroy
+                for s in self.getSpritesbyClass(Variblock):
+                    s.destroy
         for ship in self.getSpritesbyClass(Player):
             ship.step()
         
