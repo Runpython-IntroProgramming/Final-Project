@@ -245,7 +245,9 @@ class SpaceGame(App):
             Variblock(200,30,0,300)
             goal(20,20,500,500)
             Spike(100,10,300,300)
-            
+            self.terrainlist=self.getSpritesbyClass(Variblock)
+            self.terrainlist.append(self.getSpritesbyClass(Player))
+            self.terrainlist.append(self.getSpritesbyClass(Spike))
         if self.levelindex==1:
             for s in self.getSpritesbyClass(Variblock):
                 s.destroy()
@@ -257,10 +259,9 @@ class SpaceGame(App):
             if len(self.levelfinish):
                 self.levelindex=1
             if len(self.playerhurt):
-                for s in self.getSpritesbyClass(Variblock):
+                for s in self.terrainlist:
                     s.destroy()
-                for p in self.getSpritesbyClass(Player):
-                    p.destroy()
+                    
         for ship in self.getSpritesbyClass(Player):
             ship.step()
         
