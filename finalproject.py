@@ -243,7 +243,7 @@ class SpaceGame(App):
             Variblock(50,800,970,0)
             Variblock(200,30,550,300)
             Variblock(200,30,0,300)
-            goal(20,20,500,500)
+            goal(20,20,500,470)
             Spike(100,10,300,300)
         if self.levelindex==1:
             for s in self.getSpritesbyClass(Variblock):
@@ -257,11 +257,11 @@ class SpaceGame(App):
                 self.levelindex=1
             if len(self.playerhurt):
                 for s in self.getSpritesbyClass(Player):
-                    s.destroy
-                for s in self.getSpritesbyClass(Spike):
-                    s.destroy
-                for s in self.getSpritesbyClass(Variblock):
-                    s.destroy
+                    s.destroy()
+                for q in self.getSpritesbyClass(Spike):
+                    q.destroy()
+                for a in self.getSpritesbyClass(Variblock):
+                    a.destroy()
         for ship in self.getSpritesbyClass(Player):
             ship.step()
         
