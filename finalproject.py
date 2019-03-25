@@ -199,8 +199,10 @@ class sprong(Wallblock):
         super().__init__(x, y, 50, 10, pink)
 class goal(Sprite):
     def __init__(self, w, h, x, y):
-        super().__init__(RectangleAsset(w,h,noline,red),(x,y))
-        
+        super().__init__(RectangleAsset(w,h,noline,blue),(x,y))
+class Spike(Sprite):
+    def __init__(self, w, h, x, y):
+        super().__init__(RectangleAsset(w,h,noline,red),(x,y))    
 
         
 class SpaceGame(App):
@@ -239,11 +241,11 @@ class SpaceGame(App):
             Variblock(50,800,0,0)
             Variblock(1050,50,0,500)
             Variblock(50,800,970,0)
-            sprong(500,500)
             Variblock(200,30,550,300)
             Variblock(200,30,0,300)
-            goal(20,20,50,270)
-            self.terrainlist=getSpritesbyClass(Variblock)
+            goal(20,20,500,500)
+            Spike(100,10,300,300)
+            
         if self.levelindex==1:
             for s in self.getSpritesbyClass(Variblock):
                 s.destroy()
@@ -251,8 +253,14 @@ class SpaceGame(App):
     def step(self):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
+            self.playerhurt=self.p.collidingWithSprites(Spike)
             if len(self.levelfinish):
                 self.levelindex=1
+            if len(self.playerhurt):
+                for s in self.getSpritesbyClass(Variblock):
+                    s.destroy()
+                for p in self.getSpritesbyClass(Player):
+                    p.destroy()
         for ship in self.getSpritesbyClass(Player):
             ship.step()
         
