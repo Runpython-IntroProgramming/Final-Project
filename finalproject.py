@@ -245,9 +245,8 @@ class SpaceGame(App):
             goal(20,20,50,270)
             self.terrainlist=getSpritesbyClass(Variblock)
         if self.levelindex==1:
-            print("yeet")
-            for terrain in self.terrainlist:
-                destroy()
+            for s in self.getSpritesbyClass(Variblock):
+                s.destroy()
         
     def step(self):
         if self.p:
