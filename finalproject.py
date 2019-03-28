@@ -237,18 +237,49 @@ class SpaceGame(App):
         sprong(self.pos[0], self.pos[1])  
     def newlevel(self,event):
         if self.levelindex==0:
-            self.p = Player((100,100))
+            self.p = Player((60,50))
+            Variblock(50,800,0,0)
+            Variblock(1050,50,0,500)
+            Variblock(365,800,650,0)
+            ###NonborderTerrain
+            Variblock(230,400,50,150)
+            Variblock(100,30,400,150)
+            Variblock(30,100,400,150)
+            Spike(120,10,280,250)
+            
+            
+            Spike(200,10,450,400)
+          
+            self.levelindex=3
+            goal(20,20,500,470)
+        if self.levelindex==1:
+            for s in self.getSpritesbyClass(Player):
+                s.destroy()
+            for q in self.getSpritesbyClass(Spike):
+                q.destroy()
+            for a in self.getSpritesbyClass(Variblock):
+                a.destroy()
+            self.p = Player((60,50))
             Variblock(50,800,0,0)
             Variblock(1050,50,0,500)
             Variblock(50,800,970,0)
-            Variblock(200,30,550,300)
-            Variblock(200,30,0,300)
-            goal(20,20,500,470)
-            Spike(100,10,300,300)
-        if self.levelindex==1:
-            for s in self.getSpritesbyClass(Variblock):
-                s.destroy()
-        
+            ###NonborderTerrain
+            Variblock(200,30,50,150)
+            Spike(200,10,50,145)
+            
+            Variblock(30,100,340,210)
+            Spike(30,10,340,205)
+            
+            Variblock(800,30,50,410)
+            Spike(800,10,50,400)
+            
+            Variblock(30,100,500,280)
+            Spike(10,100,490,280)
+            Spike(30,10,500,280)
+            
+            Variblock(30,100,680,270)
+            Spike(10,105,710,265)
+            Spike(30,10,680,265)
     def step(self):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
@@ -262,6 +293,7 @@ class SpaceGame(App):
                     q.destroy()
                 for a in self.getSpritesbyClass(Variblock):
                     a.destroy()
+                self.levelindex=0
         for ship in self.getSpritesbyClass(Player):
             ship.step()
         
