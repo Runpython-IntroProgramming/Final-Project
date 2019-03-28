@@ -218,10 +218,9 @@ class SpaceGame(App):
         #bg = Sprite(bg_asset, (0,0))
         ground = Sprite(ground_asset, (0, x+beeg/2))
         self.levelindex=0
-        self.listenKeyEvent("keydown", "w", self.Block)
-        self.listenKeyEvent("keydown", "p", self.Platform)
+
         self.listenMouseEvent("mousemove", self.Mouse)
-        self.listenKeyEvent("keydown", "l", self.sprong)
+
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.levelfinish=[]
         self.terrainlist=None
@@ -229,12 +228,7 @@ class SpaceGame(App):
     def Mouse(self, event):
         self.pos = (event.x, event.y)
     
-    def Block(self,event):
-        Block(self.pos[0], self.pos[1])
-    def Platform(self,event):
-        Platform(self.pos[0], self.pos[1])
-    def sprong(self,event):
-        sprong(self.pos[0], self.pos[1])  
+  
     def newlevel(self,event):
         if self.levelindex==0:
             self.p = Player((60,50))
@@ -244,8 +238,9 @@ class SpaceGame(App):
             ###NonborderTerrain
             Variblock(230,400,50,150)
             Variblock(100,30,400,150)
-            Variblock(30,100,400,150)
+            Variblock(30,130,400,150)
             Spike(120,10,280,250)
+            Spike(10,100,430,180)
             
             
             Spike(200,10,450,400)
@@ -297,6 +292,6 @@ class SpaceGame(App):
         for ship in self.getSpritesbyClass(Player):
             ship.step()
         
-print("use the arrow keys and spacebar for movement, 'l' for a spring, 'p' for a platform, and 'w' for a wall/ground block")        
+print("use the left and right arrows to move , space bar to jump, and down arrow when sliding on a wall to wall")        
 myapp = SpaceGame()
 myapp.run()
