@@ -6,7 +6,7 @@ Assignment:
 Write and submit a program that implements the sandbox platformer game:
 https://github.com/HHS-IntroProgramming/Platformer
 """
-from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, EllipseAsset, TextAsset, PolygonAsset, ImageAsset, Frame
+from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, TextAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 x=510
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
@@ -213,10 +213,12 @@ class SpaceGame(App):
         beeg=50
         black = Color(0, 1)
         noline = LineStyle(0, black)
-        TA = TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=Color(0x1122FF, 1.0))
-        self.Enter=TA,(300,300)
+        TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
+        self.Enter=Sprite(TA,(250,200))
         self.levelindex=0
+
         self.listenMouseEvent("mousemove", self.Mouse)
+
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.levelfinish=[]
         self.terrainlist=None
