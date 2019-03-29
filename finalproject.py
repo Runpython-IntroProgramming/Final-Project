@@ -74,7 +74,7 @@ class Player(Sprite):
         self.collidetop.x = self.x
         self.collidetop.y = self.y-13
         self.collidebottom.x =self.x
-        self.collidebottom.y =self.y+14
+        self.collidebottom.y =self.y+10
         self.collideright.x =self.x+7
         self.collideright.y =self.y-1
         self.collideleft.x =self.x-7
@@ -256,7 +256,7 @@ class SpaceGame(App):
                 a.destroy()
             for c in self.getSpritesbyClass(Collide):
                 c.destroy()
-            self.p = Player((80,200))
+            self.p = Player((60,50))
             Variblock(50,800,0,0)
             Variblock(1050,50,0,500)
             Variblock(50,800,970,0)
