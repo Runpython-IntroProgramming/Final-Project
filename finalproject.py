@@ -74,7 +74,7 @@ class Player(Sprite):
         self.collidetop.x = self.x
         self.collidetop.y = self.y-13
         self.collidebottom.x =self.x
-        self.collidebottom.y =self.y+10
+        self.collidebottom.y =self.y+12
         self.collideright.x =self.x+7
         self.collideright.y =self.y-1
         self.collideleft.x =self.x-7
@@ -299,7 +299,6 @@ class SpaceGame(App):
             self.levelfinish=self.p.collidingWithSprites(goal)
             self.playerhurt=self.p.collidingWithSprites(Spike)
             if len(self.levelfinish):
-                print("next!")
                 if self.progress==True:
                     self.levelindex=self.levelindex+1
                     self.progress=False
