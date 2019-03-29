@@ -173,7 +173,7 @@ class Collide(Sprite):
         super().__init__(RectangleAsset(w,h,noline, color), position)
         self.fxcenter = 0.5
         self.fycenter = 0.5
-        self.visible=True
+        self.visible=False
 
 class Wallblock(Sprite):
     def __init__(self, x, y, w, h, color):
