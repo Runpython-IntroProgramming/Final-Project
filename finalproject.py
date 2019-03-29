@@ -228,15 +228,15 @@ class SpaceGame(App):
   
     def newlevel(self,event):
         for s in self.getSpritesbyClass(Player):
-                s.destroy()
-            for s in self.getSpritesbyClass(Spike):
-                s.destroy()
-            for a in self.getSpritesbyClass(Variblock):
-                a.destroy()
-            for c in self.getSpritesbyClass(Collide):
-                c.destroy()
-            for s in self.getSpritesbyClass(sprong):
-                s.destroy()
+            s.destroy()
+        for s in self.getSpritesbyClass(Spike):
+            s.destroy()
+        for a in self.getSpritesbyClass(Variblock):
+            a.destroy()
+        for c in self.getSpritesbyClass(Collide):
+            c.destroy()
+        for s in self.getSpritesbyClass(sprong):
+            s.destroy()
         if self.Enter:
             self.Enter.destroy()
             self.Enter=None
