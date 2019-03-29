@@ -49,8 +49,8 @@ class Player(Sprite):
         self.right=0
         self.collidingwithsprites=0
         self.resting=0
-        self.collidetop=Collide(position,15,5,green)
-        self.collidebottom=Collide(position,10,5,blue)
+        self.collidetop=Collide(position,12,5,green)
+        self.collidebottom=Collide(position,8,5,blue)
         self.collideleft=Collide(position,5,15,red)
         self.collideright=Collide(position,5,15,pink)
         self.leftslide=False
@@ -72,9 +72,9 @@ class Player(Sprite):
         self.x += self.vx
         self.y += self.vy
         self.collidetop.x = self.x
-        self.collidetop.y = self.y-15
+        self.collidetop.y = self.y-13
         self.collidebottom.x =self.x
-        self.collidebottom.y =self.y+10
+        self.collidebottom.y =self.y+14
         self.collideright.x =self.x+7
         self.collideright.y =self.y-1
         self.collideleft.x =self.x-7
@@ -173,7 +173,7 @@ class Collide(Sprite):
         super().__init__(RectangleAsset(w,h,noline, color), position)
         self.fxcenter = 0.5
         self.fycenter = 0.5
-        self.visible=False
+        self.visible=True
 
 class Wallblock(Sprite):
     def __init__(self, x, y, w, h, color):
@@ -214,23 +214,24 @@ class SpaceGame(App):
         black = Color(0, 1)
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
-        self.Enter=Sprite(TA,(250,200))
+        self.Enter=Sprite(TA,(400,200))
         self.levelindex=0
-
         self.listenMouseEvent("mousemove", self.Mouse)
-
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.levelfinish=[]
         self.terrainlist=None
         self.p = None
+        self.progress=False
     def Mouse(self, event):
         self.pos = (event.x, event.y)
     
   
     def newlevel(self,event):
+        if self.Enter:
+            self.Enter.destroy()
+            self.Enter=None
         if self.levelindex==0:
-            if self.Enter:
-                self.Enter.destroy()
+            self.progress=True
             self.p = Player((60,50))
             Variblock(50,800,0,0)
             Variblock(1050,50,0,500)
@@ -242,18 +243,36 @@ class SpaceGame(App):
             Spike(120,10,280,250)
             Spike(10,100,430,180)
             
-            
             Spike(200,10,450,400)
-          
-            self.levelindex=3
+            self.levelindex=0
             goal(20,20,500,470)
         if self.levelindex==1:
+            self.progress=True
+            for s in self.getSpritesbyClass(Player):
+                s.destroy()
+            for s in self.getSpritesbyClass(Spike):
+                s.destroy()
+            for a in self.getSpritesbyClass(Variblock):
+                a.destroy()
+            for c in self.getSpritesbyClass(Collide):
+                c.destroy()
+            self.p = Player((80,200))
+            Variblock(50,800,0,0)
+            Variblock(1050,50,0,500)
+            Variblock(50,800,970,0)
+            Variblock(50,250,400,250)
+            sprong(350,500)
+            goal(20,20,500,470)
+        if self.levelindex==2:
+            self.progress=True
             for s in self.getSpritesbyClass(Player):
                 s.destroy()
             for q in self.getSpritesbyClass(Spike):
                 q.destroy()
             for a in self.getSpritesbyClass(Variblock):
                 a.destroy()
+            for c in self.getSpritesbyClass(Collide):
+                c.destroy()
             self.p = Player((60,50))
             Variblock(50,800,0,0)
             Variblock(1050,50,0,500)
@@ -280,7 +299,10 @@ class SpaceGame(App):
             self.levelfinish=self.p.collidingWithSprites(goal)
             self.playerhurt=self.p.collidingWithSprites(Spike)
             if len(self.levelfinish):
-                self.levelindex=1
+                print("next!")
+                if self.progress==True:
+                    self.levelindex=self.levelindex+1
+                    self.progress=False
             if len(self.playerhurt):
                 for s in self.getSpritesbyClass(Player):
                     s.destroy()
@@ -288,7 +310,10 @@ class SpaceGame(App):
                     q.destroy()
                 for a in self.getSpritesbyClass(Variblock):
                     a.destroy()
+                for c in self.getSpritesbyClass(Collide):
+                    c.destroy()
                 self.levelindex=0
+  
         for ship in self.getSpritesbyClass(Player):
             ship.step()
         
