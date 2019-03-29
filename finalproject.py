@@ -227,6 +227,16 @@ class SpaceGame(App):
     
   
     def newlevel(self,event):
+        for s in self.getSpritesbyClass(Player):
+                s.destroy()
+            for s in self.getSpritesbyClass(Spike):
+                s.destroy()
+            for a in self.getSpritesbyClass(Variblock):
+                a.destroy()
+            for c in self.getSpritesbyClass(Collide):
+                c.destroy()
+            for s in self.getSpritesbyClass(sprong):
+                s.destroy()
         if self.Enter:
             self.Enter.destroy()
             self.Enter=None
@@ -248,14 +258,7 @@ class SpaceGame(App):
             goal(20,20,500,470)
         if self.levelindex==1:
             self.progress=True
-            for s in self.getSpritesbyClass(Player):
-                s.destroy()
-            for s in self.getSpritesbyClass(Spike):
-                s.destroy()
-            for a in self.getSpritesbyClass(Variblock):
-                a.destroy()
-            for c in self.getSpritesbyClass(Collide):
-                c.destroy()
+            
             self.p = Player((60,50))
             Variblock(50,800,0,0)
             Variblock(1050,50,0,500)
@@ -265,14 +268,6 @@ class SpaceGame(App):
             goal(20,20,500,470)
         if self.levelindex==2:
             self.progress=True
-            for s in self.getSpritesbyClass(Player):
-                s.destroy()
-            for q in self.getSpritesbyClass(Spike):
-                q.destroy()
-            for a in self.getSpritesbyClass(Variblock):
-                a.destroy()
-            for c in self.getSpritesbyClass(Collide):
-                c.destroy()
             self.p = Player((60,50))
             Variblock(50,800,0,0)
             Variblock(1050,50,0,500)
@@ -311,6 +306,8 @@ class SpaceGame(App):
                     a.destroy()
                 for c in self.getSpritesbyClass(Collide):
                     c.destroy()
+                for s in self.getSpritesbyClass(sprong):
+                    s.destroy()
                 self.levelindex=0
   
         for ship in self.getSpritesbyClass(Player):
