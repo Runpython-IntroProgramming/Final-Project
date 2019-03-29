@@ -2,6 +2,7 @@
 platformer.py
 Author:waSclthu11
 Credit:The example platformer program helped a lot, especially with subclasses, which I used for the terrain. Also Mr.Dennison helped with the collision detection setup.
+Sprite credit link: https://goglilol.itch.io/cute-knight
 Assignment:
 Write and submit a program that implements the sandbox platformer game:
 https://github.com/HHS-IntroProgramming/Platformer
@@ -37,7 +38,8 @@ grid=RectangleAsset(30,30,gridline,white)
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
 class Player(Sprite):
-    asset = RectangleAsset(10,20,blkline,green) 
+    asset = ImageAsset("images/SpriteFinalproj1.png", Frame(30,0,200,64), 4, 'horizontal')
+
     
     
     def __init__(self, position):
@@ -173,7 +175,7 @@ class Collide(Sprite):
         super().__init__(RectangleAsset(w,h,noline, color), position)
         self.fxcenter = 0.5
         self.fycenter = 0.5
-        self.visible=False
+        self.visible=True
 
 class Wallblock(Sprite):
     def __init__(self, x, y, w, h, color):
@@ -312,7 +314,6 @@ class SpaceGame(App):
   
         for ship in self.getSpritesbyClass(Player):
             ship.step()
-        
 print("use the left and right arrows to move , space bar to jump, and down arrow when sliding on a wall to wall")        
 myapp = SpaceGame()
 myapp.run()
