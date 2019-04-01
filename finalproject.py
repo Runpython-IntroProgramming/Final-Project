@@ -38,12 +38,12 @@ grid=RectangleAsset(30,30,gridline,white)
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
 class Player(Sprite):
-    asset = ImageAsset("images/SpriteFinalproj1.png", Frame(30,0,200,64), 4, 'horizontal')
+    asset = ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 4, 'horizontal')
 
     
     
     def __init__(self, position):
-        super().__init__(Player.asset, position)
+        super().__init__(ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 4, 'horizontal'), position, CircleAsset(15))
         self.vx = 0
         self.vy = 0
         self.thrust = 0
@@ -60,6 +60,7 @@ class Player(Sprite):
         self.leftleap=False
         self.rightleap=False
         self.leap=False
+        self.thrustframe=0
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
@@ -71,6 +72,13 @@ class Player(Sprite):
         self.fxcenter = self.fycenter = 0.5
         
     def step(self):
+        if self.left == 0 and self.right==0:
+            self.setImage(self.thrustframe)
+            self.thrustframe += .25
+            if self.thrustframe == 8:
+                self.thrustframe = 1
+        else:
+            self.setImage(0)
         self.x += self.vx
         self.y += self.vy
         self.collidetop.x = self.x
@@ -175,7 +183,7 @@ class Collide(Sprite):
         super().__init__(RectangleAsset(w,h,noline, color), position)
         self.fxcenter = 0.5
         self.fycenter = 0.5
-        self.visible=True
+        self.visible=False
 
 class Wallblock(Sprite):
     def __init__(self, x, y, w, h, color):
