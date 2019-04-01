@@ -38,12 +38,13 @@ grid=RectangleAsset(30,30,gridline,white)
 from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
 
 class Player(Sprite):
-    asset = ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 4, 'horizontal')
-
+    asset = ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 8, 'horizontal')
+    asset.append("sheet_hero_walk.png", Frame(0,36,64,28), 3, 'horizontal')
+    #ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 8, 'horizontal')
     
     
     def __init__(self, position):
-        super().__init__(ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 4, 'horizontal'), position, CircleAsset(15))
+        super().__init__(Player.asset, position, CircleAsset(15))
         self.vx = 0
         self.vy = 0
         self.thrust = 0
@@ -95,7 +96,7 @@ class Player(Sprite):
         downcollide.extend(downcollidep)
         downcollides=self.collidebottom.collidingWithSprites(sprong)
         if len(downcollides):
-            self.vy=-10
+            self.vy=-15
         if len(downcollide):
              if self.vy>0:
                 if self.vy>=3:
@@ -112,7 +113,8 @@ class Player(Sprite):
                 self.rightleap=True
                 self.vy=1
             else:
-                self.vy=self.vy+.2
+                if self.vy<6:
+                    self.vy=self.vy+.3
             self.resting=0
             if len(upcollide):
                 self.y=self.y+3
@@ -138,18 +140,18 @@ class Player(Sprite):
             self.rightslide=False
             self.leftleap=False
         if self.left==1:
-            if self.vx>=-3:
-                self.vx=self.vx-.3
+            if self.vx>=-4:
+                self.vx=self.vx-.4
         else:
             if self.right==1:
-                if self.vx<=3:
-                    self.vx=self.vx+.3
+                if self.vx<=4:
+                    self.vx=self.vx+.4
             else:
                 if self.resting==1:
                     self.vx=0
         
         if self.thrust == 1:
-            self.vy = -7
+            self.vy = -6
             self.thrust=0
         else:
             if self.y>=x:
