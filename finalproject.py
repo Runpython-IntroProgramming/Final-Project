@@ -299,8 +299,8 @@ class SpaceGame(App):
             Variblock(200,30,50,150)
             Spike(200,10,50,145)
             
-            Variblock(30,100,340,210)
-            Spike(30,10,340,205)
+            Variblock(30,100,260,210)
+            Spike(30,10,260,205)
             
             Variblock(800,30,50,410)
             Spike(800,10,50,400)
