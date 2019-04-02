@@ -78,13 +78,13 @@ class Player(Sprite):
             self.thrustframe += .25
             if self.thrustframe >= 8:
                 self.thrustframe = 1
-        if self.left==1 or self.right==1:
+        """if self.left==1 or self.right==1:
             if self.thrustframe<9:
                 self.thrustframe=9
             self.setImage(self.thrustframe)
             self.thrustframe += .25
             if self.thrustframe == 11:
-                self.thrustframe = 9
+                self.thrustframe = 9"""
         #else:
          #   self.setImage(0)
         self.x += self.vx
@@ -238,7 +238,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=0
+        self.levelindex=2
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.levelfinish=[]
