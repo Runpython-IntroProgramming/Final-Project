@@ -309,9 +309,9 @@ class SpaceGame(App):
             Spike(100,10,420,310)
             Spike(10,30,420,280)
             
-            Variblock(30,100,680,270)
-            Spike(10,105,710,265)
-            Spike(30,10,680,265)
+            Variblock(30,100,600,220)
+            Spike(10,105,630,215)
+            Spike(30,10,600,215)
     def step(self):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
