@@ -39,7 +39,7 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 
 class Player(Sprite):
     asset = ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 8, 'horizontal')
-    asset.append("sheet_hero_walk.png", Frame(0,36,64,28), 3, 'horizontal')
+    asset.append("images/sheet_hero_walk.png", Frame(0,36,64,28), 3, 'horizontal')
     
     
     
@@ -78,13 +78,13 @@ class Player(Sprite):
             self.thrustframe += .25
             if self.thrustframe >= 8:
                 self.thrustframe = 1
-        """if self.left==1 or self.right==1:
+        if self.left==1 or self.right==1:
             if self.thrustframe<9:
                 self.thrustframe=9
             self.setImage(self.thrustframe)
             self.thrustframe += .25
             if self.thrustframe == 11:
-                self.thrustframe = 9"""
+                self.thrustframe = 9
         #else:
          #   self.setImage(0)
         self.x += self.vx
@@ -169,10 +169,10 @@ class Player(Sprite):
                 self.vy=0
         if self.leap==True:
             if self.rightleap==True:
-                self.vx=7
+                self.vx=6.5
                 self.vy=-5
             if self.leftleap==True:
-                self.vx=-7
+                self.vx=-6.5
                 self.vy=-5
     def thrustOn(self, event):
         if self.resting==1:
@@ -309,9 +309,9 @@ class SpaceGame(App):
             Spike(100,10,420,310)
             Spike(10,30,420,280)
             
-            Variblock(30,100,600,220)
-            Spike(10,105,630,215)
-            Spike(30,10,600,215)
+            Variblock(30,100,600,180)
+            Spike(10,105,630,175)
+            Spike(30,10,600,175)
     def step(self):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
