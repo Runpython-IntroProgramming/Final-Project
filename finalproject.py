@@ -80,20 +80,20 @@ class Player(Sprite):
             self.thrustframe += .25
             if self.thrustframe >= 8:
                 self.thrustframe = 1
-        elif self.left==1 or self.right==1:
+        elif (self.left==1 or self.right==1) and self.resting==1:
             if self.thrustframe<9:
                 self.thrustframe=9
-            if self.left==1:
+            """if self.left==1:
                 print("l")
                 self.width=-64
             if self.right==1:
                 print("r")
-                self.width=64
+                self.width=64"""
             self.setImage(self.thrustframe)
             self.thrustframe += .25
             if self.thrustframe == 11:
                 self.thrustframe = 9
-        elif self.resting==0:
+        if self.resting==0:
             if self.thrustframe<12:
                 self.thrustframe=12
             self.setImage(self.thrustframe)
