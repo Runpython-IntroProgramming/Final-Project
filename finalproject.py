@@ -40,7 +40,7 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 class Player(Sprite):
     asset = ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 8, 'horizontal')
     asset.append("sheet_hero_walk.png", Frame(0,36,64,28), 3, 'horizontal')
-    #ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 8, 'horizontal')
+    
     
     
     def __init__(self, position):
@@ -78,6 +78,12 @@ class Player(Sprite):
             self.thrustframe += .25
             if self.thrustframe == 8:
                 self.thrustframe = 1
+        if self.left==1 or self.right==1:
+            self.thrustframe=11
+            self.setImage(self.thrustframe)
+            self.thrustframe += .25
+            if self.thrustframe == 11:
+                self.thrustframe = 9
         else:
             self.setImage(0)
         self.x += self.vx
