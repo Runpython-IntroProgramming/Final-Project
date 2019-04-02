@@ -40,6 +40,7 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 class Player(Sprite):
     asset = ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 8, 'horizontal')
     asset.append("images/sheet_hero_walk.png", Frame(0,36,64,28), 3, 'horizontal')
+    asset.append("images/sleet_hero_jump.png", Frame(0,36,64,28), 3, 'horizontal')
     
     
     
@@ -63,8 +64,6 @@ class Player(Sprite):
         self.leap=False
         self.thrustframe=1
         self.width=64
-        self.r=True
-        self.l=True
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
@@ -85,8 +84,10 @@ class Player(Sprite):
             if self.thrustframe<9:
                 self.thrustframe=9
             if self.left==1:
+                print("l")
                 self.width=-64
             if self.right==1:
+                print("r")
                 self.width=64
             self.setImage(self.thrustframe)
             self.thrustframe += .25
