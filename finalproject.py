@@ -147,13 +147,13 @@ class Player(Sprite):
             self.rightslide=False
             self.leftleap=False
         if self.left==1:
-            if self.vx>0:
+            if self.vx>0 and len(downcollide):
                 self.vx=0
             if self.vx>=-4:
                 self.vx=self.vx-.4
         else:
             if self.right==1:
-                if self.vx<0:
+                if self.vx<0 and len(downcollide):
                     self.vx=0
                 if self.vx<=4:
                     self.vx=self.vx+.4
@@ -305,7 +305,7 @@ class SpaceGame(App):
             Variblock(800,30,50,410)
             Spike(800,10,50,400)
             
-            Variblock(30,100,500,280)
+            Variblock(100,30,400,280)
             Spike(10,100,490,280)
             Spike(30,10,500,280)
             
