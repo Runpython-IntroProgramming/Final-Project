@@ -39,7 +39,7 @@ from ggame import App, RectangleAsset, ImageAsset, Sprite, LineStyle, Color, Fra
 
 class Player(Sprite):
     asset = ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 8, 'horizontal')
-    asset.append("sheet_hero_walk.png", Frame(0,36,64,28), 3, 'horizontal')
+    asset.append("sheet_hero_walk.png", Frame(512,36,64,28), 3, 'horizontal')
     
     
     
@@ -61,7 +61,7 @@ class Player(Sprite):
         self.leftleap=False
         self.rightleap=False
         self.leap=False
-        self.thrustframe=0
+        self.thrustframe=1
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
@@ -75,17 +75,17 @@ class Player(Sprite):
     def step(self):
         if self.left == 0 and self.right==0:
             self.setImage(self.thrustframe)
-            self.thrustframe += .25
-            if self.thrustframe == 8:
+            self.thrustframe += .125
+            if self.thrustframe >= 8:
                 self.thrustframe = 1
         if self.left==1 or self.right==1:
-            self.thrustframe=11
+            self.thrustframe=0
             self.setImage(self.thrustframe)
             self.thrustframe += .25
             if self.thrustframe == 11:
                 self.thrustframe = 9
-        else:
-            self.setImage(0)
+        #else:
+         #   self.setImage(0)
         self.x += self.vx
         self.y += self.vy
         self.collidetop.x = self.x
@@ -146,10 +146,14 @@ class Player(Sprite):
             self.rightslide=False
             self.leftleap=False
         if self.left==1:
+            if self.vx>0:
+                self.vx=0
             if self.vx>=-4:
                 self.vx=self.vx-.4
         else:
             if self.right==1:
+                if self.vx<0:
+                    self.vx=0
                 if self.vx<=4:
                     self.vx=self.vx+.4
             else:
