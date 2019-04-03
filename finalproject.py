@@ -75,18 +75,25 @@ class Player(Sprite):
         self.fxcenter = self.fycenter = 0.5
         
     def step(self):
-        upcollide=self.collidetop.collidingWithSprites(Variblock)
+
         downcollide=self.collidebottom.collidingWithSprites(Variblock)
-        downcollidep=self.collidebottom.collidingWithSprites(Platform)
-        downcollide.extend(downcollidep)
-        downcollides=self.collidebottom.collidingWithSprites(sprong)
-        if self.left == 0 and self.right==0 and self.resting==1:
+        #Idle Animation
+        if self.vx==0 and self.resting==1:
             self.setImage(self.thrustframe)
             self.thrustframe += .25
             if self.thrustframe >= 8:
                 self.thrustframe = 1
-        elif (self.left==1 or self.right==1) and len(downcollide):
-            if self.thrustframe<9:
+        #Jump Animation
+        if not len(downcollide):
+            if self.thrustframe<12:
+                self.thrustframe=12
+            self.setImage(self.thrustframe)
+            self.thrustframe += .25
+            if self.thrustframe==16:
+                self.thrustframe=14   
+        #Running Animation
+        if (self.left==1 or self.right==1) and self.vy==0:
+            if self.thrustframe<9 or self.thrustframe>11:
                 self.thrustframe=9
             """if self.left==1:
                 print("l")
@@ -98,13 +105,7 @@ class Player(Sprite):
             self.thrustframe += .25
             if self.thrustframe == 11:
                 self.thrustframe = 9
-        if self.resting==0:
-            if self.thrustframe<12:
-                self.thrustframe=12
-            self.setImage(self.thrustframe)
-            self.thrustframe += .25
-            if self.thrustframe==16:
-                self.thrustframe=14
+
         #else:
          #   self.setImage(0)
         self.x += self.vx
