@@ -64,7 +64,6 @@ class Player(Sprite):
         self.leap=False
         self.thrustframe=1
         self.width=64
-        self.face=1
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
@@ -76,19 +75,11 @@ class Player(Sprite):
         self.fxcenter = self.fycenter = 0.5
         
     def step(self):
-        if self.left==1:
-            self.face=0
-        if self.right==1:
-            self.face=1
-        
+
         downcollide=self.collidebottom.collidingWithSprites(Variblock)
         #Idle Animation
         if self.vx==0 and self.resting==1:
             self.setImage(self.thrustframe)
-            if self.face==1:
-                self.width=64
-            else:
-                self.width=-64
             self.thrustframe += .25
             if self.thrustframe >= 8:
                 self.thrustframe = 1
@@ -97,10 +88,6 @@ class Player(Sprite):
             if self.thrustframe<12:
                 self.thrustframe=12
             self.setImage(self.thrustframe)
-            if self.face==1:
-                self.width=64
-            else:
-                self.width=-64
             self.thrustframe += .25
             if self.thrustframe==16:
                 self.thrustframe=14   
@@ -108,11 +95,13 @@ class Player(Sprite):
         if (self.left==1 or self.right==1) and self.vy==0:
             if self.thrustframe<9 or self.thrustframe>11:
                 self.thrustframe=9
-            self.setImage(self.thrustframe)
-            if self.face==1:
-                self.width=64
-            else:
+            """if self.left==1:
+                print("l")
                 self.width=-64
+            if self.right==1:
+                print("r")
+                self.width=64"""
+            self.setImage(self.thrustframe)
             self.thrustframe += .25
             if self.thrustframe == 11:
                 self.thrustframe = 9
