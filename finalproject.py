@@ -245,9 +245,9 @@ class goal(Sprite):
 class Spike(Sprite):
     def __init__(self, w, h, x, y):
         super().__init__(RectangleAsset(w,h,noline,red),(x,y))
-class Textbox(Sprite):
-    def __init__(self, w, h, x, y):
-        super().__init__(TextAsset(t, style="bold 40pt Arial", width=250, fill=Color(red)),(x,y))
+class textbox(Sprite):
+    def __init__(self, t, w, x, y):
+        super().__init__(TextAsset(t, style="bold 40pt Arial", width=w, fill=blue),(x,y))
 
         
 class SpaceGame(App):
@@ -283,6 +283,10 @@ class SpaceGame(App):
             c.destroy()
         for s in self.getSpritesbyClass(sprong):
             s.destroy()
+        for s in self.getSpritesbyClass(textbox):
+                    s.destroy()
+        for s in self.getSpritesbyClass(goal):
+                    s.destroy()
         if self.Enter:
             self.Enter.destroy()
             self.Enter=None
@@ -293,7 +297,8 @@ class SpaceGame(App):
             Variblock(1050,300,0,400)
             Spike(10,100,0,300)
             goal(20,100,1000,300)
-        if self.levelindex==0:
+            textbox("Press 'Enter' when touching the blue goal to complete the level. The red 'Spikes' will send you back.",1000,10,10)
+        if self.levelindex==1:
             self.progress=True
             self.p = Player((60,50))
             Variblock(50,800,0,0)
@@ -309,7 +314,14 @@ class SpaceGame(App):
             Spike(200,10,450,400)
             self.levelindex=0
             goal(20,20,500,470)
-        if self.levelindex==1:
+        if self.levelindex==1.5:
+            self.progress=True
+            self.p=Player((60,350))
+            Variblock(1050,300,0,0)
+            Variblock(1050,300,0,400)
+            Spike(10,100,0,300)
+            goal(20,100,1000,300)
+        if self.levelindex==2:
             self.progress=True
             
             self.p = Player((60,50))
@@ -319,7 +331,14 @@ class SpaceGame(App):
             Variblock(50,250,400,250)
             sprong(350,500)
             goal(20,20,500,470)
-        if self.levelindex==2:
+        if self.levelindex==2.5:
+            self.progress=True
+            self.p=Player((60,350))
+            Variblock(1050,300,0,0)
+            Variblock(1050,300,0,400)
+            Spike(10,100,0,300)
+            goal(20,100,1000,300)
+        if self.levelindex==3:
             self.progress=True
             self.p = Player((60,50))
             Variblock(50,800,0,0)
@@ -370,7 +389,9 @@ class SpaceGame(App):
                     c.destroy()
                 for s in self.getSpritesbyClass(sprong):
                     s.destroy()
-                self.levelindex=0
+                for s in self.getSpritesbyClass(textbox):
+                    s.destroy()
+                self.levelindex=.5
   
         for ship in self.getSpritesbyClass(Player):
             ship.step()
