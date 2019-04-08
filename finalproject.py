@@ -64,6 +64,7 @@ class Player(Sprite):
         self.leap=False
         self.thrustframe=1
         self.width=64
+        print(self.width)
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
@@ -95,14 +96,13 @@ class Player(Sprite):
         if (self.left==1 or self.right==1) and self.vy==0:
             if self.thrustframe<9 or self.thrustframe>11:
                 self.thrustframe=9
-            """if self.left==1:
-                print("l")
+            if self.left==1:
                 self.width=-64
+                print(self.width)
             if self.right==1:
-                print("r")
-                self.width=64"""
+                self.width=64
             self.setImage(self.thrustframe)
-            self.thrustframe += .25
+            self.thrustframe += .25 
             if self.thrustframe == 11:
                 self.thrustframe = 9
 
