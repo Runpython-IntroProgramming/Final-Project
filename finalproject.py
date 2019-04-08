@@ -45,7 +45,7 @@ class Player(Sprite):
     
     
     def __init__(self, position):
-        super().__init__(Player.asset, position, CircleAsset(15))
+        super().__init__(Player.asset, position, CircleAsset(10))
         self.vx = 0
         self.vy = 0
         self.thrust = 0
@@ -257,7 +257,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=0
+        self.levelindex=2
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.levelfinish=[]
@@ -321,17 +321,24 @@ class SpaceGame(App):
             
             Variblock(30,100,260,210)
             Spike(30,10,260,205)
-            
+            #Block 1
             Variblock(800,30,50,410)
             Spike(800,10,50,400)
-            
+            #Block 2
             Variblock(100,30,420,280)
             Spike(100,10,420,310)
             Spike(10,30,420,280)
-            
+            #Block 3
             Variblock(30,100,600,180)
             Spike(10,105,630,175)
             Spike(30,10,600,175)
+            #Block 4
+            Variblock(130,30,400,180)
+            Variblock(30,100,400,90)
+            Spike(130,10,400,200)
+            Spike(10,120,400,90)
+            #Block 5
+            Variblock(100,30,700,300)
     def step(self):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
