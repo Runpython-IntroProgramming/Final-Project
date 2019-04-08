@@ -244,7 +244,10 @@ class goal(Sprite):
         super().__init__(RectangleAsset(w,h,noline,blue),(x,y))
 class Spike(Sprite):
     def __init__(self, w, h, x, y):
-        super().__init__(RectangleAsset(w,h,noline,red),(x,y))    
+        super().__init__(RectangleAsset(w,h,noline,red),(x,y))
+class Textbox(Sprite):
+    def __init__(self, w, h, x, y):
+        super().__init__(TextAsset(t, style="bold 40pt Arial", width=250, fill=Color(red)),(x,y))
 
         
 class SpaceGame(App):
@@ -257,7 +260,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=2
+        self.levelindex=.5
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.levelfinish=[]
@@ -283,6 +286,13 @@ class SpaceGame(App):
         if self.Enter:
             self.Enter.destroy()
             self.Enter=None
+        if self.levelindex==0.5:
+            self.progress=True
+            self.p=Player((60,350))
+            Variblock(1050,300,0,0)
+            Variblock(1050,300,0,400)
+            Spike(10,100,0,300)
+            goal(20,100,1000,300)
         if self.levelindex==0:
             self.progress=True
             self.p = Player((60,50))
@@ -339,13 +349,15 @@ class SpaceGame(App):
             Spike(10,120,400,90)
             #Block 5
             Variblock(100,30,700,300)
+            
+            goal(20,20,500,470)
     def step(self):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
             self.playerhurt=self.p.collidingWithSprites(Spike)
             if len(self.levelfinish):
                 if self.progress==True:
-                    self.levelindex=self.levelindex+1
+                    self.levelindex=self.levelindex+.5
                     self.progress=False
             if len(self.playerhurt):
                 for s in self.getSpritesbyClass(Player):
