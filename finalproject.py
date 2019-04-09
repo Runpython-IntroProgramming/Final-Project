@@ -273,6 +273,7 @@ class SpaceGame(App):
     
   
     def newlevel(self,event):
+
         for s in self.getSpritesbyClass(Player):
             s.destroy()
         for s in self.getSpritesbyClass(Spike):
@@ -312,9 +313,8 @@ class SpaceGame(App):
             Spike(10,100,430,180)
             
             Spike(200,10,450,400)
-            self.levelindex=0
             goal(20,20,500,470)
-        if self.levelindex==1.5:
+        if self.levelindex==1.5 or self.levelindex==2.5:
             self.progress=True
             self.p=Player((60,350))
             Variblock(1050,300,0,0)
@@ -331,13 +331,6 @@ class SpaceGame(App):
             Variblock(50,250,400,250)
             sprong(350,500)
             goal(20,20,500,470)
-        if self.levelindex==2.5:
-            self.progress=True
-            self.p=Player((60,350))
-            Variblock(1050,300,0,0)
-            Variblock(1050,300,0,400)
-            Spike(10,100,0,300)
-            goal(20,100,1000,300)
         if self.levelindex==3:
             self.progress=True
             self.p = Player((60,50))
@@ -376,7 +369,9 @@ class SpaceGame(App):
             self.playerhurt=self.p.collidingWithSprites(Spike)
             if len(self.levelfinish):
                 if self.progress==True:
+                    print(self.levelindex)
                     self.levelindex=self.levelindex+.5
+                    print(self.levelindex)
                     self.progress=False
             if len(self.playerhurt):
                 for s in self.getSpritesbyClass(Player):
@@ -391,7 +386,8 @@ class SpaceGame(App):
                     s.destroy()
                 for s in self.getSpritesbyClass(textbox):
                     s.destroy()
-                self.levelindex=.5
+                if self.levelindex>.5:
+                    self.levelindex-=.5
   
         for ship in self.getSpritesbyClass(Player):
             ship.step()
