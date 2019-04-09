@@ -263,6 +263,8 @@ class SpaceGame(App):
         self.levelindex=.5
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
+        self.listenKeyEvent("keydown", "z", self.uplevel)
+        self.listenKeyEvent("keydown", "x", self.downlevel)
         self.levelfinish=[]
         self.terrainlist=None
         self.p = None
@@ -270,10 +272,11 @@ class SpaceGame(App):
         
     def Mouse(self, event):
         self.pos = (event.x, event.y)
-    
-  
+    def uplevel(self, event):
+        self.levelindex+=0.5
+    def uplevel(self, event):
+        self.levelindex-=0.5
     def newlevel(self,event):
-
         for s in self.getSpritesbyClass(Player):
             s.destroy()
         for s in self.getSpritesbyClass(Spike):
