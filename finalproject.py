@@ -107,7 +107,7 @@ class Player(Sprite):
             if self.thrustframe == 11:
                 self.thrustframe = 9
         #Attack Animation
-        if self.attack==True:
+        if self.attack==True and self.vy==0:
             if self.thrustframe<17 or self.thrustframe>21:
                 self.thrustframe=17
             self.setImage(self.thrustframe)
