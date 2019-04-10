@@ -41,7 +41,7 @@ class Player(Sprite):
     asset = ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 8, 'horizontal')
     asset.append("images/sheet_hero_walk.png", Frame(0,36,64,28), 3, 'horizontal')
     asset.append("images/sheet_hero_jump.png", Frame(0,26,64,38), 5, 'horizontal')
-    asset.append("images/sheet_hero_stab.png", Frame(0,26,64,38), 5, 'horizontal')
+    asset.append("images/sheet_hero_stab.png", Frame(0,34,64,30), 5, 'horizontal')
     
     def __init__(self, position):
         super().__init__(Player.asset, position, CircleAsset(10))
@@ -73,18 +73,12 @@ class Player(Sprite):
         SpaceGame.listenKeyEvent("keyup", "right arrow", self.rightoff)
         SpaceGame.listenKeyEvent("keydown", "down arrow", self.Leap)
         SpaceGame.listenKeyEvent("keyup", "down arrow", self.noLeap)
-        Spacegame.listenKeyEvent("keydown", "up arrow", self.attack)
+        SpaceGame.listenKeyEvent("keydown", "c", self.Attack)
+        SpaceGame.listenKeyEvent("keyup", "c", self.noAttack)
         self.fxcenter = self.fycenter = 0.5
-        
     def step(self):
 
         downcollide=self.collidebottom.collidingWithSprites(Variblock)
-        #Idle Animation
-        if self.vx==0 and self.resting==1:
-            self.setImage(self.thrustframe)
-            self.thrustframe += .25
-            if self.thrustframe >= 8:
-                self.thrustframe = 1
         #Jump Animation
         if not len(downcollide):
             if self.thrustframe<12:
@@ -92,7 +86,16 @@ class Player(Sprite):
             self.setImage(self.thrustframe)
             self.thrustframe += .25
             if self.thrustframe==16:
-                self.thrustframe=14   
+                self.thrustframe=14  
+        #Attack Animation
+        if self.attack==True and self.vy==0:
+            if self.thrustframe<17:
+                self.thrustframe=17
+            self.setImage(self.thrustframe)
+            self.thrustframe += .25
+            print(self.thrustframe)
+            if self.thrustframe==21:
+                self.thrustframe=17
         #Running Animation
         if (self.left==1 or self.right==1) and self.vy==0:
             if self.thrustframe<9 or self.thrustframe>11:
@@ -106,15 +109,13 @@ class Player(Sprite):
             self.thrustframe += .25 
             if self.thrustframe == 11:
                 self.thrustframe = 9
-        #Attack Animation
-        if self.attack==True and self.vy==0:
-            if self.thrustframe<17 or self.thrustframe>21:
-                self.thrustframe=17
+        #Idle Animation
+        if self.vx==0 and self.resting==1:
             self.setImage(self.thrustframe)
-            self.thrustframe =+ .25
-            if self.thrustframe==21:
-                self.thrustframe=17
-        if self.
+            self.thrustframe += .25
+            if self.thrustframe >= 8:
+                self.thrustframe = 1
+
         self.x += self.vx
         self.y += self.vy
         self.collidetop.x = self.x
@@ -219,8 +220,10 @@ class Player(Sprite):
         self.leap=True
     def noLeap(self, event):
         self.leap=False
-    del attack(self, event):
+    def Attack(self, event):
         self.attack=True
+    def noAttack(self, event):
+        self.attack=False
 class Collide(Sprite):
     def __init__(self, position,w,h,color):
         super().__init__(RectangleAsset(w,h,noline, color), position)
