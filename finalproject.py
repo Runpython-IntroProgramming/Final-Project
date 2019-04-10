@@ -61,6 +61,7 @@ class Player(Sprite):
         self.leftleap=False
         self.rightleap=False
         self.leap=False
+        self.attack=False
         self.thrustframe=1
         self.width=64
         print(self.width)
@@ -72,6 +73,7 @@ class Player(Sprite):
         SpaceGame.listenKeyEvent("keyup", "right arrow", self.rightoff)
         SpaceGame.listenKeyEvent("keydown", "down arrow", self.Leap)
         SpaceGame.listenKeyEvent("keyup", "down arrow", self.noLeap)
+        Spacegame.listenKeyEvent("keydown", "up arrow", self.attack)
         self.fxcenter = self.fycenter = 0.5
         
     def step(self):
@@ -104,7 +106,15 @@ class Player(Sprite):
             self.thrustframe += .25 
             if self.thrustframe == 11:
                 self.thrustframe = 9
-
+        #Attack Animation
+        if self.attack==True:
+            if self.thrustframe<17 or self.thrustframe>21:
+                self.thrustframe=17
+            self.setImage(self.thrustframe)
+            self.thrustframe =+ .25
+            if self.thrustframe==21:
+                self.thrustframe=17
+        if self.
         self.x += self.vx
         self.y += self.vy
         self.collidetop.x = self.x
@@ -209,6 +219,8 @@ class Player(Sprite):
         self.leap=True
     def noLeap(self, event):
         self.leap=False
+    del attack(self, event):
+        self.attack=True
 class Collide(Sprite):
     def __init__(self, position,w,h,color):
         super().__init__(RectangleAsset(w,h,noline, color), position)
