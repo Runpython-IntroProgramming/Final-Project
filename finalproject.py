@@ -62,9 +62,9 @@ class Player(Sprite):
         self.rightleap=False
         self.leap=False
         self.attack=False
+        self.attackp=True
         self.thrustframe=1
         self.width=64
-        print(self.width)
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
@@ -77,7 +77,6 @@ class Player(Sprite):
         SpaceGame.listenKeyEvent("keyup", "c", self.noAttack)
         self.fxcenter = self.fycenter = 0.5
     def step(self):
-
         downcollide=self.collidebottom.collidingWithSprites(Variblock)
         #Jump Animation
         if not len(downcollide):
@@ -88,16 +87,19 @@ class Player(Sprite):
             if self.thrustframe==16:
                 self.thrustframe=14  
         #Attack Animation
-        if self.attack==True and self.vy==0:
-            if self.thrustframe<17:
-                self.thrustframe=17
+        elif self.attack==True and self.vy==0:
+            self.attackp=False
+            if self.thrustframe<16.5:
+                self.thrustframe=16.5
             self.setImage(self.thrustframe)
-            self.thrustframe += .25
+            self.thrustframe += .125
             print(self.thrustframe)
-            if self.thrustframe==21:
-                self.thrustframe=17
+            if self.thrustframe>=22:
+                self.thrustframe=16.5
+                self.attackp=False
+
         #Running Animation
-        if (self.left==1 or self.right==1) and self.vy==0:
+        elif (self.left==1 or self.right==1) and self.vy==0:
             if self.thrustframe<9 or self.thrustframe>11:
                 self.thrustframe=9
             """if self.left==1:
@@ -110,7 +112,7 @@ class Player(Sprite):
             if self.thrustframe == 11:
                 self.thrustframe = 9
         #Idle Animation
-        if self.vx==0 and self.resting==1:
+        elif self.vx==0 and self.resting==1:
             self.setImage(self.thrustframe)
             self.thrustframe += .25
             if self.thrustframe >= 8:
@@ -221,9 +223,13 @@ class Player(Sprite):
     def noLeap(self, event):
         self.leap=False
     def Attack(self, event):
-        self.attack=True
+        if self.attackp==True:
+            self.attack=True
+        else:
+            self.attack==False
     def noAttack(self, event):
         self.attack=False
+        self.attackp=True
 class Collide(Sprite):
     def __init__(self, position,w,h,color):
         super().__init__(RectangleAsset(w,h,noline, color), position)
