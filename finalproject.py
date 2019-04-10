@@ -41,8 +41,7 @@ class Player(Sprite):
     asset = ImageAsset("images/SpriteFinalproj1.png", Frame(0,36,64,28), 8, 'horizontal')
     asset.append("images/sheet_hero_walk.png", Frame(0,36,64,28), 3, 'horizontal')
     asset.append("images/sheet_hero_jump.png", Frame(0,26,64,38), 5, 'horizontal')
-    
-    
+    asset.append("images/sheet_hero_stab.png", Frame(0,26,64,38), 5, 'horizontal')
     
     def __init__(self, position):
         super().__init__(Player.asset, position, CircleAsset(10))
@@ -274,7 +273,7 @@ class SpaceGame(App):
         self.pos = (event.x, event.y)
     def uplevel(self, event):
         self.levelindex+=0.5
-    def uplevel(self, event):
+    def downlevel(self, event):
         self.levelindex-=0.5
     def newlevel(self,event):
         for s in self.getSpritesbyClass(Player):
@@ -335,6 +334,10 @@ class SpaceGame(App):
             sprong(350,500)
             goal(20,20,500,470)
         if self.levelindex==3:
+            self.progress=True
+            self.p=Player((60,50))
+            goal(20,100,1000,300)
+        if self.levelindex==4:
             self.progress=True
             self.p = Player((60,50))
             Variblock(50,800,0,0)
