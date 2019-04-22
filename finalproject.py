@@ -93,7 +93,6 @@ class Player(Sprite):
                 self.thrustframe=16.5
             self.setImage(self.thrustframe)
             self.thrustframe += .125
-            print(self.thrustframe)
             if self.thrustframe>=22:
                 self.thrustframe=16.5
                 self.attackp=False
@@ -230,6 +229,17 @@ class Player(Sprite):
     def noAttack(self, event):
         self.attack=False
         self.attackp=True
+class baddie(Sprite):
+    asset = ImageAsset("images/sheet_snake_walk.png", Frame(0,36,64,28), 7, 'horizontal')
+    def __init__(self,position):
+        super().__init__(baddie.asset, position, CircleAsset(10))
+        self.thrustframe=1
+    def step(self):
+        if self.thrustframe<7:
+            self.thrustframe+=1 
+        else:
+            self.thrustframe=1
+       
 class Collide(Sprite):
     def __init__(self, position,w,h,color):
         super().__init__(RectangleAsset(w,h,noline, color), position)
@@ -268,8 +278,6 @@ class Spike(Sprite):
 class textbox(Sprite):
     def __init__(self, t, w, x, y):
         super().__init__(TextAsset(t, style="bold 40pt Arial", width=w, fill=blue),(x,y))
-
-        
 class SpaceGame(App):
     def __init__(self):
         super().__init__()
@@ -317,6 +325,7 @@ class SpaceGame(App):
         if self.levelindex==0.5:
             self.progress=True
             self.p=Player((60,350))
+            baddie((200,200))
             Variblock(1050,300,0,0)
             Variblock(1050,300,0,400)
             Spike(10,100,0,300)
