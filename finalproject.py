@@ -230,14 +230,14 @@ class Player(Sprite):
         self.attack=False
         self.attackp=True
 class baddie(Sprite):
-    asset = ImageAsset("images/sheet_snake_walk.png", Frame(0,36,64,28), 7, 'horizontal')
+    asset = ImageAsset("images/sheet_snake_walk.png", Frame(0,0,64,64), 7, 'horizontal')
     def __init__(self,position):
         super().__init__(baddie.asset, position, CircleAsset(10))
         self.thrustframe=1
     def step(self):
         if self.thrustframe<7:
-            self.thrustframe+=1 
-        else:
+            self.thrustframe+=.25
+        elif self.thrustframe==7:
             self.thrustframe=1
        
 class Collide(Sprite):
@@ -325,11 +325,11 @@ class SpaceGame(App):
         if self.levelindex==0.5:
             self.progress=True
             self.p=Player((60,350))
-            baddie((200,200))
             Variblock(1050,300,0,0)
             Variblock(1050,300,0,400)
             Spike(10,100,0,300)
             goal(20,100,1000,300)
+            baddie((200,200))
             textbox("Press 'Enter' when touching the blue goal to complete the level. The red 'Spikes' will send you back.",1000,10,10)
         if self.levelindex==1:
             self.progress=True
@@ -426,6 +426,8 @@ class SpaceGame(App):
                     self.levelindex-=.5
   
         for ship in self.getSpritesbyClass(Player):
+            ship.step()
+        for ship in self.getSpritesbyClass(baddie):
             ship.step()
 print("use the left and right arrows to move , space bar to jump, and down arrow when sliding on a wall to wall")        
 myapp = SpaceGame()
