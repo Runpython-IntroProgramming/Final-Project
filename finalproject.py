@@ -232,7 +232,7 @@ class Snake(Sprite):
     asset = ImageAsset("images/sheet_snake_walk.png", Frame(0,40,64,24), 7, 'horizontal')
     def __init__(self,position):
         super().__init__(Snake.asset, position, CircleAsset(10))
-        self.vx=0
+        self.vx=-1
         self.thrustframe=1
         self.rightdetect=Collide(position,5,15,green)
         self.leftdetect=Collide(position,5,15,red)
@@ -244,12 +244,13 @@ class Snake(Sprite):
         self.leftdetect.x=self.x-10
         self.leftdetect.y=self.y
         leftdetect=self.leftdetect.collidingWithSprites(Variblock)
+        leftdetect.append(self.leftdetect.collidingWithSprites(Player))
         if len(leftdetect):
-            self.vx=10
+            self.vx=1
         rightdetect=self.rightdetect.collidingWithSprites(Variblock)
+        rightdetect.append(self.leftdetect.collidingWithSprites(Player))
         if len(rightdetect):
-            self.vx=-10
-        self.vx=1
+            self.vx=-1
         if self.thrustframe<7:
             self.thrustframe+=.25
             self.setImage(self.thrustframe)
@@ -345,7 +346,7 @@ class SpaceGame(App):
             Variblock(1050,300,0,400)
             Spike(10,100,0,300)
             goal(20,100,1000,300)
-            Snake((200,300))
+            Snake((200,390))
             textbox("Press 'Enter' when touching the blue goal to complete the level. The red 'Spikes' will send you back.",1000,10,10)
         if self.levelindex==1:
             self.progress=True
