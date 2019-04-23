@@ -238,6 +238,7 @@ class Snake(Sprite):
         self.leftdetect=Collide(position,5,15,red)
         self.fxcenter = self.fycenter = 0.5
     def step(self):
+ 
         self.x += self.vx
         self.rightdetect.x=self.x+10
         self.rightdetect.y=self.y
@@ -248,7 +249,6 @@ class Snake(Sprite):
         leftdetect.extend(ree)
         if len(leftdetect):
             self.vx=1
-            #self.width=-128
         rightdetect=self.rightdetect.collidingWithSprites(Variblock)
         ros=(self.rightdetect.collidingWithSprites(Player))
         rightdetect.extend(ros)
