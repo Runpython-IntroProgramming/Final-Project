@@ -11,7 +11,6 @@ from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, Te
 x=510
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
-L=range(5)
 blue = Color(0x2EFEC8, 1.0)
 black = Color(0x000000, 1.0)
 pink = Color(0xFF00FF, 1.0)
@@ -230,17 +229,21 @@ class Player(Sprite):
         self.attack=False
         self.attackp=True
 class Snake(Sprite):
-    asset = ImageAsset("images/sheet_snake_walk.png", Frame(0,0,64,64), 7, 'horizontal')
+    asset = ImageAsset("images/sheet_snake_walk.png", Frame(0,40,64,24), 7, 'horizontal')
     def __init__(self,position):
         super().__init__(Snake.asset, position, CircleAsset(10))
+        self.vx=0
         self.thrustframe=1
         self.rightdetect=Collide(position,5,15,green)
-        self.leftdetect=COllide(position,5,15,red)
+        self.leftdetect=Collide(position,5,15,red)
+        self.fxcenter = self.fycenter = 0.5
     def step(self):
+        self.x += self.vx
         self.rightdetect.x=self.x+10
         self.rightdetect.y=self.y
         self.leftdetect.x=self.x-10
         self.leftdetect.y=self.y
+        self.vx=1
         if self.thrustframe<7:
             self.thrustframe+=.25
         elif self.thrustframe<=7:
@@ -251,7 +254,7 @@ class Collide(Sprite):
         super().__init__(RectangleAsset(w,h,noline, color), position)
         self.fxcenter = 0.5
         self.fycenter = 0.5
-        self.visible=False
+        self.visible=True
 
 class Wallblock(Sprite):
     def __init__(self, x, y, w, h, color):
