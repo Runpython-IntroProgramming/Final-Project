@@ -229,15 +229,21 @@ class Player(Sprite):
     def noAttack(self, event):
         self.attack=False
         self.attackp=True
-class baddie(Sprite):
+class Snake(Sprite):
     asset = ImageAsset("images/sheet_snake_walk.png", Frame(0,0,64,64), 7, 'horizontal')
     def __init__(self,position):
-        super().__init__(baddie.asset, position, CircleAsset(10))
+        super().__init__(Snake.asset, position, CircleAsset(10))
         self.thrustframe=1
+        self.rightdetect=Collide(position,5,15,green)
+        self.leftdetect=COllide(position,5,15,red)
     def step(self):
+        self.rightdetect.x=self.x+10
+        self.rightdetect.y=self.y
+        self.leftdetect.x=self.x-10
+        self.leftdetect.y=self.y
         if self.thrustframe<7:
             self.thrustframe+=.25
-        elif self.thrustframe==7:
+        elif self.thrustframe<=7:
             self.thrustframe=1
        
 class Collide(Sprite):
@@ -329,7 +335,7 @@ class SpaceGame(App):
             Variblock(1050,300,0,400)
             Spike(10,100,0,300)
             goal(20,100,1000,300)
-            baddie((200,200))
+            Snake((200,300))
             textbox("Press 'Enter' when touching the blue goal to complete the level. The red 'Spikes' will send you back.",1000,10,10)
         if self.levelindex==1:
             self.progress=True
@@ -427,8 +433,8 @@ class SpaceGame(App):
   
         for ship in self.getSpritesbyClass(Player):
             ship.step()
-        for ship in self.getSpritesbyClass(baddie):
-            ship.step()
+        for ip in self.getSpritesbyClass(Snake):
+            ip.step()
 print("use the left and right arrows to move , space bar to jump, and down arrow when sliding on a wall to wall")        
 myapp = SpaceGame()
 myapp.run()
