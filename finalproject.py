@@ -232,7 +232,7 @@ class Snake(Sprite):
     asset = ImageAsset("images/sheet_snake_walk.png", Frame(0,40,64,24), 7, 'horizontal')
     def __init__(self,position):
         super().__init__(Snake.asset, position, CircleAsset(10))
-        self.vx=-1
+        self.vx=0
         self.thrustframe=1
         self.rightdetect=Collide(position,5,15,green)
         self.leftdetect=Collide(position,5,15,red)
@@ -244,11 +244,14 @@ class Snake(Sprite):
         self.leftdetect.x=self.x-10
         self.leftdetect.y=self.y
         leftdetect=self.leftdetect.collidingWithSprites(Variblock)
-        leftdetect.append(self.leftdetect.collidingWithSprites(Player))
+        ree=(self.leftdetect.collidingWithSprites(Player))
+        leftdetect.extend(ree)
         if len(leftdetect):
             self.vx=1
+            #self.width=-128
         rightdetect=self.rightdetect.collidingWithSprites(Variblock)
-        rightdetect.append(self.leftdetect.collidingWithSprites(Player))
+        ros=(self.rightdetect.collidingWithSprites(Player))
+        rightdetect.extend(ros)
         if len(rightdetect):
             self.vx=-1
         if self.thrustframe<7:
