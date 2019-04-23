@@ -243,9 +243,16 @@ class Snake(Sprite):
         self.rightdetect.y=self.y
         self.leftdetect.x=self.x-10
         self.leftdetect.y=self.y
+        leftdetect=self.leftdetect.collidingWithSprites(Variblock)
+        if len(leftdetect):
+            self.vx=10
+        rightdetect=self.rightdetect.collidingWithSprites(Variblock)
+        if len(rightdetect):
+            self.vx=-10
         self.vx=1
         if self.thrustframe<7:
             self.thrustframe+=.25
+            self.setImage(self.thrustframe)
         elif self.thrustframe<=7:
             self.thrustframe=1
        
