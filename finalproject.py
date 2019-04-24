@@ -285,7 +285,7 @@ class Block(Wallblock):
 
 class Variblock(Sprite):
     def __init__(self, w, h, x, y):
-        grid=lambda W: (W-W%31)
+        grid=lambda W: (W-W%30)
         gred=lambda W: (W*30)
         super().__init__(RectangleAsset(gred(w),gred(h),noline,grey),(grid(x),grid(y)))
 
@@ -296,8 +296,10 @@ class goal(Sprite):
     def __init__(self, w, h, x, y):
         super().__init__(RectangleAsset(w,h,noline,blue),(x,y))
 class Spike(Sprite):
-    def __init__(self, w, h, x, y):
-        super().__init__(RectangleAsset(w,h,noline,red),(x,y))
+     def __init__(self, w, h, x, y):
+        grid=lambda W: (W-W%30)
+        gred=lambda W: (W*10)
+        super().__init__(RectangleAsset(gred(w),gred(h),noline,red),(grid(x),grid(y)))
 class textbox(Sprite):
     def __init__(self, t, w, x, y):
         super().__init__(TextAsset(t, style="bold 40pt Arial", width=w, fill=blue),(x,y))
@@ -360,31 +362,31 @@ class SpaceGame(App):
             self.progress=True
             self.p = Player((60,50))
             Variblock(1,30,0,0)
-            Variblock(35,1,0,500)
-            Variblock(12,30,650,0)
+            Variblock(25,1.5,0,510)
+            Variblock(13,30,650,0)
             ###NonborderTerrain
             Variblock(7,13,50,150)
             Variblock(3,1,400,150)
             Variblock(1,4,400,150)
-            Spike(120,10,280,250)
-            Spike(10,100,430,180)
+            Spike(15,1,260,250)
+            Spike(1,10,430,180)
             
-            Spike(200,10,450,400)
+            Spike(21,1,435,400)
             goal(20,20,500,470)
         if self.levelindex==1.5 or self.levelindex==2.5:
             self.progress=True
             self.p=Player((60,350))
-            Variblock(1050,300,0,0)
-            Variblock(1050,300,0,400)
-            Spike(10,100,0,300)
-            goal(20,100,1000,300)
+            Variblock(35,10,0,0)
+            Variblock(35,10,0,400)
+            Spike(1,9,0,300)
+            goal(20,90,1000,300)
         if self.levelindex==2:
             self.progress=True
             self.p = Player((60,50))
             Variblock(50,800,0,0)
-            Variblock(1050,50,0,500)
-            Variblock(50,800,970,0)
-            Variblock(50,250,400,250)
+            Variblock(25,50,0,500)
+            Variblock(1,20,970,0)
+            Variblock(1,8,400,250)
             sprong(350,500)
             goal(20,20,500,470)
         if self.levelindex==3:
