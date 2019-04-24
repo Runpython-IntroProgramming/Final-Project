@@ -7,6 +7,7 @@ Assignment:
 Write and submit a program that implements the sandbox platformer game:
 https://github.com/HHS-IntroProgramming/Platformer
 """
+#grid=lambda W: (W-W%51)
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, TextAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
 x=510
 SCREEN_WIDTH = 1000
@@ -284,7 +285,9 @@ class Block(Wallblock):
 
 class Variblock(Sprite):
     def __init__(self, w, h, x, y):
-        super().__init__(RectangleAsset(w,h,noline,grey),(x,y))
+        grid=lambda W: (W-W%31)
+        gred=lambda W: (W*30)
+        super().__init__(RectangleAsset(gred(w),gred(h),noline,grey),(grid(x),grid(y)))
 
 class sprong(Wallblock):
     def __init__(self, x, y):
@@ -308,7 +311,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=3
+        self.levelindex=1
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.listenKeyEvent("keydown", "z", self.uplevel)
@@ -339,6 +342,8 @@ class SpaceGame(App):
                     s.destroy()
         for s in self.getSpritesbyClass(goal):
                     s.destroy()
+        for s in self.getSpritesbyClass(Snake):
+                    s.destroy()
         if self.Enter:
             self.Enter.destroy()
             self.Enter=None
@@ -354,13 +359,13 @@ class SpaceGame(App):
         if self.levelindex==1:
             self.progress=True
             self.p = Player((60,50))
-            Variblock(50,800,0,0)
-            Variblock(1050,50,0,500)
-            Variblock(365,800,650,0)
+            Variblock(1,30,0,0)
+            Variblock(35,1,0,500)
+            Variblock(12,30,650,0)
             ###NonborderTerrain
-            Variblock(230,400,50,150)
-            Variblock(100,30,400,150)
-            Variblock(30,130,400,150)
+            Variblock(7,13,50,150)
+            Variblock(3,1,400,150)
+            Variblock(1,4,400,150)
             Spike(120,10,280,250)
             Spike(10,100,430,180)
             
@@ -447,6 +452,8 @@ class SpaceGame(App):
                 for s in self.getSpritesbyClass(sprong):
                     s.destroy()
                 for s in self.getSpritesbyClass(textbox):
+                    s.destroy()
+                for s in self.getSpritesbyClass(Snake):
                     s.destroy()
                 if self.levelindex>.5:
                     self.levelindex-=.5
