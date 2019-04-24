@@ -389,8 +389,9 @@ class SpaceGame(App):
             Variblock(1050,50,0,500)
             Variblock(50,800,970,0)
             Variblock(50,100,150,400)
-            #Snake((200,489))
-            Variblock(50,100,450,400)
+            Snake((200,489))
+            Variblock(50,300,450,300)
+            sprong(400,500)
             goal(20,20,500,470)
         if self.levelindex==4:
             self.progress=True
