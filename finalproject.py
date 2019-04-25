@@ -19,7 +19,7 @@ red = Color(0xFF5733, 1.0)
 white = Color(0xFFFFFF, 1.0)
 red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
-blue = Color(0x0000ff, 1.0)
+brown = Color(0x8B4513, 1.0) #8B4513
 black = Color(0x000000, 1.0)
 white = Color(0xffffff, 1.0)
 grey = Color(0xC0C0C0, 1.0)
@@ -231,15 +231,16 @@ class Player(Sprite):
         self.attackp=True
 class Snake(Sprite):
     asset = ImageAsset("images/sheet_snake_walk.png", Frame(0,40,64,24), 7, 'horizontal')
+    asset.append(ImageAsset("images/sheet_snake_hurt.png", Frame(0,40,64,24), 2, 'horizontal'))
     def __init__(self,position):
-        super().__init__(Snake.asset, position, CircleAsset(10))
-        self.vx=0
+        super().__init__(Snake.asset,position, CircleAsset(7))
+        self.vx=-1
         self.thrustframe=1
         self.rightdetect=Collide(position,5,15,green)
         self.leftdetect=Collide(position,5,15,red)
         self.fxcenter = self.fycenter = 0.5
+        self.snakebox=False
     def step(self):
- 
         self.x += self.vx
         self.rightdetect.x=self.x+10
         self.rightdetect.y=self.y
@@ -258,9 +259,21 @@ class Snake(Sprite):
         if self.thrustframe<7:
             self.thrustframe+=.25
             self.setImage(self.thrustframe)
-        elif self.thrustframe<=7:
+        if self.thrustframe>=7:
             self.thrustframe=1
-       
+class Snakebox(Sprite):
+    asset=RectangleAsset(30,30,noline,brown)
+    def __init__(self,position):
+        self.Snake1=None
+        self.Snake2=None
+        SnakeSpawn=True
+        super().__init__(Snakebox.asset, position)
+    def step(self): 
+        if SnakeSpawn==True:
+            self.Snake1=Snake(position)
+            SnakeSpawn=False
+            
+        
 class Collide(Sprite):
     def __init__(self, position,w,h,color):
         super().__init__(RectangleAsset(w,h,noline, color), position)
@@ -398,6 +411,7 @@ class SpaceGame(App):
             Variblock(2,4,150,400)
             Snake((230,470))
             Variblock(2,10,450,300)
+            Snakebox((230,470))
             goal(20,20,500,470)
         if self.levelindex==4:
             self.progress=True
@@ -435,6 +449,7 @@ class SpaceGame(App):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
             self.playerhurt=self.p.collidingWithSprites(Spike)
+            self.playerhurt1=self.p.collidingWithSprites(Snake)
             if len(self.levelfinish):
                 if self.progress==True:
                     print(self.levelindex)
@@ -461,8 +476,10 @@ class SpaceGame(App):
   
         for ship in self.getSpritesbyClass(Player):
             ship.step()
-        for ip in self.getSpritesbyClass(Snake):
-            ip.step()
+        for p in self.getSpritesbyClass(Snake):
+            p.step()
+        for p in self.getSpritesbyClass(Snakebox):
+            p.step()
 print("use the left and right arrows to move , space bar to jump, and down arrow when sliding on a wall to wall")        
 myapp = SpaceGame()
 myapp.run()
