@@ -250,10 +250,11 @@ class Snake(Sprite):
         self.bottomdetect.x=self.x
         self.bottomdetect.y=self.y+15
         leftdetect=self.leftdetect.collidingWithSprites(Variblock)
-        ree=(self.leftdetect.collidingWithSprites(Player))
-        leftdetect.extend(ree)
+        #ree=(self.leftdetect.collidingWithSprites(Player))
+        #leftdetect.extend(ree)
         if len(leftdetect):
-            self.vx=1
+            Snake.destroy(self)
+            Collide.destroy(self)
         rightdetect=self.rightdetect.collidingWithSprites(Variblock)
         ros=(self.rightdetect.collidingWithSprites(Player))
         rightdetect.extend(ros)
@@ -284,7 +285,7 @@ class Collide(Sprite):
         super().__init__(RectangleAsset(w,h,noline, color), position)
         self.fxcenter = 0.5
         self.fycenter = 0.5
-        self.visible=True
+        self.visible=False
 
 class Wallblock(Sprite):
     def __init__(self, x, y, w, h, color):
