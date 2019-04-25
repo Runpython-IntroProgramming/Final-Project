@@ -238,6 +238,7 @@ class Snake(Sprite):
         self.thrustframe=1
         self.rightdetect=Collide(position,5,15,green)
         self.leftdetect=Collide(position,5,15,red)
+        self.bottomdetect=Collide(position,5,15,blue)
         self.fxcenter = self.fycenter = 0.5
         self.snakebox=False
     def step(self):
@@ -246,6 +247,8 @@ class Snake(Sprite):
         self.rightdetect.y=self.y
         self.leftdetect.x=self.x-10
         self.leftdetect.y=self.y
+        self.bottomdetect.x=self.x
+        self.bottomdetect.y=self.y+15
         leftdetect=self.leftdetect.collidingWithSprites(Variblock)
         ree=(self.leftdetect.collidingWithSprites(Player))
         leftdetect.extend(ree)
@@ -264,14 +267,16 @@ class Snake(Sprite):
 class Snakebox(Sprite):
     asset=RectangleAsset(30,30,noline,brown)
     def __init__(self,x,y):
+        self.fxcenter = .5
+        self.fycenter=.5
         self.Snake1=None
         self.Snake2=None
         self.SnakeSpawn=True
         super().__init__(Snakebox.asset, (x,y))
     def step(self): 
-        if SnakeSpawn==True:
-            self.Snake1=Snake(self.position)
-            SnakeSpawn=False
+        if self.SnakeSpawn==True:
+            self.Snake1=Snake((self.x, self.y-10))
+            self.SnakeSpawn=False
             
         
 class Collide(Sprite):
@@ -409,9 +414,8 @@ class SpaceGame(App):
             Variblock(35,2,0,500)
             Variblock(2,20,970,0)
             Variblock(2,4,150,400)
-            Snake((230,470))
             Variblock(2,10,550,300)
-            Snakebox(230,470)
+            Snakebox(500,480)
             goal(20,20,500,470)
         if self.levelindex==4:
             self.progress=True
