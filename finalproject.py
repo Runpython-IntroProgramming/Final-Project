@@ -266,7 +266,7 @@ class Snakebox(Sprite):
     def __init__(self,position):
         self.Snake1=None
         self.Snake2=None
-        SnakeSpawn=True
+        self.SnakeSpawn=True
         super().__init__(Snakebox.asset, position)
     def step(self): 
         if SnakeSpawn==True:
