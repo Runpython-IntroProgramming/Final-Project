@@ -263,14 +263,14 @@ class Snake(Sprite):
             self.thrustframe=1
 class Snakebox(Sprite):
     asset=RectangleAsset(30,30,noline,brown)
-    def __init__(self,position):
+    def __init__(self,x,y):
         self.Snake1=None
         self.Snake2=None
         self.SnakeSpawn=True
-        super().__init__(Snakebox.asset, position)
+        super().__init__(Snakebox.asset, (x,y))
     def step(self): 
         if SnakeSpawn==True:
-            self.Snake1=Snake(position)
+            self.Snake1=Snake(self.position)
             SnakeSpawn=False
             
         
@@ -410,8 +410,8 @@ class SpaceGame(App):
             Variblock(2,20,970,0)
             Variblock(2,4,150,400)
             Snake((230,470))
-            Variblock(2,10,450,300)
-            Snakebox((230,470))
+            Variblock(2,10,550,300)
+            Snakebox(230,470)
             goal(20,20,500,470)
         if self.levelindex==4:
             self.progress=True
