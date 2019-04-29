@@ -240,7 +240,6 @@ class Snake(Sprite):
         self.leftdetect=Collide(position,5,15,red)
         #self.bottomdetect=Collide(position,5,15,blue)
         self.fxcenter = self.fycenter = 0.5
-        self.snakebox=False
     def step(self):
         self.x += self.vx
         self.rightdetect.x=self.x+10
@@ -254,10 +253,16 @@ class Snake(Sprite):
         #if len(rightdetect):
         self.thrustframe+=.25
         if len(leftdetect):
-            self.thrustframe=8
-        elif self.thrustframe>=7:
-            self.thrustframe=1
+            if self.thrustframe<=7:
+                self.thrustframe=8
+            self.vx=0
+            self.setImage(self.thrustframe)
+            #self.thrustframe=+.25
+        else: 
+            if self.thrustframe>=7:
+                self.thrustframe=1
         self.setImage(self.thrustframe)
+        print(self.thrustframe)
         if self.thrustframe>9:
             Snake.destroy(self.rightdetect)
             Snake.destroy(self.leftdetect)
@@ -269,13 +274,13 @@ class Snakebox(Sprite):
         self.fycenter=.5
         self.Snake1=None
         self.Snake2=None
-        self.SnakeSpawn=50
+        self.SnakeSpawn=100
         super().__init__(Snakebox.asset, (x,y))
     def step(self): 
         if self.SnakeSpawn==100:
             self.Snake1=Snake((self.x, self.y-10))
             self.SnakeSpawn=0
-        self.SnakeSpawn+=1
+        #self.SnakeSpawn+=1
             
         
 class Collide(Sprite):
