@@ -231,7 +231,7 @@ class Player(Sprite):
         self.attackp=True
 class Snake(Sprite):
     asset = ImageAsset("images/sheet_snake_walk.png", Frame(0,40,64,24), 7, 'horizontal')
-    asset.append(ImageAsset("images/sheet_snake_hurt.png", Frame(0,40,64,24), 2, 'horizontal'))
+    asset.append("images/sheet_snake_hurt.png", Frame(0,40,64,24), 2, 'horizontal')
     def __init__(self,position):
         super().__init__(Snake.asset,position, CircleAsset(7))
         self.vx=-1
@@ -251,19 +251,19 @@ class Snake(Sprite):
         #ros=(self.rightdetect.collidingWithSprites(Player))
         #rightdetect.extend(ros)
         #if len(rightdetect):
-        self.thrustframe+=.25
+        #self.thrustframe+=.25
         if len(leftdetect):
             if self.thrustframe<=7:
                 self.thrustframe=8
             self.vx=0
             self.setImage(self.thrustframe)
-            #self.thrustframe=+.25
         else: 
             if self.thrustframe>=7:
                 self.thrustframe=1
         self.setImage(self.thrustframe)
+        self.thrustframe+=.25
         print(self.thrustframe)
-        if self.thrustframe>9:
+        if self.thrustframe>=9:
             Snake.destroy(self.rightdetect)
             Snake.destroy(self.leftdetect)
             Snake.destroy(self)
