@@ -247,24 +247,21 @@ class Snake(Sprite):
         self.rightdetect.y=self.y
         self.leftdetect.x=self.x-10
         self.leftdetect.y=self.y
-        #self.bottomdetect.x=self.x
-        #self.bottomdetect.y=self.y+15
         leftdetect=self.leftdetect.collidingWithSprites(Spike)
+        #rightdetect=self.rightdetect.collidingWithSprites(Variblock)
+        #ros=(self.rightdetect.collidingWithSprites(Player))
+        #rightdetect.extend(ros)
+        #if len(rightdetect):
+        self.thrustframe+=.25
         if len(leftdetect):
+            self.thrustframe=8
+        elif self.thrustframe>=7:
+            self.thrustframe=1
+        self.setImage(self.thrustframe)
+        if self.thrustframe>9:
             Snake.destroy(self.rightdetect)
             Snake.destroy(self.leftdetect)
             Snake.destroy(self)
-            
-        rightdetect=self.rightdetect.collidingWithSprites(Variblock)
-        ros=(self.rightdetect.collidingWithSprites(Player))
-        rightdetect.extend(ros)
-        if len(rightdetect):
-            self.vx=-1
-
-        self.thrustframe+=.25
-        if self.thrustframe>=7:
-            self.thrustframe=1
-        self.setImage(self.thrustframe)
 class Snakebox(Sprite):
     asset=RectangleAsset(30,30,noline,brown)
     def __init__(self,x,y):
