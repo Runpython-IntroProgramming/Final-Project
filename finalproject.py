@@ -274,13 +274,13 @@ class Snakebox(Sprite):
         self.fycenter=.5
         self.Snake1=None
         self.Snake2=None
-        self.SnakeSpawn=100
+        self.SnakeSpawn=50
         super().__init__(Snakebox.asset, (x,y))
     def step(self): 
         if self.SnakeSpawn==100:
             self.Snake1=Snake((self.x, self.y-10))
             self.SnakeSpawn=0
-        #self.SnakeSpawn+=1
+        self.SnakeSpawn+=1
             
         
 class Collide(Sprite):
