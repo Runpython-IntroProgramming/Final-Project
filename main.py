@@ -1,17 +1,18 @@
 
-#Defining variables for encrypt/decrypt
+#Defining variables
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
 str1 = ""
-str2 = ""
 key = "12hjfk3929fjsk3ewe04kwdfje34iew"
 sitedata = []
+running = 0
+
 
 
 # Function for encrypting a string
 def encrypt(message):
     global associations
-    global str1
     global key
+    str1 = ""
     n = 0
     while len(key) < len(message):
         key += key
@@ -29,8 +30,8 @@ def encrypt(message):
 # Function for decrypting a string  
 def decrypt(message):
     global associations
-    global str2
     global key
+    str2 = ""
     n = 0
     while len(key) < len(message):
         key += key
@@ -47,8 +48,7 @@ def decrypt(message):
     
     
 command = input("Welcome! Press r to resume a session, press s to store a site and password, press g to retrieve a site and password or press q to print and exit: ")
-running = true
-while running == true:
+while running == 0:
     
     if command == "r":
         pass
@@ -61,23 +61,30 @@ while running == true:
         data.append(site)
         data.append(password)
         sitedata.append(data)
-        key = sitedata.index(data)
-        print ("Your site key is: {0}. Please write this down and store it in a safe place so you can access it later.".format(key))
-    
+        code = sitedata.index(data)
+        print ("Your site code is: {0}. Please write this down and store it in a safe place so you can access it later.".format(code))
+        command = input("Press r to resume a session, press s to store a site and password, press g to retrieve a site and password or press q to print and exit: ")
+
 
     elif command == "g":
-        data = []
-        key = input("Please enter the key of the site you wish to retrieve: ")
+        code = input("Please enter the code of the site you wish to retrieve: ")
         try:
-            key = int(key)
-        except TypeError:
-            print("Sorry, key not recognized, please try again.")
+            code = int(code)
+        except ValueError:
+            print("Sorry, code not recognized, please try again.")
+        code = int(code)
+        
+        data = sitedata[code]
+        site = data[0]
+        password = data[1]
+        site = decrypt(site)
+        password = decrypt(password)
+        print("Your password for {0} is {1}.".format(site, password))
+        command = input("Press r to resume a session, press s to store a site and password, press g to retrieve a site and password or press q to print and exit: ")
+
         
     elif command == "q":
-        running = false
+        running = 1
     else:
         print("Sorry, command not understood. Please try again.")
-
-    
-
-    
+        command = input("Press r to resume a session, press s to store a site and password, press g to retrieve a site and password or press q to print and exit: ")
