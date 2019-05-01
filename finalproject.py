@@ -57,6 +57,7 @@ class Player(Sprite):
         self.collideleft=Collide(position,5,15,red)
         self.collideright=Collide(position,5,15,pink)
         self.leftslide=False
+        #self.stabhit=Collide(position,15,5,brown)
         self.rightslide=False
         self.leftleap=False
         self.rightleap=False
@@ -78,6 +79,7 @@ class Player(Sprite):
         self.fxcenter = self.fycenter = 0.5
     def step(self):
         downcollide=self.collidebottom.collidingWithSprites(Variblock)
+        self.stabhit=None
         #Jump Animation
         if not len(downcollide):
             if self.thrustframe<12:
@@ -94,6 +96,7 @@ class Player(Sprite):
             self.setImage(self.thrustframe)
             self.thrustframe += .125
             if self.thrustframe>=22:
+                self.stabhit=Collide(position,15,5,brown)
                 self.thrustframe=16.5
                 self.attackp=False
 
@@ -262,7 +265,6 @@ class Snake(Sprite):
                 self.thrustframe=1
         self.setImage(self.thrustframe)
         self.thrustframe+=.25
-        print(self.thrustframe)
         if self.thrustframe>=9:
             Snake.destroy(self.rightdetect)
             Snake.destroy(self.leftdetect)
