@@ -20,7 +20,7 @@ for a in range (0,150):
     xpen = (R-r)*cos(a) + r*50*cos(((R/r)-1)*a)+200
     ypen = (R-r)*sin(a) - r*50*sin(((R/r)-1)*a)+200
     print(xpen, ypen)
-    spirograph = CircleAsset(5, thinline, black)
+    spirograph = CircleAsset(.5, thinline, black)
     Sprite(spirograph, (xpen,ypen))
 
 
