@@ -137,7 +137,7 @@ class Player(Sprite):
         self.collideleft.y =self.y-1
         if self.Attacking==True and self.Attackcount<=30:
             self.stabhit.x=self.x+20
-            self.stabhit.y=self.y+3
+            self.stabhit.y=self.y+10
             self.Attackcount+=1
         elif self.Attackcount>=30:
             self.Attackcount=0
