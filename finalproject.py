@@ -96,7 +96,7 @@ class Player(Sprite):
             self.setImage(self.thrustframe)
             self.thrustframe += .125
             if self.thrustframe>=22:
-                self.stabhit=Collide(position,15,5,brown)
+                self.stabhit=Hitbox(position,15,5,brown)
                 self.thrustframe=16.5
                 self.attackp=False
 
@@ -250,12 +250,12 @@ class Snake(Sprite):
         self.leftdetect.x=self.x-10
         self.leftdetect.y=self.y
         leftdetect=self.leftdetect.collidingWithSprites(Spike)
-        #rightdetect=self.rightdetect.collidingWithSprites(Variblock)
-        #ros=(self.rightdetect.collidingWithSprites(Player))
+        #rightdetect=self.rightdetect.collidingWithSprites(Spike)
+        ros=(self.rightdetect.collidingWithSprites(Hitbox))
         #rightdetect.extend(ros)
         #if len(rightdetect):
         #self.thrustframe+=.25
-        if len(leftdetect):
+        if len(leftdetect) or len(ros):
             if self.thrustframe<=7:
                 self.thrustframe=8
             self.vx=0
@@ -290,8 +290,10 @@ class Collide(Sprite):
         super().__init__(RectangleAsset(w,h,noline, color), position)
         self.fxcenter = 0.5
         self.fycenter = 0.5
-        self.visible=False
-
+        self.visible=True
+class Hitbox(Collide):
+    def __init__(self, position,w,h,color):
+        super().__init__(RectangleAsset(w,h,noline, color), position)
 class Wallblock(Sprite):
     def __init__(self, x, y, w, h, color):
         super().__init__(RectangleAsset(w-1,h-1,noline, color),
