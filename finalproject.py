@@ -66,7 +66,7 @@ class Player(Sprite):
         self.attackp=True
         self.thrustframe=1
         self.width=64
-        self.attacking=False
+        self.Attacking=False
         self.Attackcount=0
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
@@ -135,7 +135,7 @@ class Player(Sprite):
         self.collideright.y =self.y-1
         self.collideleft.x =self.x-7
         self.collideleft.y =self.y-1
-        if self.Attacking=True:
+        if self.Attacking==True:
             self.stabhit.x=self.x+20
             self.stabhit.y=self.y+3
             self.Attackcount+=1
