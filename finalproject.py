@@ -57,7 +57,7 @@ class Player(Sprite):
         self.collideleft=Collide(position,5,15,red)
         self.collideright=Collide(position,5,15,pink)
         self.leftslide=False
-        #self.stabhit=Collide(position,15,5,brown)
+        self.stabhit=Collide(position,15,5,brown)
         self.rightslide=False
         self.leftleap=False
         self.rightleap=False
@@ -79,7 +79,7 @@ class Player(Sprite):
         self.fxcenter = self.fycenter = 0.5
     def step(self):
         downcollide=self.collidebottom.collidingWithSprites(Variblock)
-        self.stabhit=None
+        Player.destroy(self.stabhit)
         #Jump Animation
         if not len(downcollide):
             if self.thrustframe<12:
@@ -96,7 +96,7 @@ class Player(Sprite):
             self.setImage(self.thrustframe)
             self.thrustframe += .125
             if self.thrustframe>=22:
-                self.stabhit=Hitbox(position,15,5,brown)
+                self.stabhit=Collide(position,15,5,brown)
                 self.thrustframe=16.5
                 self.attackp=False
 
