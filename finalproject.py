@@ -57,7 +57,7 @@ class Player(Sprite):
         self.collideleft=Collide(position,5,15,red)
         self.collideright=Collide(position,5,15,pink)
         self.leftslide=False
-        self.stabhit=Collide(position,15,5,brown)
+        self.stabhit=Collide(position,50,5,brown)
         self.rightslide=False
         self.leftleap=False
         self.rightleap=False
@@ -66,6 +66,8 @@ class Player(Sprite):
         self.attackp=True
         self.thrustframe=1
         self.width=64
+        self.attacking=False
+        self.Attackcount=0
         SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
         SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
         SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
@@ -79,8 +81,9 @@ class Player(Sprite):
         self.fxcenter = self.fycenter = 0.5
     def step(self):
         downcollide=self.collidebottom.collidingWithSprites(Variblock)
-        self.stabhit.x=0
-        self.stabhit.y=0
+        if self.Attacking==False:
+            self.stabhit.x=0
+            self.stabhit.y=0
         #Jump Animation
         if not len(downcollide):
             if self.thrustframe<12:
@@ -90,15 +93,15 @@ class Player(Sprite):
             if self.thrustframe==16:
                 self.thrustframe=14  
         #Attack Animation
-        elif self.attack==True and self.vy==0:
+        elif self.attack==True and self.vy==0 and self.Attackcount==0:
             self.attackp=False
             if self.thrustframe<16.5:
                 self.thrustframe=16.5
             self.setImage(self.thrustframe)
+            if self.thrustframe==18:
+                self.attacking=True
             self.thrustframe += .125
             if self.thrustframe>=22:
-                self.stabhit.x=self.x+10
-                self.stabhit.y=self.y
                 self.thrustframe=16.5
                 self.attackp=False
 
@@ -132,6 +135,10 @@ class Player(Sprite):
         self.collideright.y =self.y-1
         self.collideleft.x =self.x-7
         self.collideleft.y =self.y-1
+        if self.Attacking=True:
+            self.stabhit.x=self.x+20
+            self.stabhit.y=self.y+3
+            self.Attackcount+=1
         upcollide=self.collidetop.collidingWithSprites(Variblock)
         downcollide=self.collidebottom.collidingWithSprites(Variblock)
         downcollidep=self.collidebottom.collidingWithSprites(Platform)
@@ -238,7 +245,7 @@ class Snake(Sprite):
     asset = ImageAsset("images/sheet_snake_walk.png", Frame(0,40,64,24), 7, 'horizontal')
     asset.append("images/sheet_snake_hurt.png", Frame(0,40,64,24), 2, 'horizontal')
     def __init__(self,position):
-        super().__init__(Snake.asset,position, CircleAsset(7))
+        super().__init__(Snake.asset,position, CircleAsset(10))
         self.vx=-1
         self.thrustframe=1
         self.rightdetect=Collide(position,5,15,green)
@@ -253,7 +260,7 @@ class Snake(Sprite):
         self.leftdetect.y=self.y
         leftdetect=self.leftdetect.collidingWithSprites(Spike)
         #rightdetect=self.rightdetect.collidingWithSprites(Spike)
-        ros=(self.rightdetect.collidingWithSprites(Hitbox))
+        ros=(self.rightdetect.collidingWithSprites(Collide))
         #rightdetect.extend(ros)
         #if len(rightdetect):
         #self.thrustframe+=.25
@@ -284,7 +291,7 @@ class Snakebox(Sprite):
         if self.SnakeSpawn==100:
             self.Snake1=Snake((self.x, self.y-10))
             self.SnakeSpawn=0
-        self.SnakeSpawn+=1
+        self.SnakeSpawn+=.5
             
         
 class Collide(Sprite):
