@@ -99,7 +99,7 @@ class Player(Sprite):
                 self.thrustframe=16.5
             self.setImage(self.thrustframe)
             if self.thrustframe==18:
-                self.attacking=True
+                self.Attacking=True
             self.thrustframe += .125
             if self.thrustframe>=22:
                 self.thrustframe=16.5
@@ -135,10 +135,13 @@ class Player(Sprite):
         self.collideright.y =self.y-1
         self.collideleft.x =self.x-7
         self.collideleft.y =self.y-1
-        if self.Attacking==True:
+        if self.Attacking==True and self.Attackcount<=30:
             self.stabhit.x=self.x+20
             self.stabhit.y=self.y+3
             self.Attackcount+=1
+        elif self.Attackcount>=30:
+            self.Attackcount=0
+            self.Attacking=False
         upcollide=self.collidetop.collidingWithSprites(Variblock)
         downcollide=self.collidebottom.collidingWithSprites(Variblock)
         downcollidep=self.collidebottom.collidingWithSprites(Platform)
