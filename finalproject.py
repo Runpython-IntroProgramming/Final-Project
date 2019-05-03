@@ -98,7 +98,7 @@ class Player(Sprite):
             if self.thrustframe<16.5:
                 self.thrustframe=16.5
             self.setImage(self.thrustframe)
-            if self.thrustframe==18:
+            if self.thrustframe==17:
                 self.Attacking=True
             self.thrustframe += .125
             if self.thrustframe>=22:
@@ -135,11 +135,11 @@ class Player(Sprite):
         self.collideright.y =self.y-1
         self.collideleft.x =self.x-7
         self.collideleft.y =self.y-1
-        if self.Attacking==True and self.Attackcount<=30:
+        if self.Attacking==True and self.Attackcount<=20:
             self.stabhit.x=self.x+20
-            self.stabhit.y=self.y+10
+            self.stabhit.y=self.y+5
             self.Attackcount+=1
-        elif self.Attackcount>=30:
+        elif self.Attackcount>=20:
             self.Attackcount=0
             self.Attacking=False
         upcollide=self.collidetop.collidingWithSprites(Variblock)
@@ -248,7 +248,7 @@ class Snake(Sprite):
     asset = ImageAsset("images/sheet_snake_walk.png", Frame(0,40,64,24), 7, 'horizontal')
     asset.append("images/sheet_snake_hurt.png", Frame(0,40,64,24), 2, 'horizontal')
     def __init__(self,position):
-        super().__init__(Snake.asset,position, CircleAsset(10))
+        super().__init__(Snake.asset,position, CircleAsset(15))
         self.vx=-1
         self.thrustframe=1
         self.rightdetect=Collide(position,5,15,green)
