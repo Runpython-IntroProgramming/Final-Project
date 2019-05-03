@@ -302,7 +302,7 @@ class Collide(Sprite):
         super().__init__(RectangleAsset(w,h,noline, color), position)
         self.fxcenter = 0.5
         self.fycenter = 0.5
-        self.visible=True
+        self.visible=False
 class Hitbox(Collide):
     def __init__(self, position,w,h,color):
         super().__init__(RectangleAsset(w,h,noline, color), position)
@@ -351,7 +351,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=3
+        self.levelindex=0.5
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.listenKeyEvent("keydown", "z", self.uplevel)
@@ -379,23 +379,32 @@ class SpaceGame(App):
         for s in self.getSpritesbyClass(sprong):
             s.destroy()
         for s in self.getSpritesbyClass(textbox):
-                    s.destroy()
+            s.destroy()
         for s in self.getSpritesbyClass(goal):
-                    s.destroy()
+            s.destroy()
         for s in self.getSpritesbyClass(Snake):
-                    s.destroy()
+            s.destroy()
+        for s in self.getSpritesbyClass(Snakebox):
+            s.destroy()
         if self.Enter:
             self.Enter.destroy()
             self.Enter=None
-        if self.levelindex==0.5:
+        if self.levelindex==0:
             self.progress=True
             self.p=Player((60,350))
             Variblock(105,30,0,0)
             Variblock(105,12,0,420)
             Spike(1,12,0,300)
             goal(20,120,1000,300)
-            #Snake((200,390))
             textbox("Press 'Enter' when touching the blue goal to complete the level. The red 'Spikes' will send you back.",1000,10,10)
+        if self.levelindex==0.5:
+            self.progress=True
+            self.p = Player((60,50))
+            Variblock(3,105,0,0)
+            Variblock(105,4,0,500)
+            Variblock(3,90,1000,0)
+            textbox("Press 'Spacebar' to jump and 'c' to attack",1000,100,10)
+            Variblock(4,8,400,420)
         if self.levelindex==1:
             self.progress=True
             self.p = Player((60,50))
@@ -434,10 +443,11 @@ class SpaceGame(App):
             Variblock(105,4,0,500)
             Variblock(3,90,1000,0)
             Variblock(4,10,200,400)
-            Variblock(2,10,550,300)
-            Snakebox(500,480)
+            Variblock(4,14,620,370)
+            Platform(551,420)
+            Snakebox(530,480)
             Spike(1,3,230,450)
-            goal(20,20,600,450)
+            goal(20,20,800,440)
         if self.levelindex==4:
             self.progress=True
             self.p = Player((60,50))
@@ -496,6 +506,8 @@ class SpaceGame(App):
                 for s in self.getSpritesbyClass(textbox):
                     s.destroy()
                 for s in self.getSpritesbyClass(Snake):
+                    s.destroy()
+                for s in self.getSpritesbyClass(Snakebox):
                     s.destroy()
                 if self.levelindex>.5:
                     self.levelindex-=.5
