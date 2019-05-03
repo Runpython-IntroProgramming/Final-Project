@@ -12,7 +12,7 @@ a=0
 
 def step():
     global a
-    a=a+0.01
+    a=a+0.0008
     xpen = (R-r)*cos(a) + r*50*cos(((R/r)-1)*a)+200
     ypen = (R-r)*sin(a) - r*50*sin(((R/r)-1)*a)+200
     asset = CircleAsset(.5, thinline, black)
