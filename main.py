@@ -51,7 +51,7 @@ command = input("Welcome! Press r to resume a session, press s to store a site a
 while running == 0:
     
     if command == "r":
-        pass
+        command = input("Press r to resume a session, press s to store a site and password, press g to retrieve a site and password or press q to print and exit: ")
     elif command == "s":
         data = []
         site = input("Please enter the name of the site you wish to store: ")
