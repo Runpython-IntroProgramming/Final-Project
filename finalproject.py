@@ -339,8 +339,8 @@ class Spike(Sprite):
         gred=lambda W: (W*10)
         super().__init__(RectangleAsset(gred(w),gred(h),noline,red),(grid(x),grid(y)))
 class textbox(Sprite):
-    def __init__(self, t, w, x, y):
-        super().__init__(TextAsset(t, style="bold 40pt Arial", width=w, fill=blue),(x,y))
+    def __init__(self, t, s, w, x, y):
+        super().__init__(TextAsset(t, style=s, width=w, fill=blue),(x,y))
 class SpaceGame(App):
     def __init__(self):
         super().__init__()
@@ -351,7 +351,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=0.5
+        self.levelindex=1
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.listenKeyEvent("keydown", "z", self.uplevel)
@@ -396,15 +396,19 @@ class SpaceGame(App):
             Variblock(105,12,0,420)
             Spike(1,12,0,300)
             goal(20,120,1000,300)
-            textbox("Press 'Enter' when touching the blue goal to complete the level. The red 'Spikes' will send you back.",1000,10,10)
+            textbox("Press 'Enter' when touching the blue goal to complete the level. The red 'Spikes' will send you back.","bold 40pt Arial",1000,10,10)
         if self.levelindex==0.5:
             self.progress=True
             self.p = Player((60,50))
             Variblock(3,105,0,0)
             Variblock(105,4,0,500)
             Variblock(3,90,1000,0)
-            textbox("Press 'Spacebar' to jump and 'c' to attack",1000,100,10)
-            Variblock(4,8,400,420)
+            textbox("Press 'Spacebar' to jump and 'c' to attack","bold 40pt Arial",1000,100,10)
+            Variblock(4,8,200,420)
+            Variblock(4,8,620,420)
+            Snakebox(530,480)
+            Spike(1,3,230,450)
+            goal(20,20,800,430)
         if self.levelindex==1:
             self.progress=True
             self.p = Player((60,50))
@@ -417,7 +421,7 @@ class SpaceGame(App):
             Variblock(3,12,400,150)
             Spike(15,1,260,250)
             Spike(1,10,430,180)
-            
+            textbox("You can slide on walls by holding a direction into the wall.","bold 20pt Arial",1000,10,10)
             Spike(21,1,435,400)
             goal(20,20,500,470)
         if self.levelindex==1.5 or self.levelindex==2.5:
