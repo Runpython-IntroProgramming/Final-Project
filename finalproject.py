@@ -474,6 +474,7 @@ class SpaceGame(App):
             #Platform(500,450)
             Snakebox(470,400)
             Spike(1,18,30,220)
+            Variblock(2,10,50,260)
             #Level2
             Variblock(50,2,500,300)
             #Platform(450,350)
