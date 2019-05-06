@@ -323,7 +323,7 @@ class Block(Wallblock):
 
 class Variblock(Sprite):
     def __init__(self, w, h, x, y):
-        grid=lambda W: (W-W%30)
+        grid=lambda W: (W-W%10)
         gred=lambda W: (W*10)
         super().__init__(RectangleAsset(gred(w),gred(h),noline,grey),(grid(x),grid(y)))
 
@@ -335,7 +335,7 @@ class goal(Sprite):
         super().__init__(RectangleAsset(w,h,noline,blue),(x,y))
 class Spike(Sprite):
      def __init__(self, w, h, x, y):
-        grid=lambda W: (W-W%30)
+        grid=lambda W: (W-W%10)
         gred=lambda W: (W*10)
         super().__init__(RectangleAsset(gred(w),gred(h),noline,red),(grid(x),grid(y)))
 class textbox(Sprite):
@@ -462,8 +462,15 @@ class SpaceGame(App):
             Variblock(105,4,0,500)
             Variblock(3,90,1000,0)
             ###Nonborder
-            Variblock(50,4,0,400)
-            Variblock(50,4,500,300)
+            Variblock(50,2,0,400)
+            Variblock(50,2,500,300)
+            Variblock(50,2,0,200)
+            Variblock(50,2,500,100)
+            ###Snakes!!
+            Snakebox(470,400)
+            Spike(1,18,30,220)
+            Snakebox(470,200)
+            Spike(1,18,30,20)
         if self.levelindex==5:
             self.progress=True
             self.p = Player((60,50))
