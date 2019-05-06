@@ -462,9 +462,11 @@ class SpaceGame(App):
             Variblock(105,4,0,500)
             Variblock(3,90,1000,0)
             ###Nonborder
-            self.p=Player((50,450))
+            self.p=Player((70,450))
             #Level1
             Variblock(50,2,0,400)
+            Snakebox(470,500)
+            Spike(1,8,30,420)
             Variblock(10,2,800,400)
             Spike(2,2,840,370)
             Variblock(10,2,600,400)
