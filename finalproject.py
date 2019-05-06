@@ -462,10 +462,15 @@ class SpaceGame(App):
             Variblock(105,4,0,500)
             Variblock(3,90,1000,0)
             ###Nonborder
+            Player((50,450))
             Variblock(50,2,0,400)
+            Platform(500,450)
             Variblock(50,2,500,300)
+            Platform(450,350)
             Variblock(50,2,0,200)
+            Platform(500,250)
             Variblock(50,2,500,100)
+            Platform(450,150)
             ###Snakes!!
             Snakebox(470,400)
             Spike(1,18,30,220)
