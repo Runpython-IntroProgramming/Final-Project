@@ -292,7 +292,7 @@ class Snakebox(Sprite):
         super().__init__(Snakebox.asset, (x,y))
     def step(self): 
         if self.SnakeSpawn==100:
-            self.Snake1=Snake((self.x, self.y-10))
+            #self.Snake1=Snake((self.x, self.y-10))
             self.SnakeSpawn=0
         self.SnakeSpawn+=.5
             
@@ -462,20 +462,28 @@ class SpaceGame(App):
             Variblock(105,4,0,500)
             Variblock(3,90,1000,0)
             ###Nonborder
-            Player((50,450))
+            self.p=Player((50,450))
+            #Level1
             Variblock(50,2,0,400)
-            Platform(500,450)
-            Variblock(50,2,500,300)
-            Platform(450,350)
-            Variblock(50,2,0,200)
-            Platform(500,250)
-            Variblock(50,2,500,100)
-            Platform(450,150)
-            ###Snakes!!
+            Variblock(10,2,800,400)
+            Spike(2,2,840,370)
+            Variblock(10,2,600,400)
+            Spike(2,2,640,370)
+            #Platform(500,450)
             Snakebox(470,400)
             Spike(1,18,30,220)
+            #Level2
+            Variblock(50,2,500,300)
+            #Platform(450,350)
+            #Level3
+            Variblock(50,2,0,200)
+            #Platform(500,250)
             Snakebox(470,200)
             Spike(1,18,30,20)
+            #level4
+            Variblock(50,2,500,100)
+            #Platform(450,150)
+            ###Snakes!!
         if self.levelindex==5:
             self.progress=True
             self.p = Player((60,50))
