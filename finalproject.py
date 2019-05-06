@@ -317,12 +317,12 @@ class Wallblock(Sprite):
 class Platform(Wallblock):
     def __init__(self, x, y):
         self.dcount=0
-        self.vx=.5
+        self.vx=1
         super().__init__(x, y, 50, 10, blue)
     def step(self):
         self.x+=self.vx
         self.dcount+=1
-        if self.dcount>=30:
+        if self.dcount>=60:
             self.vx=-1*self.vx
             self.dcount=0
 class Block(Wallblock):
@@ -479,7 +479,7 @@ class SpaceGame(App):
             Spike(2,2,840,370)
             Variblock(10,2,600,400)
             Spike(2,2,640,370)
-            #Platform(500,450)
+            Platform(500,450)
             Snakebox(470,400)
             Spike(1,18,30,220)
             Variblock(2,10,50,260)
