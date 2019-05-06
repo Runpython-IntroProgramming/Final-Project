@@ -565,6 +565,8 @@ class SpaceGame(App):
             p.step()
         for p in self.getSpritesbyClass(Snakebox):
             p.step()
+        for p in self.getSpritesbyClass(Platform):
+            p.step()
 print("use the left and right arrows to move , space bar to jump, and down arrow when sliding on a wall to wall")        
 myapp = SpaceGame()
 myapp.run()
