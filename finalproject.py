@@ -315,10 +315,10 @@ class Wallblock(Sprite):
             collideswith[0].destroy()
         Wallblock.fxcenter = Wallblock.fycenter = 0
 class Platform(Wallblock):
-    def __init__(self, x, y):
+    def __init__(self, x, y,m):
         self.dcount=0
         self.vx=1
-        super().__init__(x, y, 50, 10, blue)
+        super().__init__(m,x, y, 50, 10, blue)
     def step(self):
         self.x+=self.vx
         self.dcount+=1
@@ -479,7 +479,7 @@ class SpaceGame(App):
             Spike(2,2,840,370)
             Variblock(10,2,600,400)
             Spike(2,2,640,370)
-            Platform(500,450)
+            Platform(500,450,1)
             Snakebox(470,400)
             Spike(1,18,30,220)
             Variblock(2,10,50,260)
