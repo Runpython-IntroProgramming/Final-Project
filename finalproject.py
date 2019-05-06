@@ -12,7 +12,7 @@ from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, Te
 x=510
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
-blue = Color(0x2EFEC8, 1.0)
+blue = Color(0x0000FF, 1.0)
 black = Color(0x000000, 1.0)
 pink = Color(0xFF00FF, 1.0)
 red = Color(0xFF5733, 1.0)
@@ -351,7 +351,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=2
+        self.levelindex=4
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.listenKeyEvent("keydown", "z", self.uplevel)
@@ -427,7 +427,7 @@ class SpaceGame(App):
             textbox("And you can jump off the wall by pressing the down arrow.","bold 20pt Arial",380,650,250)
             Spike(21,1,435,400)
             goal(20,20,500,470)
-        if self.levelindex==1.5 or self.levelindex==2.5:
+        if self.levelindex==1.5 or self.levelindex==2.5 or self.levelindex==3.5:
             self.progress=True
             self.p=Player((60,350))
             Variblock(105,30,0,0)
@@ -441,6 +441,7 @@ class SpaceGame(App):
             Variblock(105,4,0,500)
             Variblock(3,90,1000,0)
             Variblock(10,30,400,250)
+            Spike(10,1,400,250)
             sprong(340,470)
             textbox("This is a spring. It will send you high into the air.","bold 30pt Arial",1000,50,100)
             goal(20,20,510,450)
@@ -457,6 +458,13 @@ class SpaceGame(App):
             Spike(1,3,230,450)
             goal(20,20,800,440)
         if self.levelindex==4:
+            Variblock(3,105,0,0)
+            Variblock(105,4,0,500)
+            Variblock(3,90,1000,0)
+            ###Nonborder
+            Variblock(50,4,0,400)
+            Variblock(50,4,500,300)
+        if self.levelindex==5:
             self.progress=True
             self.p = Player((60,50))
             Variblock(50,800,0,0)
