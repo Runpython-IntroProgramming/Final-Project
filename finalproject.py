@@ -351,7 +351,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=1
+        self.levelindex=2
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.listenKeyEvent("keydown", "z", self.uplevel)
@@ -385,6 +385,8 @@ class SpaceGame(App):
         for s in self.getSpritesbyClass(Snake):
             s.destroy()
         for s in self.getSpritesbyClass(Snakebox):
+            s.destroy()
+        for s in self.getSpritesbyClass(Platform):
             s.destroy()
         if self.Enter:
             self.Enter.destroy()
@@ -422,6 +424,7 @@ class SpaceGame(App):
             Spike(15,1,260,250)
             Spike(1,10,430,180)
             textbox("You can slide on walls by holding a direction into the wall.","bold 20pt Arial",1000,10,10)
+            textbox("And you can jump off the wall by pressing the down arrow.","bold 20pt Arial",380,650,250)
             Spike(21,1,435,400)
             goal(20,20,500,470)
         if self.levelindex==1.5 or self.levelindex==2.5:
@@ -439,6 +442,7 @@ class SpaceGame(App):
             Variblock(3,90,1000,0)
             Variblock(10,30,400,250)
             sprong(340,470)
+            textbox("This is a spring. It will send you high into the air.","bold 30pt Arial",1000,50,100)
             goal(20,20,510,450)
         if self.levelindex==3:
             self.progress=True
