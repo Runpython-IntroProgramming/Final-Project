@@ -314,11 +314,11 @@ class Wallblock(Sprite):
         if len(collideswith):
             collideswith[0].destroy()
         Wallblock.fxcenter = Wallblock.fycenter = 0
-class Platform(Wallblock):
-    def __init__(self, x, y):
+class Platform(Sprite):
+    def __init__(self, x, y,m):
         self.dcount=0
         self.vx=1
-        super().__init__(x, y, 50, 10, blue)
+        super().__init__(RectangleAsset(50, 10, noline,blue),(x,y),m)
     def step(self):
         self.x+=self.vx
         self.dcount+=1
@@ -411,8 +411,8 @@ class SpaceGame(App):
             self.progress=True
             self.p = Player((60,50))
             Variblock(3,105,0,0)
-            Variblock(105,4,0,500)
-            Variblock(3,90,1000,0)
+            Variblock(105,4,0,480)
+            Variblock(3,90,990,0)
             textbox("Press 'Spacebar' to jump and 'c' to attack","bold 40pt Arial",1000,100,10)
             Variblock(4,8,200,420)
             Variblock(4,8,620,420)
@@ -422,18 +422,18 @@ class SpaceGame(App):
         if self.levelindex==1:
             self.progress=True
             self.p = Player((60,50))
-            Variblock(3,105,0,0)
-            Variblock(75,1.5,0,510)
+            Variblock(5,105,0,0)
+            Variblock(105,4,0,480)
             Variblock(39,90,650,0)
             ###NonborderTerrain
             Variblock(21,13,50,150)
             Variblock(9,3,400,150)
             Variblock(3,12,400,150)
-            Spike(15,1,260,250)
-            Spike(1,10,430,180)
+            Spike(14,1,260,250)
+            Spike(1,9,430,180)
             textbox("You can slide on walls by holding a direction into the wall.","bold 20pt Arial",1000,10,10)
             textbox("And you can jump off the wall by pressing the down arrow.","bold 20pt Arial",380,650,250)
-            Spike(21,1,435,400)
+            Spike(21,1,440,400)
             goal(20,20,500,470)
         if self.levelindex==1.5 or self.levelindex==2.5 or self.levelindex==3.5:
             self.progress=True
@@ -446,8 +446,8 @@ class SpaceGame(App):
             self.progress=True
             self.p = Player((60,50))
             Variblock(3,105,0,0)
-            Variblock(105,4,0,500)
-            Variblock(3,90,1000,0)
+            Variblock(105,4,0,480)
+            Variblock(3,90,990,0)
             Variblock(10,30,400,250)
             Spike(10,1,400,250)
             sprong(340,470)
