@@ -317,15 +317,15 @@ class Wallblock(Sprite):
 class Platform(Sprite):
     def __init__(self, x, y,m,d):
         self.dcount=0
-        self.vx=1
         self.move=m
         self.d=d
+        self.vx=self.d
         super().__init__(RectangleAsset(50, 10, noline,blue),(x,y))
     def step(self):
         if self.move==True:
             self.x+=self.vx
-            self.dcount+=self.d
-            if self.dcount>=(self.d*50):
+            self.dcount+=1
+            if self.dcount>=abs(self.d)*60:
                 self.vx=-1*self.vx
                 self.dcount=0
 class Block(Wallblock):
