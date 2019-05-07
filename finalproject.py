@@ -263,7 +263,7 @@ class Snake(Sprite):
         self.leftdetect.y=self.y
         leftdetect=self.leftdetect.collidingWithSprites(Spike)
         #rightdetect=self.rightdetect.collidingWithSprites(Spike)
-        ros=(self.rightdetect.collidingWithSprites(Collide))
+        #ros=(self.rightdetect.collidingWithSprites(Collide))
         #rightdetect.extend(ros)
         #if len(rightdetect):
         #self.thrustframe+=.25
@@ -502,33 +502,33 @@ class SpaceGame(App):
         if self.levelindex==5:
             self.progress=True
             self.p = Player((60,50))
-            Variblock(50,800,0,0)
-            Variblock(1050,50,0,500)
-            Variblock(50,800,970,0)
+            Variblock(3,105,0,0)
+            Variblock(105,4,0,500)
+            Variblock(3,90,990,0)
             ###NonborderTerrain
-            Variblock(200,30,50,150)
-            Spike(200,10,50,145)
+            Variblock(20,3,50,150)
+            Spike(20,1,50,145)
             
-            Variblock(30,100,260,210)
-            Spike(30,10,260,205)
+            Variblock(3,10,260,210)
+            Spike(3,1,260,205)
             #Block 1
-            Variblock(800,30,50,410)
-            Spike(800,10,50,400)
+            Variblock(80,3,50,410)
+            Spike(80,1,50,400)
             #Block 2
-            Variblock(100,30,420,280)
-            Spike(100,10,420,310)
-            Spike(10,30,420,280)
+            Variblock(10,3,420,280)
+            Spike(10,1,420,310)
+            Spike(1,3,420,280)
             #Block 3
-            Variblock(30,100,600,180)
-            Spike(10,105,630,175)
-            Spike(30,10,600,175)
+            Variblock(3,10,600,180)
+            Spike(1,10,630,175)
+            Spike(3,1,600,175)
             #Block 4
-            Variblock(130,30,400,180)
-            Variblock(30,100,400,90)
-            Spike(130,10,400,200)
-            Spike(10,120,400,90)
+            Variblock(13,3,400,180)
+            Variblock(30,10,400,90)
+            Spike(13,1,400,200)
+            Spike(1,12,400,90)
             #Block 5
-            Variblock(100,30,700,300)
+            Variblock(10,3,700,300)
             
             goal(20,20,500,470)
     def step(self):
