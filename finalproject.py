@@ -315,16 +315,19 @@ class Wallblock(Sprite):
             collideswith[0].destroy()
         Wallblock.fxcenter = Wallblock.fycenter = 0
 class Platform(Sprite):
-    def __init__(self, x, y,m):
+    def __init__(self, x, y,m,d):
         self.dcount=0
         self.vx=1
-        super().__init__(RectangleAsset(50, 10, noline,blue),(x,y),m)
+        self.move=m
+        self.d=d
+        super().__init__(RectangleAsset(50, 10, noline,blue),(x,y))
     def step(self):
-        self.x+=self.vx
-        self.dcount+=1
-        if self.dcount>=60:
-            self.vx=-1*self.vx
-            self.dcount=0
+        if self.move==True:
+            self.x+=self.vx
+            self.dcount+=self.d
+            if self.dcount>=(self.d*50):
+                self.vx=-1*self.vx
+                self.dcount=0
 class Block(Wallblock):
     def __init__(self, x, y):
         super().__init__(x, y, 50, 50, red)
@@ -359,7 +362,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=3
+        self.levelindex=4
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.listenKeyEvent("keydown", "z", self.uplevel)
@@ -461,7 +464,7 @@ class SpaceGame(App):
             Variblock(3,90,990,0)
             Variblock(4,10,200,400)
             Variblock(4,14,620,370)
-            Platform(551,420)
+            Platform(570,420,False)
             Snakebox(530,480)
             Spike(1,3,230,450)
             goal(20,20,800,440)
@@ -479,7 +482,8 @@ class SpaceGame(App):
             Spike(2,2,840,370)
             Variblock(10,2,600,400)
             Spike(2,2,640,370)
-            Platform(500,450)
+            Platform(300,300,True)
+            Platform(200,300,True)
             Snakebox(470,400)
             Spike(1,18,30,220)
             Variblock(2,10,50,260)
