@@ -315,10 +315,10 @@ class Wallblock(Sprite):
             collideswith[0].destroy()
         Wallblock.fxcenter = Wallblock.fycenter = 0
 class Platform(Wallblock):
-    def __init__(self, x, y,):
+    def __init__(self, x, y):
         self.dcount=0
         self.vx=1
-        super().__init__(,x, y, 50, 10, blue)
+        super().__init__(x, y, 50, 10, blue)
     def step(self):
         self.x+=self.vx
         self.dcount+=1
