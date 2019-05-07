@@ -479,7 +479,7 @@ class SpaceGame(App):
             Spike(2,2,840,370)
             Variblock(10,2,600,400)
             Spike(2,2,640,370)
-            Platform(500,450,1)
+            Platform(500,450)
             Snakebox(470,400)
             Spike(1,18,30,220)
             Variblock(2,10,50,260)
