@@ -12,13 +12,13 @@ a=0
 
 def step():
     global a
-    if a < 1:
-        oldxpen = (R-r)*cos(a) + r*50*cos(((R/r)-1)*a)+250
-        oldypen = (R-r)*sin(a) - r*50*sin(((R/r)-1)*a)+240
+    if a < 150:
+        oldxpen = (R-r)*cos(a) + r*1*cos(((R/r)-1)*a)+250
+        oldypen = (R-r)*sin(a) - r*1*sin(((R/r)-1)*a)+240
         #print("old: ", oldxpen, oldypen)
-        a=a+0.05
-        xpen = (R-r)*cos(a) + r*50*cos(((R/r)-1)*a)+250
-        ypen = (R-r)*sin(a) - r*50*sin(((R/r)-1)*a)+240
+        a=a+0.005
+        xpen = (R-r)*cos(a) + r*1*cos(((R/r)-1)*a)+250
+        ypen = (R-r)*sin(a) - r*1*sin(((R/r)-1)*a)+240
         #print("new: ", xpen, ypen)
         asset = CircleAsset(.5, thinline, black)
         asset2 = LineAsset(xpen-oldxpen, ypen-oldypen,thinline)
