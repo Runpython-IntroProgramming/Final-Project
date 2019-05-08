@@ -43,7 +43,7 @@ class Player(Sprite):
     asset.append("images/sheet_hero_jump.png", Frame(0,26,64,38), 5, 'horizontal')
     asset.append("images/sheet_hero_stab.png", Frame(0,34,64,30), 5, 'horizontal')
     
-    def __init__(self, position):
+    def __init__(self, position,n):
         super().__init__(Player.asset, position, CircleAsset(10))
         self.vx = 0
         self.vy = 0
@@ -68,16 +68,28 @@ class Player(Sprite):
         self.width=64
         self.Attacking=False
         self.Attackcount=0
-        SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
-        SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
-        SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
-        SpaceGame.listenKeyEvent("keyup", "left arrow", self.leftoff)
-        SpaceGame.listenKeyEvent("keydown", "right arrow", self.righton)
-        SpaceGame.listenKeyEvent("keyup", "right arrow", self.rightoff)
-        SpaceGame.listenKeyEvent("keydown", "down arrow", self.Leap)
-        SpaceGame.listenKeyEvent("keyup", "down arrow", self.noLeap)
-        SpaceGame.listenKeyEvent("keydown", "c", self.Attack)
-        SpaceGame.listenKeyEvent("keyup", "c", self.noAttack)
+        if n==0:
+            SpaceGame.listenKeyEvent("keydown", "space", self.thrustOn)
+            SpaceGame.listenKeyEvent("keyup", "space", self.thrustOff)
+            SpaceGame.listenKeyEvent("keydown", "left arrow", self.lefton)
+            SpaceGame.listenKeyEvent("keyup", "left arrow", self.leftoff)
+            SpaceGame.listenKeyEvent("keydown", "right arrow", self.righton)
+            SpaceGame.listenKeyEvent("keyup", "right arrow", self.rightoff)
+            SpaceGame.listenKeyEvent("keydown", "down arrow", self.Leap)
+            SpaceGame.listenKeyEvent("keyup", "down arrow", self.noLeap)
+            SpaceGame.listenKeyEvent("keydown", "m", self.Attack)
+            SpaceGame.listenKeyEvent("keyup", "m", self.noAttack)
+        if n==1:
+            SpaceGame.listenKeyEvent("keydown", "w", self.thrustOn)
+            SpaceGame.listenKeyEvent("keyup", "w", self.thrustOff)
+            SpaceGame.listenKeyEvent("keydown", "a", self.lefton)
+            SpaceGame.listenKeyEvent("keyup", "a", self.leftoff)
+            SpaceGame.listenKeyEvent("keydown", "d", self.righton)
+            SpaceGame.listenKeyEvent("keyup", "d", self.rightoff)
+            SpaceGame.listenKeyEvent("keydown", "s", self.Leap)
+            SpaceGame.listenKeyEvent("keyup", "s", self.noLeap)
+            SpaceGame.listenKeyEvent("keydown", "c", self.Attack)
+            SpaceGame.listenKeyEvent("keyup", "c", self.noAttack)
         self.fxcenter = self.fycenter = 0.5
     def step(self):
         downcollide=self.collidebottom.collidingWithSprites(Variblock)
@@ -362,7 +374,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=4
+        self.levelindex=.5
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.listenKeyEvent("keydown", "z", self.uplevel)
@@ -404,7 +416,7 @@ class SpaceGame(App):
             self.Enter=None
         if self.levelindex==0:
             self.progress=True
-            self.p=Player((60,350))
+            self.p=Player((60,350),0)
             Variblock(105,30,0,0)
             Variblock(105,12,0,420)
             Spike(1,12,0,300)
@@ -412,7 +424,7 @@ class SpaceGame(App):
             textbox("Press 'Enter' when touching the blue goal to complete the level. The red 'Spikes' will send you back.","bold 40pt Arial",1000,10,10)
         if self.levelindex==0.5:
             self.progress=True
-            self.p = Player((60,50))
+            self.p = Player((60,50),0)
             Variblock(3,105,0,0)
             Variblock(105,4,0,480)
             Variblock(3,90,990,0)
@@ -424,7 +436,7 @@ class SpaceGame(App):
             goal(20,20,800,430)
         if self.levelindex==1:
             self.progress=True
-            self.p = Player((60,50))
+            self.p = Player((60,50),0)
             Variblock(5,105,0,0)
             Variblock(105,4,0,480)
             Variblock(39,90,650,0)
@@ -440,14 +452,14 @@ class SpaceGame(App):
             goal(20,20,500,470)
         if self.levelindex==1.5 or self.levelindex==2.5 or self.levelindex==3.5:
             self.progress=True
-            self.p=Player((60,350))
+            self.p=Player((60,350),0)
             Variblock(105,30,0,0)
             Variblock(105,12,0,420)
             Spike(1,12,0,300)
             goal(20,120,1000,300)
         if self.levelindex==2:
             self.progress=True
-            self.p = Player((60,50))
+            self.p = Player((60,50),0)
             Variblock(3,105,0,0)
             Variblock(105,4,0,480)
             Variblock(3,90,990,0)
@@ -458,7 +470,7 @@ class SpaceGame(App):
             goal(20,20,510,450)
         if self.levelindex==3:
             self.progress=True
-            self.p = Player((100,400))
+            self.p = Player((100,400),0)
             Variblock(3,105,0,0)
             Variblock(105,4,0,480)
             Variblock(3,90,990,0)
@@ -473,7 +485,7 @@ class SpaceGame(App):
             Variblock(105,4,0,500)
             Variblock(3,90,990,0)
             ###Nonborder
-            self.p=Player((70,450))
+            self.p=Player((70,450),0)
             #Level1
             Variblock(50,2,0,400)
             Snakebox(470,500)
@@ -501,7 +513,7 @@ class SpaceGame(App):
             ###Snakes!!
         if self.levelindex==5:
             self.progress=True
-            self.p = Player((60,50))
+            self.p = Player((60,50),0)
             Variblock(3,105,0,0)
             Variblock(105,4,0,500)
             Variblock(3,90,990,0)
@@ -559,6 +571,8 @@ class SpaceGame(App):
                 for s in self.getSpritesbyClass(Snake):
                     s.destroy()
                 for s in self.getSpritesbyClass(Snakebox):
+                    s.destroy()
+                for s in self.getSpritesbyClass(Platform):
                     s.destroy()
                 if self.levelindex>.5:
                     self.levelindex-=.5
