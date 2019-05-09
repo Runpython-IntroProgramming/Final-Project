@@ -275,7 +275,7 @@ class Snake(Sprite):
         self.leftdetect.y=self.y
         leftdetect=self.leftdetect.collidingWithSprites(Spike)
         #rightdetect=self.rightdetect.collidingWithSprites(Spike)
-        #ros=(self.rightdetect.collidingWithSprites(Collide))
+        ros=(self.rightdetect.collidingWithSprites(Collide))
         #rightdetect.extend(ros)
         #if len(rightdetect):
         #self.thrustframe+=.25
@@ -304,7 +304,7 @@ class Snakebox(Sprite):
         super().__init__(Snakebox.asset, (x,y))
     def step(self): 
         if self.SnakeSpawn==100:
-            #self.Snake1=Snake((self.x, self.y-10))
+            self.Snake1=Snake((self.x, self.y-10))
             self.SnakeSpawn=0
         self.SnakeSpawn+=.5
             
