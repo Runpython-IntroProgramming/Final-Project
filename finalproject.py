@@ -485,7 +485,7 @@ class SpaceGame(App):
             Variblock(105,4,0,500)
             Variblock(3,90,990,0)
             ###Nonborder
-            self.p=Player((70,450),0)
+            self.p=Player((170,150),0)
             #Level1
             Variblock(50,2,0,400)
             Snakebox(470,500)
@@ -504,12 +504,16 @@ class SpaceGame(App):
             Platform(500,200,True,2.5)
             #Level3
             Variblock(50,2,0,200)
-            #Platform(500,250)
             Snakebox(470,200)
             Spike(1,18,30,20)
+            Variblock(2,10,50,50)
+            Platform(50,150,False,0)
+            Variblock(5,2,250,70)
+            Variblock(5,2,500,70)
             #level4
-            Variblock(50,2,500,100)
-            #Platform(450,150)
+            Variblock(45,2,550,100)
+            Spike(20,1,550,100)
+            goal(10,100,980,0)
             ###Snakes!!
         if self.levelindex==5:
             self.progress=True
