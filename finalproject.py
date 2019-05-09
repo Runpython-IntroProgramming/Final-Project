@@ -374,7 +374,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=.5
+        self.levelindex=4
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.listenKeyEvent("keydown", "z", self.uplevel)
@@ -501,7 +501,7 @@ class SpaceGame(App):
             Variblock(2,10,50,260)
             #Level2
             Variblock(50,2,500,300)
-            #Platform(450,350)
+            Platform(500,200,True,2.5)
             #Level3
             Variblock(50,2,0,200)
             #Platform(500,250)
