@@ -304,7 +304,7 @@ class Snakebox(Sprite):
         super().__init__(Snakebox.asset, (x,y))
     def step(self): 
         if self.SnakeSpawn==100:
-            self.Snake1=Snake((self.x, self.y-10))
+            #self.Snake1=Snake((self.x, self.y-10))
             self.SnakeSpawn=0
         self.SnakeSpawn+=.5
             
@@ -376,6 +376,7 @@ class SpaceGame(App):
         self.Enter=Sprite(TA,(400,200))
         self.levelindex=4
         self.listenMouseEvent("mousemove", self.Mouse)
+        self.listenMouseEvent("click", self.Mouse)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.listenKeyEvent("keydown", "z", self.uplevel)
         self.listenKeyEvent("keydown", "x", self.downlevel)
@@ -512,7 +513,7 @@ class SpaceGame(App):
             Variblock(5,2,500,70)
             #level4
             Variblock(45,2,550,100)
-            Spike(20,1,550,100)
+            Spike(20,1,550,90)
             goal(10,100,980,0)
             ###Snakes!!
         if self.levelindex==5:
