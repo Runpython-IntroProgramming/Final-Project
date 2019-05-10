@@ -376,7 +376,7 @@ class SpaceGame(App):
         self.Enter=Sprite(TA,(400,200))
         self.levelindex=4
         self.listenMouseEvent("mousemove", self.Mouse)
-        self.listenMouseEvent("click", self.Mouse)
+        self.listenMouseEvent("click", self.Click)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.listenKeyEvent("keydown", "z", self.uplevel)
         self.listenKeyEvent("keydown", "x", self.downlevel)
@@ -384,7 +384,8 @@ class SpaceGame(App):
         self.terrainlist=None
         self.p = None
         self.progress=False
-        
+    def Click(self, event):
+        print("hah you're attempt is futile.")
     def Mouse(self, event):
         self.pos = (event.x, event.y)
     def uplevel(self, event):
