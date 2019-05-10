@@ -314,7 +314,7 @@ class Collide(Sprite):
         super().__init__(RectangleAsset(w,h,noline, color), position)
         self.fxcenter = 0.5
         self.fycenter = 0.5
-        self.visible=False
+        self.visible=True
 class Hitbox(Collide):
     def __init__(self, position,w,h,color):
         super().__init__(RectangleAsset(w,h,noline, color), position)
@@ -383,9 +383,13 @@ class SpaceGame(App):
         self.levelfinish=[]
         self.terrainlist=None
         self.p = None
+        self.c=None
         self.progress=False
     def Click(self, event):
+        if self.c:
+            self.c.destroy()
         print("hah you're attempt is futile.")
+        self.c=Collide(self.pos,5,5,red)
     def Mouse(self, event):
         self.pos = (event.x, event.y)
     def uplevel(self, event):
