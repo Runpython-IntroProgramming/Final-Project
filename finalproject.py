@@ -575,7 +575,17 @@ class SpaceGame(App):
             sprong(30,430)
             Variblock(6,2,150,100)
             
-            Variblock(2,2,500,400)
+            Variblock(2,2,450,400)
+            Variblock(2,2,550,400)
+            Variblock(2,2,620,380)
+            
+            Variblock(2,5,700,270)
+            Spike(2,1,700,260)
+            Variblock(2,5,600,230)
+            Spike(2,1,600,220)
+            sprong(750,300)
+            Spike(1,40,800,50)
+            Variblock
     def step(self):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
