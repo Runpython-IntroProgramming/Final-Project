@@ -374,7 +374,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=5.5
+        self.levelindex=6
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenMouseEvent("click", self.Click)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
@@ -589,6 +589,13 @@ class SpaceGame(App):
             Variblock(5,2,800,50)
             Spike(7,1,920,250)
             Variblock(1,5,810,200)
+        if self.levelindex==6:
+            self.p=Player((50,260),0)
+            Variblock(103,20,0,300)
+            Variblock(103,25,0,0)
+            Snakebox(800,300)
+            Snakebox(200,300)
+            Snakebox(500,300)
     def step(self):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
