@@ -7,19 +7,31 @@ class Board(Sprite):
     #Sprite(asset, (0,0))
 
 class exe(Sprite):
-    asset = ImageAsset("images/x.png")
+    asset = ImageAsset("images/X.png")
     width = 70
     height = 70
     def __init__(self, position):
         super().__init__(exe.asset, position)
-        self.scale = .15
+        self.scale = .5
         self.mass = 30000
     Sprite(asset, (200,200))
-       
+
+class owe(Sprite):
+    asset = ImageAsset("images/O.png")
+    width = 70
+    height = 70
+    def __init__(self, position):
+        super().__init__(owe.asset, position)
+        self.scale = .5
+        self.mass = 30000
+    Sprite(asset, (200,200))
+
 class Game(App):
     def __init__(self):
         super().__init__()
         Board((0,0))
+        exe((200,200))
+        owe((200,400))
         self.height = 700
         self.width = 1200
 
