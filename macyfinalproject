@@ -1,4 +1,30 @@
-"""
-Final Project
-Author: maCucyrt07
-Credit: <list sources used, if any>
+
+
+
+name = input("Enter a name: ")
+
+Adjective1 = input("Enter an adjective: ")
+Adjective2 = input("Enter a second adjective: ")
+Adjective3 = input("Enter a third adjective: ")
+
+Verb1 = input("Enter a verb: ")
+Verb2 = input("Enter a second verb: ")
+Verb3 = input("Enter a third verb: ")
+
+Noun1 = input("Enter a noun: ")
+Noun2 = input("Enter a noun: ")
+Noun3 = input("Enter a noun: ")
+Noun4 = input("Enter a noun: ")
+
+animal = input("Enter an animal: ")
+food = input("Enter a food: ")
+fruit = input("Enter a fruit: ")
+number = input("Enter a number: ")
+superhero_name = input("Enter a superhero name: ")
+country = input("Enter a country: ")
+dessert = input("Enter a dessert: ")
+year = input("Enter a year: ")
+
+STORY = "This morning I woke up and felt" +Adjective1+ "because" +name+ "was going to finally  over the big" +Verb1+ ". On the other side of the" +Adjective2+ "were many" +Noun1+ "protesting to keep" +Noun2+ "in stores. The crowd began to" +animal+ "to the rythym of the" +food+ ", which made all of the" +Verb2+ "very _." +Noun3+ ",tried to" +fruit+ "into the sewers and found" +Adjective3+ "rats. Needing help," +name+ "quickly called" +Verb3+ +number+ "." +name+ "appeared and saved" +superhero_name+  "by flying to" +superhero_name+ "and dropping" +name+ "into a puddle of" +country+ "." +name+ "then fell asleep and woke up in the year" +year+ ", in a world where" +Noun4+ " ruled the world."
+
+print (STORY)
