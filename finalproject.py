@@ -596,6 +596,7 @@ class SpaceGame(App):
             Snakebox(800,300)
             Snakebox(200,300)
             Snakebox(500,300)
+            goal(20,50,1000,250)
     def step(self):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
