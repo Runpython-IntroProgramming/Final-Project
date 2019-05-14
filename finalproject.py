@@ -374,7 +374,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=4
+        self.levelindex=5.5
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenMouseEvent("click", self.Click)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
@@ -528,8 +528,8 @@ class SpaceGame(App):
             Variblock(105,4,0,500)
             Variblock(3,90,990,0)
             ###NonborderTerrain
-            Variblock(20,3,50,150)
-            Spike(20,1,50,145)
+            Variblock(20,3,30,150)
+            Spike(20,1,30,145)
             
             Variblock(3,10,260,210)
             Spike(3,1,260,205)
@@ -546,13 +546,36 @@ class SpaceGame(App):
             Spike(3,1,600,175)
             #Block 4
             Variblock(13,3,400,180)
-            Variblock(30,10,400,90)
+            Variblock(3,10,400,90)
             Spike(13,1,400,200)
             Spike(1,12,400,90)
             #Block 5
             Variblock(10,3,700,300)
-            
             goal(20,20,500,470)
+        if self.levelindex==5.5:
+            self.p=Player((500,50),0)
+            Variblock(3,105,0,0)
+            Variblock(3,90,990,0)
+            Spike(96,1,30,440)
+            goal(100,20,450,500)
+            #Walljumps n Stuff
+            Variblock(2,15,550,0)
+            #Diagonal Jump
+            Spike(10,1,450,150)
+            Variblock(2,5,430,0)
+            Spike(5,1,400,110)
+            Spike(5,1,400,50)
+            
+            Spike(2,1,380,120)
+            Spike(2,1,380,60)
+            
+            Spike(2,1,360,130)
+            Spike(2,1,360,70)
+            
+            sprong(30,430)
+            Variblock(6,2,150,100)
+            
+            Variblock(2,2,500,400)
     def step(self):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
