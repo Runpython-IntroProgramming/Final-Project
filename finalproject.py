@@ -421,13 +421,16 @@ class SpaceGame(App):
             self.Enter.destroy()
             self.Enter=None
         if self.levelindex==-.5:
+            self.p=Player((500,100),0)
             Variblock(103,8,0,0)
             Variblock(103,8,0,435)
             Variblock(8,35,0,80)
             Variblock(8,35,940,80)
             Variblock(50,20,260,160)
             textbox("<Game_Name>","bold 40pt Arial",600,320,220)
-            textbox("Start","bold 30pt Arial",200,300,450)
+            textbox("Start","bold 30pt Arial",200,100,450)
+            textbox("Credits","bold 30pt Arial",200,600,450)
+            goal(100,20,100,420)
         if self.levelindex==0:
             self.progress=True
             self.p=Player((60,350),0)
