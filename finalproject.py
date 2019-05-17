@@ -420,7 +420,12 @@ class SpaceGame(App):
         if self.Enter:
             self.Enter.destroy()
             self.Enter=None
+        if self.levelindex==-1:
+            self.progress=True
+            Variblock(103,52,0,0)
+            textbox("<Credits>","bold 40pt Arial",600,320,220)
         if self.levelindex==-.5:
+            self.progress=True
             self.p=Player((500,100),0)
             Variblock(103,8,0,0)
             Variblock(103,8,0,435)
@@ -429,8 +434,9 @@ class SpaceGame(App):
             Variblock(50,20,260,160)
             textbox("<Game_Name>","bold 40pt Arial",600,320,220)
             textbox("Start","bold 30pt Arial",200,100,450)
-            textbox("Credits","bold 30pt Arial",200,600,450)
+            textbox("Credits","bold 30pt Arial",200,800,450)
             goal(100,20,100,420)
+            Spike(10,2,820,420)
         if self.levelindex==0:
             self.progress=True
             self.p=Player((60,350),0)
@@ -445,7 +451,7 @@ class SpaceGame(App):
             Variblock(3,105,0,0)
             Variblock(105,4,0,480)
             Variblock(3,90,990,0)
-            textbox("Press 'Spacebar' to jump and 'c' to attack","bold 40pt Arial",1000,100,10)
+            textbox("Press 'Spacebar' to jump and 'm' to attack","bold 40pt Arial",1000,100,10)
             Variblock(4,8,200,420)
             Variblock(4,8,620,420)
             Snakebox(530,480)
@@ -474,6 +480,14 @@ class SpaceGame(App):
             Variblock(105,12,0,420)
             Spike(1,12,0,300)
             goal(20,120,1000,300)
+        if self.levelindex==4.5:
+            self.progress=True
+            self.p=Player((60,350),0)
+            Variblock(105,30,0,0)
+            Variblock(105,12,0,420)
+            Spike(1,12,0,300)
+            goal(20,120,1000,300)
+            textbox("Here's a tough section. Good Luck!","bolf 40pt Arial",1000,500,10)
         if self.levelindex==2:
             self.progress=True
             self.p = Player((60,50),0)
