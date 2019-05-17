@@ -73,70 +73,70 @@ g = 1
 h = 1
 i = 1
 
-if a = 5 and b = 5 and c = 5:
+if a == 5 and b == 5 and c == 5:
     horiz((303,250))
     print("X Wins")
     break
-elif d = 5 and e = 5 and f = 5:
+elif d == 5 and e == 5 and f == 5:
     horiz((303,400))
     print("X Wins")
     break
-elif g = 5 and h = 5 and i = 5:
+elif g == 5 and h == 5 and i == 5:
     horiz((303,550))
     print("X Wins")
     break
-elif a = 5 and d = 5 and g = 5:
+elif a == 5 and d == 5 and g == 5:
     vert((303,400))
     print("X Wins")
     break
-elif b = 5 and e = 5 and h = 5:
+elif b == 5 and e == 5 and h == 5:
     vcert((303,400))
     print("X Wins")
     break
-elif c = 5 and f = 5 and i = 5:
+elif c == 5 and f == 5 and i == 5:
     horiz((303,400))
     print("X Wins")
     break
-elif a = 5 and e = 5 and i = 5:
+elif a == 5 and e == 5 and i == 5:
     diag1((303, 250))
     print ("X Wins")
     break
-elif c = 5 and e = 5 and g = 5:
+elif c == 5 and e == 5 and g == 5:
     diag2((603, 250))
     print ("X Wins")
     break
 
-if a = 7 and b = 7 and c = 7:
+if a == 7 and b == 7 and c == 7:
     horiz((303,250))
-    print("X Wins")
+    print("O Wins")
     break
-elif d = 7 and e = 7 and f = 7:
+elif d == 7 and e == 7 and f == 7:
     horiz((303,400))
-    print("X Wins")
+    print("O Wins")
     break
-elif g = 7 and h = 7 and i = 7:
+elif g == 7 and h == 7 and i == 7:
     horiz((303,550))
-    print("X Wins")
+    print("O Wins")
     break
-elif a = 7 and d = 7 and g = 7:
+elif a == 7 and d == 7 and g == 7:
     vert((303,400))
-    print("X Wins")
+    print("O Wins")
     break
-elif b = 7 and e = 7 and h = 7:
+elif b == 7 and e == 7 and h == 7:
     vcert((303,400))
-    print("X Wins")
+    print("O Wins")
     break
-elif c = 7 and f = 7 and i = 7:
+elif c == 7 and f == 7 and i == 7:
     horiz((303,400))
-    print("X Wins")
+    print("O Wins")
     break
-elif a = 7 and e = 7 and i = 7:
+elif a == 7 and e == 7 and i == 7:
     diag1((303, 250))
-    print ("X Wins")
+    print ("o Wins")
     break
-elif c = 7 and e = 7 and g = 7:
+elif c == 7 and e == 7 and g == 7:
     diag2((603, 250))
-    print ("X Wins")
+    print ("O Wins")
     break
     
 
