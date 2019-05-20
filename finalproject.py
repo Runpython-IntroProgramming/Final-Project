@@ -632,6 +632,9 @@ class SpaceGame(App):
             self.playerhurt=self.p.collidingWithSprites(Spike)
             self.playerhurt1=self.p.collidingWithSprites(Snake)
             self.playerhurt.extend(self.playerhurt1)
+            self.select=self.p.collidingWithSprites(goal2)
+            if len(self.select):
+                self.levelindex=-5
             if len(self.levelfinish):
                 if self.progress==True:
                     print(self.levelindex)
