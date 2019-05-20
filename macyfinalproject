@@ -4,27 +4,41 @@
 name = input("Enter a name: ")
 
 Adjective1 = input("Enter an adjective: ")
-Adjective2 = input("Enter a second adjective: ")
-Adjective3 = input("Enter a third adjective: ")
+Adjective2 = input("Enter an adjective: ")
+Adjective3 = input("Enter an adjective: ")
+Adjective4 = input("Enter an adjective: ")
 
 Verb1 = input("Enter a verb: ")
 Verb2 = input("Enter a second verb: ")
-Verb3 = input("Enter a third verb: ")
+Verb3 = input("Enter a past tense verb: ")
 
-Noun1 = input("Enter a noun: ")
+Noun1 = input("Enter a plural noun: ")
 Noun2 = input("Enter a noun: ")
 Noun3 = input("Enter a noun: ")
-Noun4 = input("Enter a noun: ")
+Noun4 = input("Enter a plural noun: ")
+Noun5 = input("Enter a plural noun: ")
 
-animal = input("Enter an animal: ")
+animal = input("Enter a plural animal: ")
 food = input("Enter a food: ")
 fruit = input("Enter a fruit: ")
 number = input("Enter a number: ")
-superhero_name = input("Enter a superhero name: ")
 country = input("Enter a country: ")
-dessert = input("Enter a dessert: ")
 year = input("Enter a year: ")
 
-STORY = "This morning I woke up and felt" +Adjective1+ "because" +name+ "was going to finally  over the big" +Verb1+ ". On the other side of the" +Adjective2+ "were many" +Noun1+ "protesting to keep" +Noun2+ "in stores. The crowd began to" +animal+ "to the rythym of the" +food+ ", which made all of the" +Verb2+ "very _." +Noun3+ ",tried to" +fruit+ "into the sewers and found" +Adjective3+ "rats. Needing help," +name+ "quickly called" +Verb3+ +number+ "." +name+ "appeared and saved" +superhero_name+  "by flying to" +superhero_name+ "and dropping" +name+ "into a puddle of" +country+ "." +name+ "then fell asleep and woke up in the year" +year+ ", in a world where" +Noun4+ " ruled the world."
+story = "When I woke up this morning, I felt very " +Adjective1+ " because " +name+ " had to " +Verb1+ "."
+story2 = " When I was feeling " +Adjective2+ " later, I saw many " +Noun1+ " that were playing on the " +Noun2+ " "
+story3 = " ahead of me. They were acting like " +animal+ " looking for " +food+ ", which made me want to " +Verb2+ " "
+story4 = " towards the " +Noun3+ ". I found a " +fruit+ " at the farmer's market and it was " +Adjective3+ ". Then, " +name+ " " 
+story5 = " called me over, and " +Verb3+". " +name+ " appeared behind me and brought me " +Noun5+ ". "
+story6 = " Before I could say thank you, " +name+ " left me and went to " +country+ " "
+story7 = ". I ate the " +Adjective3+fruit+ ", but then "
+story8 = " it made me very " +Adjective4+ " and I fell asleep until " +year+ ". When I finally woke  up, I felt " +Adjective1+ "."
 
-print (STORY)
+print (story)
+print (story2)
+print (story3)
+print (story4)
+print (story5)
+print (story6)
+print (story7)
+print (story8)
