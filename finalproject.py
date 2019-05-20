@@ -436,6 +436,7 @@ class SpaceGame(App):
             self.p=Player((100,360),0)
             Variblock(5,15,0,200)
             Platform(50,350,False,0)
+            self.c=[goal2(20,20,50,300,1),goal2(20,20,200,300,2)]
             Variblock(5,15,150,200)
             Platform(200,350,False,0)
             Variblock(5,15,300,200)
