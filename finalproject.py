@@ -378,7 +378,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=-2
+        self.levelindex=-.5
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenMouseEvent("click", self.Click)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
@@ -455,7 +455,7 @@ class SpaceGame(App):
             textbox("Start","bold 30pt Arial",200,100,450)
             textbox("Credits","bold 30pt Arial",200,800,450)
             goal(100,20,100,420)
-            self.c=goal2(100,20,450,350,-2)
+            self.c=[goal2(100,20,450,350,-2)]
             Spike(10,2,820,420)
         if self.levelindex==0:
             self.progress=True
@@ -649,9 +649,10 @@ class SpaceGame(App):
             self.playerhurt1=self.p.collidingWithSprites(Snake)
             self.playerhurt.extend(self.playerhurt1)
             self.select=self.p.collidingWithSprites(goal2)
-            if len(self.select):
-                self.levelindex=self.c.i#-((self.c.x)-self.c.x%100)/100
+            #if len(self.select):
+                #self.levelindex=self.c.i#-((self.c.x)-self.c.x%100)/100
             for l in self.select:
+                self.levelindex=l.i
             if len(self.levelfinish):
                 if self.progress==True:
                     print(self.levelindex)
