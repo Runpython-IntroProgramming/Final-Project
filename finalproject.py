@@ -438,7 +438,8 @@ class SpaceGame(App):
             textbox("<Game_Name>","bold 40pt Arial",600,320,220)
             textbox("Start","bold 30pt Arial",200,100,450)
             textbox("Credits","bold 30pt Arial",200,800,450)
-            goal2(100,20,100,420)
+            goal(100,20,100,420)
+            goal2(100,20,450,350)
             Spike(10,2,820,420)
         if self.levelindex==0:
             self.progress=True
