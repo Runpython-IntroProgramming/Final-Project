@@ -359,6 +359,7 @@ class goal(Sprite):
 class goal2(Sprite):
     def __init__(self, w, h, x, y):
         super().__init__(RectangleAsset(w,h,noline,purple),(x,y))
+        self.i=1
 class Spike(Sprite):
      def __init__(self, w, h, x, y):
         grid=lambda W: (W-W%10)
@@ -420,6 +421,8 @@ class SpaceGame(App):
             s.destroy()
         for s in self.getSpritesbyClass(Platform):
             s.destroy()
+        for s in self.getSpritesbyClass(goal2):
+            s.destroy()
         if self.Enter:
             self.Enter.destroy()
             self.Enter=None
@@ -428,8 +431,9 @@ class SpaceGame(App):
             Variblock(103,52,0,0)
             textbox("<Credits>","bold 40pt Arial",600,320,220)
         if self.levelindex==-4:
-            Variblock(103,8,0,0)
-            Variblock(103,8,100,0)
+            Variblock(103,20,0,0)
+            Variblock(103,10,0,400)
+            self.p=Player((100,350),0)
         if self.levelindex==-.5:
             self.progress=True
             self.p=Player((500,100),0)
@@ -637,7 +641,7 @@ class SpaceGame(App):
             self.playerhurt.extend(self.playerhurt1)
             self.select=self.p.collidingWithSprites(goal2)
             if len(self.select):
-                self.levelindex=-((self.c.x)-self.c.x%100)/100
+                self.levelindex=self.c.i#-((self.c.x)-self.c.x%100)/100
             if len(self.levelfinish):
                 if self.progress==True:
                     print(self.levelindex)
