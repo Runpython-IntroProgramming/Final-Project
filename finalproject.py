@@ -357,9 +357,9 @@ class goal(Sprite):
     def __init__(self, w, h, x, y):
         super().__init__(RectangleAsset(w,h,noline,blue),(x,y))
 class goal2(Sprite):
-    def __init__(self, w, h, x, y):
+    def __init__(self, w, h, x, y,l):
         super().__init__(RectangleAsset(w,h,noline,purple),(x,y))
-        self.i=1
+        self.i=l
 class Spike(Sprite):
      def __init__(self, w, h, x, y):
         grid=lambda W: (W-W%10)
@@ -378,7 +378,7 @@ class SpaceGame(App):
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
         self.Enter=Sprite(TA,(400,200))
-        self.levelindex=-.5
+        self.levelindex=-2
         self.listenMouseEvent("mousemove", self.Mouse)
         self.listenMouseEvent("click", self.Click)
         self.listenKeyEvent("keydown", "enter", self.newlevel)
@@ -430,10 +430,12 @@ class SpaceGame(App):
             self.progress=True
             Variblock(103,52,0,0)
             textbox("<Credits>","bold 40pt Arial",600,320,220)
-        if self.levelindex==-4:
+        if self.levelindex==-2:
             Variblock(103,20,0,0)
             Variblock(103,10,0,400)
-            self.p=Player((100,350),0)
+            self.p=Player((100,360),0)
+            Variblock(5,15,0,200)
+            Variblock(5,15,0,200)
         if self.levelindex==-.5:
             self.progress=True
             self.p=Player((500,100),0)
@@ -446,7 +448,7 @@ class SpaceGame(App):
             textbox("Start","bold 30pt Arial",200,100,450)
             textbox("Credits","bold 30pt Arial",200,800,450)
             goal(100,20,100,420)
-            self.c=goal2(100,20,450,350)
+            self.c=goal2(100,20,450,350,-2)
             Spike(10,2,820,420)
         if self.levelindex==0:
             self.progress=True
