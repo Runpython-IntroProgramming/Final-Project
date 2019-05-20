@@ -20,7 +20,7 @@ white = Color(0xFFFFFF, 1.0)
 red = Color(0xff0000, 1.0)
 green = Color(0x00ff00, 1.0)
 brown = Color(0x8B4513, 1.0) #8B4513
-black = Color(0x000000, 1.0)
+purple = Color(0x800080, 1.0)
 white = Color(0xffffff, 1.0)
 grey = Color(0xC0C0C0, 1.0)
 
@@ -356,6 +356,9 @@ class sprong(Wallblock):
 class goal(Sprite):
     def __init__(self, w, h, x, y):
         super().__init__(RectangleAsset(w,h,noline,blue),(x,y))
+class goal2(Sprite):
+    def __init__(self, w, h, x, y):
+        super().__init__(RectangleAsset(w,h,noline,purple),(x,y))
 class Spike(Sprite):
      def __init__(self, w, h, x, y):
         grid=lambda W: (W-W%10)
@@ -435,7 +438,7 @@ class SpaceGame(App):
             textbox("<Game_Name>","bold 40pt Arial",600,320,220)
             textbox("Start","bold 30pt Arial",200,100,450)
             textbox("Credits","bold 30pt Arial",200,800,450)
-            goal(100,20,100,420)
+            goal2(100,20,100,420)
             Spike(10,2,820,420)
         if self.levelindex==0:
             self.progress=True
