@@ -427,6 +427,9 @@ class SpaceGame(App):
             self.progress=True
             Variblock(103,52,0,0)
             textbox("<Credits>","bold 40pt Arial",600,320,220)
+        if self.levelindex==-4:
+            Variblock(103,8,0,0)
+            Variblock(103,8,100,0)
         if self.levelindex==-.5:
             self.progress=True
             self.p=Player((500,100),0)
@@ -634,7 +637,7 @@ class SpaceGame(App):
             self.playerhurt.extend(self.playerhurt1)
             self.select=self.p.collidingWithSprites(goal2)
             if len(self.select):
-                self.levelindex=((self.c.x)-self.c.x%100)/100
+                self.levelindex=-((self.c.x)-self.c.x%100)/100
             if len(self.levelfinish):
                 if self.progress==True:
                     print(self.levelindex)
