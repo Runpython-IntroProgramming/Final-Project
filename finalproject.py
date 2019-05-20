@@ -435,7 +435,14 @@ class SpaceGame(App):
             Variblock(103,10,0,400)
             self.p=Player((100,360),0)
             Variblock(5,15,0,200)
-            Variblock(5,15,0,200)
+            Platform(50,350,False,0)
+            Variblock(5,15,150,200)
+            Platform(200,350,False,0)
+            Variblock(5,15,300,200)
+            Platform(350,350,False,0)
+            Variblock(5,15,450,200)
+            Platform(500,350,False,0)
+            Variblock(5,15,600,200)
         if self.levelindex==-.5:
             self.progress=True
             self.p=Player((500,100),0)
@@ -644,6 +651,7 @@ class SpaceGame(App):
             self.select=self.p.collidingWithSprites(goal2)
             if len(self.select):
                 self.levelindex=self.c.i#-((self.c.x)-self.c.x%100)/100
+            for l in self.select:
             if len(self.levelfinish):
                 if self.progress==True:
                     print(self.levelindex)
