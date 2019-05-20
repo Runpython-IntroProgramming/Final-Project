@@ -439,7 +439,7 @@ class SpaceGame(App):
             textbox("Start","bold 30pt Arial",200,100,450)
             textbox("Credits","bold 30pt Arial",200,800,450)
             goal(100,20,100,420)
-            goal2(100,20,450,350)
+            self.c=goal2(100,20,450,350)
             Spike(10,2,820,420)
         if self.levelindex==0:
             self.progress=True
@@ -634,7 +634,7 @@ class SpaceGame(App):
             self.playerhurt.extend(self.playerhurt1)
             self.select=self.p.collidingWithSprites(goal2)
             if len(self.select):
-                self.levelindex=-5
+                self.levelindex=((self.c.x)-self.c.x%100)/100
             if len(self.levelfinish):
                 if self.progress==True:
                     print(self.levelindex)
