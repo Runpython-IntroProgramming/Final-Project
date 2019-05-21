@@ -1,1 +1,190 @@
+from ggame import App, Sprite, Color, RectangleAsset, LineStyle, ImageAsset, SoundAsset, Sound
+import random
+import datetime
+from time import time
 
+Red=Color(0xff0000, 0.9)
+Yellow=Color(0xffff00, 0.9)
+Green= Color(0x49E20E,1.0)
+Blue=Color(0x0000ff, 0.9)
+Redlit=Color(0xff0000, 0.7)
+Yellowlit=Color(0xffff00, 0.5)
+Greenlit=Color(0x49E20E,0.7)
+Bluelit=Color(0x0000ff, 0.6)
+White=Color(0x0000ff, 0)
+
+class Button(Sprite):
+     def __init__(self, position,shade):
+        line=LineStyle(1,shade)
+        test=RectangleAsset(Simon.width/2,Simon.height/2,line,shade)
+        super().__init__(test,position)
+        
+class YourTurn(Sprite):
+    def __init__(self,position):
+        asset=ImageAsset("images/Your Turn.jpg")
+        super().__init__(asset,position)
+        self.scale=2
+        
+class Simon(App):
+    redsound=SoundAsset("sounds/Tone 1.mp3")
+    greensound=SoundAsset("sounds/Tone 2.mp3")
+    yellowsound=SoundAsset("sounds/Tone 3.mp3")
+    bluesound=SoundAsset("sounds/Tone 6.mp3")
+    def __init__(self):
+        super().__init__()
+        self.timeend=time()
+        self.button1=Button((0,0),White)
+        self.button2=Button((self.width/2,0),White)
+        self.button3=Button((self.width/2,self.height/2),White)
+        self.button4=Button((0,self.height/2),White)
+        first=random.randint(1,4)
+        self.choices=[first]
+        self.state="begin"
+        self.number=0
+        self.comparenumber=0
+        Simon.listenMouseEvent("click", self.record)
+        self.user=[]
+        self.waittime=0
+        self.score=0
+        self.steppin="yes"
+        self.rs=Sound(Simon.redsound)
+        self.gs=Sound(Simon.greensound)
+        self.ys=Sound(Simon.yellowsound)
+        self.bs=Sound(Simon.bluesound)
+        Simon.listenMouseEvent("mousedown",self.lightup)
+        Simon.listenMouseEvent("mouseup",self.lightdown)
+        
+    def record(self,event):
+        if event.x<self.width/2 and event.y<self.height/2:
+            self.user.append(1)
+            self.rs.play()
+        elif event.y<self.height/2:
+            self.user.append(2)
+            self.ys.play()
+        elif event.x>self.width/2:
+            self.user.append(3)
+            self.gs.play()
+        else:
+            self.user.append(4)
+            self.bs.play()
+    
+    def lightup(self,event):
+        if self.state=="record":
+            if event.x<self.width/2 and event.y<self.height/2:
+                self.button1.destroy()
+                self.button1=Button((0,0),Redlit)
+            elif event.y<self.height/2:
+                self.button2.destroy()
+                self.button2=Button((self.width/2,0),Yellowlit)
+            elif event.x>self.width/2:
+                self.button3.destroy()
+                self.button3=Button((self.width/2,self.height/2),Greenlit)
+            else:
+                self.button4.destroy()
+                self.button4=Button((0,self.height/2),Bluelit)
+    
+    def lightdown(self,event):
+        if self.state=="record":
+            if event.x<self.width/2 and event.y<self.height/2:
+                self.button1.destroy()
+                self.button1=Button((0,0),Red)
+            elif event.y<self.height/2:
+                self.button2.destroy()
+                self.button2=Button((self.width/2,0),Yellow)
+            elif event.x>self.width/2:
+                self.button3.destroy()
+                self.button3=Button((self.width/2,self.height/2),Green)
+            else:
+                self.button4.destroy()
+                self.button4=Button((0,self.height/2),Blue)
+        
+    def step(self):
+        if self.steppin=="yes":
+            self.timestart=time()
+            if self.timestart>self.timeend+self.waittime:
+                if self.state=="begin":
+                    self.button1.destroy()
+                    self.button2.destroy()
+                    self.button3.destroy()
+                    self.button4.destroy()
+                    self.button1=Button((0,0),Red)
+                    self.button2=Button((self.width/2,0),Yellow)
+                    self.button3=Button((self.width/2,self.height/2),Green)
+                    self.button4=Button((0,self.height/2),Blue)
+                    self.state="lit"
+                    self.waittime=.75
+                elif self.state=="lit":
+                    self.waittime=.4
+                    if self.choices[self.number]!=1:
+                        self.button1.destroy()
+                        self.red=Red
+                    else:
+                        self.button1.destroy()
+                        self.red=Redlit
+                        self.rs.play()
+                    if self.choices[self.number]!=2:
+                        self.button2.destroy()
+                        self.yellow=Yellow
+                    else:
+                        self.button2.destroy()
+                        self.yellow=Yellowlit
+                        self.ys.play()
+                    if self.choices[self.number]!=3:
+                        self.button3.destroy()
+                        self.green=Green
+                    else:
+                        self.button3.destroy()
+                        self.green=Greenlit
+                        self.gs.play()
+                    if self.choices[self.number]!=4:
+                        self.button4.destroy()
+                        self.blue=Blue
+                    else:
+                       self.button4.destroy()
+                       self.blue=Bluelit
+                       self.bs.play()
+                    self.button1=Button((0,0),self.red)
+                    self.button2=Button((self.width/2,0),self.yellow)
+                    self.button3=Button((self.width/2,self.height/2),self.green)
+                    self.button4=Button((0,self.height/2),self.blue)
+                    self.state="unlit"
+                elif self.state=="unlit":
+                    self.button1.destroy()
+                    self.button2.destroy()
+                    self.button3.destroy()
+                    self.button4.destroy()
+                    self.button1=Button((0,0),Red)
+                    self.button2=Button((self.width/2,0),Yellow)
+                    self.button3=Button((self.width/2,self.height/2),Green)
+                    self.button4=Button((0,self.height/2),Blue)
+                    self.number+=1
+                    if len(self.choices)==self.number:
+                        self.number=0
+                        self.state="yourturn"
+                    else:
+                        self.state="lit"
+                elif self.state=="yourturn":
+                    self.yours=YourTurn((300,175))
+                    self.waittime=.9
+                    self.state="record"
+                    self.user=[]
+                elif self.state=="record":
+                    self.waittime=0
+                    self.yours.visible=False
+                    if self.comparenumber<len(self.choices) and self.comparenumber<len(self.user):
+                        if self.user[self.comparenumber]==self.choices[self.comparenumber]:
+                            self.comparenumber+=1
+                        else:
+                            self.state="wrong"
+                    elif self.comparenumber>=len(self.choices):
+                        self.choices.append(random.randint(1,4))
+                        self.score+=1
+                        print("Success! Score: ", self.score)
+                        self.state="begin"
+                        self.waittime=.75
+                elif self.state=="wrong":
+                    self.steppin="no"
+                    print("Incorrect! Game Over")
+                self.timeend=time()
+myapp=Simon()
+myapp.run()
