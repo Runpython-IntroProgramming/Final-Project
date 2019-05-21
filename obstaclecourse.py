@@ -1,15 +1,17 @@
 from ggame import App, Sprite, ImageAsset, Frame, CircleAsset
-from ggame import SoundAsset, Color, LineStyle
+from ggame import SoundAsset, Color, LineStyle, TextAsset
 import math
 from time import time
 SCREEN_WIDTH = 1250
 SCREEN_HEIGHT = 700
+
 
 myapp = App()
 
 print('Hello everybody, Here is my obstacle course game!!')
 print('Use the key W to go forward and use A and D to turn left and right')
 print('Dodge the obstacles and collide with the finish line to win!')
+
 class SpaceShip(Sprite):
  
     asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png", 
@@ -22,18 +24,20 @@ class SpaceShip(Sprite):
         self.vr = 0.01
         self.thrust = 0
         self.thrustframe = 1
-        SpaceGame.listenKeyEvent("keydown", "w", self.thrustOn)
-        SpaceGame.listenKeyEvent("keyup", "w", self.thrustOff)
-        SpaceGame.listenKeyEvent("keydown", "a", self.right)
-        SpaceGame.listenKeyEvent("keyup", "a", self.stop)
-        SpaceGame.listenKeyEvent("keydown", "d", self.left)
-        SpaceGame.listenKeyEvent("keyup", "d", self.stop)
+        Obstacle.listenKeyEvent("keydown", "w", self.thrustOn)
+        Obstacle.listenKeyEvent("keyup", "w", self.thrustOff)
+        Obstacle.listenKeyEvent("keydown", "a", self.right)
+        Obstacle.listenKeyEvent("keyup", "a", self.stop)
+        Obstacle.listenKeyEvent("keydown", "d", self.left)
+        Obstacle.listenKeyEvent("keyup", "d", self.stop)
         self.fxcenter = self.fycenter = 0.5
-
+        
+        
     def step(self):
         self.x += self.vx
         self.y += self.vy
         self.rotation += self.vr
+        
         if self.thrust == 1:
             self.setImage(self.thrustframe)
             self.thrustframe += 0.8
@@ -43,14 +47,16 @@ class SpaceShip(Sprite):
                 self.thrustframe = 1
             else:
                 self.setImage(3.9)
-        lol=self.collidingWithSprites(finish)
-        if lol:
-            self.explode(self)
+                nba=self.collidingWithSprites(finish)
+                if nba:
+                    print('You Win, Press Enter for Next Level')
+            
             
             self.setImage(3.9)
-        nba=self.collidingWithSprites(obstacle)
+        lol=self.collidingWithSprites(obstacle)
         if lol:
-            print('You Win')
+            self.explode(self)
+            print('GG You Lost')
             
 
     def thrustOn(self, event):
@@ -80,8 +86,6 @@ class SpaceShip(Sprite):
         self.vx=0
         self.vy=0
         explosionn(self.position)
-        print('You Win')
-        
         
         
 class explosionn(Sprite):
@@ -100,8 +104,8 @@ class explosionn(Sprite):
         if self.image == 10:
             self.destroy()
     
-class SpaceGame(App):
-    
+class Obstacle(App):
+   
     def __init__(self, width, height):
         super().__init__(width, height)
         asset = ImageAsset("images/beach.jpg")
@@ -111,19 +115,23 @@ class SpaceGame(App):
         obstacle((300,300))
         obstacle((100,550))
         obstacle((300,300))
-        obstacle((800,400))
-        obstacle((800,50))
+        obstacle((800,450))
+        obstacle((800,20))
+
+        Obstacle.listenKeyEvent("keydown", "space", self.level2)
+    
     def step(self):
         for ship in self.getSpritesbyClass(SpaceShip):
             ship.step()
         for explosion in self.getSpritesbyClass(explosionn):
             explosion.step()
-
-    def register(self, keys):
-        commands= ["left", "right", "forward"]
-        self.keymap= dict(zip(keys, commands))
-        [self.app.listenKeyEvent("keydown", k, self.controldown) for k in keys]
-        [self.app.listenKeyEvent("keyup", k, self.controlup) for k in keys]
+    
+    def level2(self,event):
+        for x in self.getSpritesbyClass(finish):
+            x.destroy()
+        for x in self.getSpritesbyClass(obstacle):
+            x.destroy()
+    
 
 class obstacle(Sprite):
     hi = ImageAsset("images/beach-ball-575425_640.png")
@@ -145,5 +153,5 @@ class finish(Sprite):
 
 
 
-myapp = SpaceGame(SCREEN_WIDTH, SCREEN_HEIGHT)
+myapp = Obstacle(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
