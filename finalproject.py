@@ -75,8 +75,8 @@ class Player(Sprite):
             SpaceGame.listenKeyEvent("keyup", "left arrow", self.leftoff)
             SpaceGame.listenKeyEvent("keydown", "right arrow", self.righton)
             SpaceGame.listenKeyEvent("keyup", "right arrow", self.rightoff)
-            SpaceGame.listenKeyEvent("keydown", "down arrow", self.Leap)
-            SpaceGame.listenKeyEvent("keyup", "down arrow", self.noLeap)
+            SpaceGame.listenKeyEvent("keydown", "space", self.Leap)
+            SpaceGame.listenKeyEvent("keyup", "space", self.noLeap)
             SpaceGame.listenKeyEvent("keydown", "m", self.Attack)
             SpaceGame.listenKeyEvent("keyup", "m", self.noAttack)
         if n==1:
@@ -136,7 +136,6 @@ class Player(Sprite):
             self.thrustframe += .25
             if self.thrustframe >= 8:
                 self.thrustframe = 1
-
         self.x += self.vx
         self.y += self.vy
         self.collidetop.x = self.x
@@ -183,8 +182,6 @@ class Player(Sprite):
             if len(upcollide):
                 self.y=self.y+3
                 self.vy=self.vy*-.5
-            
-                
         leftcollide=self.collideleft.collidingWithSprites(Variblock)
         if len(leftcollide):
             #print("left")
@@ -303,8 +300,8 @@ class Snakebox(Sprite):
         self.SnakeSpawn=50
         super().__init__(Snakebox.asset, (x,y))
     def step(self): 
-        if self.SnakeSpawn==100:
-            #self.Snake1=Snake((self.x, self.y-10))
+        if self.SnakeSpawn==150:
+            self.Snake1=Snake((self.x, self.y-10))
             self.SnakeSpawn=0
         self.SnakeSpawn+=.5
             
@@ -314,7 +311,7 @@ class Collide(Sprite):
         super().__init__(RectangleAsset(w,h,noline, color), position)
         self.fxcenter = 0.5
         self.fycenter = 0.5
-        self.visible=True
+        self.visible=False
 class Hitbox(Collide):
     def __init__(self, position,w,h,color):
         super().__init__(RectangleAsset(w,h,noline, color), position)
@@ -436,7 +433,7 @@ class SpaceGame(App):
             self.p=Player((100,360),0)
             Variblock(5,15,0,200)
             Platform(50,350,False,0)
-            self.c=[goal2(20,20,70,300,1),goal2(20,20,220,300,2),goal2(20,20,370,300,3),goal2(20,20,520,300,4),goal2(20,20,670,300,5)]
+            self.c=[goal2(20,20,70,300,1),goal2(20,20,220,300,2),goal2(20,20,370,300,3),goal2(20,20,520,300,4),goal2(20,20,670,300,5),goal2(20,20,820,300,5)]
             Variblock(5,15,150,200)
             Platform(200,350,False,0)
             Variblock(5,15,300,200)
