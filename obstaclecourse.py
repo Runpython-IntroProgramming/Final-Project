@@ -49,7 +49,7 @@ class SpaceShip(Sprite):
                 self.setImage(3.9)
                 nba=self.collidingWithSprites(finish)
                 if nba:
-                    print('You Win, Press Enter for Next Level')
+                    print('You Win, Press SpaceBar for Next Level')
             
             
             self.setImage(3.9)
