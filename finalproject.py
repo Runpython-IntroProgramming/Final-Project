@@ -446,6 +446,7 @@ class SpaceGame(App):
             Variblock(5,15,600,200)
             Platform(650,350,False,0)
             Variblock(5,15,750,200)
+            textbox("Level Select","bold 40pt Arial",600,350,70)
             textbox("Level 1","bold 20pt Arial",600,60,160)
             textbox("Level 2","bold 20pt Arial",600,210,160)
             textbox("Level 3","bold 20pt Arial",600,360,160)
