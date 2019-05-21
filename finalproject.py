@@ -457,7 +457,7 @@ class SpaceGame(App):
         if self.levelindex==-.5:
             self.progress=True
             self.p=Player((500,100),0)
-            if player2==True:
+            if self.player2==True:
                 Player((550,100),1)
             Variblock(103,8,0,0)
             Variblock(103,8,0,435)
