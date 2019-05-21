@@ -436,7 +436,7 @@ class SpaceGame(App):
             self.p=Player((100,360),0)
             Variblock(5,15,0,200)
             Platform(50,350,False,0)
-            self.c=[goal2(20,20,50,300,1),goal2(20,20,200,300,2),goal2(20,20,350,300,3),goal2(20,20,500,300,4)]
+            self.c=[goal2(20,20,70,300,1),goal2(20,20,220,300,2),goal2(20,20,370,300,3),goal2(20,20,520,300,4),goal2(20,20,670,300,5)]
             Variblock(5,15,150,200)
             Platform(200,350,False,0)
             Variblock(5,15,300,200)
@@ -444,6 +444,13 @@ class SpaceGame(App):
             Variblock(5,15,450,200)
             Platform(500,350,False,0)
             Variblock(5,15,600,200)
+            Platform(650,350,False,0)
+            Variblock(5,15,750,200)
+            textbox("Level 1","bold 20pt Arial",600,60,160)
+            textbox("Level 2","bold 20pt Arial",600,210,160)
+            textbox("Level 3","bold 20pt Arial",600,360,160)
+            textbox("Level 4","bold 20pt Arial",600,510,160)
+            textbox("Level 5","bold 20pt Arial",600,650,160)
         if self.levelindex==-.5:
             self.progress=True
             self.p=Player((500,100),0)
@@ -605,7 +612,7 @@ class SpaceGame(App):
             Variblock(3,90,990,0)
             Variblock(105,4,0,500)
             Spike(92,1,30,440)
-            goal(100,20,450,500)
+            goal(100,20,450,480)
             #Walljumps n Stuff
             Variblock(2,15,550,0)
             #Diagonal Jump
