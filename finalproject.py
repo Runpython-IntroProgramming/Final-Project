@@ -381,11 +381,13 @@ class SpaceGame(App):
         self.listenKeyEvent("keydown", "enter", self.newlevel)
         self.listenKeyEvent("keydown", "z", self.uplevel)
         self.listenKeyEvent("keydown", "x", self.downlevel)
+        self.listenKeyEvent("keydown","1",self.player2)
         self.levelfinish=[]
         self.terrainlist=None
         self.p = None
         self.c=None
         self.progress=False
+        self.player2=False
     def Click(self, event):
         if self.c:
             self.c.destroy()
@@ -397,6 +399,9 @@ class SpaceGame(App):
         self.levelindex+=0.5
     def downlevel(self, event):
         self.levelindex-=0.5
+    def player2(self,event):
+        self.player2=True
+        print("adding another player")
     def newlevel(self,event):
         for s in self.getSpritesbyClass(Player):
             s.destroy()
@@ -452,6 +457,8 @@ class SpaceGame(App):
         if self.levelindex==-.5:
             self.progress=True
             self.p=Player((500,100),0)
+            if player2==True:
+                Player((550,100),1)
             Variblock(103,8,0,0)
             Variblock(103,8,0,435)
             Variblock(8,35,0,80)
@@ -649,6 +656,7 @@ class SpaceGame(App):
             Snakebox(200,300)
             Snakebox(500,300)
             goal(20,50,1000,250)
+        player2=False
     def step(self):
         if self.p:
             self.levelfinish=self.p.collidingWithSprites(goal)
