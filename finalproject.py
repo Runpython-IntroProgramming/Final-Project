@@ -297,7 +297,7 @@ class Snakebox(Sprite):
         self.fycenter=.5
         self.Snake1=None
         self.Snake2=None
-        self.SnakeSpawn=50
+        self.SnakeSpawn=140
         super().__init__(Snakebox.asset, (x,y))
     def step(self): 
         if self.SnakeSpawn==150:
