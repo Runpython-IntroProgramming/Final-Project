@@ -53,7 +53,7 @@ class SpaceShip(Sprite):
             
             
             self.setImage(3.9)
-        lol=self.collidingWithSprites(obstacle)
+        lol=self.collidingWithSprites(obstacle1)
         if lol:
             self.explode(self)
             print('GG You Lost')
@@ -112,11 +112,11 @@ class Obstacle(App):
         Sprite(asset,(10, 10))
         SpaceShip((10,10))
         finish((1014,200))
-        obstacle((300,300))
-        obstacle((100,550))
-        obstacle((300,300))
-        obstacle((800,450))
-        obstacle((800,20))
+        obstacle1((300,300))
+        obstacle1((100,550))
+        obstacle1((300,300))
+        obstacle1((800,450))
+        obstacle1((800,20))
 
         Obstacle.listenKeyEvent("keydown", "space", self.level2)
     
@@ -129,29 +129,47 @@ class Obstacle(App):
     def level2(self,event):
         for x in self.getSpritesbyClass(finish):
             x.destroy()
-        for x in self.getSpritesbyClass(obstacle):
+        for x in self.getSpritesbyClass(obstacle1):
             x.destroy()
-    
-
-class obstacle(Sprite):
+        for x in self.getSpritesbyClass(Sprite):
+            x.destroy()
+        for x in self.getSpritesbyClass(SpaceShip):
+            x.destroy()
+       
+            background2((0,0))
+            SpaceShip((10,10))
+            redfish((50,50))
+            bluefish((150,150))
+       
+      
+       
+class obstacle1(Sprite):
     hi = ImageAsset("images/beach-ball-575425_640.png")
-    width = 50
-    height = 50
-    
     def __init__(self, position):
-        super().__init__(obstacle.hi, position)
+        super().__init__(obstacle1.hi, position)
         self.scale = 0.2
 class finish(Sprite):
     op = ImageAsset("images/FinishLine.png")
-    width = 50
-    height = 50
-    
     def __init__(self, position):
         super().__init__(finish.op, position)
         self.scale = 0.5
+class background2(Sprite):
+    nba= ImageAsset("images/UnderWater.jpg")
+    def __init__(self, position):
+        super().__init__(background2.nba, position)
+        self.scale = 1.3
+class redfish(Sprite):
+    cool= ImageAsset("images/RealRedFish.jpeg")
+    def __init__(self, position):
+        super().__init__(redfish.cool, position)
+        self.scale = 0.6
+class bluefish(Sprite):
+    math= ImageAsset("images/BlueFish.jpeg")
+    def __init__(self, position):
+        super().__init__(bluefish.math, position)
+        self.scale = 0.6
 
-
-
+        
 
 myapp = Obstacle(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
