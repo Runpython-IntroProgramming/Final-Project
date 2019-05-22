@@ -167,6 +167,7 @@ class Simon(App):
                     self.yours=YourTurn((300,175))
                     self.waittime=.9
                     self.state="record"
+                    self.comparenumber=0
                     self.user=[]
                 elif self.state=="record":
                     self.waittime=0
