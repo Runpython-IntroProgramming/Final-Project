@@ -48,13 +48,23 @@ class SpaceShip(Sprite):
             else:
                 self.setImage(3.9)
                 nba=self.collidingWithSprites(finish)
+                omg=self.collidingWithSprites(finish2)
+                tehe=self.collidingWithSprites(finish3)
                 if nba:
-                    print('You Win, Press SpaceBar for Next Level')
+                    print('You Win, Press 1 for Next Level')
+                if omg:
+                    print('You Win, Press 2 for Next Level')
+                if tehe:
+                    print('You Win, Press 3 for Next Level')
             
             
             self.setImage(3.9)
         lol=self.collidingWithSprites(obstacle1)
+        gg=self.collidingWithSprites(redfish)
         if lol:
+            self.explode(self)
+            print('GG You Lost')
+        if gg:
             self.explode(self)
             print('GG You Lost')
             
@@ -108,8 +118,7 @@ class Obstacle(App):
    
     def __init__(self, width, height):
         super().__init__(width, height)
-        asset = ImageAsset("images/beach.jpg")
-        Sprite(asset,(10, 10))
+        Beach((0,0))
         SpaceShip((10,10))
         finish((1014,200))
         obstacle1((300,300))
@@ -117,8 +126,11 @@ class Obstacle(App):
         obstacle1((300,300))
         obstacle1((800,450))
         obstacle1((800,20))
+        
 
-        Obstacle.listenKeyEvent("keydown", "space", self.level2)
+        Obstacle.listenKeyEvent("keydown", "1", self.level2)
+        Obstacle.listenKeyEvent("keydown", "2", self.level3)
+        Obstacle.listenKeyEvent("keydown", "3", self.level4)
     
     def step(self):
         for ship in self.getSpritesbyClass(SpaceShip):
@@ -131,18 +143,45 @@ class Obstacle(App):
             x.destroy()
         for x in self.getSpritesbyClass(obstacle1):
             x.destroy()
-        for x in self.getSpritesbyClass(Sprite):
+        for x in self.getSpritesbyClass(Beach):
             x.destroy()
         for x in self.getSpritesbyClass(SpaceShip):
             x.destroy()
        
             background2((0,0))
             SpaceShip((10,10))
-            redfish((50,50))
-            bluefish((150,150))
-       
-      
-       
+            redfish((50,400))
+            bluefish((300,150))
+            finish2((900,200))
+    
+    def level3(self,event):
+        for q in self.getSpritesbyClass(background2):
+            q.destroy()
+        for q in self.getSpritesbyClass(SpaceShip):
+            q.destroy()
+        for q in self.getSpritesbyClass(redfish):
+            q.destroy()
+        for q in self.getSpritesbyClass(bluefish):
+            q.destroy()
+        for q in self.getSpritesbyClass(finish2):
+            q.destroy()
+            
+            background3((0,0))
+            SpaceShip((10,10))
+            finish3((900,200))
+    
+    def level4(self,event):
+        for t in self.getSpritesbyClass(background3):
+            t.destroy()
+        for t in self.getSpritesbyClass(SpaceShip):
+            t.destroy()
+        for t in self.getSpritesbyClass(finish3):
+            t.destroy()
+            
+            
+            SpaceShip((10,10))
+           
+#LEVEL ONE:     
 class obstacle1(Sprite):
     hi = ImageAsset("images/beach-ball-575425_640.png")
     def __init__(self, position):
@@ -153,6 +192,13 @@ class finish(Sprite):
     def __init__(self, position):
         super().__init__(finish.op, position)
         self.scale = 0.5
+class Beach(Sprite):
+    cool = ImageAsset("images/beach.jpg")
+    def __init__(self, position):
+        super().__init__(Beach.cool, position)
+        self.scale = 1.1
+
+#LEVEL TWO:
 class background2(Sprite):
     nba= ImageAsset("images/UnderWater.jpg")
     def __init__(self, position):
@@ -168,8 +214,25 @@ class bluefish(Sprite):
     def __init__(self, position):
         super().__init__(bluefish.math, position)
         self.scale = 0.6
-
+class finish2(Sprite):
+    hehe = ImageAsset("images/Finish2.png")
+    def __init__(self, position):
+        super().__init__(finish2.hehe, position)
+        self.scale = 0.5
+#LEVEL THREE:
+class background3(Sprite):
+    hahaha= ImageAsset("images/Background3.jpg")
+    def __init__(self, position):
+        super().__init__(background3.hahaha, position)
+        self.scale = 2.5
+class finish3(Sprite):
+    col= ImageAsset("images/FinishLine3.png")
+    def __init__(self, position):
+        super().__init__(finish3.col, position)
+        self.scale = 0.5
         
+#LEVEL FOUR:
+
 
 myapp = Obstacle(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
