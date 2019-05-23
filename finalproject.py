@@ -3,7 +3,7 @@
 # 1. https://math.stackexchange.com/questions/823578/how-do-i-calculate-the-perodicity-of-a-spirograph-hypotrochoid
 # 2. https://gist.github.com/endolith/114336/eff2dc13535f139d0d6a2db68597fad2826b53c3
 
-from math import sin, cos, pi
+from math import sin, cos, pi, floor 
 from ggame import App, Color, LineStyle, Sprite, CircleAsset
 from ggame.line import LineSegment
 
@@ -30,6 +30,7 @@ def lcm(R, r):
 
 a=0
 stylecount = 0
+number = 0
 
 def step():
     global a
@@ -41,17 +42,18 @@ def step():
         xpen = (R-r)*cos(a) + r*1*cos(((R/r)-1)*a)+250
         ypen = (R-r)*sin(a) - r*1*sin(((R/r)-1)*a)+240
         stylecount += 1
-        asset2 = LineSegment((oldxpen,oldypen), (xpen,ypen), style = listc[stylecount], positioning="physical")
-        
+        number == floor(stylecount/5)
+        asset2 = LineSegment((oldxpen,oldypen), (xpen,ypen), style = listc[number], positioning="physical")
+        if number > len(listc):
+            number = number - 1
+            
+
         
         # asset = CircleAsset(.5, thinline, black)
          #print("new: ", xpen, ypen)
         
          #print("old: ", oldxpen, oldypen)
         #Sprite(asset, (xpen,ypen))
-# when does the spirograph repeat, integer numbers of R and r
-# spirograph repeats when a hits the lcm of both radii
-# style; line style
 #rainbow spirograph
 # go through once, then delete and add 2 shorter lines, again and again 
 
