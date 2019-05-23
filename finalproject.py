@@ -7,9 +7,8 @@ Assignment:
 Write and submit a program that implements the sandbox platformer game:
 https://github.com/HHS-IntroProgramming/Platformer
 """
-#grid=lambda W: (W-W%51)
+x=1000
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, TextAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
-x=510
 SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 800
 blue = Color(0x0000FF, 1.0)
@@ -369,8 +368,8 @@ class SpaceGame(App):
     def __init__(self):
         super().__init__()
         # Background
-        x=510
-        beeg=50
+        print(self.width)
+        print(self.height)
         black = Color(0, 1)
         noline = LineStyle(0, black)
         TA= TextAsset("Press Enter to Begin", style="bold 40pt Arial", width=250, fill=black)
@@ -402,7 +401,7 @@ class SpaceGame(App):
         self.levelindex-=0.5
     def player2(self,event):
         self.player2=True
-        print("adding another player")
+        print("Adding another player.\nPress Enter to restart the level with the other Player.")
     def newlevel(self,event):
         for s in self.getSpritesbyClass(Player):
             s.destroy()
