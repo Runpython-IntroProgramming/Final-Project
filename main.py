@@ -1,8 +1,24 @@
+import string
+import random
+
+
 
 #Defining variables
-associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789 .,:;'\"/\\<>(){}[]-=_+?!"
+associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,:;'\"/\\<>(){}[]-=_+?!"
 str1 = ""
-key = "12hjfk3929fjsk3ewe04kwdfje34iew"
+
+keylen = ""
+keylen += str(random.randint(1, 9))
+keylen += str(random.randint(0, 9))
+keylen  = int(keylen)
+
+key = ""
+counter = 1
+while counter2 <= keylen:
+    key.join(random.choice(associations))
+    counter += 1
+
+
 sitedata = []
 running = 0
 
@@ -46,11 +62,33 @@ def decrypt(message):
         n = n + 1
     return(str2)
     
+# Function for converting an entered string to a list
+def resumelist(code):
+    global sitedata
+    code1 = code.split()
+    lencode = len(code1)
+    halflencode = lencode/2
+    x = 0
+    while x <= halflencode:
+        site = code1[0]
+        password = code1[1]
+        data = []
+        data.append(site)
+        data.append(password)
+        sitedata.append(data)
+        del code1[0]
+        del code1
+        halflencode -= 1
+        x += 1
+
+    return(sitedata)
     
 command = input("Welcome! Press r to resume a session, press s to store a site and password, press g to retrieve a site and password or press q to print and exit: ")
 while running == 0:
     
     if command == "r":
+        resumecodeentered = input("Please enter your resume code: ")
+        sitedata = resumelist(resumecodeentered)
         command = input("Press r to resume a session, press s to store a site and password, press g to retrieve a site and password or press q to print and exit: ")
     elif command == "s":
         data = []
@@ -84,6 +122,14 @@ while running == 0:
 
         
     elif command == "q":
+        printstring = ""
+        for p in sitedata:
+            printstring = printstring + p[0]
+            printstring = printstring + " "
+            printstring = printstring + p[1]
+            printstring = printstring + " "
+        print("Your resume code is {0}. Please write it down and keep it in a safe place so you can access your data later.".format(printstring))
+        print("Your ket is {0}. Please write it down and keep it in a safe place so you can access your data later.".format(key))
         running = 1
     else:
         print("Sorry, command not understood. Please try again.")
