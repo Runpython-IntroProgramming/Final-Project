@@ -669,6 +669,8 @@ class SpaceGame(App):
                 self.playerhurt4=self.q.collidingWithSprites(Snake)
                 self.playerhurt.extend(self.playerhurt3)
                 self.playerhurt.extend(self.playerhurt4)
+                self.levelfinish2=self.q.collidingWithSprites(goal)
+                self.levelfinish.extend(self.levelfinish2)
             self.select=self.p.collidingWithSprites(goal2)
             #if len(self.select):
                 #self.levelindex=self.c.i#-((self.c.x)-self.c.x%100)/100
