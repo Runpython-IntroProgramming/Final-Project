@@ -386,6 +386,7 @@ class SpaceGame(App):
         self.terrainlist=None
         self.p = None
         self.c=None
+        self.q=None
         self.progress=False
         self.player2=False
     def Click(self, event):
@@ -458,7 +459,7 @@ class SpaceGame(App):
             self.progress=True
             self.p=Player((500,100),0)
             if self.player2==True:
-                Player((550,100),1)
+                self.q=Player((550,100),1)
             Variblock(103,8,0,0)
             Variblock(103,8,0,435)
             Variblock(8,35,0,80)
@@ -663,6 +664,11 @@ class SpaceGame(App):
             self.playerhurt=self.p.collidingWithSprites(Spike)
             self.playerhurt1=self.p.collidingWithSprites(Snake)
             self.playerhurt.extend(self.playerhurt1)
+            if self.q:
+                self.playerhurt3=self.p.collidingWithSprites(Spike)
+                self.playerhurt4=self.p.collidingWithSprites(Snake)
+                self.playerhurt.extend(self.playerhurt3)
+                self.playerhurt.extend(self.playerhurt4)
             self.select=self.p.collidingWithSprites(goal2)
             #if len(self.select):
                 #self.levelindex=self.c.i#-((self.c.x)-self.c.x%100)/100
