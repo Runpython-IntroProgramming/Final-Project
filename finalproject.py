@@ -491,6 +491,8 @@ class SpaceGame(App):
             Snakebox(530,480)
             Spike(1,3,230,450)
             goal(20,20,800,430)
+            if self.player2==True:
+                self.q=Player((550,100),1)
         if self.levelindex==1:
             self.progress=True
             self.p = Player((60,50),0)
@@ -507,6 +509,8 @@ class SpaceGame(App):
             textbox("And you can jump off the wall by pressing the down arrow.","bold 20pt Arial",380,650,250)
             Spike(21,1,440,400)
             goal(20,20,500,470)
+            if self.player2==True:
+                self.q=Player((550,100),1)
         if self.levelindex==1.5 or self.levelindex==2.5 or self.levelindex==3.5:
             self.progress=True
             self.p=Player((60,350),0)
@@ -521,7 +525,7 @@ class SpaceGame(App):
             Variblock(105,12,0,420)
             Spike(1,12,0,300)
             goal(20,120,1000,300)
-            textbox("Here's a tough section. Good Luck!","bolf 40pt Arial",1000,500,10)
+            textbox("Here's a tough section. Good Luck!","bold 40pt Arial",1000,500,10)
         if self.levelindex==2:
             self.progress=True
             self.p = Player((60,50),0)
@@ -533,6 +537,8 @@ class SpaceGame(App):
             sprong(340,470)
             textbox("This is a spring. It will send you high into the air.","bold 30pt Arial",1000,50,100)
             goal(20,20,510,450)
+            if self.player2==True:
+                self.q=Player((550,100),1)
         if self.levelindex==3:
             self.progress=True
             self.p = Player((100,400),0)
@@ -545,6 +551,8 @@ class SpaceGame(App):
             Snakebox(530,480)
             Spike(1,3,230,450)
             goal(20,20,800,440)
+            if self.player2==True:
+                self.q=Player((550,100),1)
         if self.levelindex==4:
             Variblock(3,105,0,0)
             Variblock(105,4,0,500)
@@ -580,6 +588,8 @@ class SpaceGame(App):
             Spike(20,1,550,90)
             goal(10,100,980,0)
             ###Snakes!!
+            if self.player2==True:
+                self.q=Player((550,100),1)
         if self.levelindex==5:
             self.progress=True
             self.p = Player((60,50),0)
@@ -611,6 +621,8 @@ class SpaceGame(App):
             #Block 5
             Variblock(10,3,700,300)
             goal(20,20,500,470)
+            if self.player2==True:
+                self.q=Player((550,100),1)
         if self.levelindex==5.5:
             self.p=Player((500,50),0)
             Variblock(3,105,0,0)
@@ -656,6 +668,8 @@ class SpaceGame(App):
             Snakebox(200,300)
             Snakebox(500,300)
             goal(20,50,1000,250)
+            if self.player2==True:
+                self.q=Player((550,100),1)
         player2=False
     def step(self):
         if self.p:
