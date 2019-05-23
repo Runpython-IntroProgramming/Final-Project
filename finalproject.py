@@ -665,8 +665,8 @@ class SpaceGame(App):
             self.playerhurt1=self.p.collidingWithSprites(Snake)
             self.playerhurt.extend(self.playerhurt1)
             if self.q:
-                self.playerhurt3=self.p.collidingWithSprites(Spike)
-                self.playerhurt4=self.p.collidingWithSprites(Snake)
+                self.playerhurt3=self.q.collidingWithSprites(Spike)
+                self.playerhurt4=self.q.collidingWithSprites(Snake)
                 self.playerhurt.extend(self.playerhurt3)
                 self.playerhurt.extend(self.playerhurt4)
             self.select=self.p.collidingWithSprites(goal2)
