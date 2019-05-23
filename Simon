@@ -20,15 +20,15 @@ class Button(Sprite):
         
 class YourTurn(Sprite):
     def __init__(self,position):
-        asset=ImageAsset("Your Turn.jpg")
+        asset=ImageAsset("images/Your Turn.jpg")
         super().__init__(asset,position)
         self.scale=2
         
 class Simon(App):
-    redsound=SoundAsset("Tone 1.mp3")
-    greensound=SoundAsset("Tone 2.mp3")
-    yellowsound=SoundAsset("Tone 3.mp3")
-    bluesound=SoundAsset("Tone 6.mp3")
+    redsound=SoundAsset("sounds/Tone 1.mp3")
+    greensound=SoundAsset("sounds/Tone 2.mp3")
+    yellowsound=SoundAsset("sounds/Tone 3.mp3")
+    bluesound=SoundAsset("sounds/Tone 6.mp3")
     def __init__(self):
         super().__init__()
         self.timeend=time()
