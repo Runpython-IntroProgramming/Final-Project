@@ -1,8 +1,6 @@
 import string
 import random
 
-
-
 #Defining variables
 associations = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,:;'\"/\\<>(){}[]-=_+?!"
 str1 = ""
@@ -13,9 +11,10 @@ keylen += str(random.randint(0, 9))
 keylen  = int(keylen)
 
 key = ""
+key1 = ""
 counter = 1
-while counter2 <= keylen:
-    key.join(random.choice(associations))
+while counter <= keylen:
+    key += key1.join(random.choice(associations))
     counter += 1
 
 
