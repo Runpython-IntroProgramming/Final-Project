@@ -136,6 +136,7 @@ class Obstacle(App):
         for s in self.getSpritesbyClass(directions1):
             s.destroy()
             Beach((0,0))
+            BeachMirror((1100,-5))
             finish((650,300))
             obstacle1((800,50))
             obstacle1((80,400))
@@ -148,6 +149,8 @@ class Obstacle(App):
         for x in self.getSpritesbyClass(obstacle1):
             x.destroy()
         for x in self.getSpritesbyClass(Beach):
+            x.destroy()
+        for x in self.getSpritesbyClass(BeachMirror):
             x.destroy()
         for x in self.getSpritesbyClass(SpaceShip):
             x.destroy()
@@ -208,6 +211,11 @@ class Beach(Sprite):
     def __init__(self, position):
         super().__init__(Beach.cool, position)
         self.scale = 1.1
+class BeachMirror(Sprite):
+    nice = ImageAsset("images/Screenshot 2019-05-23 at 2.50.01 PM.png")
+    def __init__(self, position):
+        super().__init__(BeachMirror.nice, position)
+        self.scale = 1.3
 class directions(Sprite):
     p = ImageAsset("images/Screenshot 2019-05-22 at 5.32.51 PM.png")
     def __init__(self, position):
