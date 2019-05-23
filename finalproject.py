@@ -9,7 +9,7 @@ from ggame.line import LineSegment
 
 black = Color(0x000000, 1.0)
 thinline = LineStyle(1, black)
-darkorange1 = Color(0xD07702, 0)
+darkorange = Color(0xD07702, 0)
 thinline4 = LineStyle(1, darkorange)
 
 listc = [thinline, thinline4]
@@ -33,6 +33,7 @@ stylecount = 0
 
 def step():
     global a
+    global stylecount
     if a < (2*pi*lcm(R,r))/R:
         oldxpen = (R-r)*cos(a) + r*1*cos(((R/r)-1)*a)+250
         oldypen = (R-r)*sin(a) - r*1*sin(((R/r)-1)*a)+240
@@ -41,6 +42,7 @@ def step():
         ypen = (R-r)*sin(a) - r*1*sin(((R/r)-1)*a)+240
         stylecount += 1
         asset2 = LineSegment((oldxpen,oldypen), (xpen,ypen), style = listc[stylecount], positioning="physical")
+        
         
         # asset = CircleAsset(.5, thinline, black)
          #print("new: ", xpen, ypen)
