@@ -6,8 +6,9 @@ SCREEN_WIDTH = 1250
 SCREEN_HEIGHT = 700
 
 #random.randit(0,10), 0 is min, 10 is max
+# balls have speed 
 myapp = App()
-
+print("Press enter to play")
 class SpaceShip(Sprite):
     asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png", 
         Frame(227,0,292-227,125), 4, 'vertical')
@@ -48,8 +49,8 @@ class SpaceShip(Sprite):
                     print('You Win, Press r for Next Level')
                 if tehe:
                     print('You Win, Press g for Next Level')
-                for direction in self.collidingWithSprites(directions1):
-                    direction.destroy()
+                for directionn in self.collidingWithSprites(directions):
+                    directionn.destroy()
             
             
             self.setImage(3.9)
@@ -118,17 +119,12 @@ class Obstacle(App):
    
     def __init__(self, width, height):
         super().__init__(width, height)
-        Beach((0,0))
-        finish((650,300))
-        obstacle1((800,50))
-        obstacle1((80,400))
-        directions((4,70))
         directions1((0,10))
-        SpaceShip((20,10))
-        #Obstacle.listenKeyEvent("keydown", "spacebar", self.level1)
+        Obstacle.listenKeyEvent("keydown", "enter", self.level1)
         Obstacle.listenKeyEvent("keydown", "1", self.level2)
         Obstacle.listenKeyEvent("keydown", "r", self.level3)
         Obstacle.listenKeyEvent("keydown", "g", self.level4)
+        
     
     def step(self):
         for ship in self.getSpritesbyClass(SpaceShip):
@@ -136,7 +132,15 @@ class Obstacle(App):
         for explosion in self.getSpritesbyClass(explosionn):
             explosion.step()
     
-    
+    def level1(self,event):
+        for s in self.getSpritesbyClass(directions1):
+            s.destroy()
+            Beach((0,0))
+            finish((650,300))
+            obstacle1((800,50))
+            obstacle1((80,400))
+            directions((4,70))
+            SpaceShip((20,10))
         
     def level2(self,event):
         for x in self.getSpritesbyClass(finish):
