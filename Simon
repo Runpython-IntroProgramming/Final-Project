@@ -1,6 +1,5 @@
 from ggame import App, Sprite, Color, RectangleAsset, LineStyle, ImageAsset, SoundAsset, Sound
 import random
-import datetime
 from time import time
 
 Red=Color(0xff0000, 0.9)
@@ -21,15 +20,15 @@ class Button(Sprite):
         
 class YourTurn(Sprite):
     def __init__(self,position):
-        asset=ImageAsset("images/Your Turn.jpg")
+        asset=ImageAsset("Your Turn.jpg")
         super().__init__(asset,position)
         self.scale=2
         
 class Simon(App):
-    redsound=SoundAsset("sounds/Tone 1.mp3")
-    greensound=SoundAsset("sounds/Tone 2.mp3")
-    yellowsound=SoundAsset("sounds/Tone 3.mp3")
-    bluesound=SoundAsset("sounds/Tone 6.mp3")
+    redsound=SoundAsset("Tone 1.mp3")
+    greensound=SoundAsset("Tone 2.mp3")
+    yellowsound=SoundAsset("Tone 3.mp3")
+    bluesound=SoundAsset("Tone 6.mp3")
     def __init__(self):
         super().__init__()
         self.timeend=time()
@@ -55,18 +54,19 @@ class Simon(App):
         Simon.listenMouseEvent("mouseup",self.lightdown)
         
     def record(self,event):
-        if event.x<self.width/2 and event.y<self.height/2:
-            self.user.append(1)
-            self.rs.play()
-        elif event.y<self.height/2:
-            self.user.append(2)
-            self.ys.play()
-        elif event.x>self.width/2:
-            self.user.append(3)
-            self.gs.play()
-        else:
-            self.user.append(4)
-            self.bs.play()
+        if self.state=="record":
+            if event.x<self.width/2 and event.y<self.height/2:
+                self.user.append(1)
+                self.rs.play()
+            elif event.y<self.height/2:
+                self.user.append(2)
+                self.ys.play()
+            elif event.x>self.width/2:
+                self.user.append(3)
+                self.gs.play()
+            else:
+                self.user.append(4)
+                self.bs.play()
     
     def lightup(self,event):
         if self.state=="record":
@@ -166,12 +166,12 @@ class Simon(App):
                 elif self.state=="yourturn":
                     self.yours=YourTurn((300,175))
                     self.waittime=.9
-                    self.state="record"
                     self.comparenumber=0
                     self.user=[]
+                    self.state="record"
                 elif self.state=="record":
-                    self.waittime=0
                     self.yours.visible=False
+                    self.waittime=0
                     if self.comparenumber<len(self.choices) and self.comparenumber<len(self.user):
                         if self.user[self.comparenumber]==self.choices[self.comparenumber]:
                             self.comparenumber+=1
