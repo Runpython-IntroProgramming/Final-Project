@@ -121,11 +121,11 @@ class Player(Sprite):
         elif (self.left==1 or self.right==1) and self.vy==0:
             if self.thrustframe<9 or self.thrustframe>11:
                 self.thrustframe=9
-            if self.left==1:
+            """if self.left==1:
                 self.width=-64
                 print(self.width)
             if self.right==1:
-                self.width=64
+                self.width=64"""
             self.setImage(self.thrustframe)
             self.thrustframe += .25 
             if self.thrustframe == 11:
