@@ -39,11 +39,10 @@ def step():
         a=a+0.2
         xpen = (R-r)*cos(a) + r*1*cos(((R/r)-1)*a)+250
         ypen = (R-r)*sin(a) - r*1*sin(((R/r)-1)*a)+240
-        asset = CircleAsset(.5, thinline, black)
         stylecount += 1
         asset2 = LineSegment((oldxpen,oldypen), (xpen,ypen), style = listc[stylecount], positioning="physical")
         
-        
+        # asset = CircleAsset(.5, thinline, black)
          #print("new: ", xpen, ypen)
         
          #print("old: ", oldxpen, oldypen)
