@@ -465,8 +465,8 @@ class SpaceGame(App):
             self.p=Player((500,100),0)
             if self.player2==True:
                 self.q=Player((500,100),1)
-            Variblock(103,8,0,0)
-            Variblock(103,8,0,435)
+            Variblock(100,8,0,0)
+            Variblock(100,8,0,435)
             Variblock(8,35,0,80)
             Variblock(8,35,940,80)
             Variblock(50,20,260,160)
