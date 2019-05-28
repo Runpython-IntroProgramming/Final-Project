@@ -82,15 +82,24 @@ class Game(App):
         self.if7 = 0
         self.if8 = 0
         self.if9 = 0
+        self.s1 = 1
+        self.s2 = 1
+        self.s3 = 1
+        self.s4 = 1
+        self.s5 = 1
+        self.s6 = 1
+        self.s7 = 1
+        self.s8 = 1
+        self.s9 = 1
     def spot1(self, event):
         if self.turns % 2 == 0 and self.if1 == 0:
             exe((300,200))
-            a = 5
+            self.s1 = 5
             self.turns += 1
             self.if1 = 1
         elif self.turns % 2 == 1 and self.if1 == 0:
             owe((300,200))
-            a = 7
+            self.s1 = 7
             self.turns += 1
             self.if1 = 1
         else:
@@ -99,12 +108,12 @@ class Game(App):
     def spot2(self, event):
         if self.turns % 2 == 0 and self.if2 == 0:
             exe((450,200))
-            b = 5
+            self.s2 = 5
             self.turns +=1
             self.if2 = 1
         elif self.turns % 2 == 1 and self.if2 == 0:
             owe((450,200))
-            b = 7
+            self.s2 = 7
             self.turns +=1
             self.if2 = 1
         else:
@@ -113,12 +122,12 @@ class Game(App):
     def spot3(self, event):
         if self.turns % 2 == 0 and self.if3 == 0:
             exe((600,200))
-            c = 5
+            self.s3 = 5
             self.turns += 1
             self.if3 = 1
         elif self.turns % 2 == 1 and self.if3 == 0:
             owe((600,200))
-            c = 7
+            self.s3 = 7
             self.turns += 1
             self.if3 = 1
         else:
@@ -127,12 +136,12 @@ class Game(App):
     def spot4(self, event):
         if self.turns % 2 == 0 and self.if4 == 0:
             exe((300,350))
-            d = 5
+            self.s4 = 5
             self.turns += 1
             self.if4 = 1
         elif self.turns % 2 == 1 and self.if4 == 0:
             owe((300,350))
-            d = 7
+            self.s4 = 7
             self.turns += 1
             self.if4 = 1
         else:
@@ -141,12 +150,12 @@ class Game(App):
     def spot5(self, event):
         if self.turns % 2 == 0 and self.if5 == 0:
             exe((450,350))
-            e = 5
+            self.s5 = 5
             self.turns += 1
             self.if5 = 1
         elif self.turns % 2 == 1 and self.if5 == 0:
             owe((450,350))
-            e = 7
+            self.s5 = 7
             self.turns += 1
             self.if5 = 1
         else:
@@ -155,12 +164,12 @@ class Game(App):
     def spot6(self, event):
         if self.turns % 2 == 0 and self.if6 == 0:
             exe((600,350))
-            f = 5
+            self.s6 = 5
             self.turns += 1
             self.if6 = 1
         elif self.turns % 2 == 1 and self.if6 == 0:
             owe((600,350))
-            f = 7
+            self.s6 = 7
             self.turns += 1
             self.if6 = 1
         else:
@@ -169,12 +178,12 @@ class Game(App):
     def spot7(self, event):
         if self.turns % 2 == 0 and self.if7 == 0:
             exe((300,500))
-            g = 5
+            self.s7 = 5
             self.turns += 1
             self.if7 = 1
         elif self.turns % 2 == 1 and self.if7 == 0:
             owe((300,500))
-            g = 7
+            self.s7 = 7
             self.turns += 1
             self.if7 = 1
         else:
@@ -183,12 +192,12 @@ class Game(App):
     def spot8(self, event):
         if self.turns % 2 == 0 and self.if8 == 0:
             exe((450,500))
-            h = 5
+            self.s8 = 5
             self.turns += 1
             self.if8 = 1
         elif self.turns % 2 == 1 and self.if8 == 0:
             owe((450,500))
-            h = 7
+            self.s8 = 7
             self.turns += 1
             self.if8 = 1
         else:
@@ -197,12 +206,12 @@ class Game(App):
     def spot9(self, event):
         if self.turns % 2 == 0 and self.if9 == 0:
             exe((600,500))
-            i = 5
+            self.s9 = 5
             self.turns += 1
             self.if9 = 1
         elif self.turns % 2 == 1 and self.if9 == 0:
             owe((600,500))
-            i = 7
+            self.s9 = 7
             self.turns += 1
             self.if9 = 1
         else:
@@ -210,52 +219,52 @@ class Game(App):
         self.checkwinner()
 
     def checkwinner(self):
-        if a == 5 and b == 5 and c == 5:
+        if self.s1 == 5 and self.s2 == 5 and self.s3 == 5:
             horiz((270,230))
             print("X Wins")
-        elif d == 5 and e == 5 and f == 5:
+        elif self.s4 == 5 and self.s5 == 5 and self.s6 == 5:
             horiz((270,380))
             print("X Wins")
-        elif g == 5 and h == 5 and i == 5:
+        elif self.s7 == 5 and self.s8 == 5 and self.s9 == 5:
             horiz((270,530))
             print("X Wins")
-        elif a == 5 and d == 5 and g == 5:
+        elif self.s1 == 5 and self.s4 == 5 and self.s7 == 5:
             vert((340,160))
             print("X Wins")
-        elif b == 5 and e == 5 and h == 5:
+        elif self.s2 == 5 and self.s5 == 5 and self.s8 == 5:
             vert((490,160))
             print("X Wins")
-        elif c == 5 and f == 5 and i == 5:
+        elif self.s3 == 5 and self.s6 == 5 and self.s9 == 5:
             vert((640,160))
             print("X Wins")
-        elif a == 5 and e == 5 and i == 5:
+        elif self.s1 == 5 and self.s5 == 5 and self.s9 == 5:
             diag1((270,160))
             print ("X Wins")
-        elif c == 5 and e == 5 and g == 5:
+        elif self.s3 == 5 and self.s5 == 5 and self.s7 == 5:
             diag2((720,160))
             print ("X Wins")
-        elif a == 7 and b == 7 and c == 7:
+        elif self.s1 == 7 and self.s2 == 7 and self.s3 == 7:
             horiz((303,250))
             print("O Wins")
-        elif d == 7 and e == 7 and f == 7:
+        elif self.s4 == 7 and self.s5 == 7 and self.s6 == 7:
             horiz((303,400))
             print("O Wins")
-        elif g == 7 and h == 7 and i == 7:
+        elif self.s7 == 7 and self.s8 == 7 and self.s9 == 7:
             horiz((303,550))
             print("O Wins")
-        elif a == 7 and d == 7 and g == 7:
+        elif self.s1 == 7 and self.s4 == 7 and self.s7 == 7:
             vert((303,400))
             print("O Wins")
-        elif b == 7 and e == 7 and h == 7:
+        elif self.s2 == 7 and self.s5 == 7 and self.s8 == 7:
             vcert((303,400))
             print("O Wins")
-        elif c == 7 and f == 7 and i == 7:
+        elif self.s3 == 7 and self.s6 == 7 and self.s9 == 7:
             horiz((303,400))
             print("O Wins")
-        elif a == 7 and e == 7 and i == 7:
+        elif self.s1 == 7 and self.s5 == 7 and self.s9 == 7:
             diag1((303, 250))
             print ("O Wins")
-        elif c == 7 and e == 7 and g == 7:
+        elif self.s3 == 7 and self.s5 == 7 and self.s7 == 7:
             diag2((603, 250))
             print ("O Wins")
 
