@@ -400,8 +400,12 @@ class SpaceGame(App):
     def downlevel(self, event):
         self.levelindex-=0.5
     def player2(self,event):
-        self.player2=True
-        print("Adding another player.\nPress Enter to restart the level with the other Player.")
+        if self.player2==True:
+            self.player2=False
+            print("Removing Player 2.\n Press Enter to restart the level without the other Player.")
+        else:
+            self.player2=True
+            print("Adding another player.\nPress Enter to restart the level with the other Player.\n Player 2 is controlled with WASD and 'c'.")
     def newlevel(self,event):
         for s in self.getSpritesbyClass(Player):
             s.destroy()
@@ -506,7 +510,7 @@ class SpaceGame(App):
             Spike(14,1,260,250)
             Spike(1,9,430,180)
             textbox("You can slide on walls by holding a direction into the wall.","bold 20pt Arial",1000,10,10)
-            textbox("And you can jump off the wall by pressing the down arrow.","bold 20pt Arial",380,650,250)
+            textbox("And you can jump off the wall by pressing the spacebar","bold 20pt Arial",380,650,250)
             Spike(21,1,440,400)
             goal(20,20,500,470)
             if self.player2==True:
