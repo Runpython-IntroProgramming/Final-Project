@@ -12,8 +12,6 @@ white = Color(0xffffff, 1.0)
 grey = Color(0xC0C0C0, 1.0)
 yellow = Color(0xffff00, 1.0)
 
-
-
 class Bird(Sprite):
     side = LineStyle(1,black)
     poly = RectangleAsset(10,10, side, yellow)
@@ -54,12 +52,20 @@ class Bird(Sprite):
         self.y += self.vy
         self.x += self.vx
         self.vy += self.deltavy
+        if self.y >= 613:
+            self.y = 613
 
 class Block(Sprite):
     side = LineStyle(1,black)
     square = RectangleAsset(30,30,side,green)
     def __init__(self,position):
         super().__init__(Block.square,position)
+
+class Bottom(Sprite):
+    side = LineStyle(1,black)
+    square = RectangleAsset(1300,10,side,black)
+    def __init__(self,position):
+        super().__init__(Bottom.square,position)
 
 class Game(App):
     def __init__(self):
@@ -70,10 +76,12 @@ class Game(App):
         Block((75,100))
         Block((75,130))
         Block((75,160))
+        Bottom((0,625))
     
     def step(self):
-         self.player1.step()
-
+        self.player1.step()
+        if self.player1.collidingWithSprites(Block):
+            self.player1.destroy
    
 
 myapp = Game()
