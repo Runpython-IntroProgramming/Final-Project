@@ -13,8 +13,10 @@ darkorange = Color(0xD07702, 0)
 thinline4 = LineStyle(1, darkorange)
 green1 = Color(0x169709, 0.2)
 thinline7 = LineStyle(1, green1)
+yellow = Color(0xFCE604, 1.0)
+thinline6 = LineStyle(1, yellow)
 
-listc = [thinline, thinline4, thinline7]
+listc = [thinline, thinline6, thinline7, thinline, thinline7]
 
 R = float(input('Radius of circle 1: '))
 r = float(input('Radius of circle 2: '))
@@ -37,6 +39,7 @@ number = 0
 def step():
     global a
     global stylecount
+    global number
     if a < (2*pi*lcm(R,r))/R:
         oldxpen = (R-r)*cos(a) + r*1*cos(((R/r)-1)*a)+250
         oldypen = (R-r)*sin(a) - r*1*sin(((R/r)-1)*a)+240
@@ -44,18 +47,17 @@ def step():
         xpen = (R-r)*cos(a) + r*1*cos(((R/r)-1)*a)+250
         ypen = (R-r)*sin(a) - r*1*sin(((R/r)-1)*a)+240
         stylecount += 1
-        number == floor(stylecount/50)
+        number = floor(stylecount/5)
         asset2 = LineSegment((oldxpen,oldypen), (xpen,ypen), style = listc[number], positioning="physical")
-        if number >= len(listc):
-            number = 0
-            
+        if number == len(listc)-1:
+            stylecount = 0 
+
 
         
-        # asset = CircleAsset(.5, thinline, black)
-         #print("new: ", xpen, ypen)
-        
-         #print("old: ", oldxpen, oldypen)
-        #Sprite(asset, (xpen,ypen))
+#asset = CircleAsset(.5, thinline, black)
+#print("new: ", xpen, ypen)
+#print("old: ", oldxpen, oldypen)
+#Sprite(asset, (xpen,ypen))
 #rainbow spirograph
 # go through once, then delete and add 2 shorter lines, again and again 
 
