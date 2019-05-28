@@ -76,12 +76,31 @@ class Game(App):
         Block((75,100))
         Block((75,130))
         Block((75,160))
+        Block((75,70))
+        Block((75,40))
+        Block((75,10))
+        Block((75,10))
+        Block((75,280))
+        Block((75,310))
+        Block((75,340))
+        Block((75,370))
+        Block((75,400))
+        Block((75,430))
+        Block((75,460))
+        Block((75,490))
+        Block((75,520))
+        Block((75,550))
+        Block((75,580))
+        Block((75,610))
+        Block((75,-20))
+        
         Bottom((0,625))
     
     def step(self):
         self.player1.step()
         if self.player1.collidingWithSprites(Block):
-            self.player1.destroy
+            self.player1.destroy()
+            print("GAME OVER :(((")
    
 
 myapp = Game()
