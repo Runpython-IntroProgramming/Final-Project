@@ -2,7 +2,7 @@
 platformer.py
 Author:waSclthu11
 Credit:The example platformer program helped a lot, especially with subclasses, which I used for the terrain. Also Mr.Dennison helped with the collision detection setup.
-Sprite credit link: https://goglilol.itch.io/cute-knight
+Sprite credit link: https://goglilol.itch.io/cute-knight wall credit link: https://blog.indiumgames.fi/2014/08/06/creating-level-2d-game/
 Assignment:
 Write and submit a program that implements the sandbox platformer game:
 https://github.com/HHS-IntroProgramming/Platformer
@@ -344,6 +344,7 @@ class Variblock(Sprite):
     def __init__(self, w, h, x, y):
         grid=lambda W: (W-W%10)
         gred=lambda W: (W*10)
+        asset = ImageAsset("MakingMap1.png", Frame(0,0,w,h), 1, 'horizontal')
         super().__init__(RectangleAsset(gred(w),gred(h),noline,grey),(grid(x),grid(y)))
 
 class sprong(Wallblock):
