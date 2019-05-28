@@ -222,51 +222,70 @@ class Game(App):
         if self.s1 == 5 and self.s2 == 5 and self.s3 == 5:
             horiz((270,230))
             print("X Wins")
+            return
         elif self.s4 == 5 and self.s5 == 5 and self.s6 == 5:
             horiz((270,380))
             print("X Wins")
+            return
         elif self.s7 == 5 and self.s8 == 5 and self.s9 == 5:
             horiz((270,530))
             print("X Wins")
+            return
         elif self.s1 == 5 and self.s4 == 5 and self.s7 == 5:
             vert((340,160))
             print("X Wins")
+            return
         elif self.s2 == 5 and self.s5 == 5 and self.s8 == 5:
             vert((490,160))
             print("X Wins")
+            return
         elif self.s3 == 5 and self.s6 == 5 and self.s9 == 5:
             vert((640,160))
             print("X Wins")
+            return
         elif self.s1 == 5 and self.s5 == 5 and self.s9 == 5:
             diag1((270,160))
             print ("X Wins")
+            return
         elif self.s3 == 5 and self.s5 == 5 and self.s7 == 5:
             diag2((720,160))
             print ("X Wins")
+            return
         elif self.s1 == 7 and self.s2 == 7 and self.s3 == 7:
             horiz((303,250))
             print("O Wins")
+            return
         elif self.s4 == 7 and self.s5 == 7 and self.s6 == 7:
             horiz((303,400))
             print("O Wins")
+            return
         elif self.s7 == 7 and self.s8 == 7 and self.s9 == 7:
             horiz((303,550))
             print("O Wins")
+            return
         elif self.s1 == 7 and self.s4 == 7 and self.s7 == 7:
             vert((303,400))
             print("O Wins")
+            return
         elif self.s2 == 7 and self.s5 == 7 and self.s8 == 7:
             vcert((303,400))
             print("O Wins")
+            return
         elif self.s3 == 7 and self.s6 == 7 and self.s9 == 7:
             horiz((303,400))
             print("O Wins")
+            return
         elif self.s1 == 7 and self.s5 == 7 and self.s9 == 7:
             diag1((303, 250))
             print ("O Wins")
+            return
         elif self.s3 == 7 and self.s5 == 7 and self.s7 == 7:
             diag2((603, 250))
             print ("O Wins")
+            return
+        elif self.if1 == 1 and self.if2 =-= 1 and self.if3 == 1 and self.if4 == 1 and self.if5 == 1 and self.if6 == 1 and self.if7 == 1 and self.if8 == 1 and self.if9 == 1:
+            print("Draw")
+            return
 
 myapp = Game()
 myapp.run()
