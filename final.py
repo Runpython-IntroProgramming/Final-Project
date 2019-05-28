@@ -72,7 +72,6 @@ class Game(App):
         super().__init__()
         self.player1 = Bird((10,250))
         
-        
         Block((75,100))
         Block((75,130))
         Block((75,160))
