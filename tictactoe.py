@@ -283,7 +283,7 @@ class Game(App):
             diag2((603, 250))
             print ("O Wins")
             return
-        elif self.if1 == 1 and self.if2 =-= 1 and self.if3 == 1 and self.if4 == 1 and self.if5 == 1 and self.if6 == 1 and self.if7 == 1 and self.if8 == 1 and self.if9 == 1:
+        elif self.if1 == 1 and self.if2 == 1 and self.if3 == 1 and self.if4 == 1 and self.if5 == 1 and self.if6 == 1 and self.if7 == 1 and self.if8 == 1 and self.if9 == 1:
             print("Draw")
             return
 
