@@ -344,8 +344,9 @@ class Variblock(Sprite):
     def __init__(self, w, h, x, y):
         grid=lambda W: (W-W%10)
         gred=lambda W: (W*10)
-        asset = ImageAsset("MakingMap1.png", Frame(0,0,w,h), 1, 'horizontal')
-        super().__init__(RectangleAsset(gred(w),gred(h),noline,grey),(grid(x),grid(y)))
+        asset = ImageAsset("MakingMap1.png", Frame(0,0,gred(w),gred(h)), 1, 'horizontal')
+        #super().__init__(RectangleAsset(gred(w),gred(h),noline,grey),(grid(x),grid(y)))
+        super().__init__(asset,(grid(x),grid(y)))
 
 class sprong(Wallblock):
     def __init__(self, x, y):
