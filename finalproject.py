@@ -468,7 +468,7 @@ class SpaceGame(App):
             Variblock(8,35,0,80)
             Variblock(8,35,940,80)
             Variblock(50,20,260,160)
-            textbox("<Game_Name>","bold 40pt Arial",600,320,220)
+            textbox("Castlevania too: Eclettic Boogaloo","bold 40pt Arial",600,300,200)
             textbox("Start","bold 30pt Arial",200,100,450)
             textbox("Credits","bold 30pt Arial",200,800,450)
             textbox("Level Select", "bold 30pt Arial",400,400,450)
