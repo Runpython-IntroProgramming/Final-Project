@@ -100,8 +100,8 @@ def step():
 #100, 60
 #100,70
 #44,12
-print(App.width)
-print(App.height)
+#print(App.width)
+#print(App.height)
 
     
 myapp = App()
