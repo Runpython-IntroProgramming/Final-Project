@@ -66,6 +66,7 @@ class Bird(Sprite):
                 self.x = 10
             elif self.x >= 1125:
                 self.x = 1125
+            
 
 class Block(Sprite):
     side = LineStyle(1,black)
