@@ -6,10 +6,12 @@ from ggame.sysdeps import SND_Sound
 SCREEN_WIDTH = 1250
 SCREEN_HEIGHT = 700
 
-#random.randit(0,10), 0 is min, 10 is max
-# balls have speed 
 myapp = App()
+
+
 print("Press enter to play")
+
+
 class SpaceShip(Sprite):
     asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png", 
         Frame(227,0,292-227,125), 4, 'vertical')
@@ -218,6 +220,10 @@ class Obstacle(App):
             cloud3((512,100))
             cloud4((956,35))
             cloud5((743,210))
+
+
+
+
 #LEVEL ONE:     
 class obstacle1(Sprite):
     hi = ImageAsset("images/beach-ball-575425_640.png")
@@ -269,6 +275,10 @@ class mariofor(Sprite):
     def __init__(self, position):
         super().__init__(mariofor.fo, position)
         self.scale = 0.6
+        
+        
+        
+        
 #LEVEL TWO:
 class background2(Sprite):
     nba= ImageAsset("images/UnderWater.jpg")
@@ -295,6 +305,12 @@ class Coral(Sprite):
     def __init__(self, position):
         super().__init__(Coral.e, position)
         self.scale = 0.8
+
+
+
+
+
+
 #LEVEL THREE:
 class background3(Sprite):
     hahaha= ImageAsset("images/Background3.jpg")
@@ -319,6 +335,12 @@ class Valley(Sprite):
 """class yip:
     Yip = SoundAsset("sounds/mk64_mario10.wav")
  """   
+
+
+
+
+
+
 #LEVEL FOUR:
 class background4(Sprite):
     hahah= ImageAsset("images/background4.jpg")
