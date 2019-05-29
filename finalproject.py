@@ -33,28 +33,30 @@ listd = []
 
 R = float(input('Radius of circle 1 (under 100): '))
 r = float(input('Radius of circle 2 (under 70): '))
-Color = input("If you would like a rainbow spirograph, type 'R'. If you would like to choose your own colors, type 'D'. ")
+color = input("If you would like a rainbow spirograph, type 'R'. If you would like to choose your own colors, type 'D'. ")
 
-if Color == 'R':
+if color == 'R':
     colorlist = listr
-if Color == 'D': 
+if color == 'D': 
     colorlist = listd
-    print('How many colors would you like?')
-    Choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'.")
-    if Choose == 'r':
-        listd.append(thinline)
-    elif Choose == 'o':
-        listd.append(thinline1)
-    elif Choose == 'y':
-        listd.append(thinline2)
-    elif Choose == 'g':
-        listd.append(thinline3)
-    elif Choose == 'b':
-        listd.append(thinline4)
-    elif Choose == 'p':
-        listd.append(thinline5)
-    elif Choose == 'pi':
-        listd.append(thinline6)
+    numcolors = int(input('How many colors would you like?'))
+    choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'.")
+    while numcolors > 0:
+        if choose == 'r':
+            listd.append(thinline)
+        elif choose == 'o':
+            listd.append(thinline1)
+        elif choose == 'y':
+            listd.append(thinline2)
+        elif choose == 'g':
+            listd.append(thinline3)
+        elif choose == 'b':
+            listd.append(thinline4)
+        elif choose == 'p':
+            listd.append(thinline5)
+        elif choose == 'pi':
+            listd.append(thinline6)
+        numcolors -= 1
 
 def gcd(R,r):
     """Compute the greatest common divisor of a and b"""
