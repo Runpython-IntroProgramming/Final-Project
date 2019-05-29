@@ -54,6 +54,10 @@ class Bird(Sprite):
         self.vy += self.deltavy
         if self.y >= 613:
             self.y = 613
+            self.deltavy = -0.1
+        elif self.y <=8:
+            self.y =8
+        
 
 class Block(Sprite):
     side = LineStyle(1,black)
@@ -67,35 +71,43 @@ class Bottom(Sprite):
     def __init__(self,position):
         super().__init__(Bottom.square,position)
 
+class Top(Sprite):
+    side = LineStyle(1,black)
+    square = RectangleAsset(1300,10,side,black)
+    def __init__(self,position):
+        super().__init__(Top.square,position)
+
 class Game(App):
     def __init__(self):
         super().__init__()
         self.player1 = Bird((10,250))
-        for x in range(0,30):
-            Block((155,(x*30)))
-            
-        Block((75,100))
-        Block((75,130))
-        Block((75,160))
-        Block((75,70))
-        Block((75,40))
-        Block((75,10))
-        Block((75,10))
-        Block((75,280))
-        Block((75,310))
-        Block((75,340))
-        Block((75,370))
-        Block((75,400))
-        Block((75,430))
-        Block((75,460))
-        Block((75,490))
-        Block((75,520))
-        Block((75,550))
-        Block((75,580))
-        Block((75,610))
-        Block((75,-20))
+        for x in range(0,15):
+            Block((100,(x*30)))
+        for x in range(18,30):
+            Block((100,(x*30)))
+        for x in range(0,10):
+            Block((250,(x*30)))
+        for x in range(13,30):
+            Block((250,(x*30)))
+        for x in range(0,8):
+            Block((400,(x*30)))
+        for x in range(11,30):
+            Block((400,(x*30)))
+        for x in range(0,17):
+            Block((550,(x*30)))
+        for x in range(20,30):
+            Block((550,(x*30)))
+        for x in range(0,4):
+            Block((700,(x*30)))
+        for x in range(7,30):
+            Block((700,(x*30)))
+        for x in range(0,3):
+            Block((850,(x*30)))
+        for x in range(6,30):
+            Block((850,(x*30)))
         
         Bottom((0,625))
+        Top((0,-2))
     
     def step(self):
         self.player1.step()
