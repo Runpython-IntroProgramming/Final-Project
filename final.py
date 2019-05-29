@@ -21,8 +21,8 @@ class Bird(Sprite):
         self.vy = 0
         self.deltavy = 0.1
         
-        Game.listenKeyEvent("keydown", "up arrow", self.up)
-        Game.listenKeyEvent("keyup", "up arrow", self.down)
+        Game.listenKeyEvent("keydown", "space", self.up)
+        Game.listenKeyEvent("keyup", "space", self.down)
         Game.listenKeyEvent("keydown", "right arrow",  self.right)
         Game.listenKeyEvent("keyup", "right arrow",  self.rightstop)
         Game.listenKeyEvent("keydown", "left arrow",  self.left)
@@ -71,7 +71,9 @@ class Game(App):
     def __init__(self):
         super().__init__()
         self.player1 = Bird((10,250))
-        
+        for x in range(0,30):
+            Block((155,(x*30)))
+            
         Block((75,100))
         Block((75,130))
         Block((75,160))
