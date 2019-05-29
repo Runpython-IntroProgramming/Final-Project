@@ -106,12 +106,12 @@ class Finish(Sprite):
         super().__init__(Finish.square,position)
 
 class Text(Sprite):
-    text = ("Flappy Bird XTREME", style = "bold 40pt Arial", width=250, fill=yellow)
+    text = TextAsset("Flappy Bird XTREME", style = "bold 40pt Arial", width=250, fill=yellow)
     def __init__(self,position):
         super().__init__(Text.text,position)
 
 class FinishText(Sprite):
-    text = ("Finish", style = "bold 20pt Arial", width=250, fill=black)
+    text = TextAsset("Finish!", style = "bold 20pt Arial", width=250, fill=black)
     def __init__(self,position):
         super().__init__(FinishText.text,position)
 
@@ -151,7 +151,7 @@ class Game(App):
         #Start((12,300))
         Finish((950,300))
         Text((900,30))
-        FinishText((970,320))
+        FinishText((975,310))
     
     def step(self):
         self.player1.step()
