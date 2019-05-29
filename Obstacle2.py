@@ -57,6 +57,7 @@ class SpaceShip(Sprite):
         gg=self.collidingWithSprites(orangefish)
         hg=self.collidingWithSprites(bluefish)
         cn=self.collidingWithSprites(coconut)
+        oo=self.collidingWithSprites(cloud)
         if lol:
             self.explode(self)
             print('GG You Lost')
@@ -67,6 +68,9 @@ class SpaceShip(Sprite):
             self.explode(self)
             print('GG You Lost')
         if cn:
+            self.explode(self)
+            print('GG You Lost')
+        if oo:
             self.explode(self)
             print('GG You Lost')
             
@@ -196,7 +200,7 @@ class Obstacle(App):
             t.destroy()
             
             background4((0,0))
-            SpaceShip((10,10))
+            SpaceShip((300,10))
             cloud((5,50))
             
 #LEVEL ONE:     
