@@ -100,10 +100,20 @@ class Start(Sprite):
         super().__init__(Start.square,position)
 
 class Finish(Sprite):
-    side = LineStyle(1,yellow)
+    side = LineStyle(1,black)
     square = RectangleAsset(130,10,side,yellow)
     def __init__(self,position):
         super().__init__(Finish.square,position)
+
+class Text(Sprite):
+    text = ("Flappy Bird XTREME", style = "bold 40pt Arial", width=250, fill=yellow)
+    def __init__(self,position):
+        super().__init__(Text.text,position)
+
+class FinishText(Sprite):
+    text = ("Finish", style = "bold 20pt Arial", width=250, fill=black)
+    def __init__(self,position):
+        super().__init__(FinishText.text,position)
 
 class Game(App):
     def __init__(self):
@@ -138,8 +148,10 @@ class Game(App):
         Top((0,-2))
         LeftSide((-2,0))
         RightSide((1137,0))
-        Start((12,300))
+        #Start((12,300))
         Finish((950,300))
+        Text((900,30))
+        FinishText((970,320))
     
     def step(self):
         self.player1.step()
@@ -147,9 +159,9 @@ class Game(App):
             self.player1.destroy()
             print("GAME OVER :(((")
 
-        if self.player1.collidingWithSprites(Start):
-            self.player1.y = 290
-            self.player1.deltavy = -0.01
+        #if self.player1.collidingWithSprites(Start):
+            #self.player1.y = 290
+            #self.player1.deltavy = -0.01
 
         if self.player1.collidingWithSprites(Finish):
             self.player1.y = 290
