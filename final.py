@@ -54,9 +54,14 @@ class Bird(Sprite):
         self.vy += self.deltavy
         if self.y >= 613:
             self.y = 613
-            self.deltavy = -0.1
+            self.deltavy = -0.05
         elif self.y <=8:
-            self.y =8
+            self.y = 8
+            self.deltavy = 0.05
+        if self.x <= 10:
+            self.x = 10
+        elif self.x >= 1125:
+            self.x = 1125
         
 
 class Block(Sprite):
@@ -88,6 +93,8 @@ class RightSide(Sprite):
     square = RectangleAsset(10,800,side,black)
     def __init__(self,position):
         super().__init__(RightSide.square,position)
+
+
 
 class Game(App):
     def __init__(self):
