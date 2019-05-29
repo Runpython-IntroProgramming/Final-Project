@@ -250,47 +250,47 @@ class Game(App):
             self.winner = 1
             return
         elif self.s1 == 7 and self.s2 == 7 and self.s3 == 7:
-            horiz((303,250))
+            horiz((270,250))
             print("O Wins")
             self.winner = 1
             return
         elif self.s4 == 7 and self.s5 == 7 and self.s6 == 7:
-            horiz((303,400))
+            horiz((270,400))
             print("O Wins")
             self.winner = 1
             return
         elif self.s7 == 7 and self.s8 == 7 and self.s9 == 7:
-            horiz((303,550))
+            horiz((270,550))
             print("O Wins")
             self.winner = 1
             return
         elif self.s1 == 7 and self.s4 == 7 and self.s7 == 7:
-            vert((303,400))
+            vert((340,400))
             print("O Wins")
             self.winner = 1
             return
         elif self.s2 == 7 and self.s5 == 7 and self.s8 == 7:
-            vcert((303,400))
+            vcert((490,400))
             print("O Wins")
             self.winner = 1
             return
         elif self.s3 == 7 and self.s6 == 7 and self.s9 == 7:
-            horiz((303,400))
+            horiz((640,400))
             print("O Wins")
             self.winner = 1
             return
         elif self.s1 == 7 and self.s5 == 7 and self.s9 == 7:
-            diag1((303, 250))
+            diag1((270, 250))
             print ("O Wins")
             self.winner = 1
             return
         elif self.s3 == 7 and self.s5 == 7 and self.s7 == 7:
-            diag2((603, 250))
+            diag2((720, 250))
             print ("O Wins")
             self.winner = 1
             return
         elif self.if1 == 1 and self.if2 == 1 and self.if3 == 1 and self.if4 == 1 and self.if5 == 1 and self.if6 == 1 and self.if7 == 1 and self.if8 == 1 and self.if9 == 1:
-            print("Draw. Press Enter to Reset")
+            print("Draw")
             self.winner = 1
             return
         
