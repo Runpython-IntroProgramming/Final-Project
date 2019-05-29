@@ -130,7 +130,11 @@ class Obstacle(App):
    
     def __init__(self, width, height):
         super().__init__(width, height)
-        directions1((0,10))
+        #directions1((0,10))
+        mario((5,40))
+        mariodirections((40,180))
+        mariow((40,280))
+        mariofor((457,280))
         Obstacle.listenKeyEvent("keydown", "enter", self.level1)
         Obstacle.listenKeyEvent("keydown", "1", self.level2)
         Obstacle.listenKeyEvent("keydown", "r", self.level3)
@@ -245,6 +249,26 @@ class Tsunami(Sprite):
     def __init__(self, position):
         super().__init__(Tsunami.o, position)
         self.scale = 0.8
+class mario(Sprite):
+    wo = ImageAsset("images/Screenshot 2019-05-29 at 4.45.47 PM.png")
+    def __init__(self, position):
+        super().__init__(mario.wo, position)
+        self.scale = 1.4
+class mariodirections(Sprite):
+    woo = ImageAsset("images/Screenshot 2019-05-29 at 5.06.55 PM.png")
+    def __init__(self, position):
+        super().__init__(mariodirections.woo, position)
+        self.scale = 0.7
+class mariow(Sprite):
+    wow = ImageAsset("images/Screenshot 2019-05-29 at 5.07.34 PM.png")
+    def __init__(self, position):
+        super().__init__(mariow.wow, position)
+        self.scale = 0.6
+class mariofor(Sprite):
+    fo = ImageAsset("images/Screenshot 2019-05-29 at 5.07.51 PM.png")
+    def __init__(self, position):
+        super().__init__(mariofor.fo, position)
+        self.scale = 0.6
 #LEVEL TWO:
 class background2(Sprite):
     nba= ImageAsset("images/UnderWater.jpg")
