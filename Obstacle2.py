@@ -140,7 +140,7 @@ class Obstacle(App):
             obstacle1((80,400))
             Tsunami((200,2))
             SpaceShip((20,10))
-            self.Yip.play()
+            #self.Yip.play()
     def level2(self,event):
         for x in self.getSpritesbyClass(finish):
             x.destroy()
@@ -194,8 +194,11 @@ class Obstacle(App):
             t.destroy()
         for t in self.getSpritesbyClass(Valley):
             t.destroy()
+            
+            background4((0,0))
             SpaceShip((10,10))
-           
+            cloud((5,50))
+            
 #LEVEL ONE:     
 class obstacle1(Sprite):
     hi = ImageAsset("images/beach-ball-575425_640.png")
@@ -274,11 +277,20 @@ class Valley(Sprite):
     def __init__(self, position):
         super().__init__(Valley.t, position)
         self.scale = 0.8     
-class yip:
+"""class yip:
     Yip = SoundAsset("sounds/mk64_mario10.wav")
-    
+ """   
 #LEVEL FOUR:
-
+class background4(Sprite):
+    hahah= ImageAsset("images/background4.jpg")
+    def __init__(self, position):
+        super().__init__(background4.hahah, position)
+        self.scale = 1
+class cloud(Sprite):
+    hahh= ImageAsset("images/Cloud.png")
+    def __init__(self, position):
+        super().__init__(cloud.hahh, position)
+        self.scale = 0.8
 
 
 myapp = Obstacle(SCREEN_WIDTH, SCREEN_HEIGHT)
