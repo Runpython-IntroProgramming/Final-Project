@@ -6,6 +6,7 @@ Sprite credit link: https://goglilol.itch.io/cute-knight wall credit link: https
 Assignment:
 Write and submit a program that implements the sandbox platformer game:
 https://github.com/HHS-IntroProgramming/Platformer
+the actual brickkk: https://aeitzean.wordpress.com/2015/02/20/truely-free-textures/
 """
 x=1000
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, TextAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
@@ -344,7 +345,7 @@ class Variblock(Sprite):
     def __init__(self, w, h, x, y):
         grid=lambda W: (W-W%10)
         gred=lambda W: (W*10)
-        asset = ImageAsset("images/brick.png", Frame(0,0,gred(w),gred(h)), 1, 'horizontal')
+        asset = ImageAsset("images/wall2.png", Frame(0,0,gred(w),gred(h)), 1, 'horizontal')
         #super().__init__(RectangleAsset(gred(w),gred(h),noline,grey),(grid(x),grid(y)))
         super().__init__(asset,(grid(x),grid(y)))
 
