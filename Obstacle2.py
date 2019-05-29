@@ -212,8 +212,8 @@ class Obstacle(App):
             cloud((7,58))
             cloud2((177,197))
             cloud3((512,100))
-            cloud4((930,30))
-            
+            cloud4((956,35))
+            cloud5((743,210))
 #LEVEL ONE:     
 class obstacle1(Sprite):
     hi = ImageAsset("images/beach-ball-575425_640.png")
@@ -320,7 +320,12 @@ class cloud4(Sprite):
     hih= ImageAsset("images/Cloud.png")
     def __init__(self, position):
         super().__init__(cloud4.hih, position)
-        self.scale = 0.6
+        self.scale = 0.65
+class cloud5(Sprite):
+    hoh= ImageAsset("images/Cloud.png")
+    def __init__(self, position):
+        super().__init__(cloud5.hoh, position)
+        self.scale = 1.1
 
 
 myapp = Obstacle(SCREEN_WIDTH, SCREEN_HEIGHT)
