@@ -55,10 +55,10 @@ class Bird(Sprite):
         self.y += self.vy
         self.x += self.vx
         self.vy += self.deltavy
-        while restrict=False:
+        while restrict==False:
             if self.y >= 613:
                 self.y = 613
-            self.deltavy = -0.05
+                self.deltavy = -0.05
             elif self.y <=8:
                 self.y = 8
                 self.deltavy = 0.05
@@ -158,9 +158,11 @@ class Game(App):
         FinishText((975,310))
     
     def step(self):
+        global restrict
         self.player1.step()
         if self.player1.collidingWithSprites(Block):
-            
+            restrict=False
+            self.player1.x=100000
             print("GAME OVER :(((")
 
         #if self.player1.collidingWithSprites(Start):
