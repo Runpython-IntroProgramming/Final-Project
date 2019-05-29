@@ -77,6 +77,18 @@ class Top(Sprite):
     def __init__(self,position):
         super().__init__(Top.square,position)
 
+class LeftSide(Sprite):
+    side = LineStyle(1,black)
+    square = RectangleAsset(10,800,side,black)
+    def __init__(self,position):
+        super().__init__(LeftSide.square,position)
+
+class RightSide(Sprite):
+    side = LineStyle(1,black)
+    square = RectangleAsset(10,800,side,black)
+    def __init__(self,position):
+        super().__init__(RightSide.square,position)
+
 class Game(App):
     def __init__(self):
         super().__init__()
@@ -108,6 +120,8 @@ class Game(App):
         
         Bottom((0,625))
         Top((0,-2))
+        LeftSide((-2,0))
+        RightSide((1137,0))
     
     def step(self):
         self.player1.step()
