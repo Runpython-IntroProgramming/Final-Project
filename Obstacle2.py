@@ -58,6 +58,8 @@ class SpaceShip(Sprite):
         hg=self.collidingWithSprites(bluefish)
         cn=self.collidingWithSprites(coconut)
         oo=self.collidingWithSprites(cloud)
+        ee=self.collidingWithSprites(cloud2)
+        aa=self.collidingWithSprites(cloud3)
         if lol:
             self.explode(self)
             print('GG You Lost')
@@ -71,6 +73,12 @@ class SpaceShip(Sprite):
             self.explode(self)
             print('GG You Lost')
         if oo:
+            self.explode(self)
+            print('GG You Lost')
+        if ee:
+            self.explode(self)
+            print('GG You Lost')
+        if aa:
             self.explode(self)
             print('GG You Lost')
             
@@ -200,8 +208,11 @@ class Obstacle(App):
             t.destroy()
             
             background4((0,0))
-            SpaceShip((300,10))
-            cloud((5,50))
+            SpaceShip((400,10))
+            cloud((7,58))
+            cloud2((177,197))
+            cloud3((512,100))
+            cloud4((930,30))
             
 #LEVEL ONE:     
 class obstacle1(Sprite):
@@ -294,7 +305,22 @@ class cloud(Sprite):
     hahh= ImageAsset("images/Cloud.png")
     def __init__(self, position):
         super().__init__(cloud.hahh, position)
-        self.scale = 0.8
+        self.scale = 0.73
+class cloud2(Sprite):
+    hah= ImageAsset("images/Cloud.png")
+    def __init__(self, position):
+        super().__init__(cloud2.hah, position)
+        self.scale = 0.85
+class cloud3(Sprite):
+    heh= ImageAsset("images/Cloud.png")
+    def __init__(self, position):
+        super().__init__(cloud3.heh, position)
+        self.scale = 0.84
+class cloud4(Sprite):
+    hih= ImageAsset("images/Cloud.png")
+    def __init__(self, position):
+        super().__init__(cloud4.hih, position)
+        self.scale = 0.6
 
 
 myapp = Obstacle(SCREEN_WIDTH, SCREEN_HEIGHT)
