@@ -137,9 +137,9 @@ class Obstacle(App):
             finish((650,300))
             obstacle1((800,50))
             obstacle1((80,400))
-            #directions((4,70))
-            SpaceShip((20,10))
             Tsunami((200,2))
+            SpaceShip((20,10))
+            
     def level2(self,event):
         for x in self.getSpritesbyClass(finish):
             x.destroy()
@@ -151,14 +151,13 @@ class Obstacle(App):
             x.destroy()
         for x in self.getSpritesbyClass(SpaceShip):
             x.destroy()
-        #for x in self.getSpritesbyClass(directions):
-            #x.destroy()
             background2((0,0))
+            Coral((200,2))
             SpaceShip((10,10))
             orangefish((50,400))
             bluefish((300,150))
             finish2((900,200))
-    
+            
     def level3(self,event):
         for q in self.getSpritesbyClass(background2):
             q.destroy()
@@ -170,6 +169,8 @@ class Obstacle(App):
             q.destroy()
         for q in self.getSpritesbyClass(finish2):
             q.destroy()
+        for q in self.getSpritesbyClass(Coral):
+            q.destroy()
             
             background3((0,0))
             coconut((100,100))
@@ -177,6 +178,7 @@ class Obstacle(App):
             coconut((200,400))
             coconut((700,100))
             coconut((700,500))
+            Valley((200,2))
             SpaceShip((10,10))
             finish3((900,200))
     
@@ -189,7 +191,8 @@ class Obstacle(App):
             t.destroy()
         for t in self.getSpritesbyClass(coconut):
             t.destroy()
-            
+        for t in self.getSpritesbyClass(Valley):
+            t.destroy()
             SpaceShip((10,10))
            
 #LEVEL ONE:     
@@ -244,6 +247,11 @@ class finish2(Sprite):
     def __init__(self, position):
         super().__init__(finish2.hehe, position)
         self.scale = 0.5
+class Coral(Sprite):
+    e = ImageAsset("images/Screenshot 2019-05-29 at 10.03.18 AM.png")
+    def __init__(self, position):
+        super().__init__(Coral.e, position)
+        self.scale = 0.8
 #LEVEL THREE:
 class background3(Sprite):
     hahaha= ImageAsset("images/Background3.jpg")
@@ -260,7 +268,11 @@ class coconut(Sprite):
     def __init__(self, position):
         super().__init__(coconut.ligma, position)
         self.scale = 0.1
-        
+class Valley(Sprite):
+    t = ImageAsset("images/Screenshot 2019-05-29 at 10.08.08 AM.png")
+    def __init__(self, position):
+        super().__init__(Valley.t, position)
+        self.scale = 0.8     
 #LEVEL FOUR:
 
 
