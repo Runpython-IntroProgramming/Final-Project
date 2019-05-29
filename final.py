@@ -66,7 +66,7 @@ class Bird(Sprite):
                 self.x = 10
             elif self.x >= 1125:
                 self.x = 1125
-            
+            #make key event to turn off while loop
 
 class Block(Sprite):
     side = LineStyle(1,black)
