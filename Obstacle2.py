@@ -1,7 +1,8 @@
 from ggame import App, Sprite, ImageAsset, Frame, CircleAsset
-from ggame import SoundAsset, Color, LineStyle, TextAsset
+from ggame import SoundAsset, Color, LineStyle, TextAsset, Sound
 import math
 from time import time
+from ggame.sysdeps import SND_Sound
 SCREEN_WIDTH = 1250
 SCREEN_HEIGHT = 700
 
@@ -139,7 +140,7 @@ class Obstacle(App):
             obstacle1((80,400))
             Tsunami((200,2))
             SpaceShip((20,10))
-            
+            self.Yip.play()
     def level2(self,event):
         for x in self.getSpritesbyClass(finish):
             x.destroy()
@@ -273,7 +274,11 @@ class Valley(Sprite):
     def __init__(self, position):
         super().__init__(Valley.t, position)
         self.scale = 0.8     
+class yip:
+    Yip = SoundAsset("sounds/mk64_mario10.wav")
+    
 #LEVEL FOUR:
+
 
 
 myapp = Obstacle(SCREEN_WIDTH, SCREEN_HEIGHT)
