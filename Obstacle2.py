@@ -168,6 +168,7 @@ class Obstacle(App):
             obstacle1((800,50))
             obstacle1((80,400))
             Tsunami((200,2))
+            finishh((750,397))
             SpaceShip((20,10))
     
     def level2(self,event):
@@ -180,6 +181,8 @@ class Obstacle(App):
         for x in self.getSpritesbyClass(Tsunami):
             x.destroy()
         for x in self.getSpritesbyClass(SpaceShip):
+            x.destroy()
+        for x in self.getSpritesbyClass(finishh):
             x.destroy()
             background2((0,0))
             Coral((200,2))
@@ -286,7 +289,11 @@ class mariod(Sprite):
     def __init__(self, position):
         super().__init__(mariod.dd, position)
         self.scale = 0.6
-        
+class finishh(Sprite):
+    rr = ImageAsset("images/Screenshot 2019-05-29 at 6.06.04 PM.png")
+    def __init__(self, position):
+        super().__init__(finishh.rr, position)
+        self.scale = 0.8
         
         
 #LEVEL TWO:
