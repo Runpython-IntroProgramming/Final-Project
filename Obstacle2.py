@@ -132,11 +132,12 @@ class Obstacle(App):
    
     def __init__(self, width, height):
         super().__init__(width, height)
-        #directions1((0,10))
         mario((5,40))
         mariodirections((40,180))
-        mariow((40,280))
-        mariofor((457,280))
+        mariow((40,250))
+        mariofor((457,250))
+        marioa((40,320))
+        mariod((40,390))
         Obstacle.listenKeyEvent("keydown", "enter", self.level1)
         Obstacle.listenKeyEvent("keydown", "1", self.level2)
         Obstacle.listenKeyEvent("keydown", "r", self.level3)
@@ -150,7 +151,17 @@ class Obstacle(App):
             explosion.step()
     
     def level1(self,event):
-        for s in self.getSpritesbyClass(directions1):
+        for s in self.getSpritesbyClass(mario):
+            s.destroy()
+        for s in self.getSpritesbyClass(mariow):
+            s.destroy()   
+        for s in self.getSpritesbyClass(mariofor):
+            s.destroy()
+        for s in self.getSpritesbyClass(mariodirections):
+            s.destroy()
+        for s in self.getSpritesbyClass(mariod):
+            s.destroy()
+        for s in self.getSpritesbyClass(marioa):
             s.destroy()
             Beach((0,0))
             finish((650,300))
@@ -158,7 +169,7 @@ class Obstacle(App):
             obstacle1((80,400))
             Tsunami((200,2))
             SpaceShip((20,10))
-            #self.Yip.play()
+    
     def level2(self,event):
         for x in self.getSpritesbyClass(finish):
             x.destroy()
@@ -240,16 +251,6 @@ class Beach(Sprite):
     def __init__(self, position):
         super().__init__(Beach.cool, position)
         self.scale = 0.6
-class directions(Sprite):
-    p = ImageAsset("images/Screenshot 2019-05-22 at 5.32.51 PM.png")
-    def __init__(self, position):
-        super().__init__(directions.p, position)
-        self.scale = 1.1
-class directions1(Sprite):
-    n = ImageAsset("images/Screenshot 2019-05-22 at 6.08.09 PM.png")
-    def __init__(self, position):
-        super().__init__(directions1.n, position)
-        self.scale = 2
 class Tsunami(Sprite):
     o = ImageAsset("images/Screenshot 2019-05-29 at 9.57.01 AM.png")
     def __init__(self, position):
@@ -275,7 +276,16 @@ class mariofor(Sprite):
     def __init__(self, position):
         super().__init__(mariofor.fo, position)
         self.scale = 0.6
-        
+class marioa(Sprite):
+    aaa = ImageAsset("images/Screenshot 2019-05-29 at 5.19.49 PM.png")
+    def __init__(self, position):
+        super().__init__(marioa.aaa, position)
+        self.scale = 0.6
+class mariod(Sprite):
+    dd = ImageAsset("images/Screenshot 2019-05-29 at 5.29.45 PM.png")
+    def __init__(self, position):
+        super().__init__(mariod.dd, position)
+        self.scale = 0.6
         
         
         
