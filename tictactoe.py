@@ -5,7 +5,7 @@ thinline = LineStyle(1, black)
 
 
 class Board(Sprite):
-    asset = ImageAsset("Board2.png")
+    asset = ImageAsset("images/Board2.png")
     def __init__(self, position):
         super().__init__(Board.asset, position)
 
