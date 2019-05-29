@@ -53,15 +53,6 @@ class Game(App):
         print("Welcome to Tic Tac Toe")
         Board((0,0))
         Game.listenMouseEvent("click", self.spot)
-        Game.listenKeyEvent("keydown", "1", self.spot1)
-        Game.listenKeyEvent("keydown", "2", self.spot2)
-        Game.listenKeyEvent("keydown", "3", self.spot3)
-        Game.listenKeyEvent("keydown", "4", self.spot4)
-        Game.listenKeyEvent("keydown", "5", self.spot5)
-        Game.listenKeyEvent("keydown", "6", self.spot6)
-        Game.listenKeyEvent("keydown", "7", self.spot7)
-        Game.listenKeyEvent("keydown", "8", self.spot8)
-        Game.listenKeyEvent("keydown", "9", self.spot9)
         self.turns = 0
         self.if1 = 0
         self.if2 = 0
