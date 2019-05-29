@@ -40,7 +40,7 @@ if color == 'R':
 if color == 'D': 
     colorlist = listd
     numcolors = int(input('How many colors would you like?'))
-    choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'.")
+    choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'. \n")
     while numcolors > 0:
         if choose == 'r':
             listd.append(thinline)
