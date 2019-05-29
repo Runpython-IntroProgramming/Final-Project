@@ -49,8 +49,6 @@ class SpaceShip(Sprite):
                     print('You Win, Press r for Next Level')
                 if tehe:
                     print('You Win, Press g for Next Level')
-                for directionn in self.collidingWithSprites(directions):
-                    directionn.destroy()
             
             
             self.setImage(3.9)
@@ -139,9 +137,9 @@ class Obstacle(App):
             finish((650,300))
             obstacle1((800,50))
             obstacle1((80,400))
-            directions((4,70))
+            #directions((4,70))
             SpaceShip((20,10))
-        
+            Tsunami((200,2))
     def level2(self,event):
         for x in self.getSpritesbyClass(finish):
             x.destroy()
@@ -149,10 +147,12 @@ class Obstacle(App):
             x.destroy()
         for x in self.getSpritesbyClass(Beach):
             x.destroy()
+        for x in self.getSpritesbyClass(Tsunami):
+            x.destroy()
         for x in self.getSpritesbyClass(SpaceShip):
             x.destroy()
-        for x in self.getSpritesbyClass(directions):
-            x.destroy()
+        #for x in self.getSpritesbyClass(directions):
+            #x.destroy()
             background2((0,0))
             SpaceShip((10,10))
             orangefish((50,400))
@@ -204,10 +204,10 @@ class finish(Sprite):
         super().__init__(finish.op, position)
         self.scale = 0.8
 class Beach(Sprite):
-    cool = ImageAsset("images/beach.jpg")
+    cool = ImageAsset("images/cartoon-beach-clipart-6.jpg")
     def __init__(self, position):
         super().__init__(Beach.cool, position)
-        self.scale = 1.1
+        self.scale = 0.6
 class directions(Sprite):
     p = ImageAsset("images/Screenshot 2019-05-22 at 5.32.51 PM.png")
     def __init__(self, position):
@@ -218,6 +218,11 @@ class directions1(Sprite):
     def __init__(self, position):
         super().__init__(directions1.n, position)
         self.scale = 2
+class Tsunami(Sprite):
+    o = ImageAsset("images/Screenshot 2019-05-29 at 9.57.01 AM.png")
+    def __init__(self, position):
+        super().__init__(Tsunami.o, position)
+        self.scale = 0.8
 #LEVEL TWO:
 class background2(Sprite):
     nba= ImageAsset("images/UnderWater.jpg")
