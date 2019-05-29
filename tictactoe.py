@@ -5,7 +5,7 @@ thinline = LineStyle(1, black)
 
 
 class Board(Sprite):
-    asset = ImageAsset("images/Screen Shot 2019-05-13 at 2.49.49 PM.png")
+    asset = ImageAsset("Board2.png")
     def __init__(self, position):
         super().__init__(Board.asset, position)
 
@@ -52,6 +52,7 @@ class Game(App):
         self.width = 1200
         print("Welcome to Tic Tac Toe")
         Board((0,0))
+        Game.listenMouseEvent("click", self.spot)
         Game.listenKeyEvent("keydown", "1", self.spot1)
         Game.listenKeyEvent("keydown", "2", self.spot2)
         Game.listenKeyEvent("keydown", "3", self.spot3)
@@ -81,6 +82,27 @@ class Game(App):
         self.s8 = 1
         self.s9 = 1
         self.winner = 0
+        
+    def spot(self, event):
+        if event.x > 270 and event.x < 415 and event.y > 160 and event.y < 305:
+            self.spot1(event)
+        elif event.x > 415 and event.x < 565 and event.y > 160 and event.y < 305:
+            self.spot2(event)
+        elif event.x > 565 and event.x < 715 and event.y > 160 and event.y < 305:
+            self.spot3(event)
+        elif event.x > 270 and event.x < 415 and event.y > 305 and event.y < 455:
+            self.spot4(event)
+        elif event.x > 415 and event.x < 565 and event.y > 305 and event.y < 455:
+            self.spot5(event)
+        elif event.x > 565 and event.x < 715 and event.y > 305 and event.y < 455:
+            self.spot6(event)
+        elif event.x > 270 and event.x < 415 and event.y > 455 and event.y < 605:
+            self.spot7(event)
+        elif event.x > 415 and event.x < 565 and event.y > 455 and event.y < 605:
+            self.spot8(event)
+        elif event.x > 565 and event.x < 715 and event.y > 455 and event.y < 605:
+            self.spot9(event)
+        
     def spot1(self, event):
         if self.turns % 2 == 0 and self.if1 == 0 and self.winner == 0:
             exe((300,200))
