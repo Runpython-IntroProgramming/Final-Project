@@ -24,14 +24,37 @@ thinline4 = LineStyle(1, blue)
 thinline5 = LineStyle(1, purple)
 thinline6 = LineStyle(1, pink)
 
-thinline6 = LineStyle(1, indigo)
+thinline7 = LineStyle(1, indigo)
 
-listc = [thinline, thinline1, thinline2, thinline3, thinline4, thinline5,thinline6]
+listr = [thinline, thinline1, thinline2, thinline3, thinline4, thinline5,thinline6]
 
 listd = []
+#listd. append(x)
 
 R = float(input('Radius of circle 1 (under 100): '))
 r = float(input('Radius of circle 2 (under 70): '))
+Color = input("If you would like a rainbow spirograph, type 'R'. If you would like to choose your own colors, type 'D'. ")
+
+if Color == 'R':
+    colorlist = listr
+if Color == 'D': 
+    colorlist = listd
+    print('How many colors would you like?')
+    Choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'.")
+    if Choose == 'r':
+        listd.append(thinline)
+    elif Choose == 'o':
+        listd.append(thinline1)
+    elif Choose == 'y':
+        listd.append(thinline2)
+    elif Choose == 'g':
+        listd.append(thinline3)
+    elif Choose == 'b':
+        listd.append(thinline4)
+    elif Choose == 'p':
+        listd.append(thinline5)
+    elif Choose == 'pi':
+        listd.append(thinline6)
 
 def gcd(R,r):
     """Compute the greatest common divisor of a and b"""
@@ -60,13 +83,10 @@ def step():
         ypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+240
         stylecount += 1
         number = floor(stylecount/3)
-        asset2 = LineSegment((oldxpen,oldypen), (xpen,ypen), style = listc[number], positioning="physical")
-        if number == len(listc)-1:
+        asset2 = LineSegment((oldxpen,oldypen), (xpen,ypen), style = colorlist[number], positioning="physical")
+        if number == len(colorlist)-1:
             stylecount = 0 
 
-# make sure # not oo big
-#schoose your own color
-        
 #asset = CircleAsset(.5, thinline, black)
 #print("new: ", xpen, ypen)
 #print("old: ", oldxpen, oldypen)
@@ -77,6 +97,7 @@ def step():
 #55,23
 #100, 60
 #100,70
+#44,12
 print(App.width)
 print(App.height)
 
