@@ -12,10 +12,9 @@ orange = Color(0xF99300, 1.0)
 yellow = Color(0xFFE347, 1.0)
 green = Color(0x13E105, 1.0)
 blue = Color(0x008FDC, 1.0)
-purple = Color(0x6F02CF, 1.0)
-indigo = Color(0xE212E2, 1.0)
+purple = Color(0x8F42FD, 1.0)
 pink = Color(0xFF0C94, 1.0)
-barbiepink = Color(0xFF2AA1, 1.0)
+hotpink = Color(0xFF2AA1, 1.0)
 
 thinline = LineStyle(1, red)
 thinline1 = LineStyle(1, orange)
@@ -24,26 +23,24 @@ thinline3 = LineStyle(1, green)
 thinline4 = LineStyle(1, blue)
 thinline5 = LineStyle(1, purple)
 thinline6 = LineStyle(1, pink)
-thinline7 = LineStyle(1, barbiepink) 
+thinline7 = LineStyle(1, hotpink) 
 
-thinline7 = LineStyle(1, indigo)
-
-listr = [thinline, thinline1, thinline2, thinline3, thinline4, thinline5,thinline6]
+listr = [thinline, thinline1, thinline2, thinline3, thinline4, thinline5, thinline6]
 
 listd = []
 #listd. append(x)
 
 R = float(input('Radius of circle 1 (under 100): '))
-r = float(input('Radius of circle 2 (under 70): '))
+r = float(input('Radius of circle 2 (under 80): '))
 color = input("If you would like a rainbow spirograph, type 'R'. If you would like to choose your own colors, type 'D'. ")
 
 if color == 'R':
     colorlist = listr
 if color == 'D': 
     colorlist = listd
-    numcolors = int(input('How many colors would you like? '))
+    numcolors = int(input('How many colors would you like (total of 8 options)? '))
     while numcolors > 0:
-        choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'. \n")
+        choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'. \nFor hot pink, type 'hp'.\n")
         if choose == 'r':
             listd.append(thinline)
         elif choose == 'o':
@@ -58,6 +55,8 @@ if color == 'D':
             listd.append(thinline5)
         elif choose == 'pi':
             listd.append(thinline6)
+        elif choose == 'hp':
+            listd.append(thinline7)
         numcolors -= 1
 
 def gcd(R,r):
@@ -97,14 +96,16 @@ def step():
 #Sprite(asset, (xpen,ypen))
 #rainbow spirograph
 # go through once, then delete and add 2 shorter lines, again and again 
-
 #55,23
 #100, 60
 #100,70
 #44,12
-print(App.width)
-print(App.height)
+#98,12
+#89.49
+#99,20
+#50,17
+#print(App.width)
+#print(App.height)
 
-    
 myapp = App()
 myapp.run(step)
