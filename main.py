@@ -83,28 +83,6 @@ def resumelist(code):
 
     return(sitedata)
     
-def cleardata():
-    runcheck = 0
-        
-        while runcheck == 0:
-            
-            confirm = input("Are you sure you want to clear local data? Y or N.")
-            
-            if confirm == "Y":
-                try:
-                    del storage['key']
-                    del storage['pstr']
-                    command = input("Cleared. Press s to store a site and password, press g to retrieve a site and password, press c to clear stored passwords or press q to exit: ")
-                    runcheck += 1
-                except (KeyError, IndexError, NameError, TypeError):
-                    print("No data stored")
-                    command = input("Press s to store a site and password, press g to retrieve a site and password, press c to clear stored passwords or press q to exit: ")
-                    runcheck += 1
-            elif confirm == "N":
-                command = input("Understood. Press s to store a site and password, press g to retrieve a site and password, press c to clear stored passwords or press q to exit: ")
-                runcheck += 1
-            else:
-                print("Sorry, command not recognized, please try again.")
     
 command = input("Welcome! Press s to store a site and password, press g to retrieve a site and password, press c to clear stored passwords, or press q to exit: ")
 
@@ -150,7 +128,27 @@ while running == 0:
         command = input("Press s to store a site and password, press g to retrieve a site and password, press c to clear stored passwords or press q to exit: ")
         
     elif command == "c":
-        cleardata()
+        runcheck = 0
+        
+        while runcheck == 0:
+            
+            confirm = input("Are you sure you want to clear local data? Y or N.")
+            
+            if confirm == "Y":
+                try:
+                    del storage['key']
+                    del storage['pstr']
+                    command = input("Cleared. Press s to store a site and password, press g to retrieve a site and password, press c to clear stored passwords or press q to exit: ")
+                    runcheck += 1
+                except (KeyError, IndexError, NameError, TypeError):
+                    print("No data stored")
+                    command = input("Press s to store a site and password, press g to retrieve a site and password, press c to clear stored passwords or press q to exit: ")
+                    runcheck += 1
+            elif confirm == "N":
+                command = input("Understood. Press s to store a site and password, press g to retrieve a site and password, press c to clear stored passwords or press q to exit: ")
+                runcheck += 1
+            else:
+                print("Sorry, command not recognized, please try again.")
         
     elif command == "q":
         printstring = ""
