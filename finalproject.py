@@ -366,7 +366,7 @@ class Spike(Sprite):
         super().__init__(RectangleAsset(gred(w),gred(h),noline,red),(grid(x),grid(y)))
 class textbox(Sprite):
     def __init__(self, t, s, w, x, y):
-        super().__init__(TextAsset(t, style=s, width=w, fill=blue),(x,y))
+        super().__init__(TextAsset(t, style=s, width=w, fill=green),(x,y))
 class SpaceGame(App):
     def __init__(self):
         super().__init__()
@@ -471,7 +471,7 @@ class SpaceGame(App):
             Variblock(8,35,0,80)
             Variblock(8,35,940,80)
             Variblock(50,20,260,160)
-            textbox("Castlevania too: Eclettic Boogaloo","bold 40pt Arial",600,300,200)
+            textbox("Castlevania too: Electric Boogaloo","bold 40pt Arial",600,300,200)
             textbox("Start","bold 30pt Arial",200,100,450)
             textbox("Credits","bold 30pt Arial",200,800,450)
             textbox("Level Select", "bold 30pt Arial",400,400,450)
@@ -722,6 +722,8 @@ class SpaceGame(App):
                 for s in self.getSpritesbyClass(Snakebox):
                     s.destroy()
                 for s in self.getSpritesbyClass(Platform):
+                    s.destroy()
+                for s in self.getSpritesbyClass(goal):
                     s.destroy()
                 if self.levelindex>.5:
                     self.levelindex-=.5
