@@ -9,12 +9,13 @@ from ggame.line import LineSegment
 
 red = Color(0xF20000, 1.0)
 orange = Color(0xF99300, 1.0)
-yellow = Color(0xFFF300, 1.0)
+yellow = Color(0xFFE347, 1.0)
 green = Color(0x13E105, 1.0)
 blue = Color(0x008FDC, 1.0)
 purple = Color(0x6F02CF, 1.0)
 indigo = Color(0xE212E2, 1.0)
 pink = Color(0xFF0C94, 1.0)
+barbiepink = Color(0xFF2AA1, 1.0)
 
 thinline = LineStyle(1, red)
 thinline1 = LineStyle(1, orange)
@@ -23,6 +24,7 @@ thinline3 = LineStyle(1, green)
 thinline4 = LineStyle(1, blue)
 thinline5 = LineStyle(1, purple)
 thinline6 = LineStyle(1, pink)
+thinline7 = LineStyle(1, barbiepink) 
 
 thinline7 = LineStyle(1, indigo)
 
@@ -39,9 +41,9 @@ if color == 'R':
     colorlist = listr
 if color == 'D': 
     colorlist = listd
-    numcolors = int(input('How many colors would you like?'))
-    choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'. \n")
+    numcolors = int(input('How many colors would you like? '))
     while numcolors > 0:
+        choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'. \n")
         if choose == 'r':
             listd.append(thinline)
         elif choose == 'o':
@@ -78,11 +80,11 @@ def step():
     global stylecount
     global number
     if a < (2*pi*lcm(R,r))/R:
-        oldxpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+250
-        oldypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+240
+        oldxpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536
+        oldypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5
         a=a+0.2
-        xpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+250
-        ypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+240
+        xpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536
+        ypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5
         stylecount += 1
         number = floor(stylecount/3)
         asset2 = LineSegment((oldxpen,oldypen), (xpen,ypen), style = colorlist[number], positioning="physical")
@@ -100,8 +102,8 @@ def step():
 #100, 60
 #100,70
 #44,12
-#print(App.width)
-#print(App.height)
+print(App.width)
+print(App.height)
 
     
 myapp = App()
