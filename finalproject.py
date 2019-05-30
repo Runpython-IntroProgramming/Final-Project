@@ -345,9 +345,9 @@ class Variblock(Sprite):
     def __init__(self, w, h, x, y):
         grid=lambda W: (W-W%10)
         gred=lambda W: (W*10)
-        #asset = ImageAsset("images/wall1.png", Frame(0,0,gred(w),gred(h)), 1, 'horizontal')
-        super().__init__(RectangleAsset(gred(w),gred(h),noline,grey),(grid(x),grid(y)))
-        #super().__init__(asset,(grid(x),grid(y)))
+        asset = ImageAsset("images/help me.jpg", Frame(0,0,gred(w),gred(h)), 1, 'horizontal')
+        #super().__init__(RectangleAsset(gred(w),gred(h),noline,grey),(grid(x),grid(y)))
+        super().__init__(asset,(grid(x),grid(y)))
 
 class sprong(Wallblock):
     def __init__(self, x, y):
@@ -466,8 +466,8 @@ class SpaceGame(App):
             self.p=Player((500,100),0)
             if self.player2==True:
                 self.q=Player((500,100),1)
-            Variblock(100,8,0,0)
-            Variblock(100,8,0,435)
+            Variblock(103,8,0,0)
+            Variblock(103,8,0,435)
             Variblock(8,35,0,80)
             Variblock(8,35,940,80)
             Variblock(50,20,260,160)
