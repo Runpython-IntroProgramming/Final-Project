@@ -725,6 +725,8 @@ class SpaceGame(App):
                     s.destroy()
                 for s in self.getSpritesbyClass(goal):
                     s.destroy()
+                for s in self.getSpritesbyClass(goal2):
+                    s.destroy()
                 if self.levelindex>.5:
                     self.levelindex-=.5
   
