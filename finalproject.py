@@ -2,11 +2,11 @@
 platformer.py
 Author:waSclthu11
 Credit:The example platformer program helped a lot, especially with subclasses, which I used for the terrain. Also Mr.Dennison helped with the collision detection setup.
-Sprite credit link: https://goglilol.itch.io/cute-knight wall credit link: https://blog.indiumgames.fi/2014/08/06/creating-level-2d-game/
-Assignment:
+Sprite credit link: https://goglilol.itch.io/cute-knight 
+wall credit link: http://clipgoo.com/ja/215415107/80-93-castle/215415/
 Write and submit a program that implements the sandbox platformer game:
 https://github.com/HHS-IntroProgramming/Platformer
-the actual brickkk: https://aeitzean.wordpress.com/2015/02/20/truely-free-textures/
+
 """
 x=1000
 from ggame import App, Color, LineStyle, Sprite, RectangleAsset, CircleAsset, TextAsset, EllipseAsset, PolygonAsset, ImageAsset, Frame
