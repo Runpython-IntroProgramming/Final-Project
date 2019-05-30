@@ -278,12 +278,12 @@ class Game(App):
             self.winner = 1
             return
         elif self.s1 == 7 and self.s4 == 7 and self.s7 == 7:
-            vert((340,400))
+            vert((340,160))
             print("O Wins")
             self.winner = 1
             return
         elif self.s2 == 7 and self.s5 == 7 and self.s8 == 7:
-            vcert((490,400))
+            vert((490,160))
             print("O Wins")
             self.winner = 1
             return
