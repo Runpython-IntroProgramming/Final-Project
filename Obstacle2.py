@@ -46,13 +46,15 @@ class SpaceShip(Sprite):
                 nba=self.collidingWithSprites(finish)
                 omg=self.collidingWithSprites(finish2)
                 tehe=self.collidingWithSprites(finish3)
+                hg=self.collidingWithSprites(finish4)
                 if nba:
                     print('You Win, Press 1 for Next Level')
                 if omg:
                     print('You Win, Press r for Next Level')
                 if tehe:
                     print('You Win, Press g for Next Level')
-            
+                if hg:
+                    print('You Win, Press k for Next Level')
             
             self.setImage(3.9)
         lol=self.collidingWithSprites(obstacle1)
@@ -62,6 +64,8 @@ class SpaceShip(Sprite):
         oo=self.collidingWithSprites(cloud)
         ee=self.collidingWithSprites(cloud2)
         aa=self.collidingWithSprites(cloud3)
+        ata=self.collidingWithSprites(cloud4)
+        atta=self.collidingWithSprites(cloud5)
         if lol:
             self.explode(self)
             print('GG You Lost')
@@ -81,6 +85,12 @@ class SpaceShip(Sprite):
             self.explode(self)
             print('GG You Lost')
         if aa:
+            self.explode(self)
+            print('GG You Lost')
+        if ata:
+            self.explode(self)
+            print('GG You Lost')
+        if atta:
             self.explode(self)
             print('GG You Lost')
             
@@ -142,6 +152,7 @@ class Obstacle(App):
         Obstacle.listenKeyEvent("keydown", "1", self.level2)
         Obstacle.listenKeyEvent("keydown", "r", self.level3)
         Obstacle.listenKeyEvent("keydown", "g", self.level4)
+        Obstacle.listenKeyEvent("keydown", "k", self.level5)
         
     
     def step(self):
@@ -186,11 +197,11 @@ class Obstacle(App):
             x.destroy()
             background2((0,0))
             Coral((200,2))
-            SpaceShip((10,10))
             orangefish((50,400))
             bluefish((300,150))
             finish2((900,200))
-            
+            finishh2((960,260))
+            SpaceShip((10,10))
     def level3(self,event):
         for q in self.getSpritesbyClass(background2):
             q.destroy()
@@ -204,7 +215,8 @@ class Obstacle(App):
             q.destroy()
         for q in self.getSpritesbyClass(Coral):
             q.destroy()
-            
+        for q in self.getSpritesbyClass(finishh2):
+            q.destroy()   
             background3((0,0))
             coconut((100,100))
             coconut((300,200))
@@ -214,7 +226,7 @@ class Obstacle(App):
             Valley((200,2))
             SpaceShip((10,10))
             finish3((900,200))
-    
+            finishh3((960,260))
     def level4(self,event):
         for t in self.getSpritesbyClass(background3):
             t.destroy()
@@ -226,16 +238,42 @@ class Obstacle(App):
             t.destroy()
         for t in self.getSpritesbyClass(Valley):
             t.destroy()
+        for t in self.getSpritesbyClass(finishh3):
+            t.destroy()
+        
             
             background4((0,0))
+            finish4((30,400))
+            finishh4((92.5,460))
             SpaceShip((400,10))
             cloud((7,58))
             cloud2((177,197))
             cloud3((512,100))
             cloud4((956,35))
             cloud5((743,210))
-
-
+            hilly((580,550))
+    def level5(self,event):
+        for i in self.getSpritesbyClass(background4):
+            i.destroy()
+        for i in self.getSpritesbyClass(finish4):
+            i.destroy()
+        for i in self.getSpritesbyClass(SpaceShip):
+            i.destroy()
+        for i in self.getSpritesbyClass(cloud):
+            i.destroy()
+        for i in self.getSpritesbyClass(cloud2):
+            i.destroy()
+        for i in self.getSpritesbyClass(cloud3):
+            i.destroy()
+        for i in self.getSpritesbyClass(cloud4):
+            i.destroy()
+        for i in self.getSpritesbyClass(cloud5):
+            i.destroy()
+        for i in self.getSpritesbyClass(finishh4):
+            i.destroy()
+        for i in self.getSpritesbyClass(hilly):
+            i.destroy()
+        SpaceShip((10,10))
 
 
 #LEVEL ONE:     
@@ -294,6 +332,21 @@ class finishh(Sprite):
     def __init__(self, position):
         super().__init__(finishh.rr, position)
         self.scale = 0.8
+class finishh2(Sprite):
+    rer = ImageAsset("images/Screenshot 2019-05-29 at 6.06.04 PM.png")
+    def __init__(self, position):
+        super().__init__(finishh2.rer, position)
+        self.scale = 0.5
+class finishh3(Sprite):
+    reyr = ImageAsset("images/Screenshot 2019-05-29 at 6.06.04 PM.png")
+    def __init__(self, position):
+        super().__init__(finishh3.reyr, position)
+        self.scale = 0.5
+class finishh4(Sprite):
+    ryr = ImageAsset("images/Screenshot 2019-05-29 at 6.06.04 PM.png")
+    def __init__(self, position):
+        super().__init__(finishh4.ryr, position)
+        self.scale = 0.5
         
         
 #LEVEL TWO:
@@ -353,11 +406,6 @@ class Valley(Sprite):
     Yip = SoundAsset("sounds/mk64_mario10.wav")
  """   
 
-
-
-
-
-
 #LEVEL FOUR:
 class background4(Sprite):
     hahah= ImageAsset("images/background4.jpg")
@@ -389,7 +437,15 @@ class cloud5(Sprite):
     def __init__(self, position):
         super().__init__(cloud5.hoh, position)
         self.scale = 1.1
-
-
+class finish4(Sprite):
+    cole= ImageAsset("images/FinishLine3.png")
+    def __init__(self, position):
+        super().__init__(finish4.cole, position)
+        self.scale = 0.5
+class hilly(Sprite):
+    td = ImageAsset("images/Screenshot 2019-05-29 at 9.20.02 PM.png")
+    def __init__(self, position):
+        super().__init__(hilly.td, position)
+        self.scale = 0.8  
 myapp = Obstacle(SCREEN_WIDTH, SCREEN_HEIGHT)
 myapp.run()
