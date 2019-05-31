@@ -7,14 +7,14 @@ from math import sin, cos, pi, floor
 from ggame import App, Color, LineStyle, Sprite, CircleAsset
 from ggame.line import LineSegment
 
-red = Color(0xF20000, 1.0)
-orange = Color(0xF99300, 1.0)
+red = Color(0xF60000, 1.0)
+orange = Color(0xFF8913, 1.0)
 yellow = Color(0xFFE347, 1.0)
 green = Color(0x13E105, 1.0)
 blue = Color(0x008FDC, 1.0)
 purple = Color(0x8F42FD, 1.0)
 pink = Color(0xFB7CB0,1.0)
-hotpink = Color(0xFF008F, 1.0)
+hotpink = Color(0xFF00FB, 1.0)
 lavender = Color(0xCF94F3, 1.0)
 
 thinline = LineStyle(1, red)
@@ -108,6 +108,7 @@ def step():
 #89.49
 #99,20
 #50,17
+#FF8913
 #print(App.width)
 #print(App.height)
 
