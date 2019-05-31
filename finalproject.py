@@ -32,8 +32,8 @@ listr = [thinline, thinline1, thinline2, thinline3, thinline4, thinline5, thinli
 listd = []
 #listd. append(x)
 
-R = float(input('Radius of circle 1 (under 100): '))
-r = float(input('Radius of circle 2 (under 80): '))
+R = float(input('Radius of circle 1 (under 200): '))
+r = float(input('Radius of circle 2 (under 50): '))
 color = input("If you would like a rainbow spirograph, type 'R'. If you would like to choose your own colors, type 'D'. ")
 
 if color == 'R':
@@ -42,7 +42,7 @@ if color == 'D':
     colorlist = listd
     numcolors = int(input('How many colors would you like (total of 8 options)? '))
     while numcolors > 0:
-        choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'. \nFor hot pink, type 'hp'. \nFor hot pink, type 'hp'. \n")
+        choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'. \nFor hot pink, type 'hp'. \nFor lavender, type 'l'. \n")
         if choose == 'r':
             listd.append(thinline)
         elif choose == 'o':
@@ -85,7 +85,7 @@ def step():
     if a < (2*pi*lcm(R,r))/R:
         oldxpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536
         oldypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5
-        a=a+0.2
+        a=a+0.1
         xpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536
         ypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5
         stylecount += 1
@@ -105,10 +105,13 @@ def step():
 #100,70
 #44,12
 #98,12
-#89.49
-#99,20
-#50,17
-#FF8913
+#89,49
+
+#Prez test:
+#198,40 show with change of 0.05 and change of 0.2
+#150, 47.6
+#150,68
+#151,75
 #print(App.width)
 #print(App.height)
 
