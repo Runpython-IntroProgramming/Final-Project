@@ -13,8 +13,9 @@ yellow = Color(0xFFE347, 1.0)
 green = Color(0x13E105, 1.0)
 blue = Color(0x008FDC, 1.0)
 purple = Color(0x8F42FD, 1.0)
-pink = Color(0xFF0C94, 1.0)
-hotpink = Color(0xFF2AA1, 1.0)
+pink = Color(0xFB7CB0,1.0)
+hotpink = Color(0xFF008F, 1.0)
+lavender = Color(0xCF94F3, 1.0)
 
 thinline = LineStyle(1, red)
 thinline1 = LineStyle(1, orange)
@@ -24,6 +25,7 @@ thinline4 = LineStyle(1, blue)
 thinline5 = LineStyle(1, purple)
 thinline6 = LineStyle(1, pink)
 thinline7 = LineStyle(1, hotpink) 
+thinline8 = LineStyle(1, lavender) 
 
 listr = [thinline, thinline1, thinline2, thinline3, thinline4, thinline5, thinline6]
 
@@ -40,7 +42,7 @@ if color == 'D':
     colorlist = listd
     numcolors = int(input('How many colors would you like (total of 8 options)? '))
     while numcolors > 0:
-        choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'. \nFor hot pink, type 'hp'.\n")
+        choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'. \nFor hot pink, type 'hp'. \nFor hot pink, type 'hp'. \n")
         if choose == 'r':
             listd.append(thinline)
         elif choose == 'o':
@@ -57,6 +59,8 @@ if color == 'D':
             listd.append(thinline6)
         elif choose == 'hp':
             listd.append(thinline7)
+        elif choose == 'l':
+            listd.append(thinline8)
         numcolors -= 1
 
 def gcd(R,r):
