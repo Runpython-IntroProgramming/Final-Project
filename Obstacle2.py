@@ -148,7 +148,7 @@ class Obstacle(App):
         mariofor((457,250))
         marioa((40,320))
         mariod((40,390))
-        marioop((500,250))
+        marioop((0,0))
         Obstacle.listenKeyEvent("keydown", "enter", self.level1)
         Obstacle.listenKeyEvent("keydown", "1", self.level2)
         Obstacle.listenKeyEvent("keydown", "r", self.level3)
@@ -174,6 +174,8 @@ class Obstacle(App):
         for s in self.getSpritesbyClass(mariod):
             s.destroy()
         for s in self.getSpritesbyClass(marioa):
+            s.destroy()
+        for s in self.getSpritesbyClass(marioop):
             s.destroy()
             Beach((0,0))
             finish((650,300))
