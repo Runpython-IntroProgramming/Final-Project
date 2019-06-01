@@ -148,6 +148,7 @@ class Obstacle(App):
         mariofor((457,250))
         marioa((40,320))
         mariod((40,390))
+        marioop((500,250))
         Obstacle.listenKeyEvent("keydown", "enter", self.level1)
         Obstacle.listenKeyEvent("keydown", "1", self.level2)
         Obstacle.listenKeyEvent("keydown", "r", self.level3)
@@ -347,7 +348,11 @@ class finishh4(Sprite):
     def __init__(self, position):
         super().__init__(finishh4.ryr, position)
         self.scale = 0.5
-        
+class marioop(Sprite):
+    ryer = ImageAsset("images/MARIO.png")
+    def __init__(self, position):
+        super().__init__(marioop.ryer, position)
+        self.scale = 0.1
         
 #LEVEL TWO:
 class background2(Sprite):
