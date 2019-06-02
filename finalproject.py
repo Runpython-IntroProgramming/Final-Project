@@ -130,9 +130,9 @@ def step():
 #89,49
 #150, 47.6
 #151,75
+#198,40 rainbow, 0.075 
 
 #PRESENTATION:
-#198,40 rainbow, 0.075 
 #198,40 rainbow, 0.2
 #150,68 rainbow, 0.075
 #180,46 rainbow or special, 0.075
