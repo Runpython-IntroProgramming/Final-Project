@@ -103,9 +103,9 @@ def step():
     global a
     global stylecount
     global number
-    if a < (2*pi*lcm(R,r))/R:
-        oldxpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536
-        oldypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5
+    if a < (2*pi*lcm(R,r))/R:                                  # R-r --> radius of circle inside the big circle, has center point of big circle, includes the radius of the little circle 
+        oldxpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536      #(R-r)*cos(a) --> x-value for center point of little circle
+        oldypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5    #(R-r)*cos(a) --> y-value for center point of little circle
         a=a+0.075
         xpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536
         ypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5
