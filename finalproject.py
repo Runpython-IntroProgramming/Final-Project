@@ -101,17 +101,17 @@ number = 0
 #step function, creates the spirograph
 def step():
     global a
-    global stylecount
-    global number
+    global stylecount                                          # oldxpen and oldypen --> first x and y values
+    global number                                              # xpen and ypen --> x and y values after change in a
     if a < (2*pi*lcm(R,r))/R:                                  # R-r --> radius of circle inside the big circle, has center point of big circle, includes the radius of the little circle 
-        oldxpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536      #(R-r)*cos(a) --> x-value for center point of little circle
-        oldypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5    #(R-r)*cos(a) --> y-value for center point of little circle
-        a=a+0.075
-        xpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536
-        ypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5
+        oldxpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536      # (R-r)*cos(a) --> x-value for center point of little circle
+        oldypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5    # (R-r)*cos(a) --> y-value for center point of little circle
+        a=a+0.075                                              # r*3*cos(((R/r)-1)*a) --> x-value distance from the circle described above to the pen
+        xpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536         # r*3*cos(((R/r)-1)*a) --> y-value distance from the circle described above to the pen
+        ypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5       # the 3 enlarges the spirograph by 3, can be changed to any #
         stylecount += 1
         number = floor(stylecount/3)
-        asset2 = LineSegment((oldxpen,oldypen), (xpen,ypen), style = colorlist[number], positioning="physical")
+        asset = LineSegment((oldxpen,oldypen), (xpen,ypen), style = colorlist[number], positioning="physical")
         if number == len(colorlist)-1:
             stylecount = 0 
 
