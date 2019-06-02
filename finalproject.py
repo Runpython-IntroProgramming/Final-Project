@@ -19,45 +19,51 @@ pink = Color(0xFB7CB0 , 1.0)
 hotpink = Color(0xFF00FB, 1.0)
 neongreen = Color(0x34FF03, 1.0)
 cyanide = Color(0x00FFFF, 1.0)
-jade = Color(0x0D8D6C,1.0)
-orangecream = Color(0xF76100, 1.0)
-apricot = Color(0xFFCD12, 1.0)
-icedmint = Color(0x84FEC7, 1.0)
-
-#lines
-thinline = LineStyle(1, red)
-thinline1 = LineStyle(1, orange)
-thinline2 = LineStyle(1, yellow)
-thinline3 = LineStyle(1, green)
-thinline4 = LineStyle(1, blue)
-thinline5 = LineStyle(1, purple)
-thinline6 = LineStyle(1, pink) 
-thinline7 = LineStyle(1, hotpink)            
-thinline8 = LineStyle(1, neongreen) 
-thinline9 = LineStyle(1, cyanide) 
-thinline10 = LineStyle(1, jade) 
-thinline11 = LineStyle(1, orangecream) 
-thinline12= LineStyle(1, apricot) 
-thinline13= LineStyle(1, icedmint) 
-
-#lists of colors
-listr = [thinline, thinline1, thinline2, thinline3, thinline4, thinline5, thinline6]
-listS = [thinline10, thinline11, thinline12, thinline13]                                  
-listd = []
+#jade = Color(0x0D8D6C,1.0)
+#orangecream = Color(0xF76100, 1.0)
+#apricot = Color(0xFFCD12, 1.0)
+#icedmint = Color(0x84FEC7, 1.0)
 
 #user input of R, r, and color choice
 R = float(input('Radius of circle 1 (under 200): '))               
 r = float(input('Radius of circle 2 (under 50): '))
-color = input("If you would like a rainbow spirograph, type 'R'. If you would like Rain's special spirograph, type 'S'. If you would like to choose your own colors, type 'D'. ")
+line = input("Would you like thick or thin lines? Type 'T' for thick and 't' for thin. ")
+color = input("If you would like a rainbow spirograph, type 'R'. If you would like to choose your own colors, type 'D'. ")
+
+if line == 'T':
+    linethickness = 5
+if line == 't':
+    linethickness = 1
+    
+#lines
+thinline = LineStyle(linethickness, red)
+thinline1 = LineStyle(linethickness, orange)
+thinline2 = LineStyle(linethickness, yellow)
+thinline3 = LineStyle(linethickness, green)
+thinline4 = LineStyle(linethickness, blue)
+thinline5 = LineStyle(linethickness, purple)
+thinline6 = LineStyle(linethickness, pink) 
+thinline7 = LineStyle(linethickness, hotpink)            
+thinline8 = LineStyle(linethickness, neongreen) 
+thinline9 = LineStyle(linethickness, cyanide) 
+#thinline10 = LineStyle(1, jade) 
+#thinline11 = LineStyle(1, orangecream) 
+#thinline12= LineStyle(1, apricot) 
+#thinline13= LineStyle(1, icedmint) 
+
+#lists of colors
+listr = [thinline, thinline1, thinline2, thinline3, thinline4, thinline5, thinline6]
+#listS = [thinline10, thinline11, thinline12, thinline13]                                  
+listd = []
 
 #code creating the color(s) of the spirograph
 if color == 'R':                 
     colorlist = listr
-if color == 'S':              
-    colorlist = listS
+#if color == 'S':              
+    #colorlist = listS
 if color == 'D': 
     colorlist = listd
-    numcolors = int(input('How many colors would you like (total of 8 options)? '))
+    numcolors = int(input('How many colors would you like (total of 10 options)? '))
     while numcolors > 0:
         choose = input("For red, type 'r'. \nFor orange, type 'o'. \nFor yellow,, type 'y'.\nFor green, type 'g'. \nFor blue, type 'b'. \nFor purple, type 'p'. \nFor pink, type 'pi'. \nFor hot pink, type 'hp'. \nFor neon green, type 'n'. \nFor cyan-ide, type 'c'. \n")
         if choose == 'r':
@@ -135,9 +141,9 @@ def step():
 #198,40 rainbow, 0.075 
 
 #PRESENTATION:
-#150,68 rainbow, 0.075
-#180,46 rainbow or special, 0.075
-#198,40 rainbow, 0.2
+#150,68 rainbow, thin, 0.075
+#180,46 rainbow, thin, 0.075
+#198,40 rainbow, thick, 0.2
 
 myapp = App()
 myapp.run(step)
