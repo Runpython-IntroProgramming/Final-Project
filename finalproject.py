@@ -121,6 +121,8 @@ def step():
 #print("new: ", xpen, ypen)
 #print("old: ", oldxpen, oldypen)
 #Sprite(asset, (xpen,ypen))
+#print(App.width)
+#print(App.height)
 #go through once, then delete and add 2 shorter lines, again and again 
 #55,23
 #100, 60
@@ -133,11 +135,9 @@ def step():
 #198,40 rainbow, 0.075 
 
 #PRESENTATION:
-#198,40 rainbow, 0.2
 #150,68 rainbow, 0.075
 #180,46 rainbow or special, 0.075
-#print(App.width)
-#print(App.height)
+#198,40 rainbow, 0.2
 
 myapp = App()
 myapp.run(step)
