@@ -10,19 +10,19 @@ from ggame.line import LineSegment
 
 #colors
 red = Color(0xFF0000, 1.0)
-orange = Color(0xFF8913, 1.0)
-yellow = Color(0xFFE347, 1.0)
-green = Color(0x13E105, 1.0)
-blue = Color(0x17ABFF, 1.0)                  
-purple = Color(0x8F42FD, 1.0)
-pink = Color(0xFB7CB0, 1.0)                
+orange = Color(0xFF8000, 1.0)
+yellow = Color(0xFFF700, 1.0)
+green = Color(0x00FF1B, 1.0)
+blue = Color(0x00CBFF, 1.0)    
+purple = Color(0x7B1EFF, 1.0) 
+pink = Color(0xFB7CB0 , 1.0)             
 hotpink = Color(0xFF00FB, 1.0)
 neongreen = Color(0x34FF03, 1.0)
 cyanide = Color(0x00FFFF, 1.0)
-pop = Color(0x0D8D6C,1.0)
-poop = Color(0xF76100, 1.0)
-pooop= Color(0xFFCD12, 1.0)
-pooooop = Color(0x84FEC7, 1.0)
+jade = Color(0x0D8D6C,1.0)
+orangecream = Color(0xF76100, 1.0)
+apricot = Color(0xFFCD12, 1.0)
+icedmint = Color(0x84FEC7, 1.0)
 
 #lines
 thinline = LineStyle(1, red)
@@ -35,10 +35,10 @@ thinline6 = LineStyle(1, pink)
 thinline7 = LineStyle(1, hotpink)            
 thinline8 = LineStyle(1, neongreen) 
 thinline9 = LineStyle(1, cyanide) 
-thinline10 = LineStyle(1, pop) 
-thinline11 = LineStyle(1, poop) 
-thinline12= LineStyle(1, pooop) 
-thinline13= LineStyle(1, pooooop) 
+thinline10 = LineStyle(1, jade) 
+thinline11 = LineStyle(1, orangecream) 
+thinline12= LineStyle(1, apricot) 
+thinline13= LineStyle(1, icedmint) 
 
 #lists of colors
 listr = [thinline, thinline1, thinline2, thinline3, thinline4, thinline5, thinline6]
@@ -106,7 +106,7 @@ def step():
     if a < (2*pi*lcm(R,r))/R:
         oldxpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536
         oldypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5
-        a=a+0.1
+        a=a+0.075
         xpen = (R-r)*cos(a) + r*3*cos(((R/r)-1)*a)+536
         ypen = (R-r)*sin(a) - r*3*sin(((R/r)-1)*a)+331.5
         stylecount += 1
@@ -128,13 +128,14 @@ def step():
 #44,12
 #98,12
 #89,49
+#150, 47.6
+#151,75
 
 #PRESENTATION:
-#198,40 show with change of 0.05 and change of 0.2
-#150, 47.6
-#150,68
-#151,75
-#180,46
+#198,40 rainbow, 0.075 
+#198,40 rainbow, 0.2
+#150,68 rainbow, 0.075
+#180,46 rainbow or special, 0.075
 #print(App.width)
 #print(App.height)
 
