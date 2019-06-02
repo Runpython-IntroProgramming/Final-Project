@@ -19,16 +19,16 @@ pink = Color(0xFB7CB0 , 1.0)
 hotpink = Color(0xFF00FB, 1.0)
 neongreen = Color(0x34FF03, 1.0)
 cyanide = Color(0x00FFFF, 1.0)
-#jade = Color(0x0D8D6C,1.0)
-#orangecream = Color(0xF76100, 1.0)
-#apricot = Color(0xFFCD12, 1.0)
-#icedmint = Color(0x84FEC7, 1.0)
+jade = Color(0x0D8D6C,1.0)
+orangecream = Color(0xF76100, 1.0)
+apricot = Color(0xFFCD12, 1.0)
+icedmint = Color(0x84FEC7, 1.0)
 
-#user input of R, r, and color choice
+#user input of R, r, line thicknessm and color choice
 R = float(input('Radius of circle 1 (under 200): '))               
 r = float(input('Radius of circle 2 (under 50): '))
 line = input("Would you like thick or thin lines? Type 'T' for thick and 't' for thin. ")
-color = input("If you would like a rainbow spirograph, type 'R'. If you would like to choose your own colors, type 'D'. ")
+color = input("If you would like a rainbow spirograph, type 'R'. If you would like Rain's special assortment of colors, type 'S'. If you would like to choose your own colors, type 'D'. ")
 
 if line == 'T':
     linethickness = 5
@@ -46,21 +46,21 @@ thinline6 = LineStyle(linethickness, pink)
 thinline7 = LineStyle(linethickness, hotpink)            
 thinline8 = LineStyle(linethickness, neongreen) 
 thinline9 = LineStyle(linethickness, cyanide) 
-#thinline10 = LineStyle(1, jade) 
-#thinline11 = LineStyle(1, orangecream) 
-#thinline12= LineStyle(1, apricot) 
-#thinline13= LineStyle(1, icedmint) 
+thinline10 = LineStyle(linethickness, jade) 
+thinline11 = LineStyle(linethickness, orangecream) 
+thinline12= LineStyle(linethickness, apricot) 
+thinline13= LineStyle(linethickness, icedmint) 
 
 #lists of colors
 listr = [thinline, thinline1, thinline2, thinline3, thinline4, thinline5, thinline6]
-#listS = [thinline10, thinline11, thinline12, thinline13]                                  
+listS = [thinline10, thinline11, thinline12, thinline13]                                  
 listd = []
 
 #code creating the color(s) of the spirograph
 if color == 'R':                 
     colorlist = listr
-#if color == 'S':              
-    #colorlist = listS
+if color == 'S':              
+    colorlist = listS
 if color == 'D': 
     colorlist = listd
     numcolors = int(input('How many colors would you like (total of 10 options)? '))
@@ -142,7 +142,7 @@ def step():
 
 #PRESENTATION:
 #150,68 rainbow, thin, 0.075
-#180,46 rainbow, thin, 0.075
+#180,46 special, thin, 0.075
 #198,40 rainbow, thick, 0.2
 
 myapp = App()
