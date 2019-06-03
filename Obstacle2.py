@@ -13,8 +13,7 @@ print("Press enter to play")
 
 
 class SpaceShip(Sprite):
-    asset = ImageAsset("images/four_spaceship_by_albertov_with_thrust.png", 
-        Frame(227,0,292-227,125), 4, 'vertical')
+    asset = ImageAsset("images/birdeye.png", Frame(100,100,100,100), 1, 'vertical')
     def __init__(self, position):
         super().__init__(SpaceShip.asset, position)
         self.vx = 0
@@ -148,7 +147,7 @@ class Obstacle(App):
         mariofor((457,250))
         marioa((40,320))
         mariod((40,390))
-        marioop((0,0))
+        theguy((600,300))
         Obstacle.listenKeyEvent("keydown", "enter", self.level1)
         Obstacle.listenKeyEvent("keydown", "1", self.level2)
         Obstacle.listenKeyEvent("keydown", "r", self.level3)
@@ -175,7 +174,7 @@ class Obstacle(App):
             s.destroy()
         for s in self.getSpritesbyClass(marioa):
             s.destroy()
-        for s in self.getSpritesbyClass(marioop):
+        for s in self.getSpritesbyClass(theguy):
             s.destroy()
             Beach((0,0))
             finish((650,300))
@@ -350,11 +349,11 @@ class finishh4(Sprite):
     def __init__(self, position):
         super().__init__(finishh4.ryr, position)
         self.scale = 0.5
-class marioop(Sprite):
-    ryer = ImageAsset("images/MARIO.png")
+class theguy(Sprite):
+    ryer = ImageAsset("images/Itsme.png")
     def __init__(self, position):
-        super().__init__(marioop.ryer, position)
-        self.scale = 0.1
+        super().__init__(theguy.ryer, position)
+        self.scale = 1
         
 #LEVEL TWO:
 class background2(Sprite):
