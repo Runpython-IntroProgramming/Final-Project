@@ -12,13 +12,14 @@ myapp = App()
 print("Press enter to play")
 
 
-class SpaceShip(Sprite):
-    asset = ImageAsset("images/birdeye.png", Frame(100,100,100,100), 1, 'vertical')
+class car(Sprite):
+    asset = ImageAsset("images/cr.png")
     def __init__(self, position):
-        super().__init__(SpaceShip.asset, position)
-        self.vx = 0
-        self.vy = 0
-        self.vr = 0.005
+        super().__init__(car.asset, position)
+        self.scale = 0.1
+        self.vx = 0.1
+        self.vy = 0.1
+        self.vr = -0.005
         self.thrust = 0
         self.thrustframe = 0
         Obstacle.listenKeyEvent("keydown", "w", self.thrustOn)
@@ -35,7 +36,7 @@ class SpaceShip(Sprite):
         
         if self.thrust == 1:
             self.setImage(self.thrustframe)
-            self.thrustframe += 0.8
+            self.thrustframe += 0.1
             self.vx += 0.03*math.cos(self.rotation+1/2*math.pi)
             self.vy += 0.03*math.sin(self.rotation-1/2*math.pi)
             if self.thrustframe == 4:
@@ -156,7 +157,7 @@ class Obstacle(App):
         
     
     def step(self):
-        for ship in self.getSpritesbyClass(SpaceShip):
+        for ship in self.getSpritesbyClass(car):
             ship.step()
         for explosion in self.getSpritesbyClass(explosionn):
             explosion.step()
@@ -182,7 +183,7 @@ class Obstacle(App):
             obstacle1((80,400))
             Tsunami((200,2))
             finishh((750,397))
-            SpaceShip((20,10))
+            car((20,10))
     
     def level2(self,event):
         for x in self.getSpritesbyClass(finish):
@@ -193,7 +194,7 @@ class Obstacle(App):
             x.destroy()
         for x in self.getSpritesbyClass(Tsunami):
             x.destroy()
-        for x in self.getSpritesbyClass(SpaceShip):
+        for x in self.getSpritesbyClass(car):
             x.destroy()
         for x in self.getSpritesbyClass(finishh):
             x.destroy()
@@ -203,11 +204,11 @@ class Obstacle(App):
             bluefish((300,150))
             finish2((900,200))
             finishh2((960,260))
-            SpaceShip((10,10))
+            car((10,10))
     def level3(self,event):
         for q in self.getSpritesbyClass(background2):
             q.destroy()
-        for q in self.getSpritesbyClass(SpaceShip):
+        for q in self.getSpritesbyClass(car):
             q.destroy()
         for q in self.getSpritesbyClass(orangefish):
             q.destroy()
@@ -226,13 +227,13 @@ class Obstacle(App):
             coconut((700,100))
             coconut((700,500))
             Valley((200,2))
-            SpaceShip((10,10))
+            car((10,10))
             finish3((900,200))
             finishh3((960,260))
     def level4(self,event):
         for t in self.getSpritesbyClass(background3):
             t.destroy()
-        for t in self.getSpritesbyClass(SpaceShip):
+        for t in self.getSpritesbyClass(car):
             t.destroy()
         for t in self.getSpritesbyClass(finish3):
             t.destroy()
@@ -247,7 +248,7 @@ class Obstacle(App):
             background4((0,0))
             finish4((30,400))
             finishh4((92.5,460))
-            SpaceShip((400,10))
+            car((400,10))
             cloud((7,58))
             cloud2((177,197))
             cloud3((512,100))
@@ -259,7 +260,7 @@ class Obstacle(App):
             i.destroy()
         for i in self.getSpritesbyClass(finish4):
             i.destroy()
-        for i in self.getSpritesbyClass(SpaceShip):
+        for i in self.getSpritesbyClass(car):
             i.destroy()
         for i in self.getSpritesbyClass(cloud):
             i.destroy()
@@ -275,7 +276,7 @@ class Obstacle(App):
             i.destroy()
         for i in self.getSpritesbyClass(hilly):
             i.destroy()
-        SpaceShip((10,10))
+        car((10,10))
 
 
 #LEVEL ONE:     
