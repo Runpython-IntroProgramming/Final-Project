@@ -24,7 +24,7 @@ orangecream = Color(0xF76100, 1.0)
 apricot = Color(0xFFCD12, 1.0)
 icedmint = Color(0x84FEC7, 1.0)
 
-#user input of R, r, line thicknessm and color choice
+#user input of R, r, line thickness and color choice
 R = float(input('Radius of circle 1 (under 200): '))               
 r = float(input('Radius of circle 2 (under 50): '))
 line = input("Would you like thick or thin lines? Type 'T' for thick and 't' for thin. ")
@@ -144,6 +144,7 @@ def step():
 #150,68 rainbow, thin, 0.075
 #180,46 special, thin, 0.075
 #198,40 rainbow, thick, 0.2
+#150, 34 (backup example)
 
 myapp = App()
 myapp.run(step)
