@@ -31,7 +31,7 @@ story3 = " ahead of me. They were acting like " +animal+ " looking for " +food+ 
 story4 = " towards the " +Noun3+ ". I found a " +fruit+ " at the farmer's market and it was " +Adjective3+ ". Then, " +name+ " " 
 story5 = " called me over, and " +Verb3+". " +name+ " appeared behind me and brought me " +Noun5+ ". "
 story6 = " Before I could say thank you, " +name+ " left me and went to " +country+ " "
-story7 = ". I ate the " +Adjective3+fruit+ ", but then "
+story7 = ". I ate the " +Adjective3+ " " +fruit+ ", but then "
 story8 = " it made me very " +Adjective4+ " and I fell asleep until " +year+ ". When I finally woke  up, I felt " +Adjective1+ "."
 
 print (story)
