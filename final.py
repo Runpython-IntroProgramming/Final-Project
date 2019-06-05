@@ -56,8 +56,8 @@ class Bird(Sprite):
         self.y += self.vy
         self.x += self.vx
         self.vy += self.deltavy
-        if self.y >= 613:
-            self.y = 613
+        if self.y >= 573:
+            self.y = 573
             self.deltavy = -0.05
         elif self.y <=8:
             self.y = 8
@@ -148,7 +148,7 @@ class Game(App):
         for x in range(6,30):
             Block((850,(x*30)))
         
-        Bottom((0,625))
+        Bottom((0,585))
         Top((0,-2))
         LeftSide((-2,0))
         RightSide((1137,0))
