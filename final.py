@@ -12,6 +12,9 @@ white = Color(0xffffff, 1.0)
 grey = Color(0xC0C0C0, 1.0)
 yellow = Color(0xffff00, 1.0)
 
+print("Press Space to propel your bird upwards")
+print("Use the arrow keys to move your bird left and right")
+
 class Bird(Sprite):
     side = LineStyle(1,black)
     poly = RectangleAsset(10,10, side, yellow)
