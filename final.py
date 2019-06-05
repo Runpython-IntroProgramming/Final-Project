@@ -17,7 +17,7 @@ print("Use the arrow keys to move your bird left and right")
 
 class Bird(Sprite):
     side = LineStyle(1,black)
-    poly = RectangleAsset(10,10, side, yellow)
+    poly = ImageAsset("images/explosion1.png", Frame(0,0,128,128), 10)
     def __init__(self,position):
         super().__init__(Bird.poly,position)
         self.vx = 0
