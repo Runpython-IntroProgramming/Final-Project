@@ -12,8 +12,6 @@ white = Color(0xffffff, 1.0)
 grey = Color(0xC0C0C0, 1.0)
 yellow = Color(0xffff00, 1.0)
 
-restrict=True
-
 class Bird(Sprite):
     side = LineStyle(1,black)
     poly = RectangleAsset(10,10, side, yellow)
@@ -55,18 +53,16 @@ class Bird(Sprite):
         self.y += self.vy
         self.x += self.vx
         self.vy += self.deltavy
-        while restrict==False:
-            if self.y >= 613:
-                self.y = 613
-                self.deltavy = -0.05
-            elif self.y <=8:
-                self.y = 8
-                self.deltavy = 0.05
-            if self.x <= 10:
-                self.x = 10
-            elif self.x >= 1125:
-                self.x = 1125
-            #make key event to turn off while loop
+        if self.y >= 613:
+            self.y = 613
+            self.deltavy = -0.05
+        elif self.y <=8:
+            self.y = 8
+            self.deltavy = 0.05
+        if self.x <= 10:
+            self.x = 10
+        elif self.x >= 1125:
+            self.x = 1125
 
 class Block(Sprite):
     side = LineStyle(1,black)
@@ -162,8 +158,7 @@ class Game(App):
         global restrict
         self.player1.step()
         if self.player1.collidingWithSprites(Block):
-            restrict=False
-            self.player1.x=100000
+            self.player1.destroy()
             print("GAME OVER :(((")
 
         #if self.player1.collidingWithSprites(Start):
