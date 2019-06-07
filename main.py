@@ -1,3 +1,7 @@
+"""
+Author name: Carlton Berthold
+References: Mr. Dennison, Brython Documentation
+"""
 import string
 import random
 from browser.local_storage import storage
